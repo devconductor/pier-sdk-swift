@@ -106,7 +106,7 @@ extension CaaSAPI {
     "portadorId" : 123,
     "dataValidade" : "aeiou",
     "portador" : "aeiou",
-    "statusData" : "2016-04-20T19:12:40.949+0000",
+    "statusData" : "2016-04-26T12:37:23.804+0000",
     "descricaoEstagio" : "aeiou",
     "flagCancelamento" : true,
     "status" : 123
@@ -117,7 +117,7 @@ extension CaaSAPI {
   "idFantasiaBasica" : 123,
   "quantidadePagamentos" : 123,
   "idEmissor" : 123,
-  "statusData" : "2016-04-20T19:12:40.949+0000",
+  "statusData" : "2016-04-26T12:37:23.805+0000",
   "nomeProduto" : "aeiou",
   "status" : 123
 }}]

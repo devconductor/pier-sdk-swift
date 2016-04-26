@@ -154,7 +154,7 @@ extension CaaSAPI {
     "nomeEstabVisa" : "aeiou",
     "cotacaoDolar" : 1.3579000000000001069366817318950779736042022705078125,
     "cidadeUFPais" : "aeiou",
-    "dataCotacaoDolar" : "2016-04-20T19:12:40.977+0000",
+    "dataCotacaoDolar" : "2016-04-26T12:37:23.833+0000",
     "origem" : "aeiou",
     "descricaoModoEntrada" : "aeiou",
     "encargosFinanceiros" : 1.3579000000000001069366817318950779736042022705078125,
@@ -347,7 +347,7 @@ extension CaaSAPI {
     "portadorId" : 123,
     "dataValidade" : "aeiou",
     "portador" : "aeiou",
-    "statusData" : "2016-04-20T19:12:40.986+0000",
+    "statusData" : "2016-04-26T12:37:23.846+0000",
     "descricaoEstagio" : "aeiou",
     "flagCancelamento" : true,
     "status" : 123
@@ -358,7 +358,7 @@ extension CaaSAPI {
   "idFantasiaBasica" : 123,
   "quantidadePagamentos" : 123,
   "idEmissor" : 123,
-  "statusData" : "2016-04-20T19:12:40.986+0000",
+  "statusData" : "2016-04-26T12:37:23.846+0000",
   "nomeProduto" : "aeiou",
   "status" : 123
 }}]
