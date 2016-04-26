@@ -106,7 +106,7 @@ extension CaaSAPI {
     "portadorId" : 123,
     "dataValidade" : "aeiou",
     "portador" : "aeiou",
-    "statusData" : "2016-04-26T12:37:23.804+0000",
+    "statusData" : "2016-04-26T20:39:08.862+0000",
     "descricaoEstagio" : "aeiou",
     "flagCancelamento" : true,
     "status" : 123
@@ -117,7 +117,7 @@ extension CaaSAPI {
   "idFantasiaBasica" : 123,
   "quantidadePagamentos" : 123,
   "idEmissor" : 123,
-  "statusData" : "2016-04-26T12:37:23.805+0000",
+  "statusData" : "2016-04-26T20:39:08.862+0000",
   "nomeProduto" : "aeiou",
   "status" : 123
 }}]
@@ -126,7 +126,7 @@ extension CaaSAPI {
 
          - returns: RequestBuilder<ContaResponse> 
          */
-        public class func consultarContaUsingGET1(idConta idConta: Int) -> RequestBuilder<ContaResponse> {
+        public class func consultarContaUsingGET(idConta idConta: Int) -> RequestBuilder<ContaResponse> {
             var path = "/api/v1/contas/{idConta}"
             path = path.stringByReplacingOccurrencesOfString("{idConta}", withString: "\(idConta)", options: .LiteralSearch, range: nil)
             let URLString = CaaSAPI.basePath + path

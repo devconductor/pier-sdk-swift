@@ -154,7 +154,7 @@ extension CaaSAPI {
     "nomeEstabVisa" : "aeiou",
     "cotacaoDolar" : 1.3579000000000001069366817318950779736042022705078125,
     "cidadeUFPais" : "aeiou",
-    "dataCotacaoDolar" : "2016-04-26T12:37:23.833+0000",
+    "dataCotacaoDolar" : "2016-04-26T20:39:08.886+0000",
     "origem" : "aeiou",
     "descricaoModoEntrada" : "aeiou",
     "encargosFinanceiros" : 1.3579000000000001069366817318950779736042022705078125,
@@ -248,134 +248,6 @@ extension CaaSAPI {
             let parameters = APIHelper.rejectNil(nillableParameters)
 
             let requestBuilder: RequestBuilder<ConsultarSaldoLimitesResponse>.Type = CaaSAPI.requestBuilderFactory.getBuilder()
-
-            return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
-        }
-    
-        /**
-         
-         /contas/{idConta}
-         
-         - GET /api/v1/contas/{idConta}/cartoes/{idConta}
-         - Consulte informaÃ§Ãµes de uma determinada conta
-         - API Key:
-           - type: apiKey access_token 
-           - name: access_token
-         - examples: [{contentType=application/json, example={
-  "pessoaFisica" : {
-    "numeroCelular" : "aeiou",
-    "cidade" : "aeiou",
-    "dddcelular" : "aeiou",
-    "complementoLogradouro" : "aeiou",
-    "endereco" : "aeiou",
-    "bairro" : "aeiou",
-    "dddtelefone" : "aeiou",
-    "numeroTelefone" : "aeiou",
-    "nome" : "aeiou",
-    "cep" : "aeiou",
-    "identidade" : "aeiou",
-    "uf" : "aeiou",
-    "orgaoEmissor" : "aeiou",
-    "idPessoaFisica" : 123,
-    "cpf" : "aeiou",
-    "dataEmissaoIdentidade" : "aeiou",
-    "dataNascimento" : "aeiou",
-    "sexo" : "aeiou",
-    "numeroLogradouro" : 123
-  },
-  "idOrigemComercial" : 123,
-  "bin" : 123,
-  "vinculoOrigemUsuario" : true,
-  "idBandeira" : 123,
-  "formaEnvioFatura" : "aeiou",
-  "descricaoStatus" : "aeiou",
-  "nomeCredor" : "aeiou",
-  "idProduto" : 123,
-  "vencimento1" : 123,
-  "dddcelularSMS" : "aeiou",
-  "emissor" : "aeiou",
-  "taxaRefinanciamento" : "aeiou",
-  "flagCancelamento" : true,
-  "vcto" : "aeiou",
-  "melhorDia" : 123,
-  "diasEmAtraso" : 123,
-  "idConta" : 123,
-  "pagamentos" : 1.3579000000000001069366817318950779736042022705078125,
-  "idEndereco" : 123,
-  "dataCadastramento" : "aeiou",
-  "idProposta" : 123,
-  "numCelularSMS" : "aeiou",
-  "saldoLimite" : {
-    "totalDisponivelUtilizacao" : 1.3579000000000001069366817318950779736042022705078125,
-    "disponibCompraNac" : 1.3579000000000001069366817318950779736042022705078125,
-    "disponibGlobalCredito" : 1.3579000000000001069366817318950779736042022705078125,
-    "limiteGlobalCredito" : 1.3579000000000001069366817318950779736042022705078125,
-    "valorMinimoExtrato" : 1.3579000000000001069366817318950779736042022705078125,
-    "saldoDevedorOneroso" : 1.3579000000000001069366817318950779736042022705078125,
-    "vencimentoPadraoAnterior" : "aeiou",
-    "limiteCreditoDisponivel" : 1.3579000000000001069366817318950779736042022705078125,
-    "saldoDevedor" : 1.3579000000000001069366817318950779736042022705078125,
-    "flagAntecipacao" : true,
-    "saltaExtratoAnterior" : 1.3579000000000001069366817318950779736042022705078125,
-    "pontosConcedidos" : 1.3579000000000001069366817318950779736042022705078125,
-    "proximoVencimentoReal" : "aeiou",
-    "disponibSaqueNacGlobal" : 1.3579000000000001069366817318950779736042022705078125,
-    "vencimentoPosProx" : "aeiou",
-    "vencimentoRealAnterior" : "aeiou",
-    "limiteSaqueNacGlobal" : 1.3579000000000001069366817318950779736042022705078125,
-    "disponibParcelasNac" : 1.3579000000000001069366817318950779736042022705078125,
-    "disponibParceladoNac" : 1.3579000000000001069366817318950779736042022705078125,
-    "pontosRemanescentes" : 1.3579000000000001069366817318950779736042022705078125,
-    "numeroCiclo" : 123,
-    "saldoAtualFinal" : 1.3579000000000001069366817318950779736042022705078125,
-    "limiteCompraNac" : 1.3579000000000001069366817318950779736042022705078125,
-    "valorMinimoExtratoOriginal" : 1.3579000000000001069366817318950779736042022705078125,
-    "limiteParcelasNac" : 1.3579000000000001069366817318950779736042022705078125,
-    "limiteCreditoConcedido" : 1.3579000000000001069366817318950779736042022705078125,
-    "saldoDevedorTotal" : 1.3579000000000001069366817318950779736042022705078125,
-    "saldoCredor" : 1.3579000000000001069366817318950779736042022705078125,
-    "totalFuturo" : 1.3579000000000001069366817318950779736042022705078125,
-    "limitePontuacao" : 1.3579000000000001069366817318950779736042022705078125,
-    "proximoVencimentoPadrao" : "aeiou",
-    "limiteParceladoNac" : 1.3579000000000001069366817318950779736042022705078125
-  },
-  "cartao" : {
-    "descricaoStatus" : "aeiou",
-    "estagio" : 123,
-    "numeroCartao" : "aeiou",
-    "idCartao" : 123,
-    "portadorId" : 123,
-    "dataValidade" : "aeiou",
-    "portador" : "aeiou",
-    "statusData" : "2016-04-26T12:37:23.846+0000",
-    "descricaoEstagio" : "aeiou",
-    "flagCancelamento" : true,
-    "status" : 123
-  },
-  "dataUltimoPagamento" : "aeiou",
-  "dataVencCobranca" : "aeiou",
-  "permiteRefinanciamento" : true,
-  "idFantasiaBasica" : 123,
-  "quantidadePagamentos" : 123,
-  "idEmissor" : 123,
-  "statusData" : "2016-04-26T12:37:23.846+0000",
-  "nomeProduto" : "aeiou",
-  "status" : 123
-}}]
-         
-         - parameter idConta: (path) ID da Conta
-
-         - returns: RequestBuilder<ContaResponse> 
-         */
-        public class func consultarContaUsingGET(idConta idConta: Int) -> RequestBuilder<ContaResponse> {
-            var path = "/api/v1/contas/{idConta}/cartoes/{idConta}"
-            path = path.stringByReplacingOccurrencesOfString("{idConta}", withString: "\(idConta)", options: .LiteralSearch, range: nil)
-            let URLString = CaaSAPI.basePath + path
-            
-            let nillableParameters: [String:AnyObject?] = [:]
-            let parameters = APIHelper.rejectNil(nillableParameters)
-
-            let requestBuilder: RequestBuilder<ContaResponse>.Type = CaaSAPI.requestBuilderFactory.getBuilder()
 
             return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
         }
