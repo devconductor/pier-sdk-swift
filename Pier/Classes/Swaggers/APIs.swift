@@ -6,7 +6,7 @@
 
 import Foundation
 
-public class CaaSAPI {
+public class PierAPI {
     public static var basePath = "https://localhost/"
     public static var credential: NSURLCredential?
     public static var customHeaders: [String:String] = [:]  
@@ -43,7 +43,7 @@ public class RequestBuilder<T> {
         self.parameters = parameters
         self.isBody = isBody
         
-        addHeaders(CaaSAPI.customHeaders)
+        addHeaders(PierAPI.customHeaders)
     }
     
     public func addHeaders(aHeaders:[String:String]) {
@@ -62,7 +62,7 @@ public class RequestBuilder<T> {
     }
     
     public func addCredential() -> Self {
-        self.credential = CaaSAPI.credential
+        self.credential = PierAPI.credential
         return self
     }
 }

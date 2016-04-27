@@ -10,8 +10,8 @@ import Foundation
 
 public class ConsultarSaldoLimitesResponse: JSONEncodable {
 
+    public var codRetorno: Int?
     public var codigoRetorno: Int?
-    public var dataVencimento: String?
     public var descricaoRetorno: String?
     public var disponibCompraNac: Double?
     public var disponibGlobalCredito: Double?
@@ -23,9 +23,9 @@ public class ConsultarSaldoLimitesResponse: JSONEncodable {
     public var limiteParceladoNac: Double?
     public var limiteParcelasNac: Double?
     public var limiteSaqueNacGlobal: Double?
-    public var saldoAtualFinal: Double?
-    public var saldoDevedor: Double?
-    public var saldoFuturo: Double?
+    public var limiteSaqueNacPeriodo: Double?
+    public var rendaComprovada: Double?
+    public var solicitacaoPendente: Bool?
     
 
     public init() {}
@@ -33,8 +33,8 @@ public class ConsultarSaldoLimitesResponse: JSONEncodable {
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
+        nillableDictionary["codRetorno"] = self.codRetorno
         nillableDictionary["codigoRetorno"] = self.codigoRetorno
-        nillableDictionary["dataVencimento"] = self.dataVencimento
         nillableDictionary["descricaoRetorno"] = self.descricaoRetorno
         nillableDictionary["disponibCompraNac"] = self.disponibCompraNac
         nillableDictionary["disponibGlobalCredito"] = self.disponibGlobalCredito
@@ -46,9 +46,9 @@ public class ConsultarSaldoLimitesResponse: JSONEncodable {
         nillableDictionary["limiteParceladoNac"] = self.limiteParceladoNac
         nillableDictionary["limiteParcelasNac"] = self.limiteParcelasNac
         nillableDictionary["limiteSaqueNacGlobal"] = self.limiteSaqueNacGlobal
-        nillableDictionary["saldoAtualFinal"] = self.saldoAtualFinal
-        nillableDictionary["saldoDevedor"] = self.saldoDevedor
-        nillableDictionary["saldoFuturo"] = self.saldoFuturo
+        nillableDictionary["limiteSaqueNacPeriodo"] = self.limiteSaqueNacPeriodo
+        nillableDictionary["rendaComprovada"] = self.rendaComprovada
+        nillableDictionary["solicitacaoPendente"] = self.solicitacaoPendente
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

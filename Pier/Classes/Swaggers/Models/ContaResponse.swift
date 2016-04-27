@@ -11,7 +11,7 @@ import Foundation
 public class ContaResponse: JSONEncodable {
 
     public var bin: Int?
-    public var cartao: CartaoResponse?
+    public var cartao: ConsultarContaCartaoResponse?
     public var dataCadastramento: String?
     public var dataUltimoPagamento: String?
     public var dataVencCobranca: String?
