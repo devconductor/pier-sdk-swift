@@ -124,6 +124,51 @@ class Decoders {
                 fatalError("formatter failed to parse \(source)")
             } 
 
+			// Decoder for [AuthToken]
+            Decoders.addDecoder(clazz: [AuthToken].self) { (source: AnyObject) -> [AuthToken] in
+                return Decoders.decode(clazz: [AuthToken].self, source: source)
+            }
+			// Decoder for AuthToken
+            Decoders.addDecoder(clazz: AuthToken.self) { (source: AnyObject) -> AuthToken in
+                let sourceDictionary = source as! [NSObject:AnyObject]
+                let instance = AuthToken()
+                instance.code = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["code"])
+                instance.extraInfo = Decoders.decodeOptional(clazz: ExtraInfo.self, source: sourceDictionary["extraInfo"])
+                instance.id = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["id"])
+                instance.owner = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["owner"])
+                instance.status = AuthToken.Status(rawValue: (sourceDictionary["status"] as? String) ?? "") 
+                return instance
+            }
+			
+
+			// Decoder for [Body]
+            Decoders.addDecoder(clazz: [Body].self) { (source: AnyObject) -> [Body] in
+                return Decoders.decode(clazz: [Body].self, source: source)
+            }
+			// Decoder for Body
+            Decoders.addDecoder(clazz: Body.self) { (source: AnyObject) -> Body in
+                let sourceDictionary = source as! [NSObject:AnyObject]
+                let instance = Body()
+                instance.authToken = Decoders.decodeOptional(clazz: AuthToken.self, source: sourceDictionary["AuthToken"])
+                instance.action = Body.Action(rawValue: (sourceDictionary["action"] as? String) ?? "") 
+                instance.user = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["user"])
+                return instance
+            }
+			
+
+			// Decoder for [BodyAccessToken]
+            Decoders.addDecoder(clazz: [BodyAccessToken].self) { (source: AnyObject) -> [BodyAccessToken] in
+                return Decoders.decode(clazz: [BodyAccessToken].self, source: source)
+            }
+			// Decoder for BodyAccessToken
+            Decoders.addDecoder(clazz: BodyAccessToken.self) { (source: AnyObject) -> BodyAccessToken in
+                let sourceDictionary = source as! [NSObject:AnyObject]
+                let instance = BodyAccessToken()
+                instance.body = Decoders.decodeOptional(clazz: Body.self, source: sourceDictionary["body"])
+                return instance
+            }
+			
+
 			// Decoder for [CancelarCartaoResponse]
             Decoders.addDecoder(clazz: [CancelarCartaoResponse].self) { (source: AnyObject) -> [CancelarCartaoResponse] in
                 return Decoders.decode(clazz: [CancelarCartaoResponse].self, source: source)
@@ -366,6 +411,19 @@ class Decoders {
                 let instance = DesbloquearCartaoResponse()
                 instance.codigoRetorno = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["codigoRetorno"])
                 instance.descricaoRetorno = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["descricaoRetorno"])
+                return instance
+            }
+			
+
+			// Decoder for [ExtraInfo]
+            Decoders.addDecoder(clazz: [ExtraInfo].self) { (source: AnyObject) -> [ExtraInfo] in
+                return Decoders.decode(clazz: [ExtraInfo].self, source: source)
+            }
+			// Decoder for ExtraInfo
+            Decoders.addDecoder(clazz: ExtraInfo.self) { (source: AnyObject) -> ExtraInfo in
+                let sourceDictionary = source as! [NSObject:AnyObject]
+                let instance = ExtraInfo()
+                instance.idEmissor = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["idEmissor"])
                 return instance
             }
 			
