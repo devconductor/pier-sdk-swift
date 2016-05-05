@@ -31,7 +31,7 @@ public class CartaoAPI: APIBase {
      
      /contas/{idConta}/cartoes/{idCartao}/cancelar
      
-     - POST /api/v1/contas/{idConta}/cartoes/{idCartao}/cancelar
+     - POST /v1/contas/{idConta}/cartoes/{idCartao}/cancelar
      - Cancelar um determinado cart\u00C3\u00A3o
      - API Key:
        - type: apiKey access_token 
@@ -51,7 +51,7 @@ public class CartaoAPI: APIBase {
      - returns: RequestBuilder<CancelarCartaoResponse> 
      */
     public class func cancelarCartaoUsingPOSTWithRequestBuilder(idConta idConta: Int, idCartao: Int, motivo: Int, observacao: String) -> RequestBuilder<CancelarCartaoResponse> {
-        var path = "/api/v1/contas/{idConta}/cartoes/{idCartao}/cancelar"
+        var path = "/v1/contas/{idConta}/cartoes/{idCartao}/cancelar"
         path = path.stringByReplacingOccurrencesOfString("{idConta}", withString: "\(idConta)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{idCartao}", withString: "\(idCartao)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -86,7 +86,7 @@ public class CartaoAPI: APIBase {
      
      /contas/{idConta}/cartoes/{idCartao}
      
-     - GET /api/v1/contas/{idConta}/cartoes/{idCartao}
+     - GET /v1/contas/{idConta}/cartoes/{idCartao}
      - Consultar as informa\u00C3\u00A7\u00C3\u00B5es de um determinado cart\u00C3\u00A3o de uma conta
      - API Key:
        - type: apiKey access_token 
@@ -126,7 +126,7 @@ public class CartaoAPI: APIBase {
      - returns: RequestBuilder<ConsultarCartaoResponse> 
      */
     public class func consultarCartaoUsingGETWithRequestBuilder(idConta idConta: Int, idCartao: Int) -> RequestBuilder<ConsultarCartaoResponse> {
-        var path = "/api/v1/contas/{idConta}/cartoes/{idCartao}"
+        var path = "/v1/contas/{idConta}/cartoes/{idCartao}"
         path = path.stringByReplacingOccurrencesOfString("{idConta}", withString: "\(idConta)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{idCartao}", withString: "\(idCartao)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -157,7 +157,7 @@ public class CartaoAPI: APIBase {
      
      /contas/{idConta}/cartoes
      
-     - GET /api/v1/contas/{idConta}/cartoes
+     - GET /v1/contas/{idConta}/cartoes
      - Consultar todos os cart\u00C3\u00B5es de uma determinada conta
      - API Key:
        - type: apiKey access_token 
@@ -196,7 +196,7 @@ public class CartaoAPI: APIBase {
      - returns: RequestBuilder<ConsultarCartaoResponse> 
      */
     public class func consultarCartoesUsingGETWithRequestBuilder(idConta idConta: Int) -> RequestBuilder<ConsultarCartaoResponse> {
-        var path = "/api/v1/contas/{idConta}/cartoes"
+        var path = "/v1/contas/{idConta}/cartoes"
         path = path.stringByReplacingOccurrencesOfString("{idConta}", withString: "\(idConta)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
         
@@ -228,7 +228,7 @@ public class CartaoAPI: APIBase {
      
      /contas/{idConta}/cartoes/{idCartao}/faturas
      
-     - GET /api/v1/contas/{idConta}/cartoes/{idCartao}/faturas
+     - GET /v1/contas/{idConta}/cartoes/{idCartao}/faturas
      - Consulte os extratos/faturas do cart\u00C3\u00A3o de uma determinada conta
      - API Key:
        - type: apiKey access_token 
@@ -288,7 +288,7 @@ public class CartaoAPI: APIBase {
      - returns: RequestBuilder<ConsultarExtratoContaResponse> 
      */
     public class func consultarExtratoFaturasUsingGETWithRequestBuilder(idConta idConta: Int, idCartao: Int, dataVencimento: String) -> RequestBuilder<ConsultarExtratoContaResponse> {
-        var path = "/api/v1/contas/{idConta}/cartoes/{idCartao}/faturas"
+        var path = "/v1/contas/{idConta}/cartoes/{idCartao}/faturas"
         path = path.stringByReplacingOccurrencesOfString("{idConta}", withString: "\(idConta)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{idCartao}", withString: "\(idCartao)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -322,7 +322,7 @@ public class CartaoAPI: APIBase {
      
      /contas/{idConta}/cartoes/{idCartao}/limites
      
-     - GET /api/v1/contas/{idConta}/cartoes/{idCartao}/limites
+     - GET /v1/contas/{idConta}/cartoes/{idCartao}/limites
      - Consulte os limites de um determinado cart\u00C3\u00A3o
      - API Key:
        - type: apiKey access_token 
@@ -352,7 +352,7 @@ public class CartaoAPI: APIBase {
      - returns: RequestBuilder<ConsultarSaldoLimitesResponse> 
      */
     public class func consultarSaldosLimitesUsingGETWithRequestBuilder(idConta idConta: Int, idCartao: Int) -> RequestBuilder<ConsultarSaldoLimitesResponse> {
-        var path = "/api/v1/contas/{idConta}/cartoes/{idCartao}/limites"
+        var path = "/v1/contas/{idConta}/cartoes/{idCartao}/limites"
         path = path.stringByReplacingOccurrencesOfString("{idConta}", withString: "\(idConta)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{idCartao}", withString: "\(idCartao)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -384,7 +384,7 @@ public class CartaoAPI: APIBase {
      
      /contas/{idConta}/cartoes/{idCartao}/desbloquear
      
-     - POST /api/v1/contas/{idConta}/cartoes/{idCartao}/desbloquear
+     - POST /v1/contas/{idConta}/cartoes/{idCartao}/desbloquear
      - Desbloquear cart\u00C3\u00A3o de uma determinada conta
      - API Key:
        - type: apiKey access_token 
@@ -400,7 +400,7 @@ public class CartaoAPI: APIBase {
      - returns: RequestBuilder<DesbloquearCartaoResponse> 
      */
     public class func desbloquearCartaoUsingPOSTWithRequestBuilder(idConta idConta: Int, idCartao: Int) -> RequestBuilder<DesbloquearCartaoResponse> {
-        var path = "/api/v1/contas/{idConta}/cartoes/{idCartao}/desbloquear"
+        var path = "/v1/contas/{idConta}/cartoes/{idCartao}/desbloquear"
         path = path.stringByReplacingOccurrencesOfString("{idConta}", withString: "\(idConta)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{idCartao}", withString: "\(idCartao)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path

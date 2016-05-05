@@ -28,24 +28,22 @@ public class TokenAPI: APIBase {
      
      /tokens/callback
      
-     - POST /api/v1/tokens/callback
+     - POST /v1/tokens/callback
      - API Key:
        - type: apiKey access_token 
        - name: access_token
      - examples: [{contentType=application/json, example={
-  "body" : {
-    "AuthToken" : {
-      "owner" : "aeiou",
-      "code" : "aeiou",
-      "id" : 123,
-      "extraInfo" : {
-        "idEmissor" : 123
-      },
-      "status" : "aeiou"
+  "AuthToken" : {
+    "owner" : "aeiou",
+    "code" : "aeiou",
+    "id" : 123,
+    "extraInfo" : {
+      "idEmissor" : 123
     },
-    "action" : "aeiou",
-    "user" : "aeiou"
-  }
+    "status" : "aeiou"
+  },
+  "action" : "aeiou",
+  "user" : "aeiou"
 }}]
      
      - parameter bodyAccessToken: (body) bodyAccessToken 
@@ -53,12 +51,51 @@ public class TokenAPI: APIBase {
      - returns: RequestBuilder<BodyAccessToken> 
      */
     public class func callbackUsingPOSTWithRequestBuilder(bodyAccessToken bodyAccessToken: BodyAccessToken) -> RequestBuilder<BodyAccessToken> {
-        let path = "/api/v1/tokens/callback"
+        let path = "/v1/tokens/callback"
         let URLString = PierAPI.basePath + path
         
         let parameters = bodyAccessToken.encodeToJSON() as? [String:AnyObject]
 
         let requestBuilder: RequestBuilder<BodyAccessToken>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     /tokens/validar
+     
+     - parameter bodyAccessToken: (body) bodyAccessToken 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func validarUsingPOST(bodyAccessToken bodyAccessToken: BodyAccessToken, completion: ((data: AnyObject?, error: ErrorType?) -> Void)) {
+        validarUsingPOSTWithRequestBuilder(bodyAccessToken: bodyAccessToken).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     /tokens/validar
+     
+     - POST /v1/tokens/validar
+     - API Key:
+       - type: apiKey access_token 
+       - name: access_token
+     - examples: [{contentType=application/json, example="{}"}]
+     
+     - parameter bodyAccessToken: (body) bodyAccessToken 
+
+     - returns: RequestBuilder<AnyObject> 
+     */
+    public class func validarUsingPOSTWithRequestBuilder(bodyAccessToken bodyAccessToken: BodyAccessToken) -> RequestBuilder<AnyObject> {
+        let path = "/v1/tokens/validar"
+        let URLString = PierAPI.basePath + path
+        
+        let parameters = bodyAccessToken.encodeToJSON() as? [String:AnyObject]
+
+        let requestBuilder: RequestBuilder<AnyObject>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
     }

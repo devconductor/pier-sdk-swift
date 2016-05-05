@@ -12,7 +12,7 @@ public class AuthToken: JSONEncodable {
 
     public enum Status: String { 
         case Active = "ACTIVE"
-        case Revoke = "REVOKE"
+        case Revoked = "REVOKED"
         case Deleted = "DELETED"
     }
     

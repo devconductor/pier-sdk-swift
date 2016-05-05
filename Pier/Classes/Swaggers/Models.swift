@@ -141,21 +141,6 @@ class Decoders {
             }
 			
 
-			// Decoder for [Body]
-            Decoders.addDecoder(clazz: [Body].self) { (source: AnyObject) -> [Body] in
-                return Decoders.decode(clazz: [Body].self, source: source)
-            }
-			// Decoder for Body
-            Decoders.addDecoder(clazz: Body.self) { (source: AnyObject) -> Body in
-                let sourceDictionary = source as! [NSObject:AnyObject]
-                let instance = Body()
-                instance.authToken = Decoders.decodeOptional(clazz: AuthToken.self, source: sourceDictionary["AuthToken"])
-                instance.action = Body.Action(rawValue: (sourceDictionary["action"] as? String) ?? "") 
-                instance.user = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["user"])
-                return instance
-            }
-			
-
 			// Decoder for [BodyAccessToken]
             Decoders.addDecoder(clazz: [BodyAccessToken].self) { (source: AnyObject) -> [BodyAccessToken] in
                 return Decoders.decode(clazz: [BodyAccessToken].self, source: source)
@@ -164,7 +149,9 @@ class Decoders {
             Decoders.addDecoder(clazz: BodyAccessToken.self) { (source: AnyObject) -> BodyAccessToken in
                 let sourceDictionary = source as! [NSObject:AnyObject]
                 let instance = BodyAccessToken()
-                instance.body = Decoders.decodeOptional(clazz: Body.self, source: sourceDictionary["body"])
+                instance.authToken = Decoders.decodeOptional(clazz: AuthToken.self, source: sourceDictionary["AuthToken"])
+                instance.action = BodyAccessToken.Action(rawValue: (sourceDictionary["action"] as? String) ?? "") 
+                instance.user = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["user"])
                 return instance
             }
 			

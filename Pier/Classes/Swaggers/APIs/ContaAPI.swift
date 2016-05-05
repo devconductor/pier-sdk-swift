@@ -31,7 +31,7 @@ public class ContaAPI: APIBase {
      
      /contas/buscar
      
-     - GET /api/v1/contas/buscar
+     - GET /v1/contas/buscar
      - Consulte contas filtrando pelos campos id do emissor, n\u00C3\u00BAmero do cart\u00C3\u00A3o, nome ou CPF/CNPJ 
      - API Key:
        - type: apiKey access_token 
@@ -66,7 +66,7 @@ public class ContaAPI: APIBase {
      - returns: RequestBuilder<ConsultarContaResponse> 
      */
     public class func buscarContaUsingGETWithRequestBuilder(nome nome: String?, cpf: String?, numeroCartao: String?, idConta: Int?) -> RequestBuilder<ConsultarContaResponse> {
-        let path = "/api/v1/contas/buscar"
+        let path = "/v1/contas/buscar"
         let URLString = PierAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
@@ -100,7 +100,7 @@ public class ContaAPI: APIBase {
      
      /contas/{idConta}
      
-     - GET /api/v1/contas/{idConta}
+     - GET /v1/contas/{idConta}
      - Consulte informa\u00C3\u00A7\u00C3\u00B5es de uma determinada conta
      - API Key:
        - type: apiKey access_token 
@@ -212,7 +212,7 @@ public class ContaAPI: APIBase {
      - returns: RequestBuilder<ContaResponse> 
      */
     public class func consultarContaUsingGETWithRequestBuilder(idConta idConta: Int) -> RequestBuilder<ContaResponse> {
-        var path = "/api/v1/contas/{idConta}"
+        var path = "/v1/contas/{idConta}"
         path = path.stringByReplacingOccurrencesOfString("{idConta}", withString: "\(idConta)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
         

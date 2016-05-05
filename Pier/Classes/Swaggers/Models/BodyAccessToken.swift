@@ -10,7 +10,15 @@ import Foundation
 
 public class BodyAccessToken: JSONEncodable {
 
-    public var body: Body?
+    public enum Action: String { 
+        case Created = "CREATED"
+        case Updated = "UPDATED"
+        case Deleted = "DELETED"
+    }
+    
+    public var authToken: AuthToken?
+    public var action: Action?
+    public var user: String?
     
 
     public init() {}
@@ -18,7 +26,9 @@ public class BodyAccessToken: JSONEncodable {
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
-        nillableDictionary["body"] = self.body?.encodeToJSON()
+        nillableDictionary["AuthToken"] = self.authToken?.encodeToJSON()
+        nillableDictionary["action"] = self.action?.rawValue
+        nillableDictionary["user"] = self.user
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }
