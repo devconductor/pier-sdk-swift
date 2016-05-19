@@ -12,16 +12,16 @@ import Alamofire
 public class CartaoAPI: APIBase {
     /**
      
-     /contas/{idConta}/cartoes/{idCartao}/cancelar
+     /contas/{idConta}/cartoes/{idCartao}/bloquear
      
      - parameter idConta: (path) ID da Conta 
      - parameter idCartao: (path) ID do Cart\u00C3\u00A3o que deseja cancelar 
-     - parameter motivo: (query) Motivo do cancelamento 
-     - parameter observacao: (query) Alguma observa\u00C3\u00A7\u00C3\u00A3o para o cancelamento 
+     - parameter motivo: (query) Motivo do bloqueio 
+     - parameter observacao: (query) Alguma observa\u00C3\u00A7\u00C3\u00A3o para o bloqueio (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func cancelarCartaoUsingPOST(idConta idConta: Int, idCartao: Int, motivo: Int, observacao: String, completion: ((data: CancelarCartaoResponse?, error: ErrorType?) -> Void)) {
-        cancelarCartaoUsingPOSTWithRequestBuilder(idConta: idConta, idCartao: idCartao, motivo: motivo, observacao: observacao).execute { (response, error) -> Void in
+    public class func bloquearCartaoUsingPOST(idConta idConta: Int, idCartao: Int, motivo: Int, observacao: String?, completion: ((data: CancelarCartaoResponse?, error: ErrorType?) -> Void)) {
+        bloquearCartaoUsingPOSTWithRequestBuilder(idConta: idConta, idCartao: idCartao, motivo: motivo, observacao: observacao).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -29,10 +29,10 @@ public class CartaoAPI: APIBase {
 
     /**
      
-     /contas/{idConta}/cartoes/{idCartao}/cancelar
+     /contas/{idConta}/cartoes/{idCartao}/bloquear
      
-     - POST /v1/contas/{idConta}/cartoes/{idCartao}/cancelar
-     - Cancelar um determinado cart\u00C3\u00A3o
+     - POST /v1/contas/{idConta}/cartoes/{idCartao}/bloquear
+     - Bloquear um determinado cart\u00C3\u00A3o
      - API Key:
        - type: apiKey access_token 
        - name: access_token
@@ -45,13 +45,13 @@ public class CartaoAPI: APIBase {
      
      - parameter idConta: (path) ID da Conta 
      - parameter idCartao: (path) ID do Cart\u00C3\u00A3o que deseja cancelar 
-     - parameter motivo: (query) Motivo do cancelamento 
-     - parameter observacao: (query) Alguma observa\u00C3\u00A7\u00C3\u00A3o para o cancelamento 
+     - parameter motivo: (query) Motivo do bloqueio 
+     - parameter observacao: (query) Alguma observa\u00C3\u00A7\u00C3\u00A3o para o bloqueio (optional)
 
      - returns: RequestBuilder<CancelarCartaoResponse> 
      */
-    public class func cancelarCartaoUsingPOSTWithRequestBuilder(idConta idConta: Int, idCartao: Int, motivo: Int, observacao: String) -> RequestBuilder<CancelarCartaoResponse> {
-        var path = "/v1/contas/{idConta}/cartoes/{idCartao}/cancelar"
+    public class func bloquearCartaoUsingPOSTWithRequestBuilder(idConta idConta: Int, idCartao: Int, motivo: Int, observacao: String?) -> RequestBuilder<CancelarCartaoResponse> {
+        var path = "/v1/contas/{idConta}/cartoes/{idCartao}/bloquear"
         path = path.stringByReplacingOccurrencesOfString("{idConta}", withString: "\(idConta)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{idCartao}", withString: "\(idCartao)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -204,163 +204,6 @@ public class CartaoAPI: APIBase {
         let parameters = APIHelper.rejectNil(nillableParameters)
 
         let requestBuilder: RequestBuilder<ConsultarCartaoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     /contas/{idConta}/cartoes/{idCartao}/faturas
-     
-     - parameter idConta: (path) ID da Conta 
-     - parameter idCartao: (path) ID do Cart\u00C3\u00A3o que deseja consultar o extrato 
-     - parameter dataVencimento: (query) Data limite para o vencimento das transa\u00C3\u00A7\u00C3\u00B5es 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func consultarExtratoFaturasUsingGET(idConta idConta: Int, idCartao: Int, dataVencimento: String, completion: ((data: ConsultarExtratoContaResponse?, error: ErrorType?) -> Void)) {
-        consultarExtratoFaturasUsingGETWithRequestBuilder(idConta: idConta, idCartao: idCartao, dataVencimento: dataVencimento).execute { (response, error) -> Void in
-            completion(data: response?.body, error: error);
-        }
-    }
-
-
-    /**
-     
-     /contas/{idConta}/cartoes/{idCartao}/faturas
-     
-     - GET /v1/contas/{idConta}/cartoes/{idCartao}/faturas
-     - Consulte os extratos/faturas do cart\u00C3\u00A3o de uma determinada conta
-     - API Key:
-       - type: apiKey access_token 
-       - name: access_token
-     - examples: [{contentType=application/json, example={
-  "idCartao" : 123,
-  "idConta" : 123,
-  "debitosNacionais" : 1.3579000000000001069366817318950779736042022705078125,
-  "tarifasNacionais" : 1.3579000000000001069366817318950779736042022705078125,
-  "pagamentos" : 1.3579000000000001069366817318950779736042022705078125,
-  "saldoAtualFinal" : 1.3579000000000001069366817318950779736042022705078125,
-  "multa" : 1.3579000000000001069366817318950779736042022705078125,
-  "valorMinimoExtrato" : 1.3579000000000001069366817318950779736042022705078125,
-  "codigoRetorno" : 123,
-  "saldoExtratoAnterior" : 1.3579000000000001069366817318950779736042022705078125,
-  "descricaoRetorno" : "aeiou",
-  "dataVencimento" : "aeiou",
-  "cpf" : "aeiou",
-  "creditosNacionais" : 1.3579000000000001069366817318950779736042022705078125,
-  "extrato" : [ {
-    "nomeEstabVisa" : "aeiou",
-    "cotacaoDolar" : 1.3579000000000001069366817318950779736042022705078125,
-    "cidadeUFPais" : "aeiou",
-    "dataCotacaoDolar" : "2000-01-23T04:56:07.000+0000",
-    "origem" : "aeiou",
-    "descricaoModoEntrada" : "aeiou",
-    "encargosFinanceiros" : 1.3579000000000001069366817318950779736042022705078125,
-    "mcc" : 123,
-    "dataCompra" : "aeiou",
-    "credito" : 1.3579000000000001069366817318950779736042022705078125,
-    "idTipoTransacao" : 123,
-    "nomePlastico" : "aeiou",
-    "valorDolar" : 1.3579000000000001069366817318950779736042022705078125,
-    "debito" : 1.3579000000000001069366817318950779736042022705078125,
-    "chip" : "aeiou",
-    "codigoMoedaDestino" : "aeiou",
-    "dataTransacaoUTC" : "aeiou",
-    "historico" : "aeiou",
-    "descricaoTransacao" : "aeiou",
-    "taxaEmbarque" : 1.3579000000000001069366817318950779736042022705078125,
-    "codigoAutorizacao" : "aeiou",
-    "cartao" : "aeiou",
-    "tipoEvento" : "aeiou",
-    "idTransacao" : 123,
-    "idEventoExterno" : 123,
-    "codigoMoeda" : "aeiou",
-    "numeroEstabelecimento" : 123,
-    "dataEntradaCompra" : "aeiou"
-  } ],
-  "comprasNacionais" : 1.3579000000000001069366817318950779736042022705078125
-}}]
-     
-     - parameter idConta: (path) ID da Conta 
-     - parameter idCartao: (path) ID do Cart\u00C3\u00A3o que deseja consultar o extrato 
-     - parameter dataVencimento: (query) Data limite para o vencimento das transa\u00C3\u00A7\u00C3\u00B5es 
-
-     - returns: RequestBuilder<ConsultarExtratoContaResponse> 
-     */
-    public class func consultarExtratoFaturasUsingGETWithRequestBuilder(idConta idConta: Int, idCartao: Int, dataVencimento: String) -> RequestBuilder<ConsultarExtratoContaResponse> {
-        var path = "/v1/contas/{idConta}/cartoes/{idCartao}/faturas"
-        path = path.stringByReplacingOccurrencesOfString("{idConta}", withString: "\(idConta)", options: .LiteralSearch, range: nil)
-        path = path.stringByReplacingOccurrencesOfString("{idCartao}", withString: "\(idCartao)", options: .LiteralSearch, range: nil)
-        let URLString = PierAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [
-            "dataVencimento": dataVencimento
-        ]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<ConsultarExtratoContaResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
-    }
-
-    /**
-     
-     /contas/{idConta}/cartoes/{idCartao}/limites
-     
-     - parameter idConta: (path) ID da Conta 
-     - parameter idCartao: (path) ID do Cart\u00C3\u00A3o que deseja consultar o saldo/limite 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func consultarSaldosLimitesUsingGET(idConta idConta: Int, idCartao: Int, completion: ((data: ConsultarSaldoLimitesResponse?, error: ErrorType?) -> Void)) {
-        consultarSaldosLimitesUsingGETWithRequestBuilder(idConta: idConta, idCartao: idCartao).execute { (response, error) -> Void in
-            completion(data: response?.body, error: error);
-        }
-    }
-
-
-    /**
-     
-     /contas/{idConta}/cartoes/{idCartao}/limites
-     
-     - GET /v1/contas/{idConta}/cartoes/{idCartao}/limites
-     - Consulte os limites de um determinado cart\u00C3\u00A3o
-     - API Key:
-       - type: apiKey access_token 
-       - name: access_token
-     - examples: [{contentType=application/json, example={
-  "disponibParcelasNac" : 1.3579000000000001069366817318950779736042022705078125,
-  "disponibCompraNac" : 1.3579000000000001069366817318950779736042022705078125,
-  "disponibParceladoNac" : 1.3579000000000001069366817318950779736042022705078125,
-  "limiteSaqueNacPeriodo" : 1.3579000000000001069366817318950779736042022705078125,
-  "disponibGlobalCredito" : 1.3579000000000001069366817318950779736042022705078125,
-  "rendaComprovada" : 1.3579000000000001069366817318950779736042022705078125,
-  "limiteGlobalCredito" : 1.3579000000000001069366817318950779736042022705078125,
-  "limiteCompraNac" : 1.3579000000000001069366817318950779736042022705078125,
-  "codigoRetorno" : 123,
-  "descricaoRetorno" : "aeiou",
-  "limiteParcelasNac" : 1.3579000000000001069366817318950779736042022705078125,
-  "disponibSaqueNacGlobal" : 1.3579000000000001069366817318950779736042022705078125,
-  "solicitacaoPendente" : true,
-  "codRetorno" : 123,
-  "limiteParceladoNac" : 1.3579000000000001069366817318950779736042022705078125,
-  "limiteSaqueNacGlobal" : 1.3579000000000001069366817318950779736042022705078125
-}}]
-     
-     - parameter idConta: (path) ID da Conta 
-     - parameter idCartao: (path) ID do Cart\u00C3\u00A3o que deseja consultar o saldo/limite 
-
-     - returns: RequestBuilder<ConsultarSaldoLimitesResponse> 
-     */
-    public class func consultarSaldosLimitesUsingGETWithRequestBuilder(idConta idConta: Int, idCartao: Int) -> RequestBuilder<ConsultarSaldoLimitesResponse> {
-        var path = "/v1/contas/{idConta}/cartoes/{idCartao}/limites"
-        path = path.stringByReplacingOccurrencesOfString("{idConta}", withString: "\(idConta)", options: .LiteralSearch, range: nil)
-        path = path.stringByReplacingOccurrencesOfString("{idCartao}", withString: "\(idCartao)", options: .LiteralSearch, range: nil)
-        let URLString = PierAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<ConsultarSaldoLimitesResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
     }
