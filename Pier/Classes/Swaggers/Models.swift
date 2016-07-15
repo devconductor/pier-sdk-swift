@@ -402,6 +402,22 @@ class Decoders {
             }
 			
 
+			// Decoder for [EmbossadoCartaoResponse]
+            Decoders.addDecoder(clazz: [EmbossadoCartaoResponse].self) { (source: AnyObject) -> [EmbossadoCartaoResponse] in
+                return Decoders.decode(clazz: [EmbossadoCartaoResponse].self, source: source)
+            }
+			// Decoder for EmbossadoCartaoResponse
+            Decoders.addDecoder(clazz: EmbossadoCartaoResponse.self) { (source: AnyObject) -> EmbossadoCartaoResponse in
+                let sourceDictionary = source as! [NSObject:AnyObject]
+                let instance = EmbossadoCartaoResponse()
+                instance.codigoRetorno = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["codigoRetorno"])
+                instance.descricaoRetorno = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["descricaoRetorno"])
+                instance.idCartao = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["idCartao"])
+                instance.idConta = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["idConta"])
+                return instance
+            }
+			
+
 			// Decoder for [ExtraInfo]
             Decoders.addDecoder(clazz: [ExtraInfo].self) { (source: AnyObject) -> [ExtraInfo] in
                 return Decoders.decode(clazz: [ExtraInfo].self, source: source)

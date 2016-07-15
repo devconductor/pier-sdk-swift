@@ -12,7 +12,7 @@ import Alamofire
 public class ContaAPI: APIBase {
     /**
      
-     /contas/buscar
+     Buscar contas
      
      - parameter nome: (query) Nome (optional)
      - parameter cpf: (query) CPF (opcional caso nao informe o n\u00C3\u00BAmero do cart\u00C3\u00A3o ou id da conta) (optional)
@@ -29,9 +29,9 @@ public class ContaAPI: APIBase {
 
     /**
      
-     /contas/buscar
+     Buscar contas
      
-     - GET /v1/contas/buscar
+     - GET /v1.1/contas/buscar
      - Consulte contas filtrando pelos campos id do emissor, n\u00C3\u00BAmero do cart\u00C3\u00A3o, nome ou CPF/CNPJ 
      - API Key:
        - type: apiKey access_token 
@@ -66,7 +66,7 @@ public class ContaAPI: APIBase {
      - returns: RequestBuilder<ConsultarContaResponse> 
      */
     public class func buscarContaUsingGETWithRequestBuilder(nome nome: String?, cpf: String?, numeroCartao: String?, idConta: Int?) -> RequestBuilder<ConsultarContaResponse> {
-        let path = "/v1/contas/buscar"
+        let path = "/v1.1/contas/buscar"
         let URLString = PierAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
@@ -84,7 +84,7 @@ public class ContaAPI: APIBase {
 
     /**
      
-     /contas/{idConta}
+     Retorna uma conta
      
      - parameter idConta: (path) ID da Conta 
      - parameter completion: completion handler to receive the data and the error objects
@@ -98,9 +98,9 @@ public class ContaAPI: APIBase {
 
     /**
      
-     /contas/{idConta}
+     Retorna uma conta
      
-     - GET /v1/contas/{idConta}
+     - GET /v1.1/contas/{idConta}
      - Consulte informa\u00C3\u00A7\u00C3\u00B5es de uma determinada conta
      - API Key:
        - type: apiKey access_token 
@@ -212,7 +212,7 @@ public class ContaAPI: APIBase {
      - returns: RequestBuilder<ContaResponse> 
      */
     public class func consultarContaUsingGETWithRequestBuilder(idConta idConta: Int) -> RequestBuilder<ContaResponse> {
-        var path = "/v1/contas/{idConta}"
+        var path = "/v1.1/contas/{idConta}"
         path = path.stringByReplacingOccurrencesOfString("{idConta}", withString: "\(idConta)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
         
@@ -226,7 +226,7 @@ public class ContaAPI: APIBase {
 
     /**
      
-     /contas/{idConta}/faturas
+     Retorna os extratos
      
      - parameter idConta: (path) ID da Conta 
      - parameter dataVencimento: (query) Data limite para o vencimento das transa\u00C3\u00A7\u00C3\u00B5es 
@@ -241,10 +241,10 @@ public class ContaAPI: APIBase {
 
     /**
      
-     /contas/{idConta}/faturas
+     Retorna os extratos
      
-     - GET /v1/contas/{idConta}/faturas
-     - Consulte os extratos/faturas de uma determinada conta
+     - GET /v1.1/contas/{idConta}/faturas
+     - Consulte os extratos de uma determinada conta
      - API Key:
        - type: apiKey access_token 
        - name: access_token
@@ -302,7 +302,7 @@ public class ContaAPI: APIBase {
      - returns: RequestBuilder<ConsultarExtratoContaResponse> 
      */
     public class func consultarExtratoFaturasUsingGETWithRequestBuilder(idConta idConta: Int, dataVencimento: String) -> RequestBuilder<ConsultarExtratoContaResponse> {
-        var path = "/v1/contas/{idConta}/faturas"
+        var path = "/v1.1/contas/{idConta}/faturas"
         path = path.stringByReplacingOccurrencesOfString("{idConta}", withString: "\(idConta)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
         
@@ -318,7 +318,7 @@ public class ContaAPI: APIBase {
 
     /**
      
-     /contas/{idConta}/limites
+     Retorna o limite
      
      - parameter idConta: (path) ID da Conta 
      - parameter completion: completion handler to receive the data and the error objects
@@ -332,9 +332,9 @@ public class ContaAPI: APIBase {
 
     /**
      
-     /contas/{idConta}/limites
+     Retorna o limite
      
-     - GET /v1/contas/{idConta}/limites
+     - GET /v1.1/contas/{idConta}/limites
      - Consulte os limites de uma determinada conta
      - API Key:
        - type: apiKey access_token 
@@ -363,7 +363,7 @@ public class ContaAPI: APIBase {
      - returns: RequestBuilder<ConsultarSaldoLimitesResponse> 
      */
     public class func consultarSaldosLimitesUsingGETWithRequestBuilder(idConta idConta: Int) -> RequestBuilder<ConsultarSaldoLimitesResponse> {
-        var path = "/v1/contas/{idConta}/limites"
+        var path = "/v1.1/contas/{idConta}/limites"
         path = path.stringByReplacingOccurrencesOfString("{idConta}", withString: "\(idConta)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
         

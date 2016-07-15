@@ -12,7 +12,7 @@ import Alamofire
 public class CartaoAPI: APIBase {
     /**
      
-     /contas/{idConta}/cartoes/{idCartao}/bloquear
+     Bloqueia um cart\u00C3\u00A3o
      
      - parameter idConta: (path) ID da Conta 
      - parameter idCartao: (path) ID do Cart\u00C3\u00A3o que deseja cancelar 
@@ -29,9 +29,9 @@ public class CartaoAPI: APIBase {
 
     /**
      
-     /contas/{idConta}/cartoes/{idCartao}/bloquear
+     Bloqueia um cart\u00C3\u00A3o
      
-     - POST /v1/contas/{idConta}/cartoes/{idCartao}/bloquear
+     - POST /v1.1/contas/{idConta}/cartoes/{idCartao}/bloquear
      - Bloquear um determinado cart\u00C3\u00A3o
      - API Key:
        - type: apiKey access_token 
@@ -51,7 +51,7 @@ public class CartaoAPI: APIBase {
      - returns: RequestBuilder<CancelarCartaoResponse> 
      */
     public class func bloquearCartaoUsingPOSTWithRequestBuilder(idConta idConta: Int, idCartao: Int, motivo: Int, observacao: String?) -> RequestBuilder<CancelarCartaoResponse> {
-        var path = "/v1/contas/{idConta}/cartoes/{idCartao}/bloquear"
+        var path = "/v1.1/contas/{idConta}/cartoes/{idCartao}/bloquear"
         path = path.stringByReplacingOccurrencesOfString("{idConta}", withString: "\(idConta)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{idCartao}", withString: "\(idCartao)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -69,7 +69,7 @@ public class CartaoAPI: APIBase {
 
     /**
      
-     /contas/{idConta}/cartoes/{idCartao}
+     Retorna um cart\u00C3\u00A3o
      
      - parameter idConta: (path) ID da Conta que pertence o cart\u00C3\u00A3o 
      - parameter idCartao: (path) ID do Cart\u00C3\u00A3o que deseja consultar 
@@ -84,9 +84,9 @@ public class CartaoAPI: APIBase {
 
     /**
      
-     /contas/{idConta}/cartoes/{idCartao}
+     Retorna um cart\u00C3\u00A3o
      
-     - GET /v1/contas/{idConta}/cartoes/{idCartao}
+     - GET /v1.1/contas/{idConta}/cartoes/{idCartao}
      - Consultar as informa\u00C3\u00A7\u00C3\u00B5es de um determinado cart\u00C3\u00A3o de uma conta
      - API Key:
        - type: apiKey access_token 
@@ -126,7 +126,7 @@ public class CartaoAPI: APIBase {
      - returns: RequestBuilder<ConsultarCartaoResponse> 
      */
     public class func consultarCartaoUsingGETWithRequestBuilder(idConta idConta: Int, idCartao: Int) -> RequestBuilder<ConsultarCartaoResponse> {
-        var path = "/v1/contas/{idConta}/cartoes/{idCartao}"
+        var path = "/v1.1/contas/{idConta}/cartoes/{idCartao}"
         path = path.stringByReplacingOccurrencesOfString("{idConta}", withString: "\(idConta)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{idCartao}", withString: "\(idCartao)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -141,7 +141,7 @@ public class CartaoAPI: APIBase {
 
     /**
      
-     /contas/{idConta}/cartoes
+     Retorna todos os cart\u00C3\u00B5es
      
      - parameter idConta: (path) ID da Conta 
      - parameter completion: completion handler to receive the data and the error objects
@@ -155,9 +155,9 @@ public class CartaoAPI: APIBase {
 
     /**
      
-     /contas/{idConta}/cartoes
+     Retorna todos os cart\u00C3\u00B5es
      
-     - GET /v1/contas/{idConta}/cartoes
+     - GET /v1.1/contas/{idConta}/cartoes
      - Consultar todos os cart\u00C3\u00B5es de uma determinada conta
      - API Key:
        - type: apiKey access_token 
@@ -196,7 +196,7 @@ public class CartaoAPI: APIBase {
      - returns: RequestBuilder<ConsultarCartaoResponse> 
      */
     public class func consultarCartoesUsingGETWithRequestBuilder(idConta idConta: Int) -> RequestBuilder<ConsultarCartaoResponse> {
-        var path = "/v1/contas/{idConta}/cartoes"
+        var path = "/v1.1/contas/{idConta}/cartoes"
         path = path.stringByReplacingOccurrencesOfString("{idConta}", withString: "\(idConta)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
         
@@ -210,7 +210,7 @@ public class CartaoAPI: APIBase {
 
     /**
      
-     /contas/{idConta}/cartoes/{idCartao}/desbloquear
+     Desbloqueia um cart\u00C3\u00A3o
      
      - parameter idConta: (path) ID da Conta 
      - parameter idCartao: (path) ID do Cart\u00C3\u00A3o que deseja consultar o saldo/limite 
@@ -225,9 +225,9 @@ public class CartaoAPI: APIBase {
 
     /**
      
-     /contas/{idConta}/cartoes/{idCartao}/desbloquear
+     Desbloqueia um cart\u00C3\u00A3o
      
-     - POST /v1/contas/{idConta}/cartoes/{idCartao}/desbloquear
+     - POST /v1.1/contas/{idConta}/cartoes/{idCartao}/desbloquear
      - Desbloquear cart\u00C3\u00A3o de uma determinada conta
      - API Key:
        - type: apiKey access_token 
@@ -243,7 +243,7 @@ public class CartaoAPI: APIBase {
      - returns: RequestBuilder<DesbloquearCartaoResponse> 
      */
     public class func desbloquearCartaoUsingPOSTWithRequestBuilder(idConta idConta: Int, idCartao: Int) -> RequestBuilder<DesbloquearCartaoResponse> {
-        var path = "/v1/contas/{idConta}/cartoes/{idCartao}/desbloquear"
+        var path = "/v1.1/contas/{idConta}/cartoes/{idCartao}/desbloquear"
         path = path.stringByReplacingOccurrencesOfString("{idConta}", withString: "\(idConta)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{idCartao}", withString: "\(idCartao)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -254,6 +254,56 @@ public class CartaoAPI: APIBase {
         let requestBuilder: RequestBuilder<DesbloquearCartaoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Embossado
+     
+     - parameter idConta: (path) ID da Conta 
+     - parameter idCartao: (path) ID do Cart\u00C3\u00A3o que deseja cancelar 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func embossadoCartaoUsingPUT(idConta idConta: Int, idCartao: Int, completion: ((data: EmbossadoCartaoResponse?, error: ErrorType?) -> Void)) {
+        embossadoCartaoUsingPUTWithRequestBuilder(idConta: idConta, idCartao: idCartao).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Embossado
+     
+     - PUT /v1.1/contas/{idConta}/cartoes/{idCartao}/embossado
+     - N\u00C3\u00B3s informe caso tenha embossado algum cart\u00C3\u00A3o.
+     - API Key:
+       - type: apiKey access_token 
+       - name: access_token
+     - examples: [{contentType=application/json, example={
+  "idCartao" : 123,
+  "idConta" : 123,
+  "descricaoRetorno" : "aeiou",
+  "codigoRetorno" : 123
+}}]
+     
+     - parameter idConta: (path) ID da Conta 
+     - parameter idCartao: (path) ID do Cart\u00C3\u00A3o que deseja cancelar 
+
+     - returns: RequestBuilder<EmbossadoCartaoResponse> 
+     */
+    public class func embossadoCartaoUsingPUTWithRequestBuilder(idConta idConta: Int, idCartao: Int) -> RequestBuilder<EmbossadoCartaoResponse> {
+        var path = "/v1.1/contas/{idConta}/cartoes/{idCartao}/embossado"
+        path = path.stringByReplacingOccurrencesOfString("{idConta}", withString: "\(idConta)", options: .LiteralSearch, range: nil)
+        path = path.stringByReplacingOccurrencesOfString("{idCartao}", withString: "\(idCartao)", options: .LiteralSearch, range: nil)
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<EmbossadoCartaoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
     }
 
 }
