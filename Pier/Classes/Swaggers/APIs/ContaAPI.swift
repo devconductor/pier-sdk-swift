@@ -31,7 +31,7 @@ public class ContaAPI: APIBase {
      
      Buscar contas
      
-     - GET /v1.1/contas/buscar
+     - GET /api/contas/buscar
      - Consulte contas filtrando pelos campos id do emissor, n\u00C3\u00BAmero do cart\u00C3\u00A3o, nome ou CPF/CNPJ 
      - API Key:
        - type: apiKey access_token 
@@ -66,7 +66,7 @@ public class ContaAPI: APIBase {
      - returns: RequestBuilder<ConsultarContaResponse> 
      */
     public class func buscarContaUsingGETWithRequestBuilder(nome nome: String?, cpf: String?, numeroCartao: String?, idConta: Int?) -> RequestBuilder<ConsultarContaResponse> {
-        let path = "/v1.1/contas/buscar"
+        let path = "/api/contas/buscar"
         let URLString = PierAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
@@ -100,7 +100,7 @@ public class ContaAPI: APIBase {
      
      Retorna uma conta
      
-     - GET /v1.1/contas/{idConta}
+     - GET /api/contas/{idConta}
      - Consulte informa\u00C3\u00A7\u00C3\u00B5es de uma determinada conta
      - API Key:
        - type: apiKey access_token 
@@ -212,7 +212,7 @@ public class ContaAPI: APIBase {
      - returns: RequestBuilder<ContaResponse> 
      */
     public class func consultarContaUsingGETWithRequestBuilder(idConta idConta: Int) -> RequestBuilder<ContaResponse> {
-        var path = "/v1.1/contas/{idConta}"
+        var path = "/api/contas/{idConta}"
         path = path.stringByReplacingOccurrencesOfString("{idConta}", withString: "\(idConta)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
         
@@ -243,7 +243,7 @@ public class ContaAPI: APIBase {
      
      Retorna os extratos
      
-     - GET /v1.1/contas/{idConta}/faturas
+     - GET /api/contas/{idConta}/faturas
      - Consulte os extratos de uma determinada conta
      - API Key:
        - type: apiKey access_token 
@@ -302,7 +302,7 @@ public class ContaAPI: APIBase {
      - returns: RequestBuilder<ConsultarExtratoContaResponse> 
      */
     public class func consultarExtratoFaturasUsingGETWithRequestBuilder(idConta idConta: Int, dataVencimento: String) -> RequestBuilder<ConsultarExtratoContaResponse> {
-        var path = "/v1.1/contas/{idConta}/faturas"
+        var path = "/api/contas/{idConta}/faturas"
         path = path.stringByReplacingOccurrencesOfString("{idConta}", withString: "\(idConta)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
         
@@ -334,7 +334,7 @@ public class ContaAPI: APIBase {
      
      Retorna o limite
      
-     - GET /v1.1/contas/{idConta}/limites
+     - GET /api/contas/{idConta}/limites
      - Consulte os limites de uma determinada conta
      - API Key:
        - type: apiKey access_token 
@@ -363,7 +363,7 @@ public class ContaAPI: APIBase {
      - returns: RequestBuilder<ConsultarSaldoLimitesResponse> 
      */
     public class func consultarSaldosLimitesUsingGETWithRequestBuilder(idConta idConta: Int) -> RequestBuilder<ConsultarSaldoLimitesResponse> {
-        var path = "/v1.1/contas/{idConta}/limites"
+        var path = "/api/contas/{idConta}/limites"
         path = path.stringByReplacingOccurrencesOfString("{idConta}", withString: "\(idConta)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
         

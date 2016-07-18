@@ -28,7 +28,7 @@ public class TokenAPI: APIBase {
      
      /tokens/callback
      
-     - POST /v1.1/tokens/callback
+     - POST /api/tokens/callback
      - API Key:
        - type: apiKey access_token 
        - name: access_token
@@ -51,7 +51,7 @@ public class TokenAPI: APIBase {
      - returns: RequestBuilder<BodyAccessToken> 
      */
     public class func callbackUsingPOSTWithRequestBuilder(bodyAccessToken bodyAccessToken: BodyAccessToken) -> RequestBuilder<BodyAccessToken> {
-        let path = "/v1.1/tokens/callback"
+        let path = "/api/tokens/callback"
         let URLString = PierAPI.basePath + path
         
         let parameters = bodyAccessToken.encodeToJSON() as? [String:AnyObject]
@@ -79,7 +79,7 @@ public class TokenAPI: APIBase {
      
      /tokens/validar
      
-     - POST /v1.1/tokens/validar
+     - POST /api/tokens/validar
      - API Key:
        - type: apiKey access_token 
        - name: access_token
@@ -90,7 +90,7 @@ public class TokenAPI: APIBase {
      - returns: RequestBuilder<AnyObject> 
      */
     public class func validarUsingPOSTWithRequestBuilder(bodyAccessToken bodyAccessToken: BodyAccessToken) -> RequestBuilder<AnyObject> {
-        let path = "/v1.1/tokens/validar"
+        let path = "/api/tokens/validar"
         let URLString = PierAPI.basePath + path
         
         let parameters = bodyAccessToken.encodeToJSON() as? [String:AnyObject]
