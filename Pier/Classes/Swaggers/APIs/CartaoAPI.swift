@@ -113,6 +113,7 @@ public class CartaoAPI: APIBase {
     "idPessoaFisica" : 123,
     "codRetorno" : 123,
     "idEmissor" : 123,
+    "nomePlastico" : "aeiou",
     "statusCartao" : 123,
     "statusData" : "2000-01-23T04:56:07.000+0000",
     "idLog" : "aeiou"
@@ -184,6 +185,7 @@ public class CartaoAPI: APIBase {
     "idPessoaFisica" : 123,
     "codRetorno" : 123,
     "idEmissor" : 123,
+    "nomePlastico" : "aeiou",
     "statusCartao" : 123,
     "statusData" : "2000-01-23T04:56:07.000+0000",
     "idLog" : "aeiou"

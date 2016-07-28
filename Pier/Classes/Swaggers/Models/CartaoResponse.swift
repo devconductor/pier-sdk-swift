@@ -28,6 +28,7 @@ public class CartaoResponse: JSONEncodable {
     public var idLog: String?
     public var idPessoaFisica: Int?
     public var idProduto: Int?
+    public var nomePlastico: String?
     public var numeroCartao: String?
     public var numeroCartaoReal: String?
     public var statusCartao: Int?
@@ -57,6 +58,7 @@ public class CartaoResponse: JSONEncodable {
         nillableDictionary["idLog"] = self.idLog
         nillableDictionary["idPessoaFisica"] = self.idPessoaFisica
         nillableDictionary["idProduto"] = self.idProduto
+        nillableDictionary["nomePlastico"] = self.nomePlastico
         nillableDictionary["numeroCartao"] = self.numeroCartao
         nillableDictionary["numeroCartaoReal"] = self.numeroCartaoReal
         nillableDictionary["statusCartao"] = self.statusCartao

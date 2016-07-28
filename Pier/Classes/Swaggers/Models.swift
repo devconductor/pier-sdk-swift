@@ -198,6 +198,7 @@ class Decoders {
                 instance.idLog = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["idLog"])
                 instance.idPessoaFisica = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["idPessoaFisica"])
                 instance.idProduto = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["idProduto"])
+                instance.nomePlastico = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["nomePlastico"])
                 instance.numeroCartao = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["numeroCartao"])
                 instance.numeroCartaoReal = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["numeroCartaoReal"])
                 instance.statusCartao = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["statusCartao"])
