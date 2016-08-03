@@ -50,10 +50,10 @@ public class ContaAPI: APIBase {
     "dddCelular" : "aeiou",
     "nome" : "aeiou",
     "cpf" : "aeiou",
-    "dataCadastroConta" : "aeiou",
+    "dataCadastroConta" : "2000-01-23T04:56:07.000+0000",
     "orgaoIdentidade" : "aeiou",
-    "dataEmissaoIdentidade" : "aeiou",
-    "dataNascimento" : "aeiou"
+    "dataEmissaoIdentidade" : "2000-01-23T04:56:07.000+0000",
+    "dataNascimento" : "2000-01-23T04:56:07.000+0000"
   } ],
   "codigoRetorno" : 123
 }}]

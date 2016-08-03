@@ -12,9 +12,9 @@ public class ContaCartaoResponse: JSONEncodable {
 
     public var cnpjLoja: String?
     public var cpf: String?
-    public var dataCadastroConta: String?
-    public var dataEmissaoIdentidade: String?
-    public var dataNascimento: String?
+    public var dataCadastroConta: NSDate?
+    public var dataEmissaoIdentidade: NSDate?
+    public var dataNascimento: NSDate?
     public var dddCelular: String?
     public var idConta: Int?
     public var nome: String?
@@ -33,9 +33,9 @@ public class ContaCartaoResponse: JSONEncodable {
         var nillableDictionary = [String:AnyObject?]()
         nillableDictionary["cnpjLoja"] = self.cnpjLoja
         nillableDictionary["cpf"] = self.cpf
-        nillableDictionary["dataCadastroConta"] = self.dataCadastroConta
-        nillableDictionary["dataEmissaoIdentidade"] = self.dataEmissaoIdentidade
-        nillableDictionary["dataNascimento"] = self.dataNascimento
+        nillableDictionary["dataCadastroConta"] = self.dataCadastroConta?.encodeToJSON()
+        nillableDictionary["dataEmissaoIdentidade"] = self.dataEmissaoIdentidade?.encodeToJSON()
+        nillableDictionary["dataNascimento"] = self.dataNascimento?.encodeToJSON()
         nillableDictionary["dddCelular"] = self.dddCelular
         nillableDictionary["idConta"] = self.idConta
         nillableDictionary["nome"] = self.nome
