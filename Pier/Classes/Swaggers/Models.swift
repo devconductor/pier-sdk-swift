@@ -419,6 +419,23 @@ class Decoders {
             }
 			
 
+			// Decoder for [EstgioCarto]
+            Decoders.addDecoder(clazz: [EstgioCarto].self) { (source: AnyObject) -> [EstgioCarto] in
+                return Decoders.decode(clazz: [EstgioCarto].self, source: source)
+            }
+			// Decoder for EstgioCarto
+            Decoders.addDecoder(clazz: EstgioCarto.self) { (source: AnyObject) -> EstgioCarto in
+                let sourceDictionary = source as! [NSObject:AnyObject]
+                let instance = EstgioCarto()
+                instance.cancelaConta = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["cancelaConta"])
+                instance.id = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["id"])
+                instance.idStatusDestinoDesbloqueio = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["idStatusDestinoDesbloqueio"])
+                instance.nome = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["nome"])
+                instance.permiteDesbloqueio = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["permiteDesbloqueio"])
+                return instance
+            }
+			
+
 			// Decoder for [ExtraInfo]
             Decoders.addDecoder(clazz: [ExtraInfo].self) { (source: AnyObject) -> [ExtraInfo] in
                 return Decoders.decode(clazz: [ExtraInfo].self, source: source)
@@ -468,6 +485,60 @@ class Decoders {
                 instance.taxaEmbarque = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["taxaEmbarque"])
                 instance.tipoEvento = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["tipoEvento"])
                 instance.valorDolar = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["valorDolar"])
+                return instance
+            }
+			
+
+			// Decoder for [ListaDeEstgiosCartes]
+            Decoders.addDecoder(clazz: [ListaDeEstgiosCartes].self) { (source: AnyObject) -> [ListaDeEstgiosCartes] in
+                return Decoders.decode(clazz: [ListaDeEstgiosCartes].self, source: source)
+            }
+			// Decoder for ListaDeEstgiosCartes
+            Decoders.addDecoder(clazz: ListaDeEstgiosCartes.self) { (source: AnyObject) -> ListaDeEstgiosCartes in
+                let sourceDictionary = source as! [NSObject:AnyObject]
+                let instance = ListaDeEstgiosCartes()
+                instance.estagiosCartoes = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["estagiosCartoes"])
+                return instance
+            }
+			
+
+			// Decoder for [ListaDeOrigensComerciais]
+            Decoders.addDecoder(clazz: [ListaDeOrigensComerciais].self) { (source: AnyObject) -> [ListaDeOrigensComerciais] in
+                return Decoders.decode(clazz: [ListaDeOrigensComerciais].self, source: source)
+            }
+			// Decoder for ListaDeOrigensComerciais
+            Decoders.addDecoder(clazz: ListaDeOrigensComerciais.self) { (source: AnyObject) -> ListaDeOrigensComerciais in
+                let sourceDictionary = source as! [NSObject:AnyObject]
+                let instance = ListaDeOrigensComerciais()
+                instance.origensComerciais = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["origensComerciais"])
+                return instance
+            }
+			
+
+			// Decoder for [ListaDeStatusCartes]
+            Decoders.addDecoder(clazz: [ListaDeStatusCartes].self) { (source: AnyObject) -> [ListaDeStatusCartes] in
+                return Decoders.decode(clazz: [ListaDeStatusCartes].self, source: source)
+            }
+			// Decoder for ListaDeStatusCartes
+            Decoders.addDecoder(clazz: ListaDeStatusCartes.self) { (source: AnyObject) -> ListaDeStatusCartes in
+                let sourceDictionary = source as! [NSObject:AnyObject]
+                let instance = ListaDeStatusCartes()
+                instance.statusCartoes = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["statusCartoes"])
+                return instance
+            }
+			
+
+			// Decoder for [OrigemComercial]
+            Decoders.addDecoder(clazz: [OrigemComercial].self) { (source: AnyObject) -> [OrigemComercial] in
+                return Decoders.decode(clazz: [OrigemComercial].self, source: source)
+            }
+			// Decoder for OrigemComercial
+            Decoders.addDecoder(clazz: OrigemComercial.self) { (source: AnyObject) -> OrigemComercial in
+                let sourceDictionary = source as! [NSObject:AnyObject]
+                let instance = OrigemComercial()
+                instance.id = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["id"])
+                instance.nome = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["nome"])
+                instance.status = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["status"])
                 return instance
             }
 			
