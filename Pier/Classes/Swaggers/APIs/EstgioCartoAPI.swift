@@ -34,9 +34,6 @@ public class EstgioCartoAPI: APIBase {
        - type: apiKey access_token 
        - name: access_token
      - examples: [{contentType=application/json, example={
-  "permiteDesbloqueio" : "aeiou",
-  "idStatusDestinoDesbloqueio" : 123456789,
-  "cancelaConta" : "aeiou",
   "nome" : "aeiou",
   "id" : 123456789
 }}]
@@ -86,9 +83,6 @@ public class EstgioCartoAPI: APIBase {
        - name: access_token
      - examples: [{contentType=application/json, example={
   "estagiosCartoes" : [ {
-    "permiteDesbloqueio" : "aeiou",
-    "idStatusDestinoDesbloqueio" : 123456789,
-    "cancelaConta" : "aeiou",
     "nome" : "aeiou",
     "id" : 123456789
   } ]

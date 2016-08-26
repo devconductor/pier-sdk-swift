@@ -10,29 +10,38 @@ import Foundation
 
 public class CartaoResponse: JSONEncodable {
 
-    public var bin: Int?
-    public var codRetorno: Int?
+    /** Apresenta o nome do arquivo onde o cart\u00C3\u00A3o fora inclu\u00C3\u00ADdo para impress\u00C3\u00A3o por uma gr\u00C3\u00A1fica, quando houver. */
+    public var arquivoImpressao: String?
+    /** Apresenta um c\u00C3\u00B3digo espec\u00C3\u00ADfico para ser utilizado como vari\u00C3\u00A1vel no processo de desbloqueio do cart\u00C3\u00A3o para emissores que querem usar esta funcionalidade. */
     public var codigoDesbloqueio: String?
-    public var criptografiaHSM: String?
-    public var dataEmissao: NSDate?
-    public var dataValidade: NSDate?
-    public var dataVencimentoPadrao: String?
-    public var descricaoRetorno: String?
-    public var estagioCartao: Int?
-    public var estagioData: NSDate?
-    public var flagReversao: Bool?
-    public var flagSenha: Bool?
-    public var idCartao: Int?
+    /** Apresenta a data em que o idEstagioCartao atual do cart\u00C3\u00A3o fora aplicado, quando houver. */
+    public var dataEstagioCartao: LocalDateTime?
+    /** Apresenta a data em que o cart\u00C3\u00A3o foi gerado. */
+    public var dataGeracao: LocalDateTime?
+    /** Apresenta a data em que o cart\u00C3\u00A3o fora impresso, caso impress\u00C3\u00A3o em loja, ou a data em que ele fora inclu\u00C3\u00ADdo no arquivo para impress\u00C3\u00A3o via gr\u00C3\u00A1fica. */
+    public var dataImpressao: LocalDateTime?
+    /** Apresenta a data em que o idStatusCartao atual do cart\u00C3\u00A3o fora aplicado, quando houver. */
+    public var dataStatusCartao: LocalDateTime?
+    /** Apresenta a data de validade do cart\u00C3\u00A3o em formato MMAAAA, quando houver. */
+    public var dataValidade: LocalDateTime?
+    /** Quando ativa, indica que o cart\u00C3\u00A3o fora impresso na Origem Comercial. */
+    public var flagImpressaoOrigemComercial: Int?
+    /** Quando ativa, indica que o cart\u00C3\u00A3o \u00C3\u00A9 provis\u00C3\u00B3rio. Ou seja, \u00C3\u00A9 um cart\u00C3\u00A3o para uso tempor\u00C3\u00A1rio quando se deseja permitir que o cliente transacione sem que ele tenha recebido um cart\u00C3\u00A3o definitivo. */
+    public var flagProvisorio: Int?
+    /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). */
+    public var id: Int?
+    /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Conta a qual o cart\u00C3\u00A3o pertence (id). */
     public var idConta: Int?
-    public var idEmissor: Int?
-    public var idLog: String?
-    public var idPessoaFisica: Int?
-    public var idProduto: Int?
-    public var nomePlastico: String?
+    /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Est\u00C3\u00A1gio de Impress\u00C3\u00A3o do Cart\u00C3\u00A3o (id). */
+    public var idEstagioCartao: Int?
+    /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Pessoa a qual o cart\u00C3\u00A3o pertence (id) */
+    public var idPessoa: Int?
+    /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Status do Cart\u00C3\u00A3o (id). */
+    public var idStatusCartao: Int?
+    /** Apresenta o n\u00C3\u00BAmero do cart\u00C3\u00A3o. */
     public var numeroCartao: String?
-    public var numeroCartaoReal: String?
-    public var statusCartao: Int?
-    public var statusData: NSDate?
+    /** Indica qual \u00C3\u00A9 a rela\u00C3\u00A7\u00C3\u00A3o do portador do cart\u00C3\u00A3o com a conta. Quando \u00E2\u0080\u00981\u00E2\u0080\u0099, corresponde ao seu titular. Quando diferente disso, corresponde a um cart\u00C3\u00A3o adicional. */
+    public var portador: Int?
     
 
     public init() {}
@@ -40,29 +49,22 @@ public class CartaoResponse: JSONEncodable {
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
-        nillableDictionary["bin"] = self.bin
-        nillableDictionary["codRetorno"] = self.codRetorno
+        nillableDictionary["arquivoImpressao"] = self.arquivoImpressao
         nillableDictionary["codigoDesbloqueio"] = self.codigoDesbloqueio
-        nillableDictionary["criptografiaHSM"] = self.criptografiaHSM
-        nillableDictionary["dataEmissao"] = self.dataEmissao?.encodeToJSON()
+        nillableDictionary["dataEstagioCartao"] = self.dataEstagioCartao?.encodeToJSON()
+        nillableDictionary["dataGeracao"] = self.dataGeracao?.encodeToJSON()
+        nillableDictionary["dataImpressao"] = self.dataImpressao?.encodeToJSON()
+        nillableDictionary["dataStatusCartao"] = self.dataStatusCartao?.encodeToJSON()
         nillableDictionary["dataValidade"] = self.dataValidade?.encodeToJSON()
-        nillableDictionary["dataVencimentoPadrao"] = self.dataVencimentoPadrao
-        nillableDictionary["descricaoRetorno"] = self.descricaoRetorno
-        nillableDictionary["estagioCartao"] = self.estagioCartao
-        nillableDictionary["estagioData"] = self.estagioData?.encodeToJSON()
-        nillableDictionary["flagReversao"] = self.flagReversao
-        nillableDictionary["flagSenha"] = self.flagSenha
-        nillableDictionary["idCartao"] = self.idCartao
+        nillableDictionary["flagImpressaoOrigemComercial"] = self.flagImpressaoOrigemComercial
+        nillableDictionary["flagProvisorio"] = self.flagProvisorio
+        nillableDictionary["id"] = self.id
         nillableDictionary["idConta"] = self.idConta
-        nillableDictionary["idEmissor"] = self.idEmissor
-        nillableDictionary["idLog"] = self.idLog
-        nillableDictionary["idPessoaFisica"] = self.idPessoaFisica
-        nillableDictionary["idProduto"] = self.idProduto
-        nillableDictionary["nomePlastico"] = self.nomePlastico
+        nillableDictionary["idEstagioCartao"] = self.idEstagioCartao
+        nillableDictionary["idPessoa"] = self.idPessoa
+        nillableDictionary["idStatusCartao"] = self.idStatusCartao
         nillableDictionary["numeroCartao"] = self.numeroCartao
-        nillableDictionary["numeroCartaoReal"] = self.numeroCartaoReal
-        nillableDictionary["statusCartao"] = self.statusCartao
-        nillableDictionary["statusData"] = self.statusData?.encodeToJSON()
+        nillableDictionary["portador"] = self.portador
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

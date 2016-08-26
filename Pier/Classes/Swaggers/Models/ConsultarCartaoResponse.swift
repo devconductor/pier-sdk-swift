@@ -10,7 +10,7 @@ import Foundation
 
 public class ConsultarCartaoResponse: JSONEncodable {
 
-    public var cartoes: [CartaoResponse]?
+    public var cartoes: [CartaoResponseOld]?
     public var codigoRetorno: Int?
     public var descricaoRetorno: String?
     

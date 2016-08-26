@@ -17,7 +17,7 @@ public class StatusCartoAPI: APIBase {
      - parameter idStatusCartao: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Est\u00C3\u00A1gio de Entrega do Cart\u00C3\u00A3o (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarStatusCartaoUsingGET(idStatusCartao idStatusCartao: Int, completion: ((data: EstgioCarto?, error: ErrorType?) -> Void)) {
+    public class func consultarStatusCartaoUsingGET(idStatusCartao idStatusCartao: Int, completion: ((data: StatusCarto?, error: ErrorType?) -> Void)) {
         consultarStatusCartaoUsingGETWithRequestBuilder(idStatusCartao: idStatusCartao).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -34,18 +34,31 @@ public class StatusCartoAPI: APIBase {
        - type: apiKey access_token 
        - name: access_token
      - examples: [{contentType=application/json, example={
-  "permiteDesbloqueio" : "aeiou",
+  "flagExcecaoBandeira" : "aeiou",
+  "flagCadastroSenha" : "aeiou",
   "idStatusDestinoDesbloqueio" : 123456789,
-  "cancelaConta" : "aeiou",
+  "flagDesbloqueio" : "aeiou",
+  "flagCancelaConta" : "aeiou",
   "nome" : "aeiou",
-  "id" : 123456789
+  "flagAlteraStatus" : "aeiou",
+  "flagEmiteProvisorio" : "aeiou",
+  "idStatusDestinoConta" : 123456789,
+  "flagReversaoCancelamento" : "aeiou",
+  "flagDestinoTransferencia" : "aeiou",
+  "flagCancelaCartao" : "aeiou",
+  "flagReemiteCartao" : "aeiou",
+  "flagReversaoDesbloqueio" : "aeiou",
+  "flagCadastroNovaSenha" : "aeiou",
+  "id" : 123456789,
+  "flagCobraTarifa" : "aeiou",
+  "flagOrigemTransferencia" : "aeiou"
 }}]
      
      - parameter idStatusCartao: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Est\u00C3\u00A1gio de Entrega do Cart\u00C3\u00A3o (id). 
 
-     - returns: RequestBuilder<EstgioCarto> 
+     - returns: RequestBuilder<StatusCarto> 
      */
-    public class func consultarStatusCartaoUsingGETWithRequestBuilder(idStatusCartao idStatusCartao: Int) -> RequestBuilder<EstgioCarto> {
+    public class func consultarStatusCartaoUsingGETWithRequestBuilder(idStatusCartao idStatusCartao: Int) -> RequestBuilder<StatusCarto> {
         var path = "/api/status-cartoes/{idStatusCartao}"
         path = path.stringByReplacingOccurrencesOfString("{idStatusCartao}", withString: "\(idStatusCartao)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -53,7 +66,7 @@ public class StatusCartoAPI: APIBase {
         let nillableParameters: [String:AnyObject?] = [:]
         let parameters = APIHelper.rejectNil(nillableParameters)
 
-        let requestBuilder: RequestBuilder<EstgioCarto>.Type = PierAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<StatusCarto>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
     }
@@ -64,15 +77,28 @@ public class StatusCartoAPI: APIBase {
      
      - parameter idStatusCartao: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Status do Cart\u00C3\u00A3o (id). (optional)
      - parameter nome: (query) Nome atribu\u00C3\u00ADdo ao Status de Entrega do Cart\u00C3\u00A3o. (optional)
+     - parameter flagAlteraStatus: (query) Quanto ativa, indica que Cart\u00C3\u00B5es que tiverem este idStatusCartao atribu\u00C3\u00ADdo n\u00C3\u00A3o ter\u00C3\u00A3o seu idStatusCartao Alterado, fazendo com que o Cart\u00C3\u00A3o atual possa continuar sendo utilizado at\u00C3\u00A9 o desbloqueio de um novo cart\u00C3\u00A3o. (optional)
+     - parameter flagDesbloqueio: (query) Quando ativa, indica que Cart\u00C3\u00B5es com este idStatusCartao poder\u00C3\u00A3o ser Desbloqueados. (optional)
+     - parameter flagReversaoDesbloqueio: (query) Quando ativa, indica que o cart\u00C3\u00A3o, mesmo tendo sido bloqueado, poder\u00C3\u00A1 ter o processo desfeito. (optional)
      - parameter idStatusDestinoDesbloqueio: (query) Indica qual o idStatusCartao que deve ser atribu\u00C3\u00ADdo a um idCartao quando ele for desbloqueado. (optional)
-     - parameter cancelaConta: (query) Indica que Cart\u00C3\u00B5es com este idStatusCartao podem ter a sua conta Cancelada. (optional)
-     - parameter permiteDesbloqueio: (query) Indica que Cart\u00C3\u00B5es com este idStatusCartao podem ser Desbloqueados. (optional)
+     - parameter flagCancelaCartao: (query) Quando ativa, indica que Cart\u00C3\u00B5es que tiverem este idStatusCartao atribu\u00C3\u00ADdo ter\u00C3\u00A3o o cart\u00C3\u00A3o Cancelado.  (optional)
+     - parameter flagReversaoCancelamento: (query) Quando ativa, indica que o cart\u00C3\u00A3o, mesmo tendo sido cancelado, poder\u00C3\u00A1 ter o processo desfeito. (optional)
+     - parameter flagEmiteProvisorio: (query) Quando ativa, indica que os portadores que tiverem seus cart\u00C3\u00B5es associados a idStatusCartao com esta flag poder\u00C3\u00A3o solicitar a emiss\u00C3\u00A3o de um cart\u00C3\u00A3o provis\u00C3\u00B3rio at\u00C3\u00A9 que um novo cart\u00C3\u00A3o definitivo seja recebido.  (optional)
+     - parameter flagCancelaConta: (query) Quando ativa, indica que Cart\u00C3\u00B5es que tiverem este idStatusCartao atribu\u00C3\u00ADdo ter\u00C3\u00A3o a conta Cancelada. (optional)
+     - parameter idStatusDestinoConta: (query) Indica qual o idStatusConta que ser\u00C3\u00A1 atribu\u00C3\u00ADdo ao idConta que tiver o Cartao do titular da mesma cancelado por um idStatusCartao que recomenda o cancelamento da conta. (optional)
+     - parameter flagReemiteCartao: (query) Quando ativa, indica que Cart\u00C3\u00B5es que tiverem este idStatusCartao atribu\u00C3\u00ADdo ter\u00C3\u00A3o um novo cart\u00C3\u00A3o automaticamente gerado. (optional)
+     - parameter flagCobraTarifa: (query) Quando ativa, indica que Cart\u00C3\u00B5es que tiverem este idStatusCartao atribu\u00C3\u00ADdo ter\u00C3\u00A3o a cobran\u00C3\u00A7a de tarifa lan\u00C3\u00A7ada junto a gera\u00C3\u00A7\u00C3\u00A3o do novo cart\u00C3\u00A3o, desde que o Produto ao qual o cart\u00C3\u00A3o pertence possua o respectivo par\u00C3\u00A2metro configurado. (optional)
+     - parameter flagOrigemTransferencia: (query) Quando ativa, indica que Cart\u00C3\u00B5es com este idStatusCartao podem realizar a transfer\u00C3\u00AAncia de cr\u00C3\u00A9ditos/d\u00C3\u00A9bitos para outros cart\u00C3\u00B5es. (optional)
+     - parameter flagDestinoTransferencia: (query) Quando ativa, indica que Cart\u00C3\u00B5es com este idStatusCartao podem receber transfer\u00C3\u00AAncias de cr\u00C3\u00A9ditos/d\u00C3\u00A9bitos oriundos de outros cart\u00C3\u00B5es. (optional)
+     - parameter flagCadastroSenha: (query) Quando ativa, indica se poder\u00C3\u00A1 ser realizado o cadastro de uma senha para o Cart\u00C3\u00A3o. (optional)
+     - parameter flagCadastroNovaSenha: (query) Quando ativa, indica que os Cart\u00C3\u00B5es que tiverem este idStatusCartao atribu\u00C3\u00ADdo ter\u00C3\u00A3o a senha atual exclu\u00C3\u00ADda. (optional)
+     - parameter flagExcecaoBandeira: (query) Quando ativa, indica que os Cart\u00C3\u00B5es que tiverem este idStatusCartao atribu\u00C3\u00ADdo dever\u00C3\u00A3o ter a respectiva informa\u00C3\u00A7\u00C3\u00A3o de mudan\u00C3\u00A7a de status inclu\u00C3\u00ADda no arquivo de exce\u00C3\u00A7\u00C3\u00A3o da Bandeira, a fim de manter atualizado o cadastro do cart\u00C3\u00A3o nela para nortear o que fazer com as transa\u00C3\u00A7\u00C3\u00B5es quando o autorizador estiver indispon\u00C3\u00ADvel. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarStatusCartoesUsingGET(idStatusCartao idStatusCartao: Int?, nome: String?, idStatusDestinoDesbloqueio: Int?, cancelaConta: String?, permiteDesbloqueio: String?, page: Int?, limit: Int?, completion: ((data: ListaDeStatusCartes?, error: ErrorType?) -> Void)) {
-        listarStatusCartoesUsingGETWithRequestBuilder(idStatusCartao: idStatusCartao, nome: nome, idStatusDestinoDesbloqueio: idStatusDestinoDesbloqueio, cancelaConta: cancelaConta, permiteDesbloqueio: permiteDesbloqueio, page: page, limit: limit).execute { (response, error) -> Void in
+    public class func listarStatusCartoesUsingGET(idStatusCartao idStatusCartao: Int?, nome: String?, flagAlteraStatus: String?, flagDesbloqueio: String?, flagReversaoDesbloqueio: String?, idStatusDestinoDesbloqueio: Int?, flagCancelaCartao: String?, flagReversaoCancelamento: String?, flagEmiteProvisorio: String?, flagCancelaConta: String?, idStatusDestinoConta: Int?, flagReemiteCartao: String?, flagCobraTarifa: String?, flagOrigemTransferencia: String?, flagDestinoTransferencia: String?, flagCadastroSenha: String?, flagCadastroNovaSenha: String?, flagExcecaoBandeira: String?, page: Int?, limit: Int?, completion: ((data: ListaDeStatusCartes?, error: ErrorType?) -> Void)) {
+        listarStatusCartoesUsingGETWithRequestBuilder(idStatusCartao: idStatusCartao, nome: nome, flagAlteraStatus: flagAlteraStatus, flagDesbloqueio: flagDesbloqueio, flagReversaoDesbloqueio: flagReversaoDesbloqueio, idStatusDestinoDesbloqueio: idStatusDestinoDesbloqueio, flagCancelaCartao: flagCancelaCartao, flagReversaoCancelamento: flagReversaoCancelamento, flagEmiteProvisorio: flagEmiteProvisorio, flagCancelaConta: flagCancelaConta, idStatusDestinoConta: idStatusDestinoConta, flagReemiteCartao: flagReemiteCartao, flagCobraTarifa: flagCobraTarifa, flagOrigemTransferencia: flagOrigemTransferencia, flagDestinoTransferencia: flagDestinoTransferencia, flagCadastroSenha: flagCadastroSenha, flagCadastroNovaSenha: flagCadastroNovaSenha, flagExcecaoBandeira: flagExcecaoBandeira, page: page, limit: limit).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -89,34 +115,73 @@ public class StatusCartoAPI: APIBase {
        - name: access_token
      - examples: [{contentType=application/json, example={
   "statusCartoes" : [ {
-    "permiteDesbloqueio" : "aeiou",
+    "flagExcecaoBandeira" : "aeiou",
+    "flagCadastroSenha" : "aeiou",
     "idStatusDestinoDesbloqueio" : 123456789,
-    "cancelaConta" : "aeiou",
+    "flagDesbloqueio" : "aeiou",
+    "flagCancelaConta" : "aeiou",
     "nome" : "aeiou",
-    "id" : 123456789
+    "flagAlteraStatus" : "aeiou",
+    "flagEmiteProvisorio" : "aeiou",
+    "idStatusDestinoConta" : 123456789,
+    "flagReversaoCancelamento" : "aeiou",
+    "flagDestinoTransferencia" : "aeiou",
+    "flagCancelaCartao" : "aeiou",
+    "flagReemiteCartao" : "aeiou",
+    "flagReversaoDesbloqueio" : "aeiou",
+    "flagCadastroNovaSenha" : "aeiou",
+    "id" : 123456789,
+    "flagCobraTarifa" : "aeiou",
+    "flagOrigemTransferencia" : "aeiou"
   } ]
 }}]
      
      - parameter idStatusCartao: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Status do Cart\u00C3\u00A3o (id). (optional)
      - parameter nome: (query) Nome atribu\u00C3\u00ADdo ao Status de Entrega do Cart\u00C3\u00A3o. (optional)
+     - parameter flagAlteraStatus: (query) Quanto ativa, indica que Cart\u00C3\u00B5es que tiverem este idStatusCartao atribu\u00C3\u00ADdo n\u00C3\u00A3o ter\u00C3\u00A3o seu idStatusCartao Alterado, fazendo com que o Cart\u00C3\u00A3o atual possa continuar sendo utilizado at\u00C3\u00A9 o desbloqueio de um novo cart\u00C3\u00A3o. (optional)
+     - parameter flagDesbloqueio: (query) Quando ativa, indica que Cart\u00C3\u00B5es com este idStatusCartao poder\u00C3\u00A3o ser Desbloqueados. (optional)
+     - parameter flagReversaoDesbloqueio: (query) Quando ativa, indica que o cart\u00C3\u00A3o, mesmo tendo sido bloqueado, poder\u00C3\u00A1 ter o processo desfeito. (optional)
      - parameter idStatusDestinoDesbloqueio: (query) Indica qual o idStatusCartao que deve ser atribu\u00C3\u00ADdo a um idCartao quando ele for desbloqueado. (optional)
-     - parameter cancelaConta: (query) Indica que Cart\u00C3\u00B5es com este idStatusCartao podem ter a sua conta Cancelada. (optional)
-     - parameter permiteDesbloqueio: (query) Indica que Cart\u00C3\u00B5es com este idStatusCartao podem ser Desbloqueados. (optional)
+     - parameter flagCancelaCartao: (query) Quando ativa, indica que Cart\u00C3\u00B5es que tiverem este idStatusCartao atribu\u00C3\u00ADdo ter\u00C3\u00A3o o cart\u00C3\u00A3o Cancelado.  (optional)
+     - parameter flagReversaoCancelamento: (query) Quando ativa, indica que o cart\u00C3\u00A3o, mesmo tendo sido cancelado, poder\u00C3\u00A1 ter o processo desfeito. (optional)
+     - parameter flagEmiteProvisorio: (query) Quando ativa, indica que os portadores que tiverem seus cart\u00C3\u00B5es associados a idStatusCartao com esta flag poder\u00C3\u00A3o solicitar a emiss\u00C3\u00A3o de um cart\u00C3\u00A3o provis\u00C3\u00B3rio at\u00C3\u00A9 que um novo cart\u00C3\u00A3o definitivo seja recebido.  (optional)
+     - parameter flagCancelaConta: (query) Quando ativa, indica que Cart\u00C3\u00B5es que tiverem este idStatusCartao atribu\u00C3\u00ADdo ter\u00C3\u00A3o a conta Cancelada. (optional)
+     - parameter idStatusDestinoConta: (query) Indica qual o idStatusConta que ser\u00C3\u00A1 atribu\u00C3\u00ADdo ao idConta que tiver o Cartao do titular da mesma cancelado por um idStatusCartao que recomenda o cancelamento da conta. (optional)
+     - parameter flagReemiteCartao: (query) Quando ativa, indica que Cart\u00C3\u00B5es que tiverem este idStatusCartao atribu\u00C3\u00ADdo ter\u00C3\u00A3o um novo cart\u00C3\u00A3o automaticamente gerado. (optional)
+     - parameter flagCobraTarifa: (query) Quando ativa, indica que Cart\u00C3\u00B5es que tiverem este idStatusCartao atribu\u00C3\u00ADdo ter\u00C3\u00A3o a cobran\u00C3\u00A7a de tarifa lan\u00C3\u00A7ada junto a gera\u00C3\u00A7\u00C3\u00A3o do novo cart\u00C3\u00A3o, desde que o Produto ao qual o cart\u00C3\u00A3o pertence possua o respectivo par\u00C3\u00A2metro configurado. (optional)
+     - parameter flagOrigemTransferencia: (query) Quando ativa, indica que Cart\u00C3\u00B5es com este idStatusCartao podem realizar a transfer\u00C3\u00AAncia de cr\u00C3\u00A9ditos/d\u00C3\u00A9bitos para outros cart\u00C3\u00B5es. (optional)
+     - parameter flagDestinoTransferencia: (query) Quando ativa, indica que Cart\u00C3\u00B5es com este idStatusCartao podem receber transfer\u00C3\u00AAncias de cr\u00C3\u00A9ditos/d\u00C3\u00A9bitos oriundos de outros cart\u00C3\u00B5es. (optional)
+     - parameter flagCadastroSenha: (query) Quando ativa, indica se poder\u00C3\u00A1 ser realizado o cadastro de uma senha para o Cart\u00C3\u00A3o. (optional)
+     - parameter flagCadastroNovaSenha: (query) Quando ativa, indica que os Cart\u00C3\u00B5es que tiverem este idStatusCartao atribu\u00C3\u00ADdo ter\u00C3\u00A3o a senha atual exclu\u00C3\u00ADda. (optional)
+     - parameter flagExcecaoBandeira: (query) Quando ativa, indica que os Cart\u00C3\u00B5es que tiverem este idStatusCartao atribu\u00C3\u00ADdo dever\u00C3\u00A3o ter a respectiva informa\u00C3\u00A7\u00C3\u00A3o de mudan\u00C3\u00A7a de status inclu\u00C3\u00ADda no arquivo de exce\u00C3\u00A7\u00C3\u00A3o da Bandeira, a fim de manter atualizado o cadastro do cart\u00C3\u00A3o nela para nortear o que fazer com as transa\u00C3\u00A7\u00C3\u00B5es quando o autorizador estiver indispon\u00C3\u00ADvel. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
 
      - returns: RequestBuilder<ListaDeStatusCartes> 
      */
-    public class func listarStatusCartoesUsingGETWithRequestBuilder(idStatusCartao idStatusCartao: Int?, nome: String?, idStatusDestinoDesbloqueio: Int?, cancelaConta: String?, permiteDesbloqueio: String?, page: Int?, limit: Int?) -> RequestBuilder<ListaDeStatusCartes> {
+    public class func listarStatusCartoesUsingGETWithRequestBuilder(idStatusCartao idStatusCartao: Int?, nome: String?, flagAlteraStatus: String?, flagDesbloqueio: String?, flagReversaoDesbloqueio: String?, idStatusDestinoDesbloqueio: Int?, flagCancelaCartao: String?, flagReversaoCancelamento: String?, flagEmiteProvisorio: String?, flagCancelaConta: String?, idStatusDestinoConta: Int?, flagReemiteCartao: String?, flagCobraTarifa: String?, flagOrigemTransferencia: String?, flagDestinoTransferencia: String?, flagCadastroSenha: String?, flagCadastroNovaSenha: String?, flagExcecaoBandeira: String?, page: Int?, limit: Int?) -> RequestBuilder<ListaDeStatusCartes> {
         let path = "/api/status-cartoes"
         let URLString = PierAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
             "id_status_cartao": idStatusCartao,
             "nome": nome,
+            "flag_altera_status": flagAlteraStatus,
+            "flag_desbloqueio": flagDesbloqueio,
+            "flag_reversao_desbloqueio": flagReversaoDesbloqueio,
             "id_status_destino_desbloqueio": idStatusDestinoDesbloqueio,
-            "cancela_conta": cancelaConta,
-            "permite_desbloqueio": permiteDesbloqueio,
+            "flag_cancela_cartao": flagCancelaCartao,
+            "flag_reversao_cancelamento": flagReversaoCancelamento,
+            "flag_emite_provisorio": flagEmiteProvisorio,
+            "flag_cancela_conta": flagCancelaConta,
+            "id_status_destino_conta": idStatusDestinoConta,
+            "flag_reemite_cartao": flagReemiteCartao,
+            "flag_cobra_tarifa": flagCobraTarifa,
+            "flag_origem_transferencia": flagOrigemTransferencia,
+            "flag_destino_transferencia": flagDestinoTransferencia,
+            "flag_cadastro_senha": flagCadastroSenha,
+            "flag_cadastro_nova_senha": flagCadastroNovaSenha,
+            "flag_excecao_bandeira": flagExcecaoBandeira,
             "page": page,
             "limit": limit
         ]
