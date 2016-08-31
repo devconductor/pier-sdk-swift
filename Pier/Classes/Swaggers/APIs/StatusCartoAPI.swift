@@ -17,7 +17,7 @@ public class StatusCartoAPI: APIBase {
      - parameter idStatusCartao: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Est\u00C3\u00A1gio de Entrega do Cart\u00C3\u00A3o (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarStatusCartaoUsingGET(idStatusCartao idStatusCartao: Int, completion: ((data: StatusCarto?, error: ErrorType?) -> Void)) {
+    public class func consultarStatusCartaoUsingGET(idStatusCartao idStatusCartao: Int, completion: ((data: StatusCartao?, error: ErrorType?) -> Void)) {
         consultarStatusCartaoUsingGETWithRequestBuilder(idStatusCartao: idStatusCartao).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -52,9 +52,9 @@ public class StatusCartoAPI: APIBase {
      
      - parameter idStatusCartao: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Est\u00C3\u00A1gio de Entrega do Cart\u00C3\u00A3o (id). 
 
-     - returns: RequestBuilder<StatusCarto> 
+     - returns: RequestBuilder<StatusCartao> 
      */
-    public class func consultarStatusCartaoUsingGETWithRequestBuilder(idStatusCartao idStatusCartao: Int) -> RequestBuilder<StatusCarto> {
+    public class func consultarStatusCartaoUsingGETWithRequestBuilder(idStatusCartao idStatusCartao: Int) -> RequestBuilder<StatusCartao> {
         var path = "/api/status-cartoes/{idStatusCartao}"
         path = path.stringByReplacingOccurrencesOfString("{idStatusCartao}", withString: "\(idStatusCartao)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -62,7 +62,7 @@ public class StatusCartoAPI: APIBase {
         let nillableParameters: [String:AnyObject?] = [:]
         let parameters = APIHelper.rejectNil(nillableParameters)
 
-        let requestBuilder: RequestBuilder<StatusCarto>.Type = PierAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<StatusCartao>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
     }
@@ -89,7 +89,7 @@ public class StatusCartoAPI: APIBase {
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarStatusCartoesUsingGET(id id: Int?, nome: String?, flagAlteraStatus: Int?, flagCancelaNoDesbloqueio: Int?, idStatusDestinoDesbloqueio: Int?, flagCancelaConta: Int?, idStatusDestinoConta: Int?, flagCobraTarifa: Int?, flagReemiteCartao: Int?, flagEmiteProvisorio: Int?, flagCadastroNovaSenha: Int?, flagOrigemTransferencia: Int?, flagDestinoTransferencia: Int?, flagExcecaoBandeira: Int?, page: Int?, limit: Int?, completion: ((data: ListaDeStatusCartes?, error: ErrorType?) -> Void)) {
+    public class func listarStatusCartoesUsingGET(id id: Int?, nome: String?, flagAlteraStatus: Int?, flagCancelaNoDesbloqueio: Int?, idStatusDestinoDesbloqueio: Int?, flagCancelaConta: Int?, idStatusDestinoConta: Int?, flagCobraTarifa: Int?, flagReemiteCartao: Int?, flagEmiteProvisorio: Int?, flagCadastroNovaSenha: Int?, flagOrigemTransferencia: Int?, flagDestinoTransferencia: Int?, flagExcecaoBandeira: Int?, page: Int?, limit: Int?, completion: ((data: ListaStatusCartoes?, error: ErrorType?) -> Void)) {
         listarStatusCartoesUsingGETWithRequestBuilder(id: id, nome: nome, flagAlteraStatus: flagAlteraStatus, flagCancelaNoDesbloqueio: flagCancelaNoDesbloqueio, idStatusDestinoDesbloqueio: idStatusDestinoDesbloqueio, flagCancelaConta: flagCancelaConta, idStatusDestinoConta: idStatusDestinoConta, flagCobraTarifa: flagCobraTarifa, flagReemiteCartao: flagReemiteCartao, flagEmiteProvisorio: flagEmiteProvisorio, flagCadastroNovaSenha: flagCadastroNovaSenha, flagOrigemTransferencia: flagOrigemTransferencia, flagDestinoTransferencia: flagDestinoTransferencia, flagExcecaoBandeira: flagExcecaoBandeira, page: page, limit: limit).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -141,9 +141,9 @@ public class StatusCartoAPI: APIBase {
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
 
-     - returns: RequestBuilder<ListaDeStatusCartes> 
+     - returns: RequestBuilder<ListaStatusCartoes> 
      */
-    public class func listarStatusCartoesUsingGETWithRequestBuilder(id id: Int?, nome: String?, flagAlteraStatus: Int?, flagCancelaNoDesbloqueio: Int?, idStatusDestinoDesbloqueio: Int?, flagCancelaConta: Int?, idStatusDestinoConta: Int?, flagCobraTarifa: Int?, flagReemiteCartao: Int?, flagEmiteProvisorio: Int?, flagCadastroNovaSenha: Int?, flagOrigemTransferencia: Int?, flagDestinoTransferencia: Int?, flagExcecaoBandeira: Int?, page: Int?, limit: Int?) -> RequestBuilder<ListaDeStatusCartes> {
+    public class func listarStatusCartoesUsingGETWithRequestBuilder(id id: Int?, nome: String?, flagAlteraStatus: Int?, flagCancelaNoDesbloqueio: Int?, idStatusDestinoDesbloqueio: Int?, flagCancelaConta: Int?, idStatusDestinoConta: Int?, flagCobraTarifa: Int?, flagReemiteCartao: Int?, flagEmiteProvisorio: Int?, flagCadastroNovaSenha: Int?, flagOrigemTransferencia: Int?, flagDestinoTransferencia: Int?, flagExcecaoBandeira: Int?, page: Int?, limit: Int?) -> RequestBuilder<ListaStatusCartoes> {
         let path = "/api/status-cartoes"
         let URLString = PierAPI.basePath + path
         
@@ -167,7 +167,7 @@ public class StatusCartoAPI: APIBase {
         ]
         let parameters = APIHelper.rejectNil(nillableParameters)
 
-        let requestBuilder: RequestBuilder<ListaDeStatusCartes>.Type = PierAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<ListaStatusCartoes>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
     }

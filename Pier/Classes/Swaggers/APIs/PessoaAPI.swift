@@ -71,7 +71,7 @@ public class PessoaAPI: APIBase {
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET1(idPessoa idPessoa: Int?, nome: String?, tipo: String?, cpf: String?, cnpj: String?, dataNascimento: NSDate?, cnpj2: String?, page: Int?, limit: Int?, completion: ((data: ListaDeOrigensComerciais?, error: ErrorType?) -> Void)) {
+    public class func listarUsingGET1(idPessoa idPessoa: Int?, nome: String?, tipo: String?, cpf: String?, cnpj: String?, dataNascimento: NSDate?, cnpj2: String?, page: Int?, limit: Int?, completion: ((data: ListaOrigensComerciais?, error: ErrorType?) -> Void)) {
         listarUsingGET1WithRequestBuilder(idPessoa: idPessoa, nome: nome, tipo: tipo, cpf: cpf, cnpj: cnpj, dataNascimento: dataNascimento, cnpj2: cnpj2, page: page, limit: limit).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -105,9 +105,9 @@ public class PessoaAPI: APIBase {
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
 
-     - returns: RequestBuilder<ListaDeOrigensComerciais> 
+     - returns: RequestBuilder<ListaOrigensComerciais> 
      */
-    public class func listarUsingGET1WithRequestBuilder(idPessoa idPessoa: Int?, nome: String?, tipo: String?, cpf: String?, cnpj: String?, dataNascimento: NSDate?, cnpj2: String?, page: Int?, limit: Int?) -> RequestBuilder<ListaDeOrigensComerciais> {
+    public class func listarUsingGET1WithRequestBuilder(idPessoa idPessoa: Int?, nome: String?, tipo: String?, cpf: String?, cnpj: String?, dataNascimento: NSDate?, cnpj2: String?, page: Int?, limit: Int?) -> RequestBuilder<ListaOrigensComerciais> {
         let path = "/api/pessoas"
         let URLString = PierAPI.basePath + path
         
@@ -124,7 +124,7 @@ public class PessoaAPI: APIBase {
         ]
         let parameters = APIHelper.rejectNil(nillableParameters)
 
-        let requestBuilder: RequestBuilder<ListaDeOrigensComerciais>.Type = PierAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<ListaOrigensComerciais>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
     }

@@ -67,7 +67,7 @@ public class ProdutoAPI: APIBase {
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarProdutosUsingGET(idProduto idProduto: Int?, nome: String?, status: String?, page: Int?, limit: Int?, completion: ((data: ListaDePessoas?, error: ErrorType?) -> Void)) {
+    public class func listarProdutosUsingGET(idProduto idProduto: Int?, nome: String?, status: String?, page: Int?, limit: Int?, completion: ((data: ListaProdutos?, error: ErrorType?) -> Void)) {
         listarProdutosUsingGETWithRequestBuilder(idProduto: idProduto, nome: nome, status: status, page: page, limit: limit).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -84,14 +84,10 @@ public class ProdutoAPI: APIBase {
        - type: apiKey access_token 
        - name: access_token
      - examples: [{contentType=application/json, example={
-  "pessoas" : [ {
-    "tipo" : "aeiou",
-    "cpf" : "aeiou",
+  "produtos" : [ {
     "nome" : "aeiou",
-    "cnpj" : "aeiou",
     "id" : 123456789,
-    "dataNascimento" : "2000-01-23T04:56:07.000+0000",
-    "sexo" : "aeiou"
+    "status" : "aeiou"
   } ]
 }}]
      
@@ -101,9 +97,9 @@ public class ProdutoAPI: APIBase {
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
 
-     - returns: RequestBuilder<ListaDePessoas> 
+     - returns: RequestBuilder<ListaProdutos> 
      */
-    public class func listarProdutosUsingGETWithRequestBuilder(idProduto idProduto: Int?, nome: String?, status: String?, page: Int?, limit: Int?) -> RequestBuilder<ListaDePessoas> {
+    public class func listarProdutosUsingGETWithRequestBuilder(idProduto idProduto: Int?, nome: String?, status: String?, page: Int?, limit: Int?) -> RequestBuilder<ListaProdutos> {
         let path = "/api/produtos"
         let URLString = PierAPI.basePath + path
         
@@ -116,7 +112,7 @@ public class ProdutoAPI: APIBase {
         ]
         let parameters = APIHelper.rejectNil(nillableParameters)
 
-        let requestBuilder: RequestBuilder<ListaDePessoas>.Type = PierAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<ListaProdutos>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
     }
