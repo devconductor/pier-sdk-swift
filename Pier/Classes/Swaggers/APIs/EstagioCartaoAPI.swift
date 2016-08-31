@@ -65,7 +65,7 @@ public class EstagioCartaoAPI: APIBase {
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarEstagiosCartoesUsingGET(id id: Int?, nome: String?, page: Int?, limit: Int?, completion: ((data: ListaEstagiosCartoes?, error: ErrorType?) -> Void)) {
+    public class func listarEstagiosCartoesUsingGET(id id: Int?, nome: String?, page: Int?, limit: Int?, completion: ((data: PageEstagiosCartoes?, error: ErrorType?) -> Void)) {
         listarEstagiosCartoesUsingGETWithRequestBuilder(id: id, nome: nome, page: page, limit: limit).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -82,10 +82,11 @@ public class EstagioCartaoAPI: APIBase {
        - type: apiKey access_token 
        - name: access_token
      - examples: [{contentType=application/json, example={
-  "estagiosCartoes" : [ {
-    "nome" : "aeiou",
-    "id" : 123456789
-  } ]
+  "estagioCartoes" : {
+    "last" : true,
+    "totalPages" : 123,
+    "totalElements" : 123456789
+  }
 }}]
      
      - parameter id: (query) Id do est\u00C3\u00A1gio cart\u00C3\u00A3o (optional)
@@ -93,9 +94,9 @@ public class EstagioCartaoAPI: APIBase {
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
 
-     - returns: RequestBuilder<ListaEstagiosCartoes> 
+     - returns: RequestBuilder<PageEstagiosCartoes> 
      */
-    public class func listarEstagiosCartoesUsingGETWithRequestBuilder(id id: Int?, nome: String?, page: Int?, limit: Int?) -> RequestBuilder<ListaEstagiosCartoes> {
+    public class func listarEstagiosCartoesUsingGETWithRequestBuilder(id id: Int?, nome: String?, page: Int?, limit: Int?) -> RequestBuilder<PageEstagiosCartoes> {
         let path = "/api/estagios-cartoes"
         let URLString = PierAPI.basePath + path
         
@@ -107,7 +108,7 @@ public class EstagioCartaoAPI: APIBase {
         ]
         let parameters = APIHelper.rejectNil(nillableParameters)
 
-        let requestBuilder: RequestBuilder<ListaEstagiosCartoes>.Type = PierAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<PageEstagiosCartoes>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
     }

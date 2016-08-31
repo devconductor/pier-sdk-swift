@@ -529,19 +529,6 @@ class Decoders {
             }
 			
 
-			// Decoder for [ListaEstagiosCartoes]
-            Decoders.addDecoder(clazz: [ListaEstagiosCartoes].self) { (source: AnyObject) -> [ListaEstagiosCartoes] in
-                return Decoders.decode(clazz: [ListaEstagiosCartoes].self, source: source)
-            }
-			// Decoder for ListaEstagiosCartoes
-            Decoders.addDecoder(clazz: ListaEstagiosCartoes.self) { (source: AnyObject) -> ListaEstagiosCartoes in
-                let sourceDictionary = source as! [NSObject:AnyObject]
-                let instance = ListaEstagiosCartoes()
-                instance.estagiosCartoes = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["estagiosCartoes"])
-                return instance
-            }
-			
-
 			// Decoder for [ListaOrigensComerciais]
             Decoders.addDecoder(clazz: [ListaOrigensComerciais].self) { (source: AnyObject) -> [ListaOrigensComerciais] in
                 return Decoders.decode(clazz: [ListaOrigensComerciais].self, source: source)
@@ -592,6 +579,34 @@ class Decoders {
                 instance.id = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["id"])
                 instance.nome = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["nome"])
                 instance.status = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["status"])
+                return instance
+            }
+			
+
+			// Decoder for [PageEstagiosCartoes]
+            Decoders.addDecoder(clazz: [PageEstagiosCartoes].self) { (source: AnyObject) -> [PageEstagiosCartoes] in
+                return Decoders.decode(clazz: [PageEstagiosCartoes].self, source: source)
+            }
+			// Decoder for PageEstagiosCartoes
+            Decoders.addDecoder(clazz: PageEstagiosCartoes.self) { (source: AnyObject) -> PageEstagiosCartoes in
+                let sourceDictionary = source as! [NSObject:AnyObject]
+                let instance = PageEstagiosCartoes()
+                instance.estagioCartoes = Decoders.decodeOptional(clazz: PageImplOfEstagioCartao.self, source: sourceDictionary["estagioCartoes"])
+                return instance
+            }
+			
+
+			// Decoder for [PageImplOfEstagioCartao]
+            Decoders.addDecoder(clazz: [PageImplOfEstagioCartao].self) { (source: AnyObject) -> [PageImplOfEstagioCartao] in
+                return Decoders.decode(clazz: [PageImplOfEstagioCartao].self, source: source)
+            }
+			// Decoder for PageImplOfEstagioCartao
+            Decoders.addDecoder(clazz: PageImplOfEstagioCartao.self) { (source: AnyObject) -> PageImplOfEstagioCartao in
+                let sourceDictionary = source as! [NSObject:AnyObject]
+                let instance = PageImplOfEstagioCartao()
+                instance.last = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["last"])
+                instance.totalElements = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["totalElements"])
+                instance.totalPages = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["totalPages"])
                 return instance
             }
 			
