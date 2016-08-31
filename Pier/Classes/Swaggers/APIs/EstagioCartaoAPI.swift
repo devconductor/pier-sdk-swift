@@ -83,9 +83,23 @@ public class EstagioCartaoAPI: APIBase {
        - name: access_token
      - examples: [{contentType=application/json, example={
   "estagioCartoes" : {
+    "previousPage" : 123,
     "last" : true,
+    "hasContent" : true,
+    "hasNextPage" : true,
+    "nextPage" : 123,
+    "content" : [ {
+      "nome" : "aeiou",
+      "id" : 123456789
+    } ],
+    "totalElements" : 123456789,
+    "number" : 123,
+    "firstPage" : true,
+    "numberOfElements" : 123,
+    "size" : 123,
     "totalPages" : 123,
-    "totalElements" : 123456789
+    "hasPreviousPage" : true,
+    "first" : true
   }
 }}]
      

@@ -583,6 +583,32 @@ class Decoders {
             }
 			
 
+			// Decoder for [PageApiOfEstagioCartao]
+            Decoders.addDecoder(clazz: [PageApiOfEstagioCartao].self) { (source: AnyObject) -> [PageApiOfEstagioCartao] in
+                return Decoders.decode(clazz: [PageApiOfEstagioCartao].self, source: source)
+            }
+			// Decoder for PageApiOfEstagioCartao
+            Decoders.addDecoder(clazz: PageApiOfEstagioCartao.self) { (source: AnyObject) -> PageApiOfEstagioCartao in
+                let sourceDictionary = source as! [NSObject:AnyObject]
+                let instance = PageApiOfEstagioCartao()
+                instance.content = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["content"])
+                instance.first = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["first"])
+                instance.firstPage = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["firstPage"])
+                instance.hasContent = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["hasContent"])
+                instance.hasNextPage = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["hasNextPage"])
+                instance.hasPreviousPage = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["hasPreviousPage"])
+                instance.last = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["last"])
+                instance.nextPage = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["nextPage"])
+                instance.number = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["number"])
+                instance.numberOfElements = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["numberOfElements"])
+                instance.previousPage = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["previousPage"])
+                instance.size = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["size"])
+                instance.totalElements = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["totalElements"])
+                instance.totalPages = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["totalPages"])
+                return instance
+            }
+			
+
 			// Decoder for [PageEstagiosCartoes]
             Decoders.addDecoder(clazz: [PageEstagiosCartoes].self) { (source: AnyObject) -> [PageEstagiosCartoes] in
                 return Decoders.decode(clazz: [PageEstagiosCartoes].self, source: source)
@@ -591,22 +617,7 @@ class Decoders {
             Decoders.addDecoder(clazz: PageEstagiosCartoes.self) { (source: AnyObject) -> PageEstagiosCartoes in
                 let sourceDictionary = source as! [NSObject:AnyObject]
                 let instance = PageEstagiosCartoes()
-                instance.estagioCartoes = Decoders.decodeOptional(clazz: PageImplOfEstagioCartao.self, source: sourceDictionary["estagioCartoes"])
-                return instance
-            }
-			
-
-			// Decoder for [PageImplOfEstagioCartao]
-            Decoders.addDecoder(clazz: [PageImplOfEstagioCartao].self) { (source: AnyObject) -> [PageImplOfEstagioCartao] in
-                return Decoders.decode(clazz: [PageImplOfEstagioCartao].self, source: source)
-            }
-			// Decoder for PageImplOfEstagioCartao
-            Decoders.addDecoder(clazz: PageImplOfEstagioCartao.self) { (source: AnyObject) -> PageImplOfEstagioCartao in
-                let sourceDictionary = source as! [NSObject:AnyObject]
-                let instance = PageImplOfEstagioCartao()
-                instance.last = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["last"])
-                instance.totalElements = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["totalElements"])
-                instance.totalPages = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["totalPages"])
+                instance.estagioCartoes = Decoders.decodeOptional(clazz: PageApiOfEstagioCartao.self, source: sourceDictionary["estagioCartoes"])
                 return instance
             }
 			

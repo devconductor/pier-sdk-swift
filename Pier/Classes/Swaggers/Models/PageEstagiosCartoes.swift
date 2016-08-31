@@ -11,7 +11,7 @@ import Foundation
 /** Page de Est\u00C3\u00A1gios Cart\u00C3\u00B5es */
 public class PageEstagiosCartoes: JSONEncodable {
 
-    public var estagioCartoes: PageImplOfEstagioCartao?
+    public var estagioCartoes: PageApiOfEstagioCartao?
     
 
     public init() {}
