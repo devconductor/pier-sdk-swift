@@ -59,14 +59,14 @@ public class EstgioCartoAPI: APIBase {
      
      Lista as op\u00C3\u00A7\u00C3\u00B5es de Est\u00C3\u00A1gios do Cart\u00C3\u00A3o 
      
-     - parameter idEstagioCartao: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Est\u00C3\u00A1gio de Entrega do Cart\u00C3\u00A3o (id). (optional)
-     - parameter nome: (query) Nome atribu\u00C3\u00ADdo ao Est\u00C3\u00A1gio de Entrega do Cart\u00C3\u00A3o. (optional)
+     - parameter id: (query) Id do est\u00C3\u00A1gio cart\u00C3\u00A3o 
+     - parameter nome: (query) Nome do est\u00C3\u00A1gio cart\u00C3\u00A3o 
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarEstagiosCartoesUsingGET(idEstagioCartao idEstagioCartao: Int?, nome: String?, page: Int?, limit: Int?, completion: ((data: ListaDeEstgiosCartes?, error: ErrorType?) -> Void)) {
-        listarEstagiosCartoesUsingGETWithRequestBuilder(idEstagioCartao: idEstagioCartao, nome: nome, page: page, limit: limit).execute { (response, error) -> Void in
+    public class func listarEstagiosCartoesUsingGET(id id: Int, nome: String, page: Int?, limit: Int?, completion: ((data: ListaDeEstgiosCartes?, error: ErrorType?) -> Void)) {
+        listarEstagiosCartoesUsingGETWithRequestBuilder(id: id, nome: nome, page: page, limit: limit).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -88,19 +88,19 @@ public class EstgioCartoAPI: APIBase {
   } ]
 }}]
      
-     - parameter idEstagioCartao: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Est\u00C3\u00A1gio de Entrega do Cart\u00C3\u00A3o (id). (optional)
-     - parameter nome: (query) Nome atribu\u00C3\u00ADdo ao Est\u00C3\u00A1gio de Entrega do Cart\u00C3\u00A3o. (optional)
+     - parameter id: (query) Id do est\u00C3\u00A1gio cart\u00C3\u00A3o 
+     - parameter nome: (query) Nome do est\u00C3\u00A1gio cart\u00C3\u00A3o 
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
 
      - returns: RequestBuilder<ListaDeEstgiosCartes> 
      */
-    public class func listarEstagiosCartoesUsingGETWithRequestBuilder(idEstagioCartao idEstagioCartao: Int?, nome: String?, page: Int?, limit: Int?) -> RequestBuilder<ListaDeEstgiosCartes> {
+    public class func listarEstagiosCartoesUsingGETWithRequestBuilder(id id: Int, nome: String, page: Int?, limit: Int?) -> RequestBuilder<ListaDeEstgiosCartes> {
         let path = "/api/estagios-cartoes"
         let URLString = PierAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
-            "id_estagio_cartao": idEstagioCartao,
+            "id": id,
             "nome": nome,
             "page": page,
             "limit": limit

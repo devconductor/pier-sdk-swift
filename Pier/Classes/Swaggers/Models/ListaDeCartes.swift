@@ -12,7 +12,7 @@ import Foundation
 public class ListaDeCartes: JSONEncodable {
 
     /** Lista de cart\u00C3\u00B5es */
-    public var cartoes: [CartaoResponse]?
+    public var cartoes: [Carto]?
     
 
     public init() {}
