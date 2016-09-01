@@ -82,25 +82,23 @@ public class EstagioCartaoAPI: APIBase {
        - type: apiKey access_token 
        - name: access_token
      - examples: [{contentType=application/json, example={
-  "estagioCartoes" : {
-    "previousPage" : 123,
-    "last" : true,
-    "hasContent" : true,
-    "hasNextPage" : true,
-    "nextPage" : 123,
-    "content" : [ {
-      "nome" : "aeiou",
-      "id" : 123456789
-    } ],
-    "totalElements" : 123456789,
-    "number" : 123,
-    "firstPage" : true,
-    "numberOfElements" : 123,
-    "size" : 123,
-    "totalPages" : 123,
-    "hasPreviousPage" : true,
-    "first" : true
-  }
+  "previousPage" : 123,
+  "last" : true,
+  "hasContent" : true,
+  "hasNextPage" : true,
+  "nextPage" : 123,
+  "content" : [ {
+    "nome" : "aeiou",
+    "id" : 123456789
+  } ],
+  "totalElements" : 123456789,
+  "number" : 123,
+  "firstPage" : true,
+  "numberOfElements" : 123,
+  "size" : 123,
+  "totalPages" : 123,
+  "hasPreviousPage" : true,
+  "first" : true
 }}]
      
      - parameter id: (query) Id do est\u00C3\u00A1gio cart\u00C3\u00A3o (optional)
