@@ -89,7 +89,7 @@ public class StatusCartaoAPI: APIBase {
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarStatusCartoesUsingGET(id id: Int?, nome: String?, flagAlteraStatus: Int?, flagCancelaNoDesbloqueio: Int?, idStatusDestinoDesbloqueio: Int?, flagCancelaConta: Int?, idStatusDestinoConta: Int?, flagCobraTarifa: Int?, flagReemiteCartao: Int?, flagEmiteProvisorio: Int?, flagCadastroNovaSenha: Int?, flagOrigemTransferencia: Int?, flagDestinoTransferencia: Int?, flagExcecaoBandeira: Int?, page: Int?, limit: Int?, completion: ((data: ListaStatusCartoes?, error: ErrorType?) -> Void)) {
+    public class func listarStatusCartoesUsingGET(id id: Int?, nome: String?, flagAlteraStatus: Int?, flagCancelaNoDesbloqueio: Int?, idStatusDestinoDesbloqueio: Int?, flagCancelaConta: Int?, idStatusDestinoConta: Int?, flagCobraTarifa: Int?, flagReemiteCartao: Int?, flagEmiteProvisorio: Int?, flagCadastroNovaSenha: Int?, flagOrigemTransferencia: Int?, flagDestinoTransferencia: Int?, flagExcecaoBandeira: Int?, page: Int?, limit: Int?, completion: ((data: PageStatusCartoes?, error: ErrorType?) -> Void)) {
         listarStatusCartoesUsingGETWithRequestBuilder(id: id, nome: nome, flagAlteraStatus: flagAlteraStatus, flagCancelaNoDesbloqueio: flagCancelaNoDesbloqueio, idStatusDestinoDesbloqueio: idStatusDestinoDesbloqueio, flagCancelaConta: flagCancelaConta, idStatusDestinoConta: idStatusDestinoConta, flagCobraTarifa: flagCobraTarifa, flagReemiteCartao: flagReemiteCartao, flagEmiteProvisorio: flagEmiteProvisorio, flagCadastroNovaSenha: flagCadastroNovaSenha, flagOrigemTransferencia: flagOrigemTransferencia, flagDestinoTransferencia: flagDestinoTransferencia, flagExcecaoBandeira: flagExcecaoBandeira, page: page, limit: limit).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -106,7 +106,12 @@ public class StatusCartaoAPI: APIBase {
        - type: apiKey access_token 
        - name: access_token
      - examples: [{contentType=application/json, example={
-  "statusCartoes" : [ {
+  "previousPage" : 123,
+  "last" : true,
+  "hasContent" : true,
+  "hasNextPage" : true,
+  "nextPage" : 123,
+  "content" : [ {
     "flagExcecaoBandeira" : 123,
     "idStatusDestinoDesbloqueio" : 123456789,
     "flagCancelaConta" : 123,
@@ -121,7 +126,15 @@ public class StatusCartaoAPI: APIBase {
     "id" : 123456789,
     "flagCobraTarifa" : 123,
     "flagOrigemTransferencia" : 123
-  } ]
+  } ],
+  "totalElements" : 123456789,
+  "number" : 123,
+  "firstPage" : true,
+  "numberOfElements" : 123,
+  "size" : 123,
+  "totalPages" : 123,
+  "hasPreviousPage" : true,
+  "first" : true
 }}]
      
      - parameter id: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Status do Cart\u00C3\u00A3o (id)  (optional)
@@ -141,9 +154,9 @@ public class StatusCartaoAPI: APIBase {
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
 
-     - returns: RequestBuilder<ListaStatusCartoes> 
+     - returns: RequestBuilder<PageStatusCartoes> 
      */
-    public class func listarStatusCartoesUsingGETWithRequestBuilder(id id: Int?, nome: String?, flagAlteraStatus: Int?, flagCancelaNoDesbloqueio: Int?, idStatusDestinoDesbloqueio: Int?, flagCancelaConta: Int?, idStatusDestinoConta: Int?, flagCobraTarifa: Int?, flagReemiteCartao: Int?, flagEmiteProvisorio: Int?, flagCadastroNovaSenha: Int?, flagOrigemTransferencia: Int?, flagDestinoTransferencia: Int?, flagExcecaoBandeira: Int?, page: Int?, limit: Int?) -> RequestBuilder<ListaStatusCartoes> {
+    public class func listarStatusCartoesUsingGETWithRequestBuilder(id id: Int?, nome: String?, flagAlteraStatus: Int?, flagCancelaNoDesbloqueio: Int?, idStatusDestinoDesbloqueio: Int?, flagCancelaConta: Int?, idStatusDestinoConta: Int?, flagCobraTarifa: Int?, flagReemiteCartao: Int?, flagEmiteProvisorio: Int?, flagCadastroNovaSenha: Int?, flagOrigemTransferencia: Int?, flagDestinoTransferencia: Int?, flagExcecaoBandeira: Int?, page: Int?, limit: Int?) -> RequestBuilder<PageStatusCartoes> {
         let path = "/api/status-cartoes"
         let URLString = PierAPI.basePath + path
         
@@ -167,7 +180,7 @@ public class StatusCartaoAPI: APIBase {
         ]
         let parameters = APIHelper.rejectNil(nillableParameters)
 
-        let requestBuilder: RequestBuilder<ListaStatusCartoes>.Type = PierAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<PageStatusCartoes>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
     }

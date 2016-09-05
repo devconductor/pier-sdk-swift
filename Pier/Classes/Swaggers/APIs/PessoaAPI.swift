@@ -71,7 +71,7 @@ public class PessoaAPI: APIBase {
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET1(idPessoa idPessoa: Int?, nome: String?, tipo: String?, cpf: String?, cnpj: String?, dataNascimento: NSDate?, cnpj2: String?, page: Int?, limit: Int?, completion: ((data: ListaOrigensComerciais?, error: ErrorType?) -> Void)) {
+    public class func listarUsingGET1(idPessoa idPessoa: Int?, nome: String?, tipo: String?, cpf: String?, cnpj: String?, dataNascimento: NSDate?, cnpj2: String?, page: Int?, limit: Int?, completion: ((data: PagePessoas?, error: ErrorType?) -> Void)) {
         listarUsingGET1WithRequestBuilder(idPessoa: idPessoa, nome: nome, tipo: tipo, cpf: cpf, cnpj: cnpj, dataNascimento: dataNascimento, cnpj2: cnpj2, page: page, limit: limit).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -88,11 +88,28 @@ public class PessoaAPI: APIBase {
        - type: apiKey access_token 
        - name: access_token
      - examples: [{contentType=application/json, example={
-  "origensComerciais" : [ {
+  "previousPage" : 123,
+  "last" : true,
+  "hasContent" : true,
+  "hasNextPage" : true,
+  "nextPage" : 123,
+  "content" : [ {
+    "tipo" : "aeiou",
+    "cpf" : "aeiou",
     "nome" : "aeiou",
+    "cnpj" : "aeiou",
     "id" : 123456789,
-    "status" : "aeiou"
-  } ]
+    "dataNascimento" : "2000-01-23T04:56:07.000+0000",
+    "sexo" : "aeiou"
+  } ],
+  "totalElements" : 123456789,
+  "number" : 123,
+  "firstPage" : true,
+  "numberOfElements" : 123,
+  "size" : 123,
+  "totalPages" : 123,
+  "hasPreviousPage" : true,
+  "first" : true
 }}]
      
      - parameter idPessoa: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Pessoa (id). (optional)
@@ -105,9 +122,9 @@ public class PessoaAPI: APIBase {
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
 
-     - returns: RequestBuilder<ListaOrigensComerciais> 
+     - returns: RequestBuilder<PagePessoas> 
      */
-    public class func listarUsingGET1WithRequestBuilder(idPessoa idPessoa: Int?, nome: String?, tipo: String?, cpf: String?, cnpj: String?, dataNascimento: NSDate?, cnpj2: String?, page: Int?, limit: Int?) -> RequestBuilder<ListaOrigensComerciais> {
+    public class func listarUsingGET1WithRequestBuilder(idPessoa idPessoa: Int?, nome: String?, tipo: String?, cpf: String?, cnpj: String?, dataNascimento: NSDate?, cnpj2: String?, page: Int?, limit: Int?) -> RequestBuilder<PagePessoas> {
         let path = "/api/pessoas"
         let URLString = PierAPI.basePath + path
         
@@ -124,7 +141,7 @@ public class PessoaAPI: APIBase {
         ]
         let parameters = APIHelper.rejectNil(nillableParameters)
 
-        let requestBuilder: RequestBuilder<ListaOrigensComerciais>.Type = PierAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<PagePessoas>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
     }

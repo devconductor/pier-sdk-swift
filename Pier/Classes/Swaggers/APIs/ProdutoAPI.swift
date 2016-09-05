@@ -84,11 +84,24 @@ public class ProdutoAPI: APIBase {
        - type: apiKey access_token 
        - name: access_token
      - examples: [{contentType=application/json, example={
-  "produtos" : [ {
+  "previousPage" : 123,
+  "last" : true,
+  "hasContent" : true,
+  "hasNextPage" : true,
+  "nextPage" : 123,
+  "content" : [ {
     "nome" : "aeiou",
     "id" : 123456789,
     "status" : "aeiou"
-  } ]
+  } ],
+  "totalElements" : 123456789,
+  "number" : 123,
+  "firstPage" : true,
+  "numberOfElements" : 123,
+  "size" : 123,
+  "totalPages" : 123,
+  "hasPreviousPage" : true,
+  "first" : true
 }}]
      
      - parameter idProduto: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Produto (id) (optional)

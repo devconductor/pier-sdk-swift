@@ -516,32 +516,6 @@ class Decoders {
             }
 			
 
-			// Decoder for [ListaCartoes]
-            Decoders.addDecoder(clazz: [ListaCartoes].self) { (source: AnyObject) -> [ListaCartoes] in
-                return Decoders.decode(clazz: [ListaCartoes].self, source: source)
-            }
-			// Decoder for ListaCartoes
-            Decoders.addDecoder(clazz: ListaCartoes.self) { (source: AnyObject) -> ListaCartoes in
-                let sourceDictionary = source as! [NSObject:AnyObject]
-                let instance = ListaCartoes()
-                instance.cartoes = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["cartoes"])
-                return instance
-            }
-			
-
-			// Decoder for [ListaOrigensComerciais]
-            Decoders.addDecoder(clazz: [ListaOrigensComerciais].self) { (source: AnyObject) -> [ListaOrigensComerciais] in
-                return Decoders.decode(clazz: [ListaOrigensComerciais].self, source: source)
-            }
-			// Decoder for ListaOrigensComerciais
-            Decoders.addDecoder(clazz: ListaOrigensComerciais.self) { (source: AnyObject) -> ListaOrigensComerciais in
-                let sourceDictionary = source as! [NSObject:AnyObject]
-                let instance = ListaOrigensComerciais()
-                instance.origensComerciais = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["origensComerciais"])
-                return instance
-            }
-			
-
 			// Decoder for [ListaProdutos]
             Decoders.addDecoder(clazz: [ListaProdutos].self) { (source: AnyObject) -> [ListaProdutos] in
                 return Decoders.decode(clazz: [ListaProdutos].self, source: source)
@@ -550,20 +524,20 @@ class Decoders {
             Decoders.addDecoder(clazz: ListaProdutos.self) { (source: AnyObject) -> ListaProdutos in
                 let sourceDictionary = source as! [NSObject:AnyObject]
                 let instance = ListaProdutos()
-                instance.produtos = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["produtos"])
-                return instance
-            }
-			
-
-			// Decoder for [ListaStatusCartoes]
-            Decoders.addDecoder(clazz: [ListaStatusCartoes].self) { (source: AnyObject) -> [ListaStatusCartoes] in
-                return Decoders.decode(clazz: [ListaStatusCartoes].self, source: source)
-            }
-			// Decoder for ListaStatusCartoes
-            Decoders.addDecoder(clazz: ListaStatusCartoes.self) { (source: AnyObject) -> ListaStatusCartoes in
-                let sourceDictionary = source as! [NSObject:AnyObject]
-                let instance = ListaStatusCartoes()
-                instance.statusCartoes = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["statusCartoes"])
+                instance.content = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["content"])
+                instance.first = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["first"])
+                instance.firstPage = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["firstPage"])
+                instance.hasContent = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["hasContent"])
+                instance.hasNextPage = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["hasNextPage"])
+                instance.hasPreviousPage = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["hasPreviousPage"])
+                instance.last = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["last"])
+                instance.nextPage = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["nextPage"])
+                instance.number = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["number"])
+                instance.numberOfElements = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["numberOfElements"])
+                instance.previousPage = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["previousPage"])
+                instance.size = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["size"])
+                instance.totalElements = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["totalElements"])
+                instance.totalPages = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["totalPages"])
                 return instance
             }
 			
@@ -579,6 +553,32 @@ class Decoders {
                 instance.id = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["id"])
                 instance.nome = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["nome"])
                 instance.status = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["status"])
+                return instance
+            }
+			
+
+			// Decoder for [PageCartoes]
+            Decoders.addDecoder(clazz: [PageCartoes].self) { (source: AnyObject) -> [PageCartoes] in
+                return Decoders.decode(clazz: [PageCartoes].self, source: source)
+            }
+			// Decoder for PageCartoes
+            Decoders.addDecoder(clazz: PageCartoes.self) { (source: AnyObject) -> PageCartoes in
+                let sourceDictionary = source as! [NSObject:AnyObject]
+                let instance = PageCartoes()
+                instance.content = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["content"])
+                instance.first = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["first"])
+                instance.firstPage = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["firstPage"])
+                instance.hasContent = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["hasContent"])
+                instance.hasNextPage = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["hasNextPage"])
+                instance.hasPreviousPage = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["hasPreviousPage"])
+                instance.last = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["last"])
+                instance.nextPage = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["nextPage"])
+                instance.number = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["number"])
+                instance.numberOfElements = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["numberOfElements"])
+                instance.previousPage = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["previousPage"])
+                instance.size = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["size"])
+                instance.totalElements = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["totalElements"])
+                instance.totalPages = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["totalPages"])
                 return instance
             }
 			
@@ -605,6 +605,103 @@ class Decoders {
                 instance.size = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["size"])
                 instance.totalElements = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["totalElements"])
                 instance.totalPages = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["totalPages"])
+                return instance
+            }
+			
+
+			// Decoder for [PageOrigensComerciais]
+            Decoders.addDecoder(clazz: [PageOrigensComerciais].self) { (source: AnyObject) -> [PageOrigensComerciais] in
+                return Decoders.decode(clazz: [PageOrigensComerciais].self, source: source)
+            }
+			// Decoder for PageOrigensComerciais
+            Decoders.addDecoder(clazz: PageOrigensComerciais.self) { (source: AnyObject) -> PageOrigensComerciais in
+                let sourceDictionary = source as! [NSObject:AnyObject]
+                let instance = PageOrigensComerciais()
+                instance.content = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["content"])
+                instance.first = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["first"])
+                instance.firstPage = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["firstPage"])
+                instance.hasContent = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["hasContent"])
+                instance.hasNextPage = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["hasNextPage"])
+                instance.hasPreviousPage = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["hasPreviousPage"])
+                instance.last = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["last"])
+                instance.nextPage = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["nextPage"])
+                instance.number = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["number"])
+                instance.numberOfElements = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["numberOfElements"])
+                instance.previousPage = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["previousPage"])
+                instance.size = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["size"])
+                instance.totalElements = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["totalElements"])
+                instance.totalPages = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["totalPages"])
+                return instance
+            }
+			
+
+			// Decoder for [PagePessoas]
+            Decoders.addDecoder(clazz: [PagePessoas].self) { (source: AnyObject) -> [PagePessoas] in
+                return Decoders.decode(clazz: [PagePessoas].self, source: source)
+            }
+			// Decoder for PagePessoas
+            Decoders.addDecoder(clazz: PagePessoas.self) { (source: AnyObject) -> PagePessoas in
+                let sourceDictionary = source as! [NSObject:AnyObject]
+                let instance = PagePessoas()
+                instance.content = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["content"])
+                instance.first = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["first"])
+                instance.firstPage = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["firstPage"])
+                instance.hasContent = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["hasContent"])
+                instance.hasNextPage = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["hasNextPage"])
+                instance.hasPreviousPage = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["hasPreviousPage"])
+                instance.last = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["last"])
+                instance.nextPage = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["nextPage"])
+                instance.number = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["number"])
+                instance.numberOfElements = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["numberOfElements"])
+                instance.previousPage = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["previousPage"])
+                instance.size = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["size"])
+                instance.totalElements = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["totalElements"])
+                instance.totalPages = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["totalPages"])
+                return instance
+            }
+			
+
+			// Decoder for [PageStatusCartoes]
+            Decoders.addDecoder(clazz: [PageStatusCartoes].self) { (source: AnyObject) -> [PageStatusCartoes] in
+                return Decoders.decode(clazz: [PageStatusCartoes].self, source: source)
+            }
+			// Decoder for PageStatusCartoes
+            Decoders.addDecoder(clazz: PageStatusCartoes.self) { (source: AnyObject) -> PageStatusCartoes in
+                let sourceDictionary = source as! [NSObject:AnyObject]
+                let instance = PageStatusCartoes()
+                instance.content = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["content"])
+                instance.first = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["first"])
+                instance.firstPage = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["firstPage"])
+                instance.hasContent = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["hasContent"])
+                instance.hasNextPage = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["hasNextPage"])
+                instance.hasPreviousPage = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["hasPreviousPage"])
+                instance.last = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["last"])
+                instance.nextPage = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["nextPage"])
+                instance.number = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["number"])
+                instance.numberOfElements = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["numberOfElements"])
+                instance.previousPage = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["previousPage"])
+                instance.size = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["size"])
+                instance.totalElements = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["totalElements"])
+                instance.totalPages = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["totalPages"])
+                return instance
+            }
+			
+
+			// Decoder for [Pessoa]
+            Decoders.addDecoder(clazz: [Pessoa].self) { (source: AnyObject) -> [Pessoa] in
+                return Decoders.decode(clazz: [Pessoa].self, source: source)
+            }
+			// Decoder for Pessoa
+            Decoders.addDecoder(clazz: Pessoa.self) { (source: AnyObject) -> Pessoa in
+                let sourceDictionary = source as! [NSObject:AnyObject]
+                let instance = Pessoa()
+                instance.cnpj = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["cnpj"])
+                instance.cpf = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["cpf"])
+                instance.dataNascimento = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["dataNascimento"])
+                instance.id = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["id"])
+                instance.nome = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["nome"])
+                instance.sexo = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["sexo"])
+                instance.tipo = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["tipo"])
                 return instance
             }
 			
