@@ -516,6 +516,34 @@ class Decoders {
             }
 			
 
+			// Decoder for [LimiteDisponibilidade]
+            Decoders.addDecoder(clazz: [LimiteDisponibilidade].self) { (source: AnyObject) -> [LimiteDisponibilidade] in
+                return Decoders.decode(clazz: [LimiteDisponibilidade].self, source: source)
+            }
+			// Decoder for LimiteDisponibilidade
+            Decoders.addDecoder(clazz: LimiteDisponibilidade.self) { (source: AnyObject) -> LimiteDisponibilidade in
+                let sourceDictionary = source as! [NSObject:AnyObject]
+                let instance = LimiteDisponibilidade()
+                instance.id = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["id"])
+                instance.limiteCompra = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["limiteCompra"])
+                instance.limiteConsignado = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["limiteConsignado"])
+                instance.limiteExterno = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["limiteExterno"])
+                instance.limiteExtra = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["limiteExtra"])
+                instance.limiteGlobal = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["limiteGlobal"])
+                instance.limiteInternacionalCompra = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["limiteInternacionalCompra"])
+                instance.limiteInternacionalParcelado = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["limiteInternacionalParcelado"])
+                instance.limiteInternacionalParcelas = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["limiteInternacionalParcelas"])
+                instance.limiteInternacionalSaqueGlobal = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["limiteInternacionalSaqueGlobal"])
+                instance.limiteInternacionalSaquePeriodo = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["limiteInternacionalSaquePeriodo"])
+                instance.limiteMensal = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["limiteMensal"])
+                instance.limiteParcelado = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["limiteParcelado"])
+                instance.limiteParcelas = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["limiteParcelas"])
+                instance.limiteSaqueGlobal = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["limiteSaqueGlobal"])
+                instance.limiteSaquePeriodo = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["limiteSaquePeriodo"])
+                return instance
+            }
+			
+
 			// Decoder for [ListaProdutos]
             Decoders.addDecoder(clazz: [ListaProdutos].self) { (source: AnyObject) -> [ListaProdutos] in
                 return Decoders.decode(clazz: [ListaProdutos].self, source: source)

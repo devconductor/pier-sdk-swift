@@ -60,15 +60,15 @@ public class OrigemComercialAPI: APIBase {
      
      Opera\u00C3\u00A7\u00C3\u00A3o utilizada para listar Origens Comerciais 
      
-     - parameter idOrigemComercial: (query) ID da Origem Comercial (optional)
-     - parameter nome: (query) Nome da Origem Comercial (optional)
-     - parameter status: (query) Status da Origem Comercial (optional)
+     - parameter id: (query) Id da origem comercial (optional)
+     - parameter nome: (query) Nome da origem comercial (optional)
+     - parameter status: (query) Status da origem comercial (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarOrigensComerciaisUsingGET(idOrigemComercial idOrigemComercial: Int?, nome: String?, status: String?, page: Int?, limit: Int?, completion: ((data: PageOrigensComerciais?, error: ErrorType?) -> Void)) {
-        listarOrigensComerciaisUsingGETWithRequestBuilder(idOrigemComercial: idOrigemComercial, nome: nome, status: status, page: page, limit: limit).execute { (response, error) -> Void in
+    public class func listarOrigensComerciaisUsingGET(id id: Int?, nome: String?, status: String?, page: Int?, limit: Int?, completion: ((data: PageOrigensComerciais?, error: ErrorType?) -> Void)) {
+        listarOrigensComerciaisUsingGETWithRequestBuilder(id: id, nome: nome, status: status, page: page, limit: limit).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -104,20 +104,20 @@ public class OrigemComercialAPI: APIBase {
   "first" : true
 }}]
      
-     - parameter idOrigemComercial: (query) ID da Origem Comercial (optional)
-     - parameter nome: (query) Nome da Origem Comercial (optional)
-     - parameter status: (query) Status da Origem Comercial (optional)
+     - parameter id: (query) Id da origem comercial (optional)
+     - parameter nome: (query) Nome da origem comercial (optional)
+     - parameter status: (query) Status da origem comercial (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
 
      - returns: RequestBuilder<PageOrigensComerciais> 
      */
-    public class func listarOrigensComerciaisUsingGETWithRequestBuilder(idOrigemComercial idOrigemComercial: Int?, nome: String?, status: String?, page: Int?, limit: Int?) -> RequestBuilder<PageOrigensComerciais> {
+    public class func listarOrigensComerciaisUsingGETWithRequestBuilder(id id: Int?, nome: String?, status: String?, page: Int?, limit: Int?) -> RequestBuilder<PageOrigensComerciais> {
         let path = "/api/origens-comerciais"
         let URLString = PierAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
-            "id_origem_comercial": idOrigemComercial,
+            "id": id,
             "nome": nome,
             "status": status,
             "page": page,

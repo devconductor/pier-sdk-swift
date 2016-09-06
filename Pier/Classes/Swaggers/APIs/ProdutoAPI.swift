@@ -60,15 +60,15 @@ public class ProdutoAPI: APIBase {
      
      Lista os Produtos do Emissor
      
-     - parameter idProduto: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Produto (id) (optional)
-     - parameter nome: (query) Descri\u00C3\u00A7\u00C3\u00A3o do Nome do Produto (optional)
-     - parameter status: (query) Status do Produto, onde: (\&quot;0\&quot;: Inativo), (\&quot;1\&quot;: Ativo). (optional)
+     - parameter id: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Produto (id). (optional)
+     - parameter nome: (query) Descri\u00C3\u00A7\u00C3\u00A3o do Nome do Produto. (optional)
+     - parameter status: (query) Representa o Status do Produto, onde: (\&quot;0\&quot;: Inativo), (\&quot;1\&quot;: Ativo). (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarProdutosUsingGET(idProduto idProduto: Int?, nome: String?, status: String?, page: Int?, limit: Int?, completion: ((data: ListaProdutos?, error: ErrorType?) -> Void)) {
-        listarProdutosUsingGETWithRequestBuilder(idProduto: idProduto, nome: nome, status: status, page: page, limit: limit).execute { (response, error) -> Void in
+    public class func listarProdutosUsingGET(id id: Int?, nome: String?, status: String?, page: Int?, limit: Int?, completion: ((data: ListaProdutos?, error: ErrorType?) -> Void)) {
+        listarProdutosUsingGETWithRequestBuilder(id: id, nome: nome, status: status, page: page, limit: limit).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -104,20 +104,20 @@ public class ProdutoAPI: APIBase {
   "first" : true
 }}]
      
-     - parameter idProduto: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Produto (id) (optional)
-     - parameter nome: (query) Descri\u00C3\u00A7\u00C3\u00A3o do Nome do Produto (optional)
-     - parameter status: (query) Status do Produto, onde: (\&quot;0\&quot;: Inativo), (\&quot;1\&quot;: Ativo). (optional)
+     - parameter id: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Produto (id). (optional)
+     - parameter nome: (query) Descri\u00C3\u00A7\u00C3\u00A3o do Nome do Produto. (optional)
+     - parameter status: (query) Representa o Status do Produto, onde: (\&quot;0\&quot;: Inativo), (\&quot;1\&quot;: Ativo). (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
 
      - returns: RequestBuilder<ListaProdutos> 
      */
-    public class func listarProdutosUsingGETWithRequestBuilder(idProduto idProduto: Int?, nome: String?, status: String?, page: Int?, limit: Int?) -> RequestBuilder<ListaProdutos> {
+    public class func listarProdutosUsingGETWithRequestBuilder(id id: Int?, nome: String?, status: String?, page: Int?, limit: Int?) -> RequestBuilder<ListaProdutos> {
         let path = "/api/produtos"
         let URLString = PierAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
-            "id_produto": idProduto,
+            "id": id,
             "nome": nome,
             "status": status,
             "page": page,

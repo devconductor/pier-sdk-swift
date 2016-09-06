@@ -12,6 +12,65 @@ import Alamofire
 public class CartaoAPI: APIBase {
     /**
      
+     Apresenta os limites do Portador do Cart\u00C3\u00A3o
+     
+     - parameter idCartao: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func consultarLimiteUsingGET(idCartao idCartao: Int, completion: ((data: LimiteDisponibilidade?, error: ErrorType?) -> Void)) {
+        consultarLimiteUsingGETWithRequestBuilder(idCartao: idCartao).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Apresenta os limites do Portador do Cart\u00C3\u00A3o
+     
+     - GET /api/cartoes/{idCartao}/limites
+     - Este m\u00C3\u00A9todo permite consultar os Limites configurados para o Portador de um determinado Cart\u00C3\u00A3o, seja ele o titular da conta ou um adicional, a partir do c\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id).
+     - API Key:
+       - type: apiKey access_token 
+       - name: access_token
+     - examples: [{contentType=application/json, example={
+  "limiteExterno" : 1.3579000000000001069366817318950779736042022705078125,
+  "limiteMensal" : 1.3579000000000001069366817318950779736042022705078125,
+  "limiteParcelas" : 1.3579000000000001069366817318950779736042022705078125,
+  "limiteSaquePeriodo" : 1.3579000000000001069366817318950779736042022705078125,
+  "limiteExtra" : 1.3579000000000001069366817318950779736042022705078125,
+  "limiteGlobal" : 1.3579000000000001069366817318950779736042022705078125,
+  "limiteInternacionalSaqueGlobal" : 1.3579000000000001069366817318950779736042022705078125,
+  "limiteInternacionalSaquePeriodo" : 1.3579000000000001069366817318950779736042022705078125,
+  "limiteParcelado" : 1.3579000000000001069366817318950779736042022705078125,
+  "limiteInternacionalParcelado" : 1.3579000000000001069366817318950779736042022705078125,
+  "id" : 123456789,
+  "limiteConsignado" : 1.3579000000000001069366817318950779736042022705078125,
+  "limiteInternacionalParcelas" : 1.3579000000000001069366817318950779736042022705078125,
+  "limiteInternacionalCompra" : 1.3579000000000001069366817318950779736042022705078125,
+  "limiteSaqueGlobal" : 1.3579000000000001069366817318950779736042022705078125,
+  "limiteCompra" : 1.3579000000000001069366817318950779736042022705078125
+}}]
+     
+     - parameter idCartao: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
+
+     - returns: RequestBuilder<LimiteDisponibilidade> 
+     */
+    public class func consultarLimiteUsingGETWithRequestBuilder(idCartao idCartao: Int) -> RequestBuilder<LimiteDisponibilidade> {
+        var path = "/api/cartoes/{idCartao}/limites"
+        path = path.stringByReplacingOccurrencesOfString("{idCartao}", withString: "\(idCartao)", options: .LiteralSearch, range: nil)
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<LimiteDisponibilidade>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
      Apresenta os dados de um determinado Cart\u00C3\u00A3o
      
      - parameter idCartao: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
@@ -148,7 +207,7 @@ public class CartaoAPI: APIBase {
      - parameter dataGeracao: (query) Apresenta a data em que o cart\u00C3\u00A3o foi gerado. (optional)
      - parameter dataStatusCartao: (query) Apresenta a data em que o idStatusCartao atual do cart\u00C3\u00A3o fora aplicado, quando houver. (optional)
      - parameter dataEstagioCartao: (query) Apresenta a data em que o idEstagioCartao atual do cart\u00C3\u00A3o fora aplicado, quando houver. (optional)
-     - parameter dataValidade: (query) Apresenta a data de validade do cart\u00C3\u00A3o em formato MMAAAA, quando houver. (optional)
+     - parameter dataValidade: (query) Apresenta a data de validade do cart\u00C3\u00A3o em formato aaaa-MM, quando houver. (optional)
      - parameter dataImpressao: (query) Apresenta a data em que o cart\u00C3\u00A3o fora impresso, caso impress\u00C3\u00A3o em loja, ou a data em que ele fora inclu\u00C3\u00ADdo no arquivo para impress\u00C3\u00A3o via gr\u00C3\u00A1fica. (optional)
      - parameter arquivoImpressao: (query) Apresenta o nome do arquivo onde o cart\u00C3\u00A3o fora inclu\u00C3\u00ADdo para impress\u00C3\u00A3o por uma gr\u00C3\u00A1fica, quando houver. (optional)
      - parameter flagImpressaoOrigemComercial: (query) Quando ativa, indica que o cart\u00C3\u00A3o fora impresso na Origem Comercial. (optional)
@@ -222,7 +281,7 @@ public class CartaoAPI: APIBase {
      - parameter dataGeracao: (query) Apresenta a data em que o cart\u00C3\u00A3o foi gerado. (optional)
      - parameter dataStatusCartao: (query) Apresenta a data em que o idStatusCartao atual do cart\u00C3\u00A3o fora aplicado, quando houver. (optional)
      - parameter dataEstagioCartao: (query) Apresenta a data em que o idEstagioCartao atual do cart\u00C3\u00A3o fora aplicado, quando houver. (optional)
-     - parameter dataValidade: (query) Apresenta a data de validade do cart\u00C3\u00A3o em formato MMAAAA, quando houver. (optional)
+     - parameter dataValidade: (query) Apresenta a data de validade do cart\u00C3\u00A3o em formato aaaa-MM, quando houver. (optional)
      - parameter dataImpressao: (query) Apresenta a data em que o cart\u00C3\u00A3o fora impresso, caso impress\u00C3\u00A3o em loja, ou a data em que ele fora inclu\u00C3\u00ADdo no arquivo para impress\u00C3\u00A3o via gr\u00C3\u00A1fica. (optional)
      - parameter arquivoImpressao: (query) Apresenta o nome do arquivo onde o cart\u00C3\u00A3o fora inclu\u00C3\u00ADdo para impress\u00C3\u00A3o por uma gr\u00C3\u00A1fica, quando houver. (optional)
      - parameter flagImpressaoOrigemComercial: (query) Quando ativa, indica que o cart\u00C3\u00A3o fora impresso na Origem Comercial. (optional)

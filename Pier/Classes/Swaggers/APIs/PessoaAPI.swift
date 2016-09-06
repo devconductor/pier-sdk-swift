@@ -60,19 +60,19 @@ public class PessoaAPI: APIBase {
      
      Lista as Pessoas cadastradas no Emissor
      
-     - parameter idPessoa: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Pessoa (id). (optional)
+     - parameter id: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Pessoa (id). (optional)
      - parameter nome: (query) Apresenta o &#39;Nome Completo da PF&#39; ou o &#39;Nome Completo da Raz\u00C3\u00A3o Social (Nome Empresarial)&#39;. (optional)
      - parameter tipo: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do tipo da Pessoa, sendo: (\&quot;PF\&quot;: Pessoa F\u00C3\u00ADsica), (\&quot;PJ\&quot;: Pessoa Jur\u00C3\u00ADdica). (optional)
      - parameter cpf: (query) N\u00C3\u00BAmero do CPF, quando PF. (optional)
      - parameter cnpj: (query) N\u00C3\u00BAmero do CNPJ, quando PJ. (optional)
      - parameter dataNascimento: (query) Data de Nascimento da Pessoa, quando PF, ou a Data de Abertura da Empresa, quando PJ. (optional)
-     - parameter cnpj2: (query) N\u00C3\u00BAmero do CNPJ, quando PJ. (optional)
+     - parameter sexo: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do sexo da Pessoa, quando PF, sendo: (\&quot;M\&quot;: Masculino), (\&quot;F\&quot;: Feminino), (\&quot;O\&quot;: Outro), (\&quot;N\&quot;: N\u00C3\u00A3o Especificado). (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET1(idPessoa idPessoa: Int?, nome: String?, tipo: String?, cpf: String?, cnpj: String?, dataNascimento: NSDate?, cnpj2: String?, page: Int?, limit: Int?, completion: ((data: PagePessoas?, error: ErrorType?) -> Void)) {
-        listarUsingGET1WithRequestBuilder(idPessoa: idPessoa, nome: nome, tipo: tipo, cpf: cpf, cnpj: cnpj, dataNascimento: dataNascimento, cnpj2: cnpj2, page: page, limit: limit).execute { (response, error) -> Void in
+    public class func listarUsingGET1(id id: Int?, nome: String?, tipo: String?, cpf: String?, cnpj: String?, dataNascimento: NSDate?, sexo: String?, page: Int?, limit: Int?, completion: ((data: PagePessoas?, error: ErrorType?) -> Void)) {
+        listarUsingGET1WithRequestBuilder(id: id, nome: nome, tipo: tipo, cpf: cpf, cnpj: cnpj, dataNascimento: dataNascimento, sexo: sexo, page: page, limit: limit).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -112,30 +112,30 @@ public class PessoaAPI: APIBase {
   "first" : true
 }}]
      
-     - parameter idPessoa: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Pessoa (id). (optional)
+     - parameter id: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Pessoa (id). (optional)
      - parameter nome: (query) Apresenta o &#39;Nome Completo da PF&#39; ou o &#39;Nome Completo da Raz\u00C3\u00A3o Social (Nome Empresarial)&#39;. (optional)
      - parameter tipo: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do tipo da Pessoa, sendo: (\&quot;PF\&quot;: Pessoa F\u00C3\u00ADsica), (\&quot;PJ\&quot;: Pessoa Jur\u00C3\u00ADdica). (optional)
      - parameter cpf: (query) N\u00C3\u00BAmero do CPF, quando PF. (optional)
      - parameter cnpj: (query) N\u00C3\u00BAmero do CNPJ, quando PJ. (optional)
      - parameter dataNascimento: (query) Data de Nascimento da Pessoa, quando PF, ou a Data de Abertura da Empresa, quando PJ. (optional)
-     - parameter cnpj2: (query) N\u00C3\u00BAmero do CNPJ, quando PJ. (optional)
+     - parameter sexo: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do sexo da Pessoa, quando PF, sendo: (\&quot;M\&quot;: Masculino), (\&quot;F\&quot;: Feminino), (\&quot;O\&quot;: Outro), (\&quot;N\&quot;: N\u00C3\u00A3o Especificado). (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
 
      - returns: RequestBuilder<PagePessoas> 
      */
-    public class func listarUsingGET1WithRequestBuilder(idPessoa idPessoa: Int?, nome: String?, tipo: String?, cpf: String?, cnpj: String?, dataNascimento: NSDate?, cnpj2: String?, page: Int?, limit: Int?) -> RequestBuilder<PagePessoas> {
+    public class func listarUsingGET1WithRequestBuilder(id id: Int?, nome: String?, tipo: String?, cpf: String?, cnpj: String?, dataNascimento: NSDate?, sexo: String?, page: Int?, limit: Int?) -> RequestBuilder<PagePessoas> {
         let path = "/api/pessoas"
         let URLString = PierAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
-            "id_pessoa": idPessoa,
+            "id": id,
             "nome": nome,
             "tipo": tipo,
             "cpf": cpf,
             "cnpj": cnpj,
-            "data_nascimento": dataNascimento,
-            "cnpj": cnpj2,
+            "dataNascimento": dataNascimento,
+            "sexo": sexo,
             "page": page,
             "limit": limit
         ]
