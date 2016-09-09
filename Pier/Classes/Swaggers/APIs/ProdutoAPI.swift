@@ -12,12 +12,12 @@ import Alamofire
 public class ProdutoAPI: APIBase {
     /**
      
-     Opera\u00C3\u00A7\u00C3\u00A3o utilizada para consultar uma determinada Origem Comercial 
+     Apresenta os dados de um determinado Produto.
      
      - parameter idProduto: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Produto (id) 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarProdutoUsingGET(idProduto idProduto: Int, completion: ((data: OrigemComercial?, error: ErrorType?) -> Void)) {
+    public class func consultarProdutoUsingGET(idProduto idProduto: Int, completion: ((data: Produto?, error: ErrorType?) -> Void)) {
         consultarProdutoUsingGETWithRequestBuilder(idProduto: idProduto).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -26,32 +26,32 @@ public class ProdutoAPI: APIBase {
 
     /**
      
-     Opera\u00C3\u00A7\u00C3\u00A3o utilizada para consultar uma determinada Origem Comercial 
+     Apresenta os dados de um determinado Produto.
      
-     - GET /api/produtos/{idOrigemComercial}
-     - Este m\u00C3\u00A9todo permite que sejam listados os registros de uma determinada Origem Comercial existente na base do emissor. Para isso, \u00C3\u00A9 preciso informar o seu respectivo c\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o (id). 
+     - GET /api/produtos/{idProduto}
+     - Este m\u00C3\u00A9todo permite consultar um determinado Produto a partir do seu c\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o (id).
      - API Key:
        - type: apiKey access_token 
        - name: access_token
      - examples: [{contentType=application/json, example={
   "nome" : "aeiou",
   "id" : 123456789,
-  "status" : "aeiou"
+  "status" : 123
 }}]
      
      - parameter idProduto: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Produto (id) 
 
-     - returns: RequestBuilder<OrigemComercial> 
+     - returns: RequestBuilder<Produto> 
      */
-    public class func consultarProdutoUsingGETWithRequestBuilder(idProduto idProduto: Int) -> RequestBuilder<OrigemComercial> {
-        var path = "/api/produtos/{idOrigemComercial}"
+    public class func consultarProdutoUsingGETWithRequestBuilder(idProduto idProduto: Int) -> RequestBuilder<Produto> {
+        var path = "/api/produtos/{idProduto}"
         path = path.stringByReplacingOccurrencesOfString("{idProduto}", withString: "\(idProduto)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [:]
         let parameters = APIHelper.rejectNil(nillableParameters)
 
-        let requestBuilder: RequestBuilder<OrigemComercial>.Type = PierAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<Produto>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
     }
@@ -67,7 +67,7 @@ public class ProdutoAPI: APIBase {
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarProdutosUsingGET(id id: Int?, nome: String?, status: String?, page: Int?, limit: Int?, completion: ((data: ListaProdutos?, error: ErrorType?) -> Void)) {
+    public class func listarProdutosUsingGET(id id: Int?, nome: String?, status: Int?, page: Int?, limit: Int?, completion: ((data: ListaProdutos?, error: ErrorType?) -> Void)) {
         listarProdutosUsingGETWithRequestBuilder(id: id, nome: nome, status: status, page: page, limit: limit).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -92,7 +92,7 @@ public class ProdutoAPI: APIBase {
   "content" : [ {
     "nome" : "aeiou",
     "id" : 123456789,
-    "status" : "aeiou"
+    "status" : 123
   } ],
   "totalElements" : 123456789,
   "number" : 123,
@@ -112,7 +112,7 @@ public class ProdutoAPI: APIBase {
 
      - returns: RequestBuilder<ListaProdutos> 
      */
-    public class func listarProdutosUsingGETWithRequestBuilder(id id: Int?, nome: String?, status: String?, page: Int?, limit: Int?) -> RequestBuilder<ListaProdutos> {
+    public class func listarProdutosUsingGETWithRequestBuilder(id id: Int?, nome: String?, status: Int?, page: Int?, limit: Int?) -> RequestBuilder<ListaProdutos> {
         let path = "/api/produtos"
         let URLString = PierAPI.basePath + path
         

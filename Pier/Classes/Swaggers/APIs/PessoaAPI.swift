@@ -12,13 +12,13 @@ import Alamofire
 public class PessoaAPI: APIBase {
     /**
      
-     Opera\u00C3\u00A7\u00C3\u00A3o utilizada para consultar uma determinada Origem Comercial 
+     Apresenta os dados de uma determinada Pessoa.
      
-     - parameter idOrigemComercial: (path) ID da Origem Comercial 
+     - parameter idPessoa: (path) ID da Origem Comercial 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET1(idOrigemComercial idOrigemComercial: Int, completion: ((data: OrigemComercial?, error: ErrorType?) -> Void)) {
-        consultarUsingGET1WithRequestBuilder(idOrigemComercial: idOrigemComercial).execute { (response, error) -> Void in
+    public class func consultarUsingGET1(idPessoa idPessoa: Int, completion: ((data: Pessoa?, error: ErrorType?) -> Void)) {
+        consultarUsingGET1WithRequestBuilder(idPessoa: idPessoa).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -26,32 +26,36 @@ public class PessoaAPI: APIBase {
 
     /**
      
-     Opera\u00C3\u00A7\u00C3\u00A3o utilizada para consultar uma determinada Origem Comercial 
+     Apresenta os dados de uma determinada Pessoa.
      
-     - GET /api/pessoas/{idOrigemComercial}
-     - Este m\u00C3\u00A9todo permite que sejam listados os registros de uma determinada Origem Comercial existente na base do emissor. Para isso, \u00C3\u00A9 preciso informar o seu respectivo c\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o (id). 
+     - GET /api/pessoas/{idPessoa}
+     - Este m\u00C3\u00A9todo permite que sejam listadas as Pessoas existentes na base de dados do Emissor.
      - API Key:
        - type: apiKey access_token 
        - name: access_token
      - examples: [{contentType=application/json, example={
+  "tipo" : "aeiou",
+  "cpf" : "aeiou",
   "nome" : "aeiou",
+  "cnpj" : "aeiou",
   "id" : 123456789,
-  "status" : "aeiou"
+  "dataNascimento" : "2000-01-23T04:56:07.000+0000",
+  "sexo" : "aeiou"
 }}]
      
-     - parameter idOrigemComercial: (path) ID da Origem Comercial 
+     - parameter idPessoa: (path) ID da Origem Comercial 
 
-     - returns: RequestBuilder<OrigemComercial> 
+     - returns: RequestBuilder<Pessoa> 
      */
-    public class func consultarUsingGET1WithRequestBuilder(idOrigemComercial idOrigemComercial: Int) -> RequestBuilder<OrigemComercial> {
-        var path = "/api/pessoas/{idOrigemComercial}"
-        path = path.stringByReplacingOccurrencesOfString("{idOrigemComercial}", withString: "\(idOrigemComercial)", options: .LiteralSearch, range: nil)
+    public class func consultarUsingGET1WithRequestBuilder(idPessoa idPessoa: Int) -> RequestBuilder<Pessoa> {
+        var path = "/api/pessoas/{idPessoa}"
+        path = path.stringByReplacingOccurrencesOfString("{idPessoa}", withString: "\(idPessoa)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [:]
         let parameters = APIHelper.rejectNil(nillableParameters)
 
-        let requestBuilder: RequestBuilder<OrigemComercial>.Type = PierAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<Pessoa>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
     }

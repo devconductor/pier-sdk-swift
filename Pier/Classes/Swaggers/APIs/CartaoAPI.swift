@@ -17,7 +17,7 @@ public class CartaoAPI: APIBase {
      - parameter idCartao: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarLimiteUsingGET(idCartao idCartao: Int, completion: ((data: LimiteDisponibilidade?, error: ErrorType?) -> Void)) {
+    public class func consultarLimiteUsingGET(idCartao idCartao: Int, completion: ((data: Limites?, error: ErrorType?) -> Void)) {
         consultarLimiteUsingGETWithRequestBuilder(idCartao: idCartao).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -54,9 +54,9 @@ public class CartaoAPI: APIBase {
      
      - parameter idCartao: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
 
-     - returns: RequestBuilder<LimiteDisponibilidade> 
+     - returns: RequestBuilder<Limites> 
      */
-    public class func consultarLimiteUsingGETWithRequestBuilder(idCartao idCartao: Int) -> RequestBuilder<LimiteDisponibilidade> {
+    public class func consultarLimiteUsingGETWithRequestBuilder(idCartao idCartao: Int) -> RequestBuilder<Limites> {
         var path = "/api/cartoes/{idCartao}/limites"
         path = path.stringByReplacingOccurrencesOfString("{idCartao}", withString: "\(idCartao)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -64,7 +64,114 @@ public class CartaoAPI: APIBase {
         let nillableParameters: [String:AnyObject?] = [:]
         let parameters = APIHelper.rejectNil(nillableParameters)
 
-        let requestBuilder: RequestBuilder<LimiteDisponibilidade>.Type = PierAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<Limites>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Apresenta os dados do Portador do Cart\u00C3\u00A3o 
+     
+     - parameter idCartao: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func consultarPortadorUsingGET(idCartao idCartao: Int, completion: ((data: Portador?, error: ErrorType?) -> Void)) {
+        consultarPortadorUsingGETWithRequestBuilder(idCartao: idCartao).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Apresenta os dados do Portador do Cart\u00C3\u00A3o 
+     
+     - GET /api/cartoes/{idCartao}/portadores
+     - Este m\u00C3\u00A9todo permite consultar as informa\u00C3\u00A7\u00C3\u00B5es do Portador de um determinado Cart\u00C3\u00A3o a partir do c\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id).
+     - API Key:
+       - type: apiKey access_token 
+       - name: access_token
+     - examples: [{contentType=application/json, example={
+  "idPessoa" : 123456789,
+  "dataCancelamentoPortador" : "2000-01-23T04:56:07.000+0000",
+  "idConta" : 123456789,
+  "idProduto" : 123456789,
+  "idParentesco" : 123456789,
+  "dataCadastroPortador" : "2000-01-23T04:56:07.000+0000",
+  "nomeImpresso" : "aeiou",
+  "flagAtivo" : 123,
+  "tipoPortador" : "aeiou"
+}}]
+     
+     - parameter idCartao: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
+
+     - returns: RequestBuilder<Portador> 
+     */
+    public class func consultarPortadorUsingGETWithRequestBuilder(idCartao idCartao: Int) -> RequestBuilder<Portador> {
+        var path = "/api/cartoes/{idCartao}/portadores"
+        path = path.stringByReplacingOccurrencesOfString("{idCartao}", withString: "\(idCartao)", options: .LiteralSearch, range: nil)
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Portador>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Apresenta os saldos dispon\u00C3\u00ADveis para o Portador do Cart\u00C3\u00A3o
+     
+     - parameter idCartao: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func consultarSaldoUsingGET(idCartao idCartao: Int, completion: ((data: Saldos?, error: ErrorType?) -> Void)) {
+        consultarSaldoUsingGETWithRequestBuilder(idCartao: idCartao).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Apresenta os saldos dispon\u00C3\u00ADveis para o Portador do Cart\u00C3\u00A3o
+     
+     - GET /api/cartoes/{idCartao}/saldos-disponiveis
+     - Este m\u00C3\u00A9todo permite consultar os saldos dispon\u00C3\u00ADveis para uso pelo Portador de um determinado Cart\u00C3\u00A3o, seja ele o titular da conta ou um adicional, a partir do c\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id).
+     - API Key:
+       - type: apiKey access_token 
+       - name: access_token
+     - examples: [{contentType=application/json, example={
+  "saldoDisponivelSaqueInternacional" : 1.3579000000000001069366817318950779736042022705078125,
+  "saldoDisponivelCompraInternacional" : 1.3579000000000001069366817318950779736042022705078125,
+  "saldoDisponivelMensal" : 1.3579000000000001069366817318950779736042022705078125,
+  "saldoDisponivelSaque" : 1.3579000000000001069366817318950779736042022705078125,
+  "saldoPontosFidelidade" : 1.3579000000000001069366817318950779736042022705078125,
+  "saldoDisponivelExtra" : 1.3579000000000001069366817318950779736042022705078125,
+  "saldoDisponivelParcelas" : 1.3579000000000001069366817318950779736042022705078125,
+  "id" : 123456789,
+  "saldoDisponivelExterno" : 1.3579000000000001069366817318950779736042022705078125,
+  "saldoDisponivelGlobal" : 1.3579000000000001069366817318950779736042022705078125,
+  "saldoDisponivelParcelado" : 1.3579000000000001069366817318950779736042022705078125,
+  "saldoDisponivelCompra" : 1.3579000000000001069366817318950779736042022705078125
+}}]
+     
+     - parameter idCartao: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
+
+     - returns: RequestBuilder<Saldos> 
+     */
+    public class func consultarSaldoUsingGETWithRequestBuilder(idCartao idCartao: Int) -> RequestBuilder<Saldos> {
+        var path = "/api/cartoes/{idCartao}/saldos-disponiveis"
+        path = path.stringByReplacingOccurrencesOfString("{idCartao}", withString: "\(idCartao)", options: .LiteralSearch, range: nil)
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Saldos>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
     }
@@ -105,12 +212,12 @@ public class CartaoAPI: APIBase {
   "dataValidade" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
   "idStatusCartao" : 123456789,
   "dataEstagioCartao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "portador" : 123,
   "flagImpressaoOrigemComercial" : 123,
   "id" : 123456789,
   "nomeImpresso" : "aeiou",
   "dataImpressao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "dataGeracao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+  "dataGeracao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "tipoPortador" : "aeiou"
 }}]
      
      - parameter idCartao: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
@@ -166,12 +273,12 @@ public class CartaoAPI: APIBase {
   "dataValidade" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
   "idStatusCartao" : 123456789,
   "dataEstagioCartao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "portador" : 123,
   "flagImpressaoOrigemComercial" : 123,
   "id" : 123456789,
   "nomeImpresso" : "aeiou",
   "dataImpressao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "dataGeracao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+  "dataGeracao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "tipoPortador" : "aeiou"
 }}]
      
      - parameter idCartao: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
@@ -201,7 +308,7 @@ public class CartaoAPI: APIBase {
      - parameter idConta: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Conta a qual o cart\u00C3\u00A3o pertence (id). (optional)
      - parameter idPessoa: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Pessoa a qual o cart\u00C3\u00A3o pertence (id) (optional)
      - parameter idProduto: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Produto a qual o cart\u00C3\u00A3o pertence (id). (optional)
-     - parameter portador: (query) Indica qual \u00C3\u00A9 a rela\u00C3\u00A7\u00C3\u00A3o do portador do cart\u00C3\u00A3o com a conta. Quando &#39;1&#39;, corresponde ao seu titular. Quando diferente disso, corresponde a um cart\u00C3\u00A3o adicional. (optional)
+     - parameter tipoPortador: (query) Indica qual \u00C3\u00A9 a rela\u00C3\u00A7\u00C3\u00A3o do portador do cart\u00C3\u00A3o com a conta. Quando &#39;1&#39;, corresponde ao seu titular. Quando diferente disso, corresponde a um cart\u00C3\u00A3o adicional. (optional)
      - parameter numeroCartao: (query) Apresenta o n\u00C3\u00BAmero do cart\u00C3\u00A3o. (optional)
      - parameter nomeImpresso: (query) Apresenta o nome impresso no cart\u00C3\u00A3o. (optional)
      - parameter dataGeracao: (query) Apresenta a data em que o cart\u00C3\u00A3o foi gerado. (optional)
@@ -217,8 +324,8 @@ public class CartaoAPI: APIBase {
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET(id id: Int?, idStatusCartao: Int?, idEstagioCartao: Int?, idConta: Int?, idPessoa: Int?, idProduto: Int?, portador: Int?, numeroCartao: String?, nomeImpresso: String?, dataGeracao: NSDate?, dataStatusCartao: NSDate?, dataEstagioCartao: NSDate?, dataValidade: String?, dataImpressao: NSDate?, arquivoImpressao: String?, flagImpressaoOrigemComercial: Int?, flagProvisorio: Int?, codigoDesbloqueio: String?, page: Int?, limit: Int?, completion: ((data: PageCartoes?, error: ErrorType?) -> Void)) {
-        listarUsingGETWithRequestBuilder(id: id, idStatusCartao: idStatusCartao, idEstagioCartao: idEstagioCartao, idConta: idConta, idPessoa: idPessoa, idProduto: idProduto, portador: portador, numeroCartao: numeroCartao, nomeImpresso: nomeImpresso, dataGeracao: dataGeracao, dataStatusCartao: dataStatusCartao, dataEstagioCartao: dataEstagioCartao, dataValidade: dataValidade, dataImpressao: dataImpressao, arquivoImpressao: arquivoImpressao, flagImpressaoOrigemComercial: flagImpressaoOrigemComercial, flagProvisorio: flagProvisorio, codigoDesbloqueio: codigoDesbloqueio, page: page, limit: limit).execute { (response, error) -> Void in
+    public class func listarUsingGET(id id: Int?, idStatusCartao: Int?, idEstagioCartao: Int?, idConta: Int?, idPessoa: Int?, idProduto: Int?, tipoPortador: String?, numeroCartao: String?, nomeImpresso: String?, dataGeracao: NSDate?, dataStatusCartao: NSDate?, dataEstagioCartao: NSDate?, dataValidade: String?, dataImpressao: NSDate?, arquivoImpressao: String?, flagImpressaoOrigemComercial: Int?, flagProvisorio: Int?, codigoDesbloqueio: String?, page: Int?, limit: Int?, completion: ((data: PageCartoes?, error: ErrorType?) -> Void)) {
+        listarUsingGETWithRequestBuilder(id: id, idStatusCartao: idStatusCartao, idEstagioCartao: idEstagioCartao, idConta: idConta, idPessoa: idPessoa, idProduto: idProduto, tipoPortador: tipoPortador, numeroCartao: numeroCartao, nomeImpresso: nomeImpresso, dataGeracao: dataGeracao, dataStatusCartao: dataStatusCartao, dataEstagioCartao: dataEstagioCartao, dataValidade: dataValidade, dataImpressao: dataImpressao, arquivoImpressao: arquivoImpressao, flagImpressaoOrigemComercial: flagImpressaoOrigemComercial, flagProvisorio: flagProvisorio, codigoDesbloqueio: codigoDesbloqueio, page: page, limit: limit).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -252,12 +359,12 @@ public class CartaoAPI: APIBase {
     "dataValidade" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
     "idStatusCartao" : 123456789,
     "dataEstagioCartao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-    "portador" : 123,
     "flagImpressaoOrigemComercial" : 123,
     "id" : 123456789,
     "nomeImpresso" : "aeiou",
     "dataImpressao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-    "dataGeracao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+    "dataGeracao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+    "tipoPortador" : "aeiou"
   } ],
   "totalElements" : 123456789,
   "number" : 123,
@@ -275,7 +382,7 @@ public class CartaoAPI: APIBase {
      - parameter idConta: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Conta a qual o cart\u00C3\u00A3o pertence (id). (optional)
      - parameter idPessoa: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Pessoa a qual o cart\u00C3\u00A3o pertence (id) (optional)
      - parameter idProduto: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Produto a qual o cart\u00C3\u00A3o pertence (id). (optional)
-     - parameter portador: (query) Indica qual \u00C3\u00A9 a rela\u00C3\u00A7\u00C3\u00A3o do portador do cart\u00C3\u00A3o com a conta. Quando &#39;1&#39;, corresponde ao seu titular. Quando diferente disso, corresponde a um cart\u00C3\u00A3o adicional. (optional)
+     - parameter tipoPortador: (query) Indica qual \u00C3\u00A9 a rela\u00C3\u00A7\u00C3\u00A3o do portador do cart\u00C3\u00A3o com a conta. Quando &#39;1&#39;, corresponde ao seu titular. Quando diferente disso, corresponde a um cart\u00C3\u00A3o adicional. (optional)
      - parameter numeroCartao: (query) Apresenta o n\u00C3\u00BAmero do cart\u00C3\u00A3o. (optional)
      - parameter nomeImpresso: (query) Apresenta o nome impresso no cart\u00C3\u00A3o. (optional)
      - parameter dataGeracao: (query) Apresenta a data em que o cart\u00C3\u00A3o foi gerado. (optional)
@@ -292,7 +399,7 @@ public class CartaoAPI: APIBase {
 
      - returns: RequestBuilder<PageCartoes> 
      */
-    public class func listarUsingGETWithRequestBuilder(id id: Int?, idStatusCartao: Int?, idEstagioCartao: Int?, idConta: Int?, idPessoa: Int?, idProduto: Int?, portador: Int?, numeroCartao: String?, nomeImpresso: String?, dataGeracao: NSDate?, dataStatusCartao: NSDate?, dataEstagioCartao: NSDate?, dataValidade: String?, dataImpressao: NSDate?, arquivoImpressao: String?, flagImpressaoOrigemComercial: Int?, flagProvisorio: Int?, codigoDesbloqueio: String?, page: Int?, limit: Int?) -> RequestBuilder<PageCartoes> {
+    public class func listarUsingGETWithRequestBuilder(id id: Int?, idStatusCartao: Int?, idEstagioCartao: Int?, idConta: Int?, idPessoa: Int?, idProduto: Int?, tipoPortador: String?, numeroCartao: String?, nomeImpresso: String?, dataGeracao: NSDate?, dataStatusCartao: NSDate?, dataEstagioCartao: NSDate?, dataValidade: String?, dataImpressao: NSDate?, arquivoImpressao: String?, flagImpressaoOrigemComercial: Int?, flagProvisorio: Int?, codigoDesbloqueio: String?, page: Int?, limit: Int?) -> RequestBuilder<PageCartoes> {
         let path = "/api/cartoes"
         let URLString = PierAPI.basePath + path
         
@@ -303,7 +410,7 @@ public class CartaoAPI: APIBase {
             "idConta": idConta,
             "idPessoa": idPessoa,
             "idProduto": idProduto,
-            "portador": portador,
+            "tipoPortador": tipoPortador,
             "numeroCartao": numeroCartao,
             "nomeImpresso": nomeImpresso,
             "dataGeracao": dataGeracao,

@@ -46,7 +46,7 @@ public class Cartao: JSONEncodable {
     /** Apresenta o n\u00C3\u00BAmero do cart\u00C3\u00A3o. */
     public var numeroCartao: String?
     /** Indica qual \u00C3\u00A9 a rela\u00C3\u00A7\u00C3\u00A3o do portador do cart\u00C3\u00A3o com a conta. Quando \u00E2\u0080\u00981\u00E2\u0080\u0099, corresponde ao seu titular. Quando diferente disso, corresponde a um cart\u00C3\u00A3o adicional. */
-    public var portador: Int?
+    public var tipoPortador: String?
     
 
     public init() {}
@@ -71,7 +71,7 @@ public class Cartao: JSONEncodable {
         nillableDictionary["idStatusCartao"] = self.idStatusCartao
         nillableDictionary["nomeImpresso"] = self.nomeImpresso
         nillableDictionary["numeroCartao"] = self.numeroCartao
-        nillableDictionary["portador"] = self.portador
+        nillableDictionary["tipoPortador"] = self.tipoPortador
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

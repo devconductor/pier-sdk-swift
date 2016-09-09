@@ -16,7 +16,7 @@ public class Produto: JSONEncodable {
     /** Descri\u00C3\u00A7\u00C3\u00A3o do Nome do Produto. */
     public var nome: String?
     /** Representa o Status do Produto, onde: (\&quot;0\&quot;: Inativo), (\&quot;1\&quot;: Ativo). */
-    public var status: String?
+    public var status: Int?
     
 
     public init() {}
