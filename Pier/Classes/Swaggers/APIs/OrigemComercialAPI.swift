@@ -36,7 +36,7 @@ public class OrigemComercialAPI: APIBase {
      - examples: [{contentType=application/json, example={
   "nome" : "aeiou",
   "id" : 123456789,
-  "status" : "aeiou"
+  "status" : 123
 }}]
      
      - parameter idOrigemComercial: (path) ID da Origem Comercial 
@@ -67,7 +67,7 @@ public class OrigemComercialAPI: APIBase {
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarOrigensComerciaisUsingGET(id id: Int?, nome: String?, status: String?, page: Int?, limit: Int?, completion: ((data: PageOrigensComerciais?, error: ErrorType?) -> Void)) {
+    public class func listarOrigensComerciaisUsingGET(id id: Int?, nome: String?, status: Int?, page: Int?, limit: Int?, completion: ((data: PageOrigensComerciais?, error: ErrorType?) -> Void)) {
         listarOrigensComerciaisUsingGETWithRequestBuilder(id: id, nome: nome, status: status, page: page, limit: limit).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -92,7 +92,7 @@ public class OrigemComercialAPI: APIBase {
   "content" : [ {
     "nome" : "aeiou",
     "id" : 123456789,
-    "status" : "aeiou"
+    "status" : 123
   } ],
   "totalElements" : 123456789,
   "number" : 123,
@@ -112,7 +112,7 @@ public class OrigemComercialAPI: APIBase {
 
      - returns: RequestBuilder<PageOrigensComerciais> 
      */
-    public class func listarOrigensComerciaisUsingGETWithRequestBuilder(id id: Int?, nome: String?, status: String?, page: Int?, limit: Int?) -> RequestBuilder<PageOrigensComerciais> {
+    public class func listarOrigensComerciaisUsingGETWithRequestBuilder(id id: Int?, nome: String?, status: Int?, page: Int?, limit: Int?) -> RequestBuilder<PageOrigensComerciais> {
         let path = "/api/origens-comerciais"
         let URLString = PierAPI.basePath + path
         

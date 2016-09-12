@@ -23,7 +23,7 @@ public class Cartao: JSONEncodable {
     public var dataImpressao: NSDate?
     /** Apresenta a data em que o idStatusCartao atual do cart\u00C3\u00A3o fora aplicado, quando houver. */
     public var dataStatusCartao: NSDate?
-    /** Apresenta a data de validade do cart\u00C3\u00A3o em formato MMAAAA, quando houver. */
+    /** Apresenta a data de validade do cart\u00C3\u00A3o em formato yyyy-MM, quando houver. */
     public var dataValidade: NSDate?
     /** Quando ativa, indica que o cart\u00C3\u00A3o fora impresso na Origem Comercial. */
     public var flagImpressaoOrigemComercial: Int?

@@ -16,7 +16,7 @@ public class OrigemComercial: JSONEncodable {
     /** Nome da origem comercial */
     public var nome: String?
     /** Status da origem comercial */
-    public var status: String?
+    public var status: Int?
     
 
     public init() {}
