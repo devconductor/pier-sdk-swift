@@ -17,8 +17,8 @@ public class CartaoAPI: APIBase {
      - parameter idCartao: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarLimiteUsingGET(idCartao idCartao: Int, completion: ((data: Limites?, error: ErrorType?) -> Void)) {
-        consultarLimiteUsingGETWithRequestBuilder(idCartao: idCartao).execute { (response, error) -> Void in
+    public class func consultarLimiteDisponibilidadeUsingGET(idCartao idCartao: Int, completion: ((data: LimiteDisponibilidade?, error: ErrorType?) -> Void)) {
+        consultarLimiteDisponibilidadeUsingGETWithRequestBuilder(idCartao: idCartao).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -28,43 +28,54 @@ public class CartaoAPI: APIBase {
      
      Apresenta os limites do Portador do Cart\u00C3\u00A3o
      
-     - GET /api/cartoes/{idCartao}/limites
+     - GET /api/cartoes/{idCartao}/limites-disponibilidades
      - Este m\u00C3\u00A9todo permite consultar os Limites configurados para o Portador de um determinado Cart\u00C3\u00A3o, seja ele o titular da conta ou um adicional, a partir do c\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id).
      - API Key:
        - type: apiKey access_token 
        - name: access_token
      - examples: [{contentType=application/json, example={
   "limiteExterno" : 1.3579000000000001069366817318950779736042022705078125,
-  "limiteMensal" : 1.3579000000000001069366817318950779736042022705078125,
-  "limiteParcelas" : 1.3579000000000001069366817318950779736042022705078125,
+  "saldoDisponivelSaque" : 1.3579000000000001069366817318950779736042022705078125,
   "limiteSaquePeriodo" : 1.3579000000000001069366817318950779736042022705078125,
-  "limiteExtra" : 1.3579000000000001069366817318950779736042022705078125,
+  "saldoDisponivelExterno" : 1.3579000000000001069366817318950779736042022705078125,
   "limiteGlobal" : 1.3579000000000001069366817318950779736042022705078125,
   "limiteInternacionalSaqueGlobal" : 1.3579000000000001069366817318950779736042022705078125,
   "limiteInternacionalSaquePeriodo" : 1.3579000000000001069366817318950779736042022705078125,
-  "limiteParcelado" : 1.3579000000000001069366817318950779736042022705078125,
+  "saldoDisponivelSaqueInternacional" : 1.3579000000000001069366817318950779736042022705078125,
+  "saldoDisponivelMensal" : 1.3579000000000001069366817318950779736042022705078125,
   "limiteInternacionalParcelado" : 1.3579000000000001069366817318950779736042022705078125,
+  "saldoDisponivelParcelas" : 1.3579000000000001069366817318950779736042022705078125,
   "id" : 123456789,
-  "limiteConsignado" : 1.3579000000000001069366817318950779736042022705078125,
+  "saldoDisponivelGlobal" : 1.3579000000000001069366817318950779736042022705078125,
   "limiteInternacionalParcelas" : 1.3579000000000001069366817318950779736042022705078125,
   "limiteInternacionalCompra" : 1.3579000000000001069366817318950779736042022705078125,
   "limiteSaqueGlobal" : 1.3579000000000001069366817318950779736042022705078125,
+  "saldoDisponivelCompraInternacional" : 1.3579000000000001069366817318950779736042022705078125,
+  "saldoDisponivelExtra" : 1.3579000000000001069366817318950779736042022705078125,
+  "limiteMensal" : 1.3579000000000001069366817318950779736042022705078125,
+  "limiteParcelas" : 1.3579000000000001069366817318950779736042022705078125,
+  "limiteExtra" : 1.3579000000000001069366817318950779736042022705078125,
+  "saldoDisponivelCompra" : 1.3579000000000001069366817318950779736042022705078125,
+  "limiteParcelado" : 1.3579000000000001069366817318950779736042022705078125,
+  "saldoPontosFidelidade" : 1.3579000000000001069366817318950779736042022705078125,
+  "limiteConsignado" : 1.3579000000000001069366817318950779736042022705078125,
+  "saldoDisponivelParcelado" : 1.3579000000000001069366817318950779736042022705078125,
   "limiteCompra" : 1.3579000000000001069366817318950779736042022705078125
 }}]
      
      - parameter idCartao: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
 
-     - returns: RequestBuilder<Limites> 
+     - returns: RequestBuilder<LimiteDisponibilidade> 
      */
-    public class func consultarLimiteUsingGETWithRequestBuilder(idCartao idCartao: Int) -> RequestBuilder<Limites> {
-        var path = "/api/cartoes/{idCartao}/limites"
+    public class func consultarLimiteDisponibilidadeUsingGETWithRequestBuilder(idCartao idCartao: Int) -> RequestBuilder<LimiteDisponibilidade> {
+        var path = "/api/cartoes/{idCartao}/limites-disponibilidades"
         path = path.stringByReplacingOccurrencesOfString("{idCartao}", withString: "\(idCartao)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [:]
         let parameters = APIHelper.rejectNil(nillableParameters)
 
-        let requestBuilder: RequestBuilder<Limites>.Type = PierAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<LimiteDisponibilidade>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
     }
@@ -117,61 +128,6 @@ public class CartaoAPI: APIBase {
         let parameters = APIHelper.rejectNil(nillableParameters)
 
         let requestBuilder: RequestBuilder<Portador>.Type = PierAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Apresenta os saldos dispon\u00C3\u00ADveis para o Portador do Cart\u00C3\u00A3o
-     
-     - parameter idCartao: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func consultarSaldoUsingGET(idCartao idCartao: Int, completion: ((data: Saldos?, error: ErrorType?) -> Void)) {
-        consultarSaldoUsingGETWithRequestBuilder(idCartao: idCartao).execute { (response, error) -> Void in
-            completion(data: response?.body, error: error);
-        }
-    }
-
-
-    /**
-     
-     Apresenta os saldos dispon\u00C3\u00ADveis para o Portador do Cart\u00C3\u00A3o
-     
-     - GET /api/cartoes/{idCartao}/saldos-disponiveis
-     - Este m\u00C3\u00A9todo permite consultar os saldos dispon\u00C3\u00ADveis para uso pelo Portador de um determinado Cart\u00C3\u00A3o, seja ele o titular da conta ou um adicional, a partir do c\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id).
-     - API Key:
-       - type: apiKey access_token 
-       - name: access_token
-     - examples: [{contentType=application/json, example={
-  "saldoDisponivelSaqueInternacional" : 1.3579000000000001069366817318950779736042022705078125,
-  "saldoDisponivelCompraInternacional" : 1.3579000000000001069366817318950779736042022705078125,
-  "saldoDisponivelMensal" : 1.3579000000000001069366817318950779736042022705078125,
-  "saldoDisponivelSaque" : 1.3579000000000001069366817318950779736042022705078125,
-  "saldoPontosFidelidade" : 1.3579000000000001069366817318950779736042022705078125,
-  "saldoDisponivelExtra" : 1.3579000000000001069366817318950779736042022705078125,
-  "saldoDisponivelParcelas" : 1.3579000000000001069366817318950779736042022705078125,
-  "id" : 123456789,
-  "saldoDisponivelExterno" : 1.3579000000000001069366817318950779736042022705078125,
-  "saldoDisponivelGlobal" : 1.3579000000000001069366817318950779736042022705078125,
-  "saldoDisponivelParcelado" : 1.3579000000000001069366817318950779736042022705078125,
-  "saldoDisponivelCompra" : 1.3579000000000001069366817318950779736042022705078125
-}}]
-     
-     - parameter idCartao: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
-
-     - returns: RequestBuilder<Saldos> 
-     */
-    public class func consultarSaldoUsingGETWithRequestBuilder(idCartao idCartao: Int) -> RequestBuilder<Saldos> {
-        var path = "/api/cartoes/{idCartao}/saldos-disponiveis"
-        path = path.stringByReplacingOccurrencesOfString("{idCartao}", withString: "\(idCartao)", options: .LiteralSearch, range: nil)
-        let URLString = PierAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<Saldos>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
     }
@@ -308,7 +264,7 @@ public class CartaoAPI: APIBase {
      - parameter idConta: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Conta a qual o cart\u00C3\u00A3o pertence (id). (optional)
      - parameter idPessoa: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Pessoa a qual o cart\u00C3\u00A3o pertence (id) (optional)
      - parameter idProduto: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Produto a qual o cart\u00C3\u00A3o pertence (id). (optional)
-     - parameter tipoPortador: (query) Indica qual \u00C3\u00A9 a rela\u00C3\u00A7\u00C3\u00A3o do portador do cart\u00C3\u00A3o com a conta. Quando &#39;1&#39;, corresponde ao seu titular. Quando diferente disso, corresponde a um cart\u00C3\u00A3o adicional. (optional)
+     - parameter tipoPortador: (query) Apresenta o tipo do Portador do cart\u00C3\u00A3o, sendo: (&#39;T&#39;: Titular, &#39;A&#39;: Adicional). (optional)
      - parameter numeroCartao: (query) Apresenta o n\u00C3\u00BAmero do cart\u00C3\u00A3o. (optional)
      - parameter nomeImpresso: (query) Apresenta o nome impresso no cart\u00C3\u00A3o. (optional)
      - parameter dataGeracao: (query) Apresenta a data em que o cart\u00C3\u00A3o foi gerado. (optional)
@@ -382,7 +338,7 @@ public class CartaoAPI: APIBase {
      - parameter idConta: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Conta a qual o cart\u00C3\u00A3o pertence (id). (optional)
      - parameter idPessoa: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Pessoa a qual o cart\u00C3\u00A3o pertence (id) (optional)
      - parameter idProduto: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Produto a qual o cart\u00C3\u00A3o pertence (id). (optional)
-     - parameter tipoPortador: (query) Indica qual \u00C3\u00A9 a rela\u00C3\u00A7\u00C3\u00A3o do portador do cart\u00C3\u00A3o com a conta. Quando &#39;1&#39;, corresponde ao seu titular. Quando diferente disso, corresponde a um cart\u00C3\u00A3o adicional. (optional)
+     - parameter tipoPortador: (query) Apresenta o tipo do Portador do cart\u00C3\u00A3o, sendo: (&#39;T&#39;: Titular, &#39;A&#39;: Adicional). (optional)
      - parameter numeroCartao: (query) Apresenta o n\u00C3\u00BAmero do cart\u00C3\u00A3o. (optional)
      - parameter nomeImpresso: (query) Apresenta o nome impresso no cart\u00C3\u00A3o. (optional)
      - parameter dataGeracao: (query) Apresenta a data em que o cart\u00C3\u00A3o foi gerado. (optional)

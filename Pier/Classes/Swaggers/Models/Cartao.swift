@@ -45,7 +45,7 @@ public class Cartao: JSONEncodable {
     public var nomeImpresso: String?
     /** Apresenta o n\u00C3\u00BAmero do cart\u00C3\u00A3o. */
     public var numeroCartao: String?
-    /** Indica qual \u00C3\u00A9 a rela\u00C3\u00A7\u00C3\u00A3o do portador do cart\u00C3\u00A3o com a conta. Quando \u00E2\u0080\u00981\u00E2\u0080\u0099, corresponde ao seu titular. Quando diferente disso, corresponde a um cart\u00C3\u00A3o adicional. */
+    /** Apresenta o tipo do Portador do cart\u00C3\u00A3o, sendo: (&#39;T&#39;: Titular, &#39;A&#39;: Adicional). */
     public var tipoPortador: String?
     
 

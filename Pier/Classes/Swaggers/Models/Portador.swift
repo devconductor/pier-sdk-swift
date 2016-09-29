@@ -27,6 +27,7 @@ public class Portador: JSONEncodable {
     public var idProduto: Int?
     /** Apresenta o nome a ser impresso no cart\u00C3\u00A3o. */
     public var nomeImpresso: String?
+    /** Apresenta o tipo do Portador do cart\u00C3\u00A3o, sendo: (&#39;T&#39;: Titular, &#39;A&#39;: Adicional). */
     public var tipoPortador: String?
     
 
