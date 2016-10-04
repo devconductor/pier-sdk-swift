@@ -516,6 +516,23 @@ class Decoders {
             }
 			
 
+			// Decoder for [HistoricoImpressaoCartao]
+            Decoders.addDecoder(clazz: [HistoricoImpressaoCartao].self) { (source: AnyObject) -> [HistoricoImpressaoCartao] in
+                return Decoders.decode(clazz: [HistoricoImpressaoCartao].self, source: source)
+            }
+			// Decoder for HistoricoImpressaoCartao
+            Decoders.addDecoder(clazz: HistoricoImpressaoCartao.self) { (source: AnyObject) -> HistoricoImpressaoCartao in
+                let sourceDictionary = source as! [NSObject:AnyObject]
+                let instance = HistoricoImpressaoCartao()
+                instance.dataHistorico = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["dataHistorico"])
+                instance.id = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["id"])
+                instance.idCartao = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["idCartao"])
+                instance.idStatusImpressaoCartao = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["idStatusImpressaoCartao"])
+                instance.mensagemHistorico = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["mensagemHistorico"])
+                return instance
+            }
+			
+
 			// Decoder for [LimiteDisponibilidade]
             Decoders.addDecoder(clazz: [LimiteDisponibilidade].self) { (source: AnyObject) -> [LimiteDisponibilidade] in
                 return Decoders.decode(clazz: [LimiteDisponibilidade].self, source: source)

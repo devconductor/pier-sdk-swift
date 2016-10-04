@@ -12,6 +12,56 @@ import Alamofire
 public class CartaoAPI: APIBase {
     /**
      
+     Realiza a altera\u00C3\u00A7\u00C3\u00A3o do Status de Impress\u00C3\u00A3o do Cart\u00C3\u00A3o.
+     
+     - parameter idCartao: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
+     - parameter idStatusImpressao: (path) Id . 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func alterarStatusImpressaoUsingPUT(idCartao idCartao: Int, idStatusImpressao: Int, completion: ((data: HistoricoImpressaoCartao?, error: ErrorType?) -> Void)) {
+        alterarStatusImpressaoUsingPUTWithRequestBuilder(idCartao: idCartao, idStatusImpressao: idStatusImpressao).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Realiza a altera\u00C3\u00A7\u00C3\u00A3o do Status de Impress\u00C3\u00A3o do Cart\u00C3\u00A3o.
+     
+     - PUT /api/cartoes/{idCartao}/impressao/{idStatusImpressao} 
+     - API Key:
+       - type: apiKey access_token 
+       - name: access_token
+     - examples: [{contentType=application/json, example={
+  "idStatusImpressaoCartao" : 123456789,
+  "idCartao" : 123456789,
+  "mensagemHistorico" : "aeiou",
+  "dataHistorico" : "2000-01-23T04:56:07.000+0000",
+  "id" : 123456789
+}}]
+     
+     - parameter idCartao: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
+     - parameter idStatusImpressao: (path) Id . 
+
+     - returns: RequestBuilder<HistoricoImpressaoCartao> 
+     */
+    public class func alterarStatusImpressaoUsingPUTWithRequestBuilder(idCartao idCartao: Int, idStatusImpressao: Int) -> RequestBuilder<HistoricoImpressaoCartao> {
+        var path = "/api/cartoes/{idCartao}/impressao/{idStatusImpressao} "
+        path = path.stringByReplacingOccurrencesOfString("{idCartao}", withString: "\(idCartao)", options: .LiteralSearch, range: nil)
+        path = path.stringByReplacingOccurrencesOfString("{idStatusImpressao}", withString: "\(idStatusImpressao)", options: .LiteralSearch, range: nil)
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<HistoricoImpressaoCartao>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
      Apresenta os limites do Portador do Cart\u00C3\u00A3o
      
      - parameter idCartao: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
