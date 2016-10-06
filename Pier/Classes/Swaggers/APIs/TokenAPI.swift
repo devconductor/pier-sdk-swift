@@ -12,7 +12,7 @@ import Alamofire
 public class TokenAPI: APIBase {
     /**
      
-     /tokens/callback
+     /api/tokens/callback
      
      - parameter bodyAccessToken: (body) bodyAccessToken 
      - parameter completion: completion handler to receive the data and the error objects
@@ -26,7 +26,7 @@ public class TokenAPI: APIBase {
 
     /**
      
-     /tokens/callback
+     /api/tokens/callback
      
      - POST /api/tokens/callback
      - API Key:
@@ -63,7 +63,7 @@ public class TokenAPI: APIBase {
 
     /**
      
-     /tokens/validar
+     /api/tokens/validar
      
      - parameter bodyAccessToken: (body) bodyAccessToken 
      - parameter completion: completion handler to receive the data and the error objects
@@ -77,7 +77,7 @@ public class TokenAPI: APIBase {
 
     /**
      
-     /tokens/validar
+     /api/tokens/validar
      
      - POST /api/tokens/validar
      - API Key:

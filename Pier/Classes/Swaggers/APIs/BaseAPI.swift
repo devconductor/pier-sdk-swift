@@ -12,7 +12,7 @@ import Alamofire
 public class BaseAPI: APIBase {
     /**
      
-     /bases/clear
+     /api/bases/clear
      
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -25,7 +25,7 @@ public class BaseAPI: APIBase {
 
     /**
      
-     /bases/clear
+     /api/bases/clear
      
      - GET /api/bases/clear
      - API Key:
