@@ -555,16 +555,9 @@ class Decoders {
             Decoders.addDecoder(clazz: StatusCartao.self) { (source: AnyObject) -> StatusCartao in
                 let sourceDictionary = source as! [NSObject:AnyObject]
                 let instance = StatusCartao()
-                instance.flagAlteraStatus = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["flagAlteraStatus"])
-                instance.flagCadastroNovaSenha = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["flagCadastroNovaSenha"])
-                instance.flagCancelaConta = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["flagCancelaConta"])
+                instance.flagCancelaCartao = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["flagCancelaCartao"])
                 instance.flagCancelaNoDesbloqueio = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["flagCancelaNoDesbloqueio"])
                 instance.flagCobraTarifa = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["flagCobraTarifa"])
-                instance.flagDestinoTransferencia = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["flagDestinoTransferencia"])
-                instance.flagEmiteProvisorio = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["flagEmiteProvisorio"])
-                instance.flagExcecaoBandeira = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["flagExcecaoBandeira"])
-                instance.flagOrigemTransferencia = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["flagOrigemTransferencia"])
-                instance.flagReemiteCartao = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["flagReemiteCartao"])
                 instance.id = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["id"])
                 instance.idStatusDestinoConta = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["idStatusDestinoConta"])
                 instance.idStatusDestinoDesbloqueio = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["idStatusDestinoDesbloqueio"])
