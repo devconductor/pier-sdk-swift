@@ -12,7 +12,7 @@ import Alamofire
 public class PessoaAPI: APIBase {
     /**
      
-     Apresenta os dados de uma determinada Pessoa.
+     Apresenta os dados de uma determinada Pessoa
      
      - parameter idPessoa: (path) ID da Origem Comercial 
      - parameter completion: completion handler to receive the data and the error objects
@@ -26,7 +26,7 @@ public class PessoaAPI: APIBase {
 
     /**
      
-     Apresenta os dados de uma determinada Pessoa.
+     Apresenta os dados de uma determinada Pessoa
      
      - GET /api/pessoas/{idPessoa}
      - Este m\u00C3\u00A9todo permite que sejam listadas as Pessoas existentes na base de dados do Emissor.

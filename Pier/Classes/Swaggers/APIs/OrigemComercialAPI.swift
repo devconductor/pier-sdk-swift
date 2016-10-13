@@ -12,7 +12,7 @@ import Alamofire
 public class OrigemComercialAPI: APIBase {
     /**
      
-     Opera\u00C3\u00A7\u00C3\u00A3o utilizada para consultar uma determinada Origem Comercial 
+     Opera\u00C3\u00A7\u00C3\u00A3o utilizada para consultar uma determinada Origem Comercial
      
      - parameter idOrigemComercial: (path) ID da Origem Comercial 
      - parameter completion: completion handler to receive the data and the error objects
@@ -26,10 +26,10 @@ public class OrigemComercialAPI: APIBase {
 
     /**
      
-     Opera\u00C3\u00A7\u00C3\u00A3o utilizada para consultar uma determinada Origem Comercial 
+     Opera\u00C3\u00A7\u00C3\u00A3o utilizada para consultar uma determinada Origem Comercial
      
      - GET /api/origens-comerciais/{idOrigemComercial}
-     - Este m\u00C3\u00A9todo permite que sejam listados os registros de uma determinada Origem Comercial existente na base do emissor. Para isso, \u00C3\u00A9 preciso informar o seu respectivo c\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o (id). 
+     - Este m\u00C3\u00A9todo permite que sejam listados os registros de uma determinada Origem Comercial existente na base do emissor. Para isso, \u00C3\u00A9 preciso informar o seu respectivo c\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o (id).
      - API Key:
        - type: apiKey access_token 
        - name: access_token
@@ -58,7 +58,7 @@ public class OrigemComercialAPI: APIBase {
 
     /**
      
-     Opera\u00C3\u00A7\u00C3\u00A3o utilizada para listar Origens Comerciais 
+     Opera\u00C3\u00A7\u00C3\u00A3o utilizada para listar Origens Comerciais
      
      - parameter id: (query) Id da origem comercial (optional)
      - parameter nome: (query) Nome da origem comercial (optional)
@@ -76,7 +76,7 @@ public class OrigemComercialAPI: APIBase {
 
     /**
      
-     Opera\u00C3\u00A7\u00C3\u00A3o utilizada para listar Origens Comerciais 
+     Opera\u00C3\u00A7\u00C3\u00A3o utilizada para listar Origens Comerciais
      
      - GET /api/origens-comerciais
      - Este m\u00C3\u00A9todo permite que sejam listadas as Origens Comerciais existentes na base do emissor.

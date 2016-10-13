@@ -12,7 +12,7 @@ import Alamofire
 public class StatusCartaoAPI: APIBase {
     /**
      
-     Apresenta os dados de um determinado Status Cart\u00C3\u00A3o 
+     Apresenta os dados de um determinado Status Cart\u00C3\u00A3o
      
      - parameter idStatusCartao: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Est\u00C3\u00A1gio de Entrega do Cart\u00C3\u00A3o (id). 
      - parameter completion: completion handler to receive the data and the error objects
@@ -26,10 +26,10 @@ public class StatusCartaoAPI: APIBase {
 
     /**
      
-     Apresenta os dados de um determinado Status Cart\u00C3\u00A3o 
+     Apresenta os dados de um determinado Status Cart\u00C3\u00A3o
      
      - GET /api/status-cartoes/{idStatusCartao}
-     - Este m\u00C3\u00A9todo permite consultar os par\u00C3\u00A2metros de um determinado Status de Cart\u00C3\u00A3o a partir do seu c\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o (id).  
+     - Este m\u00C3\u00A9todo permite consultar os par\u00C3\u00A2metros de um determinado Status de Cart\u00C3\u00A3o a partir do seu c\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o (id).
      - API Key:
        - type: apiKey access_token 
        - name: access_token
@@ -62,7 +62,7 @@ public class StatusCartaoAPI: APIBase {
 
     /**
      
-     Lista as op\u00C3\u00A7\u00C3\u00B5es de Status do Cart\u00C3\u00A3o 
+     Lista as op\u00C3\u00A7\u00C3\u00B5es de Status do Cart\u00C3\u00A3o
      
      - parameter id: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Status do Cart\u00C3\u00A3o (id)  (optional)
      - parameter nome: (query) Nome atribu\u00C3\u00ADdo ao Status de Entrega do Cart\u00C3\u00A3o. (optional)
@@ -84,7 +84,7 @@ public class StatusCartaoAPI: APIBase {
 
     /**
      
-     Lista as op\u00C3\u00A7\u00C3\u00B5es de Status do Cart\u00C3\u00A3o 
+     Lista as op\u00C3\u00A7\u00C3\u00B5es de Status do Cart\u00C3\u00A3o
      
      - GET /api/status-cartoes
      - Este m\u00C3\u00A9todo permite que sejam listadas as possibilidades de Status que podem ser atribu\u00C3\u00ADdas aos Cart\u00C3\u00B5es.

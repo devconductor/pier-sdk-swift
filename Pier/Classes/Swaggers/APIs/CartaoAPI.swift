@@ -12,7 +12,7 @@ import Alamofire
 public class CartaoAPI: APIBase {
     /**
      
-     Realiza a altera\u00C3\u00A7\u00C3\u00A3o do Status de Impress\u00C3\u00A3o do Cart\u00C3\u00A3o.
+     Realiza a altera\u00C3\u00A7\u00C3\u00A3o do Status de Impress\u00C3\u00A3o do Cart\u00C3\u00A3o
      
      - parameter idCartao: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
      - parameter idStatusImpressao: (path) Id . 
@@ -27,9 +27,10 @@ public class CartaoAPI: APIBase {
 
     /**
      
-     Realiza a altera\u00C3\u00A7\u00C3\u00A3o do Status de Impress\u00C3\u00A3o do Cart\u00C3\u00A3o.
+     Realiza a altera\u00C3\u00A7\u00C3\u00A3o do Status de Impress\u00C3\u00A3o do Cart\u00C3\u00A3o
      
      - PUT /api/cartoes/{idCartao}/impressao/{idStatusImpressao} 
+     - Este m\u00C3\u00A9todo permite que uma Aplica\u00C3\u00A7\u00C3\u00A3o que realize a impress\u00C3\u00A3o de cart\u00C3\u00B5es possa indicar que um determinado idCartao fora impresso ou est\u00C3\u00A1 em processo de impress\u00C3\u00A3o. Para isso, basta informar o respectivo c\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do cart\u00C3\u00A3o (id) que deseja ter seu um determinado id_status_impressao atribu\u00C3\u00ADdo a ele. Por padr\u00C3\u00A3o, cart\u00C3\u00B5es provis\u00C3\u00B3rios ou que j\u00C3\u00A1 tenham sido inclu\u00C3\u00ADdos em um arquivo para impress\u00C3\u00A3o via gr\u00C3\u00A1fica ter\u00C3\u00A3o esta requisi\u00C3\u00A7\u00C3\u00A3o negada, se utilizada.
      - API Key:
        - type: apiKey access_token 
        - name: access_token
@@ -132,7 +133,7 @@ public class CartaoAPI: APIBase {
 
     /**
      
-     Apresenta os dados do Portador do Cart\u00C3\u00A3o 
+     Apresenta os dados do Portador do Cart\u00C3\u00A3o
      
      - parameter idCartao: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
      - parameter completion: completion handler to receive the data and the error objects
@@ -146,7 +147,7 @@ public class CartaoAPI: APIBase {
 
     /**
      
-     Apresenta os dados do Portador do Cart\u00C3\u00A3o 
+     Apresenta os dados do Portador do Cart\u00C3\u00A3o
      
      - GET /api/cartoes/{idCartao}/portadores
      - Este m\u00C3\u00A9todo permite consultar as informa\u00C3\u00A7\u00C3\u00B5es do Portador de um determinado Cart\u00C3\u00A3o a partir do c\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id).
@@ -250,8 +251,8 @@ public class CartaoAPI: APIBase {
      - parameter idCartao: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func debloquearUsingGET(idCartao idCartao: Int, completion: ((data: Cartao?, error: ErrorType?) -> Void)) {
-        debloquearUsingGETWithRequestBuilder(idCartao: idCartao).execute { (response, error) -> Void in
+    public class func desbloquearUsingPUT(idCartao idCartao: Int, completion: ((data: Cartao?, error: ErrorType?) -> Void)) {
+        desbloquearUsingPUTWithRequestBuilder(idCartao: idCartao).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -261,7 +262,7 @@ public class CartaoAPI: APIBase {
      
      Realiza o desbloqueio de um determinado Cart\u00C3\u00A3o
      
-     - GET /api/cartoes/{idCartao}/desbloqueio
+     - PUT /api/cartoes/{idCartao}/desbloqueio
      - Este m\u00C3\u00A9todo permite que seja desbloqueado um determinado cart\u00C3\u00A3o a partir do seu c\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o (id).
      - API Key:
        - type: apiKey access_token 
@@ -291,7 +292,7 @@ public class CartaoAPI: APIBase {
 
      - returns: RequestBuilder<Cartao> 
      */
-    public class func debloquearUsingGETWithRequestBuilder(idCartao idCartao: Int) -> RequestBuilder<Cartao> {
+    public class func desbloquearUsingPUTWithRequestBuilder(idCartao idCartao: Int) -> RequestBuilder<Cartao> {
         var path = "/api/cartoes/{idCartao}/desbloqueio"
         path = path.stringByReplacingOccurrencesOfString("{idCartao}", withString: "\(idCartao)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -301,7 +302,7 @@ public class CartaoAPI: APIBase {
 
         let requestBuilder: RequestBuilder<Cartao>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
     }
 
     /**
