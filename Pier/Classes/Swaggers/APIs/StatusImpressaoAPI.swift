@@ -65,8 +65,8 @@ public class StatusImpressaoAPI: APIBase {
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET3(id id: Int?, nome: String?, page: Int?, limit: Int?, completion: ((data: PageStatusImpressao?, error: ErrorType?) -> Void)) {
-        listarUsingGET3WithRequestBuilder(id: id, nome: nome, page: page, limit: limit).execute { (response, error) -> Void in
+    public class func listarUsingGET4(id id: Int?, nome: String?, page: Int?, limit: Int?, completion: ((data: PageStatusImpressao?, error: ErrorType?) -> Void)) {
+        listarUsingGET4WithRequestBuilder(id: id, nome: nome, page: page, limit: limit).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -88,13 +88,8 @@ public class StatusImpressaoAPI: APIBase {
   "hasNextPage" : true,
   "nextPage" : 123,
   "content" : [ {
-    "flagCancelaCartao" : 123,
-    "flagCancelaNoDesbloqueio" : 123,
-    "idStatusDestinoDesbloqueio" : 123456789,
     "nome" : "aeiou",
-    "id" : 123456789,
-    "idStatusDestinoConta" : 123456789,
-    "flagCobraTarifa" : 123
+    "id" : 123456789
   } ],
   "totalElements" : 123456789,
   "number" : 123,
@@ -113,7 +108,7 @@ public class StatusImpressaoAPI: APIBase {
 
      - returns: RequestBuilder<PageStatusImpressao> 
      */
-    public class func listarUsingGET3WithRequestBuilder(id id: Int?, nome: String?, page: Int?, limit: Int?) -> RequestBuilder<PageStatusImpressao> {
+    public class func listarUsingGET4WithRequestBuilder(id id: Int?, nome: String?, page: Int?, limit: Int?) -> RequestBuilder<PageStatusImpressao> {
         let path = "/api/status-impressoes"
         let URLString = PierAPI.basePath + path
         

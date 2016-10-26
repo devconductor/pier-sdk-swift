@@ -12,7 +12,7 @@ import Alamofire
 public class BaseAPI: APIBase {
     /**
      
-     /api/bases/clear
+     Limpar mapa de bases
      
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -25,7 +25,7 @@ public class BaseAPI: APIBase {
 
     /**
      
-     /api/bases/clear
+     Limpar mapa de bases
      
      - GET /api/bases/clear
      - API Key:

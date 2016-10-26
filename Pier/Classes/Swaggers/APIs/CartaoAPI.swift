@@ -15,7 +15,7 @@ public class CartaoAPI: APIBase {
      Realiza a altera\u00C3\u00A7\u00C3\u00A3o do Status de Impress\u00C3\u00A3o do Cart\u00C3\u00A3o
      
      - parameter idCartao: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
-     - parameter idStatusImpressao: (path) Id . 
+     - parameter idStatusImpressao: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Status Impress\u00C3\u00A3o (Id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func alterarStatusImpressaoUsingPUT(idCartao idCartao: Int, idStatusImpressao: Int, completion: ((data: HistoricoImpressaoCartao?, error: ErrorType?) -> Void)) {
@@ -43,7 +43,7 @@ public class CartaoAPI: APIBase {
 }}]
      
      - parameter idCartao: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
-     - parameter idStatusImpressao: (path) Id . 
+     - parameter idStatusImpressao: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Status Impress\u00C3\u00A3o (Id). 
 
      - returns: RequestBuilder<HistoricoImpressaoCartao> 
      */
