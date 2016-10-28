@@ -12,12 +12,12 @@ import Alamofire
 public class EnderecoAPI: APIBase {
     /**
      
-     Realiza o cadastro de um novo Endere\u00C3\u00A7o
+     Atualiza os dados de um determinado Endere\u00C3\u00A7o
      
      - parameter id: (query) id 
      - parameter idPessoa: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Pessoa a qual o endere\u00C3\u00A7o pertence (id) (optional)
      - parameter idTipoEndereco: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Tipo Endere\u00C3\u00A7o (id) (optional)
-     - parameter cep: (query) Apresenta o C\u00C3\u00B3digo de Endere\u00C3\u00A7amento Postal (CEP) (optional)
+     - parameter cep: (query) Apresenta o C\u00C3\u00B3digo de Endere\u00C3\u00A7amento Postal (CEP) no formaro &#39;58800000&#39; (optional)
      - parameter logradouro: (query) Apresenta o nome do Logradouro (optional)
      - parameter numero: (query) Apresenta o n\u00C3\u00BAmero do endere\u00C3\u00A7o (optional)
      - parameter complemento: (query) Apresenta descri\u00C3\u00A7oes complementares referente ao endere\u00C3\u00A7o (optional)
@@ -28,7 +28,7 @@ public class EnderecoAPI: APIBase {
      - parameter pais: (query) Apresenta nome do Pais (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func alterarUsingPUT(id id: Int, idPessoa: Int?, idTipoEndereco: Int?, cep: String?, logradouro: String?, numero: String?, complemento: String?, pontoReferencia: String?, bairro: String?, cidade: String?, uf: String?, pais: String?, completion: ((data: Endereco?, error: ErrorType?) -> Void)) {
+    public class func alterarUsingPUT(id id: Int, idPessoa: Int?, idTipoEndereco: Int?, cep: String?, logradouro: String?, numero: Int?, complemento: String?, pontoReferencia: String?, bairro: String?, cidade: String?, uf: String?, pais: String?, completion: ((data: Endereco?, error: ErrorType?) -> Void)) {
         alterarUsingPUTWithRequestBuilder(id: id, idPessoa: idPessoa, idTipoEndereco: idTipoEndereco, cep: cep, logradouro: logradouro, numero: numero, complemento: complemento, pontoReferencia: pontoReferencia, bairro: bairro, cidade: cidade, uf: uf, pais: pais).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -37,17 +37,17 @@ public class EnderecoAPI: APIBase {
 
     /**
      
-     Realiza o cadastro de um novo Endere\u00C3\u00A7o
+     Atualiza os dados de um determinado Endere\u00C3\u00A7o
      
      - PUT /api/enderecos
-     - Este m\u00C3\u00A9todo permite que seja cadastrado um novo Endere\u00C3\u00A7o na base de dados do Emissor.
+     - Este m\u00C3\u00A9todo permite que seja alterado na base do emissor um ou mais registros ligados a um determinado Endere\u00C3\u00A7o.
      - API Key:
        - type: apiKey access_token 
        - name: access_token
      - examples: [{contentType=application/json, example={
   "pontoReferencia" : "aeiou",
   "cidade" : "aeiou",
-  "numero" : "aeiou",
+  "numero" : 123,
   "bairro" : "aeiou",
   "idTipoEndereco" : 123456789,
   "cep" : "aeiou",
@@ -64,7 +64,7 @@ public class EnderecoAPI: APIBase {
      - parameter id: (query) id 
      - parameter idPessoa: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Pessoa a qual o endere\u00C3\u00A7o pertence (id) (optional)
      - parameter idTipoEndereco: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Tipo Endere\u00C3\u00A7o (id) (optional)
-     - parameter cep: (query) Apresenta o C\u00C3\u00B3digo de Endere\u00C3\u00A7amento Postal (CEP) (optional)
+     - parameter cep: (query) Apresenta o C\u00C3\u00B3digo de Endere\u00C3\u00A7amento Postal (CEP) no formaro &#39;58800000&#39; (optional)
      - parameter logradouro: (query) Apresenta o nome do Logradouro (optional)
      - parameter numero: (query) Apresenta o n\u00C3\u00BAmero do endere\u00C3\u00A7o (optional)
      - parameter complemento: (query) Apresenta descri\u00C3\u00A7oes complementares referente ao endere\u00C3\u00A7o (optional)
@@ -76,7 +76,7 @@ public class EnderecoAPI: APIBase {
 
      - returns: RequestBuilder<Endereco> 
      */
-    public class func alterarUsingPUTWithRequestBuilder(id id: Int, idPessoa: Int?, idTipoEndereco: Int?, cep: String?, logradouro: String?, numero: String?, complemento: String?, pontoReferencia: String?, bairro: String?, cidade: String?, uf: String?, pais: String?) -> RequestBuilder<Endereco> {
+    public class func alterarUsingPUTWithRequestBuilder(id id: Int, idPessoa: Int?, idTipoEndereco: Int?, cep: String?, logradouro: String?, numero: Int?, complemento: String?, pontoReferencia: String?, bairro: String?, cidade: String?, uf: String?, pais: String?) -> RequestBuilder<Endereco> {
         let path = "/api/enderecos"
         let URLString = PierAPI.basePath + path
         
@@ -108,8 +108,8 @@ public class EnderecoAPI: APIBase {
      - parameter idEndereco: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Endere\u00C3\u00A7o (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarEstagioCartaoUsingGET(idEndereco idEndereco: Int, completion: ((data: Endereco?, error: ErrorType?) -> Void)) {
-        consultarEstagioCartaoUsingGETWithRequestBuilder(idEndereco: idEndereco).execute { (response, error) -> Void in
+    public class func consultarUsingGET2(idEndereco idEndereco: Int, completion: ((data: Endereco?, error: ErrorType?) -> Void)) {
+        consultarUsingGET2WithRequestBuilder(idEndereco: idEndereco).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -127,7 +127,7 @@ public class EnderecoAPI: APIBase {
      - examples: [{contentType=application/json, example={
   "pontoReferencia" : "aeiou",
   "cidade" : "aeiou",
-  "numero" : "aeiou",
+  "numero" : 123,
   "bairro" : "aeiou",
   "idTipoEndereco" : 123456789,
   "cep" : "aeiou",
@@ -145,7 +145,7 @@ public class EnderecoAPI: APIBase {
 
      - returns: RequestBuilder<Endereco> 
      */
-    public class func consultarEstagioCartaoUsingGETWithRequestBuilder(idEndereco idEndereco: Int) -> RequestBuilder<Endereco> {
+    public class func consultarUsingGET2WithRequestBuilder(idEndereco idEndereco: Int) -> RequestBuilder<Endereco> {
         var path = "/api/enderecos/{idEndereco}"
         path = path.stringByReplacingOccurrencesOfString("{idEndereco}", withString: "\(idEndereco)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -180,8 +180,8 @@ public class EnderecoAPI: APIBase {
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET1(id id: Int?, idPessoa: Int?, idTipoEndereco: Int?, cep: String?, logradouro: String?, numero: String?, complemento: String?, pontoReferencia: String?, bairro: String?, cidade: String?, uf: String?, pais: String?, dataInclusao: NSDate?, dataUltimaAtualizacao: NSDate?, page: Int?, limit: Int?, completion: ((data: PageEnderecos?, error: ErrorType?) -> Void)) {
-        listarUsingGET1WithRequestBuilder(id: id, idPessoa: idPessoa, idTipoEndereco: idTipoEndereco, cep: cep, logradouro: logradouro, numero: numero, complemento: complemento, pontoReferencia: pontoReferencia, bairro: bairro, cidade: cidade, uf: uf, pais: pais, dataInclusao: dataInclusao, dataUltimaAtualizacao: dataUltimaAtualizacao, page: page, limit: limit).execute { (response, error) -> Void in
+    public class func listarUsingGET2(id id: Int?, idPessoa: Int?, idTipoEndereco: Int?, cep: String?, logradouro: String?, numero: Int?, complemento: String?, pontoReferencia: String?, bairro: String?, cidade: String?, uf: String?, pais: String?, dataInclusao: NSDate?, dataUltimaAtualizacao: NSDate?, page: Int?, limit: Int?, completion: ((data: PageEnderecos?, error: ErrorType?) -> Void)) {
+        listarUsingGET2WithRequestBuilder(id: id, idPessoa: idPessoa, idTipoEndereco: idTipoEndereco, cep: cep, logradouro: logradouro, numero: numero, complemento: complemento, pontoReferencia: pontoReferencia, bairro: bairro, cidade: cidade, uf: uf, pais: pais, dataInclusao: dataInclusao, dataUltimaAtualizacao: dataUltimaAtualizacao, page: page, limit: limit).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -205,7 +205,7 @@ public class EnderecoAPI: APIBase {
   "content" : [ {
     "pontoReferencia" : "aeiou",
     "cidade" : "aeiou",
-    "numero" : "aeiou",
+    "numero" : 123,
     "bairro" : "aeiou",
     "idTipoEndereco" : 123456789,
     "cep" : "aeiou",
@@ -247,7 +247,7 @@ public class EnderecoAPI: APIBase {
 
      - returns: RequestBuilder<PageEnderecos> 
      */
-    public class func listarUsingGET1WithRequestBuilder(id id: Int?, idPessoa: Int?, idTipoEndereco: Int?, cep: String?, logradouro: String?, numero: String?, complemento: String?, pontoReferencia: String?, bairro: String?, cidade: String?, uf: String?, pais: String?, dataInclusao: NSDate?, dataUltimaAtualizacao: NSDate?, page: Int?, limit: Int?) -> RequestBuilder<PageEnderecos> {
+    public class func listarUsingGET2WithRequestBuilder(id id: Int?, idPessoa: Int?, idTipoEndereco: Int?, cep: String?, logradouro: String?, numero: Int?, complemento: String?, pontoReferencia: String?, bairro: String?, cidade: String?, uf: String?, pais: String?, dataInclusao: NSDate?, dataUltimaAtualizacao: NSDate?, page: Int?, limit: Int?) -> RequestBuilder<PageEnderecos> {
         let path = "/api/enderecos"
         let URLString = PierAPI.basePath + path
         
@@ -282,7 +282,7 @@ public class EnderecoAPI: APIBase {
      
      - parameter idPessoa: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Pessoa a qual o endere\u00C3\u00A7o pertence (id) (optional)
      - parameter idTipoEndereco: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Tipo Endere\u00C3\u00A7o (id) (optional)
-     - parameter cep: (query) Apresenta o C\u00C3\u00B3digo de Endere\u00C3\u00A7amento Postal (CEP) (optional)
+     - parameter cep: (query) Apresenta o C\u00C3\u00B3digo de Endere\u00C3\u00A7amento Postal (CEP) no formaro &#39;58800000&#39; (optional)
      - parameter logradouro: (query) Apresenta o nome do Logradouro (optional)
      - parameter numero: (query) Apresenta o n\u00C3\u00BAmero do endere\u00C3\u00A7o (optional)
      - parameter complemento: (query) Apresenta descri\u00C3\u00A7oes complementares referente ao endere\u00C3\u00A7o (optional)
@@ -293,7 +293,7 @@ public class EnderecoAPI: APIBase {
      - parameter pais: (query) Apresenta nome do Pais (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func salvarUsingPOST(idPessoa idPessoa: Int?, idTipoEndereco: Int?, cep: String?, logradouro: String?, numero: String?, complemento: String?, pontoReferencia: String?, bairro: String?, cidade: String?, uf: String?, pais: String?, completion: ((data: Endereco?, error: ErrorType?) -> Void)) {
+    public class func salvarUsingPOST(idPessoa idPessoa: Int?, idTipoEndereco: Int?, cep: String?, logradouro: String?, numero: Int?, complemento: String?, pontoReferencia: String?, bairro: String?, cidade: String?, uf: String?, pais: String?, completion: ((data: Endereco?, error: ErrorType?) -> Void)) {
         salvarUsingPOSTWithRequestBuilder(idPessoa: idPessoa, idTipoEndereco: idTipoEndereco, cep: cep, logradouro: logradouro, numero: numero, complemento: complemento, pontoReferencia: pontoReferencia, bairro: bairro, cidade: cidade, uf: uf, pais: pais).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -312,7 +312,7 @@ public class EnderecoAPI: APIBase {
      - examples: [{contentType=application/json, example={
   "pontoReferencia" : "aeiou",
   "cidade" : "aeiou",
-  "numero" : "aeiou",
+  "numero" : 123,
   "bairro" : "aeiou",
   "idTipoEndereco" : 123456789,
   "cep" : "aeiou",
@@ -328,7 +328,7 @@ public class EnderecoAPI: APIBase {
      
      - parameter idPessoa: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Pessoa a qual o endere\u00C3\u00A7o pertence (id) (optional)
      - parameter idTipoEndereco: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Tipo Endere\u00C3\u00A7o (id) (optional)
-     - parameter cep: (query) Apresenta o C\u00C3\u00B3digo de Endere\u00C3\u00A7amento Postal (CEP) (optional)
+     - parameter cep: (query) Apresenta o C\u00C3\u00B3digo de Endere\u00C3\u00A7amento Postal (CEP) no formaro &#39;58800000&#39; (optional)
      - parameter logradouro: (query) Apresenta o nome do Logradouro (optional)
      - parameter numero: (query) Apresenta o n\u00C3\u00BAmero do endere\u00C3\u00A7o (optional)
      - parameter complemento: (query) Apresenta descri\u00C3\u00A7oes complementares referente ao endere\u00C3\u00A7o (optional)
@@ -340,7 +340,7 @@ public class EnderecoAPI: APIBase {
 
      - returns: RequestBuilder<Endereco> 
      */
-    public class func salvarUsingPOSTWithRequestBuilder(idPessoa idPessoa: Int?, idTipoEndereco: Int?, cep: String?, logradouro: String?, numero: String?, complemento: String?, pontoReferencia: String?, bairro: String?, cidade: String?, uf: String?, pais: String?) -> RequestBuilder<Endereco> {
+    public class func salvarUsingPOSTWithRequestBuilder(idPessoa idPessoa: Int?, idTipoEndereco: Int?, cep: String?, logradouro: String?, numero: Int?, complemento: String?, pontoReferencia: String?, bairro: String?, cidade: String?, uf: String?, pais: String?) -> RequestBuilder<Endereco> {
         let path = "/api/enderecos"
         let URLString = PierAPI.basePath + path
         

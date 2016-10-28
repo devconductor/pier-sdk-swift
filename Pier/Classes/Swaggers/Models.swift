@@ -186,6 +186,27 @@ class Decoders {
             }
 			
 
+			// Decoder for [Conta]
+            Decoders.addDecoder(clazz: [Conta].self) { (source: AnyObject) -> [Conta] in
+                return Decoders.decode(clazz: [Conta].self, source: source)
+            }
+			// Decoder for Conta
+            Decoders.addDecoder(clazz: Conta.self) { (source: AnyObject) -> Conta in
+                let sourceDictionary = source as! [NSObject:AnyObject]
+                let instance = Conta()
+                instance.dataCadastro = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["dataCadastro"])
+                instance.dataStatusConta = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["dataStatusConta"])
+                instance.diaVencimento = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["diaVencimento"])
+                instance.id = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["id"])
+                instance.idOrigemComercial = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["idOrigemComercial"])
+                instance.idPessoa = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["idPessoa"])
+                instance.idProduto = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["idProduto"])
+                instance.idStatusConta = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["idStatusConta"])
+                instance.melhorDiaCompra = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["melhorDiaCompra"])
+                return instance
+            }
+			
+
 			// Decoder for [Endereco]
             Decoders.addDecoder(clazz: [Endereco].self) { (source: AnyObject) -> [Endereco] in
                 return Decoders.decode(clazz: [Endereco].self, source: source)
@@ -204,7 +225,7 @@ class Decoders {
                 instance.idPessoa = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["idPessoa"])
                 instance.idTipoEndereco = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["idTipoEndereco"])
                 instance.logradouro = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["logradouro"])
-                instance.numero = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["numero"])
+                instance.numero = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["numero"])
                 instance.pais = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["pais"])
                 instance.pontoReferencia = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["pontoReferencia"])
                 instance.uf = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["uf"])

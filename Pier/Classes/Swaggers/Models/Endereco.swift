@@ -13,7 +13,7 @@ public class Endereco: JSONEncodable {
 
     /** Apresenta nome do bairro */
     public var bairro: String?
-    /** Apresenta o C\u00C3\u00B3digo de Endere\u00C3\u00A7amento Postal (CEP) */
+    /** Apresenta o C\u00C3\u00B3digo de Endere\u00C3\u00A7amento Postal (CEP) no formaro &#39;58800000&#39; */
     public var cep: String?
     /** Apresenta nome da cidade */
     public var cidade: String?
@@ -32,7 +32,7 @@ public class Endereco: JSONEncodable {
     /** Apresenta o nome do Logradouro */
     public var logradouro: String?
     /** Apresenta o n\u00C3\u00BAmero do endere\u00C3\u00A7o */
-    public var numero: String?
+    public var numero: Int?
     /** Apresenta nome do Pais */
     public var pais: String?
     /** Apresenta a descri\u00C3\u00A7\u00C3\u00A3o de ponto de refer\u00C3\u00AAncia do endere\u00C3\u00A7o */

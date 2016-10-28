@@ -17,8 +17,8 @@ public class EstagioCartaoAPI: APIBase {
      - parameter idEstagioCartao: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Est\u00C3\u00A1gio de Entrega do Cart\u00C3\u00A3o (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarEstagioCartaoUsingGET1(idEstagioCartao idEstagioCartao: Int, completion: ((data: EstagioCartao?, error: ErrorType?) -> Void)) {
-        consultarEstagioCartaoUsingGET1WithRequestBuilder(idEstagioCartao: idEstagioCartao).execute { (response, error) -> Void in
+    public class func consultarEstagioCartaoUsingGET(idEstagioCartao idEstagioCartao: Int, completion: ((data: EstagioCartao?, error: ErrorType?) -> Void)) {
+        consultarEstagioCartaoUsingGETWithRequestBuilder(idEstagioCartao: idEstagioCartao).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -42,7 +42,7 @@ public class EstagioCartaoAPI: APIBase {
 
      - returns: RequestBuilder<EstagioCartao> 
      */
-    public class func consultarEstagioCartaoUsingGET1WithRequestBuilder(idEstagioCartao idEstagioCartao: Int) -> RequestBuilder<EstagioCartao> {
+    public class func consultarEstagioCartaoUsingGETWithRequestBuilder(idEstagioCartao idEstagioCartao: Int) -> RequestBuilder<EstagioCartao> {
         var path = "/api/estagios-cartoes/{idEstagioCartao}"
         path = path.stringByReplacingOccurrencesOfString("{idEstagioCartao}", withString: "\(idEstagioCartao)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path

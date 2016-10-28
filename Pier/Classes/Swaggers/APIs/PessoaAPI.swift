@@ -17,8 +17,8 @@ public class PessoaAPI: APIBase {
      - parameter idPessoa: (path) ID da Origem Comercial 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET1(idPessoa idPessoa: Int, completion: ((data: Pessoa?, error: ErrorType?) -> Void)) {
-        consultarUsingGET1WithRequestBuilder(idPessoa: idPessoa).execute { (response, error) -> Void in
+    public class func consultarUsingGET3(idPessoa idPessoa: Int, completion: ((data: Pessoa?, error: ErrorType?) -> Void)) {
+        consultarUsingGET3WithRequestBuilder(idPessoa: idPessoa).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -47,7 +47,7 @@ public class PessoaAPI: APIBase {
 
      - returns: RequestBuilder<Pessoa> 
      */
-    public class func consultarUsingGET1WithRequestBuilder(idPessoa idPessoa: Int) -> RequestBuilder<Pessoa> {
+    public class func consultarUsingGET3WithRequestBuilder(idPessoa idPessoa: Int) -> RequestBuilder<Pessoa> {
         var path = "/api/pessoas/{idPessoa}"
         path = path.stringByReplacingOccurrencesOfString("{idPessoa}", withString: "\(idPessoa)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -75,8 +75,8 @@ public class PessoaAPI: APIBase {
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET2(id id: Int?, nome: String?, tipo: String?, cpf: String?, cnpj: String?, dataNascimento: NSDate?, sexo: String?, page: Int?, limit: Int?, completion: ((data: PagePessoas?, error: ErrorType?) -> Void)) {
-        listarUsingGET2WithRequestBuilder(id: id, nome: nome, tipo: tipo, cpf: cpf, cnpj: cnpj, dataNascimento: dataNascimento, sexo: sexo, page: page, limit: limit).execute { (response, error) -> Void in
+    public class func listarUsingGET3(id id: Int?, nome: String?, tipo: String?, cpf: String?, cnpj: String?, dataNascimento: NSDate?, sexo: String?, page: Int?, limit: Int?, completion: ((data: PagePessoas?, error: ErrorType?) -> Void)) {
+        listarUsingGET3WithRequestBuilder(id: id, nome: nome, tipo: tipo, cpf: cpf, cnpj: cnpj, dataNascimento: dataNascimento, sexo: sexo, page: page, limit: limit).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -128,7 +128,7 @@ public class PessoaAPI: APIBase {
 
      - returns: RequestBuilder<PagePessoas> 
      */
-    public class func listarUsingGET2WithRequestBuilder(id id: Int?, nome: String?, tipo: String?, cpf: String?, cnpj: String?, dataNascimento: NSDate?, sexo: String?, page: Int?, limit: Int?) -> RequestBuilder<PagePessoas> {
+    public class func listarUsingGET3WithRequestBuilder(id id: Int?, nome: String?, tipo: String?, cpf: String?, cnpj: String?, dataNascimento: NSDate?, sexo: String?, page: Int?, limit: Int?) -> RequestBuilder<PagePessoas> {
         let path = "/api/pessoas"
         let URLString = PierAPI.basePath + path
         

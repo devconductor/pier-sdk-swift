@@ -63,6 +63,74 @@ public class CartaoAPI: APIBase {
 
     /**
      
+     Realiza o bloqueio de um determinado Cart\u00C3\u00A3o
+     
+     - parameter idCartao: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
+     - parameter idStatus: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Novo Status Cart\u00C3\u00A3o. 
+     - parameter observacao: (query) Texto informando uma observa\u00C3\u00A7\u00C3\u00A3o sobre o bloqueio. 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func bloquearUsingPUT(idCartao idCartao: Int, idStatus: Int, observacao: String, completion: ((data: Cartao?, error: ErrorType?) -> Void)) {
+        bloquearUsingPUTWithRequestBuilder(idCartao: idCartao, idStatus: idStatus, observacao: observacao).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Realiza o bloqueio de um determinado Cart\u00C3\u00A3o
+     
+     - PUT /api/cartoes/{idCartao}/bloqueio
+     - Este m\u00C3\u00A9todo permite a realiza\u00C3\u00A7\u00C3\u00A3o do bloqueio (tempor\u00C3\u00A1rio) ou do cancelamento (definitivo) de um determinado cart\u00C3\u00A3o a partir do seu c\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o (id). Para isso, \u00C3\u00A9 preciso informar qual o motivo deste bloqueio que nada mais \u00C3\u00A9 do que atribuir um novo StatusCartao para ele dentre as op\u00C3\u00A7\u00C3\u00B5es praticadas pelo emissor.
+     - API Key:
+       - type: apiKey access_token 
+       - name: access_token
+     - examples: [{contentType=application/json, example={
+  "dataStatusCartao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "idConta" : 123456789,
+  "codigoDesbloqueio" : "aeiou",
+  "idEstagioCartao" : 123456789,
+  "arquivoImpressao" : "aeiou",
+  "numeroCartao" : "aeiou",
+  "idPessoa" : 123456789,
+  "idProduto" : 123456789,
+  "flagProvisorio" : 123,
+  "dataValidade" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "idStatusCartao" : 123456789,
+  "dataEstagioCartao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "flagImpressaoOrigemComercial" : 123,
+  "id" : 123456789,
+  "nomeImpresso" : "aeiou",
+  "dataImpressao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "dataGeracao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "tipoPortador" : "aeiou"
+}}]
+     
+     - parameter idCartao: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
+     - parameter idStatus: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Novo Status Cart\u00C3\u00A3o. 
+     - parameter observacao: (query) Texto informando uma observa\u00C3\u00A7\u00C3\u00A3o sobre o bloqueio. 
+
+     - returns: RequestBuilder<Cartao> 
+     */
+    public class func bloquearUsingPUTWithRequestBuilder(idCartao idCartao: Int, idStatus: Int, observacao: String) -> RequestBuilder<Cartao> {
+        var path = "/api/cartoes/{idCartao}/bloqueio"
+        path = path.stringByReplacingOccurrencesOfString("{idCartao}", withString: "\(idCartao)", options: .LiteralSearch, range: nil)
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [
+            "id_status": idStatus,
+            "observacao": observacao
+        ]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Cartao>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: false)
+    }
+
+    /**
+     
      Apresenta os limites do Portador do Cart\u00C3\u00A3o
      
      - parameter idCartao: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 

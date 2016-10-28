@@ -17,8 +17,8 @@ public class StatusContaAPI: APIBase {
      - parameter idStatusConta: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Status da Conta (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET2(idStatusConta idStatusConta: Int, completion: ((data: StatusConta?, error: ErrorType?) -> Void)) {
-        consultarUsingGET2WithRequestBuilder(idStatusConta: idStatusConta).execute { (response, error) -> Void in
+    public class func consultarUsingGET4(idStatusConta idStatusConta: Int, completion: ((data: StatusConta?, error: ErrorType?) -> Void)) {
+        consultarUsingGET4WithRequestBuilder(idStatusConta: idStatusConta).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -44,7 +44,7 @@ public class StatusContaAPI: APIBase {
 
      - returns: RequestBuilder<StatusConta> 
      */
-    public class func consultarUsingGET2WithRequestBuilder(idStatusConta idStatusConta: Int) -> RequestBuilder<StatusConta> {
+    public class func consultarUsingGET4WithRequestBuilder(idStatusConta idStatusConta: Int) -> RequestBuilder<StatusConta> {
         var path = "/api/status-contas/{idStatusConta}"
         path = path.stringByReplacingOccurrencesOfString("{idStatusConta}", withString: "\(idStatusConta)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -69,8 +69,8 @@ public class StatusContaAPI: APIBase {
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET3(id id: Int?, nome: String?, flagAlteraLimite: Int?, mensagemConsultaNegada: String?, page: Int?, limit: Int?, completion: ((data: PageStatusContas?, error: ErrorType?) -> Void)) {
-        listarUsingGET3WithRequestBuilder(id: id, nome: nome, flagAlteraLimite: flagAlteraLimite, mensagemConsultaNegada: mensagemConsultaNegada, page: page, limit: limit).execute { (response, error) -> Void in
+    public class func listarUsingGET4(id id: Int?, nome: String?, flagAlteraLimite: Int?, mensagemConsultaNegada: String?, page: Int?, limit: Int?, completion: ((data: PageStatusContas?, error: ErrorType?) -> Void)) {
+        listarUsingGET4WithRequestBuilder(id: id, nome: nome, flagAlteraLimite: flagAlteraLimite, mensagemConsultaNegada: mensagemConsultaNegada, page: page, limit: limit).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -116,7 +116,7 @@ public class StatusContaAPI: APIBase {
 
      - returns: RequestBuilder<PageStatusContas> 
      */
-    public class func listarUsingGET3WithRequestBuilder(id id: Int?, nome: String?, flagAlteraLimite: Int?, mensagemConsultaNegada: String?, page: Int?, limit: Int?) -> RequestBuilder<PageStatusContas> {
+    public class func listarUsingGET4WithRequestBuilder(id id: Int?, nome: String?, flagAlteraLimite: Int?, mensagemConsultaNegada: String?, page: Int?, limit: Int?) -> RequestBuilder<PageStatusContas> {
         let path = "/api/status-contas"
         let URLString = PierAPI.basePath + path
         
