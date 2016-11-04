@@ -69,8 +69,8 @@ public class StatusContaAPI: APIBase {
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET4(id id: Int?, nome: String?, flagAlteraLimite: Int?, mensagemConsultaNegada: String?, page: Int?, limit: Int?, completion: ((data: PageStatusContas?, error: ErrorType?) -> Void)) {
-        listarUsingGET4WithRequestBuilder(id: id, nome: nome, flagAlteraLimite: flagAlteraLimite, mensagemConsultaNegada: mensagemConsultaNegada, page: page, limit: limit).execute { (response, error) -> Void in
+    public class func listarUsingGET5(id id: Int?, nome: String?, flagAlteraLimite: Int?, mensagemConsultaNegada: String?, page: Int?, limit: Int?, completion: ((data: PageStatusContas?, error: ErrorType?) -> Void)) {
+        listarUsingGET5WithRequestBuilder(id: id, nome: nome, flagAlteraLimite: flagAlteraLimite, mensagemConsultaNegada: mensagemConsultaNegada, page: page, limit: limit).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -116,7 +116,7 @@ public class StatusContaAPI: APIBase {
 
      - returns: RequestBuilder<PageStatusContas> 
      */
-    public class func listarUsingGET4WithRequestBuilder(id id: Int?, nome: String?, flagAlteraLimite: Int?, mensagemConsultaNegada: String?, page: Int?, limit: Int?) -> RequestBuilder<PageStatusContas> {
+    public class func listarUsingGET5WithRequestBuilder(id id: Int?, nome: String?, flagAlteraLimite: Int?, mensagemConsultaNegada: String?, page: Int?, limit: Int?) -> RequestBuilder<PageStatusContas> {
         let path = "/api/status-contas"
         let URLString = PierAPI.basePath + path
         

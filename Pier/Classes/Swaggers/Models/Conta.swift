@@ -15,6 +15,8 @@ public class Conta: JSONEncodable {
     public var dataCadastro: NSDate?
     /** Apresenta a data em que o idStatusConta atual fora atribu\u00C3\u00ADdo para ela. */
     public var dataStatusConta: NSDate?
+    /** Apresenta a data da ultima altera\u00C3\u00A7\u00C3\u00A3o de vencimento. */
+    public var dataUltimaAlteracaoVencimento: NSDate?
     /** Apresenta o dia de vencimento. */
     public var diaVencimento: Int?
     /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o de conta (id). */
@@ -38,6 +40,7 @@ public class Conta: JSONEncodable {
         var nillableDictionary = [String:AnyObject?]()
         nillableDictionary["dataCadastro"] = self.dataCadastro?.encodeToJSON()
         nillableDictionary["dataStatusConta"] = self.dataStatusConta?.encodeToJSON()
+        nillableDictionary["dataUltimaAlteracaoVencimento"] = self.dataUltimaAlteracaoVencimento?.encodeToJSON()
         nillableDictionary["diaVencimento"] = self.diaVencimento
         nillableDictionary["id"] = self.id
         nillableDictionary["idOrigemComercial"] = self.idOrigemComercial

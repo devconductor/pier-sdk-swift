@@ -65,8 +65,8 @@ public class StatusImpressaoAPI: APIBase {
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET5(id id: Int?, nome: String?, page: Int?, limit: Int?, completion: ((data: PageStatusImpressao?, error: ErrorType?) -> Void)) {
-        listarUsingGET5WithRequestBuilder(id: id, nome: nome, page: page, limit: limit).execute { (response, error) -> Void in
+    public class func listarUsingGET6(id id: Int?, nome: String?, page: Int?, limit: Int?, completion: ((data: PageStatusImpressao?, error: ErrorType?) -> Void)) {
+        listarUsingGET6WithRequestBuilder(id: id, nome: nome, page: page, limit: limit).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -108,7 +108,7 @@ public class StatusImpressaoAPI: APIBase {
 
      - returns: RequestBuilder<PageStatusImpressao> 
      */
-    public class func listarUsingGET5WithRequestBuilder(id id: Int?, nome: String?, page: Int?, limit: Int?) -> RequestBuilder<PageStatusImpressao> {
+    public class func listarUsingGET6WithRequestBuilder(id id: Int?, nome: String?, page: Int?, limit: Int?) -> RequestBuilder<PageStatusImpressao> {
         let path = "/api/status-impressoes"
         let URLString = PierAPI.basePath + path
         

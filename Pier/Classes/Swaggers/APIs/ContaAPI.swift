@@ -12,6 +12,63 @@ import Alamofire
 public class ContaAPI: APIBase {
     /**
      
+     Alterar vencimento
+     
+     - parameter idConta: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
+     - parameter novoDiaVencimento: (query) Novo dia de vencimento. 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func alterarVencimentoUsingPUT(idConta idConta: Int, novoDiaVencimento: Int, completion: ((data: Conta?, error: ErrorType?) -> Void)) {
+        alterarVencimentoUsingPUTWithRequestBuilder(idConta: idConta, novoDiaVencimento: novoDiaVencimento).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Alterar vencimento
+     
+     - PUT /api/contas/{idConta}/alterar-vencimento
+     - Esse recurso permite alterar o vencimento de uma conta especifica.
+     - API Key:
+       - type: apiKey access_token 
+       - name: access_token
+     - examples: [{contentType=application/json, example={
+  "idPessoa" : 123456789,
+  "idStatusConta" : 123456789,
+  "idOrigemComercial" : 123456789,
+  "idProduto" : 123456789,
+  "dataUltimaAlteracaoVencimento" : "2000-01-23T04:56:07.000+0000",
+  "melhorDiaCompra" : 123,
+  "dataStatusConta" : "2000-01-23T04:56:07.000+0000",
+  "id" : 123456789,
+  "dataCadastro" : "2000-01-23T04:56:07.000+0000",
+  "diaVencimento" : 123
+}}]
+     
+     - parameter idConta: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
+     - parameter novoDiaVencimento: (query) Novo dia de vencimento. 
+
+     - returns: RequestBuilder<Conta> 
+     */
+    public class func alterarVencimentoUsingPUTWithRequestBuilder(idConta idConta: Int, novoDiaVencimento: Int) -> RequestBuilder<Conta> {
+        var path = "/api/contas/{idConta}/alterar-vencimento"
+        path = path.stringByReplacingOccurrencesOfString("{idConta}", withString: "\(idConta)", options: .LiteralSearch, range: nil)
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [
+            "novo_dia_vencimento": novoDiaVencimento
+        ]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Conta>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: false)
+    }
+
+    /**
+     
      Apresenta dados de uma determinada conta
      
      - parameter idConta: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
@@ -38,6 +95,7 @@ public class ContaAPI: APIBase {
   "idStatusConta" : 123456789,
   "idOrigemComercial" : 123456789,
   "idProduto" : 123456789,
+  "dataUltimaAlteracaoVencimento" : "2000-01-23T04:56:07.000+0000",
   "melhorDiaCompra" : 123,
   "dataStatusConta" : "2000-01-23T04:56:07.000+0000",
   "id" : 123456789,
@@ -64,7 +122,7 @@ public class ContaAPI: APIBase {
 
     /**
      
-     Lista contas existentes na base de dados do Emissor.
+     Lista contas existentes na base de dados do Emissor
      
      - parameter id: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o de conta (id). (optional)
      - parameter idProduto: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do produto ao qual a conta faz parte. (id). (optional)
@@ -75,12 +133,13 @@ public class ContaAPI: APIBase {
      - parameter melhorDiaCompra: (query) Apresenta o melhor dia de compra. (optional)
      - parameter dataStatusConta: (query) Apresenta a data em que o idStatusConta atual fora atribu\u00C3\u00ADdo para ela. (optional)
      - parameter dataCadastro: (query) Apresenta a data em que o cart\u00C3\u00A3o foi gerado. (optional)
+     - parameter dataUltimaAlteracaoVencimento: (query) Apresenta a data da ultima altera\u00C3\u00A7\u00C3\u00A3o de vencimento. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET1(id id: Int?, idProduto: Int?, idOrigemComercial: Int?, idPessoa: Int?, idStatusConta: Int?, diaVencimento: Int?, melhorDiaCompra: Int?, dataStatusConta: NSDate?, dataCadastro: NSDate?, page: Int?, limit: Int?, completion: ((data: Conta?, error: ErrorType?) -> Void)) {
-        listarUsingGET1WithRequestBuilder(id: id, idProduto: idProduto, idOrigemComercial: idOrigemComercial, idPessoa: idPessoa, idStatusConta: idStatusConta, diaVencimento: diaVencimento, melhorDiaCompra: melhorDiaCompra, dataStatusConta: dataStatusConta, dataCadastro: dataCadastro, page: page, limit: limit).execute { (response, error) -> Void in
+    public class func listarUsingGET1(id id: Int?, idProduto: Int?, idOrigemComercial: Int?, idPessoa: Int?, idStatusConta: Int?, diaVencimento: Int?, melhorDiaCompra: Int?, dataStatusConta: NSDate?, dataCadastro: NSDate?, dataUltimaAlteracaoVencimento: NSDate?, page: Int?, limit: Int?, completion: ((data: Conta?, error: ErrorType?) -> Void)) {
+        listarUsingGET1WithRequestBuilder(id: id, idProduto: idProduto, idOrigemComercial: idOrigemComercial, idPessoa: idPessoa, idStatusConta: idStatusConta, diaVencimento: diaVencimento, melhorDiaCompra: melhorDiaCompra, dataStatusConta: dataStatusConta, dataCadastro: dataCadastro, dataUltimaAlteracaoVencimento: dataUltimaAlteracaoVencimento, page: page, limit: limit).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -88,10 +147,10 @@ public class ContaAPI: APIBase {
 
     /**
      
-     Lista contas existentes na base de dados do Emissor.
+     Lista contas existentes na base de dados do Emissor
      
      - GET /api/contas
-     - Este m\u00C3\u00A9todo permite listar contas existentes na base de dados do Emissor.
+     - Este recurso permite listar contas existentes na base de dados do Emissor.
      - API Key:
        - type: apiKey access_token 
        - name: access_token
@@ -100,6 +159,7 @@ public class ContaAPI: APIBase {
   "idStatusConta" : 123456789,
   "idOrigemComercial" : 123456789,
   "idProduto" : 123456789,
+  "dataUltimaAlteracaoVencimento" : "2000-01-23T04:56:07.000+0000",
   "melhorDiaCompra" : 123,
   "dataStatusConta" : "2000-01-23T04:56:07.000+0000",
   "id" : 123456789,
@@ -116,12 +176,13 @@ public class ContaAPI: APIBase {
      - parameter melhorDiaCompra: (query) Apresenta o melhor dia de compra. (optional)
      - parameter dataStatusConta: (query) Apresenta a data em que o idStatusConta atual fora atribu\u00C3\u00ADdo para ela. (optional)
      - parameter dataCadastro: (query) Apresenta a data em que o cart\u00C3\u00A3o foi gerado. (optional)
+     - parameter dataUltimaAlteracaoVencimento: (query) Apresenta a data da ultima altera\u00C3\u00A7\u00C3\u00A3o de vencimento. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
 
      - returns: RequestBuilder<Conta> 
      */
-    public class func listarUsingGET1WithRequestBuilder(id id: Int?, idProduto: Int?, idOrigemComercial: Int?, idPessoa: Int?, idStatusConta: Int?, diaVencimento: Int?, melhorDiaCompra: Int?, dataStatusConta: NSDate?, dataCadastro: NSDate?, page: Int?, limit: Int?) -> RequestBuilder<Conta> {
+    public class func listarUsingGET1WithRequestBuilder(id id: Int?, idProduto: Int?, idOrigemComercial: Int?, idPessoa: Int?, idStatusConta: Int?, diaVencimento: Int?, melhorDiaCompra: Int?, dataStatusConta: NSDate?, dataCadastro: NSDate?, dataUltimaAlteracaoVencimento: NSDate?, page: Int?, limit: Int?) -> RequestBuilder<Conta> {
         let path = "/api/contas"
         let URLString = PierAPI.basePath + path
         
@@ -135,6 +196,7 @@ public class ContaAPI: APIBase {
             "melhorDiaCompra": melhorDiaCompra,
             "dataStatusConta": dataStatusConta,
             "dataCadastro": dataCadastro,
+            "dataUltimaAlteracaoVencimento": dataUltimaAlteracaoVencimento,
             "page": page,
             "limit": limit
         ]
