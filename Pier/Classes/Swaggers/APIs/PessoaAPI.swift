@@ -12,9 +12,78 @@ import Alamofire
 public class PessoaAPI: APIBase {
     /**
      
+     Atualiza os dados de uma determinada Pessoa
+     
+     - parameter id: (query) ID da Pessoa 
+     - parameter nome: (query) Apresenta o &#39;Nome Completo da PF&#39; ou o &#39;Nome Completo da Raz\u00C3\u00A3o Social (Nome Empresarial)&#39;. 
+     - parameter tipo: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do tipo da Pessoa, sendo: (\&quot;PF\&quot;: Pessoa F\u00C3\u00ADsica), (\&quot;PJ\&quot;: Pessoa Jur\u00C3\u00ADdica). 
+     - parameter cpf: (query) N\u00C3\u00BAmero do CPF, quando PF. (optional)
+     - parameter cnpj: (query) N\u00C3\u00BAmero do CNPJ, quando PJ. (optional)
+     - parameter dataNascimento: (query) Data de Nascimento da Pessoa, quando PF, ou a Data de Abertura da Empresa, quando PJ. (optional)
+     - parameter sexo: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do sexo da Pessoa, quando PF, sendo: (\&quot;M\&quot;: Masculino), (\&quot;F\&quot;: Feminino), (\&quot;O\&quot;: Outro), (\&quot;N\&quot;: N\u00C3\u00A3o Especificado). (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func alterarUsingPUT1(id id: Int, nome: String, tipo: String, cpf: String?, cnpj: String?, dataNascimento: NSDate?, sexo: String?, completion: ((data: Pessoa?, error: ErrorType?) -> Void)) {
+        alterarUsingPUT1WithRequestBuilder(id: id, nome: nome, tipo: tipo, cpf: cpf, cnpj: cnpj, dataNascimento: dataNascimento, sexo: sexo).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Atualiza os dados de uma determinada Pessoa
+     
+     - PUT /api/pessoas
+     - Este m\u00C3\u00A9todo permite que seja alterado na base do emissor um registro de determinada Pessoa.
+     - API Key:
+       - type: apiKey access_token 
+       - name: access_token
+     - examples: [{contentType=application/json, example={
+  "tipo" : "aeiou",
+  "cpf" : "aeiou",
+  "nome" : "aeiou",
+  "cnpj" : "aeiou",
+  "id" : 123456789,
+  "dataNascimento" : "2000-01-23T04:56:07.000+0000",
+  "sexo" : "aeiou"
+}}]
+     
+     - parameter id: (query) ID da Pessoa 
+     - parameter nome: (query) Apresenta o &#39;Nome Completo da PF&#39; ou o &#39;Nome Completo da Raz\u00C3\u00A3o Social (Nome Empresarial)&#39;. 
+     - parameter tipo: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do tipo da Pessoa, sendo: (\&quot;PF\&quot;: Pessoa F\u00C3\u00ADsica), (\&quot;PJ\&quot;: Pessoa Jur\u00C3\u00ADdica). 
+     - parameter cpf: (query) N\u00C3\u00BAmero do CPF, quando PF. (optional)
+     - parameter cnpj: (query) N\u00C3\u00BAmero do CNPJ, quando PJ. (optional)
+     - parameter dataNascimento: (query) Data de Nascimento da Pessoa, quando PF, ou a Data de Abertura da Empresa, quando PJ. (optional)
+     - parameter sexo: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do sexo da Pessoa, quando PF, sendo: (\&quot;M\&quot;: Masculino), (\&quot;F\&quot;: Feminino), (\&quot;O\&quot;: Outro), (\&quot;N\&quot;: N\u00C3\u00A3o Especificado). (optional)
+
+     - returns: RequestBuilder<Pessoa> 
+     */
+    public class func alterarUsingPUT1WithRequestBuilder(id id: Int, nome: String, tipo: String, cpf: String?, cnpj: String?, dataNascimento: NSDate?, sexo: String?) -> RequestBuilder<Pessoa> {
+        let path = "/api/pessoas"
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [
+            "id": id,
+            "nome": nome,
+            "tipo": tipo,
+            "cpf": cpf,
+            "cnpj": cnpj,
+            "dataNascimento": dataNascimento,
+            "sexo": sexo
+        ]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Pessoa>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: false)
+    }
+
+    /**
+     
      Apresenta os dados de uma determinada Pessoa
      
-     - parameter idPessoa: (path) ID da Origem Comercial 
+     - parameter idPessoa: (path) ID da Pessoa 
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func consultarUsingGET3(idPessoa idPessoa: Int, completion: ((data: Pessoa?, error: ErrorType?) -> Void)) {
@@ -43,7 +112,7 @@ public class PessoaAPI: APIBase {
   "sexo" : "aeiou"
 }}]
      
-     - parameter idPessoa: (path) ID da Origem Comercial 
+     - parameter idPessoa: (path) ID da Pessoa 
 
      - returns: RequestBuilder<Pessoa> 
      */
@@ -148,6 +217,72 @@ public class PessoaAPI: APIBase {
         let requestBuilder: RequestBuilder<PagePessoas>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
+    }
+
+    /**
+     
+     Realiza o cadastro de um nova Pessoa
+     
+     - parameter nome: (query) Apresenta o &#39;Nome Completo da PF&#39; ou o &#39;Nome Completo da Raz\u00C3\u00A3o Social (Nome Empresarial)&#39;. 
+     - parameter tipo: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do tipo da Pessoa, sendo: (\&quot;PF\&quot;: Pessoa F\u00C3\u00ADsica), (\&quot;PJ\&quot;: Pessoa Jur\u00C3\u00ADdica). 
+     - parameter cpf: (query) N\u00C3\u00BAmero do CPF, quando PF. (optional)
+     - parameter cnpj: (query) N\u00C3\u00BAmero do CNPJ, quando PJ. (optional)
+     - parameter dataNascimento: (query) Data de Nascimento da Pessoa, quando PF, ou a Data de Abertura da Empresa, quando PJ. (optional)
+     - parameter sexo: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do sexo da Pessoa, quando PF, sendo: (\&quot;M\&quot;: Masculino), (\&quot;F\&quot;: Feminino), (\&quot;O\&quot;: Outro), (\&quot;N\&quot;: N\u00C3\u00A3o Especificado). (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func salvarUsingPOST1(nome nome: String, tipo: String, cpf: String?, cnpj: String?, dataNascimento: NSDate?, sexo: String?, completion: ((data: Pessoa?, error: ErrorType?) -> Void)) {
+        salvarUsingPOST1WithRequestBuilder(nome: nome, tipo: tipo, cpf: cpf, cnpj: cnpj, dataNascimento: dataNascimento, sexo: sexo).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Realiza o cadastro de um nova Pessoa
+     
+     - POST /api/pessoas
+     - Este m\u00C3\u00A9todo permite que seja cadastrado uma nova Pessoa na base de dados do Emissor.
+     - API Key:
+       - type: apiKey access_token 
+       - name: access_token
+     - examples: [{contentType=application/json, example={
+  "tipo" : "aeiou",
+  "cpf" : "aeiou",
+  "nome" : "aeiou",
+  "cnpj" : "aeiou",
+  "id" : 123456789,
+  "dataNascimento" : "2000-01-23T04:56:07.000+0000",
+  "sexo" : "aeiou"
+}}]
+     
+     - parameter nome: (query) Apresenta o &#39;Nome Completo da PF&#39; ou o &#39;Nome Completo da Raz\u00C3\u00A3o Social (Nome Empresarial)&#39;. 
+     - parameter tipo: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do tipo da Pessoa, sendo: (\&quot;PF\&quot;: Pessoa F\u00C3\u00ADsica), (\&quot;PJ\&quot;: Pessoa Jur\u00C3\u00ADdica). 
+     - parameter cpf: (query) N\u00C3\u00BAmero do CPF, quando PF. (optional)
+     - parameter cnpj: (query) N\u00C3\u00BAmero do CNPJ, quando PJ. (optional)
+     - parameter dataNascimento: (query) Data de Nascimento da Pessoa, quando PF, ou a Data de Abertura da Empresa, quando PJ. (optional)
+     - parameter sexo: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do sexo da Pessoa, quando PF, sendo: (\&quot;M\&quot;: Masculino), (\&quot;F\&quot;: Feminino), (\&quot;O\&quot;: Outro), (\&quot;N\&quot;: N\u00C3\u00A3o Especificado). (optional)
+
+     - returns: RequestBuilder<Pessoa> 
+     */
+    public class func salvarUsingPOST1WithRequestBuilder(nome nome: String, tipo: String, cpf: String?, cnpj: String?, dataNascimento: NSDate?, sexo: String?) -> RequestBuilder<Pessoa> {
+        let path = "/api/pessoas"
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [
+            "nome": nome,
+            "tipo": tipo,
+            "cpf": cpf,
+            "cnpj": cnpj,
+            "dataNascimento": dataNascimento,
+            "sexo": sexo
+        ]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Pessoa>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: false)
     }
 
 }

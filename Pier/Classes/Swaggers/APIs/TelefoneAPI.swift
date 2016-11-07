@@ -161,8 +161,8 @@ public class TelefoneAPI: APIBase {
      - parameter ramal: (query) N\u00C3\u00BAmero do ramal. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func salvarUsingPOST1(idTipoTelefone idTipoTelefone: Int?, idPessoa: Int?, ddd: String?, telefone: String?, ramal: String?, completion: ((data: Telefone?, error: ErrorType?) -> Void)) {
-        salvarUsingPOST1WithRequestBuilder(idTipoTelefone: idTipoTelefone, idPessoa: idPessoa, ddd: ddd, telefone: telefone, ramal: ramal).execute { (response, error) -> Void in
+    public class func salvarUsingPOST2(idTipoTelefone idTipoTelefone: Int?, idPessoa: Int?, ddd: String?, telefone: String?, ramal: String?, completion: ((data: Telefone?, error: ErrorType?) -> Void)) {
+        salvarUsingPOST2WithRequestBuilder(idTipoTelefone: idTipoTelefone, idPessoa: idPessoa, ddd: ddd, telefone: telefone, ramal: ramal).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -195,7 +195,7 @@ public class TelefoneAPI: APIBase {
 
      - returns: RequestBuilder<Telefone> 
      */
-    public class func salvarUsingPOST1WithRequestBuilder(idTipoTelefone idTipoTelefone: Int?, idPessoa: Int?, ddd: String?, telefone: String?, ramal: String?) -> RequestBuilder<Telefone> {
+    public class func salvarUsingPOST2WithRequestBuilder(idTipoTelefone idTipoTelefone: Int?, idPessoa: Int?, ddd: String?, telefone: String?, ramal: String?) -> RequestBuilder<Telefone> {
         let path = "/api/telefones"
         let URLString = PierAPI.basePath + path
         
