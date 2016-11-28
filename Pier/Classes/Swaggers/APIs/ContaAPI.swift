@@ -122,6 +122,74 @@ public class ContaAPI: APIBase {
 
     /**
      
+     Realiza a gera\u00C3\u00A7\u00C3\u00A3o de um novo cart\u00C3\u00A3o para impress\u00C3\u00A3o avulsa
+     
+     - parameter idConta: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
+     - parameter idPessoa: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da pessoa (id). 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func gerarCartaoUsingPUT(idConta idConta: Int, idPessoa: Int, completion: ((data: CartaoImpressao?, error: ErrorType?) -> Void)) {
+        gerarCartaoUsingPUTWithRequestBuilder(idConta: idConta, idPessoa: idPessoa).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Realiza a gera\u00C3\u00A7\u00C3\u00A3o de um novo cart\u00C3\u00A3o para impress\u00C3\u00A3o avulsa
+     
+     - PUT /api/contas/{idConta}/pessoas/{idPessoa}/gerar-cartao
+     - API Key:
+       - type: apiKey access_token 
+       - name: access_token
+     - examples: [{contentType=application/json, example={
+  "cvv2" : "aeiou",
+  "idCartao" : 123456789,
+  "trilha1" : "aeiou",
+  "trilhaCVV2" : "aeiou",
+  "idConta" : 123456789,
+  "trilhaCVV1" : "aeiou",
+  "idTipoCartao" : 123456789,
+  "idBandeira" : 123456789,
+  "centroCustoConta" : "aeiou",
+  "trilha2" : "aeiou",
+  "nomeEmpregador" : "aeiou",
+  "numeroCartao" : "aeiou",
+  "numeroContaCorente" : "aeiou",
+  "idPessoa" : 123456789,
+  "nomeEmpresa" : "aeiou",
+  "dataValidade" : "2000-01-23T04:56:07.000+0000",
+  "nomeOrigemComercial" : "aeiou",
+  "cpf" : "aeiou",
+  "nomePlastico" : "aeiou",
+  "nomeEmpresaBeneficio" : "aeiou",
+  "numeroAgencia" : 123,
+  "dataGeracao" : "2000-01-23T04:56:07.000+0000",
+  "tipoPortador" : "aeiou"
+}}]
+     
+     - parameter idConta: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
+     - parameter idPessoa: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da pessoa (id). 
+
+     - returns: RequestBuilder<CartaoImpressao> 
+     */
+    public class func gerarCartaoUsingPUTWithRequestBuilder(idConta idConta: Int, idPessoa: Int) -> RequestBuilder<CartaoImpressao> {
+        var path = "/api/contas/{idConta}/pessoas/{idPessoa}/gerar-cartao"
+        path = path.stringByReplacingOccurrencesOfString("{idConta}", withString: "\(idConta)", options: .LiteralSearch, range: nil)
+        path = path.stringByReplacingOccurrencesOfString("{idPessoa}", withString: "\(idPessoa)", options: .LiteralSearch, range: nil)
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<CartaoImpressao>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
      Lista contas existentes na base de dados do Emissor
      
      - parameter id: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o de conta (id). (optional)
