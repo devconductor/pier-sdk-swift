@@ -20,6 +20,7 @@ public class PortadorAPI: APIBase {
      - parameter idParentesco: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Parentesco (id) (optional)
      - parameter tipoPortador: (query) Apresenta o tipo do Portador do cart\u00C3\u00A3o, sendo: (&#39;T&#39;: Titular, &#39;A&#39;: Adicional). (optional)
      - parameter nomeImpresso: (query) Apresenta o nome a ser impresso no cart\u00C3\u00A3o. (optional)
+     - parameter idImagem: (query) Apresenta o c\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da imagem do cart\u00C3\u00A3o. (optional)
      - parameter idTipoCartao: (query) Apresenta o c\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do tipo do cart\u00C3\u00A3o (id), que ser\u00C3\u00A1 utilizado para gerar os cart\u00C3\u00B5es deste portador, vinculados a sua respectiva conta atrav\u00C3\u00A9s do campo idConta. (optional)
      - parameter flagAtivo: (query) Quanto ativa, indica que o cadastro do Portador est\u00C3\u00A1 ativo, em emissores que realizam este tipo de gest\u00C3\u00A3o. (optional)
      - parameter dataCadastroPortador: (query) Apresenta a data em que o Portador fora cadastrado, quando possuir esta informa\u00C3\u00A7\u00C3\u00A3o. (optional)
@@ -28,8 +29,8 @@ public class PortadorAPI: APIBase {
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET4(idConta idConta: Int?, idProduto: Int?, idPessoa: Int?, idParentesco: Int?, tipoPortador: String?, nomeImpresso: String?, idTipoCartao: Int?, flagAtivo: Int?, dataCadastroPortador: NSDate?, dataCancelamentoPortador: NSDate?, page: Int?, limit: Int?, completion: ((data: PagePortador?, error: ErrorType?) -> Void)) {
-        listarUsingGET4WithRequestBuilder(idConta: idConta, idProduto: idProduto, idPessoa: idPessoa, idParentesco: idParentesco, tipoPortador: tipoPortador, nomeImpresso: nomeImpresso, idTipoCartao: idTipoCartao, flagAtivo: flagAtivo, dataCadastroPortador: dataCadastroPortador, dataCancelamentoPortador: dataCancelamentoPortador, page: page, limit: limit).execute { (response, error) -> Void in
+    public class func listarUsingGET4(idConta idConta: Int?, idProduto: Int?, idPessoa: Int?, idParentesco: Int?, tipoPortador: String?, nomeImpresso: String?, idImagem: Int?, idTipoCartao: Int?, flagAtivo: Int?, dataCadastroPortador: NSDate?, dataCancelamentoPortador: NSDate?, page: Int?, limit: Int?, completion: ((data: PagePortador?, error: ErrorType?) -> Void)) {
+        listarUsingGET4WithRequestBuilder(idConta: idConta, idProduto: idProduto, idPessoa: idPessoa, idParentesco: idParentesco, tipoPortador: tipoPortador, nomeImpresso: nomeImpresso, idImagem: idImagem, idTipoCartao: idTipoCartao, flagAtivo: flagAtivo, dataCadastroPortador: dataCadastroPortador, dataCancelamentoPortador: dataCancelamentoPortador, page: page, limit: limit).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -55,6 +56,7 @@ public class PortadorAPI: APIBase {
     "dataCancelamentoPortador" : "2000-01-23T04:56:07.000+0000",
     "idConta" : 123456789,
     "idProduto" : 123456789,
+    "idImagem" : 123456789,
     "idTipoCartao" : 123456789,
     "idParentesco" : 123456789,
     "dataCadastroPortador" : "2000-01-23T04:56:07.000+0000",
@@ -78,6 +80,7 @@ public class PortadorAPI: APIBase {
      - parameter idParentesco: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Parentesco (id) (optional)
      - parameter tipoPortador: (query) Apresenta o tipo do Portador do cart\u00C3\u00A3o, sendo: (&#39;T&#39;: Titular, &#39;A&#39;: Adicional). (optional)
      - parameter nomeImpresso: (query) Apresenta o nome a ser impresso no cart\u00C3\u00A3o. (optional)
+     - parameter idImagem: (query) Apresenta o c\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da imagem do cart\u00C3\u00A3o. (optional)
      - parameter idTipoCartao: (query) Apresenta o c\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do tipo do cart\u00C3\u00A3o (id), que ser\u00C3\u00A1 utilizado para gerar os cart\u00C3\u00B5es deste portador, vinculados a sua respectiva conta atrav\u00C3\u00A9s do campo idConta. (optional)
      - parameter flagAtivo: (query) Quanto ativa, indica que o cadastro do Portador est\u00C3\u00A1 ativo, em emissores que realizam este tipo de gest\u00C3\u00A3o. (optional)
      - parameter dataCadastroPortador: (query) Apresenta a data em que o Portador fora cadastrado, quando possuir esta informa\u00C3\u00A7\u00C3\u00A3o. (optional)
@@ -87,7 +90,7 @@ public class PortadorAPI: APIBase {
 
      - returns: RequestBuilder<PagePortador> 
      */
-    public class func listarUsingGET4WithRequestBuilder(idConta idConta: Int?, idProduto: Int?, idPessoa: Int?, idParentesco: Int?, tipoPortador: String?, nomeImpresso: String?, idTipoCartao: Int?, flagAtivo: Int?, dataCadastroPortador: NSDate?, dataCancelamentoPortador: NSDate?, page: Int?, limit: Int?) -> RequestBuilder<PagePortador> {
+    public class func listarUsingGET4WithRequestBuilder(idConta idConta: Int?, idProduto: Int?, idPessoa: Int?, idParentesco: Int?, tipoPortador: String?, nomeImpresso: String?, idImagem: Int?, idTipoCartao: Int?, flagAtivo: Int?, dataCadastroPortador: NSDate?, dataCancelamentoPortador: NSDate?, page: Int?, limit: Int?) -> RequestBuilder<PagePortador> {
         let path = "/api/portadores"
         let URLString = PierAPI.basePath + path
         
@@ -98,6 +101,7 @@ public class PortadorAPI: APIBase {
             "idParentesco": idParentesco,
             "tipoPortador": tipoPortador,
             "nomeImpresso": nomeImpresso,
+            "idImagem": idImagem,
             "idTipoCartao": idTipoCartao,
             "flagAtivo": flagAtivo,
             "dataCadastroPortador": dataCadastroPortador,

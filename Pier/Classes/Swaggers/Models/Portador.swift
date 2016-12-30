@@ -19,6 +19,8 @@ public class Portador: JSONEncodable {
     public var flagAtivo: Int?
     /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Conta (id). */
     public var idConta: Int?
+    /** Apresenta o c\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da imagem do cart\u00C3\u00A3o. */
+    public var idImagem: Int?
     /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Parentesco (id) */
     public var idParentesco: Int?
     /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Pessoa (id). */
@@ -42,6 +44,7 @@ public class Portador: JSONEncodable {
         nillableDictionary["dataCancelamentoPortador"] = self.dataCancelamentoPortador?.encodeToJSON()
         nillableDictionary["flagAtivo"] = self.flagAtivo
         nillableDictionary["idConta"] = self.idConta
+        nillableDictionary["idImagem"] = self.idImagem
         nillableDictionary["idParentesco"] = self.idParentesco
         nillableDictionary["idPessoa"] = self.idPessoa
         nillableDictionary["idProduto"] = self.idProduto

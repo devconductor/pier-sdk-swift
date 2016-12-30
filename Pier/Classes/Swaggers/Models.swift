@@ -755,6 +755,7 @@ class Decoders {
                 instance.dataCancelamentoPortador = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["dataCancelamentoPortador"])
                 instance.flagAtivo = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["flagAtivo"])
                 instance.idConta = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["idConta"])
+                instance.idImagem = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["idImagem"])
                 instance.idParentesco = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["idParentesco"])
                 instance.idPessoa = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["idPessoa"])
                 instance.idProduto = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["idProduto"])
