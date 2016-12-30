@@ -221,7 +221,6 @@ public class CartaoAPI: APIBase {
   "dataCancelamentoPortador" : "2000-01-23T04:56:07.000+0000",
   "idConta" : 123456789,
   "idProduto" : 123456789,
-  "idImagem" : 123456789,
   "idTipoCartao" : 123456789,
   "idParentesco" : 123456789,
   "dataCadastroPortador" : "2000-01-23T04:56:07.000+0000",

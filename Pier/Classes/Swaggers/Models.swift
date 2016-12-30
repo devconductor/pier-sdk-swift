@@ -698,6 +698,32 @@ class Decoders {
             }
 			
 
+			// Decoder for [PageWebHooks]
+            Decoders.addDecoder(clazz: [PageWebHooks].self) { (source: AnyObject) -> [PageWebHooks] in
+                return Decoders.decode(clazz: [PageWebHooks].self, source: source)
+            }
+			// Decoder for PageWebHooks
+            Decoders.addDecoder(clazz: PageWebHooks.self) { (source: AnyObject) -> PageWebHooks in
+                let sourceDictionary = source as! [NSObject:AnyObject]
+                let instance = PageWebHooks()
+                instance.content = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["content"])
+                instance.first = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["first"])
+                instance.firstPage = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["firstPage"])
+                instance.hasContent = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["hasContent"])
+                instance.hasNextPage = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["hasNextPage"])
+                instance.hasPreviousPage = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["hasPreviousPage"])
+                instance.last = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["last"])
+                instance.nextPage = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["nextPage"])
+                instance.number = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["number"])
+                instance.numberOfElements = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["numberOfElements"])
+                instance.previousPage = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["previousPage"])
+                instance.size = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["size"])
+                instance.totalElements = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["totalElements"])
+                instance.totalPages = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["totalPages"])
+                return instance
+            }
+			
+
 			// Decoder for [Pessoa]
             Decoders.addDecoder(clazz: [Pessoa].self) { (source: AnyObject) -> [Pessoa] in
                 return Decoders.decode(clazz: [Pessoa].self, source: source)
@@ -729,7 +755,6 @@ class Decoders {
                 instance.dataCancelamentoPortador = Decoders.decodeOptional(clazz: NSDate.self, source: sourceDictionary["dataCancelamentoPortador"])
                 instance.flagAtivo = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["flagAtivo"])
                 instance.idConta = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["idConta"])
-                instance.idImagem = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["idImagem"])
                 instance.idParentesco = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["idParentesco"])
                 instance.idPessoa = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["idPessoa"])
                 instance.idProduto = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["idProduto"])
@@ -847,6 +872,22 @@ class Decoders {
                 let instance = TipoTelefone()
                 instance.id = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["id"])
                 instance.nome = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["nome"])
+                return instance
+            }
+			
+
+			// Decoder for [WebHook]
+            Decoders.addDecoder(clazz: [WebHook].self) { (source: AnyObject) -> [WebHook] in
+                return Decoders.decode(clazz: [WebHook].self, source: source)
+            }
+			// Decoder for WebHook
+            Decoders.addDecoder(clazz: WebHook.self) { (source: AnyObject) -> WebHook in
+                let sourceDictionary = source as! [NSObject:AnyObject]
+                let instance = WebHook()
+                instance.evento = WebHook.Evento(rawValue: (sourceDictionary["evento"] as? String) ?? "") 
+                instance.id = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["id"])
+                instance.metodo = WebHook.Metodo(rawValue: (sourceDictionary["metodo"] as? String) ?? "") 
+                instance.url = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["url"])
                 return instance
             }
 			
