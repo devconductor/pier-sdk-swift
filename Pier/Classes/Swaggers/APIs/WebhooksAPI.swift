@@ -20,8 +20,8 @@ public class WebhooksAPI: APIBase {
      - parameter url: (query) URL que a ser consumida pelo WebHook 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func alterarUsingPUT2(id id: Int, evento: Object, metodo: Object, url: String, completion: ((data: WebHook?, error: ErrorType?) -> Void)) {
-        alterarUsingPUT2WithRequestBuilder(id: id, evento: evento, metodo: metodo, url: url).execute { (response, error) -> Void in
+    public class func alterarUsingPUT3(id id: Int, evento: Object, metodo: Object, url: String, completion: ((data: WebHook?, error: ErrorType?) -> Void)) {
+        alterarUsingPUT3WithRequestBuilder(id: id, evento: evento, metodo: metodo, url: url).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -50,7 +50,7 @@ public class WebhooksAPI: APIBase {
 
      - returns: RequestBuilder<WebHook> 
      */
-    public class func alterarUsingPUT2WithRequestBuilder(id id: Int, evento: Object, metodo: Object, url: String) -> RequestBuilder<WebHook> {
+    public class func alterarUsingPUT3WithRequestBuilder(id id: Int, evento: Object, metodo: Object, url: String) -> RequestBuilder<WebHook> {
         let path = "/api/webhooks"
         let URLString = PierAPI.basePath + path
         
