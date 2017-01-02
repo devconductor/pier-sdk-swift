@@ -71,11 +71,11 @@ public class WebhooksAPI: APIBase {
      
      Consultar Webhook
      
-     - parameter idWebhook: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Webhook (id). 
+     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Webhook (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET9(idWebhook idWebhook: Int, completion: ((data: WebHook?, error: ErrorType?) -> Void)) {
-        consultarUsingGET9WithRequestBuilder(idWebhook: idWebhook).execute { (response, error) -> Void in
+    public class func consultarUsingGET9(id id: Int, completion: ((data: WebHook?, error: ErrorType?) -> Void)) {
+        consultarUsingGET9WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -85,7 +85,7 @@ public class WebhooksAPI: APIBase {
      
      Consultar Webhook
      
-     - GET /api/webhooks/{idWebhook}
+     - GET /api/webhooks/{id}
      - Este m\u00C3\u00A9todo permite que sejam consultado um webhook do emissor atrav\u00C3\u00A9s de um id especifico
      - API Key:
        - type: apiKey access_token 
@@ -97,13 +97,13 @@ public class WebhooksAPI: APIBase {
   "url" : "aeiou"
 }}]
      
-     - parameter idWebhook: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Webhook (id). 
+     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Webhook (id). 
 
      - returns: RequestBuilder<WebHook> 
      */
-    public class func consultarUsingGET9WithRequestBuilder(idWebhook idWebhook: Int) -> RequestBuilder<WebHook> {
-        var path = "/api/webhooks/{idWebhook}"
-        path = path.stringByReplacingOccurrencesOfString("{idWebhook}", withString: "\(idWebhook)", options: .LiteralSearch, range: nil)
+    public class func consultarUsingGET9WithRequestBuilder(id id: Int) -> RequestBuilder<WebHook> {
+        var path = "/api/webhooks/{id}"
+        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [:]
