@@ -213,7 +213,7 @@ public class CartaoAPI: APIBase {
      Realiza o cadastro ou altera\u00C3\u00A7\u00C3\u00A3o da senha de um Cart\u00C3\u00A3o
      
      - PUT /api/cartoes/{idCartao}/alterar-senha
-     - Esta opera\u00C3\u00A7\u00C3\u00A3o tem como objetivo permitir que o portador de um determinado cart\u00C3\u00A3o possa definir uma senha, a sua escolha
+     - Esta opera\u00C3\u00A7\u00C3\u00A3o tem como objetivo permitir que o portador de um determinado cart\u00C3\u00A3o possa definir uma senha a sua escolha.
      - API Key:
        - type: apiKey access_token 
        - name: access_token
@@ -613,7 +613,7 @@ public class CartaoAPI: APIBase {
 
     /**
      
-     Permite validar um Cart\u00C3\u00A3o Bandeirado a partir do chip
+     Permite validar um Cart\u00C3\u00A3o Mastercard a partir do chip
      
      - parameter numeroCartao: (query) N\u00C3\u00BAmero do cart\u00C3\u00A3o a ser validado. 
      - parameter criptograma: (query) Criptograma do cart\u00C3\u00A3o no formato de55 
@@ -628,10 +628,10 @@ public class CartaoAPI: APIBase {
 
     /**
      
-     Permite validar um Cart\u00C3\u00A3o Bandeirado a partir do chip
+     Permite validar um Cart\u00C3\u00A3o Mastercard a partir do chip
      
      - GET /api/cartoes/bandeirados/validar/chip
-     - Esta opera\u00C3\u00A7\u00C3\u00A3o tem como objetivo permitir que os Emissores validem a autenticidade de um determinado Cart\u00C3\u00A3o a partir do envio dos dados sens\u00C3\u00ADveis impressos nele.
+     - Esta opera\u00C3\u00A7\u00C3\u00A3o tem como objetivo permitir que os Emissores validem o criptograma gerado a partir da leitura de um chip EMV de um Cart\u00C3\u00A3o Mastercard a fim de verificar a sua autenticidade.
      - API Key:
        - type: apiKey access_token 
        - name: access_token
@@ -794,7 +794,7 @@ public class CartaoAPI: APIBase {
      Permite validar um Cart\u00C3\u00A3o Bandeirado a partir da Tarja
      
      - GET /api/cartoes/bandeirados/validar/tarja
-     - Esta opera\u00C3\u00A7\u00C3\u00A3o tem como objetivo permitir que os Emissores validem a autenticidade de um determinado Cart\u00C3\u00A3o a partir do envio dos dados sens\u00C3\u00ADveis impressos nele.
+     - Esta opera\u00C3\u00A7\u00C3\u00A3o tem como objetivo permitir que os Emissores validem a autenticidade de um determinado Cart\u00C3\u00A3o a partir da leitura da tarja magn\u00C3\u00A9tica do mesmo.
      - API Key:
        - type: apiKey access_token 
        - name: access_token
