@@ -63,6 +63,71 @@ public class CartaoAPI: APIBase {
 
     /**
      
+     Realiza a atribui\u00C3\u00A7\u00C3\u00A3o de um cart\u00C3\u00A3o pr\u00C3\u00A9-pago a uma pessoa.
+     
+     - parameter idCartao: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id) 
+     - parameter idPessoa: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o de uma Pessoa (id). 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func atribuirPessoaUsingPUT(idCartao idCartao: Int, idPessoa: Int, completion: ((data: Cartao?, error: ErrorType?) -> Void)) {
+        atribuirPessoaUsingPUTWithRequestBuilder(idCartao: idCartao, idPessoa: idPessoa).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Realiza a atribui\u00C3\u00A7\u00C3\u00A3o de um cart\u00C3\u00A3o pr\u00C3\u00A9-pago a uma pessoa.
+     
+     - PUT /api/cartoes/{idCartao}/atribuir-pessoa
+     - Esta m\u00C3\u00A9todo tem como permite que um cart\u00C3\u00A3o de cr\u00C3\u00A9dito impresso de forma avulsa e an\u00C3\u00B4nimo seja atribu\u00C3\u00ADdo a uma pessoa para que esta passe a ser a portadora titular deste cart\u00C3\u00A3o.
+     - API Key:
+       - type: apiKey access_token 
+       - name: access_token
+     - examples: [{contentType=application/json, example={
+  "dataStatusCartao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "idConta" : 123456789,
+  "codigoDesbloqueio" : "aeiou",
+  "idEstagioCartao" : 123456789,
+  "arquivoImpressao" : "aeiou",
+  "numeroCartao" : "aeiou",
+  "idPessoa" : 123456789,
+  "idProduto" : 123456789,
+  "flagProvisorio" : 123,
+  "dataValidade" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "idStatusCartao" : 123456789,
+  "dataEstagioCartao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "flagImpressaoOrigemComercial" : 123,
+  "id" : 123456789,
+  "nomeImpresso" : "aeiou",
+  "dataImpressao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "dataGeracao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "tipoPortador" : "aeiou"
+}}]
+     
+     - parameter idCartao: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id) 
+     - parameter idPessoa: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o de uma Pessoa (id). 
+
+     - returns: RequestBuilder<Cartao> 
+     */
+    public class func atribuirPessoaUsingPUTWithRequestBuilder(idCartao idCartao: Int, idPessoa: Int) -> RequestBuilder<Cartao> {
+        var path = "/api/cartoes/{idCartao}/atribuir-pessoa"
+        path = path.stringByReplacingOccurrencesOfString("{idCartao}", withString: "\(idCartao)", options: .LiteralSearch, range: nil)
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [
+            "id_pessoa": idPessoa
+        ]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Cartao>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: false)
+    }
+
+    /**
+     
      Realiza o bloqueio de um determinado Cart\u00C3\u00A3o
      
      - parameter idCartao: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
@@ -125,6 +190,49 @@ public class CartaoAPI: APIBase {
         let parameters = APIHelper.rejectNil(nillableParameters)
 
         let requestBuilder: RequestBuilder<Cartao>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: false)
+    }
+
+    /**
+     
+     Realiza o cadastro ou altera\u00C3\u00A7\u00C3\u00A3o da senha de um Cart\u00C3\u00A3o
+     
+     - parameter idCartao: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func cadastrarAlterarSenhaUsingPUT(idCartao idCartao: Int, completion: ((data: String?, error: ErrorType?) -> Void)) {
+        cadastrarAlterarSenhaUsingPUTWithRequestBuilder(idCartao: idCartao).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Realiza o cadastro ou altera\u00C3\u00A7\u00C3\u00A3o da senha de um Cart\u00C3\u00A3o
+     
+     - PUT /api/cartoes/{idCartao}/alterar-senha
+     - Esta opera\u00C3\u00A7\u00C3\u00A3o tem como objetivo permitir que o portador de um determinado cart\u00C3\u00A3o possa definir uma senha, a sua escolha
+     - API Key:
+       - type: apiKey access_token 
+       - name: access_token
+     - examples: [{contentType=application/json, example="aeiou"}]
+     
+     - parameter idCartao: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
+
+     - returns: RequestBuilder<String> 
+     */
+    public class func cadastrarAlterarSenhaUsingPUTWithRequestBuilder(idCartao idCartao: Int) -> RequestBuilder<String> {
+        let path = "/api/cartoes/{idCartao}/alterar-senha"
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [
+            "id_cartao": idCartao
+        ]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<String>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: false)
     }
@@ -501,6 +609,264 @@ public class CartaoAPI: APIBase {
         let requestBuilder: RequestBuilder<PageCartoes>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
+    }
+
+    /**
+     
+     Permite validar um Cart\u00C3\u00A3o Bandeirado a partir do chip
+     
+     - parameter numeroCartao: (query) N\u00C3\u00BAmero do cart\u00C3\u00A3o a ser validado. 
+     - parameter criptograma: (query) Criptograma do cart\u00C3\u00A3o no formato de55 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func validarCartaoChipBandeiradoUsingGET(numeroCartao numeroCartao: String, criptograma: String, completion: ((data: ValidaCartao?, error: ErrorType?) -> Void)) {
+        validarCartaoChipBandeiradoUsingGETWithRequestBuilder(numeroCartao: numeroCartao, criptograma: criptograma).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Permite validar um Cart\u00C3\u00A3o Bandeirado a partir do chip
+     
+     - GET /api/cartoes/bandeirados/validar/chip
+     - Esta opera\u00C3\u00A7\u00C3\u00A3o tem como objetivo permitir que os Emissores validem a autenticidade de um determinado Cart\u00C3\u00A3o a partir do envio dos dados sens\u00C3\u00ADveis impressos nele.
+     - API Key:
+       - type: apiKey access_token 
+       - name: access_token
+     - examples: [{contentType=application/json, example={
+  "criptogramaResposta" : "aeiou",
+  "statusConta" : "aeiou",
+  "statusCartao" : "aeiou"
+}}]
+     
+     - parameter numeroCartao: (query) N\u00C3\u00BAmero do cart\u00C3\u00A3o a ser validado. 
+     - parameter criptograma: (query) Criptograma do cart\u00C3\u00A3o no formato de55 
+
+     - returns: RequestBuilder<ValidaCartao> 
+     */
+    public class func validarCartaoChipBandeiradoUsingGETWithRequestBuilder(numeroCartao numeroCartao: String, criptograma: String) -> RequestBuilder<ValidaCartao> {
+        let path = "/api/cartoes/bandeirados/validar/chip"
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [
+            "numeroCartao": numeroCartao,
+            "criptograma": criptograma
+        ]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<ValidaCartao>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
+    }
+
+    /**
+     
+     Permite validar um Cart\u00C3\u00A3o bandeirado a partir dos dados Impressos
+     
+     - parameter numeroCartao: (query) N\u00C3\u00BAmero do cart\u00C3\u00A3o a ser validado. 
+     - parameter nomePortador: (query) Nome do portador do cart\u00C3\u00A3o 
+     - parameter dataValidade: (query) Data de validade do cart\u00C3\u00A3o no formato yyyy-MM 
+     - parameter codigoSeguranca: (query) C\u00C3\u00B3digo de seguran\u00C3\u00A7a do cart\u00C3\u00A3o com tr\u00C3\u00AAs n\u00C3\u00BAmeros 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func validarCartaoDigitadoBandeiradoUsingGET(numeroCartao numeroCartao: String, nomePortador: String, dataValidade: String, codigoSeguranca: String, completion: ((data: ValidaCartao?, error: ErrorType?) -> Void)) {
+        validarCartaoDigitadoBandeiradoUsingGETWithRequestBuilder(numeroCartao: numeroCartao, nomePortador: nomePortador, dataValidade: dataValidade, codigoSeguranca: codigoSeguranca).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Permite validar um Cart\u00C3\u00A3o bandeirado a partir dos dados Impressos
+     
+     - GET /api/cartoes/bandeirados/validar/digitado
+     - Esta opera\u00C3\u00A7\u00C3\u00A3o tem como objetivo permitir que os Emissores validem a autenticidade de um determinado Cart\u00C3\u00A3o a partir do envio dos dados sens\u00C3\u00ADveis impressos nele.
+     - API Key:
+       - type: apiKey access_token 
+       - name: access_token
+     - examples: [{contentType=application/json, example={
+  "criptogramaResposta" : "aeiou",
+  "statusConta" : "aeiou",
+  "statusCartao" : "aeiou"
+}}]
+     
+     - parameter numeroCartao: (query) N\u00C3\u00BAmero do cart\u00C3\u00A3o a ser validado. 
+     - parameter nomePortador: (query) Nome do portador do cart\u00C3\u00A3o 
+     - parameter dataValidade: (query) Data de validade do cart\u00C3\u00A3o no formato yyyy-MM 
+     - parameter codigoSeguranca: (query) C\u00C3\u00B3digo de seguran\u00C3\u00A7a do cart\u00C3\u00A3o com tr\u00C3\u00AAs n\u00C3\u00BAmeros 
+
+     - returns: RequestBuilder<ValidaCartao> 
+     */
+    public class func validarCartaoDigitadoBandeiradoUsingGETWithRequestBuilder(numeroCartao numeroCartao: String, nomePortador: String, dataValidade: String, codigoSeguranca: String) -> RequestBuilder<ValidaCartao> {
+        let path = "/api/cartoes/bandeirados/validar/digitado"
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [
+            "numeroCartao": numeroCartao,
+            "nomePortador": nomePortador,
+            "dataValidade": dataValidade,
+            "codigoSeguranca": codigoSeguranca
+        ]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<ValidaCartao>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
+    }
+
+    /**
+     
+     Permite validar um Cart\u00C3\u00A3o a partir dos dados Impressos
+     
+     - parameter numeroCartao: (query) N\u00C3\u00BAmero do cart\u00C3\u00A3o a ser validado. 
+     - parameter nomePortador: (query) Nome do portador do cart\u00C3\u00A3o 
+     - parameter dataValidade: (query) Data de validade do cart\u00C3\u00A3o no formato yyyy-MM 
+     - parameter codigoSeguranca: (query) C\u00C3\u00B3digo de seguran\u00C3\u00A7a do cart\u00C3\u00A3o com tr\u00C3\u00AAs n\u00C3\u00BAmeros 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func validarCartaoDigitadoNaoBandeiradoUsingGET(numeroCartao numeroCartao: String, nomePortador: String, dataValidade: String, codigoSeguranca: String, completion: ((data: ValidaCartao?, error: ErrorType?) -> Void)) {
+        validarCartaoDigitadoNaoBandeiradoUsingGETWithRequestBuilder(numeroCartao: numeroCartao, nomePortador: nomePortador, dataValidade: dataValidade, codigoSeguranca: codigoSeguranca).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Permite validar um Cart\u00C3\u00A3o a partir dos dados Impressos
+     
+     - GET /api/cartoes/nao-bandeirados/validar/digitado
+     - Esta opera\u00C3\u00A7\u00C3\u00A3o tem como objetivo permitir que os Emissores validem a autenticidade de um determinado Cart\u00C3\u00A3o a partir do envio dos dados sens\u00C3\u00ADveis impressos nele.
+     - API Key:
+       - type: apiKey access_token 
+       - name: access_token
+     - examples: [{contentType=application/json, example={
+  "criptogramaResposta" : "aeiou",
+  "statusConta" : "aeiou",
+  "statusCartao" : "aeiou"
+}}]
+     
+     - parameter numeroCartao: (query) N\u00C3\u00BAmero do cart\u00C3\u00A3o a ser validado. 
+     - parameter nomePortador: (query) Nome do portador do cart\u00C3\u00A3o 
+     - parameter dataValidade: (query) Data de validade do cart\u00C3\u00A3o no formato yyyy-MM 
+     - parameter codigoSeguranca: (query) C\u00C3\u00B3digo de seguran\u00C3\u00A7a do cart\u00C3\u00A3o com tr\u00C3\u00AAs n\u00C3\u00BAmeros 
+
+     - returns: RequestBuilder<ValidaCartao> 
+     */
+    public class func validarCartaoDigitadoNaoBandeiradoUsingGETWithRequestBuilder(numeroCartao numeroCartao: String, nomePortador: String, dataValidade: String, codigoSeguranca: String) -> RequestBuilder<ValidaCartao> {
+        let path = "/api/cartoes/nao-bandeirados/validar/digitado"
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [
+            "numeroCartao": numeroCartao,
+            "nomePortador": nomePortador,
+            "dataValidade": dataValidade,
+            "codigoSeguranca": codigoSeguranca
+        ]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<ValidaCartao>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
+    }
+
+    /**
+     
+     Permite validar um Cart\u00C3\u00A3o Bandeirado a partir da Tarja
+     
+     - parameter numeroCartao: (query) N\u00C3\u00BAmero do cart\u00C3\u00A3o a ser validado. 
+     - parameter trilha1: (query) Trilha 1 do cart\u00C3\u00A3o a ser validado 
+     - parameter trilha2: (query) Trilha 2 do cart\u00C3\u00A3o a ser validado 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func validarCartaoTarjaBandeiradoUsingGET(numeroCartao numeroCartao: String, trilha1: String, trilha2: String, completion: ((data: ValidaCartao?, error: ErrorType?) -> Void)) {
+        validarCartaoTarjaBandeiradoUsingGETWithRequestBuilder(numeroCartao: numeroCartao, trilha1: trilha1, trilha2: trilha2).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Permite validar um Cart\u00C3\u00A3o Bandeirado a partir da Tarja
+     
+     - GET /api/cartoes/bandeirados/validar/tarja
+     - Esta opera\u00C3\u00A7\u00C3\u00A3o tem como objetivo permitir que os Emissores validem a autenticidade de um determinado Cart\u00C3\u00A3o a partir do envio dos dados sens\u00C3\u00ADveis impressos nele.
+     - API Key:
+       - type: apiKey access_token 
+       - name: access_token
+     - examples: [{contentType=application/json, example={
+  "criptogramaResposta" : "aeiou",
+  "statusConta" : "aeiou",
+  "statusCartao" : "aeiou"
+}}]
+     
+     - parameter numeroCartao: (query) N\u00C3\u00BAmero do cart\u00C3\u00A3o a ser validado. 
+     - parameter trilha1: (query) Trilha 1 do cart\u00C3\u00A3o a ser validado 
+     - parameter trilha2: (query) Trilha 2 do cart\u00C3\u00A3o a ser validado 
+
+     - returns: RequestBuilder<ValidaCartao> 
+     */
+    public class func validarCartaoTarjaBandeiradoUsingGETWithRequestBuilder(numeroCartao numeroCartao: String, trilha1: String, trilha2: String) -> RequestBuilder<ValidaCartao> {
+        let path = "/api/cartoes/bandeirados/validar/tarja"
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [
+            "numeroCartao": numeroCartao,
+            "trilha1": trilha1,
+            "trilha2": trilha2
+        ]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<ValidaCartao>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
+    }
+
+    /**
+     
+     Permite validar a senha de um Cart\u00C3\u00A3o
+     
+     - parameter idCartao: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func validarSenhaUsingPOST(idCartao idCartao: Int, completion: ((data: String?, error: ErrorType?) -> Void)) {
+        validarSenhaUsingPOSTWithRequestBuilder(idCartao: idCartao).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Permite validar a senha de um Cart\u00C3\u00A3o
+     
+     - POST /api/cartoes/{idCartao}/validar-senha
+     - Esta opera\u00C3\u00A7\u00C3\u00A3o tem como objetivo permitir validar que a senha informada pelo portador de um determinado cart\u00C3\u00A3o est\u00C3\u00A1 correta.
+     - API Key:
+       - type: apiKey access_token 
+       - name: access_token
+     - examples: [{contentType=application/json, example="aeiou"}]
+     
+     - parameter idCartao: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
+
+     - returns: RequestBuilder<String> 
+     */
+    public class func validarSenhaUsingPOSTWithRequestBuilder(idCartao idCartao: Int) -> RequestBuilder<String> {
+        let path = "/api/cartoes/{idCartao}/validar-senha"
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [
+            "id_cartao": idCartao
+        ]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<String>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: false)
     }
 
 }

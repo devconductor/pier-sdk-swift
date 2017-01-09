@@ -877,6 +877,21 @@ class Decoders {
             }
 			
 
+			// Decoder for [ValidaCartao]
+            Decoders.addDecoder(clazz: [ValidaCartao].self) { (source: AnyObject) -> [ValidaCartao] in
+                return Decoders.decode(clazz: [ValidaCartao].self, source: source)
+            }
+			// Decoder for ValidaCartao
+            Decoders.addDecoder(clazz: ValidaCartao.self) { (source: AnyObject) -> ValidaCartao in
+                let sourceDictionary = source as! [NSObject:AnyObject]
+                let instance = ValidaCartao()
+                instance.criptogramaResposta = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["criptogramaResposta"])
+                instance.statusCartao = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["statusCartao"])
+                instance.statusConta = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["statusConta"])
+                return instance
+            }
+			
+
 			// Decoder for [WebHook]
             Decoders.addDecoder(clazz: [WebHook].self) { (source: AnyObject) -> [WebHook] in
                 return Decoders.decode(clazz: [WebHook].self, source: source)
