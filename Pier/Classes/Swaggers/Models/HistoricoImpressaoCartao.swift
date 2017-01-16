@@ -11,8 +11,6 @@ import Foundation
 /** Hist\u00C3\u00B3rico Impress\u00C3\u00A3o Cart\u00C3\u00A3o */
 public class HistoricoImpressaoCartao: JSONEncodable {
 
-    /** Apresenta a data que o registro de Hist\u00C3\u00B3rico de Impress\u00C3\u00A3o de um Cart\u00C3\u00A3o fora inserido. */
-    public var dataHistorico: NSDate?
     /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Hist\u00C3\u00B3rico de Impress\u00C3\u00A3o Avulsa de Cart\u00C3\u00B5es (id). */
     public var id: Int?
     /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). */
@@ -21,6 +19,8 @@ public class HistoricoImpressaoCartao: JSONEncodable {
     public var idStatusImpressaoCartao: Int?
     /** Apresenta uma mensagem que descreve a etapa do processo de impress\u00C3\u00A3o do cart\u00C3\u00A3o que fora realizado. */
     public var mensagemHistorico: String?
+    /** Apresenta a data que o registro de Hist\u00C3\u00B3rico de Impress\u00C3\u00A3o de um Cart\u00C3\u00A3o fora inserido. */
+    public var dataHistorico: NSDate?
     
 
     public init() {}
@@ -28,11 +28,11 @@ public class HistoricoImpressaoCartao: JSONEncodable {
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
-        nillableDictionary["dataHistorico"] = self.dataHistorico?.encodeToJSON()
         nillableDictionary["id"] = self.id
         nillableDictionary["idCartao"] = self.idCartao
         nillableDictionary["idStatusImpressaoCartao"] = self.idStatusImpressaoCartao
         nillableDictionary["mensagemHistorico"] = self.mensagemHistorico
+        nillableDictionary["dataHistorico"] = self.dataHistorico?.encodeToJSON()
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

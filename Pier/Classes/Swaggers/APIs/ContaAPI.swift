@@ -14,7 +14,7 @@ public class ContaAPI: APIBase {
      
      Alterar limite
      
-     - parameter idConta: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
+     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
      - parameter limiteGlobal: (query) Apresenta o valor do limite de cr\u00C3\u00A9dito que o portador do cart\u00C3\u00A3o possui. 
      - parameter limiteCompra: (query) Quando utilizado pelo emissor, este campo apresenta o valor do limite de cr\u00C3\u00A9dito que o portador possui para uso exclusivo em Compras Nacionais. 
      - parameter limiteParcelado: (query) Quando utilizado pelo emissor, este campo apresenta o valor do limite de cr\u00C3\u00A9dito que o portador possui para realizar transa\u00C3\u00A7\u00C3\u00B5es de compras parceladas. 
@@ -29,8 +29,8 @@ public class ContaAPI: APIBase {
      - parameter limiteInternacionalSaquePeriodo: (query) Quando utilizado pelo emissor, este campo apresenta o valor do limite de cr\u00C3\u00A9dito que o portador pode utilizar para realizar transa\u00C3\u00A7\u00C3\u00B5es de Saque Internacional dentro de cada ciclo de faturamento. 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func alterarLimiteUsingPUT(idConta idConta: Int, limiteGlobal: Double, limiteCompra: Double, limiteParcelado: Double, limiteParcelas: Double, limiteSaqueGlobal: Double, limiteSaquePeriodo: Double, limiteConsignado: Double, limiteInternacionalCompra: Double, limiteInternacionalParcelado: Double, limiteInternacionalParcelas: Double, limiteInternacionalSaqueGlobal: Double, limiteInternacionalSaquePeriodo: Double, completion: ((data: Conta?, error: ErrorType?) -> Void)) {
-        alterarLimiteUsingPUTWithRequestBuilder(idConta: idConta, limiteGlobal: limiteGlobal, limiteCompra: limiteCompra, limiteParcelado: limiteParcelado, limiteParcelas: limiteParcelas, limiteSaqueGlobal: limiteSaqueGlobal, limiteSaquePeriodo: limiteSaquePeriodo, limiteConsignado: limiteConsignado, limiteInternacionalCompra: limiteInternacionalCompra, limiteInternacionalParcelado: limiteInternacionalParcelado, limiteInternacionalParcelas: limiteInternacionalParcelas, limiteInternacionalSaqueGlobal: limiteInternacionalSaqueGlobal, limiteInternacionalSaquePeriodo: limiteInternacionalSaquePeriodo).execute { (response, error) -> Void in
+    public class func alterarLimiteUsingPUT(id id: Int, limiteGlobal: Double, limiteCompra: Double, limiteParcelado: Double, limiteParcelas: Double, limiteSaqueGlobal: Double, limiteSaquePeriodo: Double, limiteConsignado: Double, limiteInternacionalCompra: Double, limiteInternacionalParcelado: Double, limiteInternacionalParcelas: Double, limiteInternacionalSaqueGlobal: Double, limiteInternacionalSaquePeriodo: Double, completion: ((data: Conta?, error: ErrorType?) -> Void)) {
+        alterarLimiteUsingPUTWithRequestBuilder(id: id, limiteGlobal: limiteGlobal, limiteCompra: limiteCompra, limiteParcelado: limiteParcelado, limiteParcelas: limiteParcelas, limiteSaqueGlobal: limiteSaqueGlobal, limiteSaquePeriodo: limiteSaquePeriodo, limiteConsignado: limiteConsignado, limiteInternacionalCompra: limiteInternacionalCompra, limiteInternacionalParcelado: limiteInternacionalParcelado, limiteInternacionalParcelas: limiteInternacionalParcelas, limiteInternacionalSaqueGlobal: limiteInternacionalSaqueGlobal, limiteInternacionalSaquePeriodo: limiteInternacionalSaquePeriodo).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -40,7 +40,7 @@ public class ContaAPI: APIBase {
      
      Alterar limite
      
-     - PUT /api/contas/{idConta}/alterar-limites
+     - PUT /api/contas/{id}/alterar-limites
      - Esse recurso permite realizar a altera\u00C3\u00A7\u00C3\u00A3o dos Limites de uma determinada Conta.
      - API Key:
        - type: apiKey access_token 
@@ -48,17 +48,17 @@ public class ContaAPI: APIBase {
      - examples: [{contentType=application/json, example={
   "idPessoa" : 123456789,
   "idStatusConta" : 123456789,
-  "idOrigemComercial" : 123456789,
   "idProduto" : 123456789,
-  "dataUltimaAlteracaoVencimento" : "2000-01-23T04:56:07.000+0000",
+  "idOrigemComercial" : 123456789,
   "melhorDiaCompra" : 123,
+  "dataUltimaAlteracaoVencimento" : "2000-01-23T04:56:07.000+0000",
   "dataStatusConta" : "2000-01-23T04:56:07.000+0000",
   "id" : 123456789,
-  "dataCadastro" : "2000-01-23T04:56:07.000+0000",
-  "diaVencimento" : 123
+  "diaVencimento" : 123,
+  "dataCadastro" : "2000-01-23T04:56:07.000+0000"
 }}]
      
-     - parameter idConta: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
+     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
      - parameter limiteGlobal: (query) Apresenta o valor do limite de cr\u00C3\u00A9dito que o portador do cart\u00C3\u00A3o possui. 
      - parameter limiteCompra: (query) Quando utilizado pelo emissor, este campo apresenta o valor do limite de cr\u00C3\u00A9dito que o portador possui para uso exclusivo em Compras Nacionais. 
      - parameter limiteParcelado: (query) Quando utilizado pelo emissor, este campo apresenta o valor do limite de cr\u00C3\u00A9dito que o portador possui para realizar transa\u00C3\u00A7\u00C3\u00B5es de compras parceladas. 
@@ -74,9 +74,9 @@ public class ContaAPI: APIBase {
 
      - returns: RequestBuilder<Conta> 
      */
-    public class func alterarLimiteUsingPUTWithRequestBuilder(idConta idConta: Int, limiteGlobal: Double, limiteCompra: Double, limiteParcelado: Double, limiteParcelas: Double, limiteSaqueGlobal: Double, limiteSaquePeriodo: Double, limiteConsignado: Double, limiteInternacionalCompra: Double, limiteInternacionalParcelado: Double, limiteInternacionalParcelas: Double, limiteInternacionalSaqueGlobal: Double, limiteInternacionalSaquePeriodo: Double) -> RequestBuilder<Conta> {
-        var path = "/api/contas/{idConta}/alterar-limites"
-        path = path.stringByReplacingOccurrencesOfString("{idConta}", withString: "\(idConta)", options: .LiteralSearch, range: nil)
+    public class func alterarLimiteUsingPUTWithRequestBuilder(id id: Int, limiteGlobal: Double, limiteCompra: Double, limiteParcelado: Double, limiteParcelas: Double, limiteSaqueGlobal: Double, limiteSaquePeriodo: Double, limiteConsignado: Double, limiteInternacionalCompra: Double, limiteInternacionalParcelado: Double, limiteInternacionalParcelas: Double, limiteInternacionalSaqueGlobal: Double, limiteInternacionalSaquePeriodo: Double) -> RequestBuilder<Conta> {
+        var path = "/api/contas/{id}/alterar-limites"
+        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
@@ -104,12 +104,12 @@ public class ContaAPI: APIBase {
      
      Alterar vencimento
      
-     - parameter idConta: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
+     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
      - parameter novoDiaVencimento: (query) Novo dia de vencimento. 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func alterarVencimentoUsingPUT(idConta idConta: Int, novoDiaVencimento: Int, completion: ((data: Conta?, error: ErrorType?) -> Void)) {
-        alterarVencimentoUsingPUTWithRequestBuilder(idConta: idConta, novoDiaVencimento: novoDiaVencimento).execute { (response, error) -> Void in
+    public class func alterarVencimentoUsingPUT(id id: Int, novoDiaVencimento: Int, completion: ((data: Conta?, error: ErrorType?) -> Void)) {
+        alterarVencimentoUsingPUTWithRequestBuilder(id: id, novoDiaVencimento: novoDiaVencimento).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -119,7 +119,7 @@ public class ContaAPI: APIBase {
      
      Alterar vencimento
      
-     - PUT /api/contas/{idConta}/alterar-vencimento
+     - PUT /api/contas/{id}/alterar-vencimento
      - Esse recurso permite alterar o vencimento de uma conta especifica.
      - API Key:
        - type: apiKey access_token 
@@ -127,24 +127,24 @@ public class ContaAPI: APIBase {
      - examples: [{contentType=application/json, example={
   "idPessoa" : 123456789,
   "idStatusConta" : 123456789,
-  "idOrigemComercial" : 123456789,
   "idProduto" : 123456789,
-  "dataUltimaAlteracaoVencimento" : "2000-01-23T04:56:07.000+0000",
+  "idOrigemComercial" : 123456789,
   "melhorDiaCompra" : 123,
+  "dataUltimaAlteracaoVencimento" : "2000-01-23T04:56:07.000+0000",
   "dataStatusConta" : "2000-01-23T04:56:07.000+0000",
   "id" : 123456789,
-  "dataCadastro" : "2000-01-23T04:56:07.000+0000",
-  "diaVencimento" : 123
+  "diaVencimento" : 123,
+  "dataCadastro" : "2000-01-23T04:56:07.000+0000"
 }}]
      
-     - parameter idConta: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
+     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
      - parameter novoDiaVencimento: (query) Novo dia de vencimento. 
 
      - returns: RequestBuilder<Conta> 
      */
-    public class func alterarVencimentoUsingPUTWithRequestBuilder(idConta idConta: Int, novoDiaVencimento: Int) -> RequestBuilder<Conta> {
-        var path = "/api/contas/{idConta}/alterar-vencimento"
-        path = path.stringByReplacingOccurrencesOfString("{idConta}", withString: "\(idConta)", options: .LiteralSearch, range: nil)
+    public class func alterarVencimentoUsingPUTWithRequestBuilder(id id: Int, novoDiaVencimento: Int) -> RequestBuilder<Conta> {
+        var path = "/api/contas/{id}/alterar-vencimento"
+        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
@@ -159,13 +159,77 @@ public class ContaAPI: APIBase {
 
     /**
      
-     Apresenta dados de uma determinada conta
+     Apresenta os limites da conta
      
-     - parameter idConta: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
+     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET1(idConta idConta: Int, completion: ((data: Conta?, error: ErrorType?) -> Void)) {
-        consultarUsingGET1WithRequestBuilder(idConta: idConta).execute { (response, error) -> Void in
+    public class func consultarLimiteDisponibilidadeUsingGET1(id id: Int, completion: ((data: LimiteDisponibilidade?, error: ErrorType?) -> Void)) {
+        consultarLimiteDisponibilidadeUsingGET1WithRequestBuilder(id: id).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Apresenta os limites da conta
+     
+     - GET /api/contas/{id}/limites-disponibilidades
+     - Este m\u00C3\u00A9todo permite consultar os Limites configurados para uma determinada Conta, a partir do c\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id).
+     - API Key:
+       - type: apiKey access_token 
+       - name: access_token
+     - examples: [{contentType=application/json, example={
+  "saldoDisponivelCompraInternacional" : 1.3579000000000001069366817318950779736042022705078125,
+  "saldoDisponivelSaque" : 1.3579000000000001069366817318950779736042022705078125,
+  "limiteParcelas" : 1.3579000000000001069366817318950779736042022705078125,
+  "limiteSaquePeriodo" : 1.3579000000000001069366817318950779736042022705078125,
+  "limiteGlobal" : 1.3579000000000001069366817318950779736042022705078125,
+  "limiteInternacionalSaqueGlobal" : 1.3579000000000001069366817318950779736042022705078125,
+  "saldoDisponivelCompra" : 1.3579000000000001069366817318950779736042022705078125,
+  "limiteInternacionalSaquePeriodo" : 1.3579000000000001069366817318950779736042022705078125,
+  "limiteParcelado" : 1.3579000000000001069366817318950779736042022705078125,
+  "saldoDisponivelSaqueInternacional" : 1.3579000000000001069366817318950779736042022705078125,
+  "saldoPontosFidelidade" : 1.3579000000000001069366817318950779736042022705078125,
+  "limiteInternacionalParcelado" : 1.3579000000000001069366817318950779736042022705078125,
+  "saldoDisponivelParcelas" : 1.3579000000000001069366817318950779736042022705078125,
+  "id" : 123456789,
+  "limiteConsignado" : 1.3579000000000001069366817318950779736042022705078125,
+  "saldoDisponivelGlobal" : 1.3579000000000001069366817318950779736042022705078125,
+  "saldoDisponivelParcelado" : 1.3579000000000001069366817318950779736042022705078125,
+  "limiteInternacionalParcelas" : 1.3579000000000001069366817318950779736042022705078125,
+  "limiteSaqueGlobal" : 1.3579000000000001069366817318950779736042022705078125,
+  "limiteInternacionalCompra" : 1.3579000000000001069366817318950779736042022705078125,
+  "limiteCompra" : 1.3579000000000001069366817318950779736042022705078125
+}}]
+     
+     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
+
+     - returns: RequestBuilder<LimiteDisponibilidade> 
+     */
+    public class func consultarLimiteDisponibilidadeUsingGET1WithRequestBuilder(id id: Int) -> RequestBuilder<LimiteDisponibilidade> {
+        var path = "/api/contas/{id}/limites-disponibilidades"
+        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<LimiteDisponibilidade>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Apresenta dados de uma determinada conta
+     
+     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func consultarUsingGET1(id id: Int, completion: ((data: Conta?, error: ErrorType?) -> Void)) {
+        consultarUsingGET1WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -175,7 +239,7 @@ public class ContaAPI: APIBase {
      
      Apresenta dados de uma determinada conta
      
-     - GET /api/contas/{idConta}
+     - GET /api/contas/{id}
      - Este m\u00C3\u00A9todo permite consultar dados de uma determinada conta a partir de seu codigo de identifica\u00C3\u00A7\u00C3\u00A3o (id).
      - API Key:
        - type: apiKey access_token 
@@ -183,23 +247,23 @@ public class ContaAPI: APIBase {
      - examples: [{contentType=application/json, example={
   "idPessoa" : 123456789,
   "idStatusConta" : 123456789,
-  "idOrigemComercial" : 123456789,
   "idProduto" : 123456789,
-  "dataUltimaAlteracaoVencimento" : "2000-01-23T04:56:07.000+0000",
+  "idOrigemComercial" : 123456789,
   "melhorDiaCompra" : 123,
+  "dataUltimaAlteracaoVencimento" : "2000-01-23T04:56:07.000+0000",
   "dataStatusConta" : "2000-01-23T04:56:07.000+0000",
   "id" : 123456789,
-  "dataCadastro" : "2000-01-23T04:56:07.000+0000",
-  "diaVencimento" : 123
+  "diaVencimento" : 123,
+  "dataCadastro" : "2000-01-23T04:56:07.000+0000"
 }}]
      
-     - parameter idConta: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
+     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
 
      - returns: RequestBuilder<Conta> 
      */
-    public class func consultarUsingGET1WithRequestBuilder(idConta idConta: Int) -> RequestBuilder<Conta> {
-        var path = "/api/contas/{idConta}"
-        path = path.stringByReplacingOccurrencesOfString("{idConta}", withString: "\(idConta)", options: .LiteralSearch, range: nil)
+    public class func consultarUsingGET1WithRequestBuilder(id id: Int) -> RequestBuilder<Conta> {
+        var path = "/api/contas/{id}"
+        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [:]
@@ -214,12 +278,12 @@ public class ContaAPI: APIBase {
      
      Realiza a gera\u00C3\u00A7\u00C3\u00A3o de um novo cart\u00C3\u00A3o para impress\u00C3\u00A3o avulsa
      
-     - parameter idConta: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
+     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
      - parameter idPessoa: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da pessoa (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func gerarCartaoUsingPOST(idConta idConta: Int, idPessoa: Int, completion: ((data: CartaoImpressao?, error: ErrorType?) -> Void)) {
-        gerarCartaoUsingPOSTWithRequestBuilder(idConta: idConta, idPessoa: idPessoa).execute { (response, error) -> Void in
+    public class func gerarCartaoUsingPOST(id id: Int, idPessoa: Int, completion: ((data: CartaoImpressao?, error: ErrorType?) -> Void)) {
+        gerarCartaoUsingPOSTWithRequestBuilder(id: id, idPessoa: idPessoa).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -229,7 +293,7 @@ public class ContaAPI: APIBase {
      
      Realiza a gera\u00C3\u00A7\u00C3\u00A3o de um novo cart\u00C3\u00A3o para impress\u00C3\u00A3o avulsa
      
-     - POST /api/contas/{idConta}/pessoas/{idPessoa}/gerar-cartao
+     - POST /api/contas/{id}/pessoas/{idPessoa}/gerar-cartao
      - API Key:
        - type: apiKey access_token 
        - name: access_token
@@ -252,20 +316,20 @@ public class ContaAPI: APIBase {
   "nomeOrigemComercial" : "aeiou",
   "cpf" : "aeiou",
   "nomePlastico" : "aeiou",
-  "nomeEmpresaBeneficio" : "aeiou",
   "numeroAgencia" : 123,
+  "nomeEmpresaBeneficio" : "aeiou",
   "dataGeracao" : "2000-01-23T04:56:07.000+0000",
   "tipoPortador" : "aeiou"
 }}]
      
-     - parameter idConta: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
+     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
      - parameter idPessoa: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da pessoa (id). 
 
      - returns: RequestBuilder<CartaoImpressao> 
      */
-    public class func gerarCartaoUsingPOSTWithRequestBuilder(idConta idConta: Int, idPessoa: Int) -> RequestBuilder<CartaoImpressao> {
-        var path = "/api/contas/{idConta}/pessoas/{idPessoa}/gerar-cartao"
-        path = path.stringByReplacingOccurrencesOfString("{idConta}", withString: "\(idConta)", options: .LiteralSearch, range: nil)
+    public class func gerarCartaoUsingPOSTWithRequestBuilder(id id: Int, idPessoa: Int) -> RequestBuilder<CartaoImpressao> {
+        var path = "/api/contas/{id}/pessoas/{idPessoa}/gerar-cartao"
+        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{idPessoa}", withString: "\(idPessoa)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
         
@@ -281,6 +345,8 @@ public class ContaAPI: APIBase {
      
      Lista contas existentes na base de dados do Emissor
      
+     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
      - parameter id: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o de conta (id). (optional)
      - parameter idProduto: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do produto ao qual a conta faz parte. (id). (optional)
      - parameter idOrigemComercial: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Origem Comercial (id) que deu origem a Conta. (optional)
@@ -291,12 +357,10 @@ public class ContaAPI: APIBase {
      - parameter dataStatusConta: (query) Apresenta a data em que o idStatusConta atual fora atribu\u00C3\u00ADdo para ela. (optional)
      - parameter dataCadastro: (query) Apresenta a data em que o cart\u00C3\u00A3o foi gerado. (optional)
      - parameter dataUltimaAlteracaoVencimento: (query) Apresenta a data da ultima altera\u00C3\u00A7\u00C3\u00A3o de vencimento. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET1(id id: Int?, idProduto: Int?, idOrigemComercial: Int?, idPessoa: Int?, idStatusConta: Int?, diaVencimento: Int?, melhorDiaCompra: Int?, dataStatusConta: NSDate?, dataCadastro: NSDate?, dataUltimaAlteracaoVencimento: NSDate?, page: Int?, limit: Int?, completion: ((data: Conta?, error: ErrorType?) -> Void)) {
-        listarUsingGET1WithRequestBuilder(id: id, idProduto: idProduto, idOrigemComercial: idOrigemComercial, idPessoa: idPessoa, idStatusConta: idStatusConta, diaVencimento: diaVencimento, melhorDiaCompra: melhorDiaCompra, dataStatusConta: dataStatusConta, dataCadastro: dataCadastro, dataUltimaAlteracaoVencimento: dataUltimaAlteracaoVencimento, page: page, limit: limit).execute { (response, error) -> Void in
+    public class func listarUsingGET1(page page: Int?, limit: Int?, id: Int?, idProduto: Int?, idOrigemComercial: Int?, idPessoa: Int?, idStatusConta: Int?, diaVencimento: Int?, melhorDiaCompra: Int?, dataStatusConta: NSDate?, dataCadastro: NSDate?, dataUltimaAlteracaoVencimento: NSDate?, completion: ((data: Conta?, error: ErrorType?) -> Void)) {
+        listarUsingGET1WithRequestBuilder(page: page, limit: limit, id: id, idProduto: idProduto, idOrigemComercial: idOrigemComercial, idPessoa: idPessoa, idStatusConta: idStatusConta, diaVencimento: diaVencimento, melhorDiaCompra: melhorDiaCompra, dataStatusConta: dataStatusConta, dataCadastro: dataCadastro, dataUltimaAlteracaoVencimento: dataUltimaAlteracaoVencimento).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -314,16 +378,18 @@ public class ContaAPI: APIBase {
      - examples: [{contentType=application/json, example={
   "idPessoa" : 123456789,
   "idStatusConta" : 123456789,
-  "idOrigemComercial" : 123456789,
   "idProduto" : 123456789,
-  "dataUltimaAlteracaoVencimento" : "2000-01-23T04:56:07.000+0000",
+  "idOrigemComercial" : 123456789,
   "melhorDiaCompra" : 123,
+  "dataUltimaAlteracaoVencimento" : "2000-01-23T04:56:07.000+0000",
   "dataStatusConta" : "2000-01-23T04:56:07.000+0000",
   "id" : 123456789,
-  "dataCadastro" : "2000-01-23T04:56:07.000+0000",
-  "diaVencimento" : 123
+  "diaVencimento" : 123,
+  "dataCadastro" : "2000-01-23T04:56:07.000+0000"
 }}]
      
+     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
      - parameter id: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o de conta (id). (optional)
      - parameter idProduto: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do produto ao qual a conta faz parte. (id). (optional)
      - parameter idOrigemComercial: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Origem Comercial (id) que deu origem a Conta. (optional)
@@ -334,16 +400,16 @@ public class ContaAPI: APIBase {
      - parameter dataStatusConta: (query) Apresenta a data em que o idStatusConta atual fora atribu\u00C3\u00ADdo para ela. (optional)
      - parameter dataCadastro: (query) Apresenta a data em que o cart\u00C3\u00A3o foi gerado. (optional)
      - parameter dataUltimaAlteracaoVencimento: (query) Apresenta a data da ultima altera\u00C3\u00A7\u00C3\u00A3o de vencimento. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
 
      - returns: RequestBuilder<Conta> 
      */
-    public class func listarUsingGET1WithRequestBuilder(id id: Int?, idProduto: Int?, idOrigemComercial: Int?, idPessoa: Int?, idStatusConta: Int?, diaVencimento: Int?, melhorDiaCompra: Int?, dataStatusConta: NSDate?, dataCadastro: NSDate?, dataUltimaAlteracaoVencimento: NSDate?, page: Int?, limit: Int?) -> RequestBuilder<Conta> {
+    public class func listarUsingGET1WithRequestBuilder(page page: Int?, limit: Int?, id: Int?, idProduto: Int?, idOrigemComercial: Int?, idPessoa: Int?, idStatusConta: Int?, diaVencimento: Int?, melhorDiaCompra: Int?, dataStatusConta: NSDate?, dataCadastro: NSDate?, dataUltimaAlteracaoVencimento: NSDate?) -> RequestBuilder<Conta> {
         let path = "/api/contas"
         let URLString = PierAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
+            "page": page,
+            "limit": limit,
             "id": id,
             "idProduto": idProduto,
             "idOrigemComercial": idOrigemComercial,
@@ -353,9 +419,7 @@ public class ContaAPI: APIBase {
             "melhorDiaCompra": melhorDiaCompra,
             "dataStatusConta": dataStatusConta,
             "dataCadastro": dataCadastro,
-            "dataUltimaAlteracaoVencimento": dataUltimaAlteracaoVencimento,
-            "page": page,
-            "limit": limit
+            "dataUltimaAlteracaoVencimento": dataUltimaAlteracaoVencimento
         ]
         let parameters = APIHelper.rejectNil(nillableParameters)
 

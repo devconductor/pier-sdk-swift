@@ -11,14 +11,14 @@ import Foundation
 /** Status Conta */
 public class StatusConta: JSONEncodable {
 
-    /** Par\u00C3\u00A2metro que define se o Status da Conta permite realizar a Altera\u00C3\u00A7\u00C3\u00A3o de Limites do Portador, sendo: 0: Inativo e 1: Ativo. */
-    public var flagAlteraLimite: Int?
     /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Status da Conta (id). */
     public var id: Int?
-    /** Apresenta o texto com o motivo que ser\u00C3\u00A1 apresentado na resposta as opera\u00C3\u00A7\u00C3\u00B5es de Listar e Consultar LimitesDisponibilidades. */
-    public var mensagemConsultaNegada: String?
     /** Nome atribu\u00C3\u00ADdo ao Status da Conta. */
     public var nome: String?
+    /** Par\u00C3\u00A2metro que define se o Status da Conta permite realizar a Altera\u00C3\u00A7\u00C3\u00A3o de Limites do Portador, sendo: 0: Inativo e 1: Ativo. */
+    public var flagAlteraLimite: Int?
+    /** Apresenta o texto com o motivo que ser\u00C3\u00A1 apresentado na resposta as opera\u00C3\u00A7\u00C3\u00B5es de Listar e Consultar LimitesDisponibilidades. */
+    public var mensagemConsultaNegada: String?
     
 
     public init() {}
@@ -26,10 +26,10 @@ public class StatusConta: JSONEncodable {
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
-        nillableDictionary["flagAlteraLimite"] = self.flagAlteraLimite
         nillableDictionary["id"] = self.id
-        nillableDictionary["mensagemConsultaNegada"] = self.mensagemConsultaNegada
         nillableDictionary["nome"] = self.nome
+        nillableDictionary["flagAlteraLimite"] = self.flagAlteraLimite
+        nillableDictionary["mensagemConsultaNegada"] = self.mensagemConsultaNegada
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

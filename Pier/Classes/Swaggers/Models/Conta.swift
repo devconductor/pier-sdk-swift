@@ -11,26 +11,26 @@ import Foundation
 /** Objeto conta */
 public class Conta: JSONEncodable {
 
-    /** Apresenta a data em que o cart\u00C3\u00A3o foi gerado. */
-    public var dataCadastro: NSDate?
-    /** Apresenta a data em que o idStatusConta atual fora atribu\u00C3\u00ADdo para ela. */
-    public var dataStatusConta: NSDate?
-    /** Apresenta a data da ultima altera\u00C3\u00A7\u00C3\u00A3o de vencimento. */
-    public var dataUltimaAlteracaoVencimento: NSDate?
-    /** Apresenta o dia de vencimento. */
-    public var diaVencimento: Int?
     /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o de conta (id). */
     public var id: Int?
+    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do produto ao qual a conta faz parte. (id). */
+    public var idProduto: Int?
     /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Origem Comercial (id) que deu origem a Conta. */
     public var idOrigemComercial: Int?
     /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Pessoa Titular da Conta (id). */
     public var idPessoa: Int?
-    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do produto ao qual a conta faz parte. (id). */
-    public var idProduto: Int?
     /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Produto a qual o cart\u00C3\u00A3o pertence (id). */
     public var idStatusConta: Int?
+    /** Apresenta o dia de vencimento. */
+    public var diaVencimento: Int?
     /** Apresenta o melhor dia de compra. */
     public var melhorDiaCompra: Int?
+    /** Apresenta a data em que o idStatusConta atual fora atribu\u00C3\u00ADdo para ela. */
+    public var dataStatusConta: NSDate?
+    /** Apresenta a data em que o cart\u00C3\u00A3o foi gerado. */
+    public var dataCadastro: NSDate?
+    /** Apresenta a data da ultima altera\u00C3\u00A7\u00C3\u00A3o de vencimento. */
+    public var dataUltimaAlteracaoVencimento: NSDate?
     
 
     public init() {}
@@ -38,16 +38,16 @@ public class Conta: JSONEncodable {
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
-        nillableDictionary["dataCadastro"] = self.dataCadastro?.encodeToJSON()
-        nillableDictionary["dataStatusConta"] = self.dataStatusConta?.encodeToJSON()
-        nillableDictionary["dataUltimaAlteracaoVencimento"] = self.dataUltimaAlteracaoVencimento?.encodeToJSON()
-        nillableDictionary["diaVencimento"] = self.diaVencimento
         nillableDictionary["id"] = self.id
+        nillableDictionary["idProduto"] = self.idProduto
         nillableDictionary["idOrigemComercial"] = self.idOrigemComercial
         nillableDictionary["idPessoa"] = self.idPessoa
-        nillableDictionary["idProduto"] = self.idProduto
         nillableDictionary["idStatusConta"] = self.idStatusConta
+        nillableDictionary["diaVencimento"] = self.diaVencimento
         nillableDictionary["melhorDiaCompra"] = self.melhorDiaCompra
+        nillableDictionary["dataStatusConta"] = self.dataStatusConta?.encodeToJSON()
+        nillableDictionary["dataCadastro"] = self.dataCadastro?.encodeToJSON()
+        nillableDictionary["dataUltimaAlteracaoVencimento"] = self.dataUltimaAlteracaoVencimento?.encodeToJSON()
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

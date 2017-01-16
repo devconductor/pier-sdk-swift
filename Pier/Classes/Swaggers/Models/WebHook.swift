@@ -23,10 +23,10 @@ public class WebHook: JSONEncodable {
         case Delete = "DELETE"
     }
     
-    /** Evento a ser chamado pelo WebHook */
-    public var evento: Evento?
     /** Id do WebHook */
     public var id: Int?
+    /** Evento a ser chamado pelo WebHook */
+    public var evento: Evento?
     /** M\u00C3\u00A9todo que a ser chamado pelo WebHook */
     public var metodo: Metodo?
     /** URL que a ser consumida pelo WebHook */
@@ -38,8 +38,8 @@ public class WebHook: JSONEncodable {
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
-        nillableDictionary["evento"] = self.evento?.rawValue
         nillableDictionary["id"] = self.id
+        nillableDictionary["evento"] = self.evento?.rawValue
         nillableDictionary["metodo"] = self.metodo?.rawValue
         nillableDictionary["url"] = self.url
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
