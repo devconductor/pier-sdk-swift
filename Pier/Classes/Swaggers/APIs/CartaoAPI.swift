@@ -15,10 +15,10 @@ public class CartaoAPI: APIBase {
      Realiza a altera\u00C3\u00A7\u00C3\u00A3o do Status de Impress\u00C3\u00A3o do Cart\u00C3\u00A3o
      
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
-     - parameter idStatusImpressao: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Status Impress\u00C3\u00A3o (Id). (optional)
+     - parameter idStatusImpressao: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Status Impress\u00C3\u00A3o (Id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func alterarStatusImpressaoUsingPUT(id id: Int, idStatusImpressao: Int?, completion: ((data: HistoricoImpressaoCartao?, error: ErrorType?) -> Void)) {
+    public class func alterarStatusImpressaoUsingPUT(id id: Int, idStatusImpressao: Int, completion: ((data: HistoricoImpressaoCartao?, error: ErrorType?) -> Void)) {
         alterarStatusImpressaoUsingPUTWithRequestBuilder(id: id, idStatusImpressao: idStatusImpressao).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -43,11 +43,11 @@ public class CartaoAPI: APIBase {
 }}]
      
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
-     - parameter idStatusImpressao: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Status Impress\u00C3\u00A3o (Id). (optional)
+     - parameter idStatusImpressao: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Status Impress\u00C3\u00A3o (Id). 
 
      - returns: RequestBuilder<HistoricoImpressaoCartao> 
      */
-    public class func alterarStatusImpressaoUsingPUTWithRequestBuilder(id id: Int, idStatusImpressao: Int?) -> RequestBuilder<HistoricoImpressaoCartao> {
+    public class func alterarStatusImpressaoUsingPUTWithRequestBuilder(id id: Int, idStatusImpressao: Int) -> RequestBuilder<HistoricoImpressaoCartao> {
         var path = "/api/cartoes/{id}/alterar-status-impressao"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -199,7 +199,7 @@ public class CartaoAPI: APIBase {
      
      Realiza o cadastro ou altera\u00C3\u00A7\u00C3\u00A3o da senha de um Cart\u00C3\u00A3o
      
-     - parameter id: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
+     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func cadastrarAlterarSenhaUsingPUT(id id: Int, completion: ((data: String?, error: ErrorType?) -> Void)) {
@@ -220,22 +220,21 @@ public class CartaoAPI: APIBase {
        - name: access_token
      - examples: [{contentType=application/json, example="aeiou"}]
      
-     - parameter id: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
+     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
 
      - returns: RequestBuilder<String> 
      */
     public class func cadastrarAlterarSenhaUsingPUTWithRequestBuilder(id id: Int) -> RequestBuilder<String> {
-        let path = "/api/cartoes/{id}/alterar-senha"
+        var path = "/api/cartoes/{id}/alterar-senha"
+        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
         
-        let nillableParameters: [String:AnyObject?] = [
-            "id": id
-        ]
+        let nillableParameters: [String:AnyObject?] = [:]
         let parameters = APIHelper.rejectNil(nillableParameters)
 
         let requestBuilder: RequestBuilder<String>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
     }
 
     /**
@@ -941,7 +940,7 @@ public class CartaoAPI: APIBase {
      
      Permite validar a senha de um Cart\u00C3\u00A3o
      
-     - parameter id: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
+     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func validarSenhaUsingGET(id id: Int, completion: ((data: String?, error: ErrorType?) -> Void)) {
@@ -962,22 +961,21 @@ public class CartaoAPI: APIBase {
        - name: access_token
      - examples: [{contentType=application/json, example="aeiou"}]
      
-     - parameter id: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
+     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
 
      - returns: RequestBuilder<String> 
      */
     public class func validarSenhaUsingGETWithRequestBuilder(id id: Int) -> RequestBuilder<String> {
-        let path = "/api/cartoes/{id}/validar-senha"
+        var path = "/api/cartoes/{id}/validar-senha"
+        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
         
-        let nillableParameters: [String:AnyObject?] = [
-            "id": id
-        ]
+        let nillableParameters: [String:AnyObject?] = [:]
         let parameters = APIHelper.rejectNil(nillableParameters)
 
         let requestBuilder: RequestBuilder<String>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
     }
 
 }
