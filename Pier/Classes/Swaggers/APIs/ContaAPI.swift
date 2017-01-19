@@ -345,14 +345,14 @@ public class ContaAPI: APIBase {
      
      Listar Faturas da Conta
      
+     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
-     - parameter id: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o de conta (id). (optional)
      - parameter dataVencimento: (query) Data de Vencimento da Fatura. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarFaturasUsingGET(page page: Int?, limit: Int?, id: Int?, dataVencimento: NSDate?, completion: ((data: Fatura?, error: ErrorType?) -> Void)) {
-        listarFaturasUsingGETWithRequestBuilder(page: page, limit: limit, id: id, dataVencimento: dataVencimento).execute { (response, error) -> Void in
+    public class func listarFaturasUsingGET(id id: Int, page: Int?, limit: Int?, dataVencimento: NSDate?, completion: ((data: Fatura?, error: ErrorType?) -> Void)) {
+        listarFaturasUsingGETWithRequestBuilder(id: id, page: page, limit: limit, dataVencimento: dataVencimento).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -362,7 +362,7 @@ public class ContaAPI: APIBase {
      
      Listar Faturas da Conta
      
-     - GET /api/contas/{idConta}/faturas
+     - GET /api/contas/{id}/faturas
      - Atrav\u00C3\u00A9s desta opera\u00C3\u00A7\u00C3\u00A3o os Emissores ou Portadores poder\u00C3\u00A3o consultar todo o Hist\u00C3\u00B3rico de Faturas vinculados a uma determinada Conta, independentemente do valor delas.
      - API Key:
        - type: apiKey access_token 
@@ -381,21 +381,21 @@ public class ContaAPI: APIBase {
   "saldoPagamentos" : 1.3579000000000001069366817318950779736042022705078125
 }}]
      
+     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
-     - parameter id: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o de conta (id). (optional)
      - parameter dataVencimento: (query) Data de Vencimento da Fatura. (optional)
 
      - returns: RequestBuilder<Fatura> 
      */
-    public class func listarFaturasUsingGETWithRequestBuilder(page page: Int?, limit: Int?, id: Int?, dataVencimento: NSDate?) -> RequestBuilder<Fatura> {
-        let path = "/api/contas/{idConta}/faturas"
+    public class func listarFaturasUsingGETWithRequestBuilder(id id: Int, page: Int?, limit: Int?, dataVencimento: NSDate?) -> RequestBuilder<Fatura> {
+        var path = "/api/contas/{id}/faturas"
+        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
             "page": page,
             "limit": limit,
-            "id": id,
             "dataVencimento": dataVencimento
         ]
         let parameters = APIHelper.rejectNil(nillableParameters)
@@ -501,8 +501,8 @@ public class ContaAPI: APIBase {
      - parameter idConta: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func transacoesUsingPOST(page page: Int?, limit: Int?, idConta: Int?, completion: ((data: PageTransacaoResponse?, error: ErrorType?) -> Void)) {
-        transacoesUsingPOSTWithRequestBuilder(page: page, limit: limit, idConta: idConta).execute { (response, error) -> Void in
+    public class func transacoesUsingGET(page page: Int?, limit: Int?, idConta: Int?, completion: ((data: PageTransacaoResponse?, error: ErrorType?) -> Void)) {
+        transacoesUsingGETWithRequestBuilder(page: page, limit: limit, idConta: idConta).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -512,7 +512,7 @@ public class ContaAPI: APIBase {
      
      Permite listar uma linha do tempo com os eventos da conta
      
-     - POST /api/contas/{idConta}/timeline
+     - GET /api/contas/{id}/timeline
      - Esta opera\u00C3\u00A7\u00C3\u00A3o tem como objetivo permitir a listagem, em formato de timeline, dos eventos vinculados a uma detemrinada conta. Transa\u00C3\u00A7\u00C3\u00B5es, fechamento da fatura, pagamentos, gera\u00C3\u00A7\u00C3\u00A3o de cart\u00C3\u00B5es e altera\u00C3\u00A7\u00C3\u00A3o de limite s\u00C3\u00A3o exemplos de eventos contemplados por esta funcionalidade. Neste m\u00C3\u00A9todo, as opera\u00C3\u00A7\u00C3\u00B5es s\u00C3\u00A3o ordenadas de forma decrescente.
      - API Key:
        - type: apiKey access_token 
@@ -562,8 +562,8 @@ public class ContaAPI: APIBase {
 
      - returns: RequestBuilder<PageTransacaoResponse> 
      */
-    public class func transacoesUsingPOSTWithRequestBuilder(page page: Int?, limit: Int?, idConta: Int?) -> RequestBuilder<PageTransacaoResponse> {
-        let path = "/api/contas/{idConta}/timeline"
+    public class func transacoesUsingGETWithRequestBuilder(page page: Int?, limit: Int?, idConta: Int?) -> RequestBuilder<PageTransacaoResponse> {
+        let path = "/api/contas/{id}/timeline"
         let URLString = PierAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
@@ -575,7 +575,7 @@ public class ContaAPI: APIBase {
 
         let requestBuilder: RequestBuilder<PageTransacaoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
     }
 
 }
