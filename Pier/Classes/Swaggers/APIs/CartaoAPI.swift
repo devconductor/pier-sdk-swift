@@ -479,6 +479,136 @@ public class CartaoAPI: APIBase {
 
     /**
      
+     Permite gerar um novo Lote de Cart\u00C3\u00B5es Pr\u00C3\u00A9-Pago
+     
+     - parameter idOrigemComercial: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Origem Comercial (id). (optional)
+     - parameter idProduto: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Produto (id). (optional)
+     - parameter idTipoCartao: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Tipo do Cart\u00C3\u00A3o (id). (optional)
+     - parameter idImagem: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Imagem (id). (optional)
+     - parameter idEndereco: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Endere\u00C3\u00A7o (id). (optional)
+     - parameter quantidadeCartoes: (query) N\u00C3\u00BAmero de cart\u00C3\u00B5es existentes no Lote. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func gerarLotesCartoesPrePagosUsingPOST(idOrigemComercial idOrigemComercial: Int?, idProduto: Int?, idTipoCartao: Int?, idImagem: Int?, idEndereco: Int?, quantidadeCartoes: Int?, completion: ((data: LoteCartoesPrePagos?, error: ErrorType?) -> Void)) {
+        gerarLotesCartoesPrePagosUsingPOSTWithRequestBuilder(idOrigemComercial: idOrigemComercial, idProduto: idProduto, idTipoCartao: idTipoCartao, idImagem: idImagem, idEndereco: idEndereco, quantidadeCartoes: quantidadeCartoes).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Permite gerar um novo Lote de Cart\u00C3\u00B5es Pr\u00C3\u00A9-Pago
+     
+     - POST /api/cartoes/pre-pagos/lotes
+     - Esta opera\u00C3\u00A7\u00C3\u00A3o tem como objetivo permitir que os Emissores gerem uma determinada quantidade de Cart\u00C3\u00B5es Pr\u00C3\u00A9-Pagos, de forma n\u00C3\u00A3o nominal, os quais poder\u00C3\u00A3o ser comercializados e posteriormente vinculados a um cliente que o adquirir. Para isso, al\u00C3\u00A9m de definir quantos cart\u00C3\u00B5es dever\u00C3\u00A3o ser gerados, ser\u00C3\u00A1 poss\u00C3\u00ADvel definir qual a Origem Comercial, o Produto, o Tipo do Cart\u00C3\u00A3o, a Imagem e o Endere\u00C3\u00A7o para entrega dos Cart\u00C3\u00B5es presentes no lote gerado. Por padr\u00C3\u00A3o, todos os cart\u00C3\u00B5es ser\u00C3\u00A3o associados a um idPessoa fict\u00C3\u00ADcio e receber\u00C3\u00A1 um idConta \u00C3\u00BAnico para cada um deles. Feito isso, os Cart\u00C3\u00B5es gerados por esta opera\u00C3\u00A7\u00C3\u00A3o seguir\u00C3\u00A3o os mesmos processos de impress\u00C3\u00A3o via gr\u00C3\u00A1fica previamente definidos entre o Emissor e a Conductor.
+     - API Key:
+       - type: apiKey access_token 
+       - name: access_token
+     - examples: [{contentType=application/json, example={
+  "idOrigemComercial" : 123456789,
+  "idProduto" : 123456789,
+  "idImagem" : 123456789,
+  "idEndereco" : 123456789,
+  "statusProcessamento" : 123,
+  "idTipoCartao" : 123456789,
+  "quantidadeCartoes" : 123,
+  "id" : 123456789,
+  "dataCadastro" : "2000-01-23T04:56:07.000+0000",
+  "usuarioCadastro" : "aeiou"
+}}]
+     
+     - parameter idOrigemComercial: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Origem Comercial (id). (optional)
+     - parameter idProduto: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Produto (id). (optional)
+     - parameter idTipoCartao: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Tipo do Cart\u00C3\u00A3o (id). (optional)
+     - parameter idImagem: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Imagem (id). (optional)
+     - parameter idEndereco: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Endere\u00C3\u00A7o (id). (optional)
+     - parameter quantidadeCartoes: (query) N\u00C3\u00BAmero de cart\u00C3\u00B5es existentes no Lote. (optional)
+
+     - returns: RequestBuilder<LoteCartoesPrePagos> 
+     */
+    public class func gerarLotesCartoesPrePagosUsingPOSTWithRequestBuilder(idOrigemComercial idOrigemComercial: Int?, idProduto: Int?, idTipoCartao: Int?, idImagem: Int?, idEndereco: Int?, quantidadeCartoes: Int?) -> RequestBuilder<LoteCartoesPrePagos> {
+        let path = "/api/cartoes/pre-pagos/lotes"
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [
+            "idOrigemComercial": idOrigemComercial,
+            "idProduto": idProduto,
+            "idTipoCartao": idTipoCartao,
+            "idImagem": idImagem,
+            "idEndereco": idEndereco,
+            "quantidadeCartoes": quantidadeCartoes
+        ]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<LoteCartoesPrePagos>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: false)
+    }
+
+    /**
+     
+     Gerar uma nova via de Cart\u00C3\u00A3o
+     
+     - parameter idCartao: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id) 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func gerarNovaViaUsingPOST(idCartao idCartao: Int, completion: ((data: Cartao?, error: ErrorType?) -> Void)) {
+        gerarNovaViaUsingPOSTWithRequestBuilder(idCartao: idCartao).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Gerar uma nova via de Cart\u00C3\u00A3o
+     
+     - POST /api/cartoes/{idCartao}/gerar-nova-via
+     - Esta opera\u00C3\u00A7\u00C3\u00A3o tem como objetivo permitir que os Emissores ou seus clientes possam solicitar a gera\u00C3\u00A7\u00C3\u00A3o de uma nova via de Cart\u00C3\u00A3o que ser\u00C3\u00A1 encaminhando para impress\u00C3\u00A3o e postagem de acordo com os fluxos padr\u00C3\u00B5es j\u00C3\u00A1 definidos pelo emissor. Para isso, \u00C3\u00A9 preciso que o cliente j\u00C3\u00A1 possua um cart\u00C3\u00A3o gerado e informar o C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o deste (idCartao) para que ele possa utilizar esta opera\u00C3\u00A7\u00C3\u00A3o. Assim, esta funcionalidade se aplica apenas para a gera\u00C3\u00A7\u00C3\u00A3o de cart\u00C3\u00B5es f\u00C3\u00ADsicos.
+     - API Key:
+       - type: apiKey access_token 
+       - name: access_token
+     - examples: [{contentType=application/json, example={
+  "idConta" : 123456789,
+  "dataStatusCartao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "codigoDesbloqueio" : "aeiou",
+  "idEstagioCartao" : 123456789,
+  "arquivoImpressao" : "aeiou",
+  "numeroCartao" : "aeiou",
+  "idPessoa" : 123456789,
+  "idProduto" : 123456789,
+  "flagProvisorio" : 123,
+  "dataValidade" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "idStatusCartao" : 123456789,
+  "dataEstagioCartao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "flagImpressaoOrigemComercial" : 123,
+  "id" : 123456789,
+  "nomeImpresso" : "aeiou",
+  "dataImpressao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "tipoPortador" : "aeiou",
+  "dataGeracao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+}}]
+     
+     - parameter idCartao: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id) 
+
+     - returns: RequestBuilder<Cartao> 
+     */
+    public class func gerarNovaViaUsingPOSTWithRequestBuilder(idCartao idCartao: Int) -> RequestBuilder<Cartao> {
+        var path = "/api/cartoes/{idCartao}/gerar-nova-via"
+        path = path.stringByReplacingOccurrencesOfString("{idCartao}", withString: "\(idCartao)", options: .LiteralSearch, range: nil)
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Cartao>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
      Permite listar os Lotes de Cart\u00C3\u00B5es Pr\u00C3\u00A9-Pago
      
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
@@ -490,13 +620,13 @@ public class CartaoAPI: APIBase {
      - parameter idImagem: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Imagem (id). (optional)
      - parameter idEndereco: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Endere\u00C3\u00A7o (id). (optional)
      - parameter quantidadeCartoes: (query) N\u00C3\u00BAmero de cart\u00C3\u00B5es existentes no Lote. (optional)
-     - parameter dataCadastroLote: (query) Data de Cadastro do Lote de Cart\u00C3\u00B5es N\u00C3\u00A3o Nominais. (optional)
+     - parameter dataCadastro: (query) Data de Cadastro do Lote de Cart\u00C3\u00B5es N\u00C3\u00A3o Nominais. (optional)
      - parameter usuarioCadastro: (query) Nome do Usu\u00C3\u00A1rio que criou o Lote. (optional)
-     - parameter flagProcessado: (query) Indica o Status de Processamento do Lote. (optional)
+     - parameter statusProcessamento: (query) Indica o Status de Processamento do Lote. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarLotesCartoesPrePagosUsingGET(page page: Int?, limit: Int?, id: Int?, idOrigemComercial: Int?, idProduto: Int?, idTipoCartao: Int?, idImagem: Int?, idEndereco: Int?, quantidadeCartoes: Int?, dataCadastroLote: NSDate?, usuarioCadastro: String?, flagProcessado: Int?, completion: ((data: PageCartoes?, error: ErrorType?) -> Void)) {
-        listarLotesCartoesPrePagosUsingGETWithRequestBuilder(page: page, limit: limit, id: id, idOrigemComercial: idOrigemComercial, idProduto: idProduto, idTipoCartao: idTipoCartao, idImagem: idImagem, idEndereco: idEndereco, quantidadeCartoes: quantidadeCartoes, dataCadastroLote: dataCadastroLote, usuarioCadastro: usuarioCadastro, flagProcessado: flagProcessado).execute { (response, error) -> Void in
+    public class func listarLotesCartoesPrePagosUsingGET(page page: Int?, limit: Int?, id: Int?, idOrigemComercial: Int?, idProduto: Int?, idTipoCartao: Int?, idImagem: Int?, idEndereco: Int?, quantidadeCartoes: Int?, dataCadastro: NSDate?, usuarioCadastro: String?, statusProcessamento: Int?, completion: ((data: PageCartoes?, error: ErrorType?) -> Void)) {
+        listarLotesCartoesPrePagosUsingGETWithRequestBuilder(page: page, limit: limit, id: id, idOrigemComercial: idOrigemComercial, idProduto: idProduto, idTipoCartao: idTipoCartao, idImagem: idImagem, idEndereco: idEndereco, quantidadeCartoes: quantidadeCartoes, dataCadastro: dataCadastro, usuarioCadastro: usuarioCadastro, statusProcessamento: statusProcessamento).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -556,13 +686,13 @@ public class CartaoAPI: APIBase {
      - parameter idImagem: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Imagem (id). (optional)
      - parameter idEndereco: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Endere\u00C3\u00A7o (id). (optional)
      - parameter quantidadeCartoes: (query) N\u00C3\u00BAmero de cart\u00C3\u00B5es existentes no Lote. (optional)
-     - parameter dataCadastroLote: (query) Data de Cadastro do Lote de Cart\u00C3\u00B5es N\u00C3\u00A3o Nominais. (optional)
+     - parameter dataCadastro: (query) Data de Cadastro do Lote de Cart\u00C3\u00B5es N\u00C3\u00A3o Nominais. (optional)
      - parameter usuarioCadastro: (query) Nome do Usu\u00C3\u00A1rio que criou o Lote. (optional)
-     - parameter flagProcessado: (query) Indica o Status de Processamento do Lote. (optional)
+     - parameter statusProcessamento: (query) Indica o Status de Processamento do Lote. (optional)
 
      - returns: RequestBuilder<PageCartoes> 
      */
-    public class func listarLotesCartoesPrePagosUsingGETWithRequestBuilder(page page: Int?, limit: Int?, id: Int?, idOrigemComercial: Int?, idProduto: Int?, idTipoCartao: Int?, idImagem: Int?, idEndereco: Int?, quantidadeCartoes: Int?, dataCadastroLote: NSDate?, usuarioCadastro: String?, flagProcessado: Int?) -> RequestBuilder<PageCartoes> {
+    public class func listarLotesCartoesPrePagosUsingGETWithRequestBuilder(page page: Int?, limit: Int?, id: Int?, idOrigemComercial: Int?, idProduto: Int?, idTipoCartao: Int?, idImagem: Int?, idEndereco: Int?, quantidadeCartoes: Int?, dataCadastro: NSDate?, usuarioCadastro: String?, statusProcessamento: Int?) -> RequestBuilder<PageCartoes> {
         let path = "/api/cartoes/pre-pagos/lotes"
         let URLString = PierAPI.basePath + path
         
@@ -576,9 +706,9 @@ public class CartaoAPI: APIBase {
             "idImagem": idImagem,
             "idEndereco": idEndereco,
             "quantidadeCartoes": quantidadeCartoes,
-            "dataCadastroLote": dataCadastroLote,
+            "dataCadastro": dataCadastro,
             "usuarioCadastro": usuarioCadastro,
-            "flagProcessado": flagProcessado
+            "statusProcessamento": statusProcessamento
         ]
         let parameters = APIHelper.rejectNil(nillableParameters)
 

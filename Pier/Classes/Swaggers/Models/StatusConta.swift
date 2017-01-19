@@ -19,6 +19,8 @@ public class StatusConta: JSONEncodable {
     public var flagAlteraLimite: Int?
     /** Apresenta o texto com o motivo que ser\u00C3\u00A1 apresentado na resposta as opera\u00C3\u00A7\u00C3\u00B5es de Listar e Consultar LimitesDisponibilidades. */
     public var mensagemConsultaNegada: String?
+    /** Par\u00C3\u00A2metro que define se o Status da conta permite a solicita\u00C3\u00A7\u00C3\u00A3o de um novo cart\u00C3\u00A3o, sendo: 0: Inativo e 1: Ativo. */
+    public var flagPermiteNovaViaCartao: Int?
     
 
     public init() {}
@@ -30,6 +32,7 @@ public class StatusConta: JSONEncodable {
         nillableDictionary["nome"] = self.nome
         nillableDictionary["flagAlteraLimite"] = self.flagAlteraLimite
         nillableDictionary["mensagemConsultaNegada"] = self.mensagemConsultaNegada
+        nillableDictionary["flagPermiteNovaViaCartao"] = self.flagPermiteNovaViaCartao
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }
