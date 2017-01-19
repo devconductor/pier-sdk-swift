@@ -343,7 +343,7 @@ public class ContaAPI: APIBase {
 
     /**
      
-     Atrav\u00C3\u00A9s desta opera\u00C3\u00A7\u00C3\u00A3o os Emissores ou Portadores poder\u00C3\u00A3o consultar todo o Hist\u00C3\u00B3rico de Faturas vinculados a uma determinada Conta, independentemente do valor delas.
+     Listar Faturas da Conta
      
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
@@ -360,9 +360,10 @@ public class ContaAPI: APIBase {
 
     /**
      
-     Atrav\u00C3\u00A9s desta opera\u00C3\u00A7\u00C3\u00A3o os Emissores ou Portadores poder\u00C3\u00A3o consultar todo o Hist\u00C3\u00B3rico de Faturas vinculados a uma determinada Conta, independentemente do valor delas.
+     Listar Faturas da Conta
      
      - GET /api/contas/{idConta}/faturas
+     - Atrav\u00C3\u00A9s desta opera\u00C3\u00A7\u00C3\u00A3o os Emissores ou Portadores poder\u00C3\u00A3o consultar todo o Hist\u00C3\u00B3rico de Faturas vinculados a uma determinada Conta, independentemente do valor delas.
      - API Key:
        - type: apiKey access_token 
        - name: access_token
@@ -493,7 +494,7 @@ public class ContaAPI: APIBase {
 
     /**
      
-     Permite listar todas as transa\u00C3\u00A7\u00C3\u00B5es da Conta
+     Permite listar uma linha do tempo com os eventos da conta
      
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
@@ -509,9 +510,10 @@ public class ContaAPI: APIBase {
 
     /**
      
-     Permite listar todas as transa\u00C3\u00A7\u00C3\u00B5es da Conta
+     Permite listar uma linha do tempo com os eventos da conta
      
-     - POST /api/contas/{idConta}/transacoes
+     - POST /api/contas/{idConta}/timeline
+     - Esta opera\u00C3\u00A7\u00C3\u00A3o tem como objetivo permitir a listagem, em formato de timeline, dos eventos vinculados a uma detemrinada conta. Transa\u00C3\u00A7\u00C3\u00B5es, fechamento da fatura, pagamentos, gera\u00C3\u00A7\u00C3\u00A3o de cart\u00C3\u00B5es e altera\u00C3\u00A7\u00C3\u00A3o de limite s\u00C3\u00A3o exemplos de eventos contemplados por esta funcionalidade. Neste m\u00C3\u00A9todo, as opera\u00C3\u00A7\u00C3\u00B5es s\u00C3\u00A3o ordenadas de forma decrescente.
      - API Key:
        - type: apiKey access_token 
        - name: access_token
@@ -561,7 +563,7 @@ public class ContaAPI: APIBase {
      - returns: RequestBuilder<PageTransacaoResponse> 
      */
     public class func transacoesUsingPOSTWithRequestBuilder(page page: Int?, limit: Int?, idConta: Int?) -> RequestBuilder<PageTransacaoResponse> {
-        let path = "/api/contas/{idConta}/transacoes"
+        let path = "/api/contas/{idConta}/timeline"
         let URLString = PierAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
