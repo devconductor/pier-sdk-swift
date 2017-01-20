@@ -496,13 +496,13 @@ public class ContaAPI: APIBase {
      
      Permite listar uma linha do tempo com os eventos da conta
      
+     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
-     - parameter idConta: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func transacoesUsingGET(page page: Int?, limit: Int?, idConta: Int?, completion: ((data: PageTransacaoResponse?, error: ErrorType?) -> Void)) {
-        transacoesUsingGETWithRequestBuilder(page: page, limit: limit, idConta: idConta).execute { (response, error) -> Void in
+    public class func transacoesUsingGET(id id: Int, page: Int?, limit: Int?, completion: ((data: PageTransacaoResponse?, error: ErrorType?) -> Void)) {
+        transacoesUsingGETWithRequestBuilder(id: id, page: page, limit: limit).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -556,20 +556,20 @@ public class ContaAPI: APIBase {
   "first" : true
 }}]
      
+     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
-     - parameter idConta: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). (optional)
 
      - returns: RequestBuilder<PageTransacaoResponse> 
      */
-    public class func transacoesUsingGETWithRequestBuilder(page page: Int?, limit: Int?, idConta: Int?) -> RequestBuilder<PageTransacaoResponse> {
-        let path = "/api/contas/{id}/timeline"
+    public class func transacoesUsingGETWithRequestBuilder(id id: Int, page: Int?, limit: Int?) -> RequestBuilder<PageTransacaoResponse> {
+        var path = "/api/contas/{id}/timeline"
+        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
             "page": page,
-            "limit": limit,
-            "idConta": idConta
+            "limit": limit
         ]
         let parameters = APIHelper.rejectNil(nillableParameters)
 
