@@ -329,7 +329,6 @@ public class CartaoAPI: APIBase {
   "idConta" : 123456789,
   "idProduto" : 123456789,
   "dataCancelamentoPortador" : "2000-01-23T04:56:07.000+0000",
-  "idImagem" : 123456789,
   "idTipoCartao" : 123456789,
   "idParentesco" : 123456789,
   "dataCadastroPortador" : "2000-01-23T04:56:07.000+0000",
@@ -362,8 +361,8 @@ public class CartaoAPI: APIBase {
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET(id id: Int, completion: ((data: Cartao?, error: ErrorType?) -> Void)) {
-        consultarUsingGETWithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET1(id id: Int, completion: ((data: Cartao?, error: ErrorType?) -> Void)) {
+        consultarUsingGET1WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -403,7 +402,7 @@ public class CartaoAPI: APIBase {
 
      - returns: RequestBuilder<Cartao> 
      */
-    public class func consultarUsingGETWithRequestBuilder(id id: Int) -> RequestBuilder<Cartao> {
+    public class func consultarUsingGET1WithRequestBuilder(id id: Int) -> RequestBuilder<Cartao> {
         var path = "/api/cartoes/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -743,8 +742,8 @@ public class CartaoAPI: APIBase {
      - parameter codigoDesbloqueio: (query) Apresenta um c\u00C3\u00B3digo espec\u00C3\u00ADfico para ser utilizado como vari\u00C3\u00A1vel no processo de desbloqueio do cart\u00C3\u00A3o para emissores que querem usar esta funcionalidade. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET(page page: Int?, limit: Int?, id: Int?, idStatusCartao: Int?, idEstagioCartao: Int?, idConta: Int?, idPessoa: Int?, idProduto: Int?, tipoPortador: String?, numeroCartao: String?, nomeImpresso: String?, dataGeracao: NSDate?, dataStatusCartao: NSDate?, dataEstagioCartao: NSDate?, dataValidade: String?, dataImpressao: NSDate?, arquivoImpressao: String?, flagImpressaoOrigemComercial: Int?, flagProvisorio: Int?, codigoDesbloqueio: String?, completion: ((data: PageCartoes?, error: ErrorType?) -> Void)) {
-        listarUsingGETWithRequestBuilder(page: page, limit: limit, id: id, idStatusCartao: idStatusCartao, idEstagioCartao: idEstagioCartao, idConta: idConta, idPessoa: idPessoa, idProduto: idProduto, tipoPortador: tipoPortador, numeroCartao: numeroCartao, nomeImpresso: nomeImpresso, dataGeracao: dataGeracao, dataStatusCartao: dataStatusCartao, dataEstagioCartao: dataEstagioCartao, dataValidade: dataValidade, dataImpressao: dataImpressao, arquivoImpressao: arquivoImpressao, flagImpressaoOrigemComercial: flagImpressaoOrigemComercial, flagProvisorio: flagProvisorio, codigoDesbloqueio: codigoDesbloqueio).execute { (response, error) -> Void in
+    public class func listarUsingGET1(page page: Int?, limit: Int?, id: Int?, idStatusCartao: Int?, idEstagioCartao: Int?, idConta: Int?, idPessoa: Int?, idProduto: Int?, tipoPortador: String?, numeroCartao: String?, nomeImpresso: String?, dataGeracao: NSDate?, dataStatusCartao: NSDate?, dataEstagioCartao: NSDate?, dataValidade: String?, dataImpressao: NSDate?, arquivoImpressao: String?, flagImpressaoOrigemComercial: Int?, flagProvisorio: Int?, codigoDesbloqueio: String?, completion: ((data: PageCartoes?, error: ErrorType?) -> Void)) {
+        listarUsingGET1WithRequestBuilder(page: page, limit: limit, id: id, idStatusCartao: idStatusCartao, idEstagioCartao: idEstagioCartao, idConta: idConta, idPessoa: idPessoa, idProduto: idProduto, tipoPortador: tipoPortador, numeroCartao: numeroCartao, nomeImpresso: nomeImpresso, dataGeracao: dataGeracao, dataStatusCartao: dataStatusCartao, dataEstagioCartao: dataEstagioCartao, dataValidade: dataValidade, dataImpressao: dataImpressao, arquivoImpressao: arquivoImpressao, flagImpressaoOrigemComercial: flagImpressaoOrigemComercial, flagProvisorio: flagProvisorio, codigoDesbloqueio: codigoDesbloqueio).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -818,7 +817,7 @@ public class CartaoAPI: APIBase {
 
      - returns: RequestBuilder<PageCartoes> 
      */
-    public class func listarUsingGETWithRequestBuilder(page page: Int?, limit: Int?, id: Int?, idStatusCartao: Int?, idEstagioCartao: Int?, idConta: Int?, idPessoa: Int?, idProduto: Int?, tipoPortador: String?, numeroCartao: String?, nomeImpresso: String?, dataGeracao: NSDate?, dataStatusCartao: NSDate?, dataEstagioCartao: NSDate?, dataValidade: String?, dataImpressao: NSDate?, arquivoImpressao: String?, flagImpressaoOrigemComercial: Int?, flagProvisorio: Int?, codigoDesbloqueio: String?) -> RequestBuilder<PageCartoes> {
+    public class func listarUsingGET1WithRequestBuilder(page page: Int?, limit: Int?, id: Int?, idStatusCartao: Int?, idEstagioCartao: Int?, idConta: Int?, idPessoa: Int?, idProduto: Int?, tipoPortador: String?, numeroCartao: String?, nomeImpresso: String?, dataGeracao: NSDate?, dataStatusCartao: NSDate?, dataEstagioCartao: NSDate?, dataValidade: String?, dataImpressao: NSDate?, arquivoImpressao: String?, flagImpressaoOrigemComercial: Int?, flagProvisorio: Int?, codigoDesbloqueio: String?) -> RequestBuilder<PageCartoes> {
         let path = "/api/cartoes"
         let URLString = PierAPI.basePath + path
         
@@ -876,9 +875,14 @@ public class CartaoAPI: APIBase {
        - type: apiKey access_token 
        - name: access_token
      - examples: [{contentType=application/json, example={
+  "idStatusConta" : 123456789,
+  "idConta" : 123456789,
+  "idStatusCartao" : 123456789,
+  "numeroContaCorrente" : "aeiou",
   "criptogramaResposta" : "aeiou",
   "statusConta" : "aeiou",
-  "statusCartao" : "aeiou"
+  "statusCartao" : "aeiou",
+  "numeroAgencia" : 123
 }}]
      
      - parameter numeroCartao: (query) N\u00C3\u00BAmero do cart\u00C3\u00A3o a ser validado. 
@@ -928,9 +932,14 @@ public class CartaoAPI: APIBase {
        - type: apiKey access_token 
        - name: access_token
      - examples: [{contentType=application/json, example={
+  "idStatusConta" : 123456789,
+  "idConta" : 123456789,
+  "idStatusCartao" : 123456789,
+  "numeroContaCorrente" : "aeiou",
   "criptogramaResposta" : "aeiou",
   "statusConta" : "aeiou",
-  "statusCartao" : "aeiou"
+  "statusCartao" : "aeiou",
+  "numeroAgencia" : 123
 }}]
      
      - parameter numeroCartao: (query) N\u00C3\u00BAmero do cart\u00C3\u00A3o a ser validado. 
@@ -984,9 +993,14 @@ public class CartaoAPI: APIBase {
        - type: apiKey access_token 
        - name: access_token
      - examples: [{contentType=application/json, example={
+  "idStatusConta" : 123456789,
+  "idConta" : 123456789,
+  "idStatusCartao" : 123456789,
+  "numeroContaCorrente" : "aeiou",
   "criptogramaResposta" : "aeiou",
   "statusConta" : "aeiou",
-  "statusCartao" : "aeiou"
+  "statusCartao" : "aeiou",
+  "numeroAgencia" : 123
 }}]
      
      - parameter numeroCartao: (query) N\u00C3\u00BAmero do cart\u00C3\u00A3o a ser validado. 
@@ -1039,9 +1053,14 @@ public class CartaoAPI: APIBase {
        - type: apiKey access_token 
        - name: access_token
      - examples: [{contentType=application/json, example={
+  "idStatusConta" : 123456789,
+  "idConta" : 123456789,
+  "idStatusCartao" : 123456789,
+  "numeroContaCorrente" : "aeiou",
   "criptogramaResposta" : "aeiou",
   "statusConta" : "aeiou",
-  "statusCartao" : "aeiou"
+  "statusCartao" : "aeiou",
+  "numeroAgencia" : 123
 }}]
      
      - parameter numeroCartao: (query) N\u00C3\u00BAmero do cart\u00C3\u00A3o a ser validado. 

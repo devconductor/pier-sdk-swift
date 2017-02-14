@@ -228,8 +228,8 @@ public class ContaAPI: APIBase {
      - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET1(id id: Int, completion: ((data: Conta?, error: ErrorType?) -> Void)) {
-        consultarUsingGET1WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET2(id id: Int, completion: ((data: Conta?, error: ErrorType?) -> Void)) {
+        consultarUsingGET2WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -261,7 +261,7 @@ public class ContaAPI: APIBase {
 
      - returns: RequestBuilder<Conta> 
      */
-    public class func consultarUsingGET1WithRequestBuilder(id id: Int) -> RequestBuilder<Conta> {
+    public class func consultarUsingGET2WithRequestBuilder(id id: Int) -> RequestBuilder<Conta> {
         var path = "/api/contas/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -280,10 +280,11 @@ public class ContaAPI: APIBase {
      
      - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
      - parameter idPessoa: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da pessoa (id). 
+     - parameter idTipoPlastico: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do TipoPlastico (id). (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func gerarCartaoUsingPOST(id id: Int, idPessoa: Int, completion: ((data: CartaoImpressao?, error: ErrorType?) -> Void)) {
-        gerarCartaoUsingPOSTWithRequestBuilder(id: id, idPessoa: idPessoa).execute { (response, error) -> Void in
+    public class func gerarCartaoUsingPOST(id id: Int, idPessoa: Int, idTipoPlastico: Int?, completion: ((data: CartaoImpressao?, error: ErrorType?) -> Void)) {
+        gerarCartaoUsingPOSTWithRequestBuilder(id: id, idPessoa: idPessoa, idTipoPlastico: idTipoPlastico).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -294,6 +295,7 @@ public class ContaAPI: APIBase {
      Realiza a gera\u00C3\u00A7\u00C3\u00A3o de um novo cart\u00C3\u00A3o para impress\u00C3\u00A3o avulsa
      
      - POST /api/contas/{id}/pessoas/{idPessoa}/gerar-cartao
+     - Este recurso permite que seja gerado um novo Cart\u00C3\u00A3o para um determinado Portador que esteja vinculado a uma Conta. Para isso, ser\u00C3\u00A1 preciso informar o c\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da Conta (id), o idPessoa do Portador e o idTipoPlastico do Cart\u00C3\u00A3o que dever\u00C3\u00A1 ser gerado para impress\u00C3\u00A3o. Esta funcionalidade poder\u00C3\u00A1 ser utilizada para realizar a impress\u00C3\u00A3o de cart\u00C3\u00B5es em Lojas, Quiosques, Escrit\u00C3\u00B3rios, Terminais de Auto Atendimento, ou outro local que o Emissor escolher, desde que se possua uma impressora de Cart\u00C3\u00B5es habilidade para o fazer, no local.
      - API Key:
        - type: apiKey access_token 
        - name: access_token
@@ -324,21 +326,24 @@ public class ContaAPI: APIBase {
      
      - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
      - parameter idPessoa: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da pessoa (id). 
+     - parameter idTipoPlastico: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do TipoPlastico (id). (optional)
 
      - returns: RequestBuilder<CartaoImpressao> 
      */
-    public class func gerarCartaoUsingPOSTWithRequestBuilder(id id: Int, idPessoa: Int) -> RequestBuilder<CartaoImpressao> {
+    public class func gerarCartaoUsingPOSTWithRequestBuilder(id id: Int, idPessoa: Int, idTipoPlastico: Int?) -> RequestBuilder<CartaoImpressao> {
         var path = "/api/contas/{id}/pessoas/{idPessoa}/gerar-cartao"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{idPessoa}", withString: "\(idPessoa)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
         
-        let nillableParameters: [String:AnyObject?] = [:]
+        let nillableParameters: [String:AnyObject?] = [
+            "id_tipo_plastico": idTipoPlastico
+        ]
         let parameters = APIHelper.rejectNil(nillableParameters)
 
         let requestBuilder: RequestBuilder<CartaoImpressao>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: false)
     }
 
     /**
@@ -351,7 +356,7 @@ public class ContaAPI: APIBase {
      - parameter dataVencimento: (query) Data de Vencimento da Fatura. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarFaturasUsingGET(id id: Int, page: Int?, limit: Int?, dataVencimento: NSDate?, completion: ((data: Fatura?, error: ErrorType?) -> Void)) {
+    public class func listarFaturasUsingGET(id id: Int, page: Int?, limit: Int?, dataVencimento: NSDate?, completion: ((data: FaturaResponse?, error: ErrorType?) -> Void)) {
         listarFaturasUsingGETWithRequestBuilder(id: id, page: page, limit: limit, dataVencimento: dataVencimento).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -371,10 +376,13 @@ public class ContaAPI: APIBase {
   "saldoDebitos" : 1.3579000000000001069366817318950779736042022705078125,
   "saldoCompras" : 1.3579000000000001069366817318950779736042022705078125,
   "saldoCreditos" : 1.3579000000000001069366817318950779736042022705078125,
+  "idConta" : 123456789,
   "flagEmiteFatura" : 123,
-  "saldoFaturaAnterior" : 1.3579000000000001069366817318950779736042022705078125,
   "saldoAtualFinal" : 1.3579000000000001069366817318950779736042022705078125,
+  "idProduto" : 123456789,
+  "saldoFaturaAnterior" : 1.3579000000000001069366817318950779736042022705078125,
   "dataVencimento" : "2000-01-23T04:56:07.000+0000",
+  "id" : 123456789,
   "saldoTarifas" : 1.3579000000000001069366817318950779736042022705078125,
   "valorMinimoFatura" : 1.3579000000000001069366817318950779736042022705078125,
   "saldoMulta" : 1.3579000000000001069366817318950779736042022705078125,
@@ -386,9 +394,9 @@ public class ContaAPI: APIBase {
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
      - parameter dataVencimento: (query) Data de Vencimento da Fatura. (optional)
 
-     - returns: RequestBuilder<Fatura> 
+     - returns: RequestBuilder<FaturaResponse> 
      */
-    public class func listarFaturasUsingGETWithRequestBuilder(id id: Int, page: Int?, limit: Int?, dataVencimento: NSDate?) -> RequestBuilder<Fatura> {
+    public class func listarFaturasUsingGETWithRequestBuilder(id id: Int, page: Int?, limit: Int?, dataVencimento: NSDate?) -> RequestBuilder<FaturaResponse> {
         var path = "/api/contas/{id}/faturas"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -400,7 +408,7 @@ public class ContaAPI: APIBase {
         ]
         let parameters = APIHelper.rejectNil(nillableParameters)
 
-        let requestBuilder: RequestBuilder<Fatura>.Type = PierAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<FaturaResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
     }
@@ -423,8 +431,8 @@ public class ContaAPI: APIBase {
      - parameter dataUltimaAlteracaoVencimento: (query) Apresenta a data da ultima altera\u00C3\u00A7\u00C3\u00A3o de vencimento. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET1(page page: Int?, limit: Int?, id: Int?, idProduto: Int?, idOrigemComercial: Int?, idPessoa: Int?, idStatusConta: Int?, diaVencimento: Int?, melhorDiaCompra: Int?, dataStatusConta: NSDate?, dataCadastro: NSDate?, dataUltimaAlteracaoVencimento: NSDate?, completion: ((data: Conta?, error: ErrorType?) -> Void)) {
-        listarUsingGET1WithRequestBuilder(page: page, limit: limit, id: id, idProduto: idProduto, idOrigemComercial: idOrigemComercial, idPessoa: idPessoa, idStatusConta: idStatusConta, diaVencimento: diaVencimento, melhorDiaCompra: melhorDiaCompra, dataStatusConta: dataStatusConta, dataCadastro: dataCadastro, dataUltimaAlteracaoVencimento: dataUltimaAlteracaoVencimento).execute { (response, error) -> Void in
+    public class func listarUsingGET2(page page: Int?, limit: Int?, id: Int?, idProduto: Int?, idOrigemComercial: Int?, idPessoa: Int?, idStatusConta: Int?, diaVencimento: Int?, melhorDiaCompra: Int?, dataStatusConta: NSDate?, dataCadastro: NSDate?, dataUltimaAlteracaoVencimento: NSDate?, completion: ((data: Conta?, error: ErrorType?) -> Void)) {
+        listarUsingGET2WithRequestBuilder(page: page, limit: limit, id: id, idProduto: idProduto, idOrigemComercial: idOrigemComercial, idPessoa: idPessoa, idStatusConta: idStatusConta, diaVencimento: diaVencimento, melhorDiaCompra: melhorDiaCompra, dataStatusConta: dataStatusConta, dataCadastro: dataCadastro, dataUltimaAlteracaoVencimento: dataUltimaAlteracaoVencimento).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -467,7 +475,7 @@ public class ContaAPI: APIBase {
 
      - returns: RequestBuilder<Conta> 
      */
-    public class func listarUsingGET1WithRequestBuilder(page page: Int?, limit: Int?, id: Int?, idProduto: Int?, idOrigemComercial: Int?, idPessoa: Int?, idStatusConta: Int?, diaVencimento: Int?, melhorDiaCompra: Int?, dataStatusConta: NSDate?, dataCadastro: NSDate?, dataUltimaAlteracaoVencimento: NSDate?) -> RequestBuilder<Conta> {
+    public class func listarUsingGET2WithRequestBuilder(page page: Int?, limit: Int?, id: Int?, idProduto: Int?, idOrigemComercial: Int?, idPessoa: Int?, idStatusConta: Int?, diaVencimento: Int?, melhorDiaCompra: Int?, dataStatusConta: NSDate?, dataCadastro: NSDate?, dataUltimaAlteracaoVencimento: NSDate?) -> RequestBuilder<Conta> {
         let path = "/api/contas"
         let URLString = PierAPI.basePath + path
         

@@ -14,15 +14,15 @@ public class NotificacoesAPI: APIBase {
      
      Atualizar SMS
      
-     - parameter seuNum: (query) Seu n\u00C3\u00BAmero 
+     - parameter nsu: (query) Seu n\u00C3\u00BAmero 
      - parameter status: (query) Status 
      - parameter data: (query) Data 
      - parameter textoStatus: (query) TextoStatus 
      - parameter operadora: (query) Operadora 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func atualizarSMSUsingPUT(seuNum seuNum: String, status: String, data: String, textoStatus: String, operadora: String, completion: ((data: SMS?, error: ErrorType?) -> Void)) {
-        atualizarSMSUsingPUTWithRequestBuilder(seuNum: seuNum, status: status, data: data, textoStatus: textoStatus, operadora: operadora).execute { (response, error) -> Void in
+    public class func atualizarSMSUsingPOST(nsu nsu: String, status: String, data: String, textoStatus: String, operadora: String, completion: ((data: SMS?, error: ErrorType?) -> Void)) {
+        atualizarSMSUsingPOSTWithRequestBuilder(nsu: nsu, status: status, data: data, textoStatus: textoStatus, operadora: operadora).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -32,7 +32,7 @@ public class NotificacoesAPI: APIBase {
      
      Atualizar SMS
      
-     - PUT /api/notificacoes/sms/atualizar-status
+     - POST /api/notificacoes/sms/atualizar-status
      - Esse recurso permite atualizar o status do SMS do emissor
      - API Key:
        - type: apiKey access_token 
@@ -53,7 +53,7 @@ public class NotificacoesAPI: APIBase {
   "status" : "aeiou"
 }}]
      
-     - parameter seuNum: (query) Seu n\u00C3\u00BAmero 
+     - parameter nsu: (query) Seu n\u00C3\u00BAmero 
      - parameter status: (query) Status 
      - parameter data: (query) Data 
      - parameter textoStatus: (query) TextoStatus 
@@ -61,35 +61,251 @@ public class NotificacoesAPI: APIBase {
 
      - returns: RequestBuilder<SMS> 
      */
-    public class func atualizarSMSUsingPUTWithRequestBuilder(seuNum seuNum: String, status: String, data: String, textoStatus: String, operadora: String) -> RequestBuilder<SMS> {
+    public class func atualizarSMSUsingPOSTWithRequestBuilder(nsu nsu: String, status: String, data: String, textoStatus: String, operadora: String) -> RequestBuilder<SMS> {
         let path = "/api/notificacoes/sms/atualizar-status"
         let URLString = PierAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
-            "SeuNum": seuNum,
-            "Status": status,
-            "Data": data,
-            "TextoStatus": textoStatus,
-            "Operadora": operadora
+            "nsu": nsu,
+            "status": status,
+            "data": data,
+            "texto_status": textoStatus,
+            "operadora": operadora
         ]
         let parameters = APIHelper.rejectNil(nillableParameters)
 
         let requestBuilder: RequestBuilder<SMS>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: false)
+    }
+
+    /**
+     
+     Limpar Acessos
+     
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func limparAcessoTWWUsingGET(completion: ((data: String?, error: ErrorType?) -> Void)) {
+        limparAcessoTWWUsingGETWithRequestBuilder().execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Limpar Acessos
+     
+     - GET /api/notificacoes/sms/limpar
+     - Esse recurso permite limpar a lista de emissores que possuem acesso a envio de SMS pela TWW.
+     - API Key:
+       - type: apiKey access_token 
+       - name: access_token
+     - examples: [{contentType=application/json, example="aeiou"}]
+
+     - returns: RequestBuilder<String> 
+     */
+    public class func limparAcessoTWWUsingGETWithRequestBuilder() -> RequestBuilder<String> {
+        let path = "/api/notificacoes/sms/limpar"
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<String>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Listar Push
+     
+     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
+     - parameter dataEnvio: (query) Apresenta a data e em que o registro foi enviado para o dispositivo. (optional)
+     - parameter evento: (query) Nome do evento da notifica\u00C3\u00A7\u00C3\u00A3o (optional)
+     - parameter status: (query) Status de envio da notifica\u00C3\u00A7\u00C3\u00A3o (optional)
+     - parameter plataforma: (query) Plataforma de Push notifications. (optional)
+     - parameter protocolo: (query) N\u00C3\u00BAmero do protocolo de envio de notifica\u00C3\u00A7\u00C3\u00B5es (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func listarPushUsingGET(page page: Int?, limit: Int?, dataEnvio: NSDate?, evento: String?, status: String?, plataforma: String?, protocolo: String?, completion: ((data: PagePush?, error: ErrorType?) -> Void)) {
+        listarPushUsingGETWithRequestBuilder(page: page, limit: limit, dataEnvio: dataEnvio, evento: evento, status: status, plataforma: plataforma, protocolo: protocolo).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Listar Push
+     
+     - GET /api/notificacoes/push
+     - Esse recurso permite listar os Pushes do emissor
+     - API Key:
+       - type: apiKey access_token 
+       - name: access_token
+     - examples: [{contentType=application/json, example={
+  "previousPage" : 123,
+  "last" : true,
+  "hasContent" : true,
+  "hasNextPage" : true,
+  "nextPage" : 123,
+  "content" : [ {
+    "protocolo" : "aeiou",
+    "idPessoa" : 123456789,
+    "evento" : "aeiou",
+    "conteudo" : "aeiou",
+    "idConta" : 123456789,
+    "plataforma" : "aeiou",
+    "titulo" : "aeiou",
+    "idEmissor" : 123456789,
+    "tokenDispositivo" : "aeiou",
+    "dataEnvio" : "2000-01-23T04:56:07.000+0000",
+    "status" : "aeiou"
+  } ],
+  "totalElements" : 123456789,
+  "number" : 123,
+  "firstPage" : true,
+  "numberOfElements" : 123,
+  "size" : 123,
+  "totalPages" : 123,
+  "hasPreviousPage" : true,
+  "first" : true
+}}]
+     
+     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
+     - parameter dataEnvio: (query) Apresenta a data e em que o registro foi enviado para o dispositivo. (optional)
+     - parameter evento: (query) Nome do evento da notifica\u00C3\u00A7\u00C3\u00A3o (optional)
+     - parameter status: (query) Status de envio da notifica\u00C3\u00A7\u00C3\u00A3o (optional)
+     - parameter plataforma: (query) Plataforma de Push notifications. (optional)
+     - parameter protocolo: (query) N\u00C3\u00BAmero do protocolo de envio de notifica\u00C3\u00A7\u00C3\u00B5es (optional)
+
+     - returns: RequestBuilder<PagePush> 
+     */
+    public class func listarPushUsingGETWithRequestBuilder(page page: Int?, limit: Int?, dataEnvio: NSDate?, evento: String?, status: String?, plataforma: String?, protocolo: String?) -> RequestBuilder<PagePush> {
+        let path = "/api/notificacoes/push"
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [
+            "page": page,
+            "limit": limit,
+            "dataEnvio": dataEnvio,
+            "evento": evento,
+            "status": status,
+            "plataforma": plataforma,
+            "protocolo": protocolo
+        ]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<PagePush>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
+    }
+
+    /**
+     
+     Listar SMS
+     
+     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
+     - parameter dataInclusao: (query) Apresenta a data e em que o registro foi inclu\u00C3\u00ADdo na base para ser enviado (optional)
+     - parameter evento: (query) Nome do evento da notifica\u00C3\u00A7\u00C3\u00A3o (optional)
+     - parameter status: (query) Status de envio da notifica\u00C3\u00A7\u00C3\u00A3o (optional)
+     - parameter operadora: (query) Nome da operadora a qual a notifica\u00C3\u00A7\u00C3\u00A3o foi enviada. (optional)
+     - parameter protocolo: (query) N\u00C3\u00BAmero do protocolo de envio de notifica\u00C3\u00A7\u00C3\u00B5es (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func listarSMSUsingGET(page page: Int?, limit: Int?, dataInclusao: NSDate?, evento: String?, status: String?, operadora: String?, protocolo: String?, completion: ((data: PageSMS?, error: ErrorType?) -> Void)) {
+        listarSMSUsingGETWithRequestBuilder(page: page, limit: limit, dataInclusao: dataInclusao, evento: evento, status: status, operadora: operadora, protocolo: protocolo).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Listar SMS
+     
+     - GET /api/notificacoes/sms
+     - Esse recurso permite listar os SMS do emissor
+     - API Key:
+       - type: apiKey access_token 
+       - name: access_token
+     - examples: [{contentType=application/json, example={
+  "previousPage" : 123,
+  "last" : true,
+  "hasContent" : true,
+  "hasNextPage" : true,
+  "nextPage" : 123,
+  "content" : [ {
+    "quantidadeTentativasEnvio" : 123,
+    "conteudo" : "aeiou",
+    "idConta" : 123456789,
+    "dataAlteracaoStatus" : "2000-01-23T04:56:07.000+0000",
+    "dataAgendamento" : "2000-01-23T04:56:07.000+0000",
+    "protocolo" : "aeiou",
+    "nsu" : 123456789,
+    "idPessoa" : 123456789,
+    "evento" : "aeiou",
+    "celular" : "aeiou",
+    "dataInclusao" : "2000-01-23T04:56:07.000+0000",
+    "idEmissor" : 123456789,
+    "status" : "aeiou"
+  } ],
+  "totalElements" : 123456789,
+  "number" : 123,
+  "firstPage" : true,
+  "numberOfElements" : 123,
+  "size" : 123,
+  "totalPages" : 123,
+  "hasPreviousPage" : true,
+  "first" : true
+}}]
+     
+     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
+     - parameter dataInclusao: (query) Apresenta a data e em que o registro foi inclu\u00C3\u00ADdo na base para ser enviado (optional)
+     - parameter evento: (query) Nome do evento da notifica\u00C3\u00A7\u00C3\u00A3o (optional)
+     - parameter status: (query) Status de envio da notifica\u00C3\u00A7\u00C3\u00A3o (optional)
+     - parameter operadora: (query) Nome da operadora a qual a notifica\u00C3\u00A7\u00C3\u00A3o foi enviada. (optional)
+     - parameter protocolo: (query) N\u00C3\u00BAmero do protocolo de envio de notifica\u00C3\u00A7\u00C3\u00B5es (optional)
+
+     - returns: RequestBuilder<PageSMS> 
+     */
+    public class func listarSMSUsingGETWithRequestBuilder(page page: Int?, limit: Int?, dataInclusao: NSDate?, evento: String?, status: String?, operadora: String?, protocolo: String?) -> RequestBuilder<PageSMS> {
+        let path = "/api/notificacoes/sms"
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [
+            "page": page,
+            "limit": limit,
+            "dataInclusao": dataInclusao,
+            "evento": evento,
+            "status": status,
+            "operadora": operadora,
+            "protocolo": protocolo
+        ]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<PageSMS>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
     }
 
     /**
      
      Responder SMS
      
-     - parameter seunum: (query) Seu n\u00C3\u00BAmero 
+     - parameter nsu: (query) Seu n\u00C3\u00BAmero 
      - parameter data: (query) Data 
-     - parameter textoSmsMo: (query) TextoStatus 
+     - parameter resposta: (query) TextoStatus 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func responderSMSUsingPUT(seunum seunum: String, data: String, textoSmsMo: String, completion: ((data: SMS?, error: ErrorType?) -> Void)) {
-        responderSMSUsingPUTWithRequestBuilder(seunum: seunum, data: data, textoSmsMo: textoSmsMo).execute { (response, error) -> Void in
+    public class func responderSMSUsingPOST(nsu nsu: String, data: String, resposta: String, completion: ((data: SMS?, error: ErrorType?) -> Void)) {
+        responderSMSUsingPOSTWithRequestBuilder(nsu: nsu, data: data, resposta: resposta).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -99,7 +315,7 @@ public class NotificacoesAPI: APIBase {
      
      Responder SMS
      
-     - PUT /api/notificacoes/sms/responder
+     - POST /api/notificacoes/sms/responder
      - Esse recurso permite atualizar a resposta do SMS, fornecida pedo usu\u00C3\u00A1rio
      - API Key:
        - type: apiKey access_token 
@@ -120,26 +336,198 @@ public class NotificacoesAPI: APIBase {
   "status" : "aeiou"
 }}]
      
-     - parameter seunum: (query) Seu n\u00C3\u00BAmero 
+     - parameter nsu: (query) Seu n\u00C3\u00BAmero 
      - parameter data: (query) Data 
-     - parameter textoSmsMo: (query) TextoStatus 
+     - parameter resposta: (query) TextoStatus 
 
      - returns: RequestBuilder<SMS> 
      */
-    public class func responderSMSUsingPUTWithRequestBuilder(seunum seunum: String, data: String, textoSmsMo: String) -> RequestBuilder<SMS> {
+    public class func responderSMSUsingPOSTWithRequestBuilder(nsu nsu: String, data: String, resposta: String) -> RequestBuilder<SMS> {
         let path = "/api/notificacoes/sms/responder"
         let URLString = PierAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
-            "Seunum": seunum,
-            "Data": data,
-            "TextoSmsMo": textoSmsMo
+            "nsu": nsu,
+            "data": data,
+            "resposta": resposta
         ]
         let parameters = APIHelper.rejectNil(nillableParameters)
 
         let requestBuilder: RequestBuilder<SMS>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: false)
+    }
+
+    /**
+     
+     Enviar Push FCM
+     
+     - parameter pushPersists: (body) pushPersists 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func salvarPushFCMUsingPOST(pushPersists pushPersists: [PushFCMEGCM], completion: ((data: NotificacaoSMSResponse?, error: ErrorType?) -> Void)) {
+        salvarPushFCMUsingPOSTWithRequestBuilder(pushPersists: pushPersists).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Enviar Push FCM
+     
+     - POST /api/notificacoes/push/fcm
+     - Esse recurso permite enviar Push para um determinado dipositivo movel atrav\u00C3\u00A9s da plataforma FCM (Firebase Cloud Messaging).
+     - API Key:
+       - type: apiKey access_token 
+       - name: access_token
+     - examples: [{contentType=application/json, example={
+  "protocolo" : "aeiou",
+  "mensagem" : "aeiou"
+}}]
+     
+     - parameter pushPersists: (body) pushPersists 
+
+     - returns: RequestBuilder<NotificacaoSMSResponse> 
+     */
+    public class func salvarPushFCMUsingPOSTWithRequestBuilder(pushPersists pushPersists: [PushFCMEGCM]) -> RequestBuilder<NotificacaoSMSResponse> {
+        let path = "/api/notificacoes/push/fcm"
+        let URLString = PierAPI.basePath + path
+        
+        let parameters = pushPersists.encodeToJSON() as? [String:AnyObject]
+
+        let requestBuilder: RequestBuilder<NotificacaoSMSResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Enviar Push GCM
+     
+     - parameter pushPersists: (body) pushPersists 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func salvarPushGCMUsingPOST(pushPersists pushPersists: [PushFCMEGCM], completion: ((data: NotificacaoSMSResponse?, error: ErrorType?) -> Void)) {
+        salvarPushGCMUsingPOSTWithRequestBuilder(pushPersists: pushPersists).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Enviar Push GCM
+     
+     - POST /api/notificacoes/push/gcm
+     - Esse recurso permite enviar Push para um determinado dipositivo movel atrav\u00C3\u00A9s da plataforma GCM (Google Cloud Messaging).
+     - API Key:
+       - type: apiKey access_token 
+       - name: access_token
+     - examples: [{contentType=application/json, example={
+  "protocolo" : "aeiou",
+  "mensagem" : "aeiou"
+}}]
+     
+     - parameter pushPersists: (body) pushPersists 
+
+     - returns: RequestBuilder<NotificacaoSMSResponse> 
+     */
+    public class func salvarPushGCMUsingPOSTWithRequestBuilder(pushPersists pushPersists: [PushFCMEGCM]) -> RequestBuilder<NotificacaoSMSResponse> {
+        let path = "/api/notificacoes/push/gcm"
+        let URLString = PierAPI.basePath + path
+        
+        let parameters = pushPersists.encodeToJSON() as? [String:AnyObject]
+
+        let requestBuilder: RequestBuilder<NotificacaoSMSResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Enviar Push APNS
+     
+     - parameter pushPersists: (body) pushPersists 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func salvarPushUsingPOST(pushPersists pushPersists: [PushAPNS], completion: ((data: NotificacaoSMSResponse?, error: ErrorType?) -> Void)) {
+        salvarPushUsingPOSTWithRequestBuilder(pushPersists: pushPersists).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Enviar Push APNS
+     
+     - POST /api/notificacoes/push/apns
+     - Esse recurso permite enviar Push para um determinado dipositivo movel atrav\u00C3\u00A9s da plataforma APNS (Apple Push Notification Service).
+     - API Key:
+       - type: apiKey access_token 
+       - name: access_token
+     - examples: [{contentType=application/json, example={
+  "protocolo" : "aeiou",
+  "mensagem" : "aeiou"
+}}]
+     
+     - parameter pushPersists: (body) pushPersists 
+
+     - returns: RequestBuilder<NotificacaoSMSResponse> 
+     */
+    public class func salvarPushUsingPOSTWithRequestBuilder(pushPersists pushPersists: [PushAPNS]) -> RequestBuilder<NotificacaoSMSResponse> {
+        let path = "/api/notificacoes/push/apns"
+        let URLString = PierAPI.basePath + path
+        
+        let parameters = pushPersists.encodeToJSON() as? [String:AnyObject]
+
+        let requestBuilder: RequestBuilder<NotificacaoSMSResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Enviar SMS
+     
+     - parameter listaSMS: (body) listaSMS 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func salvarSMSUsingPOST(listaSMS listaSMS: [NotificacaoSMSBody], completion: ((data: NotificacaoSMSResponse?, error: ErrorType?) -> Void)) {
+        salvarSMSUsingPOSTWithRequestBuilder(listaSMS: listaSMS).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Enviar SMS
+     
+     - POST /api/notificacoes/sms
+     - Esse recurso permite enviar uma lista de SMS.
+     - API Key:
+       - type: apiKey access_token 
+       - name: access_token
+     - examples: [{contentType=application/json, example={
+  "protocolo" : "aeiou",
+  "mensagem" : "aeiou"
+}}]
+     
+     - parameter listaSMS: (body) listaSMS 
+
+     - returns: RequestBuilder<NotificacaoSMSResponse> 
+     */
+    public class func salvarSMSUsingPOSTWithRequestBuilder(listaSMS listaSMS: [NotificacaoSMSBody]) -> RequestBuilder<NotificacaoSMSResponse> {
+        let path = "/api/notificacoes/sms"
+        let URLString = PierAPI.basePath + path
+        
+        let parameters = listaSMS.encodeToJSON() as? [String:AnyObject]
+
+        let requestBuilder: RequestBuilder<NotificacaoSMSResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
     }
 
 }
