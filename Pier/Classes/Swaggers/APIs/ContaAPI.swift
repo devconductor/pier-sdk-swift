@@ -356,7 +356,7 @@ public class ContaAPI: APIBase {
      - parameter dataVencimento: (query) Data de Vencimento da Fatura. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarFaturasUsingGET(id id: Int, page: Int?, limit: Int?, dataVencimento: NSDate?, completion: ((data: FaturaResponse?, error: ErrorType?) -> Void)) {
+    public class func listarFaturasUsingGET(id id: Int, page: Int?, limit: Int?, dataVencimento: NSDate?, completion: ((data: PageFaturas?, error: ErrorType?) -> Void)) {
         listarFaturasUsingGETWithRequestBuilder(id: id, page: page, limit: limit, dataVencimento: dataVencimento).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -373,20 +373,35 @@ public class ContaAPI: APIBase {
        - type: apiKey access_token 
        - name: access_token
      - examples: [{contentType=application/json, example={
-  "saldoDebitos" : 1.3579000000000001069366817318950779736042022705078125,
-  "saldoCompras" : 1.3579000000000001069366817318950779736042022705078125,
-  "saldoCreditos" : 1.3579000000000001069366817318950779736042022705078125,
-  "idConta" : 123456789,
-  "flagEmiteFatura" : 123,
-  "saldoAtualFinal" : 1.3579000000000001069366817318950779736042022705078125,
-  "idProduto" : 123456789,
-  "saldoFaturaAnterior" : 1.3579000000000001069366817318950779736042022705078125,
-  "dataVencimento" : "2000-01-23T04:56:07.000+0000",
-  "id" : 123456789,
-  "saldoTarifas" : 1.3579000000000001069366817318950779736042022705078125,
-  "valorMinimoFatura" : 1.3579000000000001069366817318950779736042022705078125,
-  "saldoMulta" : 1.3579000000000001069366817318950779736042022705078125,
-  "saldoPagamentos" : 1.3579000000000001069366817318950779736042022705078125
+  "previousPage" : 123,
+  "last" : true,
+  "hasContent" : true,
+  "hasNextPage" : true,
+  "nextPage" : 123,
+  "content" : [ {
+    "saldoDebitos" : 1.3579000000000001069366817318950779736042022705078125,
+    "saldoCompras" : 1.3579000000000001069366817318950779736042022705078125,
+    "saldoCreditos" : 1.3579000000000001069366817318950779736042022705078125,
+    "idConta" : 123456789,
+    "flagEmiteFatura" : 123,
+    "saldoAtualFinal" : 1.3579000000000001069366817318950779736042022705078125,
+    "idProduto" : 123456789,
+    "saldoFaturaAnterior" : 1.3579000000000001069366817318950779736042022705078125,
+    "dataVencimento" : "2000-01-23T04:56:07.000+0000",
+    "id" : 123456789,
+    "saldoTarifas" : 1.3579000000000001069366817318950779736042022705078125,
+    "valorMinimoFatura" : 1.3579000000000001069366817318950779736042022705078125,
+    "saldoMulta" : 1.3579000000000001069366817318950779736042022705078125,
+    "saldoPagamentos" : 1.3579000000000001069366817318950779736042022705078125
+  } ],
+  "totalElements" : 123456789,
+  "number" : 123,
+  "firstPage" : true,
+  "numberOfElements" : 123,
+  "size" : 123,
+  "totalPages" : 123,
+  "hasPreviousPage" : true,
+  "first" : true
 }}]
      
      - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
@@ -394,9 +409,9 @@ public class ContaAPI: APIBase {
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
      - parameter dataVencimento: (query) Data de Vencimento da Fatura. (optional)
 
-     - returns: RequestBuilder<FaturaResponse> 
+     - returns: RequestBuilder<PageFaturas> 
      */
-    public class func listarFaturasUsingGETWithRequestBuilder(id id: Int, page: Int?, limit: Int?, dataVencimento: NSDate?) -> RequestBuilder<FaturaResponse> {
+    public class func listarFaturasUsingGETWithRequestBuilder(id id: Int, page: Int?, limit: Int?, dataVencimento: NSDate?) -> RequestBuilder<PageFaturas> {
         var path = "/api/contas/{id}/faturas"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -408,7 +423,7 @@ public class ContaAPI: APIBase {
         ]
         let parameters = APIHelper.rejectNil(nillableParameters)
 
-        let requestBuilder: RequestBuilder<FaturaResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<PageFaturas>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
     }
