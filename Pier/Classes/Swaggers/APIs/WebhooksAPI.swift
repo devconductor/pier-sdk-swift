@@ -74,8 +74,8 @@ public class WebhooksAPI: APIBase {
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Webhook (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET10(id id: Int, completion: ((data: WebHook?, error: ErrorType?) -> Void)) {
-        consultarUsingGET10WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET11(id id: Int, completion: ((data: WebHook?, error: ErrorType?) -> Void)) {
+        consultarUsingGET11WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -101,7 +101,7 @@ public class WebhooksAPI: APIBase {
 
      - returns: RequestBuilder<WebHook> 
      */
-    public class func consultarUsingGET10WithRequestBuilder(id id: Int) -> RequestBuilder<WebHook> {
+    public class func consultarUsingGET11WithRequestBuilder(id id: Int) -> RequestBuilder<WebHook> {
         var path = "/api/webhooks/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -126,8 +126,8 @@ public class WebhooksAPI: APIBase {
      - parameter url: (query) URL que a ser consumida pelo WebHook (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET11(page page: Int?, limit: Int?, id: Int?, evento: String?, metodo: String?, url: String?, completion: ((data: PageWebHooks?, error: ErrorType?) -> Void)) {
-        listarUsingGET11WithRequestBuilder(page: page, limit: limit, id: id, evento: evento, metodo: metodo, url: url).execute { (response, error) -> Void in
+    public class func listarUsingGET12(page page: Int?, limit: Int?, id: Int?, evento: String?, metodo: String?, url: String?, completion: ((data: PageWebHooks?, error: ErrorType?) -> Void)) {
+        listarUsingGET12WithRequestBuilder(page: page, limit: limit, id: id, evento: evento, metodo: metodo, url: url).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -173,7 +173,7 @@ public class WebhooksAPI: APIBase {
 
      - returns: RequestBuilder<PageWebHooks> 
      */
-    public class func listarUsingGET11WithRequestBuilder(page page: Int?, limit: Int?, id: Int?, evento: String?, metodo: String?, url: String?) -> RequestBuilder<PageWebHooks> {
+    public class func listarUsingGET12WithRequestBuilder(page page: Int?, limit: Int?, id: Int?, evento: String?, metodo: String?, url: String?) -> RequestBuilder<PageWebHooks> {
         let path = "/api/webhooks"
         let URLString = PierAPI.basePath + path
         

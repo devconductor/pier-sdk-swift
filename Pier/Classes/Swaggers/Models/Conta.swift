@@ -31,6 +31,10 @@ public class Conta: JSONEncodable {
     public var dataCadastro: NSDate?
     /** Apresenta a data da ultima altera\u00C3\u00A7\u00C3\u00A3o de vencimento. */
     public var dataUltimaAlteracaoVencimento: NSDate?
+    /** N\u00C3\u00BAmero da ag\u00C3\u00AAncia. */
+    public var numeroAgencia: Int?
+    /** N\u00C3\u00BAmero da conta corrente. */
+    public var numeroContaCorrente: String?
     
 
     public init() {}
@@ -48,6 +52,8 @@ public class Conta: JSONEncodable {
         nillableDictionary["dataStatusConta"] = self.dataStatusConta?.encodeToJSON()
         nillableDictionary["dataCadastro"] = self.dataCadastro?.encodeToJSON()
         nillableDictionary["dataUltimaAlteracaoVencimento"] = self.dataUltimaAlteracaoVencimento?.encodeToJSON()
+        nillableDictionary["numeroAgencia"] = self.numeroAgencia
+        nillableDictionary["numeroContaCorrente"] = self.numeroContaCorrente
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

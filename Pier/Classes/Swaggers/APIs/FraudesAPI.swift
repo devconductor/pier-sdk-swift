@@ -80,7 +80,7 @@ public class FraudesAPI: APIBase {
      - parameter dataAtendimento: (query) Apresenta a data em que o Atendimento foi realizado. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET(page page: Int?, limit: Int?, idAtendimento: Int?, idTipoAtendimento: Int?, idConta: Int?, nomeAtendente: String?, dataAtendimento: NSDate?, completion: ((data: AtendimentoCliente?, error: ErrorType?) -> Void)) {
+    public class func listarUsingGET(page page: Int?, limit: Int?, idAtendimento: Int?, idTipoAtendimento: Int?, idConta: Int?, nomeAtendente: String?, dataAtendimento: NSDate?, completion: ((data: PageAtendimentoClientes?, error: ErrorType?) -> Void)) {
         listarUsingGETWithRequestBuilder(page: page, limit: limit, idAtendimento: idAtendimento, idTipoAtendimento: idTipoAtendimento, idConta: idConta, nomeAtendente: nomeAtendente, dataAtendimento: dataAtendimento).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -97,20 +97,35 @@ public class FraudesAPI: APIBase {
        - type: apiKey access_token 
        - name: access_token
      - examples: [{contentType=application/json, example={
-  "conteudoAtendimento" : "aeiou",
-  "idConta" : 123456789,
-  "descricaoTipoAtendimento" : "aeiou",
-  "dataProcessamento" : "2000-01-23T04:56:07.000+0000",
-  "dataAgendamento" : "2000-01-23T04:56:07.000+0000",
-  "flagProcessamento" : 123,
-  "dataHoraFimAtendimento" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "detalhesAtendimento" : "aeiou",
-  "idAtendimento" : 123456789,
-  "dataAtendimento" : "2000-01-23T04:56:07.000+0000",
-  "dataHoraInicioAtendimento" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "nomeAtendente" : "aeiou",
-  "nomeSistema" : "aeiou",
-  "idTipoAtendimento" : 123456789
+  "previousPage" : 123,
+  "last" : true,
+  "hasContent" : true,
+  "hasNextPage" : true,
+  "nextPage" : 123,
+  "content" : [ {
+    "conteudoAtendimento" : "aeiou",
+    "idConta" : 123456789,
+    "descricaoTipoAtendimento" : "aeiou",
+    "dataProcessamento" : "2000-01-23T04:56:07.000+0000",
+    "dataAgendamento" : "2000-01-23T04:56:07.000+0000",
+    "flagProcessamento" : 123,
+    "dataHoraFimAtendimento" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+    "detalhesAtendimento" : "aeiou",
+    "idAtendimento" : 123456789,
+    "dataAtendimento" : "2000-01-23T04:56:07.000+0000",
+    "dataHoraInicioAtendimento" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+    "nomeAtendente" : "aeiou",
+    "nomeSistema" : "aeiou",
+    "idTipoAtendimento" : 123456789
+  } ],
+  "totalElements" : 123456789,
+  "number" : 123,
+  "firstPage" : true,
+  "numberOfElements" : 123,
+  "size" : 123,
+  "totalPages" : 123,
+  "hasPreviousPage" : true,
+  "first" : true
 }}]
      
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
@@ -121,9 +136,9 @@ public class FraudesAPI: APIBase {
      - parameter nomeAtendente: (query) Apresenta o nome do Atendente que registrou o Atendimento. (optional)
      - parameter dataAtendimento: (query) Apresenta a data em que o Atendimento foi realizado. (optional)
 
-     - returns: RequestBuilder<AtendimentoCliente> 
+     - returns: RequestBuilder<PageAtendimentoClientes> 
      */
-    public class func listarUsingGETWithRequestBuilder(page page: Int?, limit: Int?, idAtendimento: Int?, idTipoAtendimento: Int?, idConta: Int?, nomeAtendente: String?, dataAtendimento: NSDate?) -> RequestBuilder<AtendimentoCliente> {
+    public class func listarUsingGETWithRequestBuilder(page page: Int?, limit: Int?, idAtendimento: Int?, idTipoAtendimento: Int?, idConta: Int?, nomeAtendente: String?, dataAtendimento: NSDate?) -> RequestBuilder<PageAtendimentoClientes> {
         let path = "/api/atendimento-clientes"
         let URLString = PierAPI.basePath + path
         
@@ -138,7 +153,7 @@ public class FraudesAPI: APIBase {
         ]
         let parameters = APIHelper.rejectNil(nillableParameters)
 
-        let requestBuilder: RequestBuilder<AtendimentoCliente>.Type = PierAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<PageAtendimentoClientes>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
     }

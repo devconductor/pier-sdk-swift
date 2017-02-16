@@ -52,10 +52,12 @@ public class ContaAPI: APIBase {
   "idOrigemComercial" : 123456789,
   "melhorDiaCompra" : 123,
   "dataUltimaAlteracaoVencimento" : "2000-01-23T04:56:07.000+0000",
+  "numeroContaCorrente" : "aeiou",
   "dataStatusConta" : "2000-01-23T04:56:07.000+0000",
   "id" : 123456789,
   "diaVencimento" : 123,
-  "dataCadastro" : "2000-01-23T04:56:07.000+0000"
+  "dataCadastro" : "2000-01-23T04:56:07.000+0000",
+  "numeroAgencia" : 123
 }}]
      
      - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
@@ -131,10 +133,12 @@ public class ContaAPI: APIBase {
   "idOrigemComercial" : 123456789,
   "melhorDiaCompra" : 123,
   "dataUltimaAlteracaoVencimento" : "2000-01-23T04:56:07.000+0000",
+  "numeroContaCorrente" : "aeiou",
   "dataStatusConta" : "2000-01-23T04:56:07.000+0000",
   "id" : 123456789,
   "diaVencimento" : 123,
-  "dataCadastro" : "2000-01-23T04:56:07.000+0000"
+  "dataCadastro" : "2000-01-23T04:56:07.000+0000",
+  "numeroAgencia" : 123
 }}]
      
      - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
@@ -251,10 +255,12 @@ public class ContaAPI: APIBase {
   "idOrigemComercial" : 123456789,
   "melhorDiaCompra" : 123,
   "dataUltimaAlteracaoVencimento" : "2000-01-23T04:56:07.000+0000",
+  "numeroContaCorrente" : "aeiou",
   "dataStatusConta" : "2000-01-23T04:56:07.000+0000",
   "id" : 123456789,
   "diaVencimento" : 123,
-  "dataCadastro" : "2000-01-23T04:56:07.000+0000"
+  "dataCadastro" : "2000-01-23T04:56:07.000+0000",
+  "numeroAgencia" : 123
 }}]
      
      - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
@@ -469,10 +475,12 @@ public class ContaAPI: APIBase {
   "idOrigemComercial" : 123456789,
   "melhorDiaCompra" : 123,
   "dataUltimaAlteracaoVencimento" : "2000-01-23T04:56:07.000+0000",
+  "numeroContaCorrente" : "aeiou",
   "dataStatusConta" : "2000-01-23T04:56:07.000+0000",
   "id" : 123456789,
   "diaVencimento" : 123,
-  "dataCadastro" : "2000-01-23T04:56:07.000+0000"
+  "dataCadastro" : "2000-01-23T04:56:07.000+0000",
+  "numeroAgencia" : 123
 }}]
      
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)

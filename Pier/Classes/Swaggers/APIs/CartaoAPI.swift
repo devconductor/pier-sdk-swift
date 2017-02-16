@@ -12,6 +12,48 @@ import Alamofire
 public class CartaoAPI: APIBase {
     /**
      
+     Realiza a altera\u00C3\u00A7\u00C3\u00A3o da senha de um Cart\u00C3\u00A3o
+     
+     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func alterarAlterarSenhaUsingPUT(id id: Int, completion: ((data: String?, error: ErrorType?) -> Void)) {
+        alterarAlterarSenhaUsingPUTWithRequestBuilder(id: id).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Realiza a altera\u00C3\u00A7\u00C3\u00A3o da senha de um Cart\u00C3\u00A3o
+     
+     - PUT /api/cartoes/{id}/alterar-senha
+     - Esta opera\u00C3\u00A7\u00C3\u00A3o tem como objetivo permitir que o portador de um determinado cart\u00C3\u00A3o possa definir uma senha a sua escolha.
+     - API Key:
+       - type: apiKey access_token 
+       - name: access_token
+     - examples: [{contentType=application/json, example="aeiou"}]
+     
+     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
+
+     - returns: RequestBuilder<String> 
+     */
+    public class func alterarAlterarSenhaUsingPUTWithRequestBuilder(id id: Int) -> RequestBuilder<String> {
+        var path = "/api/cartoes/{id}/alterar-senha"
+        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<String>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
      Realiza a altera\u00C3\u00A7\u00C3\u00A3o do Status de Impress\u00C3\u00A3o do Cart\u00C3\u00A3o
      
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
@@ -197,13 +239,13 @@ public class CartaoAPI: APIBase {
 
     /**
      
-     Realiza o cadastro ou altera\u00C3\u00A7\u00C3\u00A3o da senha de um Cart\u00C3\u00A3o
+     Realiza o cadastro da senha de um Cart\u00C3\u00A3o
      
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func cadastrarAlterarSenhaUsingPUT(id id: Int, completion: ((data: String?, error: ErrorType?) -> Void)) {
-        cadastrarAlterarSenhaUsingPUTWithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func cadastrarAlterarSenhaUsingPOST(id id: Int, completion: ((data: String?, error: ErrorType?) -> Void)) {
+        cadastrarAlterarSenhaUsingPOSTWithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -211,9 +253,9 @@ public class CartaoAPI: APIBase {
 
     /**
      
-     Realiza o cadastro ou altera\u00C3\u00A7\u00C3\u00A3o da senha de um Cart\u00C3\u00A3o
+     Realiza o cadastro da senha de um Cart\u00C3\u00A3o
      
-     - PUT /api/cartoes/{id}/alterar-senha
+     - POST /api/cartoes/{id}/cadastrar-senha
      - Esta opera\u00C3\u00A7\u00C3\u00A3o tem como objetivo permitir que o portador de um determinado cart\u00C3\u00A3o possa definir uma senha a sua escolha.
      - API Key:
        - type: apiKey access_token 
@@ -224,8 +266,8 @@ public class CartaoAPI: APIBase {
 
      - returns: RequestBuilder<String> 
      */
-    public class func cadastrarAlterarSenhaUsingPUTWithRequestBuilder(id id: Int) -> RequestBuilder<String> {
-        var path = "/api/cartoes/{id}/alterar-senha"
+    public class func cadastrarAlterarSenhaUsingPOSTWithRequestBuilder(id id: Int) -> RequestBuilder<String> {
+        var path = "/api/cartoes/{id}/cadastrar-senha"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
         
@@ -234,7 +276,7 @@ public class CartaoAPI: APIBase {
 
         let requestBuilder: RequestBuilder<String>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
     }
 
     /**

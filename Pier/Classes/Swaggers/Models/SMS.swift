@@ -25,6 +25,8 @@ public class SMS: JSONEncodable {
         case ErroResposta = "ERRO_RESPOSTA"
     }
     
+    /** C\u00C3\u00B3digo Identificador. */
+    public var id: Int?
     /** N\u00C3\u00BAmero sequencial \u00C3\u00BAnico. */
     public var nsu: Int?
     /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do emissor (id). */
@@ -33,14 +35,20 @@ public class SMS: JSONEncodable {
     public var evento: Evento?
     /** Status de envio da notifica\u00C3\u00A7\u00C3\u00A3o */
     public var status: Status?
+    /** Descri\u00C3\u00A7\u00C3\u00A3o do status de envio da notifica\u00C3\u00A7\u00C3\u00A3o */
+    public var descricaoStatus: String?
     /** C\u00C3\u00B3digo identificado da pessoa */
     public var idPessoa: Int?
     /** C\u00C3\u00B3digo identificador da conta */
     public var idConta: Int?
     /** Apresenta o celular a ser eviado o SMS no formato 5588999999999 ou 5588999999999 */
     public var celular: String?
+    /** Apresenta a operadora do celular a ser eviado o SMS */
+    public var operadora: String?
     /** Apresenta o texto da notifica\u00C3\u00A7\u00C3\u00A3o a ser enviado */
     public var conteudo: String?
+    /** Apresenta o texto da resposta da notifica\u00C3\u00A7\u00C3\u00A3o que foi enviada */
+    public var resposta: String?
     /** Apresenta a data e hora em que ser\u00C3\u00A1 enviado a notifica\u00C3\u00A7\u00C3\u00A3o */
     public var dataAgendamento: NSDate?
     /** Quantidade de tentativas e envio da notifica\u00C3\u00A7\u00C3\u00A3o */
@@ -58,14 +66,18 @@ public class SMS: JSONEncodable {
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
+        nillableDictionary["id"] = self.id
         nillableDictionary["nsu"] = self.nsu
         nillableDictionary["idEmissor"] = self.idEmissor
         nillableDictionary["evento"] = self.evento?.rawValue
         nillableDictionary["status"] = self.status?.rawValue
+        nillableDictionary["descricaoStatus"] = self.descricaoStatus
         nillableDictionary["idPessoa"] = self.idPessoa
         nillableDictionary["idConta"] = self.idConta
         nillableDictionary["celular"] = self.celular
+        nillableDictionary["operadora"] = self.operadora
         nillableDictionary["conteudo"] = self.conteudo
+        nillableDictionary["resposta"] = self.resposta
         nillableDictionary["dataAgendamento"] = self.dataAgendamento?.encodeToJSON()
         nillableDictionary["quantidadeTentativasEnvio"] = self.quantidadeTentativasEnvio
         nillableDictionary["dataInclusao"] = self.dataInclusao?.encodeToJSON()

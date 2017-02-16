@@ -14,14 +14,14 @@ public class NotificacoesAPI: APIBase {
      
      Atualizar SMS
      
-     - parameter nsu: (query) Seu n\u00C3\u00BAmero 
-     - parameter status: (query) Status 
-     - parameter data: (query) Data 
-     - parameter textoStatus: (query) TextoStatus 
-     - parameter operadora: (query) Operadora 
+     - parameter nsu: (query) Seu n\u00C3\u00BAmero (optional)
+     - parameter status: (query) Status (optional)
+     - parameter data: (query) Data (optional)
+     - parameter textoStatus: (query) TextoStatus (optional)
+     - parameter operadora: (query) Operadora (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func atualizarSMSUsingPOST(nsu nsu: String, status: String, data: String, textoStatus: String, operadora: String, completion: ((data: SMS?, error: ErrorType?) -> Void)) {
+    public class func atualizarSMSUsingPOST(nsu nsu: String?, status: String?, data: String?, textoStatus: String?, operadora: String?, completion: ((data: SMS?, error: ErrorType?) -> Void)) {
         atualizarSMSUsingPOSTWithRequestBuilder(nsu: nsu, status: status, data: data, textoStatus: textoStatus, operadora: operadora).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -43,25 +43,29 @@ public class NotificacoesAPI: APIBase {
   "idConta" : 123456789,
   "dataAlteracaoStatus" : "2000-01-23T04:56:07.000+0000",
   "dataAgendamento" : "2000-01-23T04:56:07.000+0000",
+  "descricaoStatus" : "aeiou",
   "protocolo" : "aeiou",
   "nsu" : 123456789,
   "idPessoa" : 123456789,
   "evento" : "aeiou",
+  "resposta" : "aeiou",
   "celular" : "aeiou",
   "dataInclusao" : "2000-01-23T04:56:07.000+0000",
+  "id" : 123456789,
   "idEmissor" : 123456789,
+  "operadora" : "aeiou",
   "status" : "aeiou"
 }}]
      
-     - parameter nsu: (query) Seu n\u00C3\u00BAmero 
-     - parameter status: (query) Status 
-     - parameter data: (query) Data 
-     - parameter textoStatus: (query) TextoStatus 
-     - parameter operadora: (query) Operadora 
+     - parameter nsu: (query) Seu n\u00C3\u00BAmero (optional)
+     - parameter status: (query) Status (optional)
+     - parameter data: (query) Data (optional)
+     - parameter textoStatus: (query) TextoStatus (optional)
+     - parameter operadora: (query) Operadora (optional)
 
      - returns: RequestBuilder<SMS> 
      */
-    public class func atualizarSMSUsingPOSTWithRequestBuilder(nsu nsu: String, status: String, data: String, textoStatus: String, operadora: String) -> RequestBuilder<SMS> {
+    public class func atualizarSMSUsingPOSTWithRequestBuilder(nsu nsu: String?, status: String?, data: String?, textoStatus: String?, operadora: String?) -> RequestBuilder<SMS> {
         let path = "/api/notificacoes/sms/atualizar-status"
         let URLString = PierAPI.basePath + path
         
@@ -77,44 +81,6 @@ public class NotificacoesAPI: APIBase {
         let requestBuilder: RequestBuilder<SMS>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: false)
-    }
-
-    /**
-     
-     Limpar Acessos
-     
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func limparAcessoTWWUsingGET(completion: ((data: String?, error: ErrorType?) -> Void)) {
-        limparAcessoTWWUsingGETWithRequestBuilder().execute { (response, error) -> Void in
-            completion(data: response?.body, error: error);
-        }
-    }
-
-
-    /**
-     
-     Limpar Acessos
-     
-     - GET /api/notificacoes/sms/limpar
-     - Esse recurso permite limpar a lista de emissores que possuem acesso a envio de SMS pela TWW.
-     - API Key:
-       - type: apiKey access_token 
-       - name: access_token
-     - examples: [{contentType=application/json, example="aeiou"}]
-
-     - returns: RequestBuilder<String> 
-     */
-    public class func limparAcessoTWWUsingGETWithRequestBuilder() -> RequestBuilder<String> {
-        let path = "/api/notificacoes/sms/limpar"
-        let URLString = PierAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<String>.Type = PierAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
     }
 
     /**
@@ -246,13 +212,17 @@ public class NotificacoesAPI: APIBase {
     "idConta" : 123456789,
     "dataAlteracaoStatus" : "2000-01-23T04:56:07.000+0000",
     "dataAgendamento" : "2000-01-23T04:56:07.000+0000",
+    "descricaoStatus" : "aeiou",
     "protocolo" : "aeiou",
     "nsu" : 123456789,
     "idPessoa" : 123456789,
     "evento" : "aeiou",
+    "resposta" : "aeiou",
     "celular" : "aeiou",
     "dataInclusao" : "2000-01-23T04:56:07.000+0000",
+    "id" : 123456789,
     "idEmissor" : 123456789,
+    "operadora" : "aeiou",
     "status" : "aeiou"
   } ],
   "totalElements" : 123456789,
@@ -299,12 +269,12 @@ public class NotificacoesAPI: APIBase {
      
      Responder SMS
      
-     - parameter nsu: (query) Seu n\u00C3\u00BAmero 
-     - parameter data: (query) Data 
-     - parameter resposta: (query) TextoStatus 
+     - parameter nsu: (query) Seu n\u00C3\u00BAmero (optional)
+     - parameter data: (query) Data (optional)
+     - parameter resposta: (query) TextoStatus (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func responderSMSUsingPOST(nsu nsu: String, data: String, resposta: String, completion: ((data: SMS?, error: ErrorType?) -> Void)) {
+    public class func responderSMSUsingPOST(nsu nsu: String?, data: String?, resposta: String?, completion: ((data: SMS?, error: ErrorType?) -> Void)) {
         responderSMSUsingPOSTWithRequestBuilder(nsu: nsu, data: data, resposta: resposta).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -326,23 +296,27 @@ public class NotificacoesAPI: APIBase {
   "idConta" : 123456789,
   "dataAlteracaoStatus" : "2000-01-23T04:56:07.000+0000",
   "dataAgendamento" : "2000-01-23T04:56:07.000+0000",
+  "descricaoStatus" : "aeiou",
   "protocolo" : "aeiou",
   "nsu" : 123456789,
   "idPessoa" : 123456789,
   "evento" : "aeiou",
+  "resposta" : "aeiou",
   "celular" : "aeiou",
   "dataInclusao" : "2000-01-23T04:56:07.000+0000",
+  "id" : 123456789,
   "idEmissor" : 123456789,
+  "operadora" : "aeiou",
   "status" : "aeiou"
 }}]
      
-     - parameter nsu: (query) Seu n\u00C3\u00BAmero 
-     - parameter data: (query) Data 
-     - parameter resposta: (query) TextoStatus 
+     - parameter nsu: (query) Seu n\u00C3\u00BAmero (optional)
+     - parameter data: (query) Data (optional)
+     - parameter resposta: (query) TextoStatus (optional)
 
      - returns: RequestBuilder<SMS> 
      */
-    public class func responderSMSUsingPOSTWithRequestBuilder(nsu nsu: String, data: String, resposta: String) -> RequestBuilder<SMS> {
+    public class func responderSMSUsingPOSTWithRequestBuilder(nsu nsu: String?, data: String?, resposta: String?) -> RequestBuilder<SMS> {
         let path = "/api/notificacoes/sms/responder"
         let URLString = PierAPI.basePath + path
         
