@@ -11,7 +11,7 @@ import Foundation
 /** Representa\u00C3\u00A7\u00C3\u00A3o do recurso WebHook */
 public class WebHook: JSONEncodable {
 
-    public enum Evento: String { 
+    public enum TipoEvento: String { 
         case RiscoFraude = "RISCO_FRAUDE"
         case Outros = "OUTROS"
     }
@@ -25,8 +25,8 @@ public class WebHook: JSONEncodable {
     
     /** Id do WebHook */
     public var id: Int?
-    /** Evento a ser chamado pelo WebHook */
-    public var evento: Evento?
+    /** TipoEvento a ser chamado pelo WebHook */
+    public var tipoEvento: TipoEvento?
     /** M\u00C3\u00A9todo que a ser chamado pelo WebHook */
     public var metodo: Metodo?
     /** URL que a ser consumida pelo WebHook */
@@ -39,7 +39,7 @@ public class WebHook: JSONEncodable {
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
         nillableDictionary["id"] = self.id
-        nillableDictionary["evento"] = self.evento?.rawValue
+        nillableDictionary["tipoEvento"] = self.tipoEvento?.rawValue
         nillableDictionary["metodo"] = self.metodo?.rawValue
         nillableDictionary["url"] = self.url
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]

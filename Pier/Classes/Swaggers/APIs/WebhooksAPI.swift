@@ -14,14 +14,13 @@ public class WebhooksAPI: APIBase {
      
      Alterar Webhook
      
-     - parameter id: (query) C\u00C3\u00B3digo identificador do Webhook 
-     - parameter evento: (query) Evento a ser chamado pelo WebHook 
-     - parameter metodo: (query) M\u00C3\u00A9todo que a ser chamado pelo WebHook 
+     - parameter id: (path) C\u00C3\u00B3digo identificador do Webhook 
+     - parameter tipoEvento: (query) TipoEvento a ser chamado pelo WebHook 
      - parameter url: (query) URL que a ser consumida pelo WebHook 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func alterarUsingPUT3(id id: Int, evento: String, metodo: String, url: String, completion: ((data: WebHook?, error: ErrorType?) -> Void)) {
-        alterarUsingPUT3WithRequestBuilder(id: id, evento: evento, metodo: metodo, url: url).execute { (response, error) -> Void in
+    public class func alterarUsingPUT7(id id: Int, tipoEvento: String, url: String, completion: ((data: WebHook?, error: ErrorType?) -> Void)) {
+        alterarUsingPUT7WithRequestBuilder(id: id, tipoEvento: tipoEvento, url: url).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -31,33 +30,31 @@ public class WebhooksAPI: APIBase {
      
      Alterar Webhook
      
-     - PUT /api/webhooks
+     - PUT /api/webhooks/{id}
      - Este m\u00C3\u00A9todo permite que seja modificado um webhooks j\u00C3\u00A1 cadastrado
      - API Key:
        - type: apiKey access_token 
        - name: access_token
      - examples: [{contentType=application/json, example={
-  "evento" : "aeiou",
+  "tipoEvento" : "aeiou",
   "id" : 123456789,
   "metodo" : "aeiou",
   "url" : "aeiou"
 }}]
      
-     - parameter id: (query) C\u00C3\u00B3digo identificador do Webhook 
-     - parameter evento: (query) Evento a ser chamado pelo WebHook 
-     - parameter metodo: (query) M\u00C3\u00A9todo que a ser chamado pelo WebHook 
+     - parameter id: (path) C\u00C3\u00B3digo identificador do Webhook 
+     - parameter tipoEvento: (query) TipoEvento a ser chamado pelo WebHook 
      - parameter url: (query) URL que a ser consumida pelo WebHook 
 
      - returns: RequestBuilder<WebHook> 
      */
-    public class func alterarUsingPUT3WithRequestBuilder(id id: Int, evento: String, metodo: String, url: String) -> RequestBuilder<WebHook> {
-        let path = "/api/webhooks"
+    public class func alterarUsingPUT7WithRequestBuilder(id id: Int, tipoEvento: String, url: String) -> RequestBuilder<WebHook> {
+        var path = "/api/webhooks/{id}"
+        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
-            "id": id,
-            "evento": evento,
-            "metodo": metodo,
+            "tipoEvento": tipoEvento,
             "url": url
         ]
         let parameters = APIHelper.rejectNil(nillableParameters)
@@ -74,8 +71,8 @@ public class WebhooksAPI: APIBase {
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Webhook (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET11(id id: Int, completion: ((data: WebHook?, error: ErrorType?) -> Void)) {
-        consultarUsingGET11WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET17(id id: Int, completion: ((data: WebHook?, error: ErrorType?) -> Void)) {
+        consultarUsingGET17WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -91,7 +88,7 @@ public class WebhooksAPI: APIBase {
        - type: apiKey access_token 
        - name: access_token
      - examples: [{contentType=application/json, example={
-  "evento" : "aeiou",
+  "tipoEvento" : "aeiou",
   "id" : 123456789,
   "metodo" : "aeiou",
   "url" : "aeiou"
@@ -101,7 +98,7 @@ public class WebhooksAPI: APIBase {
 
      - returns: RequestBuilder<WebHook> 
      */
-    public class func consultarUsingGET11WithRequestBuilder(id id: Int) -> RequestBuilder<WebHook> {
+    public class func consultarUsingGET17WithRequestBuilder(id id: Int) -> RequestBuilder<WebHook> {
         var path = "/api/webhooks/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -121,13 +118,13 @@ public class WebhooksAPI: APIBase {
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
      - parameter id: (query) Id do WebHook (optional)
-     - parameter evento: (query) Evento a ser chamado pelo WebHook (optional)
+     - parameter tipoEvento: (query) TipoEvento a ser chamado pelo WebHook (optional)
      - parameter metodo: (query) M\u00C3\u00A9todo que a ser chamado pelo WebHook (optional)
      - parameter url: (query) URL que a ser consumida pelo WebHook (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET12(page page: Int?, limit: Int?, id: Int?, evento: String?, metodo: String?, url: String?, completion: ((data: PageWebHooks?, error: ErrorType?) -> Void)) {
-        listarUsingGET12WithRequestBuilder(page: page, limit: limit, id: id, evento: evento, metodo: metodo, url: url).execute { (response, error) -> Void in
+    public class func listarUsingGET17(page page: Int?, limit: Int?, id: Int?, tipoEvento: String?, metodo: String?, url: String?, completion: ((data: PageWebHooks?, error: ErrorType?) -> Void)) {
+        listarUsingGET17WithRequestBuilder(page: page, limit: limit, id: id, tipoEvento: tipoEvento, metodo: metodo, url: url).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -149,7 +146,7 @@ public class WebhooksAPI: APIBase {
   "hasNextPage" : true,
   "nextPage" : 123,
   "content" : [ {
-    "evento" : "aeiou",
+    "tipoEvento" : "aeiou",
     "id" : 123456789,
     "metodo" : "aeiou",
     "url" : "aeiou"
@@ -167,13 +164,13 @@ public class WebhooksAPI: APIBase {
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
      - parameter id: (query) Id do WebHook (optional)
-     - parameter evento: (query) Evento a ser chamado pelo WebHook (optional)
+     - parameter tipoEvento: (query) TipoEvento a ser chamado pelo WebHook (optional)
      - parameter metodo: (query) M\u00C3\u00A9todo que a ser chamado pelo WebHook (optional)
      - parameter url: (query) URL que a ser consumida pelo WebHook (optional)
 
      - returns: RequestBuilder<PageWebHooks> 
      */
-    public class func listarUsingGET12WithRequestBuilder(page page: Int?, limit: Int?, id: Int?, evento: String?, metodo: String?, url: String?) -> RequestBuilder<PageWebHooks> {
+    public class func listarUsingGET17WithRequestBuilder(page page: Int?, limit: Int?, id: Int?, tipoEvento: String?, metodo: String?, url: String?) -> RequestBuilder<PageWebHooks> {
         let path = "/api/webhooks"
         let URLString = PierAPI.basePath + path
         
@@ -181,7 +178,7 @@ public class WebhooksAPI: APIBase {
             "page": page,
             "limit": limit,
             "id": id,
-            "evento": evento,
+            "tipoEvento": tipoEvento,
             "metodo": metodo,
             "url": url
         ]
@@ -196,13 +193,12 @@ public class WebhooksAPI: APIBase {
      
      Salvar Webhook
      
-     - parameter evento: (query) Evento a ser chamado pelo WebHook 
-     - parameter metodo: (query) M\u00C3\u00A9todo que a ser chamado pelo WebHook 
+     - parameter tipoEvento: (query) TipoEvento a ser chamado pelo WebHook 
      - parameter url: (query) URL que a ser consumida pelo WebHook 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func salvarUsingPOST4(evento evento: String, metodo: String, url: String, completion: ((data: WebHook?, error: ErrorType?) -> Void)) {
-        salvarUsingPOST4WithRequestBuilder(evento: evento, metodo: metodo, url: url).execute { (response, error) -> Void in
+    public class func salvarUsingPOST7(tipoEvento tipoEvento: String, url: String, completion: ((data: WebHook?, error: ErrorType?) -> Void)) {
+        salvarUsingPOST7WithRequestBuilder(tipoEvento: tipoEvento, url: url).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -218,25 +214,23 @@ public class WebhooksAPI: APIBase {
        - type: apiKey access_token 
        - name: access_token
      - examples: [{contentType=application/json, example={
-  "evento" : "aeiou",
+  "tipoEvento" : "aeiou",
   "id" : 123456789,
   "metodo" : "aeiou",
   "url" : "aeiou"
 }}]
      
-     - parameter evento: (query) Evento a ser chamado pelo WebHook 
-     - parameter metodo: (query) M\u00C3\u00A9todo que a ser chamado pelo WebHook 
+     - parameter tipoEvento: (query) TipoEvento a ser chamado pelo WebHook 
      - parameter url: (query) URL que a ser consumida pelo WebHook 
 
      - returns: RequestBuilder<WebHook> 
      */
-    public class func salvarUsingPOST4WithRequestBuilder(evento evento: String, metodo: String, url: String) -> RequestBuilder<WebHook> {
+    public class func salvarUsingPOST7WithRequestBuilder(tipoEvento tipoEvento: String, url: String) -> RequestBuilder<WebHook> {
         let path = "/api/webhooks"
         let URLString = PierAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
-            "evento": evento,
-            "metodo": metodo,
+            "tipoEvento": tipoEvento,
             "url": url
         ]
         let parameters = APIHelper.rejectNil(nillableParameters)

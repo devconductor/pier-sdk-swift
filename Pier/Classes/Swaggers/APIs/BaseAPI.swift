@@ -12,6 +12,87 @@ import Alamofire
 public class BaseAPI: APIBase {
     /**
      
+     Alterar base
+     
+     - parameter id: (query) C\u00C3\u00B3digo identificador da base 
+     - parameter servidor: (query) IP do servidor 
+     - parameter usuario: (query) Nome do usu\u00C3\u00A1rio 
+     - parameter senha: (query) Senha 
+     - parameter nomeBase: (query) Nome da base 
+     - parameter senhaCriptografada: (query) senha Criptografada 
+     - parameter domain: (query) Dom\u00C3\u00ADnio da base 
+     - parameter nomeBaseControleAcesso: (query) Nome da base de controle acesso 
+     - parameter servidorControleAcesso: (query) Servidor do controle de acesso 
+     - parameter idEmissor: (query) C\u00C3\u00B3digo do identificador do emissor (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func alterarUsingPUT(id id: Int, servidor: String, usuario: String, senha: String, nomeBase: String, senhaCriptografada: Bool, domain: String, nomeBaseControleAcesso: String, servidorControleAcesso: String, idEmissor: Int?, completion: ((data: Base?, error: ErrorType?) -> Void)) {
+        alterarUsingPUTWithRequestBuilder(id: id, servidor: servidor, usuario: usuario, senha: senha, nomeBase: nomeBase, senhaCriptografada: senhaCriptografada, domain: domain, nomeBaseControleAcesso: nomeBaseControleAcesso, servidorControleAcesso: servidorControleAcesso, idEmissor: idEmissor).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Alterar base
+     
+     - PUT /api/bases
+     - Este recurso permite que seja modificado uma base j\u00C3\u00A1 cadastrada
+     - API Key:
+       - type: apiKey access_token 
+       - name: access_token
+     - examples: [{contentType=application/json, example={
+  "nomeBaseControleAcesso" : "aeiou",
+  "servidor" : "aeiou",
+  "senha" : "aeiou",
+  "domain" : "aeiou",
+  "servidorControleAcesso" : "aeiou",
+  "nomeBase" : "aeiou",
+  "usuario" : "aeiou",
+  "senhaCriptografada" : false,
+  "id" : 123456789,
+  "idEmissor" : 123456789
+}}]
+     
+     - parameter id: (query) C\u00C3\u00B3digo identificador da base 
+     - parameter servidor: (query) IP do servidor 
+     - parameter usuario: (query) Nome do usu\u00C3\u00A1rio 
+     - parameter senha: (query) Senha 
+     - parameter nomeBase: (query) Nome da base 
+     - parameter senhaCriptografada: (query) senha Criptografada 
+     - parameter domain: (query) Dom\u00C3\u00ADnio da base 
+     - parameter nomeBaseControleAcesso: (query) Nome da base de controle acesso 
+     - parameter servidorControleAcesso: (query) Servidor do controle de acesso 
+     - parameter idEmissor: (query) C\u00C3\u00B3digo do identificador do emissor (optional)
+
+     - returns: RequestBuilder<Base> 
+     */
+    public class func alterarUsingPUTWithRequestBuilder(id id: Int, servidor: String, usuario: String, senha: String, nomeBase: String, senhaCriptografada: Bool, domain: String, nomeBaseControleAcesso: String, servidorControleAcesso: String, idEmissor: Int?) -> RequestBuilder<Base> {
+        let path = "/api/bases"
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [
+            "id": id,
+            "servidor": servidor,
+            "usuario": usuario,
+            "senha": senha,
+            "nomeBase": nomeBase,
+            "senhaCriptografada": senhaCriptografada,
+            "domain": domain,
+            "nomeBaseControleAcesso": nomeBaseControleAcesso,
+            "idEmissor": idEmissor,
+            "servidorControleAcesso": servidorControleAcesso
+        ]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Base>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: false)
+    }
+
+    /**
+     
      Limpar mapa de bases
      
      - parameter completion: completion handler to receive the data and the error objects
@@ -57,6 +138,239 @@ public class BaseAPI: APIBase {
         let requestBuilder: RequestBuilder<BodyAccessToken>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Consultar base
+     
+     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da base (id). 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func consultarUsingGET1(id id: Int, completion: ((data: Base?, error: ErrorType?) -> Void)) {
+        consultarUsingGET1WithRequestBuilder(id: id).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Consultar base
+     
+     - GET /api/bases/{id}
+     - Este recurso permite que seja consultada uma base do emissor atrav\u00C3\u00A9s de um id especifico
+     - API Key:
+       - type: apiKey access_token 
+       - name: access_token
+     - examples: [{contentType=application/json, example={
+  "nomeBaseControleAcesso" : "aeiou",
+  "servidor" : "aeiou",
+  "senha" : "aeiou",
+  "domain" : "aeiou",
+  "servidorControleAcesso" : "aeiou",
+  "nomeBase" : "aeiou",
+  "usuario" : "aeiou",
+  "senhaCriptografada" : false,
+  "id" : 123456789,
+  "idEmissor" : 123456789
+}}]
+     
+     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da base (id). 
+
+     - returns: RequestBuilder<Base> 
+     */
+    public class func consultarUsingGET1WithRequestBuilder(id id: Int) -> RequestBuilder<Base> {
+        var path = "/api/bases/{id}"
+        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Base>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Listar bases
+     
+     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
+     - parameter id: (query) C\u00C3\u00B3digo identificador da base (optional)
+     - parameter servidor: (query) IP do servidor (optional)
+     - parameter usuario: (query) Nome do usu\u00C3\u00A1rio (optional)
+     - parameter senha: (query) Senha (optional)
+     - parameter nomeBase: (query) Nome da base (optional)
+     - parameter senhaCriptografada: (query) senha Criptografada (optional)
+     - parameter domain: (query) Dom\u00C3\u00ADnio da base (optional)
+     - parameter nomeBaseControleAcesso: (query) Nome da base de controle acesso (optional)
+     - parameter idEmissor: (query) C\u00C3\u00B3digo do identificador do emissor (optional)
+     - parameter servidorControleAcesso: (query) Servidor do controle de acesso (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func listarUsingGET1(page page: Int?, limit: Int?, id: Int?, servidor: String?, usuario: String?, senha: String?, nomeBase: String?, senhaCriptografada: Bool?, domain: String?, nomeBaseControleAcesso: String?, idEmissor: Int?, servidorControleAcesso: String?, completion: ((data: PageBases?, error: ErrorType?) -> Void)) {
+        listarUsingGET1WithRequestBuilder(page: page, limit: limit, id: id, servidor: servidor, usuario: usuario, senha: senha, nomeBase: nomeBase, senhaCriptografada: senhaCriptografada, domain: domain, nomeBaseControleAcesso: nomeBaseControleAcesso, idEmissor: idEmissor, servidorControleAcesso: servidorControleAcesso).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Listar bases
+     
+     - GET /api/bases
+     - Este recurso permite que sejam listadas as bases existentes
+     - API Key:
+       - type: apiKey access_token 
+       - name: access_token
+     - examples: [{contentType=application/json, example={
+  "previousPage" : 123,
+  "last" : true,
+  "hasContent" : true,
+  "hasNextPage" : true,
+  "nextPage" : 123,
+  "content" : [ {
+    "nomeBaseControleAcesso" : "aeiou",
+    "servidor" : "aeiou",
+    "senha" : "aeiou",
+    "domain" : "aeiou",
+    "servidorControleAcesso" : "aeiou",
+    "nomeBase" : "aeiou",
+    "usuario" : "aeiou",
+    "senhaCriptografada" : false,
+    "id" : 123456789,
+    "idEmissor" : 123456789
+  } ],
+  "totalElements" : 123456789,
+  "number" : 123,
+  "firstPage" : true,
+  "numberOfElements" : 123,
+  "size" : 123,
+  "totalPages" : 123,
+  "hasPreviousPage" : true,
+  "first" : true
+}}]
+     
+     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
+     - parameter id: (query) C\u00C3\u00B3digo identificador da base (optional)
+     - parameter servidor: (query) IP do servidor (optional)
+     - parameter usuario: (query) Nome do usu\u00C3\u00A1rio (optional)
+     - parameter senha: (query) Senha (optional)
+     - parameter nomeBase: (query) Nome da base (optional)
+     - parameter senhaCriptografada: (query) senha Criptografada (optional)
+     - parameter domain: (query) Dom\u00C3\u00ADnio da base (optional)
+     - parameter nomeBaseControleAcesso: (query) Nome da base de controle acesso (optional)
+     - parameter idEmissor: (query) C\u00C3\u00B3digo do identificador do emissor (optional)
+     - parameter servidorControleAcesso: (query) Servidor do controle de acesso (optional)
+
+     - returns: RequestBuilder<PageBases> 
+     */
+    public class func listarUsingGET1WithRequestBuilder(page page: Int?, limit: Int?, id: Int?, servidor: String?, usuario: String?, senha: String?, nomeBase: String?, senhaCriptografada: Bool?, domain: String?, nomeBaseControleAcesso: String?, idEmissor: Int?, servidorControleAcesso: String?) -> RequestBuilder<PageBases> {
+        let path = "/api/bases"
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [
+            "page": page,
+            "limit": limit,
+            "id": id,
+            "servidor": servidor,
+            "usuario": usuario,
+            "senha": senha,
+            "nomeBase": nomeBase,
+            "senhaCriptografada": senhaCriptografada,
+            "domain": domain,
+            "nomeBaseControleAcesso": nomeBaseControleAcesso,
+            "idEmissor": idEmissor,
+            "servidorControleAcesso": servidorControleAcesso
+        ]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<PageBases>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
+    }
+
+    /**
+     
+     Salvar base
+     
+     - parameter servidor: (query) IP do servidor 
+     - parameter usuario: (query) Nome do usu\u00C3\u00A1rio 
+     - parameter senha: (query) Senha 
+     - parameter nomeBase: (query) Nome da base 
+     - parameter senhaCriptografada: (query) senha Criptografada 
+     - parameter domain: (query) Dom\u00C3\u00ADnio da base 
+     - parameter nomeBaseControleAcesso: (query) Nome da base de controle acesso 
+     - parameter servidorControleAcesso: (query) Servidor do controle de acesso 
+     - parameter idEmissor: (query) C\u00C3\u00B3digo do identificador do emissor (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func salvarUsingPOST1(servidor servidor: String, usuario: String, senha: String, nomeBase: String, senhaCriptografada: Bool, domain: String, nomeBaseControleAcesso: String, servidorControleAcesso: String, idEmissor: Int?, completion: ((data: Base?, error: ErrorType?) -> Void)) {
+        salvarUsingPOST1WithRequestBuilder(servidor: servidor, usuario: usuario, senha: senha, nomeBase: nomeBase, senhaCriptografada: senhaCriptografada, domain: domain, nomeBaseControleAcesso: nomeBaseControleAcesso, servidorControleAcesso: servidorControleAcesso, idEmissor: idEmissor).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Salvar base
+     
+     - POST /api/bases
+     - Este recurso permite que seja adicionado uma nova base
+     - API Key:
+       - type: apiKey access_token 
+       - name: access_token
+     - examples: [{contentType=application/json, example={
+  "nomeBaseControleAcesso" : "aeiou",
+  "servidor" : "aeiou",
+  "senha" : "aeiou",
+  "domain" : "aeiou",
+  "servidorControleAcesso" : "aeiou",
+  "nomeBase" : "aeiou",
+  "usuario" : "aeiou",
+  "senhaCriptografada" : false,
+  "id" : 123456789,
+  "idEmissor" : 123456789
+}}]
+     
+     - parameter servidor: (query) IP do servidor 
+     - parameter usuario: (query) Nome do usu\u00C3\u00A1rio 
+     - parameter senha: (query) Senha 
+     - parameter nomeBase: (query) Nome da base 
+     - parameter senhaCriptografada: (query) senha Criptografada 
+     - parameter domain: (query) Dom\u00C3\u00ADnio da base 
+     - parameter nomeBaseControleAcesso: (query) Nome da base de controle acesso 
+     - parameter servidorControleAcesso: (query) Servidor do controle de acesso 
+     - parameter idEmissor: (query) C\u00C3\u00B3digo do identificador do emissor (optional)
+
+     - returns: RequestBuilder<Base> 
+     */
+    public class func salvarUsingPOST1WithRequestBuilder(servidor servidor: String, usuario: String, senha: String, nomeBase: String, senhaCriptografada: Bool, domain: String, nomeBaseControleAcesso: String, servidorControleAcesso: String, idEmissor: Int?) -> RequestBuilder<Base> {
+        let path = "/api/bases"
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [
+            "servidor": servidor,
+            "usuario": usuario,
+            "senha": senha,
+            "nomeBase": nomeBase,
+            "senhaCriptografada": senhaCriptografada,
+            "domain": domain,
+            "nomeBaseControleAcesso": nomeBaseControleAcesso,
+            "idEmissor": idEmissor,
+            "servidorControleAcesso": servidorControleAcesso
+        ]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Base>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: false)
     }
 
 }

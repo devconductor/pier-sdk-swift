@@ -11,7 +11,7 @@ import Foundation
 /** Objeto Push Notifica\u00C3\u00A7\u00C3\u00A3o APNS */
 public class PushAPNS: JSONEncodable {
 
-    public enum Evento: String { 
+    public enum TipoEvento: String { 
         case RiscoFraude = "RISCO_FRAUDE"
         case Outros = "OUTROS"
     }
@@ -30,8 +30,8 @@ public class PushAPNS: JSONEncodable {
     public var titulo: String?
     /** Apresenta o texto da notifica\u00C3\u00A7\u00C3\u00A3o a ser enviado. */
     public var conteudo: String?
-    /** Apresenta o evento a qual pertence a notifica\u00C3\u00A7\u00C3\u00A3o */
-    public var evento: Evento?
+    /** Apresenta o tipoEvento a qual pertence a notifica\u00C3\u00A7\u00C3\u00A3o */
+    public var tipoEvento: TipoEvento?
     /** Apresenta o nome do icone a ser apresentado no push. */
     public var icone: String?
     /** Apresenta o cor do icone a ser apresentado no push */
@@ -50,7 +50,7 @@ public class PushAPNS: JSONEncodable {
         nillableDictionary["senha"] = self.senha
         nillableDictionary["titulo"] = self.titulo
         nillableDictionary["conteudo"] = self.conteudo
-        nillableDictionary["evento"] = self.evento?.rawValue
+        nillableDictionary["tipoEvento"] = self.tipoEvento?.rawValue
         nillableDictionary["icone"] = self.icone
         nillableDictionary["som"] = self.som
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]

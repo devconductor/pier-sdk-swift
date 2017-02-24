@@ -33,8 +33,6 @@ public class TransacaoResponse: JSONEncodable {
     public var estabelecimento: String?
     public var flagCredito: Int?
     public var tipoEstabelecimento: String?
-    public var latitude: String?
-    public var longetude: String?
     public var idGrupoMCC: Int?
     public var flagSolicitouContestacao: Int?
     
@@ -61,8 +59,6 @@ public class TransacaoResponse: JSONEncodable {
         nillableDictionary["estabelecimento"] = self.estabelecimento
         nillableDictionary["flagCredito"] = self.flagCredito
         nillableDictionary["tipoEstabelecimento"] = self.tipoEstabelecimento
-        nillableDictionary["latitude"] = self.latitude
-        nillableDictionary["longetude"] = self.longetude
         nillableDictionary["idGrupoMCC"] = self.idGrupoMCC
         nillableDictionary["flagSolicitouContestacao"] = self.flagSolicitouContestacao
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]

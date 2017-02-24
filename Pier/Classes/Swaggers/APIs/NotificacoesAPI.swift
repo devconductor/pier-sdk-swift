@@ -47,7 +47,7 @@ public class NotificacoesAPI: APIBase {
   "protocolo" : "aeiou",
   "nsu" : 123456789,
   "idPessoa" : 123456789,
-  "evento" : "aeiou",
+  "tipoEvento" : "aeiou",
   "resposta" : "aeiou",
   "celular" : "aeiou",
   "dataInclusao" : "2000-01-23T04:56:07.000+0000",
@@ -90,14 +90,14 @@ public class NotificacoesAPI: APIBase {
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
      - parameter dataEnvio: (query) Apresenta a data e em que o registro foi enviado para o dispositivo. (optional)
-     - parameter evento: (query) Nome do evento da notifica\u00C3\u00A7\u00C3\u00A3o (optional)
+     - parameter tipoEvento: (query) Nome do tipoEvento da notifica\u00C3\u00A7\u00C3\u00A3o (optional)
      - parameter status: (query) Status de envio da notifica\u00C3\u00A7\u00C3\u00A3o (optional)
      - parameter plataforma: (query) Plataforma de Push notifications. (optional)
      - parameter protocolo: (query) N\u00C3\u00BAmero do protocolo de envio de notifica\u00C3\u00A7\u00C3\u00B5es (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarPushUsingGET(page page: Int?, limit: Int?, dataEnvio: NSDate?, evento: String?, status: String?, plataforma: String?, protocolo: String?, completion: ((data: PagePush?, error: ErrorType?) -> Void)) {
-        listarPushUsingGETWithRequestBuilder(page: page, limit: limit, dataEnvio: dataEnvio, evento: evento, status: status, plataforma: plataforma, protocolo: protocolo).execute { (response, error) -> Void in
+    public class func listarPushUsingGET(page page: Int?, limit: Int?, dataEnvio: NSDate?, tipoEvento: String?, status: String?, plataforma: String?, protocolo: String?, completion: ((data: PagePush?, error: ErrorType?) -> Void)) {
+        listarPushUsingGETWithRequestBuilder(page: page, limit: limit, dataEnvio: dataEnvio, tipoEvento: tipoEvento, status: status, plataforma: plataforma, protocolo: protocolo).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -121,9 +121,9 @@ public class NotificacoesAPI: APIBase {
   "content" : [ {
     "protocolo" : "aeiou",
     "idPessoa" : 123456789,
-    "evento" : "aeiou",
     "conteudo" : "aeiou",
     "idConta" : 123456789,
+    "tipoEvento" : "aeiou",
     "plataforma" : "aeiou",
     "titulo" : "aeiou",
     "idEmissor" : 123456789,
@@ -144,14 +144,14 @@ public class NotificacoesAPI: APIBase {
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
      - parameter dataEnvio: (query) Apresenta a data e em que o registro foi enviado para o dispositivo. (optional)
-     - parameter evento: (query) Nome do evento da notifica\u00C3\u00A7\u00C3\u00A3o (optional)
+     - parameter tipoEvento: (query) Nome do tipoEvento da notifica\u00C3\u00A7\u00C3\u00A3o (optional)
      - parameter status: (query) Status de envio da notifica\u00C3\u00A7\u00C3\u00A3o (optional)
      - parameter plataforma: (query) Plataforma de Push notifications. (optional)
      - parameter protocolo: (query) N\u00C3\u00BAmero do protocolo de envio de notifica\u00C3\u00A7\u00C3\u00B5es (optional)
 
      - returns: RequestBuilder<PagePush> 
      */
-    public class func listarPushUsingGETWithRequestBuilder(page page: Int?, limit: Int?, dataEnvio: NSDate?, evento: String?, status: String?, plataforma: String?, protocolo: String?) -> RequestBuilder<PagePush> {
+    public class func listarPushUsingGETWithRequestBuilder(page page: Int?, limit: Int?, dataEnvio: NSDate?, tipoEvento: String?, status: String?, plataforma: String?, protocolo: String?) -> RequestBuilder<PagePush> {
         let path = "/api/notificacoes/push"
         let URLString = PierAPI.basePath + path
         
@@ -159,7 +159,7 @@ public class NotificacoesAPI: APIBase {
             "page": page,
             "limit": limit,
             "dataEnvio": dataEnvio,
-            "evento": evento,
+            "tipoEvento": tipoEvento,
             "status": status,
             "plataforma": plataforma,
             "protocolo": protocolo
@@ -178,14 +178,14 @@ public class NotificacoesAPI: APIBase {
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
      - parameter dataInclusao: (query) Apresenta a data e em que o registro foi inclu\u00C3\u00ADdo na base para ser enviado (optional)
-     - parameter evento: (query) Nome do evento da notifica\u00C3\u00A7\u00C3\u00A3o (optional)
+     - parameter tipoEvento: (query) Nome do tipoEvento da notifica\u00C3\u00A7\u00C3\u00A3o (optional)
      - parameter status: (query) Status de envio da notifica\u00C3\u00A7\u00C3\u00A3o (optional)
      - parameter operadora: (query) Nome da operadora a qual a notifica\u00C3\u00A7\u00C3\u00A3o foi enviada. (optional)
      - parameter protocolo: (query) N\u00C3\u00BAmero do protocolo de envio de notifica\u00C3\u00A7\u00C3\u00B5es (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarSMSUsingGET(page page: Int?, limit: Int?, dataInclusao: NSDate?, evento: String?, status: String?, operadora: String?, protocolo: String?, completion: ((data: PageSMS?, error: ErrorType?) -> Void)) {
-        listarSMSUsingGETWithRequestBuilder(page: page, limit: limit, dataInclusao: dataInclusao, evento: evento, status: status, operadora: operadora, protocolo: protocolo).execute { (response, error) -> Void in
+    public class func listarSMSUsingGET(page page: Int?, limit: Int?, dataInclusao: NSDate?, tipoEvento: String?, status: String?, operadora: String?, protocolo: String?, completion: ((data: PageSMS?, error: ErrorType?) -> Void)) {
+        listarSMSUsingGETWithRequestBuilder(page: page, limit: limit, dataInclusao: dataInclusao, tipoEvento: tipoEvento, status: status, operadora: operadora, protocolo: protocolo).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -216,7 +216,7 @@ public class NotificacoesAPI: APIBase {
     "protocolo" : "aeiou",
     "nsu" : 123456789,
     "idPessoa" : 123456789,
-    "evento" : "aeiou",
+    "tipoEvento" : "aeiou",
     "resposta" : "aeiou",
     "celular" : "aeiou",
     "dataInclusao" : "2000-01-23T04:56:07.000+0000",
@@ -238,14 +238,14 @@ public class NotificacoesAPI: APIBase {
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
      - parameter dataInclusao: (query) Apresenta a data e em que o registro foi inclu\u00C3\u00ADdo na base para ser enviado (optional)
-     - parameter evento: (query) Nome do evento da notifica\u00C3\u00A7\u00C3\u00A3o (optional)
+     - parameter tipoEvento: (query) Nome do tipoEvento da notifica\u00C3\u00A7\u00C3\u00A3o (optional)
      - parameter status: (query) Status de envio da notifica\u00C3\u00A7\u00C3\u00A3o (optional)
      - parameter operadora: (query) Nome da operadora a qual a notifica\u00C3\u00A7\u00C3\u00A3o foi enviada. (optional)
      - parameter protocolo: (query) N\u00C3\u00BAmero do protocolo de envio de notifica\u00C3\u00A7\u00C3\u00B5es (optional)
 
      - returns: RequestBuilder<PageSMS> 
      */
-    public class func listarSMSUsingGETWithRequestBuilder(page page: Int?, limit: Int?, dataInclusao: NSDate?, evento: String?, status: String?, operadora: String?, protocolo: String?) -> RequestBuilder<PageSMS> {
+    public class func listarSMSUsingGETWithRequestBuilder(page page: Int?, limit: Int?, dataInclusao: NSDate?, tipoEvento: String?, status: String?, operadora: String?, protocolo: String?) -> RequestBuilder<PageSMS> {
         let path = "/api/notificacoes/sms"
         let URLString = PierAPI.basePath + path
         
@@ -253,7 +253,7 @@ public class NotificacoesAPI: APIBase {
             "page": page,
             "limit": limit,
             "dataInclusao": dataInclusao,
-            "evento": evento,
+            "tipoEvento": tipoEvento,
             "status": status,
             "operadora": operadora,
             "protocolo": protocolo
@@ -300,7 +300,7 @@ public class NotificacoesAPI: APIBase {
   "protocolo" : "aeiou",
   "nsu" : 123456789,
   "idPessoa" : 123456789,
-  "evento" : "aeiou",
+  "tipoEvento" : "aeiou",
   "resposta" : "aeiou",
   "celular" : "aeiou",
   "dataInclusao" : "2000-01-23T04:56:07.000+0000",

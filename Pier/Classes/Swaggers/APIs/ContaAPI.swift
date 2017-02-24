@@ -46,16 +46,17 @@ public class ContaAPI: APIBase {
        - type: apiKey access_token 
        - name: access_token
      - examples: [{contentType=application/json, example={
-  "idPessoa" : 123456789,
   "idStatusConta" : 123456789,
-  "idProduto" : 123456789,
+  "valorRenda" : 1.3579000000000001069366817318950779736042022705078125,
   "idOrigemComercial" : 123456789,
   "melhorDiaCompra" : 123,
+  "diaVencimento" : 123,
+  "idPessoa" : 123456789,
+  "idProduto" : 123456789,
   "dataUltimaAlteracaoVencimento" : "2000-01-23T04:56:07.000+0000",
   "numeroContaCorrente" : "aeiou",
   "dataStatusConta" : "2000-01-23T04:56:07.000+0000",
   "id" : 123456789,
-  "diaVencimento" : 123,
   "dataCadastro" : "2000-01-23T04:56:07.000+0000",
   "numeroAgencia" : 123
 }}]
@@ -127,16 +128,17 @@ public class ContaAPI: APIBase {
        - type: apiKey access_token 
        - name: access_token
      - examples: [{contentType=application/json, example={
-  "idPessoa" : 123456789,
   "idStatusConta" : 123456789,
-  "idProduto" : 123456789,
+  "valorRenda" : 1.3579000000000001069366817318950779736042022705078125,
   "idOrigemComercial" : 123456789,
   "melhorDiaCompra" : 123,
+  "diaVencimento" : 123,
+  "idPessoa" : 123456789,
+  "idProduto" : 123456789,
   "dataUltimaAlteracaoVencimento" : "2000-01-23T04:56:07.000+0000",
   "numeroContaCorrente" : "aeiou",
   "dataStatusConta" : "2000-01-23T04:56:07.000+0000",
   "id" : 123456789,
-  "diaVencimento" : 123,
   "dataCadastro" : "2000-01-23T04:56:07.000+0000",
   "numeroAgencia" : 123
 }}]
@@ -159,6 +161,133 @@ public class ContaAPI: APIBase {
         let requestBuilder: RequestBuilder<Conta>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: false)
+    }
+
+    /**
+     
+     Consultar a d\u00C3\u00ADvida atualizada do cliente
+     
+     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
+     - parameter idConta: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da conta (id) (optional)
+     - parameter dataVencimento: (query) Data do vencimento (optional)
+     - parameter idEscritorioCobranca: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do escrit\u00C3\u00B3rio de cobran\u00C3\u00A7a (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func consultarDividaAtualizadaClienteUsingGET(page page: Int?, limit: Int?, idConta: Int?, dataVencimento: NSDate?, idEscritorioCobranca: Int?, completion: ((data: DividaClienteResponse?, error: ErrorType?) -> Void)) {
+        consultarDividaAtualizadaClienteUsingGETWithRequestBuilder(page: page, limit: limit, idConta: idConta, dataVencimento: dataVencimento, idEscritorioCobranca: idEscritorioCobranca).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Consultar a d\u00C3\u00ADvida atualizada do cliente
+     
+     - GET /api/contas/{id}/divida
+     - Este recurso consulta a d\u00C3\u00ADvida atualizada do cliente
+     - API Key:
+       - type: apiKey access_token 
+       - name: access_token
+     - examples: [{contentType=application/json, example={
+  "dataVencimentoFaturaAtraso" : "2000-01-23T04:56:07.000+0000",
+  "quantidadeDiasAtrasoCorrigido" : 123456789,
+  "idStatusConta" : 123456789,
+  "idStatusAcordo" : 123456789,
+  "valorSaldoCorrigido" : 1.3579000000000001069366817318950779736042022705078125,
+  "emailPessoaConta" : "aeiou",
+  "nomeEscritorioCobranca" : "aeiou",
+  "taxaCorrecao" : 1.3579000000000001069366817318950779736042022705078125,
+  "idEscritorioCobranca" : 123456789,
+  "dataVencimentoAcordo" : "2000-01-23T04:56:07.000+0000",
+  "descricaoStatusConta" : "aeiou",
+  "descricaoStatusAcordo" : "aeiou",
+  "id" : 123456789,
+  "quantidadeDiasAtraso" : 123456789,
+  "valorSaldoDevedor" : 1.3579000000000001069366817318950779736042022705078125,
+  "valorCorrecao" : 1.3579000000000001069366817318950779736042022705078125,
+  "valorIOF" : 1.3579000000000001069366817318950779736042022705078125
+}}]
+     
+     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
+     - parameter idConta: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da conta (id) (optional)
+     - parameter dataVencimento: (query) Data do vencimento (optional)
+     - parameter idEscritorioCobranca: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do escrit\u00C3\u00B3rio de cobran\u00C3\u00A7a (optional)
+
+     - returns: RequestBuilder<DividaClienteResponse> 
+     */
+    public class func consultarDividaAtualizadaClienteUsingGETWithRequestBuilder(page page: Int?, limit: Int?, idConta: Int?, dataVencimento: NSDate?, idEscritorioCobranca: Int?) -> RequestBuilder<DividaClienteResponse> {
+        let path = "/api/contas/{id}/divida"
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [
+            "page": page,
+            "limit": limit,
+            "idConta": idConta,
+            "dataVencimento": dataVencimento,
+            "idEscritorioCobranca": idEscritorioCobranca
+        ]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<DividaClienteResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
+    }
+
+    /**
+     
+     Apresenta dados de uma determinada fatura consignada
+     
+     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
+     - parameter idHistorico: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da fatura (idHistorico). 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func consultarFaturaConsignadaUsingGET(id id: Int, idHistorico: Int, completion: ((data: FaturaResponse?, error: ErrorType?) -> Void)) {
+        consultarFaturaConsignadaUsingGETWithRequestBuilder(id: id, idHistorico: idHistorico).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Apresenta dados de uma determinada fatura consignada
+     
+     - GET /api/contas/{id}/faturas-consignadas/{idHistorico}
+     - Atrav\u00C3\u00A9s desta opera\u00C3\u00A7\u00C3\u00A3o os Emissores ou Portadores poder\u00C3\u00A3o consultar uma fatura, atrav\u00C3\u00A9s do id da conta e o id da fatura.
+     - API Key:
+       - type: apiKey access_token 
+       - name: access_token
+     - examples: [{contentType=application/json, example={
+  "maxNossoNumero" : 1.3579000000000001069366817318950779736042022705078125,
+  "ultimoNossoNumero" : 1.3579000000000001069366817318950779736042022705078125,
+  "faixaNossoNumero" : 123,
+  "minNossoNumero" : 1.3579000000000001069366817318950779736042022705078125,
+  "banco" : 123456789,
+  "id" : 123456789,
+  "descricao" : "aeiou",
+  "tamNossoNumero" : 123
+}}]
+     
+     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
+     - parameter idHistorico: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da fatura (idHistorico). 
+
+     - returns: RequestBuilder<FaturaResponse> 
+     */
+    public class func consultarFaturaConsignadaUsingGETWithRequestBuilder(id id: Int, idHistorico: Int) -> RequestBuilder<FaturaResponse> {
+        var path = "/api/contas/{id}/faturas-consignadas/{idHistorico}"
+        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
+        path = path.stringByReplacingOccurrencesOfString("{idHistorico}", withString: "\(idHistorico)", options: .LiteralSearch, range: nil)
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<FaturaResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
     }
 
     /**
@@ -227,13 +356,82 @@ public class ContaAPI: APIBase {
 
     /**
      
+     Consulta os detalhes de uma determinada transfer\u00C3\u00AAncia
+     
+     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
+     - parameter idTransferencia: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da transfer\u00C3\u00AAncia (id_transferencia). 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func consultarUsingGET15(id id: Int, idTransferencia: Int, completion: ((data: PageTransferencias?, error: ErrorType?) -> Void)) {
+        consultarUsingGET15WithRequestBuilder(id: id, idTransferencia: idTransferencia).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Consulta os detalhes de uma determinada transfer\u00C3\u00AAncia
+     
+     - GET /api/contas/{id}/transferencias/{idTransferencia}
+     - Este m\u00C3\u00A9todo permite consultar os detalhes de uma determinada transfer\u00C3\u00AAncia de cr\u00C3\u00A9dito realizada entre contas.
+     - API Key:
+       - type: apiKey access_token 
+       - name: access_token
+     - examples: [{contentType=application/json, example={
+  "previousPage" : 123,
+  "last" : true,
+  "hasContent" : true,
+  "hasNextPage" : true,
+  "nextPage" : 123,
+  "content" : [ {
+    "valorTransferencia" : 1.3579000000000001069366817318950779736042022705078125,
+    "idContaOrigem" : 123456789,
+    "dataTransferencia" : "2000-01-23T04:56:07.000+0000",
+    "nomePessoaOrigem" : "aeiou",
+    "idContaDestino" : 123456789,
+    "valorTarifa" : 1.3579000000000001069366817318950779736042022705078125,
+    "id" : 123456789,
+    "nomePessoaDestino" : "aeiou"
+  } ],
+  "totalElements" : 123456789,
+  "number" : 123,
+  "firstPage" : true,
+  "numberOfElements" : 123,
+  "size" : 123,
+  "totalPages" : 123,
+  "hasPreviousPage" : true,
+  "first" : true
+}}]
+     
+     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
+     - parameter idTransferencia: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da transfer\u00C3\u00AAncia (id_transferencia). 
+
+     - returns: RequestBuilder<PageTransferencias> 
+     */
+    public class func consultarUsingGET15WithRequestBuilder(id id: Int, idTransferencia: Int) -> RequestBuilder<PageTransferencias> {
+        var path = "/api/contas/{id}/transferencias/{idTransferencia}"
+        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
+        path = path.stringByReplacingOccurrencesOfString("{idTransferencia}", withString: "\(idTransferencia)", options: .LiteralSearch, range: nil)
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<PageTransferencias>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
      Apresenta dados de uma determinada conta
      
      - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET2(id id: Int, completion: ((data: Conta?, error: ErrorType?) -> Void)) {
-        consultarUsingGET2WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET3(id id: Int, completion: ((data: Conta?, error: ErrorType?) -> Void)) {
+        consultarUsingGET3WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -249,16 +447,17 @@ public class ContaAPI: APIBase {
        - type: apiKey access_token 
        - name: access_token
      - examples: [{contentType=application/json, example={
-  "idPessoa" : 123456789,
   "idStatusConta" : 123456789,
-  "idProduto" : 123456789,
+  "valorRenda" : 1.3579000000000001069366817318950779736042022705078125,
   "idOrigemComercial" : 123456789,
   "melhorDiaCompra" : 123,
+  "diaVencimento" : 123,
+  "idPessoa" : 123456789,
+  "idProduto" : 123456789,
   "dataUltimaAlteracaoVencimento" : "2000-01-23T04:56:07.000+0000",
   "numeroContaCorrente" : "aeiou",
   "dataStatusConta" : "2000-01-23T04:56:07.000+0000",
   "id" : 123456789,
-  "diaVencimento" : 123,
   "dataCadastro" : "2000-01-23T04:56:07.000+0000",
   "numeroAgencia" : 123
 }}]
@@ -267,7 +466,7 @@ public class ContaAPI: APIBase {
 
      - returns: RequestBuilder<Conta> 
      */
-    public class func consultarUsingGET2WithRequestBuilder(id id: Int) -> RequestBuilder<Conta> {
+    public class func consultarUsingGET3WithRequestBuilder(id id: Int) -> RequestBuilder<Conta> {
         var path = "/api/contas/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -354,6 +553,82 @@ public class ContaAPI: APIBase {
 
     /**
      
+     Listar Faturas consignadas da Conta
+     
+     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
+     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
+     - parameter dataVencimeno: (query) Apresenta a data de vencimento da fatura. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func listarFaturasConsignadasUsingGET(id id: Int, page: Int?, limit: Int?, dataVencimeno: NSDate?, completion: ((data: PageFaturas?, error: ErrorType?) -> Void)) {
+        listarFaturasConsignadasUsingGETWithRequestBuilder(id: id, page: page, limit: limit, dataVencimeno: dataVencimeno).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Listar Faturas consignadas da Conta
+     
+     - GET /api/contas/{id}/faturas-consignadas
+     - Atrav\u00C3\u00A9s desta opera\u00C3\u00A7\u00C3\u00A3o os Emissores ou Portadores poder\u00C3\u00A3o consultar todo o Hist\u00C3\u00B3rico de Faturas vinculados a uma determinada Conta, independentemente do valor delas.
+     - API Key:
+       - type: apiKey access_token 
+       - name: access_token
+     - examples: [{contentType=application/json, example={
+  "previousPage" : 123,
+  "last" : true,
+  "hasContent" : true,
+  "hasNextPage" : true,
+  "nextPage" : 123,
+  "content" : [ {
+    "maxNossoNumero" : 1.3579000000000001069366817318950779736042022705078125,
+    "ultimoNossoNumero" : 1.3579000000000001069366817318950779736042022705078125,
+    "faixaNossoNumero" : 123,
+    "minNossoNumero" : 1.3579000000000001069366817318950779736042022705078125,
+    "banco" : 123456789,
+    "id" : 123456789,
+    "descricao" : "aeiou",
+    "tamNossoNumero" : 123
+  } ],
+  "totalElements" : 123456789,
+  "number" : 123,
+  "firstPage" : true,
+  "numberOfElements" : 123,
+  "size" : 123,
+  "totalPages" : 123,
+  "hasPreviousPage" : true,
+  "first" : true
+}}]
+     
+     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
+     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
+     - parameter dataVencimeno: (query) Apresenta a data de vencimento da fatura. (optional)
+
+     - returns: RequestBuilder<PageFaturas> 
+     */
+    public class func listarFaturasConsignadasUsingGETWithRequestBuilder(id id: Int, page: Int?, limit: Int?, dataVencimeno: NSDate?) -> RequestBuilder<PageFaturas> {
+        var path = "/api/contas/{id}/faturas-consignadas"
+        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [
+            "page": page,
+            "limit": limit,
+            "dataVencimeno": dataVencimeno
+        ]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<PageFaturas>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
+    }
+
+    /**
+     
      Listar Faturas da Conta
      
      - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
@@ -385,20 +660,14 @@ public class ContaAPI: APIBase {
   "hasNextPage" : true,
   "nextPage" : 123,
   "content" : [ {
-    "saldoDebitos" : 1.3579000000000001069366817318950779736042022705078125,
-    "saldoCompras" : 1.3579000000000001069366817318950779736042022705078125,
-    "saldoCreditos" : 1.3579000000000001069366817318950779736042022705078125,
-    "idConta" : 123456789,
-    "flagEmiteFatura" : 123,
-    "saldoAtualFinal" : 1.3579000000000001069366817318950779736042022705078125,
-    "idProduto" : 123456789,
-    "saldoFaturaAnterior" : 1.3579000000000001069366817318950779736042022705078125,
-    "dataVencimento" : "2000-01-23T04:56:07.000+0000",
+    "maxNossoNumero" : 1.3579000000000001069366817318950779736042022705078125,
+    "ultimoNossoNumero" : 1.3579000000000001069366817318950779736042022705078125,
+    "faixaNossoNumero" : 123,
+    "minNossoNumero" : 1.3579000000000001069366817318950779736042022705078125,
+    "banco" : 123456789,
     "id" : 123456789,
-    "saldoTarifas" : 1.3579000000000001069366817318950779736042022705078125,
-    "valorMinimoFatura" : 1.3579000000000001069366817318950779736042022705078125,
-    "saldoMulta" : 1.3579000000000001069366817318950779736042022705078125,
-    "saldoPagamentos" : 1.3579000000000001069366817318950779736042022705078125
+    "descricao" : "aeiou",
+    "tamNossoNumero" : 123
   } ],
   "totalElements" : 123456789,
   "number" : 123,
@@ -436,6 +705,94 @@ public class ContaAPI: APIBase {
 
     /**
      
+     Lista as transfer\u00C3\u00AAncias de cr\u00C3\u00A9dito realizadas pela conta
+     
+     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
+     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
+     - parameter idTransferencia: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da transfer\u00C3\u00AAncia (id). (optional)
+     - parameter idContaOrigem: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta em que o valor ser\u00C3\u00A1 debitado para a transfer\u00C3\u00AAncia. (id). (optional)
+     - parameter idContaDestino: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta em que o valor ser\u00C3\u00A1 creditado para a transfer\u00C3\u00AAncia. (id). (optional)
+     - parameter valorTransferencia: (query) Valor estabelecido para ser transferido. (optional)
+     - parameter dataTransferencia: (query) Data estabelecida para ocorrer a transfer\u00C3\u00AAncia. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func listarUsingGET15(id id: Int, page: Int?, limit: Int?, idTransferencia: Int?, idContaOrigem: Int?, idContaDestino: Int?, valorTransferencia: Double?, dataTransferencia: NSDate?, completion: ((data: PageTransferencias?, error: ErrorType?) -> Void)) {
+        listarUsingGET15WithRequestBuilder(id: id, page: page, limit: limit, idTransferencia: idTransferencia, idContaOrigem: idContaOrigem, idContaDestino: idContaDestino, valorTransferencia: valorTransferencia, dataTransferencia: dataTransferencia).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Lista as transfer\u00C3\u00AAncias de cr\u00C3\u00A9dito realizadas pela conta
+     
+     - GET /api/contas/{id}/transferencias
+     - Este m\u00C3\u00A9todo permite que sejam listadas as transfer\u00C3\u00AAncias de cr\u00C3\u00A9dito realizadas pela conta existentes na base do emissor.
+     - API Key:
+       - type: apiKey access_token 
+       - name: access_token
+     - examples: [{contentType=application/json, example={
+  "previousPage" : 123,
+  "last" : true,
+  "hasContent" : true,
+  "hasNextPage" : true,
+  "nextPage" : 123,
+  "content" : [ {
+    "valorTransferencia" : 1.3579000000000001069366817318950779736042022705078125,
+    "idContaOrigem" : 123456789,
+    "dataTransferencia" : "2000-01-23T04:56:07.000+0000",
+    "nomePessoaOrigem" : "aeiou",
+    "idContaDestino" : 123456789,
+    "valorTarifa" : 1.3579000000000001069366817318950779736042022705078125,
+    "id" : 123456789,
+    "nomePessoaDestino" : "aeiou"
+  } ],
+  "totalElements" : 123456789,
+  "number" : 123,
+  "firstPage" : true,
+  "numberOfElements" : 123,
+  "size" : 123,
+  "totalPages" : 123,
+  "hasPreviousPage" : true,
+  "first" : true
+}}]
+     
+     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
+     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
+     - parameter idTransferencia: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da transfer\u00C3\u00AAncia (id). (optional)
+     - parameter idContaOrigem: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta em que o valor ser\u00C3\u00A1 debitado para a transfer\u00C3\u00AAncia. (id). (optional)
+     - parameter idContaDestino: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta em que o valor ser\u00C3\u00A1 creditado para a transfer\u00C3\u00AAncia. (id). (optional)
+     - parameter valorTransferencia: (query) Valor estabelecido para ser transferido. (optional)
+     - parameter dataTransferencia: (query) Data estabelecida para ocorrer a transfer\u00C3\u00AAncia. (optional)
+
+     - returns: RequestBuilder<PageTransferencias> 
+     */
+    public class func listarUsingGET15WithRequestBuilder(id id: Int, page: Int?, limit: Int?, idTransferencia: Int?, idContaOrigem: Int?, idContaDestino: Int?, valorTransferencia: Double?, dataTransferencia: NSDate?) -> RequestBuilder<PageTransferencias> {
+        var path = "/api/contas/{id}/transferencias"
+        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [
+            "page": page,
+            "limit": limit,
+            "idTransferencia": idTransferencia,
+            "idContaOrigem": idContaOrigem,
+            "idContaDestino": idContaDestino,
+            "valorTransferencia": valorTransferencia,
+            "dataTransferencia": dataTransferencia
+        ]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<PageTransferencias>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
+    }
+
+    /**
+     
      Lista contas existentes na base de dados do Emissor
      
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
@@ -452,8 +809,8 @@ public class ContaAPI: APIBase {
      - parameter dataUltimaAlteracaoVencimento: (query) Apresenta a data da ultima altera\u00C3\u00A7\u00C3\u00A3o de vencimento. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET2(page page: Int?, limit: Int?, id: Int?, idProduto: Int?, idOrigemComercial: Int?, idPessoa: Int?, idStatusConta: Int?, diaVencimento: Int?, melhorDiaCompra: Int?, dataStatusConta: NSDate?, dataCadastro: NSDate?, dataUltimaAlteracaoVencimento: NSDate?, completion: ((data: Conta?, error: ErrorType?) -> Void)) {
-        listarUsingGET2WithRequestBuilder(page: page, limit: limit, id: id, idProduto: idProduto, idOrigemComercial: idOrigemComercial, idPessoa: idPessoa, idStatusConta: idStatusConta, diaVencimento: diaVencimento, melhorDiaCompra: melhorDiaCompra, dataStatusConta: dataStatusConta, dataCadastro: dataCadastro, dataUltimaAlteracaoVencimento: dataUltimaAlteracaoVencimento).execute { (response, error) -> Void in
+    public class func listarUsingGET3(page page: Int?, limit: Int?, id: Int?, idProduto: Int?, idOrigemComercial: Int?, idPessoa: Int?, idStatusConta: Int?, diaVencimento: Int?, melhorDiaCompra: Int?, dataStatusConta: NSDate?, dataCadastro: NSDate?, dataUltimaAlteracaoVencimento: NSDate?, completion: ((data: Conta?, error: ErrorType?) -> Void)) {
+        listarUsingGET3WithRequestBuilder(page: page, limit: limit, id: id, idProduto: idProduto, idOrigemComercial: idOrigemComercial, idPessoa: idPessoa, idStatusConta: idStatusConta, diaVencimento: diaVencimento, melhorDiaCompra: melhorDiaCompra, dataStatusConta: dataStatusConta, dataCadastro: dataCadastro, dataUltimaAlteracaoVencimento: dataUltimaAlteracaoVencimento).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -469,16 +826,17 @@ public class ContaAPI: APIBase {
        - type: apiKey access_token 
        - name: access_token
      - examples: [{contentType=application/json, example={
-  "idPessoa" : 123456789,
   "idStatusConta" : 123456789,
-  "idProduto" : 123456789,
+  "valorRenda" : 1.3579000000000001069366817318950779736042022705078125,
   "idOrigemComercial" : 123456789,
   "melhorDiaCompra" : 123,
+  "diaVencimento" : 123,
+  "idPessoa" : 123456789,
+  "idProduto" : 123456789,
   "dataUltimaAlteracaoVencimento" : "2000-01-23T04:56:07.000+0000",
   "numeroContaCorrente" : "aeiou",
   "dataStatusConta" : "2000-01-23T04:56:07.000+0000",
   "id" : 123456789,
-  "diaVencimento" : 123,
   "dataCadastro" : "2000-01-23T04:56:07.000+0000",
   "numeroAgencia" : 123
 }}]
@@ -498,7 +856,7 @@ public class ContaAPI: APIBase {
 
      - returns: RequestBuilder<Conta> 
      */
-    public class func listarUsingGET2WithRequestBuilder(page page: Int?, limit: Int?, id: Int?, idProduto: Int?, idOrigemComercial: Int?, idPessoa: Int?, idStatusConta: Int?, diaVencimento: Int?, melhorDiaCompra: Int?, dataStatusConta: NSDate?, dataCadastro: NSDate?, dataUltimaAlteracaoVencimento: NSDate?) -> RequestBuilder<Conta> {
+    public class func listarUsingGET3WithRequestBuilder(page page: Int?, limit: Int?, id: Int?, idProduto: Int?, idOrigemComercial: Int?, idPessoa: Int?, idStatusConta: Int?, diaVencimento: Int?, melhorDiaCompra: Int?, dataStatusConta: NSDate?, dataCadastro: NSDate?, dataUltimaAlteracaoVencimento: NSDate?) -> RequestBuilder<Conta> {
         let path = "/api/contas"
         let URLString = PierAPI.basePath + path
         
@@ -559,7 +917,6 @@ public class ContaAPI: APIBase {
     "flagCredito" : 123,
     "idConta" : 123456789,
     "idGrupoMCC" : 123,
-    "latitude" : "aeiou",
     "valor" : 1.3579000000000001069366817318950779736042022705078125,
     "flagSolicitouContestacao" : 123,
     "quantidadeParcelas" : 123,
@@ -574,7 +931,6 @@ public class ContaAPI: APIBase {
     "ultimaParcelaLancada" : 123,
     "id" : 123456789,
     "valorDolar" : 1.3579000000000001069366817318950779736042022705078125,
-    "longetude" : "aeiou",
     "status" : 123456789
   } ],
   "totalElements" : 123456789,
@@ -607,6 +963,79 @@ public class ContaAPI: APIBase {
         let requestBuilder: RequestBuilder<PageTransacaoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
+    }
+
+    /**
+     
+     Realiza uma transfer\u00C3\u00AAncia de Cr\u00C3\u00A9dito para outro cliente do mesmo Emissor
+     
+     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do cliente portador do cart\u00C3\u00A3o que ser\u00C3\u00A1 debitado (id). 
+     - parameter idContaDestino: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do cliente portador do cart\u00C3\u00A3o que ser\u00C3\u00A1 creditado (id). 
+     - parameter valorTransferencia: (query) Valor da Transfer\u00C3\u00AAncia. 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func transferirUsingPOST(id id: Int, idContaDestino: Int, valorTransferencia: Double, completion: ((data: PageTransferencias?, error: ErrorType?) -> Void)) {
+        transferirUsingPOSTWithRequestBuilder(id: id, idContaDestino: idContaDestino, valorTransferencia: valorTransferencia).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Realiza uma transfer\u00C3\u00AAncia de Cr\u00C3\u00A9dito para outro cliente do mesmo Emissor
+     
+     - POST /api/contas/{id}/transferencias
+     - Este m\u00C3\u00A9todo permite que um portador de um cart\u00C3\u00A3o possa realizar auma transfer\u00C3\u00AAncia de cr\u00C3\u00A9dito para outro cliente do mesmo emissor.
+     - API Key:
+       - type: apiKey access_token 
+       - name: access_token
+     - examples: [{contentType=application/json, example={
+  "previousPage" : 123,
+  "last" : true,
+  "hasContent" : true,
+  "hasNextPage" : true,
+  "nextPage" : 123,
+  "content" : [ {
+    "valorTransferencia" : 1.3579000000000001069366817318950779736042022705078125,
+    "idContaOrigem" : 123456789,
+    "dataTransferencia" : "2000-01-23T04:56:07.000+0000",
+    "nomePessoaOrigem" : "aeiou",
+    "idContaDestino" : 123456789,
+    "valorTarifa" : 1.3579000000000001069366817318950779736042022705078125,
+    "id" : 123456789,
+    "nomePessoaDestino" : "aeiou"
+  } ],
+  "totalElements" : 123456789,
+  "number" : 123,
+  "firstPage" : true,
+  "numberOfElements" : 123,
+  "size" : 123,
+  "totalPages" : 123,
+  "hasPreviousPage" : true,
+  "first" : true
+}}]
+     
+     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do cliente portador do cart\u00C3\u00A3o que ser\u00C3\u00A1 debitado (id). 
+     - parameter idContaDestino: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do cliente portador do cart\u00C3\u00A3o que ser\u00C3\u00A1 creditado (id). 
+     - parameter valorTransferencia: (query) Valor da Transfer\u00C3\u00AAncia. 
+
+     - returns: RequestBuilder<PageTransferencias> 
+     */
+    public class func transferirUsingPOSTWithRequestBuilder(id id: Int, idContaDestino: Int, valorTransferencia: Double) -> RequestBuilder<PageTransferencias> {
+        var path = "/api/contas/{id}/transferencias"
+        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [
+            "id_conta_destino": idContaDestino,
+            "valor_transferencia": valorTransferencia
+        ]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<PageTransferencias>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: false)
     }
 
 }

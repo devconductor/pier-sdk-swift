@@ -12,6 +12,77 @@ import Alamofire
 public class TokenAPI: APIBase {
     /**
      
+     Alterar token
+     
+     - parameter id: (query) C\u00C3\u00B3digo identificador do token 
+     - parameter token: (query) Token (optional)
+     - parameter base: (query) C\u00C3\u00B3digo identificador da base (optional)
+     - parameter owner: (query) Owner do token (optional)
+     - parameter status: (query) Status do token (optional)
+     - parameter criadoPor: (query) Descri\u00C3\u00A7\u00C3\u00A3o de quem criou o token (optional)
+     - parameter alteradoPor: (query) Descri\u00C3\u00A7\u00C3\u00A3o de quem alterou o token (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func alterarUsingPUT5(id id: Int, token: String?, base: Int?, owner: String?, status: String?, criadoPor: String?, alteradoPor: String?, completion: ((data: Token?, error: ErrorType?) -> Void)) {
+        alterarUsingPUT5WithRequestBuilder(id: id, token: token, base: base, owner: owner, status: status, criadoPor: criadoPor, alteradoPor: alteradoPor).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Alterar token
+     
+     - PUT /api/tokens
+     - Este recurso permite que seja modificado um token j\u00C3\u00A1 cadastrado
+     - API Key:
+       - type: apiKey access_token 
+       - name: access_token
+     - examples: [{contentType=application/json, example={
+  "owner" : "aeiou",
+  "alteradoPor" : "aeiou",
+  "dataModificacao" : "2000-01-23T04:56:07.000+0000",
+  "criadoPor" : "aeiou",
+  "id" : 123456789,
+  "dataCriacao" : "2000-01-23T04:56:07.000+0000",
+  "token" : "aeiou",
+  "base" : 123456789,
+  "status" : "aeiou"
+}}]
+     
+     - parameter id: (query) C\u00C3\u00B3digo identificador do token 
+     - parameter token: (query) Token (optional)
+     - parameter base: (query) C\u00C3\u00B3digo identificador da base (optional)
+     - parameter owner: (query) Owner do token (optional)
+     - parameter status: (query) Status do token (optional)
+     - parameter criadoPor: (query) Descri\u00C3\u00A7\u00C3\u00A3o de quem criou o token (optional)
+     - parameter alteradoPor: (query) Descri\u00C3\u00A7\u00C3\u00A3o de quem alterou o token (optional)
+
+     - returns: RequestBuilder<Token> 
+     */
+    public class func alterarUsingPUT5WithRequestBuilder(id id: Int, token: String?, base: Int?, owner: String?, status: String?, criadoPor: String?, alteradoPor: String?) -> RequestBuilder<Token> {
+        let path = "/api/tokens"
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [
+            "id": id,
+            "token": token,
+            "base": base,
+            "owner": owner,
+            "status": status,
+            "criadoPor": criadoPor,
+            "alteradoPor": alteradoPor
+        ]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Token>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: false)
+    }
+
+    /**
+     
      /api/tokens/callback
      
      - parameter bodyAccessToken: (body) bodyAccessToken 
@@ -59,6 +130,225 @@ public class TokenAPI: APIBase {
         let requestBuilder: RequestBuilder<BodyAccessToken>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Consultar token
+     
+     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do token (id). 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func consultarUsingGET14(id id: Int, completion: ((data: Token?, error: ErrorType?) -> Void)) {
+        consultarUsingGET14WithRequestBuilder(id: id).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Consultar token
+     
+     - GET /api/tokens/{id}
+     - Este recurso permite que seja consultado um token do emissor atrav\u00C3\u00A9s de um id especifico
+     - API Key:
+       - type: apiKey access_token 
+       - name: access_token
+     - examples: [{contentType=application/json, example={
+  "owner" : "aeiou",
+  "alteradoPor" : "aeiou",
+  "dataModificacao" : "2000-01-23T04:56:07.000+0000",
+  "criadoPor" : "aeiou",
+  "id" : 123456789,
+  "dataCriacao" : "2000-01-23T04:56:07.000+0000",
+  "token" : "aeiou",
+  "base" : 123456789,
+  "status" : "aeiou"
+}}]
+     
+     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do token (id). 
+
+     - returns: RequestBuilder<Token> 
+     */
+    public class func consultarUsingGET14WithRequestBuilder(id id: Int) -> RequestBuilder<Token> {
+        var path = "/api/tokens/{id}"
+        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Token>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Listar tokens
+     
+     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
+     - parameter id: (query) C\u00C3\u00B3digo identificador do token (optional)
+     - parameter token: (query) Token (optional)
+     - parameter base: (query) C\u00C3\u00B3digo identificador da base (optional)
+     - parameter owner: (query) Owner do token (optional)
+     - parameter status: (query) Status do token (optional)
+     - parameter criadoPor: (query) Descri\u00C3\u00A7\u00C3\u00A3o de quem criou o token (optional)
+     - parameter dataCriacao: (query) Data de cria\u00C3\u00A7\u00C3\u00A3o do token (optional)
+     - parameter alteradoPor: (query) Descri\u00C3\u00A7\u00C3\u00A3o de quem alterou o token (optional)
+     - parameter dataModificacao: (query) Data de modifica\u00C3\u00A7\u00C3\u00A3o do token (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func listarUsingGET14(page page: Int?, limit: Int?, id: Int?, token: String?, base: Int?, owner: String?, status: String?, criadoPor: String?, dataCriacao: NSDate?, alteradoPor: String?, dataModificacao: NSDate?, completion: ((data: PageBases?, error: ErrorType?) -> Void)) {
+        listarUsingGET14WithRequestBuilder(page: page, limit: limit, id: id, token: token, base: base, owner: owner, status: status, criadoPor: criadoPor, dataCriacao: dataCriacao, alteradoPor: alteradoPor, dataModificacao: dataModificacao).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Listar tokens
+     
+     - GET /api/tokens
+     - Este recurso permite que sejam listados os tokens existentes
+     - API Key:
+       - type: apiKey access_token 
+       - name: access_token
+     - examples: [{contentType=application/json, example={
+  "previousPage" : 123,
+  "last" : true,
+  "hasContent" : true,
+  "hasNextPage" : true,
+  "nextPage" : 123,
+  "content" : [ {
+    "nomeBaseControleAcesso" : "aeiou",
+    "servidor" : "aeiou",
+    "senha" : "aeiou",
+    "domain" : "aeiou",
+    "servidorControleAcesso" : "aeiou",
+    "nomeBase" : "aeiou",
+    "usuario" : "aeiou",
+    "senhaCriptografada" : false,
+    "id" : 123456789,
+    "idEmissor" : 123456789
+  } ],
+  "totalElements" : 123456789,
+  "number" : 123,
+  "firstPage" : true,
+  "numberOfElements" : 123,
+  "size" : 123,
+  "totalPages" : 123,
+  "hasPreviousPage" : true,
+  "first" : true
+}}]
+     
+     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
+     - parameter id: (query) C\u00C3\u00B3digo identificador do token (optional)
+     - parameter token: (query) Token (optional)
+     - parameter base: (query) C\u00C3\u00B3digo identificador da base (optional)
+     - parameter owner: (query) Owner do token (optional)
+     - parameter status: (query) Status do token (optional)
+     - parameter criadoPor: (query) Descri\u00C3\u00A7\u00C3\u00A3o de quem criou o token (optional)
+     - parameter dataCriacao: (query) Data de cria\u00C3\u00A7\u00C3\u00A3o do token (optional)
+     - parameter alteradoPor: (query) Descri\u00C3\u00A7\u00C3\u00A3o de quem alterou o token (optional)
+     - parameter dataModificacao: (query) Data de modifica\u00C3\u00A7\u00C3\u00A3o do token (optional)
+
+     - returns: RequestBuilder<PageBases> 
+     */
+    public class func listarUsingGET14WithRequestBuilder(page page: Int?, limit: Int?, id: Int?, token: String?, base: Int?, owner: String?, status: String?, criadoPor: String?, dataCriacao: NSDate?, alteradoPor: String?, dataModificacao: NSDate?) -> RequestBuilder<PageBases> {
+        let path = "/api/tokens"
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [
+            "page": page,
+            "limit": limit,
+            "id": id,
+            "token": token,
+            "base": base,
+            "owner": owner,
+            "status": status,
+            "criadoPor": criadoPor,
+            "dataCriacao": dataCriacao,
+            "alteradoPor": alteradoPor,
+            "dataModificacao": dataModificacao
+        ]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<PageBases>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
+    }
+
+    /**
+     
+     Salvar token
+     
+     - parameter token: (query) Token (optional)
+     - parameter base: (query) C\u00C3\u00B3digo identificador da base (optional)
+     - parameter owner: (query) Owner do token (optional)
+     - parameter status: (query) Status do token (optional)
+     - parameter criadoPor: (query) Descri\u00C3\u00A7\u00C3\u00A3o de quem criou o token (optional)
+     - parameter alteradoPor: (query) Descri\u00C3\u00A7\u00C3\u00A3o de quem alterou o token (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func salvarUsingPOST5(token token: String?, base: Int?, owner: String?, status: String?, criadoPor: String?, alteradoPor: String?, completion: ((data: Token?, error: ErrorType?) -> Void)) {
+        salvarUsingPOST5WithRequestBuilder(token: token, base: base, owner: owner, status: status, criadoPor: criadoPor, alteradoPor: alteradoPor).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Salvar token
+     
+     - POST /api/tokens
+     - Este recurso permite que seja adicionado um novo token
+     - API Key:
+       - type: apiKey access_token 
+       - name: access_token
+     - examples: [{contentType=application/json, example={
+  "owner" : "aeiou",
+  "alteradoPor" : "aeiou",
+  "dataModificacao" : "2000-01-23T04:56:07.000+0000",
+  "criadoPor" : "aeiou",
+  "id" : 123456789,
+  "dataCriacao" : "2000-01-23T04:56:07.000+0000",
+  "token" : "aeiou",
+  "base" : 123456789,
+  "status" : "aeiou"
+}}]
+     
+     - parameter token: (query) Token (optional)
+     - parameter base: (query) C\u00C3\u00B3digo identificador da base (optional)
+     - parameter owner: (query) Owner do token (optional)
+     - parameter status: (query) Status do token (optional)
+     - parameter criadoPor: (query) Descri\u00C3\u00A7\u00C3\u00A3o de quem criou o token (optional)
+     - parameter alteradoPor: (query) Descri\u00C3\u00A7\u00C3\u00A3o de quem alterou o token (optional)
+
+     - returns: RequestBuilder<Token> 
+     */
+    public class func salvarUsingPOST5WithRequestBuilder(token token: String?, base: Int?, owner: String?, status: String?, criadoPor: String?, alteradoPor: String?) -> RequestBuilder<Token> {
+        let path = "/api/tokens"
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [
+            "token": token,
+            "base": base,
+            "owner": owner,
+            "status": status,
+            "criadoPor": criadoPor,
+            "alteradoPor": alteradoPor
+        ]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<Token>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: false)
     }
 
     /**

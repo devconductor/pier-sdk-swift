@@ -10,7 +10,7 @@ import Foundation
 
 public class NotificacaoPushResponse: JSONEncodable {
 
-    public enum Evento: String { 
+    public enum TipoEvento: String { 
         case RiscoFraude = "RISCO_FRAUDE"
         case Outros = "OUTROS"
     }
@@ -34,8 +34,8 @@ public class NotificacaoPushResponse: JSONEncodable {
     public var dataEnvio: NSDate?
     /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do emissor (id). */
     public var idEmissor: Int?
-    /** Nome do evento da notifica\u00C3\u00A7\u00C3\u00A3o */
-    public var evento: Evento?
+    /** Nome do tipoEvento da notifica\u00C3\u00A7\u00C3\u00A3o */
+    public var tipoEvento: TipoEvento?
     /** Status de envio da notifica\u00C3\u00A7\u00C3\u00A3o */
     public var status: Status?
     /** C\u00C3\u00B3digo identificado da pessoa */
@@ -61,7 +61,7 @@ public class NotificacaoPushResponse: JSONEncodable {
         var nillableDictionary = [String:AnyObject?]()
         nillableDictionary["dataEnvio"] = self.dataEnvio?.encodeToJSON()
         nillableDictionary["idEmissor"] = self.idEmissor
-        nillableDictionary["evento"] = self.evento?.rawValue
+        nillableDictionary["tipoEvento"] = self.tipoEvento?.rawValue
         nillableDictionary["status"] = self.status?.rawValue
         nillableDictionary["idPessoa"] = self.idPessoa
         nillableDictionary["idConta"] = self.idConta

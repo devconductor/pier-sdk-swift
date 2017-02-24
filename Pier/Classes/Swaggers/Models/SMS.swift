@@ -11,7 +11,7 @@ import Foundation
 /** Objeto SMS */
 public class SMS: JSONEncodable {
 
-    public enum Evento: String { 
+    public enum TipoEvento: String { 
         case RiscoFraude = "RISCO_FRAUDE"
         case Outros = "OUTROS"
     }
@@ -31,8 +31,8 @@ public class SMS: JSONEncodable {
     public var nsu: Int?
     /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do emissor (id). */
     public var idEmissor: Int?
-    /** Evento de notifica\u00C3\u00A7\u00C3\u00A3o */
-    public var evento: Evento?
+    /** TipoEvento de notifica\u00C3\u00A7\u00C3\u00A3o */
+    public var tipoEvento: TipoEvento?
     /** Status de envio da notifica\u00C3\u00A7\u00C3\u00A3o */
     public var status: Status?
     /** Descri\u00C3\u00A7\u00C3\u00A3o do status de envio da notifica\u00C3\u00A7\u00C3\u00A3o */
@@ -69,7 +69,7 @@ public class SMS: JSONEncodable {
         nillableDictionary["id"] = self.id
         nillableDictionary["nsu"] = self.nsu
         nillableDictionary["idEmissor"] = self.idEmissor
-        nillableDictionary["evento"] = self.evento?.rawValue
+        nillableDictionary["tipoEvento"] = self.tipoEvento?.rawValue
         nillableDictionary["status"] = self.status?.rawValue
         nillableDictionary["descricaoStatus"] = self.descricaoStatus
         nillableDictionary["idPessoa"] = self.idPessoa
