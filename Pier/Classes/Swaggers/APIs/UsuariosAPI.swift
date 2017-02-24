@@ -54,7 +54,7 @@ public class UsuariosAPI: APIBase {
 
     /**
      
-     Alterar os usu\u00C3\u00A1rios cadastrados na base do PIER
+     Alterar os usu\u00C3\u00A1rios cadastrados
      
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Usu\u00C3\u00A1rio (id). 
      - parameter update: (body) update 
@@ -69,7 +69,7 @@ public class UsuariosAPI: APIBase {
 
     /**
      
-     Alterar os usu\u00C3\u00A1rios cadastrados na base do PIER
+     Alterar os usu\u00C3\u00A1rios cadastrados
      
      - PUT /api/usuarios/{id}
      - Este m\u00C3\u00A9todo realiza a altera\u00C3\u00A7\u00C3\u00A3o dos usu\u00C3\u00A1rios.
@@ -163,7 +163,7 @@ public class UsuariosAPI: APIBase {
 
     /**
      
-     Lista os Usu\u00C3\u00A1rios cadastrados na base do PIER
+     Lista os Usu\u00C3\u00A1rios cadastrados
      
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
@@ -183,7 +183,7 @@ public class UsuariosAPI: APIBase {
 
     /**
      
-     Lista os Usu\u00C3\u00A1rios cadastrados na base do PIER
+     Lista os Usu\u00C3\u00A1rios cadastrados
      
      - GET /api/usuarios
      - Este m\u00C3\u00A9todo permite que sejam listados os usu\u00C3\u00A1rios existentes na base do PIER.
@@ -293,7 +293,7 @@ public class UsuariosAPI: APIBase {
 
     /**
      
-     Cadastrar Usu\u00C3\u00A1rio na base do PIER
+     Cadastrar Usu\u00C3\u00A1rio
      
      - parameter persist: (body) persist 
      - parameter completion: completion handler to receive the data and the error objects
@@ -307,10 +307,10 @@ public class UsuariosAPI: APIBase {
 
     /**
      
-     Cadastrar Usu\u00C3\u00A1rio na base do PIER
+     Cadastrar Usu\u00C3\u00A1rio
      
      - POST /api/usuarios
-     - Esse recurso permite cadastrar usu\u00C3\u00A1rios na base do PIER.
+     - Esse recurso permite cadastrar usu\u00C3\u00A1rios.
      - API Key:
        - type: apiKey access_token 
        - name: access_token

@@ -12,7 +12,7 @@ import Alamofire
 public class FAQAPI: APIBase {
     /**
      
-     Adiciona uma nova FAQ para um determinado Emissor.
+     Adiciona uma nova FAQ
      
      - parameter pergunta: (query) Conte\u00C3\u00BAdo da pergunta. 
      - parameter resposta: (query) Conte\u00C3\u00BAdo da resposta. 
@@ -31,9 +31,10 @@ public class FAQAPI: APIBase {
 
     /**
      
-     Adiciona uma nova FAQ para um determinado Emissor.
+     Adiciona uma nova FAQ
      
      - POST /api/faqs
+     - Adiciona uma nova FAQ
      - API Key:
        - type: apiKey access_token 
        - name: access_token
@@ -78,7 +79,7 @@ public class FAQAPI: APIBase {
 
     /**
      
-     Altera os par\u00C3\u00A2metros de uma FAQ existente.
+     Alterar FAQ
      
      - parameter id: (path) Id 
      - parameter pergunta: (query) Conte\u00C3\u00BAdo da pergunta. 
@@ -98,9 +99,10 @@ public class FAQAPI: APIBase {
 
     /**
      
-     Altera os par\u00C3\u00A2metros de uma FAQ existente.
+     Alterar FAQ
      
      - PUT /api/faqs/{id}
+     - Alterar FAQ
      - API Key:
        - type: apiKey access_token 
        - name: access_token
@@ -147,7 +149,7 @@ public class FAQAPI: APIBase {
 
     /**
      
-     Consulta os detalhes de uma determinada FAQ relacionada a um Emissor.
+     Consultar FAQ por id
      
      - parameter id: (path) Id 
      - parameter completion: completion handler to receive the data and the error objects
@@ -161,9 +163,10 @@ public class FAQAPI: APIBase {
 
     /**
      
-     Consulta os detalhes de uma determinada FAQ relacionada a um Emissor.
+     Consultar FAQ por id
      
      - GET /api/faqs/{id}
+     - Consulta os detalhes de uma determinada FAQ
      - API Key:
        - type: apiKey access_token 
        - name: access_token
@@ -197,7 +200,7 @@ public class FAQAPI: APIBase {
 
     /**
      
-     Lista todas as FAQs de um determinado emissor.
+     Lista FAQs
      
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
@@ -219,9 +222,10 @@ public class FAQAPI: APIBase {
 
     /**
      
-     Lista todas as FAQs de um determinado emissor.
+     Lista FAQs
      
      - GET /api/faqs
+     - Lista todas as FAQs
      - API Key:
        - type: apiKey access_token 
        - name: access_token
