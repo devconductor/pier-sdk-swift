@@ -11,7 +11,7 @@ import Foundation
 /** Lista de Usu\u00C3\u00A1rios */
 public class PageUsuarios: JSONEncodable {
 
-    public var content: [Usuario]?
+    public var content: [UsuarioResponse]?
     public var first: Bool?
     public var firstPage: Bool?
     public var hasContent: Bool?

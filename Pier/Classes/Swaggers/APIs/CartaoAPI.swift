@@ -345,6 +345,59 @@ public class CartaoAPI: APIBase {
 
     /**
      
+     Permite consultar um determinado Lote de Cart\u00C3\u00B5es Pr\u00C3\u00A9-Pago
+     
+     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do lote de cart\u00C3\u00B5es (id) 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func consultarLotesCartoesPrePagosUsingGET(id id: Int, completion: ((data: LoteCartoesPrePagos?, error: ErrorType?) -> Void)) {
+        consultarLotesCartoesPrePagosUsingGETWithRequestBuilder(id: id).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Permite consultar um determinado Lote de Cart\u00C3\u00B5es Pr\u00C3\u00A9-Pago
+     
+     - GET /api/cartoes/lotes-cartoes-pre-pagos/{id}
+     - Este m\u00C3\u00A9todo permite consultar os cart\u00C3\u00B5es pr\u00C3\u00A9-pagos existentes na base do emissor atrav\u00C3\u00A9s do id do lote.
+     - API Key:
+       - type: apiKey access_token 
+       - name: access_token
+     - examples: [{contentType=application/json, example={
+  "idOrigemComercial" : 123456789,
+  "idProduto" : 123456789,
+  "idImagem" : 123456789,
+  "idEndereco" : 123456789,
+  "statusProcessamento" : 123,
+  "idTipoCartao" : 123456789,
+  "id" : 123456789,
+  "quantidade" : 123,
+  "dataCadastro" : "2000-01-23T04:56:07.000+0000",
+  "usuarioCadastro" : "aeiou"
+}}]
+     
+     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do lote de cart\u00C3\u00B5es (id) 
+
+     - returns: RequestBuilder<LoteCartoesPrePagos> 
+     */
+    public class func consultarLotesCartoesPrePagosUsingGETWithRequestBuilder(id id: Int) -> RequestBuilder<LoteCartoesPrePagos> {
+        var path = "/api/cartoes/lotes-cartoes-pre-pagos/{id}"
+        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<LoteCartoesPrePagos>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
      Apresenta os dados do Portador do Cart\u00C3\u00A3o
      
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
@@ -459,6 +512,82 @@ public class CartaoAPI: APIBase {
 
     /**
      
+     Consultar uma transfer\u00C3\u00AAncia banc\u00C3\u00A1ria
+     
+     - parameter id: (path) Id Cart\u00C3\u00A3o 
+     - parameter idTransferencia: (path) Id Transfer\u00C3\u00AAncia 
+     - parameter idContaBancariaDestino: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta banc\u00C3\u00A1ria de destino (id) (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func consultarUsingGET20(id id: Int, idTransferencia: Int, idContaBancariaDestino: Int?, completion: ((data: LinkTransferenciaBancariaResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET20WithRequestBuilder(id: id, idTransferencia: idTransferencia, idContaBancariaDestino: idContaBancariaDestino).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Consultar uma transfer\u00C3\u00AAncia banc\u00C3\u00A1ria
+     
+     - GET /api/cartoes/{id}/transferencias-creditos-contas-bancarias/{idTransferencia}
+     - Este recurso permite consultar os detalhes de uma determinada transfer\u00C3\u00AAncia de cr\u00C3\u00A9dito realizada entre contas. De modo geral, esta opera\u00C3\u00A7\u00C3\u00A3o poder\u00C3\u00A1 ser utilizada para uma consulta simples destes detalhes ou para realizar a montagem de um comprovante de 2\u00C2\u00AA via de transfer\u00C3\u00AAncia entre contas.
+     - API Key:
+       - type: apiKey access_token 
+       - name: access_token
+     - examples: [{contentType=application/json, example={
+  "numeroParcelas" : 123,
+  "idOperacao" : 123456789,
+  "idAutorizacao" : 123456789,
+  "origem" : "aeiou",
+  "valorCompra" : 1.3579000000000001069366817318950779736042022705078125,
+  "idTransferencia" : 123456789,
+  "idContaPortador" : 123456789,
+  "dataCompra" : "2000-01-23T04:56:07.000+0000",
+  "dataVencimentoPadrao" : "aeiou",
+  "nsuorigem" : 123456789,
+  "valorContrato" : 1.3579000000000001069366817318950779736042022705078125,
+  "valorTAC" : 1.3579000000000001069366817318950779736042022705078125,
+  "dataAutorizacao" : "2000-01-23T04:56:07.000+0000",
+  "valorEntrada" : 1.3579000000000001069366817318950779736042022705078125,
+  "idCartao" : 123456789,
+  "idEstabelecimento" : 123456789,
+  "idConta" : 123456789,
+  "valor" : 1.3579000000000001069366817318950779736042022705078125,
+  "terminal" : "aeiou",
+  "codigoAutorizacao" : "aeiou",
+  "valorParcela" : 1.3579000000000001069366817318950779736042022705078125,
+  "dataMovimento" : "2000-01-23T04:56:07.000+0000",
+  "taxaJuros" : 1.3579000000000001069366817318950779736042022705078125,
+  "numeroEstabelecimento" : 123456789,
+  "dataVencimentoReal" : "2000-01-23T04:56:07.000+0000",
+  "valorIOF" : 1.3579000000000001069366817318950779736042022705078125
+}}]
+     
+     - parameter id: (path) Id Cart\u00C3\u00A3o 
+     - parameter idTransferencia: (path) Id Transfer\u00C3\u00AAncia 
+     - parameter idContaBancariaDestino: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta banc\u00C3\u00A1ria de destino (id) (optional)
+
+     - returns: RequestBuilder<LinkTransferenciaBancariaResponse> 
+     */
+    public class func consultarUsingGET20WithRequestBuilder(id id: Int, idTransferencia: Int, idContaBancariaDestino: Int?) -> RequestBuilder<LinkTransferenciaBancariaResponse> {
+        var path = "/api/cartoes/{id}/transferencias-creditos-contas-bancarias/{idTransferencia}"
+        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
+        path = path.stringByReplacingOccurrencesOfString("{idTransferencia}", withString: "\(idTransferencia)", options: .LiteralSearch, range: nil)
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [
+            "id_conta_bancaria_destino": idContaBancariaDestino
+        ]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<LinkTransferenciaBancariaResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
+    }
+
+    /**
+     
      Realiza o desbloqueio de um determinado Cart\u00C3\u00A3o
      
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
@@ -541,7 +670,7 @@ public class CartaoAPI: APIBase {
      
      Permite gerar um novo Lote de Cart\u00C3\u00B5es Pr\u00C3\u00A9-Pago
      
-     - POST /api/cartoes/pre-pagos/lotes
+     - POST /api/cartoes/lotes-cartoes-pre-pagos
      - Esta opera\u00C3\u00A7\u00C3\u00A3o tem como objetivo permitir que os Emissores gerem uma determinada quantidade de Cart\u00C3\u00B5es Pr\u00C3\u00A9-Pagos, de forma n\u00C3\u00A3o nominal, os quais poder\u00C3\u00A3o ser comercializados e posteriormente vinculados a um cliente que o adquirir. Para isso, al\u00C3\u00A9m de definir quantos cart\u00C3\u00B5es dever\u00C3\u00A3o ser gerados, ser\u00C3\u00A1 poss\u00C3\u00ADvel definir qual a Origem Comercial, o Produto, o Tipo do Cart\u00C3\u00A3o, a Imagem e o Endere\u00C3\u00A7o para entrega dos Cart\u00C3\u00B5es presentes no lote gerado. Por padr\u00C3\u00A3o, todos os cart\u00C3\u00B5es ser\u00C3\u00A3o associados a um idPessoa fict\u00C3\u00ADcio e receber\u00C3\u00A1 um idConta \u00C3\u00BAnico para cada um deles. Feito isso, os Cart\u00C3\u00B5es gerados por esta opera\u00C3\u00A7\u00C3\u00A3o seguir\u00C3\u00A3o os mesmos processos de impress\u00C3\u00A3o via gr\u00C3\u00A1fica previamente definidos entre o Emissor e a Conductor.
      - API Key:
        - type: apiKey access_token 
@@ -553,8 +682,8 @@ public class CartaoAPI: APIBase {
   "idEndereco" : 123456789,
   "statusProcessamento" : 123,
   "idTipoCartao" : 123456789,
-  "quantidadeCartoes" : 123,
   "id" : 123456789,
+  "quantidade" : 123,
   "dataCadastro" : "2000-01-23T04:56:07.000+0000",
   "usuarioCadastro" : "aeiou"
 }}]
@@ -569,7 +698,7 @@ public class CartaoAPI: APIBase {
      - returns: RequestBuilder<LoteCartoesPrePagos> 
      */
     public class func gerarLotesCartoesPrePagosUsingPOSTWithRequestBuilder(idOrigemComercial idOrigemComercial: Int?, idProduto: Int?, idTipoCartao: Int?, idImagem: Int?, idEndereco: Int?, quantidadeCartoes: Int?) -> RequestBuilder<LoteCartoesPrePagos> {
-        let path = "/api/cartoes/pre-pagos/lotes"
+        let path = "/api/cartoes/lotes-cartoes-pre-pagos"
         let URLString = PierAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
@@ -654,7 +783,6 @@ public class CartaoAPI: APIBase {
      
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
-     - parameter id: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Lote de Cart\u00C3\u00B5es N\u00C3\u00A3o Nominais (id). (optional)
      - parameter idOrigemComercial: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Origem Comercial (id). (optional)
      - parameter idProduto: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Produto (id). (optional)
      - parameter idTipoCartao: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Tipo do Cart\u00C3\u00A3o (id). (optional)
@@ -666,8 +794,8 @@ public class CartaoAPI: APIBase {
      - parameter statusProcessamento: (query) Indica o Status de Processamento do Lote. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarLotesCartoesPrePagosUsingGET(page page: Int?, limit: Int?, id: Int?, idOrigemComercial: Int?, idProduto: Int?, idTipoCartao: Int?, idImagem: Int?, idEndereco: Int?, quantidadeCartoes: Int?, dataCadastro: NSDate?, usuarioCadastro: String?, statusProcessamento: Int?, completion: ((data: PageCartoes?, error: ErrorType?) -> Void)) {
-        listarLotesCartoesPrePagosUsingGETWithRequestBuilder(page: page, limit: limit, id: id, idOrigemComercial: idOrigemComercial, idProduto: idProduto, idTipoCartao: idTipoCartao, idImagem: idImagem, idEndereco: idEndereco, quantidadeCartoes: quantidadeCartoes, dataCadastro: dataCadastro, usuarioCadastro: usuarioCadastro, statusProcessamento: statusProcessamento).execute { (response, error) -> Void in
+    public class func listarLotesCartoesPrePagosUsingGET(page page: Int?, limit: Int?, idOrigemComercial: Int?, idProduto: Int?, idTipoCartao: Int?, idImagem: Int?, idEndereco: Int?, quantidadeCartoes: Int?, dataCadastro: NSDate?, usuarioCadastro: String?, statusProcessamento: Int?, completion: ((data: PageLoteCartoesPrePagosResponse?, error: ErrorType?) -> Void)) {
+        listarLotesCartoesPrePagosUsingGETWithRequestBuilder(page: page, limit: limit, idOrigemComercial: idOrigemComercial, idProduto: idProduto, idTipoCartao: idTipoCartao, idImagem: idImagem, idEndereco: idEndereco, quantidadeCartoes: quantidadeCartoes, dataCadastro: dataCadastro, usuarioCadastro: usuarioCadastro, statusProcessamento: statusProcessamento).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -677,7 +805,7 @@ public class CartaoAPI: APIBase {
      
      Permite listar os Lotes de Cart\u00C3\u00B5es Pr\u00C3\u00A9-Pago
      
-     - GET /api/cartoes/pre-pagos/lotes
+     - GET /api/cartoes/lotes-cartoes-pre-pagos
      - Este m\u00C3\u00A9todo permite que sejam listados os cart\u00C3\u00B5es pr\u00C3\u00A9-pagos existentes na base do emissor.
      - API Key:
        - type: apiKey access_token 
@@ -689,24 +817,16 @@ public class CartaoAPI: APIBase {
   "hasNextPage" : true,
   "nextPage" : 123,
   "content" : [ {
-    "idConta" : 123456789,
-    "dataStatusCartao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-    "codigoDesbloqueio" : "aeiou",
-    "idEstagioCartao" : 123456789,
-    "arquivoImpressao" : "aeiou",
-    "numeroCartao" : "aeiou",
-    "idPessoa" : 123456789,
+    "idOrigemComercial" : 123456789,
     "idProduto" : 123456789,
-    "flagProvisorio" : 123,
-    "dataValidade" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-    "idStatusCartao" : 123456789,
-    "dataEstagioCartao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-    "flagImpressaoOrigemComercial" : 123,
+    "idImagem" : 123456789,
+    "idEndereco" : 123456789,
+    "statusProcessamento" : 123,
+    "idTipoCartao" : 123456789,
     "id" : 123456789,
-    "nomeImpresso" : "aeiou",
-    "dataImpressao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-    "tipoPortador" : "aeiou",
-    "dataGeracao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+    "quantidade" : 123,
+    "dataCadastro" : "2000-01-23T04:56:07.000+0000",
+    "usuarioCadastro" : "aeiou"
   } ],
   "totalElements" : 123456789,
   "number" : 123,
@@ -720,7 +840,6 @@ public class CartaoAPI: APIBase {
      
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
-     - parameter id: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Lote de Cart\u00C3\u00B5es N\u00C3\u00A3o Nominais (id). (optional)
      - parameter idOrigemComercial: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Origem Comercial (id). (optional)
      - parameter idProduto: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Produto (id). (optional)
      - parameter idTipoCartao: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Tipo do Cart\u00C3\u00A3o (id). (optional)
@@ -731,16 +850,15 @@ public class CartaoAPI: APIBase {
      - parameter usuarioCadastro: (query) Nome do Usu\u00C3\u00A1rio que criou o Lote. (optional)
      - parameter statusProcessamento: (query) Indica o Status de Processamento do Lote. (optional)
 
-     - returns: RequestBuilder<PageCartoes> 
+     - returns: RequestBuilder<PageLoteCartoesPrePagosResponse> 
      */
-    public class func listarLotesCartoesPrePagosUsingGETWithRequestBuilder(page page: Int?, limit: Int?, id: Int?, idOrigemComercial: Int?, idProduto: Int?, idTipoCartao: Int?, idImagem: Int?, idEndereco: Int?, quantidadeCartoes: Int?, dataCadastro: NSDate?, usuarioCadastro: String?, statusProcessamento: Int?) -> RequestBuilder<PageCartoes> {
-        let path = "/api/cartoes/pre-pagos/lotes"
+    public class func listarLotesCartoesPrePagosUsingGETWithRequestBuilder(page page: Int?, limit: Int?, idOrigemComercial: Int?, idProduto: Int?, idTipoCartao: Int?, idImagem: Int?, idEndereco: Int?, quantidadeCartoes: Int?, dataCadastro: NSDate?, usuarioCadastro: String?, statusProcessamento: Int?) -> RequestBuilder<PageLoteCartoesPrePagosResponse> {
+        let path = "/api/cartoes/lotes-cartoes-pre-pagos"
         let URLString = PierAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
             "page": page,
             "limit": limit,
-            "id": id,
             "idOrigemComercial": idOrigemComercial,
             "idProduto": idProduto,
             "idTipoCartao": idTipoCartao,
@@ -753,7 +871,101 @@ public class CartaoAPI: APIBase {
         ]
         let parameters = APIHelper.rejectNil(nillableParameters)
 
-        let requestBuilder: RequestBuilder<PageCartoes>.Type = PierAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<PageLoteCartoesPrePagosResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
+    }
+
+    /**
+     
+     Listar as transfer\u00C3\u00AAncias banc\u00C3\u00A1rias realizadas
+     
+     - parameter id: (path) Id Cart\u00C3\u00A3o 
+     - parameter idContaBancariaDestino: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta banc\u00C3\u00A1ria de destino (id) (optional)
+     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func listarUsingGET19(id id: Int, idContaBancariaDestino: Int?, page: Int?, limit: Int?, completion: ((data: LinkPageTransferenciaBancariaResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET19WithRequestBuilder(id: id, idContaBancariaDestino: idContaBancariaDestino, page: page, limit: limit).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Listar as transfer\u00C3\u00AAncias banc\u00C3\u00A1rias realizadas
+     
+     - GET /api/cartoes/{id}/transferencias-creditos-contas-bancarias
+     - Este recurso tem como objetivo permitir que o portador de um Cart\u00C3\u00A3o possa consultar uma lista das Transfer\u00C3\u00AAncias Banc\u00C3\u00A1rias para os Favorecidos cadastrados.
+     - API Key:
+       - type: apiKey access_token 
+       - name: access_token
+     - examples: [{contentType=application/json, example={
+  "previousPage" : 123,
+  "last" : true,
+  "hasContent" : true,
+  "hasNextPage" : true,
+  "nextPage" : 123,
+  "content" : [ {
+    "numeroParcelas" : 123,
+    "idOperacao" : 123456789,
+    "idAutorizacao" : 123456789,
+    "origem" : "aeiou",
+    "valorCompra" : 1.3579000000000001069366817318950779736042022705078125,
+    "idTransferencia" : 123456789,
+    "idContaPortador" : 123456789,
+    "dataCompra" : "2000-01-23T04:56:07.000+0000",
+    "dataVencimentoPadrao" : "aeiou",
+    "nsuorigem" : 123456789,
+    "valorContrato" : 1.3579000000000001069366817318950779736042022705078125,
+    "valorTAC" : 1.3579000000000001069366817318950779736042022705078125,
+    "dataAutorizacao" : "2000-01-23T04:56:07.000+0000",
+    "valorEntrada" : 1.3579000000000001069366817318950779736042022705078125,
+    "idCartao" : 123456789,
+    "idEstabelecimento" : 123456789,
+    "idConta" : 123456789,
+    "valor" : 1.3579000000000001069366817318950779736042022705078125,
+    "terminal" : "aeiou",
+    "codigoAutorizacao" : "aeiou",
+    "valorParcela" : 1.3579000000000001069366817318950779736042022705078125,
+    "dataMovimento" : "2000-01-23T04:56:07.000+0000",
+    "taxaJuros" : 1.3579000000000001069366817318950779736042022705078125,
+    "numeroEstabelecimento" : 123456789,
+    "dataVencimentoReal" : "2000-01-23T04:56:07.000+0000",
+    "valorIOF" : 1.3579000000000001069366817318950779736042022705078125
+  } ],
+  "totalElements" : 123456789,
+  "number" : 123,
+  "firstPage" : true,
+  "numberOfElements" : 123,
+  "size" : 123,
+  "totalPages" : 123,
+  "hasPreviousPage" : true,
+  "first" : true
+}}]
+     
+     - parameter id: (path) Id Cart\u00C3\u00A3o 
+     - parameter idContaBancariaDestino: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta banc\u00C3\u00A1ria de destino (id) (optional)
+     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
+
+     - returns: RequestBuilder<LinkPageTransferenciaBancariaResponse> 
+     */
+    public class func listarUsingGET19WithRequestBuilder(id id: Int, idContaBancariaDestino: Int?, page: Int?, limit: Int?) -> RequestBuilder<LinkPageTransferenciaBancariaResponse> {
+        var path = "/api/cartoes/{id}/transferencias-creditos-contas-bancarias"
+        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [
+            "id_conta_bancaria_destino": idContaBancariaDestino,
+            "page": page,
+            "limit": limit
+        ]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<LinkPageTransferenciaBancariaResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
     }
@@ -764,7 +976,6 @@ public class CartaoAPI: APIBase {
      
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
-     - parameter id: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). (optional)
      - parameter idStatusCartao: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Status do Cart\u00C3\u00A3o (id). (optional)
      - parameter idEstagioCartao: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Est\u00C3\u00A1gio de Impress\u00C3\u00A3o do Cart\u00C3\u00A3o (id). (optional)
      - parameter idConta: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Conta a qual o cart\u00C3\u00A3o pertence (id). (optional)
@@ -784,8 +995,8 @@ public class CartaoAPI: APIBase {
      - parameter codigoDesbloqueio: (query) Apresenta um c\u00C3\u00B3digo espec\u00C3\u00ADfico para ser utilizado como vari\u00C3\u00A1vel no processo de desbloqueio do cart\u00C3\u00A3o para emissores que querem usar esta funcionalidade. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET2(page page: Int?, limit: Int?, id: Int?, idStatusCartao: Int?, idEstagioCartao: Int?, idConta: Int?, idPessoa: Int?, idProduto: Int?, tipoPortador: String?, numeroCartao: String?, nomeImpresso: String?, dataGeracao: NSDate?, dataStatusCartao: NSDate?, dataEstagioCartao: NSDate?, dataValidade: String?, dataImpressao: NSDate?, arquivoImpressao: String?, flagImpressaoOrigemComercial: Int?, flagProvisorio: Int?, codigoDesbloqueio: String?, completion: ((data: PageCartoes?, error: ErrorType?) -> Void)) {
-        listarUsingGET2WithRequestBuilder(page: page, limit: limit, id: id, idStatusCartao: idStatusCartao, idEstagioCartao: idEstagioCartao, idConta: idConta, idPessoa: idPessoa, idProduto: idProduto, tipoPortador: tipoPortador, numeroCartao: numeroCartao, nomeImpresso: nomeImpresso, dataGeracao: dataGeracao, dataStatusCartao: dataStatusCartao, dataEstagioCartao: dataEstagioCartao, dataValidade: dataValidade, dataImpressao: dataImpressao, arquivoImpressao: arquivoImpressao, flagImpressaoOrigemComercial: flagImpressaoOrigemComercial, flagProvisorio: flagProvisorio, codigoDesbloqueio: codigoDesbloqueio).execute { (response, error) -> Void in
+    public class func listarUsingGET2(page page: Int?, limit: Int?, idStatusCartao: Int?, idEstagioCartao: Int?, idConta: Int?, idPessoa: Int?, idProduto: Int?, tipoPortador: String?, numeroCartao: String?, nomeImpresso: String?, dataGeracao: NSDate?, dataStatusCartao: NSDate?, dataEstagioCartao: NSDate?, dataValidade: String?, dataImpressao: NSDate?, arquivoImpressao: String?, flagImpressaoOrigemComercial: Int?, flagProvisorio: Int?, codigoDesbloqueio: String?, completion: ((data: PageCartoes?, error: ErrorType?) -> Void)) {
+        listarUsingGET2WithRequestBuilder(page: page, limit: limit, idStatusCartao: idStatusCartao, idEstagioCartao: idEstagioCartao, idConta: idConta, idPessoa: idPessoa, idProduto: idProduto, tipoPortador: tipoPortador, numeroCartao: numeroCartao, nomeImpresso: nomeImpresso, dataGeracao: dataGeracao, dataStatusCartao: dataStatusCartao, dataEstagioCartao: dataEstagioCartao, dataValidade: dataValidade, dataImpressao: dataImpressao, arquivoImpressao: arquivoImpressao, flagImpressaoOrigemComercial: flagImpressaoOrigemComercial, flagProvisorio: flagProvisorio, codigoDesbloqueio: codigoDesbloqueio).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -838,7 +1049,6 @@ public class CartaoAPI: APIBase {
      
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
-     - parameter id: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). (optional)
      - parameter idStatusCartao: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Status do Cart\u00C3\u00A3o (id). (optional)
      - parameter idEstagioCartao: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Est\u00C3\u00A1gio de Impress\u00C3\u00A3o do Cart\u00C3\u00A3o (id). (optional)
      - parameter idConta: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Conta a qual o cart\u00C3\u00A3o pertence (id). (optional)
@@ -859,14 +1069,13 @@ public class CartaoAPI: APIBase {
 
      - returns: RequestBuilder<PageCartoes> 
      */
-    public class func listarUsingGET2WithRequestBuilder(page page: Int?, limit: Int?, id: Int?, idStatusCartao: Int?, idEstagioCartao: Int?, idConta: Int?, idPessoa: Int?, idProduto: Int?, tipoPortador: String?, numeroCartao: String?, nomeImpresso: String?, dataGeracao: NSDate?, dataStatusCartao: NSDate?, dataEstagioCartao: NSDate?, dataValidade: String?, dataImpressao: NSDate?, arquivoImpressao: String?, flagImpressaoOrigemComercial: Int?, flagProvisorio: Int?, codigoDesbloqueio: String?) -> RequestBuilder<PageCartoes> {
+    public class func listarUsingGET2WithRequestBuilder(page page: Int?, limit: Int?, idStatusCartao: Int?, idEstagioCartao: Int?, idConta: Int?, idPessoa: Int?, idProduto: Int?, tipoPortador: String?, numeroCartao: String?, nomeImpresso: String?, dataGeracao: NSDate?, dataStatusCartao: NSDate?, dataEstagioCartao: NSDate?, dataValidade: String?, dataImpressao: NSDate?, arquivoImpressao: String?, flagImpressaoOrigemComercial: Int?, flagProvisorio: Int?, codigoDesbloqueio: String?) -> RequestBuilder<PageCartoes> {
         let path = "/api/cartoes"
         let URLString = PierAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
             "page": page,
             "limit": limit,
-            "id": id,
             "idStatusCartao": idStatusCartao,
             "idEstagioCartao": idEstagioCartao,
             "idConta": idConta,
@@ -890,6 +1099,118 @@ public class CartaoAPI: APIBase {
         let requestBuilder: RequestBuilder<PageCartoes>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
+    }
+
+    /**
+     
+     Realizar transfer\u00C3\u00AAncia banc\u00C3\u00A1ria entre bancos / contas
+     
+     - parameter id: (path) Id Cart\u00C3\u00A3o 
+     - parameter dataCompra: (query) Data da transfer\u00C3\u00AAncia 
+     - parameter proximoVencimentoPadrao: (query) Dia do vencimento padr\u00C3\u00A3o da fatura 
+     - parameter proximoVencimentoReal: (query) Data do vencimento real da fatura 
+     - parameter valorCompra: (query) Valor da transfer\u00C3\u00AAncia 
+     - parameter nomeFavorecido: (query) Apresenta o &#39;Nome Completo da PF&#39; ou o &#39;Nome Completo da Raz\u00C3\u00A3o Social (Nome Empresarial)&#39;. 
+     - parameter documentoFavorecido: (query) N\u00C3\u00BAmero do CPF ou CNPJ. 
+     - parameter banco: (query) C\u00C3\u00B3digo do banco 
+     - parameter numeroAgencia: (query) N\u00C3\u00BAmero da ag\u00C3\u00AAncia 
+     - parameter numeroConta: (query) N\u00C3\u00BAmero da conta 
+     - parameter flagContaPoupanca: (query) Sinaliza se conta banc\u00C3\u00A1ria \u00C3\u00A9 poupan\u00C3\u00A7a (1: Poupan\u00C3\u00A7a, 0: Conta corrente) 
+     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
+     - parameter digitoAgencia: (query) D\u00C3\u00ADgito da ag\u00C3\u00AAncia (optional)
+     - parameter digitoConta: (query) D\u00C3\u00ADgito da conta (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func transferirUsingPOST(id id: Int, dataCompra: NSDate, proximoVencimentoPadrao: NSDate, proximoVencimentoReal: NSDate, valorCompra: Double, nomeFavorecido: String, documentoFavorecido: String, banco: Int, numeroAgencia: String, numeroConta: String, flagContaPoupanca: Int, page: Int?, limit: Int?, digitoAgencia: String?, digitoConta: String?, completion: ((data: LinkTransferenciaBancariaResponse?, error: ErrorType?) -> Void)) {
+        transferirUsingPOSTWithRequestBuilder(id: id, dataCompra: dataCompra, proximoVencimentoPadrao: proximoVencimentoPadrao, proximoVencimentoReal: proximoVencimentoReal, valorCompra: valorCompra, nomeFavorecido: nomeFavorecido, documentoFavorecido: documentoFavorecido, banco: banco, numeroAgencia: numeroAgencia, numeroConta: numeroConta, flagContaPoupanca: flagContaPoupanca, page: page, limit: limit, digitoAgencia: digitoAgencia, digitoConta: digitoConta).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Realizar transfer\u00C3\u00AAncia banc\u00C3\u00A1ria entre bancos / contas
+     
+     - POST /api/cartoes/{id}/transferencias-creditos-contas-bancarias
+     - Este recurso tem como objetivo permitir que o portador de um cart\u00C3\u00A3o possa realizar a transfer\u00C3\u00AAncia de cr\u00C3\u00A9dito para outro cliente do mesmo emissor. Assim, o valor do cr\u00C3\u00A9dito somado a tarifa para transfer\u00C3\u00AAncia, quando praticada pelo emissor, ser\u00C3\u00A1 debitado da conta de origem, se houver saldo suficiente, e ser\u00C3\u00A1 creditado na conta de destino.
+     - API Key:
+       - type: apiKey access_token 
+       - name: access_token
+     - examples: [{contentType=application/json, example={
+  "numeroParcelas" : 123,
+  "idOperacao" : 123456789,
+  "idAutorizacao" : 123456789,
+  "origem" : "aeiou",
+  "valorCompra" : 1.3579000000000001069366817318950779736042022705078125,
+  "idTransferencia" : 123456789,
+  "idContaPortador" : 123456789,
+  "dataCompra" : "2000-01-23T04:56:07.000+0000",
+  "dataVencimentoPadrao" : "aeiou",
+  "nsuorigem" : 123456789,
+  "valorContrato" : 1.3579000000000001069366817318950779736042022705078125,
+  "valorTAC" : 1.3579000000000001069366817318950779736042022705078125,
+  "dataAutorizacao" : "2000-01-23T04:56:07.000+0000",
+  "valorEntrada" : 1.3579000000000001069366817318950779736042022705078125,
+  "idCartao" : 123456789,
+  "idEstabelecimento" : 123456789,
+  "idConta" : 123456789,
+  "valor" : 1.3579000000000001069366817318950779736042022705078125,
+  "terminal" : "aeiou",
+  "codigoAutorizacao" : "aeiou",
+  "valorParcela" : 1.3579000000000001069366817318950779736042022705078125,
+  "dataMovimento" : "2000-01-23T04:56:07.000+0000",
+  "taxaJuros" : 1.3579000000000001069366817318950779736042022705078125,
+  "numeroEstabelecimento" : 123456789,
+  "dataVencimentoReal" : "2000-01-23T04:56:07.000+0000",
+  "valorIOF" : 1.3579000000000001069366817318950779736042022705078125
+}}]
+     
+     - parameter id: (path) Id Cart\u00C3\u00A3o 
+     - parameter dataCompra: (query) Data da transfer\u00C3\u00AAncia 
+     - parameter proximoVencimentoPadrao: (query) Dia do vencimento padr\u00C3\u00A3o da fatura 
+     - parameter proximoVencimentoReal: (query) Data do vencimento real da fatura 
+     - parameter valorCompra: (query) Valor da transfer\u00C3\u00AAncia 
+     - parameter nomeFavorecido: (query) Apresenta o &#39;Nome Completo da PF&#39; ou o &#39;Nome Completo da Raz\u00C3\u00A3o Social (Nome Empresarial)&#39;. 
+     - parameter documentoFavorecido: (query) N\u00C3\u00BAmero do CPF ou CNPJ. 
+     - parameter banco: (query) C\u00C3\u00B3digo do banco 
+     - parameter numeroAgencia: (query) N\u00C3\u00BAmero da ag\u00C3\u00AAncia 
+     - parameter numeroConta: (query) N\u00C3\u00BAmero da conta 
+     - parameter flagContaPoupanca: (query) Sinaliza se conta banc\u00C3\u00A1ria \u00C3\u00A9 poupan\u00C3\u00A7a (1: Poupan\u00C3\u00A7a, 0: Conta corrente) 
+     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
+     - parameter digitoAgencia: (query) D\u00C3\u00ADgito da ag\u00C3\u00AAncia (optional)
+     - parameter digitoConta: (query) D\u00C3\u00ADgito da conta (optional)
+
+     - returns: RequestBuilder<LinkTransferenciaBancariaResponse> 
+     */
+    public class func transferirUsingPOSTWithRequestBuilder(id id: Int, dataCompra: NSDate, proximoVencimentoPadrao: NSDate, proximoVencimentoReal: NSDate, valorCompra: Double, nomeFavorecido: String, documentoFavorecido: String, banco: Int, numeroAgencia: String, numeroConta: String, flagContaPoupanca: Int, page: Int?, limit: Int?, digitoAgencia: String?, digitoConta: String?) -> RequestBuilder<LinkTransferenciaBancariaResponse> {
+        var path = "/api/cartoes/{id}/transferencias-creditos-contas-bancarias"
+        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [
+            "page": page,
+            "limit": limit,
+            "dataCompra": dataCompra,
+            "proximoVencimentoPadrao": proximoVencimentoPadrao,
+            "proximoVencimentoReal": proximoVencimentoReal,
+            "valorCompra": valorCompra,
+            "nomeFavorecido": nomeFavorecido,
+            "documentoFavorecido": documentoFavorecido,
+            "banco": banco,
+            "numeroAgencia": numeroAgencia,
+            "digitoAgencia": digitoAgencia,
+            "numeroConta": numeroConta,
+            "digitoConta": digitoConta,
+            "flagContaPoupanca": flagContaPoupanca
+        ]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<LinkTransferenciaBancariaResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: false)
     }
 
     /**

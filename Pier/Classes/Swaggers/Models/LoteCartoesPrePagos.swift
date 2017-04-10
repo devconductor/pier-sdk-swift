@@ -24,7 +24,7 @@ public class LoteCartoesPrePagos: JSONEncodable {
     /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Endere\u00C3\u00A7o. */
     public var idEndereco: Int?
     /** N\u00C3\u00BAmero de cart\u00C3\u00B5es existentes no Lote. */
-    public var quantidadeCartoes: Int?
+    public var quantidade: Int?
     /** Data de cadastro do lote de cart\u00C3\u00B5es pr\u00C3\u00A9-pagos. */
     public var dataCadastro: NSDate?
     /** Nome do usu\u00C3\u00A1rio que criou o lote. */
@@ -44,7 +44,7 @@ public class LoteCartoesPrePagos: JSONEncodable {
         nillableDictionary["idTipoCartao"] = self.idTipoCartao
         nillableDictionary["idImagem"] = self.idImagem
         nillableDictionary["idEndereco"] = self.idEndereco
-        nillableDictionary["quantidadeCartoes"] = self.quantidadeCartoes
+        nillableDictionary["quantidade"] = self.quantidade
         nillableDictionary["dataCadastro"] = self.dataCadastro?.encodeToJSON()
         nillableDictionary["usuarioCadastro"] = self.usuarioCadastro
         nillableDictionary["statusProcessamento"] = self.statusProcessamento

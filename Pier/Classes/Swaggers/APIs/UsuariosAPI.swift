@@ -54,14 +54,14 @@ public class UsuariosAPI: APIBase {
 
     /**
      
-     Alterar os usu\u00C3\u00A1rios cadastrados
+     Altera os usu\u00C3\u00A1rios cadastrados
      
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Usu\u00C3\u00A1rio (id). 
      - parameter update: (body) update 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func alterarUsingPUT6(id id: Int, update: Usuario, completion: ((data: Usuario?, error: ErrorType?) -> Void)) {
-        alterarUsingPUT6WithRequestBuilder(id: id, update: update).execute { (response, error) -> Void in
+    public class func alterarUsingPUT9(id id: Int, update: UsuarioUpdate, completion: ((data: UsuarioResponse?, error: ErrorType?) -> Void)) {
+        alterarUsingPUT9WithRequestBuilder(id: id, update: update).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -69,7 +69,7 @@ public class UsuariosAPI: APIBase {
 
     /**
      
-     Alterar os usu\u00C3\u00A1rios cadastrados
+     Altera os usu\u00C3\u00A1rios cadastrados
      
      - PUT /api/usuarios/{id}
      - Este m\u00C3\u00A9todo realiza a altera\u00C3\u00A7\u00C3\u00A3o dos usu\u00C3\u00A1rios.
@@ -78,7 +78,6 @@ public class UsuariosAPI: APIBase {
        - name: access_token
      - examples: [{contentType=application/json, example={
   "dataModificacao" : "2000-01-23T04:56:07.000+0000",
-  "senha" : "aeiou",
   "tentativasIncorretas" : 123456789,
   "cpf" : "aeiou",
   "nome" : "aeiou",
@@ -93,16 +92,16 @@ public class UsuariosAPI: APIBase {
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Usu\u00C3\u00A1rio (id). 
      - parameter update: (body) update 
 
-     - returns: RequestBuilder<Usuario> 
+     - returns: RequestBuilder<UsuarioResponse> 
      */
-    public class func alterarUsingPUT6WithRequestBuilder(id id: Int, update: Usuario) -> RequestBuilder<Usuario> {
+    public class func alterarUsingPUT9WithRequestBuilder(id id: Int, update: UsuarioUpdate) -> RequestBuilder<UsuarioResponse> {
         var path = "/api/usuarios/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
         
         let parameters = update.encodeToJSON() as? [String:AnyObject]
 
-        let requestBuilder: RequestBuilder<Usuario>.Type = PierAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<UsuarioResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
     }
@@ -114,8 +113,8 @@ public class UsuariosAPI: APIBase {
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Usu\u00C3\u00A1rio (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET16(id id: Int, completion: ((data: Usuario?, error: ErrorType?) -> Void)) {
-        consultarUsingGET16WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET22(id id: Int, completion: ((data: UsuarioResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET22WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -132,7 +131,6 @@ public class UsuariosAPI: APIBase {
        - name: access_token
      - examples: [{contentType=application/json, example={
   "dataModificacao" : "2000-01-23T04:56:07.000+0000",
-  "senha" : "aeiou",
   "tentativasIncorretas" : 123456789,
   "cpf" : "aeiou",
   "nome" : "aeiou",
@@ -146,9 +144,9 @@ public class UsuariosAPI: APIBase {
      
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Usu\u00C3\u00A1rio (id). 
 
-     - returns: RequestBuilder<Usuario> 
+     - returns: RequestBuilder<UsuarioResponse> 
      */
-    public class func consultarUsingGET16WithRequestBuilder(id id: Int) -> RequestBuilder<Usuario> {
+    public class func consultarUsingGET22WithRequestBuilder(id id: Int) -> RequestBuilder<UsuarioResponse> {
         var path = "/api/usuarios/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -156,7 +154,7 @@ public class UsuariosAPI: APIBase {
         let nillableParameters: [String:AnyObject?] = [:]
         let parameters = APIHelper.rejectNil(nillableParameters)
 
-        let requestBuilder: RequestBuilder<Usuario>.Type = PierAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<UsuarioResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
     }
@@ -167,15 +165,14 @@ public class UsuariosAPI: APIBase {
      
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
-     - parameter id: (query) Id do Usuario (optional)
      - parameter nome: (query) Nome do Usuario (optional)
      - parameter cpf: (query) CPF do Usuario (optional)
      - parameter email: (query) Email do Usuario (optional)
      - parameter status: (query) Status do Usuario (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET16(page page: Int?, limit: Int?, id: Int?, nome: String?, cpf: String?, email: String?, status: String?, completion: ((data: PageUsuarios?, error: ErrorType?) -> Void)) {
-        listarUsingGET16WithRequestBuilder(page: page, limit: limit, id: id, nome: nome, cpf: cpf, email: email, status: status).execute { (response, error) -> Void in
+    public class func listarUsingGET21(page page: Int?, limit: Int?, nome: String?, cpf: String?, email: String?, status: String?, completion: ((data: PageUsuarios?, error: ErrorType?) -> Void)) {
+        listarUsingGET21WithRequestBuilder(page: page, limit: limit, nome: nome, cpf: cpf, email: email, status: status).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -198,7 +195,6 @@ public class UsuariosAPI: APIBase {
   "nextPage" : 123,
   "content" : [ {
     "dataModificacao" : "2000-01-23T04:56:07.000+0000",
-    "senha" : "aeiou",
     "tentativasIncorretas" : 123456789,
     "cpf" : "aeiou",
     "nome" : "aeiou",
@@ -221,7 +217,6 @@ public class UsuariosAPI: APIBase {
      
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
-     - parameter id: (query) Id do Usuario (optional)
      - parameter nome: (query) Nome do Usuario (optional)
      - parameter cpf: (query) CPF do Usuario (optional)
      - parameter email: (query) Email do Usuario (optional)
@@ -229,14 +224,13 @@ public class UsuariosAPI: APIBase {
 
      - returns: RequestBuilder<PageUsuarios> 
      */
-    public class func listarUsingGET16WithRequestBuilder(page page: Int?, limit: Int?, id: Int?, nome: String?, cpf: String?, email: String?, status: String?) -> RequestBuilder<PageUsuarios> {
+    public class func listarUsingGET21WithRequestBuilder(page page: Int?, limit: Int?, nome: String?, cpf: String?, email: String?, status: String?) -> RequestBuilder<PageUsuarios> {
         let path = "/api/usuarios"
         let URLString = PierAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
             "page": page,
             "limit": limit,
-            "id": id,
             "nome": nome,
             "cpf": cpf,
             "email": email,
@@ -293,13 +287,13 @@ public class UsuariosAPI: APIBase {
 
     /**
      
-     Cadastrar Usu\u00C3\u00A1rio
+     Cadastra Usu\u00C3\u00A1rio
      
      - parameter persist: (body) persist 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func salvarUsingPOST6(persist persist: Usuario, completion: ((data: Usuario?, error: ErrorType?) -> Void)) {
-        salvarUsingPOST6WithRequestBuilder(persist: persist).execute { (response, error) -> Void in
+    public class func salvarUsingPOST8(persist persist: UsuarioPersist, completion: ((data: UsuarioResponse?, error: ErrorType?) -> Void)) {
+        salvarUsingPOST8WithRequestBuilder(persist: persist).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -307,7 +301,7 @@ public class UsuariosAPI: APIBase {
 
     /**
      
-     Cadastrar Usu\u00C3\u00A1rio
+     Cadastra Usu\u00C3\u00A1rio
      
      - POST /api/usuarios
      - Esse recurso permite cadastrar usu\u00C3\u00A1rios.
@@ -316,7 +310,6 @@ public class UsuariosAPI: APIBase {
        - name: access_token
      - examples: [{contentType=application/json, example={
   "dataModificacao" : "2000-01-23T04:56:07.000+0000",
-  "senha" : "aeiou",
   "tentativasIncorretas" : 123456789,
   "cpf" : "aeiou",
   "nome" : "aeiou",
@@ -330,15 +323,15 @@ public class UsuariosAPI: APIBase {
      
      - parameter persist: (body) persist 
 
-     - returns: RequestBuilder<Usuario> 
+     - returns: RequestBuilder<UsuarioResponse> 
      */
-    public class func salvarUsingPOST6WithRequestBuilder(persist persist: Usuario) -> RequestBuilder<Usuario> {
+    public class func salvarUsingPOST8WithRequestBuilder(persist persist: UsuarioPersist) -> RequestBuilder<UsuarioResponse> {
         let path = "/api/usuarios"
         let URLString = PierAPI.basePath + path
         
         let parameters = persist.encodeToJSON() as? [String:AnyObject]
 
-        let requestBuilder: RequestBuilder<Usuario>.Type = PierAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<UsuarioResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
     }

@@ -57,6 +57,14 @@ public class RiscoFraudeDetalhadoResponse: JSONEncodable {
     public var codigoModoEntradaTerminal: String?
     /** Descri\u00C3\u00A7\u00C3\u00A3o do modo de origem da captura da Transa\u00C3\u00A7\u00C3\u00A3o */
     public var descricaoModoEntradaTerminal: String?
+    /** N\u00C3\u00BAmero do CPF da Pessoa portadora do Cart\u00C3\u00A3o, quando for do tipo Pessoa F\u00C3\u00ADsica */
+    public var cpf: String?
+    /** N\u00C3\u00BAmero do CNPJ da Pessoa portadora do Cart\u00C3\u00A3o, quanto for do tipo Pessoa Jur\u00C3\u00ADdica */
+    public var cnpj: String?
+    /** Endere\u00C3\u00A7o de email da Pessoa portadora do Cart\u00C3\u00A3o */
+    public var email: String?
+    /** Lista contendo idTipoTelefone, tipoTelefone (Descricao), DDD, Numero, Ramal associados a Pessoa portadora do Cart\u00C3\u00A3o */
+    public var tefefones: [Telefone]?
     
 
     public init() {}
@@ -87,6 +95,10 @@ public class RiscoFraudeDetalhadoResponse: JSONEncodable {
         nillableDictionary["origemTransacao"] = self.origemTransacao
         nillableDictionary["codigoModoEntradaTerminal"] = self.codigoModoEntradaTerminal
         nillableDictionary["descricaoModoEntradaTerminal"] = self.descricaoModoEntradaTerminal
+        nillableDictionary["cpf"] = self.cpf
+        nillableDictionary["cnpj"] = self.cnpj
+        nillableDictionary["email"] = self.email
+        nillableDictionary["tefefones"] = self.tefefones?.encodeToJSON()
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

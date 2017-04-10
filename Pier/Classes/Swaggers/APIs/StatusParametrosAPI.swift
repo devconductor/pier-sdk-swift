@@ -113,8 +113,8 @@ public class StatusParametrosAPI: APIBase {
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Status da Conta (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET8(id id: Int, completion: ((data: StatusConta?, error: ErrorType?) -> Void)) {
-        consultarUsingGET8WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET11(id id: Int, completion: ((data: StatusConta?, error: ErrorType?) -> Void)) {
+        consultarUsingGET11WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -141,7 +141,7 @@ public class StatusParametrosAPI: APIBase {
 
      - returns: RequestBuilder<StatusConta> 
      */
-    public class func consultarUsingGET8WithRequestBuilder(id id: Int) -> RequestBuilder<StatusConta> {
+    public class func consultarUsingGET11WithRequestBuilder(id id: Int) -> RequestBuilder<StatusConta> {
         var path = "/api/status-contas/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -161,8 +161,8 @@ public class StatusParametrosAPI: APIBase {
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Status de Impress\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET9(id id: Int, completion: ((data: StatusImpressao?, error: ErrorType?) -> Void)) {
-        consultarUsingGET9WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET12(id id: Int, completion: ((data: StatusImpressao?, error: ErrorType?) -> Void)) {
+        consultarUsingGET12WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -186,7 +186,7 @@ public class StatusParametrosAPI: APIBase {
 
      - returns: RequestBuilder<StatusImpressao> 
      */
-    public class func consultarUsingGET9WithRequestBuilder(id id: Int) -> RequestBuilder<StatusImpressao> {
+    public class func consultarUsingGET12WithRequestBuilder(id id: Int) -> RequestBuilder<StatusImpressao> {
         var path = "/api/status-impressoes/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -365,76 +365,6 @@ public class StatusParametrosAPI: APIBase {
 
     /**
      
-     Lista as op\u00C3\u00A7\u00C3\u00B5es de Status Impress\u00C3\u00A3o
-     
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
-     - parameter id: (query) Id do est\u00C3\u00A1gio cart\u00C3\u00A3o (optional)
-     - parameter nome: (query) Nome do status impress\u00C3\u00A3o (optional)
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func listarUsingGET10(page page: Int?, limit: Int?, id: Int?, nome: String?, completion: ((data: PageStatusImpressao?, error: ErrorType?) -> Void)) {
-        listarUsingGET10WithRequestBuilder(page: page, limit: limit, id: id, nome: nome).execute { (response, error) -> Void in
-            completion(data: response?.body, error: error);
-        }
-    }
-
-
-    /**
-     
-     Lista as op\u00C3\u00A7\u00C3\u00B5es de Status Impress\u00C3\u00A3o
-     
-     - GET /api/status-impressoes
-     - Este m\u00C3\u00A9todo permite que sejam listadas as op\u00C3\u00A7\u00C3\u00B5es de Status Impress\u00C3\u00A3o que podem ser atribu\u00C3\u00ADdas aos Cart\u00C3\u00B5es.
-     - API Key:
-       - type: apiKey access_token 
-       - name: access_token
-     - examples: [{contentType=application/json, example={
-  "previousPage" : 123,
-  "last" : true,
-  "hasContent" : true,
-  "hasNextPage" : true,
-  "nextPage" : 123,
-  "content" : [ {
-    "nome" : "aeiou",
-    "id" : 123456789
-  } ],
-  "totalElements" : 123456789,
-  "number" : 123,
-  "firstPage" : true,
-  "numberOfElements" : 123,
-  "size" : 123,
-  "totalPages" : 123,
-  "hasPreviousPage" : true,
-  "first" : true
-}}]
-     
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
-     - parameter id: (query) Id do est\u00C3\u00A1gio cart\u00C3\u00A3o (optional)
-     - parameter nome: (query) Nome do status impress\u00C3\u00A3o (optional)
-
-     - returns: RequestBuilder<PageStatusImpressao> 
-     */
-    public class func listarUsingGET10WithRequestBuilder(page page: Int?, limit: Int?, id: Int?, nome: String?) -> RequestBuilder<PageStatusImpressao> {
-        let path = "/api/status-impressoes"
-        let URLString = PierAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [
-            "page": page,
-            "limit": limit,
-            "id": id,
-            "nome": nome
-        ]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<PageStatusImpressao>.Type = PierAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
-    }
-
-    /**
-     
      Lista os Status Contas cadastrados para o Emissor
      
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
@@ -446,8 +376,8 @@ public class StatusParametrosAPI: APIBase {
      - parameter flagPermiteNovaViaCartao: (query) Par\u00C3\u00A2metro que define se o Status da conta permite a solicita\u00C3\u00A7\u00C3\u00A3o de um novo cart\u00C3\u00A3o, sendo: 0: Inativo e 1: Ativo. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET9(page page: Int?, limit: Int?, id: Int?, nome: String?, flagAlteraLimite: Int?, mensagemConsultaNegada: String?, flagPermiteNovaViaCartao: Int?, completion: ((data: PageStatusContas?, error: ErrorType?) -> Void)) {
-        listarUsingGET9WithRequestBuilder(page: page, limit: limit, id: id, nome: nome, flagAlteraLimite: flagAlteraLimite, mensagemConsultaNegada: mensagemConsultaNegada, flagPermiteNovaViaCartao: flagPermiteNovaViaCartao).execute { (response, error) -> Void in
+    public class func listarUsingGET12(page page: Int?, limit: Int?, id: Int?, nome: String?, flagAlteraLimite: Int?, mensagemConsultaNegada: String?, flagPermiteNovaViaCartao: Int?, completion: ((data: PageStatusContas?, error: ErrorType?) -> Void)) {
+        listarUsingGET12WithRequestBuilder(page: page, limit: limit, id: id, nome: nome, flagAlteraLimite: flagAlteraLimite, mensagemConsultaNegada: mensagemConsultaNegada, flagPermiteNovaViaCartao: flagPermiteNovaViaCartao).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -495,7 +425,7 @@ public class StatusParametrosAPI: APIBase {
 
      - returns: RequestBuilder<PageStatusContas> 
      */
-    public class func listarUsingGET9WithRequestBuilder(page page: Int?, limit: Int?, id: Int?, nome: String?, flagAlteraLimite: Int?, mensagemConsultaNegada: String?, flagPermiteNovaViaCartao: Int?) -> RequestBuilder<PageStatusContas> {
+    public class func listarUsingGET12WithRequestBuilder(page page: Int?, limit: Int?, id: Int?, nome: String?, flagAlteraLimite: Int?, mensagemConsultaNegada: String?, flagPermiteNovaViaCartao: Int?) -> RequestBuilder<PageStatusContas> {
         let path = "/api/status-contas"
         let URLString = PierAPI.basePath + path
         
@@ -511,6 +441,76 @@ public class StatusParametrosAPI: APIBase {
         let parameters = APIHelper.rejectNil(nillableParameters)
 
         let requestBuilder: RequestBuilder<PageStatusContas>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
+    }
+
+    /**
+     
+     Lista as op\u00C3\u00A7\u00C3\u00B5es de Status Impress\u00C3\u00A3o
+     
+     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
+     - parameter id: (query) Id do est\u00C3\u00A1gio cart\u00C3\u00A3o (optional)
+     - parameter nome: (query) Nome do status impress\u00C3\u00A3o (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func listarUsingGET13(page page: Int?, limit: Int?, id: Int?, nome: String?, completion: ((data: PageStatusImpressao?, error: ErrorType?) -> Void)) {
+        listarUsingGET13WithRequestBuilder(page: page, limit: limit, id: id, nome: nome).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Lista as op\u00C3\u00A7\u00C3\u00B5es de Status Impress\u00C3\u00A3o
+     
+     - GET /api/status-impressoes
+     - Este m\u00C3\u00A9todo permite que sejam listadas as op\u00C3\u00A7\u00C3\u00B5es de Status Impress\u00C3\u00A3o que podem ser atribu\u00C3\u00ADdas aos Cart\u00C3\u00B5es.
+     - API Key:
+       - type: apiKey access_token 
+       - name: access_token
+     - examples: [{contentType=application/json, example={
+  "previousPage" : 123,
+  "last" : true,
+  "hasContent" : true,
+  "hasNextPage" : true,
+  "nextPage" : 123,
+  "content" : [ {
+    "nome" : "aeiou",
+    "id" : 123456789
+  } ],
+  "totalElements" : 123456789,
+  "number" : 123,
+  "firstPage" : true,
+  "numberOfElements" : 123,
+  "size" : 123,
+  "totalPages" : 123,
+  "hasPreviousPage" : true,
+  "first" : true
+}}]
+     
+     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
+     - parameter id: (query) Id do est\u00C3\u00A1gio cart\u00C3\u00A3o (optional)
+     - parameter nome: (query) Nome do status impress\u00C3\u00A3o (optional)
+
+     - returns: RequestBuilder<PageStatusImpressao> 
+     */
+    public class func listarUsingGET13WithRequestBuilder(page page: Int?, limit: Int?, id: Int?, nome: String?) -> RequestBuilder<PageStatusImpressao> {
+        let path = "/api/status-impressoes"
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [
+            "page": page,
+            "limit": limit,
+            "id": id,
+            "nome": nome
+        ]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<PageStatusImpressao>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
     }

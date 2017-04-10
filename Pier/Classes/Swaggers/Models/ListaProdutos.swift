@@ -11,7 +11,7 @@ import Foundation
 /** Lista de Produtos */
 public class ListaProdutos: JSONEncodable {
 
-    public var content: [Produto]?
+    public var content: [ProdutoResponse]?
     public var first: Bool?
     public var firstPage: Bool?
     public var hasContent: Bool?

@@ -23,8 +23,16 @@ public class Pessoa: JSONEncodable {
     public var cnpj: String?
     /** Data de Nascimento da Pessoa, quando PF, ou a Data de Abertura da Empresa, quando PJ. */
     public var dataNascimento: NSDate?
+    /** N\u00C3\u00BAmero da Identidade */
+    public var numeroIdentidade: String?
+    /** Org\u00C3\u00A3o expedidor do RG. */
+    public var orgaoExpedidorIdentidade: String?
     /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do sexo da Pessoa, quando PF, sendo: (\&quot;M\&quot;: Masculino), (\&quot;F\&quot;: Feminino), (\&quot;O\&quot;: Outro), (\&quot;N\&quot;: N\u00C3\u00A3o Especificado). */
     public var sexo: String?
+    /** Sigla da Unidade Federativa de onde foi expedido a Identidade */
+    public var unidadeFederativaIdentidade: String?
+    /** Data emiss\u00C3\u00A3o da identidade no formato aaaa-MM-dd */
+    public var dataEmissaoIdentidade: NSDate?
     
 
     public init() {}
@@ -38,7 +46,11 @@ public class Pessoa: JSONEncodable {
         nillableDictionary["cpf"] = self.cpf
         nillableDictionary["cnpj"] = self.cnpj
         nillableDictionary["dataNascimento"] = self.dataNascimento?.encodeToJSON()
+        nillableDictionary["numeroIdentidade"] = self.numeroIdentidade
+        nillableDictionary["orgaoExpedidorIdentidade"] = self.orgaoExpedidorIdentidade
         nillableDictionary["sexo"] = self.sexo
+        nillableDictionary["unidadeFederativaIdentidade"] = self.unidadeFederativaIdentidade
+        nillableDictionary["dataEmissaoIdentidade"] = self.dataEmissaoIdentidade?.encodeToJSON()
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

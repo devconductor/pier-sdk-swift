@@ -37,13 +37,13 @@ public class RiscoFraudeAPI: APIBase {
   "conteudoAtendimento" : "aeiou",
   "idConta" : 123456789,
   "descricaoTipoAtendimento" : "aeiou",
-  "dataProcessamento" : "2000-01-23T04:56:07.000+0000",
-  "dataAgendamento" : "2000-01-23T04:56:07.000+0000",
+  "dataProcessamento" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "dataAgendamento" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
   "flagProcessamento" : 123,
   "dataHoraFimAtendimento" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
   "detalhesAtendimento" : "aeiou",
   "idAtendimento" : 123456789,
-  "dataAtendimento" : "2000-01-23T04:56:07.000+0000",
+  "dataAtendimento" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
   "dataHoraInicioAtendimento" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
   "nomeAtendente" : "aeiou",
   "nomeSistema" : "aeiou",
@@ -74,8 +74,8 @@ public class RiscoFraudeAPI: APIBase {
      - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do risco de fraude 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET7(id id: Int, completion: ((data: RiscoFraudeDetalhadoResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET7WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET10(id id: Int, completion: ((data: RiscoFraudeDetalhadoResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET10WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -92,26 +92,38 @@ public class RiscoFraudeAPI: APIBase {
        - name: access_token
      - examples: [{contentType=application/json, example={
   "valorOrigem" : 1.3579000000000001069366817318950779736042022705078125,
-  "idCartao" : 123456789,
-  "idConta" : 123456789,
-  "codigoMoedaDestino" : "aeiou",
   "origemTransacao" : "aeiou",
   "codigoMoedaOrigem" : "aeiou",
   "idPais" : "aeiou",
-  "codigoModoEntradaTerminal" : "aeiou",
-  "valorDestino" : 1.3579000000000001069366817318950779736042022705078125,
-  "idTipoResolucao" : 123456789,
   "valorTransacao" : 1.3579000000000001069366817318950779736042022705078125,
+  "cnpj" : "aeiou",
   "dataTransacao" : "2000-01-23T04:56:07.000+0000",
-  "nomeEstabelecimento" : "aeiou",
-  "codigoRespostaFraude" : "aeiou",
-  "descricaoModoEntradaTerminal" : "aeiou",
   "idProduto" : 123456789,
   "descricaoTipoResolucao" : "aeiou",
   "descricaoRespostaAutorizador" : "aeiou",
-  "idTransacao" : 123456789,
+  "cpf" : "aeiou",
   "id" : 123456789,
   "flagAltoRisco" : false,
+  "email" : "aeiou",
+  "idCartao" : 123456789,
+  "idConta" : 123456789,
+  "codigoMoedaDestino" : "aeiou",
+  "codigoModoEntradaTerminal" : "aeiou",
+  "valorDestino" : 1.3579000000000001069366817318950779736042022705078125,
+  "idTipoResolucao" : 123456789,
+  "nomeEstabelecimento" : "aeiou",
+  "codigoRespostaFraude" : "aeiou",
+  "descricaoModoEntradaTerminal" : "aeiou",
+  "idTransacao" : 123456789,
+  "tefefones" : [ {
+    "idPessoa" : 123456789,
+    "telefone" : "aeiou",
+    "ddd" : "aeiou",
+    "idTipoTelefone" : 123456789,
+    "id" : 123456789,
+    "ramal" : "aeiou",
+    "status" : 123
+  } ],
   "descricaoRespostaFraude" : "aeiou",
   "codigoRespostaAutorizador" : "aeiou"
 }}]
@@ -120,7 +132,7 @@ public class RiscoFraudeAPI: APIBase {
 
      - returns: RequestBuilder<RiscoFraudeDetalhadoResponse> 
      */
-    public class func consultarUsingGET7WithRequestBuilder(id id: Int) -> RequestBuilder<RiscoFraudeDetalhadoResponse> {
+    public class func consultarUsingGET10WithRequestBuilder(id id: Int) -> RequestBuilder<RiscoFraudeDetalhadoResponse> {
         var path = "/api/riscos-fraudes/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -179,15 +191,14 @@ public class RiscoFraudeAPI: APIBase {
      
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
-     - parameter idAtendimento: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Atendimento (id) (optional)
      - parameter idTipoAtendimento: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Tipo de Atendimento (id) (optional)
      - parameter idConta: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o de conta (id). (optional)
      - parameter nomeAtendente: (query) Apresenta o nome do Atendente que registrou o Atendimento. (optional)
      - parameter dataAtendimento: (query) Apresenta a data em que o Atendimento foi realizado. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET(page page: Int?, limit: Int?, idAtendimento: Int?, idTipoAtendimento: Int?, idConta: Int?, nomeAtendente: String?, dataAtendimento: NSDate?, completion: ((data: PageAtendimentoClientes?, error: ErrorType?) -> Void)) {
-        listarUsingGETWithRequestBuilder(page: page, limit: limit, idAtendimento: idAtendimento, idTipoAtendimento: idTipoAtendimento, idConta: idConta, nomeAtendente: nomeAtendente, dataAtendimento: dataAtendimento).execute { (response, error) -> Void in
+    public class func listarUsingGET(page page: Int?, limit: Int?, idTipoAtendimento: Int?, idConta: Int?, nomeAtendente: String?, dataAtendimento: NSDate?, completion: ((data: PageAtendimentoClientes?, error: ErrorType?) -> Void)) {
+        listarUsingGETWithRequestBuilder(page: page, limit: limit, idTipoAtendimento: idTipoAtendimento, idConta: idConta, nomeAtendente: nomeAtendente, dataAtendimento: dataAtendimento).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -212,13 +223,13 @@ public class RiscoFraudeAPI: APIBase {
     "conteudoAtendimento" : "aeiou",
     "idConta" : 123456789,
     "descricaoTipoAtendimento" : "aeiou",
-    "dataProcessamento" : "2000-01-23T04:56:07.000+0000",
-    "dataAgendamento" : "2000-01-23T04:56:07.000+0000",
+    "dataProcessamento" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+    "dataAgendamento" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
     "flagProcessamento" : 123,
     "dataHoraFimAtendimento" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
     "detalhesAtendimento" : "aeiou",
     "idAtendimento" : 123456789,
-    "dataAtendimento" : "2000-01-23T04:56:07.000+0000",
+    "dataAtendimento" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
     "dataHoraInicioAtendimento" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
     "nomeAtendente" : "aeiou",
     "nomeSistema" : "aeiou",
@@ -236,7 +247,6 @@ public class RiscoFraudeAPI: APIBase {
      
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
-     - parameter idAtendimento: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Atendimento (id) (optional)
      - parameter idTipoAtendimento: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Tipo de Atendimento (id) (optional)
      - parameter idConta: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o de conta (id). (optional)
      - parameter nomeAtendente: (query) Apresenta o nome do Atendente que registrou o Atendimento. (optional)
@@ -244,14 +254,13 @@ public class RiscoFraudeAPI: APIBase {
 
      - returns: RequestBuilder<PageAtendimentoClientes> 
      */
-    public class func listarUsingGETWithRequestBuilder(page page: Int?, limit: Int?, idAtendimento: Int?, idTipoAtendimento: Int?, idConta: Int?, nomeAtendente: String?, dataAtendimento: NSDate?) -> RequestBuilder<PageAtendimentoClientes> {
+    public class func listarUsingGETWithRequestBuilder(page page: Int?, limit: Int?, idTipoAtendimento: Int?, idConta: Int?, nomeAtendente: String?, dataAtendimento: NSDate?) -> RequestBuilder<PageAtendimentoClientes> {
         let path = "/api/atendimento-clientes"
         let URLString = PierAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
             "page": page,
             "limit": limit,
-            "idAtendimento": idAtendimento,
             "idTipoAtendimento": idTipoAtendimento,
             "idConta": idConta,
             "nomeAtendente": nomeAtendente,
@@ -274,8 +283,8 @@ public class RiscoFraudeAPI: APIBase {
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET8(idConta idConta: Int, confirmacaoFraude: String, page: Int?, limit: Int?, completion: ((data: RiscoFraudeResponsePage?, error: ErrorType?) -> Void)) {
-        listarUsingGET8WithRequestBuilder(idConta: idConta, confirmacaoFraude: confirmacaoFraude, page: page, limit: limit).execute { (response, error) -> Void in
+    public class func listarUsingGET11(idConta idConta: Int, confirmacaoFraude: String, page: Int?, limit: Int?, completion: ((data: RiscoFraudeResponsePage?, error: ErrorType?) -> Void)) {
+        listarUsingGET11WithRequestBuilder(idConta: idConta, confirmacaoFraude: confirmacaoFraude, page: page, limit: limit).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -325,7 +334,7 @@ public class RiscoFraudeAPI: APIBase {
 
      - returns: RequestBuilder<RiscoFraudeResponsePage> 
      */
-    public class func listarUsingGET8WithRequestBuilder(idConta idConta: Int, confirmacaoFraude: String, page: Int?, limit: Int?) -> RequestBuilder<RiscoFraudeResponsePage> {
+    public class func listarUsingGET11WithRequestBuilder(idConta idConta: Int, confirmacaoFraude: String, page: Int?, limit: Int?) -> RequestBuilder<RiscoFraudeResponsePage> {
         let path = "/api/riscos-fraudes"
         let URLString = PierAPI.basePath + path
         
@@ -367,26 +376,38 @@ public class RiscoFraudeAPI: APIBase {
        - name: access_token
      - examples: [{contentType=application/json, example={
   "valorOrigem" : 1.3579000000000001069366817318950779736042022705078125,
-  "idCartao" : 123456789,
-  "idConta" : 123456789,
-  "codigoMoedaDestino" : "aeiou",
   "origemTransacao" : "aeiou",
   "codigoMoedaOrigem" : "aeiou",
   "idPais" : "aeiou",
-  "codigoModoEntradaTerminal" : "aeiou",
-  "valorDestino" : 1.3579000000000001069366817318950779736042022705078125,
-  "idTipoResolucao" : 123456789,
   "valorTransacao" : 1.3579000000000001069366817318950779736042022705078125,
+  "cnpj" : "aeiou",
   "dataTransacao" : "2000-01-23T04:56:07.000+0000",
-  "nomeEstabelecimento" : "aeiou",
-  "codigoRespostaFraude" : "aeiou",
-  "descricaoModoEntradaTerminal" : "aeiou",
   "idProduto" : 123456789,
   "descricaoTipoResolucao" : "aeiou",
   "descricaoRespostaAutorizador" : "aeiou",
-  "idTransacao" : 123456789,
+  "cpf" : "aeiou",
   "id" : 123456789,
   "flagAltoRisco" : false,
+  "email" : "aeiou",
+  "idCartao" : 123456789,
+  "idConta" : 123456789,
+  "codigoMoedaDestino" : "aeiou",
+  "codigoModoEntradaTerminal" : "aeiou",
+  "valorDestino" : 1.3579000000000001069366817318950779736042022705078125,
+  "idTipoResolucao" : 123456789,
+  "nomeEstabelecimento" : "aeiou",
+  "codigoRespostaFraude" : "aeiou",
+  "descricaoModoEntradaTerminal" : "aeiou",
+  "idTransacao" : 123456789,
+  "tefefones" : [ {
+    "idPessoa" : 123456789,
+    "telefone" : "aeiou",
+    "ddd" : "aeiou",
+    "idTipoTelefone" : 123456789,
+    "id" : 123456789,
+    "ramal" : "aeiou",
+    "status" : 123
+  } ],
   "descricaoRespostaFraude" : "aeiou",
   "codigoRespostaAutorizador" : "aeiou"
 }}]
@@ -433,26 +454,38 @@ public class RiscoFraudeAPI: APIBase {
        - name: access_token
      - examples: [{contentType=application/json, example={
   "valorOrigem" : 1.3579000000000001069366817318950779736042022705078125,
-  "idCartao" : 123456789,
-  "idConta" : 123456789,
-  "codigoMoedaDestino" : "aeiou",
   "origemTransacao" : "aeiou",
   "codigoMoedaOrigem" : "aeiou",
   "idPais" : "aeiou",
-  "codigoModoEntradaTerminal" : "aeiou",
-  "valorDestino" : 1.3579000000000001069366817318950779736042022705078125,
-  "idTipoResolucao" : 123456789,
   "valorTransacao" : 1.3579000000000001069366817318950779736042022705078125,
+  "cnpj" : "aeiou",
   "dataTransacao" : "2000-01-23T04:56:07.000+0000",
-  "nomeEstabelecimento" : "aeiou",
-  "codigoRespostaFraude" : "aeiou",
-  "descricaoModoEntradaTerminal" : "aeiou",
   "idProduto" : 123456789,
   "descricaoTipoResolucao" : "aeiou",
   "descricaoRespostaAutorizador" : "aeiou",
-  "idTransacao" : 123456789,
+  "cpf" : "aeiou",
   "id" : 123456789,
   "flagAltoRisco" : false,
+  "email" : "aeiou",
+  "idCartao" : 123456789,
+  "idConta" : 123456789,
+  "codigoMoedaDestino" : "aeiou",
+  "codigoModoEntradaTerminal" : "aeiou",
+  "valorDestino" : 1.3579000000000001069366817318950779736042022705078125,
+  "idTipoResolucao" : 123456789,
+  "nomeEstabelecimento" : "aeiou",
+  "codigoRespostaFraude" : "aeiou",
+  "descricaoModoEntradaTerminal" : "aeiou",
+  "idTransacao" : 123456789,
+  "tefefones" : [ {
+    "idPessoa" : 123456789,
+    "telefone" : "aeiou",
+    "ddd" : "aeiou",
+    "idTipoTelefone" : 123456789,
+    "id" : 123456789,
+    "ramal" : "aeiou",
+    "status" : 123
+  } ],
   "descricaoRespostaFraude" : "aeiou",
   "codigoRespostaAutorizador" : "aeiou"
 }}]
@@ -482,14 +515,15 @@ public class RiscoFraudeAPI: APIBase {
      - parameter conteudoAtendimento: (query) Apresenta as informa\u00C3\u00A7\u00C3\u00B5es que foram utilizadas para consultar, cadastrar ou alterar informa\u00C3\u00A7\u00C3\u00B5es relacionadas ao Atendimento. (optional)
      - parameter detalhesAtendimento: (query) Apresenta os detalhes lan\u00C3\u00A7ados pelo sistema ou pelo Atendente durante relacionados ao Atendimento. (optional)
      - parameter nomeAtendente: (query) Apresenta o nome do Atendente que registrou o Atendimento. (optional)
-     - parameter dataAtendimento: (query) Apresenta a data em que o Atendimento foi realizado. (optional)
-     - parameter dataAgendamento: (query) Quando utilizado, de acordo com o Tipo de Atendimento, apresenta a data para processamento ou a data para retorno do Atendimento. (optional)
-     - parameter dataHoraInicioAtendimento: (query) Apresenta a data e hora em que o Atendimento foi iniciado. Quando utilizado, serve para medir a performance dos Atendimentos. (optional)
-     - parameter dataHoraFimAtendimento: (query) Apresenta a data e hora em que o Atendimento foi iniciado. Quando utilizado, serve para medir a performance dos Atendimentos. (optional)
+     - parameter dataAtendimento: (query) Apresenta a data e hora em que o Atendimento foi realizado no formato yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSS&#39;Z&#39;. (optional)
+     - parameter dataAgendamento: (query) Quando utilizado, de acordo com o Tipo de Atendimento, apresenta a data e hora para processamento ou a data e hora para retorno do Atendimento no formato yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSS&#39;Z&#39;. (optional)
+     - parameter dataHoraInicioAtendimento: (query) Apresenta a data e hora em que o Atendimento foi iniciado. Quando utilizado, serve para medir a performance dos Atendimentos no formato yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSS&#39;Z&#39;. (optional)
+     - parameter dataHoraFimAtendimento: (query) Apresenta a data e hora em que o Atendimento foi iniciado. Quando utilizado, serve para medir a performance dos Atendimentos no formato yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSS&#39;Z&#39;. (optional)
+     - parameter flagFilaFraude: (query) Flag fila fraude (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func salvarUsingPOST(idConta idConta: Int?, conteudoAtendimento: String?, detalhesAtendimento: String?, nomeAtendente: String?, dataAtendimento: NSDate?, dataAgendamento: NSDate?, dataHoraInicioAtendimento: NSDate?, dataHoraFimAtendimento: NSDate?, completion: ((data: AtendimentoCliente?, error: ErrorType?) -> Void)) {
-        salvarUsingPOSTWithRequestBuilder(idConta: idConta, conteudoAtendimento: conteudoAtendimento, detalhesAtendimento: detalhesAtendimento, nomeAtendente: nomeAtendente, dataAtendimento: dataAtendimento, dataAgendamento: dataAgendamento, dataHoraInicioAtendimento: dataHoraInicioAtendimento, dataHoraFimAtendimento: dataHoraFimAtendimento).execute { (response, error) -> Void in
+    public class func salvarUsingPOST(idConta idConta: Int?, conteudoAtendimento: String?, detalhesAtendimento: String?, nomeAtendente: String?, dataAtendimento: NSDate?, dataAgendamento: NSDate?, dataHoraInicioAtendimento: NSDate?, dataHoraFimAtendimento: NSDate?, flagFilaFraude: Int?, completion: ((data: AtendimentoCliente?, error: ErrorType?) -> Void)) {
+        salvarUsingPOSTWithRequestBuilder(idConta: idConta, conteudoAtendimento: conteudoAtendimento, detalhesAtendimento: detalhesAtendimento, nomeAtendente: nomeAtendente, dataAtendimento: dataAtendimento, dataAgendamento: dataAgendamento, dataHoraInicioAtendimento: dataHoraInicioAtendimento, dataHoraFimAtendimento: dataHoraFimAtendimento, flagFilaFraude: flagFilaFraude).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -507,13 +541,13 @@ public class RiscoFraudeAPI: APIBase {
   "conteudoAtendimento" : "aeiou",
   "idConta" : 123456789,
   "descricaoTipoAtendimento" : "aeiou",
-  "dataProcessamento" : "2000-01-23T04:56:07.000+0000",
-  "dataAgendamento" : "2000-01-23T04:56:07.000+0000",
+  "dataProcessamento" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "dataAgendamento" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
   "flagProcessamento" : 123,
   "dataHoraFimAtendimento" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
   "detalhesAtendimento" : "aeiou",
   "idAtendimento" : 123456789,
-  "dataAtendimento" : "2000-01-23T04:56:07.000+0000",
+  "dataAtendimento" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
   "dataHoraInicioAtendimento" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
   "nomeAtendente" : "aeiou",
   "nomeSistema" : "aeiou",
@@ -524,14 +558,15 @@ public class RiscoFraudeAPI: APIBase {
      - parameter conteudoAtendimento: (query) Apresenta as informa\u00C3\u00A7\u00C3\u00B5es que foram utilizadas para consultar, cadastrar ou alterar informa\u00C3\u00A7\u00C3\u00B5es relacionadas ao Atendimento. (optional)
      - parameter detalhesAtendimento: (query) Apresenta os detalhes lan\u00C3\u00A7ados pelo sistema ou pelo Atendente durante relacionados ao Atendimento. (optional)
      - parameter nomeAtendente: (query) Apresenta o nome do Atendente que registrou o Atendimento. (optional)
-     - parameter dataAtendimento: (query) Apresenta a data em que o Atendimento foi realizado. (optional)
-     - parameter dataAgendamento: (query) Quando utilizado, de acordo com o Tipo de Atendimento, apresenta a data para processamento ou a data para retorno do Atendimento. (optional)
-     - parameter dataHoraInicioAtendimento: (query) Apresenta a data e hora em que o Atendimento foi iniciado. Quando utilizado, serve para medir a performance dos Atendimentos. (optional)
-     - parameter dataHoraFimAtendimento: (query) Apresenta a data e hora em que o Atendimento foi iniciado. Quando utilizado, serve para medir a performance dos Atendimentos. (optional)
+     - parameter dataAtendimento: (query) Apresenta a data e hora em que o Atendimento foi realizado no formato yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSS&#39;Z&#39;. (optional)
+     - parameter dataAgendamento: (query) Quando utilizado, de acordo com o Tipo de Atendimento, apresenta a data e hora para processamento ou a data e hora para retorno do Atendimento no formato yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSS&#39;Z&#39;. (optional)
+     - parameter dataHoraInicioAtendimento: (query) Apresenta a data e hora em que o Atendimento foi iniciado. Quando utilizado, serve para medir a performance dos Atendimentos no formato yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSS&#39;Z&#39;. (optional)
+     - parameter dataHoraFimAtendimento: (query) Apresenta a data e hora em que o Atendimento foi iniciado. Quando utilizado, serve para medir a performance dos Atendimentos no formato yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSS&#39;Z&#39;. (optional)
+     - parameter flagFilaFraude: (query) Flag fila fraude (optional)
 
      - returns: RequestBuilder<AtendimentoCliente> 
      */
-    public class func salvarUsingPOSTWithRequestBuilder(idConta idConta: Int?, conteudoAtendimento: String?, detalhesAtendimento: String?, nomeAtendente: String?, dataAtendimento: NSDate?, dataAgendamento: NSDate?, dataHoraInicioAtendimento: NSDate?, dataHoraFimAtendimento: NSDate?) -> RequestBuilder<AtendimentoCliente> {
+    public class func salvarUsingPOSTWithRequestBuilder(idConta idConta: Int?, conteudoAtendimento: String?, detalhesAtendimento: String?, nomeAtendente: String?, dataAtendimento: NSDate?, dataAgendamento: NSDate?, dataHoraInicioAtendimento: NSDate?, dataHoraFimAtendimento: NSDate?, flagFilaFraude: Int?) -> RequestBuilder<AtendimentoCliente> {
         let path = "/api/atendimento-clientes"
         let URLString = PierAPI.basePath + path
         
@@ -543,7 +578,8 @@ public class RiscoFraudeAPI: APIBase {
             "dataAtendimento": dataAtendimento,
             "dataAgendamento": dataAgendamento,
             "dataHoraInicioAtendimento": dataHoraInicioAtendimento,
-            "dataHoraFimAtendimento": dataHoraFimAtendimento
+            "dataHoraFimAtendimento": dataHoraFimAtendimento,
+            "flagFilaFraude": flagFilaFraude
         ]
         let parameters = APIHelper.rejectNil(nillableParameters)
 

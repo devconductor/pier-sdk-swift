@@ -37,6 +37,8 @@ public class Conta: JSONEncodable {
     public var valorRenda: Double?
     /** N\u00C3\u00BAmero da conta corrente. */
     public var numeroContaCorrente: String?
+    /** Forma de envio da fatura. */
+    public var formaEnvioFatura: String?
     
 
     public init() {}
@@ -57,6 +59,7 @@ public class Conta: JSONEncodable {
         nillableDictionary["numeroAgencia"] = self.numeroAgencia
         nillableDictionary["valorRenda"] = self.valorRenda
         nillableDictionary["numeroContaCorrente"] = self.numeroContaCorrente
+        nillableDictionary["formaEnvioFatura"] = self.formaEnvioFatura
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

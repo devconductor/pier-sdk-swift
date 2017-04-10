@@ -17,7 +17,7 @@ public class FAQ: JSONEncodable {
     }
     
     /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da FAQ (id). */
-    public var idFaq: Int?
+    public var id: Int?
     /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Emissor de qual a FAQ \u00C3\u00A9 relacionada (id). */
     public var idEmissor: Int?
     /** Conte\u00C3\u00BAdo da pergunta. */
@@ -39,7 +39,7 @@ public class FAQ: JSONEncodable {
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
-        nillableDictionary["idFaq"] = self.idFaq
+        nillableDictionary["id"] = self.id
         nillableDictionary["idEmissor"] = self.idEmissor
         nillableDictionary["pergunta"] = self.pergunta
         nillableDictionary["resposta"] = self.resposta

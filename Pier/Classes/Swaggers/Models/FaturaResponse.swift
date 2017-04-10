@@ -11,22 +11,34 @@ import Foundation
 /** Fatura */
 public class FaturaResponse: JSONEncodable {
 
-    /** C\u00C3\u00B3digo identificador do tipo de boleto. */
+    /** C\u00C3\u00B3digo identificador da fatura. */
     public var id: Int?
-    /** Descri\u00C3\u00A7\u00C3\u00A3o do tipo de boleto. */
-    public var descricao: String?
-    /** C\u00C3\u00B3digo identificador do banco. */
-    public var banco: Int?
-    /** Faixa permitida para cria\u00C3\u00A7\u00C3\u00A3o do nosso n\u00C3\u00BAmero. */
-    public var faixaNossoNumero: Int?
-    /** N\u00C3\u00BAmero minimo para o nosso n\u00C3\u00BAmero. */
-    public var minNossoNumero: Double?
-    /** N\u00C3\u00BAmero m\u00C3\u00A1ximo para o nosso n\u00C3\u00BAmero. */
-    public var maxNossoNumero: Double?
-    /** Tamanho do nosso n\u00C3\u00BAmero. */
-    public var tamNossoNumero: Int?
-    /** \u00C3\u009Altimo nosso n\u00C3\u00BAmero utilizado. */
-    public var ultimoNossoNumero: Double?
+    /** C\u00C3\u00B3digo identificador da conta. */
+    public var idConta: Int?
+    /** C\u00C3\u00B3digo identificador do produto. */
+    public var idProduto: Int?
+    /** Data de vencimento da fatura. */
+    public var dataVencimento: NSDate?
+    /** Saldo da fatura anterior. */
+    public var saldoFaturaAnterior: Double?
+    /** Saldo total da Multa lan\u00C3\u00A7ada na Fatura atual. */
+    public var saldoMulta: Double?
+    /** Saldo total das compras lan\u00C3\u00A7adas na fatura atual. */
+    public var saldoCompras: Double?
+    /** Saldo total dos pagamentos lan\u00C3\u00A7ados na fatura atual. */
+    public var saldoPagamentos: Double?
+    /** Saldo total das tarifas lan\u00C3\u00A7adas na fatura atual. */
+    public var saldoTarifas: Double?
+    /** Saldo total dos d\u00C3\u00A9bitos lan\u00C3\u00A7ados na fatura atual. */
+    public var saldoDebitos: Double?
+    /** Saldo total dos cr\u00C3\u00A9dito lan\u00C3\u00A7ados na fatura atual. */
+    public var saldoCreditos: Double?
+    /** Salto total devedor da fatura atual. */
+    public var saldoAtualFinal: Double?
+    /** Valor m\u00C3\u00ADnimo para pagamento da fatura. */
+    public var valorMinimoFatura: Double?
+    /** Quando ativa, indica que fora emitida uma fatura. */
+    public var flagEmiteFatura: Int?
     
 
     public init() {}
@@ -35,13 +47,19 @@ public class FaturaResponse: JSONEncodable {
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
         nillableDictionary["id"] = self.id
-        nillableDictionary["descricao"] = self.descricao
-        nillableDictionary["banco"] = self.banco
-        nillableDictionary["faixaNossoNumero"] = self.faixaNossoNumero
-        nillableDictionary["minNossoNumero"] = self.minNossoNumero
-        nillableDictionary["maxNossoNumero"] = self.maxNossoNumero
-        nillableDictionary["tamNossoNumero"] = self.tamNossoNumero
-        nillableDictionary["ultimoNossoNumero"] = self.ultimoNossoNumero
+        nillableDictionary["idConta"] = self.idConta
+        nillableDictionary["idProduto"] = self.idProduto
+        nillableDictionary["dataVencimento"] = self.dataVencimento?.encodeToJSON()
+        nillableDictionary["saldoFaturaAnterior"] = self.saldoFaturaAnterior
+        nillableDictionary["saldoMulta"] = self.saldoMulta
+        nillableDictionary["saldoCompras"] = self.saldoCompras
+        nillableDictionary["saldoPagamentos"] = self.saldoPagamentos
+        nillableDictionary["saldoTarifas"] = self.saldoTarifas
+        nillableDictionary["saldoDebitos"] = self.saldoDebitos
+        nillableDictionary["saldoCreditos"] = self.saldoCreditos
+        nillableDictionary["saldoAtualFinal"] = self.saldoAtualFinal
+        nillableDictionary["valorMinimoFatura"] = self.valorMinimoFatura
+        nillableDictionary["flagEmiteFatura"] = self.flagEmiteFatura
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }
