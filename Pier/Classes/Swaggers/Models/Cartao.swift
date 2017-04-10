@@ -47,6 +47,8 @@ public class Cartao: JSONEncodable {
     public var flagProvisorio: Int?
     /** Apresenta um c\u00C3\u00B3digo espec\u00C3\u00ADfico para ser utilizado como vari\u00C3\u00A1vel no processo de desbloqueio do cart\u00C3\u00A3o para emissores que querem usar esta funcionalidade. */
     public var codigoDesbloqueio: String?
+    /** N\u00C3\u00BAmero sequencial do cart\u00C3\u00A3o */
+    public var sequencialCartao: Int?
     
 
     public init() {}
@@ -72,6 +74,7 @@ public class Cartao: JSONEncodable {
         nillableDictionary["flagImpressaoOrigemComercial"] = self.flagImpressaoOrigemComercial
         nillableDictionary["flagProvisorio"] = self.flagProvisorio
         nillableDictionary["codigoDesbloqueio"] = self.codigoDesbloqueio
+        nillableDictionary["sequencialCartao"] = self.sequencialCartao
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

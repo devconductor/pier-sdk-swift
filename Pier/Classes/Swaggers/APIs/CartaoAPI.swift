@@ -142,6 +142,7 @@ public class CartaoAPI: APIBase {
   "idStatusCartao" : 123456789,
   "dataEstagioCartao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
   "flagImpressaoOrigemComercial" : 123,
+  "sequencialCartao" : 123,
   "id" : 123456789,
   "nomeImpresso" : "aeiou",
   "dataImpressao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
@@ -208,6 +209,7 @@ public class CartaoAPI: APIBase {
   "idStatusCartao" : 123456789,
   "dataEstagioCartao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
   "flagImpressaoOrigemComercial" : 123,
+  "sequencialCartao" : 123,
   "id" : 123456789,
   "nomeImpresso" : "aeiou",
   "dataImpressao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
@@ -486,6 +488,7 @@ public class CartaoAPI: APIBase {
   "idStatusCartao" : 123456789,
   "dataEstagioCartao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
   "flagImpressaoOrigemComercial" : 123,
+  "sequencialCartao" : 123,
   "id" : 123456789,
   "nomeImpresso" : "aeiou",
   "dataImpressao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
@@ -623,6 +626,7 @@ public class CartaoAPI: APIBase {
   "idStatusCartao" : 123456789,
   "dataEstagioCartao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
   "flagImpressaoOrigemComercial" : 123,
+  "sequencialCartao" : 123,
   "id" : 123456789,
   "nomeImpresso" : "aeiou",
   "dataImpressao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
@@ -753,6 +757,7 @@ public class CartaoAPI: APIBase {
   "idStatusCartao" : 123456789,
   "dataEstagioCartao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
   "flagImpressaoOrigemComercial" : 123,
+  "sequencialCartao" : 123,
   "id" : 123456789,
   "nomeImpresso" : "aeiou",
   "dataImpressao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
@@ -993,10 +998,11 @@ public class CartaoAPI: APIBase {
      - parameter flagImpressaoOrigemComercial: (query) Quando ativa, indica que o cart\u00C3\u00A3o fora impresso na Origem Comercial. (optional)
      - parameter flagProvisorio: (query) Quando ativa, indica que o cart\u00C3\u00A3o \u00C3\u00A9 provis\u00C3\u00B3rio. Ou seja, \u00C3\u00A9 um cart\u00C3\u00A3o para uso tempor\u00C3\u00A1rio quando se deseja permitir que o cliente transacione sem que ele tenha recebido um cart\u00C3\u00A3o definitivo. (optional)
      - parameter codigoDesbloqueio: (query) Apresenta um c\u00C3\u00B3digo espec\u00C3\u00ADfico para ser utilizado como vari\u00C3\u00A1vel no processo de desbloqueio do cart\u00C3\u00A3o para emissores que querem usar esta funcionalidade. (optional)
+     - parameter sequencialCartao: (query) N\u00C3\u00BAmero sequencial do cart\u00C3\u00A3o (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET2(page page: Int?, limit: Int?, idStatusCartao: Int?, idEstagioCartao: Int?, idConta: Int?, idPessoa: Int?, idProduto: Int?, tipoPortador: String?, numeroCartao: String?, nomeImpresso: String?, dataGeracao: NSDate?, dataStatusCartao: NSDate?, dataEstagioCartao: NSDate?, dataValidade: String?, dataImpressao: NSDate?, arquivoImpressao: String?, flagImpressaoOrigemComercial: Int?, flagProvisorio: Int?, codigoDesbloqueio: String?, completion: ((data: PageCartoes?, error: ErrorType?) -> Void)) {
-        listarUsingGET2WithRequestBuilder(page: page, limit: limit, idStatusCartao: idStatusCartao, idEstagioCartao: idEstagioCartao, idConta: idConta, idPessoa: idPessoa, idProduto: idProduto, tipoPortador: tipoPortador, numeroCartao: numeroCartao, nomeImpresso: nomeImpresso, dataGeracao: dataGeracao, dataStatusCartao: dataStatusCartao, dataEstagioCartao: dataEstagioCartao, dataValidade: dataValidade, dataImpressao: dataImpressao, arquivoImpressao: arquivoImpressao, flagImpressaoOrigemComercial: flagImpressaoOrigemComercial, flagProvisorio: flagProvisorio, codigoDesbloqueio: codigoDesbloqueio).execute { (response, error) -> Void in
+    public class func listarUsingGET2(page page: Int?, limit: Int?, idStatusCartao: Int?, idEstagioCartao: Int?, idConta: Int?, idPessoa: Int?, idProduto: Int?, tipoPortador: String?, numeroCartao: String?, nomeImpresso: String?, dataGeracao: NSDate?, dataStatusCartao: NSDate?, dataEstagioCartao: NSDate?, dataValidade: String?, dataImpressao: NSDate?, arquivoImpressao: String?, flagImpressaoOrigemComercial: Int?, flagProvisorio: Int?, codigoDesbloqueio: String?, sequencialCartao: Int?, completion: ((data: PageCartoes?, error: ErrorType?) -> Void)) {
+        listarUsingGET2WithRequestBuilder(page: page, limit: limit, idStatusCartao: idStatusCartao, idEstagioCartao: idEstagioCartao, idConta: idConta, idPessoa: idPessoa, idProduto: idProduto, tipoPortador: tipoPortador, numeroCartao: numeroCartao, nomeImpresso: nomeImpresso, dataGeracao: dataGeracao, dataStatusCartao: dataStatusCartao, dataEstagioCartao: dataEstagioCartao, dataValidade: dataValidade, dataImpressao: dataImpressao, arquivoImpressao: arquivoImpressao, flagImpressaoOrigemComercial: flagImpressaoOrigemComercial, flagProvisorio: flagProvisorio, codigoDesbloqueio: codigoDesbloqueio, sequencialCartao: sequencialCartao).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -1031,6 +1037,7 @@ public class CartaoAPI: APIBase {
     "idStatusCartao" : 123456789,
     "dataEstagioCartao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
     "flagImpressaoOrigemComercial" : 123,
+    "sequencialCartao" : 123,
     "id" : 123456789,
     "nomeImpresso" : "aeiou",
     "dataImpressao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
@@ -1066,10 +1073,11 @@ public class CartaoAPI: APIBase {
      - parameter flagImpressaoOrigemComercial: (query) Quando ativa, indica que o cart\u00C3\u00A3o fora impresso na Origem Comercial. (optional)
      - parameter flagProvisorio: (query) Quando ativa, indica que o cart\u00C3\u00A3o \u00C3\u00A9 provis\u00C3\u00B3rio. Ou seja, \u00C3\u00A9 um cart\u00C3\u00A3o para uso tempor\u00C3\u00A1rio quando se deseja permitir que o cliente transacione sem que ele tenha recebido um cart\u00C3\u00A3o definitivo. (optional)
      - parameter codigoDesbloqueio: (query) Apresenta um c\u00C3\u00B3digo espec\u00C3\u00ADfico para ser utilizado como vari\u00C3\u00A1vel no processo de desbloqueio do cart\u00C3\u00A3o para emissores que querem usar esta funcionalidade. (optional)
+     - parameter sequencialCartao: (query) N\u00C3\u00BAmero sequencial do cart\u00C3\u00A3o (optional)
 
      - returns: RequestBuilder<PageCartoes> 
      */
-    public class func listarUsingGET2WithRequestBuilder(page page: Int?, limit: Int?, idStatusCartao: Int?, idEstagioCartao: Int?, idConta: Int?, idPessoa: Int?, idProduto: Int?, tipoPortador: String?, numeroCartao: String?, nomeImpresso: String?, dataGeracao: NSDate?, dataStatusCartao: NSDate?, dataEstagioCartao: NSDate?, dataValidade: String?, dataImpressao: NSDate?, arquivoImpressao: String?, flagImpressaoOrigemComercial: Int?, flagProvisorio: Int?, codigoDesbloqueio: String?) -> RequestBuilder<PageCartoes> {
+    public class func listarUsingGET2WithRequestBuilder(page page: Int?, limit: Int?, idStatusCartao: Int?, idEstagioCartao: Int?, idConta: Int?, idPessoa: Int?, idProduto: Int?, tipoPortador: String?, numeroCartao: String?, nomeImpresso: String?, dataGeracao: NSDate?, dataStatusCartao: NSDate?, dataEstagioCartao: NSDate?, dataValidade: String?, dataImpressao: NSDate?, arquivoImpressao: String?, flagImpressaoOrigemComercial: Int?, flagProvisorio: Int?, codigoDesbloqueio: String?, sequencialCartao: Int?) -> RequestBuilder<PageCartoes> {
         let path = "/api/cartoes"
         let URLString = PierAPI.basePath + path
         
@@ -1092,7 +1100,8 @@ public class CartaoAPI: APIBase {
             "arquivoImpressao": arquivoImpressao,
             "flagImpressaoOrigemComercial": flagImpressaoOrigemComercial,
             "flagProvisorio": flagProvisorio,
-            "codigoDesbloqueio": codigoDesbloqueio
+            "codigoDesbloqueio": codigoDesbloqueio,
+            "sequencialCartao": sequencialCartao
         ]
         let parameters = APIHelper.rejectNil(nillableParameters)
 
