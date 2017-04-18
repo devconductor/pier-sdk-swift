@@ -11,10 +11,10 @@ import Foundation
 /** Objeto DetalheOportunidade */
 public class DetalheOportunidadePersist: JSONEncodable {
 
-    /** Conte\u00C3\u00BAdo do detalhe */
-    public var conteudo: String?
     /** Nome do conte\u00C3\u00BAdo */
     public var nomeCampo: String?
+    /** Conte\u00C3\u00BAdo do detalhe */
+    public var conteudo: String?
     
 
     public init() {}
@@ -22,8 +22,8 @@ public class DetalheOportunidadePersist: JSONEncodable {
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
-        nillableDictionary["conteudo"] = self.conteudo
         nillableDictionary["nomeCampo"] = self.nomeCampo
+        nillableDictionary["conteudo"] = self.conteudo
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

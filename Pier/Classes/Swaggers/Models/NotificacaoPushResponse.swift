@@ -22,6 +22,7 @@ public class NotificacaoPushResponse: JSONEncodable {
         case Respondido = "RESPONDIDO"
         case Erro = "ERRO"
         case ErroResposta = "ERRO_RESPOSTA"
+        case SucessoResposta = "SUCESSO_RESPOSTA"
     }
     
     public enum Plataforma: String { 

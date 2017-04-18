@@ -28,11 +28,11 @@ public class TransacoesCorrentes: JSONEncodable {
     /** Nome completo do Portador do Cart\u00C3\u00A3o. */
     public var nomePortador: String?
     /** Data em que a Transa\u00C3\u00A7\u00C3\u00A3o foi realizada sob o padr\u00C3\u00A3o de Tempo Universal Coordenado (UTC). */
-    public var dataTransacaoUTC: String?
+    public var dataTransacaoUTC: NSDate?
     /** Data de Faturamento da Transa\u00C3\u00A7\u00C3\u00A3o. */
     public var dataFaturamento: NSDate?
     /** Data de Vencimento da Fatura. */
-    public var dataVencimento: String?
+    public var dataVencimento: NSDate?
     /** Descreve o modo utilizado para realizar a leitura dos dados do cart\u00C3\u00A3o para realizar a Transa\u00C3\u00A7\u00C3\u00A3o. */
     public var modoEntradaTransacao: String?
     /** Valor da Taxa de Embarque em Real (BRL) quando a transa\u00C3\u00A7\u00C3\u00A3o for relacionada a Compra de Passagens A\u00C3\u00A9reas. */
@@ -41,10 +41,10 @@ public class TransacoesCorrentes: JSONEncodable {
     public var valorEntrada: Double?
     /** Valor da Transa\u00C3\u00A7\u00C3\u00A3o em Real (BRL). */
     public var valorBRL: Double?
-    /** Valor do D\u00C3\u00B3lar Americano (USD) convertido em Real (BRL). */
-    public var cotacaoUSD: Double?
     /** Valor da Transa\u00C3\u00A7\u00C3\u00A3o em D\u00C3\u00B3lar Americano (USD). */
     public var valorUSD: Double?
+    /** Valor do D\u00C3\u00B3lar Americano (USD) convertido em Real (BRL). */
+    public var cotacaoUSD: Double?
     /** Data de Fechamento da Cota\u00C3\u00A7\u00C3\u00A3o do D\u00C3\u00B3lar Americano (USD). */
     public var dataCotacaoUSD: NSDate?
     /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Moeda utilizada na Transa\u00C3\u00A7\u00C3\u00A3o, seguindo padr\u00C3\u00A3o ISO 4217. */
@@ -94,15 +94,15 @@ public class TransacoesCorrentes: JSONEncodable {
         nillableDictionary["idConta"] = self.idConta
         nillableDictionary["cartaoMascarado"] = self.cartaoMascarado
         nillableDictionary["nomePortador"] = self.nomePortador
-        nillableDictionary["dataTransacaoUTC"] = self.dataTransacaoUTC
+        nillableDictionary["dataTransacaoUTC"] = self.dataTransacaoUTC?.encodeToJSON()
         nillableDictionary["dataFaturamento"] = self.dataFaturamento?.encodeToJSON()
-        nillableDictionary["dataVencimento"] = self.dataVencimento
+        nillableDictionary["dataVencimento"] = self.dataVencimento?.encodeToJSON()
         nillableDictionary["modoEntradaTransacao"] = self.modoEntradaTransacao
         nillableDictionary["valorTaxaEmbarque"] = self.valorTaxaEmbarque
         nillableDictionary["valorEntrada"] = self.valorEntrada
         nillableDictionary["valorBRL"] = self.valorBRL
-        nillableDictionary["cotacaoUSD"] = self.cotacaoUSD
         nillableDictionary["valorUSD"] = self.valorUSD
+        nillableDictionary["cotacaoUSD"] = self.cotacaoUSD
         nillableDictionary["dataCotacaoUSD"] = self.dataCotacaoUSD?.encodeToJSON()
         nillableDictionary["codigoMoedaOrigem"] = self.codigoMoedaOrigem
         nillableDictionary["codigoMoedaDestino"] = self.codigoMoedaDestino

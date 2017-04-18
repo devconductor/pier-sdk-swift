@@ -23,6 +23,7 @@ public class SMS: JSONEncodable {
         case Respondido = "RESPONDIDO"
         case Erro = "ERRO"
         case ErroResposta = "ERRO_RESPOSTA"
+        case SucessoResposta = "SUCESSO_RESPOSTA"
     }
     
     /** C\u00C3\u00B3digo Identificador. */

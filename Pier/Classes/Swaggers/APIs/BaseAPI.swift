@@ -16,8 +16,8 @@ public class BaseAPI: APIBase {
      
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func clearUsingPOST(completion: ((data: BodyAccessToken?, error: ErrorType?) -> Void)) {
-        clearUsingPOSTWithRequestBuilder().execute { (response, error) -> Void in
+    public class func limparUsingPOST(completion: ((data: BodyAccessToken?, error: ErrorType?) -> Void)) {
+        limparUsingPOSTWithRequestBuilder().execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -47,7 +47,7 @@ public class BaseAPI: APIBase {
 
      - returns: RequestBuilder<BodyAccessToken> 
      */
-    public class func clearUsingPOSTWithRequestBuilder() -> RequestBuilder<BodyAccessToken> {
+    public class func limparUsingPOSTWithRequestBuilder() -> RequestBuilder<BodyAccessToken> {
         let path = "/api/bases/limpar"
         let URLString = PierAPI.basePath + path
         
