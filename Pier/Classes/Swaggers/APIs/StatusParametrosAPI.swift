@@ -30,9 +30,6 @@ public class StatusParametrosAPI: APIBase {
      
      - GET /api/estagios-cartoes/{id}
      - Este m\u00C3\u00A9todo permite consultar os par\u00C3\u00A2metros de um determinado Est\u00C3\u00A1gio de Entrega do Cart\u00C3\u00A3o a partir do seu c\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o (id).
-     - API Key:
-       - type: apiKey access_token 
-       - name: access_token
      - examples: [{contentType=application/json, example={
   "nome" : "aeiou",
   "id" : 123456789
@@ -75,9 +72,6 @@ public class StatusParametrosAPI: APIBase {
      
      - GET /api/status-cartoes/{id}
      - Este m\u00C3\u00A9todo permite consultar os par\u00C3\u00A2metros de um determinado Status de Cart\u00C3\u00A3o a partir do seu c\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o (id).
-     - API Key:
-       - type: apiKey access_token 
-       - name: access_token
      - examples: [{contentType=application/json, example={
   "flagCancelaCartao" : 123,
   "flagCancelaNoDesbloqueio" : 123,
@@ -126,9 +120,6 @@ public class StatusParametrosAPI: APIBase {
      
      - GET /api/status-contas/{id}
      - Este m\u00C3\u00A9todo permite consultar os par\u00C3\u00A2metros de um determinado Status Conta a partir do seu c\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o (id).
-     - API Key:
-       - type: apiKey access_token 
-       - name: access_token
      - examples: [{contentType=application/json, example={
   "mensagemConsultaNegada" : "aeiou",
   "nome" : "aeiou",
@@ -174,9 +165,6 @@ public class StatusParametrosAPI: APIBase {
      
      - GET /api/status-impressoes/{id}
      - Este m\u00C3\u00A9todo permite consultar os par\u00C3\u00A2metros de um determinado Status de Impress\u00C3\u00A3o do Cart\u00C3\u00A3o a partir do seu c\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o (id).
-     - API Key:
-       - type: apiKey access_token 
-       - name: access_token
      - examples: [{contentType=application/json, example={
   "nome" : "aeiou",
   "id" : 123456789
@@ -222,9 +210,6 @@ public class StatusParametrosAPI: APIBase {
      
      - GET /api/estagios-cartoes
      - Este m\u00C3\u00A9todo permite que sejam listadas as op\u00C3\u00A7\u00C3\u00B5es de Est\u00C3\u00A1gio de Entrega que podem ser atribu\u00C3\u00ADdas aos Cart\u00C3\u00B5es.
-     - API Key:
-       - type: apiKey access_token 
-       - name: access_token
      - examples: [{contentType=application/json, example={
   "previousPage" : 123,
   "last" : true,
@@ -298,9 +283,6 @@ public class StatusParametrosAPI: APIBase {
      
      - GET /api/status-cartoes
      - Este m\u00C3\u00A9todo permite que sejam listadas as possibilidades de Status que podem ser atribu\u00C3\u00ADdas aos Cart\u00C3\u00B5es.
-     - API Key:
-       - type: apiKey access_token 
-       - name: access_token
      - examples: [{contentType=application/json, example={
   "previousPage" : 123,
   "last" : true,
@@ -376,8 +358,8 @@ public class StatusParametrosAPI: APIBase {
      - parameter flagPermiteNovaViaCartao: (query) Par\u00C3\u00A2metro que define se o Status da conta permite a solicita\u00C3\u00A7\u00C3\u00A3o de um novo cart\u00C3\u00A3o, sendo: 0: Inativo e 1: Ativo. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET12(page page: Int?, limit: Int?, id: Int?, nome: String?, flagAlteraLimite: Int?, mensagemConsultaNegada: String?, flagPermiteNovaViaCartao: Int?, completion: ((data: PageStatusContas?, error: ErrorType?) -> Void)) {
-        listarUsingGET12WithRequestBuilder(page: page, limit: limit, id: id, nome: nome, flagAlteraLimite: flagAlteraLimite, mensagemConsultaNegada: mensagemConsultaNegada, flagPermiteNovaViaCartao: flagPermiteNovaViaCartao).execute { (response, error) -> Void in
+    public class func listarUsingGET15(page page: Int?, limit: Int?, id: Int?, nome: String?, flagAlteraLimite: Int?, mensagemConsultaNegada: String?, flagPermiteNovaViaCartao: Int?, completion: ((data: PageStatusContas?, error: ErrorType?) -> Void)) {
+        listarUsingGET15WithRequestBuilder(page: page, limit: limit, id: id, nome: nome, flagAlteraLimite: flagAlteraLimite, mensagemConsultaNegada: mensagemConsultaNegada, flagPermiteNovaViaCartao: flagPermiteNovaViaCartao).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -389,9 +371,6 @@ public class StatusParametrosAPI: APIBase {
      
      - GET /api/status-contas
      - Este m\u00C3\u00A9todo permite que sejam listados os Status Contas existentes na base de dados do Emissor.
-     - API Key:
-       - type: apiKey access_token 
-       - name: access_token
      - examples: [{contentType=application/json, example={
   "previousPage" : 123,
   "last" : true,
@@ -425,7 +404,7 @@ public class StatusParametrosAPI: APIBase {
 
      - returns: RequestBuilder<PageStatusContas> 
      */
-    public class func listarUsingGET12WithRequestBuilder(page page: Int?, limit: Int?, id: Int?, nome: String?, flagAlteraLimite: Int?, mensagemConsultaNegada: String?, flagPermiteNovaViaCartao: Int?) -> RequestBuilder<PageStatusContas> {
+    public class func listarUsingGET15WithRequestBuilder(page page: Int?, limit: Int?, id: Int?, nome: String?, flagAlteraLimite: Int?, mensagemConsultaNegada: String?, flagPermiteNovaViaCartao: Int?) -> RequestBuilder<PageStatusContas> {
         let path = "/api/status-contas"
         let URLString = PierAPI.basePath + path
         
@@ -455,8 +434,8 @@ public class StatusParametrosAPI: APIBase {
      - parameter nome: (query) Nome do status impress\u00C3\u00A3o (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET13(page page: Int?, limit: Int?, id: Int?, nome: String?, completion: ((data: PageStatusImpressao?, error: ErrorType?) -> Void)) {
-        listarUsingGET13WithRequestBuilder(page: page, limit: limit, id: id, nome: nome).execute { (response, error) -> Void in
+    public class func listarUsingGET16(page page: Int?, limit: Int?, id: Int?, nome: String?, completion: ((data: PageStatusImpressao?, error: ErrorType?) -> Void)) {
+        listarUsingGET16WithRequestBuilder(page: page, limit: limit, id: id, nome: nome).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -468,9 +447,6 @@ public class StatusParametrosAPI: APIBase {
      
      - GET /api/status-impressoes
      - Este m\u00C3\u00A9todo permite que sejam listadas as op\u00C3\u00A7\u00C3\u00B5es de Status Impress\u00C3\u00A3o que podem ser atribu\u00C3\u00ADdas aos Cart\u00C3\u00B5es.
-     - API Key:
-       - type: apiKey access_token 
-       - name: access_token
      - examples: [{contentType=application/json, example={
   "previousPage" : 123,
   "last" : true,
@@ -498,7 +474,7 @@ public class StatusParametrosAPI: APIBase {
 
      - returns: RequestBuilder<PageStatusImpressao> 
      */
-    public class func listarUsingGET13WithRequestBuilder(page page: Int?, limit: Int?, id: Int?, nome: String?) -> RequestBuilder<PageStatusImpressao> {
+    public class func listarUsingGET16WithRequestBuilder(page page: Int?, limit: Int?, id: Int?, nome: String?) -> RequestBuilder<PageStatusImpressao> {
         let path = "/api/status-impressoes"
         let URLString = PierAPI.basePath + path
         

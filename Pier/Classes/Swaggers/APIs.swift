@@ -7,7 +7,7 @@
 import Foundation
 
 public class PierAPI {
-    public static var basePath = "https://localhost/"
+    public static var basePath = "http://localhost/"
     public static var credential: NSURLCredential?
     public static var customHeaders: [String:String] = [:]  
     static var requestBuilderFactory: RequestBuilderFactory = AlamofireRequestBuilderFactory()

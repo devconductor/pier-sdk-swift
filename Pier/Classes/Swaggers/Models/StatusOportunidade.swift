@@ -11,6 +11,8 @@ import Foundation
 /** Objeto StatusOportunidade */
 public class StatusOportunidade: JSONEncodable {
 
+    /** Nome do status oportunidade */
+    public var nome: String?
     /** Descri\u00C3\u00A7\u00C3\u00A3o do status oportunidade */
     public var descricao: String?
     /** Flag de verifica\u00C3\u00A7\u00C3\u00A3o se o status oportunidade est\u00C3\u00A1 ativo */
@@ -22,6 +24,7 @@ public class StatusOportunidade: JSONEncodable {
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
+        nillableDictionary["nome"] = self.nome
         nillableDictionary["descricao"] = self.descricao
         nillableDictionary["flagAtivo"] = self.flagAtivo
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]

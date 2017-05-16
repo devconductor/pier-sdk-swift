@@ -35,9 +35,6 @@ public class FAQAPI: APIBase {
      
      - POST /api/faqs
      - Adiciona uma nova FAQ
-     - API Key:
-       - type: apiKey access_token 
-       - name: access_token
      - examples: [{contentType=application/json, example={
   "pergunta" : "aeiou",
   "resposta" : "aeiou",
@@ -103,9 +100,6 @@ public class FAQAPI: APIBase {
      
      - PUT /api/faqs/{id}
      - Alterar FAQ
-     - API Key:
-       - type: apiKey access_token 
-       - name: access_token
      - examples: [{contentType=application/json, example={
   "pergunta" : "aeiou",
   "resposta" : "aeiou",
@@ -167,9 +161,6 @@ public class FAQAPI: APIBase {
      
      - GET /api/faqs/{id}
      - Consulta os detalhes de uma determinada FAQ
-     - API Key:
-       - type: apiKey access_token 
-       - name: access_token
      - examples: [{contentType=application/json, example={
   "pergunta" : "aeiou",
   "resposta" : "aeiou",
@@ -213,8 +204,8 @@ public class FAQAPI: APIBase {
      - parameter status: (query) Status descrevendo a situa\u00C3\u00A7\u00C3\u00A3o atual da FAQ. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET6(page page: Int?, limit: Int?, idFaq: Int?, pergunta: String?, resposta: String?, relevancia: Int?, plataforma: String?, categoria: String?, status: String?, completion: ((data: PageFaqs?, error: ErrorType?) -> Void)) {
-        listarUsingGET6WithRequestBuilder(page: page, limit: limit, idFaq: idFaq, pergunta: pergunta, resposta: resposta, relevancia: relevancia, plataforma: plataforma, categoria: categoria, status: status).execute { (response, error) -> Void in
+    public class func listarUsingGET8(page page: Int?, limit: Int?, idFaq: Int?, pergunta: String?, resposta: String?, relevancia: Int?, plataforma: String?, categoria: String?, status: String?, completion: ((data: PageFaqs?, error: ErrorType?) -> Void)) {
+        listarUsingGET8WithRequestBuilder(page: page, limit: limit, idFaq: idFaq, pergunta: pergunta, resposta: resposta, relevancia: relevancia, plataforma: plataforma, categoria: categoria, status: status).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -226,9 +217,6 @@ public class FAQAPI: APIBase {
      
      - GET /api/faqs
      - Lista todas as FAQs
-     - API Key:
-       - type: apiKey access_token 
-       - name: access_token
      - examples: [{contentType=application/json, example={
   "previousPage" : 123,
   "last" : true,
@@ -267,7 +255,7 @@ public class FAQAPI: APIBase {
 
      - returns: RequestBuilder<PageFaqs> 
      */
-    public class func listarUsingGET6WithRequestBuilder(page page: Int?, limit: Int?, idFaq: Int?, pergunta: String?, resposta: String?, relevancia: Int?, plataforma: String?, categoria: String?, status: String?) -> RequestBuilder<PageFaqs> {
+    public class func listarUsingGET8WithRequestBuilder(page page: Int?, limit: Int?, idFaq: Int?, pergunta: String?, resposta: String?, relevancia: Int?, plataforma: String?, categoria: String?, status: String?) -> RequestBuilder<PageFaqs> {
         let path = "/api/faqs"
         let URLString = PierAPI.basePath + path
         

@@ -11,7 +11,7 @@ import Foundation
 /** Lista de contas */
 public class PageContas: JSONEncodable {
 
-    public var content: [Conta]?
+    public var content: [ContaResponse]?
     public var first: Bool?
     public var firstPage: Bool?
     public var hasContent: Bool?

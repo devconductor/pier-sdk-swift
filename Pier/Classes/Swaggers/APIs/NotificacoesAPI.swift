@@ -34,9 +34,6 @@ public class NotificacoesAPI: APIBase {
      
      - POST /api/notificacoes/sms/atualizar-status
      - Esse recurso permite atualizar o status do SMS do emissor
-     - API Key:
-       - type: apiKey access_token 
-       - name: access_token
      - examples: [{contentType=application/json, example={
   "quantidadeTentativasEnvio" : 123,
   "conteudo" : "aeiou",
@@ -109,9 +106,6 @@ public class NotificacoesAPI: APIBase {
      
      - GET /api/notificacoes/push
      - Esse recurso permite listar os Pushes do emissor
-     - API Key:
-       - type: apiKey access_token 
-       - name: access_token
      - examples: [{contentType=application/json, example={
   "previousPage" : 123,
   "last" : true,
@@ -182,10 +176,11 @@ public class NotificacoesAPI: APIBase {
      - parameter status: (query) Status de envio da notifica\u00C3\u00A7\u00C3\u00A3o (optional)
      - parameter operadora: (query) Nome da operadora a qual a notifica\u00C3\u00A7\u00C3\u00A3o foi enviada. (optional)
      - parameter protocolo: (query) N\u00C3\u00BAmero do protocolo de envio de notifica\u00C3\u00A7\u00C3\u00B5es (optional)
+     - parameter nsu: (query) Apresenta o nsu da notifica\u00C3\u00A7\u00C3\u00A3o (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarSMSUsingGET(page page: Int?, limit: Int?, dataInclusao: NSDate?, tipoEvento: String?, status: String?, operadora: String?, protocolo: String?, completion: ((data: PageSMS?, error: ErrorType?) -> Void)) {
-        listarSMSUsingGETWithRequestBuilder(page: page, limit: limit, dataInclusao: dataInclusao, tipoEvento: tipoEvento, status: status, operadora: operadora, protocolo: protocolo).execute { (response, error) -> Void in
+    public class func listarSMSUsingGET(page page: Int?, limit: Int?, dataInclusao: NSDate?, tipoEvento: String?, status: String?, operadora: String?, protocolo: String?, nsu: Int?, completion: ((data: PageSMS?, error: ErrorType?) -> Void)) {
+        listarSMSUsingGETWithRequestBuilder(page: page, limit: limit, dataInclusao: dataInclusao, tipoEvento: tipoEvento, status: status, operadora: operadora, protocolo: protocolo, nsu: nsu).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -197,9 +192,6 @@ public class NotificacoesAPI: APIBase {
      
      - GET /api/notificacoes/sms
      - Esse recurso permite listar os SMS do emissor
-     - API Key:
-       - type: apiKey access_token 
-       - name: access_token
      - examples: [{contentType=application/json, example={
   "previousPage" : 123,
   "last" : true,
@@ -242,10 +234,11 @@ public class NotificacoesAPI: APIBase {
      - parameter status: (query) Status de envio da notifica\u00C3\u00A7\u00C3\u00A3o (optional)
      - parameter operadora: (query) Nome da operadora a qual a notifica\u00C3\u00A7\u00C3\u00A3o foi enviada. (optional)
      - parameter protocolo: (query) N\u00C3\u00BAmero do protocolo de envio de notifica\u00C3\u00A7\u00C3\u00B5es (optional)
+     - parameter nsu: (query) Apresenta o nsu da notifica\u00C3\u00A7\u00C3\u00A3o (optional)
 
      - returns: RequestBuilder<PageSMS> 
      */
-    public class func listarSMSUsingGETWithRequestBuilder(page page: Int?, limit: Int?, dataInclusao: NSDate?, tipoEvento: String?, status: String?, operadora: String?, protocolo: String?) -> RequestBuilder<PageSMS> {
+    public class func listarSMSUsingGETWithRequestBuilder(page page: Int?, limit: Int?, dataInclusao: NSDate?, tipoEvento: String?, status: String?, operadora: String?, protocolo: String?, nsu: Int?) -> RequestBuilder<PageSMS> {
         let path = "/api/notificacoes/sms"
         let URLString = PierAPI.basePath + path
         
@@ -256,7 +249,8 @@ public class NotificacoesAPI: APIBase {
             "tipoEvento": tipoEvento,
             "status": status,
             "operadora": operadora,
-            "protocolo": protocolo
+            "protocolo": protocolo,
+            "nsu": nsu
         ]
         let parameters = APIHelper.rejectNil(nillableParameters)
 
@@ -287,9 +281,6 @@ public class NotificacoesAPI: APIBase {
      
      - POST /api/notificacoes/sms/responder
      - Esse recurso permite atualizar a resposta do SMS, fornecida pedo usu\u00C3\u00A1rio
-     - API Key:
-       - type: apiKey access_token 
-       - name: access_token
      - examples: [{contentType=application/json, example={
   "quantidadeTentativasEnvio" : 123,
   "conteudo" : "aeiou",
@@ -352,9 +343,6 @@ public class NotificacoesAPI: APIBase {
      
      - POST /api/notificacoes/push/fcm
      - Esse recurso permite enviar Push para um determinado dipositivo movel atrav\u00C3\u00A9s da plataforma FCM (Firebase Cloud Messaging).
-     - API Key:
-       - type: apiKey access_token 
-       - name: access_token
      - examples: [{contentType=application/json, example={
   "protocolo" : "aeiou",
   "mensagem" : "aeiou"
@@ -395,9 +383,6 @@ public class NotificacoesAPI: APIBase {
      
      - POST /api/notificacoes/push/gcm
      - Esse recurso permite enviar Push para um determinado dipositivo movel atrav\u00C3\u00A9s da plataforma GCM (Google Cloud Messaging).
-     - API Key:
-       - type: apiKey access_token 
-       - name: access_token
      - examples: [{contentType=application/json, example={
   "protocolo" : "aeiou",
   "mensagem" : "aeiou"
@@ -438,9 +423,6 @@ public class NotificacoesAPI: APIBase {
      
      - POST /api/notificacoes/push/apns
      - Esse recurso permite enviar Push para um determinado dipositivo movel atrav\u00C3\u00A9s da plataforma APNS (Apple Push Notification Service).
-     - API Key:
-       - type: apiKey access_token 
-       - name: access_token
      - examples: [{contentType=application/json, example={
   "protocolo" : "aeiou",
   "mensagem" : "aeiou"
@@ -481,9 +463,6 @@ public class NotificacoesAPI: APIBase {
      
      - POST /api/notificacoes/sms
      - Esse recurso permite enviar uma lista de SMS.
-     - API Key:
-       - type: apiKey access_token 
-       - name: access_token
      - examples: [{contentType=application/json, example={
   "protocolo" : "aeiou",
   "mensagem" : "aeiou"

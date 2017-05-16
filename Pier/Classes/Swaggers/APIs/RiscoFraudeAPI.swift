@@ -30,9 +30,6 @@ public class RiscoFraudeAPI: APIBase {
      
      - GET /api/atendimento-clientes/{id}
      - Este m\u00C3\u00A9todo permite consultar os par\u00C3\u00A2metros de um determinado Atendimento a partir do seu c\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o (idAtendimento).
-     - API Key:
-       - type: apiKey access_token 
-       - name: access_token
      - examples: [{contentType=application/json, example={
   "conteudoAtendimento" : "aeiou",
   "idConta" : 123456789,
@@ -87,9 +84,6 @@ public class RiscoFraudeAPI: APIBase {
      
      - GET /api/riscos-fraudes/{id}
      - Consulta os detalhes de uma transa\u00C3\u00A7\u00C3\u00A3o classificada com risco de fraude.
-     - API Key:
-       - type: apiKey access_token 
-       - name: access_token
      - examples: [{contentType=application/json, example={
   "valorOrigem" : 1.3579000000000001069366817318950779736042022705078125,
   "origemTransacao" : "aeiou",
@@ -165,9 +159,6 @@ public class RiscoFraudeAPI: APIBase {
      
      - POST /api/riscos-fraudes
      - Receber risco fraude
-     - API Key:
-       - type: apiKey access_token 
-       - name: access_token
      - examples: [{contentType=application/json, example="aeiou"}]
      
      - parameter detalhadoResponses: (body) detalhadoResponses 
@@ -197,8 +188,8 @@ public class RiscoFraudeAPI: APIBase {
      - parameter dataAtendimento: (query) Apresenta a data em que o Atendimento foi realizado. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET(page page: Int?, limit: Int?, idTipoAtendimento: Int?, idConta: Int?, nomeAtendente: String?, dataAtendimento: NSDate?, completion: ((data: PageAtendimentoClientes?, error: ErrorType?) -> Void)) {
-        listarUsingGETWithRequestBuilder(page: page, limit: limit, idTipoAtendimento: idTipoAtendimento, idConta: idConta, nomeAtendente: nomeAtendente, dataAtendimento: dataAtendimento).execute { (response, error) -> Void in
+    public class func listarUsingGET1(page page: Int?, limit: Int?, idTipoAtendimento: Int?, idConta: Int?, nomeAtendente: String?, dataAtendimento: NSDate?, completion: ((data: PageAtendimentoClientes?, error: ErrorType?) -> Void)) {
+        listarUsingGET1WithRequestBuilder(page: page, limit: limit, idTipoAtendimento: idTipoAtendimento, idConta: idConta, nomeAtendente: nomeAtendente, dataAtendimento: dataAtendimento).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -210,9 +201,6 @@ public class RiscoFraudeAPI: APIBase {
      
      - GET /api/atendimento-clientes
      - Este m\u00C3\u00A9todo permite que sejam listados todos os Registro de Atendimento, independente do Tipo.
-     - API Key:
-       - type: apiKey access_token 
-       - name: access_token
      - examples: [{contentType=application/json, example={
   "previousPage" : 123,
   "last" : true,
@@ -254,7 +242,7 @@ public class RiscoFraudeAPI: APIBase {
 
      - returns: RequestBuilder<PageAtendimentoClientes> 
      */
-    public class func listarUsingGETWithRequestBuilder(page page: Int?, limit: Int?, idTipoAtendimento: Int?, idConta: Int?, nomeAtendente: String?, dataAtendimento: NSDate?) -> RequestBuilder<PageAtendimentoClientes> {
+    public class func listarUsingGET1WithRequestBuilder(page page: Int?, limit: Int?, idTipoAtendimento: Int?, idConta: Int?, nomeAtendente: String?, dataAtendimento: NSDate?) -> RequestBuilder<PageAtendimentoClientes> {
         let path = "/api/atendimento-clientes"
         let URLString = PierAPI.basePath + path
         
@@ -283,8 +271,8 @@ public class RiscoFraudeAPI: APIBase {
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET11(idConta idConta: Int, confirmacaoFraude: String, page: Int?, limit: Int?, completion: ((data: RiscoFraudeResponsePage?, error: ErrorType?) -> Void)) {
-        listarUsingGET11WithRequestBuilder(idConta: idConta, confirmacaoFraude: confirmacaoFraude, page: page, limit: limit).execute { (response, error) -> Void in
+    public class func listarUsingGET14(idConta idConta: Int, confirmacaoFraude: String, page: Int?, limit: Int?, completion: ((data: RiscoFraudeResponsePage?, error: ErrorType?) -> Void)) {
+        listarUsingGET14WithRequestBuilder(idConta: idConta, confirmacaoFraude: confirmacaoFraude, page: page, limit: limit).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -296,9 +284,6 @@ public class RiscoFraudeAPI: APIBase {
      
      - GET /api/riscos-fraudes
      - Este recurso permite que sejam listados os riscos de fraudes existentes
-     - API Key:
-       - type: apiKey access_token 
-       - name: access_token
      - examples: [{contentType=application/json, example={
   "previousPage" : 123,
   "last" : true,
@@ -334,7 +319,7 @@ public class RiscoFraudeAPI: APIBase {
 
      - returns: RequestBuilder<RiscoFraudeResponsePage> 
      */
-    public class func listarUsingGET11WithRequestBuilder(idConta idConta: Int, confirmacaoFraude: String, page: Int?, limit: Int?) -> RequestBuilder<RiscoFraudeResponsePage> {
+    public class func listarUsingGET14WithRequestBuilder(idConta idConta: Int, confirmacaoFraude: String, page: Int?, limit: Int?) -> RequestBuilder<RiscoFraudeResponsePage> {
         let path = "/api/riscos-fraudes"
         let URLString = PierAPI.basePath + path
         
@@ -358,8 +343,8 @@ public class RiscoFraudeAPI: APIBase {
      - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do risco de fraude 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func negarUsingGET(id id: Int, completion: ((data: RiscoFraudeDetalhadoResponse?, error: ErrorType?) -> Void)) {
-        negarUsingGETWithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func negarUsingPOST(id id: Int, completion: ((data: RiscoFraudeDetalhadoResponse?, error: ErrorType?) -> Void)) {
+        negarUsingPOSTWithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -369,11 +354,8 @@ public class RiscoFraudeAPI: APIBase {
      
      Negar autenticidade da transa\u00C3\u00A7\u00C3\u00A3o com risco de fraude
      
-     - GET /api/riscos-fraudes/{id}/negar
+     - POST /api/riscos-fraudes/{id}/negar
      - Nega a realiza\u00C3\u00A7\u00C3\u00A3o da transa\u00C3\u00A7\u00C3\u00A3o classificada com risco de fraude.
-     - API Key:
-       - type: apiKey access_token 
-       - name: access_token
      - examples: [{contentType=application/json, example={
   "valorOrigem" : 1.3579000000000001069366817318950779736042022705078125,
   "origemTransacao" : "aeiou",
@@ -416,7 +398,7 @@ public class RiscoFraudeAPI: APIBase {
 
      - returns: RequestBuilder<RiscoFraudeDetalhadoResponse> 
      */
-    public class func negarUsingGETWithRequestBuilder(id id: Int) -> RequestBuilder<RiscoFraudeDetalhadoResponse> {
+    public class func negarUsingPOSTWithRequestBuilder(id id: Int) -> RequestBuilder<RiscoFraudeDetalhadoResponse> {
         var path = "/api/riscos-fraudes/{id}/negar"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -426,7 +408,7 @@ public class RiscoFraudeAPI: APIBase {
 
         let requestBuilder: RequestBuilder<RiscoFraudeDetalhadoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
     }
 
     /**
@@ -436,8 +418,8 @@ public class RiscoFraudeAPI: APIBase {
      - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do risco de fraude 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func reconhecerUsingGET(id id: Int, completion: ((data: RiscoFraudeDetalhadoResponse?, error: ErrorType?) -> Void)) {
-        reconhecerUsingGETWithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func reconhecerUsingPOST(id id: Int, completion: ((data: RiscoFraudeDetalhadoResponse?, error: ErrorType?) -> Void)) {
+        reconhecerUsingPOSTWithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -447,11 +429,8 @@ public class RiscoFraudeAPI: APIBase {
      
      Reconhecer a transa\u00C3\u00A7\u00C3\u00A3o com risco de fraude
      
-     - GET /api/riscos-fraudes/{id}/reconhecer
+     - POST /api/riscos-fraudes/{id}/reconhecer
      - Confirma a autenticidade da transa\u00C3\u00A7\u00C3\u00A3o classificada com risco de fraude.
-     - API Key:
-       - type: apiKey access_token 
-       - name: access_token
      - examples: [{contentType=application/json, example={
   "valorOrigem" : 1.3579000000000001069366817318950779736042022705078125,
   "origemTransacao" : "aeiou",
@@ -494,7 +473,7 @@ public class RiscoFraudeAPI: APIBase {
 
      - returns: RequestBuilder<RiscoFraudeDetalhadoResponse> 
      */
-    public class func reconhecerUsingGETWithRequestBuilder(id id: Int) -> RequestBuilder<RiscoFraudeDetalhadoResponse> {
+    public class func reconhecerUsingPOSTWithRequestBuilder(id id: Int) -> RequestBuilder<RiscoFraudeDetalhadoResponse> {
         var path = "/api/riscos-fraudes/{id}/reconhecer"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -504,7 +483,7 @@ public class RiscoFraudeAPI: APIBase {
 
         let requestBuilder: RequestBuilder<RiscoFraudeDetalhadoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
     }
 
     /**
@@ -522,8 +501,8 @@ public class RiscoFraudeAPI: APIBase {
      - parameter flagFilaFraude: (query) Flag fila fraude (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func salvarUsingPOST(idConta idConta: Int?, conteudoAtendimento: String?, detalhesAtendimento: String?, nomeAtendente: String?, dataAtendimento: NSDate?, dataAgendamento: NSDate?, dataHoraInicioAtendimento: NSDate?, dataHoraFimAtendimento: NSDate?, flagFilaFraude: Int?, completion: ((data: AtendimentoCliente?, error: ErrorType?) -> Void)) {
-        salvarUsingPOSTWithRequestBuilder(idConta: idConta, conteudoAtendimento: conteudoAtendimento, detalhesAtendimento: detalhesAtendimento, nomeAtendente: nomeAtendente, dataAtendimento: dataAtendimento, dataAgendamento: dataAgendamento, dataHoraInicioAtendimento: dataHoraInicioAtendimento, dataHoraFimAtendimento: dataHoraFimAtendimento, flagFilaFraude: flagFilaFraude).execute { (response, error) -> Void in
+    public class func salvarUsingPOST1(idConta idConta: Int?, conteudoAtendimento: String?, detalhesAtendimento: String?, nomeAtendente: String?, dataAtendimento: NSDate?, dataAgendamento: NSDate?, dataHoraInicioAtendimento: NSDate?, dataHoraFimAtendimento: NSDate?, flagFilaFraude: Int?, completion: ((data: AtendimentoCliente?, error: ErrorType?) -> Void)) {
+        salvarUsingPOST1WithRequestBuilder(idConta: idConta, conteudoAtendimento: conteudoAtendimento, detalhesAtendimento: detalhesAtendimento, nomeAtendente: nomeAtendente, dataAtendimento: dataAtendimento, dataAgendamento: dataAgendamento, dataHoraInicioAtendimento: dataHoraInicioAtendimento, dataHoraFimAtendimento: dataHoraFimAtendimento, flagFilaFraude: flagFilaFraude).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -534,9 +513,6 @@ public class RiscoFraudeAPI: APIBase {
      Cadastro um novo Atendimento do tipo Gen\u00C3\u00A9rico para uma Conta
      
      - POST /api/atendimento-clientes
-     - API Key:
-       - type: apiKey access_token 
-       - name: access_token
      - examples: [{contentType=application/json, example={
   "conteudoAtendimento" : "aeiou",
   "idConta" : 123456789,
@@ -566,7 +542,7 @@ public class RiscoFraudeAPI: APIBase {
 
      - returns: RequestBuilder<AtendimentoCliente> 
      */
-    public class func salvarUsingPOSTWithRequestBuilder(idConta idConta: Int?, conteudoAtendimento: String?, detalhesAtendimento: String?, nomeAtendente: String?, dataAtendimento: NSDate?, dataAgendamento: NSDate?, dataHoraInicioAtendimento: NSDate?, dataHoraFimAtendimento: NSDate?, flagFilaFraude: Int?) -> RequestBuilder<AtendimentoCliente> {
+    public class func salvarUsingPOST1WithRequestBuilder(idConta idConta: Int?, conteudoAtendimento: String?, detalhesAtendimento: String?, nomeAtendente: String?, dataAtendimento: NSDate?, dataAgendamento: NSDate?, dataHoraInicioAtendimento: NSDate?, dataHoraFimAtendimento: NSDate?, flagFilaFraude: Int?) -> RequestBuilder<AtendimentoCliente> {
         let path = "/api/atendimento-clientes"
         let URLString = PierAPI.basePath + path
         

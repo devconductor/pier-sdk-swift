@@ -28,9 +28,6 @@ public class BaseAPI: APIBase {
      Limpar mapa de bases
      
      - POST /api/bases/limpar
-     - API Key:
-       - type: apiKey access_token 
-       - name: access_token
      - examples: [{contentType=application/json, example={
   "AuthToken" : {
     "owner" : "aeiou",

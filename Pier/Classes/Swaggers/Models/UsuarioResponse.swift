@@ -30,9 +30,9 @@ public class UsuarioResponse: JSONEncodable {
     public var email: String?
     /** Status do Usu\u00C3\u00A1rio */
     public var status: Status?
-    /** Status do Usu\u00C3\u00A1rio */
+    /** Data de cria\u00C3\u00A7\u00C3\u00A3o do Usu\u00C3\u00A1rio */
     public var dataCriacao: NSDate?
-    /** Status do Usu\u00C3\u00A1rio */
+    /** Data de modifica\u00C3\u00A7\u00C3\u00A3o do Usu\u00C3\u00A1rio */
     public var dataModificacao: NSDate?
     /** N\u00C3\u00BAmero de tentativas de valida\u00C3\u00A7\u00C3\u00A3o incorretas */
     public var tentativasIncorretas: Int?

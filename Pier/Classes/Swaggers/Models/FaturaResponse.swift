@@ -63,6 +63,10 @@ public class FaturaResponse: JSONEncodable {
     public var taxaMaximaProximoPeriodo: Double?
     /** Apresenta a soma de todos os seguros cobrados na fatura do cliente. */
     public var totalServicos: Double?
+    /** Apresenta a soma de todos os valores parcelados + compras nacionais. */
+    public var totalParceladoNacionais: Double?
+    /** Apresenta a soma de todos os valores parcelados + compras internacionais. */
+    public var totalParceladoInternacionais: Double?
     
 
     public init() {}
@@ -96,6 +100,8 @@ public class FaturaResponse: JSONEncodable {
         nillableDictionary["taxaSaque"] = self.taxaSaque
         nillableDictionary["taxaMaximaProximoPeriodo"] = self.taxaMaximaProximoPeriodo
         nillableDictionary["totalServicos"] = self.totalServicos
+        nillableDictionary["totalParceladoNacionais"] = self.totalParceladoNacionais
+        nillableDictionary["totalParceladoInternacionais"] = self.totalParceladoInternacionais
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

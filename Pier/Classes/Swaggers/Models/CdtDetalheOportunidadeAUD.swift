@@ -18,6 +18,7 @@ public class CdtDetalheOportunidadeAUD: JSONEncodable {
     public var revDate: NSDate?
     public var revOportunidade: Int?
     public var revType: Int?
+    public var revUser: String?
     
 
     public init() {}
@@ -33,6 +34,7 @@ public class CdtDetalheOportunidadeAUD: JSONEncodable {
         nillableDictionary["revDate"] = self.revDate?.encodeToJSON()
         nillableDictionary["revOportunidade"] = self.revOportunidade
         nillableDictionary["revType"] = self.revType
+        nillableDictionary["revUser"] = self.revUser
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

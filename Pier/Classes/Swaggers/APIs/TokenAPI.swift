@@ -29,9 +29,6 @@ public class TokenAPI: APIBase {
      /api/tokens/callback
      
      - POST /api/tokens/callback
-     - API Key:
-       - type: apiKey access_token 
-       - name: access_token
      - examples: [{contentType=application/json, example={
   "AuthToken" : {
     "owner" : "aeiou",

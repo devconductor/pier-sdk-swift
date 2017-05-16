@@ -30,9 +30,6 @@ public class UsuariosAPI: APIBase {
      
      - PUT /api/usuarios/{id}/alterar-senha
      - Este m\u00C3\u00A9todo realiza a altera\u00C3\u00A7\u00C3\u00A3o da senha do usu\u00C3\u00A1rio.
-     - API Key:
-       - type: apiKey access_token 
-       - name: access_token
      - examples: [{contentType=application/json, example="aeiou"}]
      
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Usu\u00C3\u00A1rio (id). 
@@ -73,18 +70,15 @@ public class UsuariosAPI: APIBase {
      
      - PUT /api/usuarios/{id}
      - Este m\u00C3\u00A9todo realiza a altera\u00C3\u00A7\u00C3\u00A3o dos usu\u00C3\u00A1rios.
-     - API Key:
-       - type: apiKey access_token 
-       - name: access_token
      - examples: [{contentType=application/json, example={
-  "dataModificacao" : "2000-01-23T04:56:07.000+0000",
+  "dataModificacao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
   "tentativasIncorretas" : 123456789,
   "cpf" : "aeiou",
   "nome" : "aeiou",
   "id" : 123456789,
   "idEmissor" : 123456789,
   "login" : "aeiou",
-  "dataCriacao" : "2000-01-23T04:56:07.000+0000",
+  "dataCriacao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
   "email" : "aeiou",
   "status" : "aeiou"
 }}]
@@ -108,6 +102,56 @@ public class UsuariosAPI: APIBase {
 
     /**
      
+     Ativa os usu\u00C3\u00A1rios cadastrados
+     
+     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Usu\u00C3\u00A1rio (id). 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func ativarUsuarioUsingPOST(id id: Int, completion: ((data: UsuarioResponse?, error: ErrorType?) -> Void)) {
+        ativarUsuarioUsingPOSTWithRequestBuilder(id: id).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Ativa os usu\u00C3\u00A1rios cadastrados
+     
+     - POST /api/usuarios/{id}/ativar-usuario
+     - Este m\u00C3\u00A9todo realiza a ativa\u00C3\u00A7\u00C3\u00A3o dos usu\u00C3\u00A1rios.
+     - examples: [{contentType=application/json, example={
+  "dataModificacao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "tentativasIncorretas" : 123456789,
+  "cpf" : "aeiou",
+  "nome" : "aeiou",
+  "id" : 123456789,
+  "idEmissor" : 123456789,
+  "login" : "aeiou",
+  "dataCriacao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "email" : "aeiou",
+  "status" : "aeiou"
+}}]
+     
+     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Usu\u00C3\u00A1rio (id). 
+
+     - returns: RequestBuilder<UsuarioResponse> 
+     */
+    public class func ativarUsuarioUsingPOSTWithRequestBuilder(id id: Int) -> RequestBuilder<UsuarioResponse> {
+        var path = "/api/usuarios/{id}/ativar-usuario"
+        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<UsuarioResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
      Apresenta os dados de um determinado Usu\u00C3\u00A1rio
      
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Usu\u00C3\u00A1rio (id). 
@@ -126,18 +170,15 @@ public class UsuariosAPI: APIBase {
      
      - GET /api/usuarios/{id}
      - Este m\u00C3\u00A9todo permite consultar as informa\u00C3\u00A7\u00C3\u00B5es de um determinado Usu\u00C3\u00A1rio a partir do seu c\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o (id).
-     - API Key:
-       - type: apiKey access_token 
-       - name: access_token
      - examples: [{contentType=application/json, example={
-  "dataModificacao" : "2000-01-23T04:56:07.000+0000",
+  "dataModificacao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
   "tentativasIncorretas" : 123456789,
   "cpf" : "aeiou",
   "nome" : "aeiou",
   "id" : 123456789,
   "idEmissor" : 123456789,
   "login" : "aeiou",
-  "dataCriacao" : "2000-01-23T04:56:07.000+0000",
+  "dataCriacao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
   "email" : "aeiou",
   "status" : "aeiou"
 }}]
@@ -161,6 +202,56 @@ public class UsuariosAPI: APIBase {
 
     /**
      
+     Desativa os usu\u00C3\u00A1rios cadastrados
+     
+     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Usu\u00C3\u00A1rio (id). 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func desativarUsuarioUsingPOST(id id: Int, completion: ((data: UsuarioResponse?, error: ErrorType?) -> Void)) {
+        desativarUsuarioUsingPOSTWithRequestBuilder(id: id).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Desativa os usu\u00C3\u00A1rios cadastrados
+     
+     - POST /api/usuarios/{id}/desativar-usuario
+     - Este m\u00C3\u00A9todo realiza a desativa\u00C3\u00A7\u00C3\u00A3o dos usu\u00C3\u00A1rios.
+     - examples: [{contentType=application/json, example={
+  "dataModificacao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "tentativasIncorretas" : 123456789,
+  "cpf" : "aeiou",
+  "nome" : "aeiou",
+  "id" : 123456789,
+  "idEmissor" : 123456789,
+  "login" : "aeiou",
+  "dataCriacao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "email" : "aeiou",
+  "status" : "aeiou"
+}}]
+     
+     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Usu\u00C3\u00A1rio (id). 
+
+     - returns: RequestBuilder<UsuarioResponse> 
+     */
+    public class func desativarUsuarioUsingPOSTWithRequestBuilder(id id: Int) -> RequestBuilder<UsuarioResponse> {
+        var path = "/api/usuarios/{id}/desativar-usuario"
+        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<UsuarioResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
      Lista os Usu\u00C3\u00A1rios cadastrados
      
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
@@ -171,8 +262,8 @@ public class UsuariosAPI: APIBase {
      - parameter status: (query) Status do Usuario (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET21(page page: Int?, limit: Int?, nome: String?, cpf: String?, email: String?, status: String?, completion: ((data: PageUsuarios?, error: ErrorType?) -> Void)) {
-        listarUsingGET21WithRequestBuilder(page: page, limit: limit, nome: nome, cpf: cpf, email: email, status: status).execute { (response, error) -> Void in
+    public class func listarUsingGET24(page page: Int?, limit: Int?, nome: String?, cpf: String?, email: String?, status: String?, completion: ((data: PageUsuarios?, error: ErrorType?) -> Void)) {
+        listarUsingGET24WithRequestBuilder(page: page, limit: limit, nome: nome, cpf: cpf, email: email, status: status).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -184,9 +275,6 @@ public class UsuariosAPI: APIBase {
      
      - GET /api/usuarios
      - Este m\u00C3\u00A9todo permite que sejam listados os usu\u00C3\u00A1rios existentes na base do PIER.
-     - API Key:
-       - type: apiKey access_token 
-       - name: access_token
      - examples: [{contentType=application/json, example={
   "previousPage" : 123,
   "last" : true,
@@ -194,14 +282,14 @@ public class UsuariosAPI: APIBase {
   "hasNextPage" : true,
   "nextPage" : 123,
   "content" : [ {
-    "dataModificacao" : "2000-01-23T04:56:07.000+0000",
+    "dataModificacao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
     "tentativasIncorretas" : 123456789,
     "cpf" : "aeiou",
     "nome" : "aeiou",
     "id" : 123456789,
     "idEmissor" : 123456789,
     "login" : "aeiou",
-    "dataCriacao" : "2000-01-23T04:56:07.000+0000",
+    "dataCriacao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
     "email" : "aeiou",
     "status" : "aeiou"
   } ],
@@ -224,7 +312,7 @@ public class UsuariosAPI: APIBase {
 
      - returns: RequestBuilder<PageUsuarios> 
      */
-    public class func listarUsingGET21WithRequestBuilder(page page: Int?, limit: Int?, nome: String?, cpf: String?, email: String?, status: String?) -> RequestBuilder<PageUsuarios> {
+    public class func listarUsingGET24WithRequestBuilder(page page: Int?, limit: Int?, nome: String?, cpf: String?, email: String?, status: String?) -> RequestBuilder<PageUsuarios> {
         let path = "/api/usuarios"
         let URLString = PierAPI.basePath + path
         
@@ -263,9 +351,6 @@ public class UsuariosAPI: APIBase {
      
      - POST /api/usuarios/{id}/recuperar-senha
      - Esse recurso permite recuperar a senha do usu\u00C3\u00A1rio.
-     - API Key:
-       - type: apiKey access_token 
-       - name: access_token
      - examples: [{contentType=application/json, example="aeiou"}]
      
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Usu\u00C3\u00A1rio (id). 
@@ -292,8 +377,8 @@ public class UsuariosAPI: APIBase {
      - parameter persist: (body) persist 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func salvarUsingPOST8(persist persist: UsuarioPersist, completion: ((data: UsuarioResponse?, error: ErrorType?) -> Void)) {
-        salvarUsingPOST8WithRequestBuilder(persist: persist).execute { (response, error) -> Void in
+    public class func salvarUsingPOST12(persist persist: UsuarioPersist, completion: ((data: UsuarioResponse?, error: ErrorType?) -> Void)) {
+        salvarUsingPOST12WithRequestBuilder(persist: persist).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -305,18 +390,15 @@ public class UsuariosAPI: APIBase {
      
      - POST /api/usuarios
      - Esse recurso permite cadastrar usu\u00C3\u00A1rios.
-     - API Key:
-       - type: apiKey access_token 
-       - name: access_token
      - examples: [{contentType=application/json, example={
-  "dataModificacao" : "2000-01-23T04:56:07.000+0000",
+  "dataModificacao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
   "tentativasIncorretas" : 123456789,
   "cpf" : "aeiou",
   "nome" : "aeiou",
   "id" : 123456789,
   "idEmissor" : 123456789,
   "login" : "aeiou",
-  "dataCriacao" : "2000-01-23T04:56:07.000+0000",
+  "dataCriacao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
   "email" : "aeiou",
   "status" : "aeiou"
 }}]
@@ -325,7 +407,7 @@ public class UsuariosAPI: APIBase {
 
      - returns: RequestBuilder<UsuarioResponse> 
      */
-    public class func salvarUsingPOST8WithRequestBuilder(persist persist: UsuarioPersist) -> RequestBuilder<UsuarioResponse> {
+    public class func salvarUsingPOST12WithRequestBuilder(persist persist: UsuarioPersist) -> RequestBuilder<UsuarioResponse> {
         let path = "/api/usuarios"
         let URLString = PierAPI.basePath + path
         
@@ -356,9 +438,6 @@ public class UsuariosAPI: APIBase {
      
      - GET /api/usuarios/{id}/validar-senha
      - Este m\u00C3\u00A9todo permite validar a senha do usu\u00C3\u00A1rio).
-     - API Key:
-       - type: apiKey access_token 
-       - name: access_token
      - examples: [{contentType=application/json, example="aeiou"}]
      
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Usu\u00C3\u00A1rio (id). 
