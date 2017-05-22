@@ -919,7 +919,7 @@ public class CadastrosGeraisAPI: APIBase {
      
      Lista as contas da pessoa
      
-     - parameter numeroReceitaFederal: (query) Id Conta 
+     - parameter numeroReceitaFederal: (query) N\u00C3\u00BAmero de identifica\u00C3\u00A7\u00C3\u00A3o do cliente na Receita Federal (CPF ou CNPJ) 
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
      - parameter completion: completion handler to receive the data and the error objects
@@ -955,6 +955,7 @@ public class CadastrosGeraisAPI: APIBase {
     "idProduto" : 123456789,
     "nomeOrigemComercial" : "aeiou",
     "dataUltimaAlteracaoVencimento" : "2000-01-23T04:56:07.000+0000",
+    "diasAtraso" : 123456789,
     "id" : 123456789,
     "saldoDisponivelGlobal" : 1.3579000000000001069366817318950779736042022705078125,
     "dataCadastro" : "2000-01-23T04:56:07.000+0000",
@@ -963,7 +964,6 @@ public class CadastrosGeraisAPI: APIBase {
     "valorRenda" : 1.3579000000000001069366817318950779736042022705078125,
     "nome" : "aeiou",
     "idPessoa" : 123456789,
-    "dataInicioAtraso" : "2000-01-23T04:56:07.000+0000",
     "numeroContaCorrente" : "aeiou",
     "dataStatusConta" : "2000-01-23T04:56:07.000+0000",
     "idFantasiaBasica" : 123456789,
@@ -981,7 +981,7 @@ public class CadastrosGeraisAPI: APIBase {
   "first" : true
 }}]
      
-     - parameter numeroReceitaFederal: (query) Id Conta 
+     - parameter numeroReceitaFederal: (query) N\u00C3\u00BAmero de identifica\u00C3\u00A7\u00C3\u00A3o do cliente na Receita Federal (CPF ou CNPJ) 
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
 

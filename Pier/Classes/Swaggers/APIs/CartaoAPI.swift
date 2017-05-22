@@ -273,7 +273,7 @@ public class CartaoAPI: APIBase {
      - parameter id: (path) id 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarDadosCartaoUsingGET(id id: Int, completion: ((data: TransacaoOnUsResponse?, error: ErrorType?) -> Void)) {
+    public class func consultarDadosCartaoUsingGET(id id: Int, completion: ((data: DadosCarto?, error: ErrorType?) -> Void)) {
         consultarDadosCartaoUsingGETWithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -287,19 +287,22 @@ public class CartaoAPI: APIBase {
      - GET /api/cartoes/{id}/consultar-dados-reais
      - Este m\u00C3\u00A9todo permite que seja consultado os dados necessarios de um cart\u00C3\u00A3o para executar servi\u00C3\u00A7os de autoriza\u00C3\u00A7\u00C3\u00A3o.
      - examples: [{contentType=application/json, example={
-  "codigoAutorizacao" : "aeiou",
-  "planoDeParcelamento" : [ { } ],
-  "numeroMascaradoCartao" : "aeiou",
-  "nsuOrigem" : "aeiou",
-  "nomePortadorCartao" : "aeiou",
-  "nsuAutorizacao" : "aeiou"
+  "numeroCartao" : "aeiou",
+  "cvv2" : "aeiou",
+  "idCartao" : 123456789,
+  "idConta" : 123456789,
+  "flagProvisorio" : 123,
+  "dataValidade" : "2000-01-23T04:56:07.000+0000",
+  "statusDescricao" : "aeiou",
+  "nomePlastico" : "aeiou",
+  "status" : 123456789
 }}]
      
      - parameter id: (path) id 
 
-     - returns: RequestBuilder<TransacaoOnUsResponse> 
+     - returns: RequestBuilder<DadosCarto> 
      */
-    public class func consultarDadosCartaoUsingGETWithRequestBuilder(id id: Int) -> RequestBuilder<TransacaoOnUsResponse> {
+    public class func consultarDadosCartaoUsingGETWithRequestBuilder(id id: Int) -> RequestBuilder<DadosCarto> {
         var path = "/api/cartoes/{id}/consultar-dados-reais"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -307,7 +310,7 @@ public class CartaoAPI: APIBase {
         let nillableParameters: [String:AnyObject?] = [:]
         let parameters = APIHelper.rejectNil(nillableParameters)
 
-        let requestBuilder: RequestBuilder<TransacaoOnUsResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<DadosCarto>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
     }

@@ -61,8 +61,8 @@ public class ContaDetalheResponse: JSONEncodable {
     public var saldoDisponivelGlobal: Double?
     /** Quando utilizado pelo emissor, este campo apresenta o valor do limite de cr\u00C3\u00A9dito que o portador pode utilizar para realizar transa\u00C3\u00A7\u00C3\u00B5es de Saque Nacional dentro de cada ciclo de faturamento. */
     public var saldoDisponivelSaque: Double?
-    /** Apresenta a data da ultima cobran\u00C3\u00A7a. */
-    public var dataInicioAtraso: NSDate?
+    /** Apresenta a quantidade de dias que a conta esta em atraso */
+    public var diasAtraso: Int?
     
 
     public init() {}
@@ -95,7 +95,7 @@ public class ContaDetalheResponse: JSONEncodable {
         nillableDictionary["limiteSaqueGlobal"] = self.limiteSaqueGlobal
         nillableDictionary["saldoDisponivelGlobal"] = self.saldoDisponivelGlobal
         nillableDictionary["saldoDisponivelSaque"] = self.saldoDisponivelSaque
-        nillableDictionary["dataInicioAtraso"] = self.dataInicioAtraso?.encodeToJSON()
+        nillableDictionary["diasAtraso"] = self.diasAtraso
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }
