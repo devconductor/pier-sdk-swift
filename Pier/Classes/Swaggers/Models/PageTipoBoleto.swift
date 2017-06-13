@@ -11,7 +11,7 @@ import Foundation
 /** Lista dos tipos de boletos */
 public class PageTipoBoleto: JSONEncodable {
 
-    public var content: [AnyObject]?
+    public var content: [FaturaResponse]?
     public var first: Bool?
     public var firstPage: Bool?
     public var hasContent: Bool?

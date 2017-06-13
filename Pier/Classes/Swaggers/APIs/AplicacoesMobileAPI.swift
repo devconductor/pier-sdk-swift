@@ -38,7 +38,6 @@ public class AplicacoesMobileAPI: APIBase {
   "cor" : "aeiou",
   "icone" : "aeiou",
   "id" : 123456789,
-  "idEmissor" : 123456789,
   "token" : "aeiou",
   "certificadoBase64" : "aeiou"
 }}]
@@ -65,14 +64,13 @@ public class AplicacoesMobileAPI: APIBase {
      Lista os aplicacoes mobile cadastradas
      
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter id: (query) Identificador da Aplicacao Mobile (optional)
      - parameter idPlataformaMobile: (query) Identificador da Plataforma Mobile (optional)
-     - parameter idEmissor: (query) Identificador do Emissor (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET(page page: Int?, limit: Int?, id: String?, idPlataformaMobile: Int?, idEmissor: Int?, completion: ((data: PageAplicacoesMobile?, error: ErrorType?) -> Void)) {
-        listarUsingGETWithRequestBuilder(page: page, limit: limit, id: id, idPlataformaMobile: idPlataformaMobile, idEmissor: idEmissor).execute { (response, error) -> Void in
+    public class func listarUsingGET(page page: Int?, limit: Int?, id: String?, idPlataformaMobile: Int?, completion: ((data: PageAplicacoesMobile?, error: ErrorType?) -> Void)) {
+        listarUsingGETWithRequestBuilder(page: page, limit: limit, id: id, idPlataformaMobile: idPlataformaMobile).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -97,7 +95,6 @@ public class AplicacoesMobileAPI: APIBase {
     "cor" : "aeiou",
     "icone" : "aeiou",
     "id" : 123456789,
-    "idEmissor" : 123456789,
     "token" : "aeiou",
     "certificadoBase64" : "aeiou"
   } ],
@@ -112,14 +109,13 @@ public class AplicacoesMobileAPI: APIBase {
 }}]
      
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter id: (query) Identificador da Aplicacao Mobile (optional)
      - parameter idPlataformaMobile: (query) Identificador da Plataforma Mobile (optional)
-     - parameter idEmissor: (query) Identificador do Emissor (optional)
 
      - returns: RequestBuilder<PageAplicacoesMobile> 
      */
-    public class func listarUsingGETWithRequestBuilder(page page: Int?, limit: Int?, id: String?, idPlataformaMobile: Int?, idEmissor: Int?) -> RequestBuilder<PageAplicacoesMobile> {
+    public class func listarUsingGETWithRequestBuilder(page page: Int?, limit: Int?, id: String?, idPlataformaMobile: Int?) -> RequestBuilder<PageAplicacoesMobile> {
         let path = "/api/aplicacoes-mobile"
         let URLString = PierAPI.basePath + path
         
@@ -127,8 +123,7 @@ public class AplicacoesMobileAPI: APIBase {
             "page": page,
             "limit": limit,
             "id": id,
-            "idPlataformaMobile": idPlataformaMobile,
-            "idEmissor": idEmissor
+            "idPlataformaMobile": idPlataformaMobile
         ]
         let parameters = APIHelper.rejectNil(nillableParameters)
 
@@ -164,7 +159,6 @@ public class AplicacoesMobileAPI: APIBase {
   "cor" : "aeiou",
   "icone" : "aeiou",
   "id" : 123456789,
-  "idEmissor" : 123456789,
   "token" : "aeiou",
   "certificadoBase64" : "aeiou"
 }}]

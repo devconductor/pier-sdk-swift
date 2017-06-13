@@ -51,13 +51,13 @@ public class SMS: JSONEncodable {
     /** Apresenta o texto da resposta da notifica\u00C3\u00A7\u00C3\u00A3o que foi enviada */
     public var resposta: String?
     /** Apresenta a data e hora em que ser\u00C3\u00A1 enviado a notifica\u00C3\u00A7\u00C3\u00A3o */
-    public var dataAgendamento: NSDate?
+    public var dataAgendamento: String?
     /** Quantidade de tentativas e envio da notifica\u00C3\u00A7\u00C3\u00A3o */
     public var quantidadeTentativasEnvio: Int?
     /** Apresenta a data e em que o registro foi inclu\u00C3\u00ADdo na base para ser enviado */
-    public var dataInclusao: NSDate?
+    public var dataInclusao: String?
     /** Apresenta a data e em que o Stattjus do registro foi modificado */
-    public var dataAlteracaoStatus: NSDate?
+    public var dataAlteracaoStatus: String?
     /** N\u00C3\u00BAmero do protocolo de envio de notifica\u00C3\u00A7\u00C3\u00B5es */
     public var protocolo: String?
     
@@ -79,10 +79,10 @@ public class SMS: JSONEncodable {
         nillableDictionary["operadora"] = self.operadora
         nillableDictionary["conteudo"] = self.conteudo
         nillableDictionary["resposta"] = self.resposta
-        nillableDictionary["dataAgendamento"] = self.dataAgendamento?.encodeToJSON()
+        nillableDictionary["dataAgendamento"] = self.dataAgendamento
         nillableDictionary["quantidadeTentativasEnvio"] = self.quantidadeTentativasEnvio
-        nillableDictionary["dataInclusao"] = self.dataInclusao?.encodeToJSON()
-        nillableDictionary["dataAlteracaoStatus"] = self.dataAlteracaoStatus?.encodeToJSON()
+        nillableDictionary["dataInclusao"] = self.dataInclusao
+        nillableDictionary["dataAlteracaoStatus"] = self.dataAlteracaoStatus
         nillableDictionary["protocolo"] = self.protocolo
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary

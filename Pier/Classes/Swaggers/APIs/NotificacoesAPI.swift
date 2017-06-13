@@ -38,8 +38,8 @@ public class NotificacoesAPI: APIBase {
   "quantidadeTentativasEnvio" : 123,
   "conteudo" : "aeiou",
   "idConta" : 123456789,
-  "dataAlteracaoStatus" : "2000-01-23T04:56:07.000+0000",
-  "dataAgendamento" : "2000-01-23T04:56:07.000+0000",
+  "dataAlteracaoStatus" : "aeiou",
+  "dataAgendamento" : "aeiou",
   "descricaoStatus" : "aeiou",
   "protocolo" : "aeiou",
   "nsu" : 123456789,
@@ -47,7 +47,7 @@ public class NotificacoesAPI: APIBase {
   "tipoEvento" : "aeiou",
   "resposta" : "aeiou",
   "celular" : "aeiou",
-  "dataInclusao" : "2000-01-23T04:56:07.000+0000",
+  "dataInclusao" : "aeiou",
   "id" : 123456789,
   "idEmissor" : 123456789,
   "operadora" : "aeiou",
@@ -85,7 +85,7 @@ public class NotificacoesAPI: APIBase {
      Listar Push
      
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter dataEnvio: (query) Apresenta a data e em que o registro foi enviado para o dispositivo. (optional)
      - parameter tipoEvento: (query) Nome do tipoEvento da notifica\u00C3\u00A7\u00C3\u00A3o (optional)
      - parameter status: (query) Status de envio da notifica\u00C3\u00A7\u00C3\u00A3o (optional)
@@ -93,7 +93,7 @@ public class NotificacoesAPI: APIBase {
      - parameter protocolo: (query) N\u00C3\u00BAmero do protocolo de envio de notifica\u00C3\u00A7\u00C3\u00B5es (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarPushUsingGET(page page: Int?, limit: Int?, dataEnvio: NSDate?, tipoEvento: String?, status: String?, plataforma: String?, protocolo: String?, completion: ((data: PagePush?, error: ErrorType?) -> Void)) {
+    public class func listarPushUsingGET(page page: Int?, limit: Int?, dataEnvio: String?, tipoEvento: String?, status: String?, plataforma: String?, protocolo: String?, completion: ((data: PagePush?, error: ErrorType?) -> Void)) {
         listarPushUsingGETWithRequestBuilder(page: page, limit: limit, dataEnvio: dataEnvio, tipoEvento: tipoEvento, status: status, plataforma: plataforma, protocolo: protocolo).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -122,7 +122,7 @@ public class NotificacoesAPI: APIBase {
     "titulo" : "aeiou",
     "idEmissor" : 123456789,
     "tokenDispositivo" : "aeiou",
-    "dataEnvio" : "2000-01-23T04:56:07.000+0000",
+    "dataEnvio" : "aeiou",
     "status" : "aeiou"
   } ],
   "totalElements" : 123456789,
@@ -136,7 +136,7 @@ public class NotificacoesAPI: APIBase {
 }}]
      
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter dataEnvio: (query) Apresenta a data e em que o registro foi enviado para o dispositivo. (optional)
      - parameter tipoEvento: (query) Nome do tipoEvento da notifica\u00C3\u00A7\u00C3\u00A3o (optional)
      - parameter status: (query) Status de envio da notifica\u00C3\u00A7\u00C3\u00A3o (optional)
@@ -145,7 +145,7 @@ public class NotificacoesAPI: APIBase {
 
      - returns: RequestBuilder<PagePush> 
      */
-    public class func listarPushUsingGETWithRequestBuilder(page page: Int?, limit: Int?, dataEnvio: NSDate?, tipoEvento: String?, status: String?, plataforma: String?, protocolo: String?) -> RequestBuilder<PagePush> {
+    public class func listarPushUsingGETWithRequestBuilder(page page: Int?, limit: Int?, dataEnvio: String?, tipoEvento: String?, status: String?, plataforma: String?, protocolo: String?) -> RequestBuilder<PagePush> {
         let path = "/api/notificacoes/push"
         let URLString = PierAPI.basePath + path
         
@@ -170,7 +170,7 @@ public class NotificacoesAPI: APIBase {
      Listar SMS
      
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter dataInclusao: (query) Apresenta a data e em que o registro foi inclu\u00C3\u00ADdo na base para ser enviado (optional)
      - parameter tipoEvento: (query) Nome do tipoEvento da notifica\u00C3\u00A7\u00C3\u00A3o (optional)
      - parameter status: (query) Status de envio da notifica\u00C3\u00A7\u00C3\u00A3o (optional)
@@ -179,7 +179,7 @@ public class NotificacoesAPI: APIBase {
      - parameter nsu: (query) Apresenta o nsu da notifica\u00C3\u00A7\u00C3\u00A3o (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarSMSUsingGET(page page: Int?, limit: Int?, dataInclusao: NSDate?, tipoEvento: String?, status: String?, operadora: String?, protocolo: String?, nsu: Int?, completion: ((data: PageSMS?, error: ErrorType?) -> Void)) {
+    public class func listarSMSUsingGET(page page: Int?, limit: Int?, dataInclusao: String?, tipoEvento: String?, status: String?, operadora: String?, protocolo: String?, nsu: Int?, completion: ((data: PageSMS?, error: ErrorType?) -> Void)) {
         listarSMSUsingGETWithRequestBuilder(page: page, limit: limit, dataInclusao: dataInclusao, tipoEvento: tipoEvento, status: status, operadora: operadora, protocolo: protocolo, nsu: nsu).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -202,8 +202,8 @@ public class NotificacoesAPI: APIBase {
     "quantidadeTentativasEnvio" : 123,
     "conteudo" : "aeiou",
     "idConta" : 123456789,
-    "dataAlteracaoStatus" : "2000-01-23T04:56:07.000+0000",
-    "dataAgendamento" : "2000-01-23T04:56:07.000+0000",
+    "dataAlteracaoStatus" : "aeiou",
+    "dataAgendamento" : "aeiou",
     "descricaoStatus" : "aeiou",
     "protocolo" : "aeiou",
     "nsu" : 123456789,
@@ -211,7 +211,7 @@ public class NotificacoesAPI: APIBase {
     "tipoEvento" : "aeiou",
     "resposta" : "aeiou",
     "celular" : "aeiou",
-    "dataInclusao" : "2000-01-23T04:56:07.000+0000",
+    "dataInclusao" : "aeiou",
     "id" : 123456789,
     "idEmissor" : 123456789,
     "operadora" : "aeiou",
@@ -228,7 +228,7 @@ public class NotificacoesAPI: APIBase {
 }}]
      
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter dataInclusao: (query) Apresenta a data e em que o registro foi inclu\u00C3\u00ADdo na base para ser enviado (optional)
      - parameter tipoEvento: (query) Nome do tipoEvento da notifica\u00C3\u00A7\u00C3\u00A3o (optional)
      - parameter status: (query) Status de envio da notifica\u00C3\u00A7\u00C3\u00A3o (optional)
@@ -238,7 +238,7 @@ public class NotificacoesAPI: APIBase {
 
      - returns: RequestBuilder<PageSMS> 
      */
-    public class func listarSMSUsingGETWithRequestBuilder(page page: Int?, limit: Int?, dataInclusao: NSDate?, tipoEvento: String?, status: String?, operadora: String?, protocolo: String?, nsu: Int?) -> RequestBuilder<PageSMS> {
+    public class func listarSMSUsingGETWithRequestBuilder(page page: Int?, limit: Int?, dataInclusao: String?, tipoEvento: String?, status: String?, operadora: String?, protocolo: String?, nsu: Int?) -> RequestBuilder<PageSMS> {
         let path = "/api/notificacoes/sms"
         let URLString = PierAPI.basePath + path
         
@@ -285,8 +285,8 @@ public class NotificacoesAPI: APIBase {
   "quantidadeTentativasEnvio" : 123,
   "conteudo" : "aeiou",
   "idConta" : 123456789,
-  "dataAlteracaoStatus" : "2000-01-23T04:56:07.000+0000",
-  "dataAgendamento" : "2000-01-23T04:56:07.000+0000",
+  "dataAlteracaoStatus" : "aeiou",
+  "dataAgendamento" : "aeiou",
   "descricaoStatus" : "aeiou",
   "protocolo" : "aeiou",
   "nsu" : 123456789,
@@ -294,7 +294,7 @@ public class NotificacoesAPI: APIBase {
   "tipoEvento" : "aeiou",
   "resposta" : "aeiou",
   "celular" : "aeiou",
-  "dataInclusao" : "2000-01-23T04:56:07.000+0000",
+  "dataInclusao" : "aeiou",
   "id" : 123456789,
   "idEmissor" : 123456789,
   "operadora" : "aeiou",

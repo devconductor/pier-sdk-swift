@@ -20,7 +20,7 @@ public class HistoricoTelefone: JSONEncodable {
     /** Apresenta a descri\u00C3\u00A7\u00C3\u00A3o do tipo do telefone. */
     public var tipoTelefone: String?
     /** Apresenta a data que o telefone fora alterado. */
-    public var dataModificacao: NSDate?
+    public var dataModificacao: String?
     
 
     public init() {}
@@ -32,7 +32,7 @@ public class HistoricoTelefone: JSONEncodable {
         nillableDictionary["telefone"] = self.telefone
         nillableDictionary["idTipoTelefone"] = self.idTipoTelefone
         nillableDictionary["tipoTelefone"] = self.tipoTelefone
-        nillableDictionary["dataModificacao"] = self.dataModificacao?.encodeToJSON()
+        nillableDictionary["dataModificacao"] = self.dataModificacao
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

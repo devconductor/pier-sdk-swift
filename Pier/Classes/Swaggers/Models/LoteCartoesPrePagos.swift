@@ -26,7 +26,7 @@ public class LoteCartoesPrePagos: JSONEncodable {
     /** N\u00C3\u00BAmero de cart\u00C3\u00B5es existentes no Lote. */
     public var quantidade: Int?
     /** Data de cadastro do lote de cart\u00C3\u00B5es pr\u00C3\u00A9-pagos. */
-    public var dataCadastro: NSDate?
+    public var dataCadastro: String?
     /** Nome do usu\u00C3\u00A1rio que criou o lote. */
     public var usuarioCadastro: String?
     /** Indica o status de processamento do lote. */
@@ -45,7 +45,7 @@ public class LoteCartoesPrePagos: JSONEncodable {
         nillableDictionary["idImagem"] = self.idImagem
         nillableDictionary["idEndereco"] = self.idEndereco
         nillableDictionary["quantidade"] = self.quantidade
-        nillableDictionary["dataCadastro"] = self.dataCadastro?.encodeToJSON()
+        nillableDictionary["dataCadastro"] = self.dataCadastro
         nillableDictionary["usuarioCadastro"] = self.usuarioCadastro
         nillableDictionary["statusProcessamento"] = self.statusProcessamento
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]

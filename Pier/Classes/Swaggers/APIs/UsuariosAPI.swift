@@ -157,8 +157,8 @@ public class UsuariosAPI: APIBase {
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Usu\u00C3\u00A1rio (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET22(id id: Int, completion: ((data: UsuarioResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET22WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET25(id id: Int, completion: ((data: UsuarioResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET25WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -187,7 +187,7 @@ public class UsuariosAPI: APIBase {
 
      - returns: RequestBuilder<UsuarioResponse> 
      */
-    public class func consultarUsingGET22WithRequestBuilder(id id: Int) -> RequestBuilder<UsuarioResponse> {
+    public class func consultarUsingGET25WithRequestBuilder(id id: Int) -> RequestBuilder<UsuarioResponse> {
         var path = "/api/usuarios/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -255,15 +255,15 @@ public class UsuariosAPI: APIBase {
      Lista os Usu\u00C3\u00A1rios cadastrados
      
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter nome: (query) Nome do Usuario (optional)
      - parameter cpf: (query) CPF do Usuario (optional)
      - parameter email: (query) Email do Usuario (optional)
      - parameter status: (query) Status do Usuario (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET24(page page: Int?, limit: Int?, nome: String?, cpf: String?, email: String?, status: String?, completion: ((data: PageUsuarios?, error: ErrorType?) -> Void)) {
-        listarUsingGET24WithRequestBuilder(page: page, limit: limit, nome: nome, cpf: cpf, email: email, status: status).execute { (response, error) -> Void in
+    public class func listarUsingGET29(page page: Int?, limit: Int?, nome: String?, cpf: String?, email: String?, status: String?, completion: ((data: PageUsuarios?, error: ErrorType?) -> Void)) {
+        listarUsingGET29WithRequestBuilder(page: page, limit: limit, nome: nome, cpf: cpf, email: email, status: status).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -304,7 +304,7 @@ public class UsuariosAPI: APIBase {
 }}]
      
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter nome: (query) Nome do Usuario (optional)
      - parameter cpf: (query) CPF do Usuario (optional)
      - parameter email: (query) Email do Usuario (optional)
@@ -312,7 +312,7 @@ public class UsuariosAPI: APIBase {
 
      - returns: RequestBuilder<PageUsuarios> 
      */
-    public class func listarUsingGET24WithRequestBuilder(page page: Int?, limit: Int?, nome: String?, cpf: String?, email: String?, status: String?) -> RequestBuilder<PageUsuarios> {
+    public class func listarUsingGET29WithRequestBuilder(page page: Int?, limit: Int?, nome: String?, cpf: String?, email: String?, status: String?) -> RequestBuilder<PageUsuarios> {
         let path = "/api/usuarios"
         let URLString = PierAPI.basePath + path
         
@@ -377,8 +377,8 @@ public class UsuariosAPI: APIBase {
      - parameter persist: (body) persist 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func salvarUsingPOST12(persist persist: UsuarioPersist, completion: ((data: UsuarioResponse?, error: ErrorType?) -> Void)) {
-        salvarUsingPOST12WithRequestBuilder(persist: persist).execute { (response, error) -> Void in
+    public class func salvarUsingPOST13(persist persist: UsuarioPersist, completion: ((data: UsuarioResponse?, error: ErrorType?) -> Void)) {
+        salvarUsingPOST13WithRequestBuilder(persist: persist).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -407,7 +407,7 @@ public class UsuariosAPI: APIBase {
 
      - returns: RequestBuilder<UsuarioResponse> 
      */
-    public class func salvarUsingPOST12WithRequestBuilder(persist persist: UsuarioPersist) -> RequestBuilder<UsuarioResponse> {
+    public class func salvarUsingPOST13WithRequestBuilder(persist persist: UsuarioPersist) -> RequestBuilder<UsuarioResponse> {
         let path = "/api/usuarios"
         let URLString = PierAPI.basePath + path
         

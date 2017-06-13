@@ -11,6 +11,7 @@ import Foundation
 /** Objeto Cart\u00C3\u00A3o para Impresso */
 public class CartaoImpressao: JSONEncodable {
 
+    public var flagVirtual: Int?
     /** Apresenta o C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Conta (id) a qual o cart\u00C3\u00A3o gerado pertence. */
     public var idConta: Int?
     /** Apresenta o C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Pessoa (id) portadora do cart\u00C3\u00A3o gerado. */
@@ -28,9 +29,9 @@ public class CartaoImpressao: JSONEncodable {
     /** Apresenta o n\u00C3\u00BAmero do CVV a ser impresso no Cart\u00C3\u00A3o */
     public var cvv2: String?
     /** Apresenta a data de emiss\u00C3\u00A3o do Cart\u00C3\u00A3o. */
-    public var dataGeracao: NSDate?
+    public var dataGeracao: String?
     /** Apresenta a data de Validade do Cart\u00C3\u00A3o. */
-    public var dataValidade: NSDate?
+    public var dataValidade: String?
     /** Apresenta o nome da Origem Comercial que realizou o cadastro do Titular da Conta a qual o Cart\u00C3\u00A3o pertence. */
     public var nomeOrigemComercial: String?
     /** Apresenta o nome da Empresa (Pessoa Jur\u00C3\u00ADdica) titular do Cart\u00C3\u00A3o, quando aplic\u00C3\u00A1vel. */
@@ -62,6 +63,7 @@ public class CartaoImpressao: JSONEncodable {
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
+        nillableDictionary["flagVirtual"] = self.flagVirtual
         nillableDictionary["idConta"] = self.idConta
         nillableDictionary["idPessoa"] = self.idPessoa
         nillableDictionary["idCartao"] = self.idCartao
@@ -70,8 +72,8 @@ public class CartaoImpressao: JSONEncodable {
         nillableDictionary["numeroCartao"] = self.numeroCartao
         nillableDictionary["nomePlastico"] = self.nomePlastico
         nillableDictionary["cvv2"] = self.cvv2
-        nillableDictionary["dataGeracao"] = self.dataGeracao?.encodeToJSON()
-        nillableDictionary["dataValidade"] = self.dataValidade?.encodeToJSON()
+        nillableDictionary["dataGeracao"] = self.dataGeracao
+        nillableDictionary["dataValidade"] = self.dataValidade
         nillableDictionary["nomeOrigemComercial"] = self.nomeOrigemComercial
         nillableDictionary["nomeEmpresa"] = self.nomeEmpresa
         nillableDictionary["numeroAgencia"] = self.numeroAgencia

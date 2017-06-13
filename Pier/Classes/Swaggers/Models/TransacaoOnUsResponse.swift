@@ -23,6 +23,8 @@ public class TransacaoOnUsResponse: JSONEncodable {
     public var numeroMascaradoCartao: String?
     /** Nome do Portador do Cart\u00C3\u00A3o que originou a transa\u00C3\u00A7\u00C3\u00A3o. */
     public var nomePortadorCartao: String?
+    /** Apresenta a identifica\u00C3\u00A7\u00C3\u00A3o do terminal requisitante */
+    public var terminalRequisitante: String?
     
 
     public init() {}
@@ -36,6 +38,7 @@ public class TransacaoOnUsResponse: JSONEncodable {
         nillableDictionary["codigoAutorizacao"] = self.codigoAutorizacao
         nillableDictionary["numeroMascaradoCartao"] = self.numeroMascaradoCartao
         nillableDictionary["nomePortadorCartao"] = self.nomePortadorCartao
+        nillableDictionary["terminalRequisitante"] = self.terminalRequisitante
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

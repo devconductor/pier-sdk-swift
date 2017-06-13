@@ -14,7 +14,7 @@ public class HistoricoEventos: JSONEncodable {
     /** C\u00C3\u00B3digo identificador do evento */
     public var idHistorico: Int?
     /** Data do evento */
-    public var dataHistorico: NSDate?
+    public var dataHistorico: String?
     /** Nome do campo alterado */
     public var tipoHistorico: String?
     /** Valor anterior a modifica\u00C3\u00A7\u00C3\u00A3o */
@@ -29,7 +29,7 @@ public class HistoricoEventos: JSONEncodable {
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
         nillableDictionary["idHistorico"] = self.idHistorico
-        nillableDictionary["dataHistorico"] = self.dataHistorico?.encodeToJSON()
+        nillableDictionary["dataHistorico"] = self.dataHistorico
         nillableDictionary["tipoHistorico"] = self.tipoHistorico
         nillableDictionary["valorAnterior"] = self.valorAnterior
         nillableDictionary["valorAtribuido"] = self.valorAtribuido

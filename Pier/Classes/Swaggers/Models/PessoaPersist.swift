@@ -14,9 +14,9 @@ public class PessoaPersist: JSONEncodable {
     /** N\u00C3\u00BAmero do CPF, quando PF. */
     public var cpf: String?
     /** Data emiss\u00C3\u00A3o da Identidade */
-    public var dataEmissaoIdentidade: NSDate?
+    public var dataEmissaoIdentidade: String?
     /** Data de Nascimento da Pessoa, quando PF, ou a Data de Abertura da Empresa, quando PJ. Essa data deve ser informada no formato aaaa-MM-dd. */
-    public var dataNascimento: NSDate?
+    public var dataNascimento: String?
     /** Email do s\u00C3\u00B3cio */
     public var email: String?
     /** Estado civil do s\u00C3\u00B3cio */
@@ -45,8 +45,8 @@ public class PessoaPersist: JSONEncodable {
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
         nillableDictionary["cpf"] = self.cpf
-        nillableDictionary["dataEmissaoIdentidade"] = self.dataEmissaoIdentidade?.encodeToJSON()
-        nillableDictionary["dataNascimento"] = self.dataNascimento?.encodeToJSON()
+        nillableDictionary["dataEmissaoIdentidade"] = self.dataEmissaoIdentidade
+        nillableDictionary["dataNascimento"] = self.dataNascimento
         nillableDictionary["email"] = self.email
         nillableDictionary["estadoCivil"] = self.estadoCivil
         nillableDictionary["nacionalidade"] = self.nacionalidade

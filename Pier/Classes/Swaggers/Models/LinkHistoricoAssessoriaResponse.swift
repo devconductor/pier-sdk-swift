@@ -12,7 +12,7 @@ import Foundation
 public class LinkHistoricoAssessoriaResponse: JSONEncodable {
 
     /** Apresenta a data e hora do hist\u00C3\u00B3rico */
-    public var dataHoraHistorico: NSDate?
+    public var dataHoraHistorico: String?
     /** Apresenta o tipo do hist\u00C3\u00B3rico podendo ser ENTRADA ou SAIDA */
     public var tipoHistorico: String?
     /** Apresenta o nome da Assessoria de Cobran\u00C3\u00A7a relacionada ao hist\u00C3\u00B3rico */
@@ -24,7 +24,7 @@ public class LinkHistoricoAssessoriaResponse: JSONEncodable {
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
-        nillableDictionary["dataHoraHistorico"] = self.dataHoraHistorico?.encodeToJSON()
+        nillableDictionary["dataHoraHistorico"] = self.dataHoraHistorico
         nillableDictionary["tipoHistorico"] = self.tipoHistorico
         nillableDictionary["nomeAssessoria"] = self.nomeAssessoria
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]

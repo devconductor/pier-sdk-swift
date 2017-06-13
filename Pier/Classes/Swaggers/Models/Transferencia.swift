@@ -14,7 +14,7 @@ public class Transferencia: JSONEncodable {
     /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da transfer\u00C3\u00AAncia (id). */
     public var id: Int?
     /** Data estabelecida para ocorrer a transfer\u00C3\u00AAncia. */
-    public var dataTransferencia: NSDate?
+    public var dataTransferencia: String?
     /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta em que o valor ser\u00C3\u00A1 debitado para a transfer\u00C3\u00AAncia. (id). */
     public var idContaOrigem: Int?
     /** Apresenta o nome completo da pessoa que realizou a Transfer\u00C3\u00AAncia. */
@@ -35,7 +35,7 @@ public class Transferencia: JSONEncodable {
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
         nillableDictionary["id"] = self.id
-        nillableDictionary["dataTransferencia"] = self.dataTransferencia?.encodeToJSON()
+        nillableDictionary["dataTransferencia"] = self.dataTransferencia
         nillableDictionary["idContaOrigem"] = self.idContaOrigem
         nillableDictionary["nomePessoaOrigem"] = self.nomePessoaOrigem
         nillableDictionary["idContaDestino"] = self.idContaDestino

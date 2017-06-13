@@ -85,9 +85,9 @@ public class OportunidadesAPI: APIBase {
   "idStatusOportunidade" : 123456789,
   "numeroReceitaFederal" : "aeiou",
   "id" : 123456789,
-  "dataFimVigencia" : "2000-01-23T04:56:07.000+0000",
+  "dataFimVigencia" : "aeiou",
   "dataCadastro" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "dataInicioVigencia" : "2000-01-23T04:56:07.000+0000",
+  "dataInicioVigencia" : "aeiou",
   "flagAtivo" : false,
   "detalhes" : [ {
     "conteudo" : "aeiou",
@@ -213,8 +213,8 @@ public class OportunidadesAPI: APIBase {
      - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do tipo oportunidade (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET17(id id: Int, completion: ((data: TipoOportunidadeResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET17WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET20(id id: Int, completion: ((data: TipoOportunidadeResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET20WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -236,7 +236,7 @@ public class OportunidadesAPI: APIBase {
 
      - returns: RequestBuilder<TipoOportunidadeResponse> 
      */
-    public class func consultarUsingGET17WithRequestBuilder(id id: Int) -> RequestBuilder<TipoOportunidadeResponse> {
+    public class func consultarUsingGET20WithRequestBuilder(id id: Int) -> RequestBuilder<TipoOportunidadeResponse> {
         var path = "/api/tipos-oportunidades/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -256,8 +256,8 @@ public class OportunidadesAPI: APIBase {
      - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da oportunidade (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET7(id id: Int, completion: ((data: OportunidadeResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET7WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET8(id id: Int, completion: ((data: OportunidadeResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET8WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -274,9 +274,9 @@ public class OportunidadesAPI: APIBase {
   "idStatusOportunidade" : 123456789,
   "numeroReceitaFederal" : "aeiou",
   "id" : 123456789,
-  "dataFimVigencia" : "2000-01-23T04:56:07.000+0000",
+  "dataFimVigencia" : "aeiou",
   "dataCadastro" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "dataInicioVigencia" : "2000-01-23T04:56:07.000+0000",
+  "dataInicioVigencia" : "aeiou",
   "flagAtivo" : false,
   "detalhes" : [ {
     "conteudo" : "aeiou",
@@ -290,7 +290,7 @@ public class OportunidadesAPI: APIBase {
 
      - returns: RequestBuilder<OportunidadeResponse> 
      */
-    public class func consultarUsingGET7WithRequestBuilder(id id: Int) -> RequestBuilder<OportunidadeResponse> {
+    public class func consultarUsingGET8WithRequestBuilder(id id: Int) -> RequestBuilder<OportunidadeResponse> {
         var path = "/api/oportunidades/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -308,7 +308,7 @@ public class OportunidadesAPI: APIBase {
      Lista as auditorias dos status oportunidades
      
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter revType: (query) C\u00C3\u00B3digo que representa o tipo de a\u00C3\u00A7\u00C3\u00A3o realizada no recurso de tipos oportunidades (optional)
      - parameter revDate: (query) Data da a\u00C3\u00A7\u00C3\u00A3o realizada no recurso de tipos oportunidades (optional)
      - parameter id: (query) C\u00C3\u00B3digo identificador do status oportunidade (optional)
@@ -319,7 +319,7 @@ public class OportunidadesAPI: APIBase {
      - parameter revUser: (query) Usu\u00C3\u00A1rio da auditoria (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarAuditoriasStatusUsingGET(page page: Int?, limit: Int?, revType: Int?, revDate: NSDate?, id: Int?, idTipoOportunidade: Int?, nome: String?, descricao: String?, flagAtivo: Bool?, revUser: NSDate?, completion: ((data: PageStatusOprtunidadesAUD?, error: ErrorType?) -> Void)) {
+    public class func listarAuditoriasStatusUsingGET(page page: Int?, limit: Int?, revType: Int?, revDate: String?, id: Int?, idTipoOportunidade: Int?, nome: String?, descricao: String?, flagAtivo: Bool?, revUser: String?, completion: ((data: PageStatusOprtunidadesAUD?, error: ErrorType?) -> Void)) {
         listarAuditoriasStatusUsingGETWithRequestBuilder(page: page, limit: limit, revType: revType, revDate: revDate, id: id, idTipoOportunidade: idTipoOportunidade, nome: nome, descricao: descricao, flagAtivo: flagAtivo, revUser: revUser).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -343,7 +343,7 @@ public class OportunidadesAPI: APIBase {
     "nome" : "aeiou",
     "revType" : 123456789,
     "id" : 123456789,
-    "revDate" : "2000-01-23T04:56:07.000+0000",
+    "revDate" : "aeiou",
     "flagAtivo" : false,
     "idTipoOportunidade" : 123456789,
     "descricao" : "aeiou"
@@ -359,7 +359,7 @@ public class OportunidadesAPI: APIBase {
 }}]
      
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter revType: (query) C\u00C3\u00B3digo que representa o tipo de a\u00C3\u00A7\u00C3\u00A3o realizada no recurso de tipos oportunidades (optional)
      - parameter revDate: (query) Data da a\u00C3\u00A7\u00C3\u00A3o realizada no recurso de tipos oportunidades (optional)
      - parameter id: (query) C\u00C3\u00B3digo identificador do status oportunidade (optional)
@@ -371,7 +371,7 @@ public class OportunidadesAPI: APIBase {
 
      - returns: RequestBuilder<PageStatusOprtunidadesAUD> 
      */
-    public class func listarAuditoriasStatusUsingGETWithRequestBuilder(page page: Int?, limit: Int?, revType: Int?, revDate: NSDate?, id: Int?, idTipoOportunidade: Int?, nome: String?, descricao: String?, flagAtivo: Bool?, revUser: NSDate?) -> RequestBuilder<PageStatusOprtunidadesAUD> {
+    public class func listarAuditoriasStatusUsingGETWithRequestBuilder(page page: Int?, limit: Int?, revType: Int?, revDate: String?, id: Int?, idTipoOportunidade: Int?, nome: String?, descricao: String?, flagAtivo: Bool?, revUser: String?) -> RequestBuilder<PageStatusOprtunidadesAUD> {
         let path = "/api/auditorias-status-oportunidades"
         let URLString = PierAPI.basePath + path
         
@@ -399,7 +399,7 @@ public class OportunidadesAPI: APIBase {
      Lista as auditorias das oportunidades
      
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter idStatusOportunidade: (query) C\u00C3\u00B3digo identificador do status oportunidade (optional)
      - parameter dataCadastro: (query) Data do cadastro da oportunidade (optional)
      - parameter dataAtualizacao: (query) Data da atualiza\u00C3\u00A7\u00C3\u00A3o da oportunidade (optional)
@@ -412,7 +412,7 @@ public class OportunidadesAPI: APIBase {
      - parameter revUser: (query) Usu\u00C3\u00A1rio da auditoria (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarAuditoriasUsingGET(page page: Int?, limit: Int?, idStatusOportunidade: Int?, dataCadastro: NSDate?, dataAtualizacao: NSDate?, numeroReceitaFederal: String?, dataInicioVigencia: NSDate?, datatFimVigencia: NSDate?, flagAtivo: Bool?, revDate: NSDate?, revType: NSDate?, revUser: NSDate?, completion: ((data: PageOprtunidadeAUD?, error: ErrorType?) -> Void)) {
+    public class func listarAuditoriasUsingGET(page page: Int?, limit: Int?, idStatusOportunidade: Int?, dataCadastro: String?, dataAtualizacao: String?, numeroReceitaFederal: String?, dataInicioVigencia: String?, datatFimVigencia: String?, flagAtivo: Bool?, revDate: String?, revType: String?, revUser: String?, completion: ((data: PageOprtunidadeAUD?, error: ErrorType?) -> Void)) {
         listarAuditoriasUsingGETWithRequestBuilder(page: page, limit: limit, idStatusOportunidade: idStatusOportunidade, dataCadastro: dataCadastro, dataAtualizacao: dataAtualizacao, numeroReceitaFederal: numeroReceitaFederal, dataInicioVigencia: dataInicioVigencia, datatFimVigencia: datatFimVigencia, flagAtivo: flagAtivo, revDate: revDate, revType: revType, revUser: revUser).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -437,9 +437,9 @@ public class OportunidadesAPI: APIBase {
     "numeroReceitaFederal" : "aeiou",
     "id" : 123456789,
     "revType" : 123456789,
-    "dataFimVigencia" : "2000-01-23T04:56:07.000+0000",
+    "dataFimVigencia" : "aeiou",
     "dataCadastro" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-    "dataInicioVigencia" : "2000-01-23T04:56:07.000+0000",
+    "dataInicioVigencia" : "aeiou",
     "flagAtivo" : false,
     "detalhes" : [ {
       "conteudo" : "aeiou",
@@ -450,9 +450,9 @@ public class OportunidadesAPI: APIBase {
       "revType" : 123456789,
       "idOportunidade" : 123456789,
       "nomeCampo" : "aeiou",
-      "revDate" : "2000-01-23T04:56:07.000+0000"
+      "revDate" : "aeiou"
     } ],
-    "revDate" : "2000-01-23T04:56:07.000+0000",
+    "revDate" : "aeiou",
     "idTipoOportunidade" : 123456789
   } ],
   "totalElements" : 123456789,
@@ -466,7 +466,7 @@ public class OportunidadesAPI: APIBase {
 }}]
      
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter idStatusOportunidade: (query) C\u00C3\u00B3digo identificador do status oportunidade (optional)
      - parameter dataCadastro: (query) Data do cadastro da oportunidade (optional)
      - parameter dataAtualizacao: (query) Data da atualiza\u00C3\u00A7\u00C3\u00A3o da oportunidade (optional)
@@ -480,7 +480,7 @@ public class OportunidadesAPI: APIBase {
 
      - returns: RequestBuilder<PageOprtunidadeAUD> 
      */
-    public class func listarAuditoriasUsingGETWithRequestBuilder(page page: Int?, limit: Int?, idStatusOportunidade: Int?, dataCadastro: NSDate?, dataAtualizacao: NSDate?, numeroReceitaFederal: String?, dataInicioVigencia: NSDate?, datatFimVigencia: NSDate?, flagAtivo: Bool?, revDate: NSDate?, revType: NSDate?, revUser: NSDate?) -> RequestBuilder<PageOprtunidadeAUD> {
+    public class func listarAuditoriasUsingGETWithRequestBuilder(page page: Int?, limit: Int?, idStatusOportunidade: Int?, dataCadastro: String?, dataAtualizacao: String?, numeroReceitaFederal: String?, dataInicioVigencia: String?, datatFimVigencia: String?, flagAtivo: Bool?, revDate: String?, revType: String?, revUser: String?) -> RequestBuilder<PageOprtunidadeAUD> {
         let path = "/api/auditorias-oportunidades"
         let URLString = PierAPI.basePath + path
         
@@ -510,7 +510,7 @@ public class OportunidadesAPI: APIBase {
      Lista as auditorias dos tipos oportunidades
      
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter revType: (query) C\u00C3\u00B3digo que representa o tipo de a\u00C3\u00A7\u00C3\u00A3o realizada no recurso de tipos oportunidades (optional)
      - parameter revDate: (query) Data da a\u00C3\u00A7\u00C3\u00A3o realizada no recurso de tipos oportunidades (optional)
      - parameter id: (query) C\u00C3\u00B3digo identificador do tipo oportunidade no qual foi realizado a a\u00C3\u00A7\u00C3\u00A3o (optional)
@@ -519,7 +519,7 @@ public class OportunidadesAPI: APIBase {
      - parameter revUser: (query) Usu\u00C3\u00A1rio da auditoria (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarAuditoriasUsingGET1(page page: Int?, limit: Int?, revType: Int?, revDate: NSDate?, id: Int?, descricao: String?, flagAtivo: Bool?, revUser: NSDate?, completion: ((data: PageTipoOprtunidadesAUD?, error: ErrorType?) -> Void)) {
+    public class func listarAuditoriasUsingGET1(page page: Int?, limit: Int?, revType: Int?, revDate: String?, id: Int?, descricao: String?, flagAtivo: Bool?, revUser: String?, completion: ((data: PageTipoOprtunidadesAUD?, error: ErrorType?) -> Void)) {
         listarAuditoriasUsingGET1WithRequestBuilder(page: page, limit: limit, revType: revType, revDate: revDate, id: id, descricao: descricao, flagAtivo: flagAtivo, revUser: revUser).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -542,7 +542,7 @@ public class OportunidadesAPI: APIBase {
     "rev" : 123456789,
     "revType" : 123456789,
     "id" : 123456789,
-    "revDate" : "2000-01-23T04:56:07.000+0000",
+    "revDate" : "aeiou",
     "flagAtivo" : false,
     "descricao" : "aeiou"
   } ],
@@ -557,7 +557,7 @@ public class OportunidadesAPI: APIBase {
 }}]
      
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter revType: (query) C\u00C3\u00B3digo que representa o tipo de a\u00C3\u00A7\u00C3\u00A3o realizada no recurso de tipos oportunidades (optional)
      - parameter revDate: (query) Data da a\u00C3\u00A7\u00C3\u00A3o realizada no recurso de tipos oportunidades (optional)
      - parameter id: (query) C\u00C3\u00B3digo identificador do tipo oportunidade no qual foi realizado a a\u00C3\u00A7\u00C3\u00A3o (optional)
@@ -567,7 +567,7 @@ public class OportunidadesAPI: APIBase {
 
      - returns: RequestBuilder<PageTipoOprtunidadesAUD> 
      */
-    public class func listarAuditoriasUsingGET1WithRequestBuilder(page page: Int?, limit: Int?, revType: Int?, revDate: NSDate?, id: Int?, descricao: String?, flagAtivo: Bool?, revUser: NSDate?) -> RequestBuilder<PageTipoOprtunidadesAUD> {
+    public class func listarAuditoriasUsingGET1WithRequestBuilder(page page: Int?, limit: Int?, revType: Int?, revDate: String?, id: Int?, descricao: String?, flagAtivo: Bool?, revUser: String?) -> RequestBuilder<PageTipoOprtunidadesAUD> {
         let path = "/api/auditorias-tipos-oportunidades"
         let URLString = PierAPI.basePath + path
         
@@ -594,7 +594,7 @@ public class OportunidadesAPI: APIBase {
      
      - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do tipo oportunidade (id). 
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter nome: (query) Nome do status oportunidade (optional)
      - parameter descricao: (query) Descri\u00C3\u00A7\u00C3\u00A3o do status oportunidade (optional)
      - parameter flagAtivo: (query) Flag de verifica\u00C3\u00A7\u00C3\u00A3o se o status oportunidade est\u00C3\u00A1 ativo (optional)
@@ -638,7 +638,7 @@ public class OportunidadesAPI: APIBase {
      
      - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do tipo oportunidade (id). 
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter nome: (query) Nome do status oportunidade (optional)
      - parameter descricao: (query) Descri\u00C3\u00A7\u00C3\u00A3o do status oportunidade (optional)
      - parameter flagAtivo: (query) Flag de verifica\u00C3\u00A7\u00C3\u00A3o se o status oportunidade est\u00C3\u00A1 ativo (optional)
@@ -666,16 +666,110 @@ public class OportunidadesAPI: APIBase {
 
     /**
      
+     Lista as oportunidades
+     
+     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+     - parameter idStatusOportunidade: (query) C\u00C3\u00B3digo identificador do status oportunidade (optional)
+     - parameter dataCadastro: (query) Data do cadastro da oportunidade (optional)
+     - parameter dataAtualizacao: (query) Data da atualiza\u00C3\u00A7\u00C3\u00A3o da oportunidade (optional)
+     - parameter numeroReceitaFederal: (query) N\u00C3\u00BAmero receita federal do cliente ao qual ser\u00C3\u00A1 ofertada a oportunidade (optional)
+     - parameter dataInicioVigencia: (query) Data de in\u00C3\u00ADcio da vig\u00C3\u00AAncia da oportunidade (optional)
+     - parameter dataFimVigencia: (query) Data do fim da vig\u00C3\u00AAncia da oportunidade (optional)
+     - parameter flagAtivo: (query) Flag de verifica\u00C3\u00A7\u00C3\u00A3o se a oportunidade est\u00C3\u00A1 ativa (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func listarUsingGET12(page page: Int?, limit: Int?, idStatusOportunidade: Int?, dataCadastro: String?, dataAtualizacao: String?, numeroReceitaFederal: String?, dataInicioVigencia: String?, dataFimVigencia: String?, flagAtivo: Bool?, completion: ((data: PageOprtunidadesResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET12WithRequestBuilder(page: page, limit: limit, idStatusOportunidade: idStatusOportunidade, dataCadastro: dataCadastro, dataAtualizacao: dataAtualizacao, numeroReceitaFederal: numeroReceitaFederal, dataInicioVigencia: dataInicioVigencia, dataFimVigencia: dataFimVigencia, flagAtivo: flagAtivo).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Lista as oportunidades
+     
+     - GET /api/oportunidades
+     - Este recurso permite listar as oportunidades.
+     - examples: [{contentType=application/json, example={
+  "previousPage" : 123,
+  "last" : true,
+  "hasContent" : true,
+  "hasNextPage" : true,
+  "nextPage" : 123,
+  "content" : [ {
+    "dataAtualizacao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+    "idStatusOportunidade" : 123456789,
+    "numeroReceitaFederal" : "aeiou",
+    "id" : 123456789,
+    "dataFimVigencia" : "aeiou",
+    "dataCadastro" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+    "dataInicioVigencia" : "aeiou",
+    "flagAtivo" : false,
+    "detalhes" : [ {
+      "conteudo" : "aeiou",
+      "id" : 123456789,
+      "nomeCampo" : "aeiou"
+    } ],
+    "idTipoOportunidade" : 123456789
+  } ],
+  "totalElements" : 123456789,
+  "number" : 123,
+  "firstPage" : true,
+  "numberOfElements" : 123,
+  "size" : 123,
+  "totalPages" : 123,
+  "hasPreviousPage" : true,
+  "first" : true
+}}]
+     
+     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+     - parameter idStatusOportunidade: (query) C\u00C3\u00B3digo identificador do status oportunidade (optional)
+     - parameter dataCadastro: (query) Data do cadastro da oportunidade (optional)
+     - parameter dataAtualizacao: (query) Data da atualiza\u00C3\u00A7\u00C3\u00A3o da oportunidade (optional)
+     - parameter numeroReceitaFederal: (query) N\u00C3\u00BAmero receita federal do cliente ao qual ser\u00C3\u00A1 ofertada a oportunidade (optional)
+     - parameter dataInicioVigencia: (query) Data de in\u00C3\u00ADcio da vig\u00C3\u00AAncia da oportunidade (optional)
+     - parameter dataFimVigencia: (query) Data do fim da vig\u00C3\u00AAncia da oportunidade (optional)
+     - parameter flagAtivo: (query) Flag de verifica\u00C3\u00A7\u00C3\u00A3o se a oportunidade est\u00C3\u00A1 ativa (optional)
+
+     - returns: RequestBuilder<PageOprtunidadesResponse> 
+     */
+    public class func listarUsingGET12WithRequestBuilder(page page: Int?, limit: Int?, idStatusOportunidade: Int?, dataCadastro: String?, dataAtualizacao: String?, numeroReceitaFederal: String?, dataInicioVigencia: String?, dataFimVigencia: String?, flagAtivo: Bool?) -> RequestBuilder<PageOprtunidadesResponse> {
+        let path = "/api/oportunidades"
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [
+            "page": page,
+            "limit": limit,
+            "idStatusOportunidade": idStatusOportunidade,
+            "dataCadastro": dataCadastro,
+            "dataAtualizacao": dataAtualizacao,
+            "numeroReceitaFederal": numeroReceitaFederal,
+            "dataInicioVigencia": dataInicioVigencia,
+            "dataFimVigencia": dataFimVigencia,
+            "flagAtivo": flagAtivo
+        ]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<PageOprtunidadesResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
+    }
+
+    /**
+     
      Lista os tipos oportunidades
      
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter descricao: (query) Descri\u00C3\u00A7\u00C3\u00A3o do tipo oportunidade (optional)
      - parameter flagAtivo: (query) Flag de verifica\u00C3\u00A7\u00C3\u00A3o se o tipo oportunidade est\u00C3\u00A1 ativo (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET19(page page: Int?, limit: Int?, descricao: String?, flagAtivo: Bool?, completion: ((data: PageTipoOprtunidades?, error: ErrorType?) -> Void)) {
-        listarUsingGET19WithRequestBuilder(page: page, limit: limit, descricao: descricao, flagAtivo: flagAtivo).execute { (response, error) -> Void in
+    public class func listarUsingGET24(page page: Int?, limit: Int?, descricao: String?, flagAtivo: Bool?, completion: ((data: PageTipoOprtunidades?, error: ErrorType?) -> Void)) {
+        listarUsingGET24WithRequestBuilder(page: page, limit: limit, descricao: descricao, flagAtivo: flagAtivo).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -709,13 +803,13 @@ public class OportunidadesAPI: APIBase {
 }}]
      
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter descricao: (query) Descri\u00C3\u00A7\u00C3\u00A3o do tipo oportunidade (optional)
      - parameter flagAtivo: (query) Flag de verifica\u00C3\u00A7\u00C3\u00A3o se o tipo oportunidade est\u00C3\u00A1 ativo (optional)
 
      - returns: RequestBuilder<PageTipoOprtunidades> 
      */
-    public class func listarUsingGET19WithRequestBuilder(page page: Int?, limit: Int?, descricao: String?, flagAtivo: Bool?) -> RequestBuilder<PageTipoOprtunidades> {
+    public class func listarUsingGET24WithRequestBuilder(page page: Int?, limit: Int?, descricao: String?, flagAtivo: Bool?) -> RequestBuilder<PageTipoOprtunidades> {
         let path = "/api/tipos-oportunidades"
         let URLString = PierAPI.basePath + path
         
@@ -728,100 +822,6 @@ public class OportunidadesAPI: APIBase {
         let parameters = APIHelper.rejectNil(nillableParameters)
 
         let requestBuilder: RequestBuilder<PageTipoOprtunidades>.Type = PierAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
-    }
-
-    /**
-     
-     Lista as oportunidades
-     
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
-     - parameter idStatusOportunidade: (query) C\u00C3\u00B3digo identificador do status oportunidade (optional)
-     - parameter dataCadastro: (query) Data do cadastro da oportunidade (optional)
-     - parameter dataAtualizacao: (query) Data da atualiza\u00C3\u00A7\u00C3\u00A3o da oportunidade (optional)
-     - parameter numeroReceitaFederal: (query) N\u00C3\u00BAmero receita federal do cliente ao qual ser\u00C3\u00A1 ofertada a oportunidade (optional)
-     - parameter dataInicioVigencia: (query) Data de in\u00C3\u00ADcio da vig\u00C3\u00AAncia da oportunidade (optional)
-     - parameter dataFimVigencia: (query) Data do fim da vig\u00C3\u00AAncia da oportunidade (optional)
-     - parameter flagAtivo: (query) Flag de verifica\u00C3\u00A7\u00C3\u00A3o se a oportunidade est\u00C3\u00A1 ativa (optional)
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func listarUsingGET9(page page: Int?, limit: Int?, idStatusOportunidade: Int?, dataCadastro: NSDate?, dataAtualizacao: NSDate?, numeroReceitaFederal: String?, dataInicioVigencia: NSDate?, dataFimVigencia: NSDate?, flagAtivo: Bool?, completion: ((data: PageOprtunidadesResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET9WithRequestBuilder(page: page, limit: limit, idStatusOportunidade: idStatusOportunidade, dataCadastro: dataCadastro, dataAtualizacao: dataAtualizacao, numeroReceitaFederal: numeroReceitaFederal, dataInicioVigencia: dataInicioVigencia, dataFimVigencia: dataFimVigencia, flagAtivo: flagAtivo).execute { (response, error) -> Void in
-            completion(data: response?.body, error: error);
-        }
-    }
-
-
-    /**
-     
-     Lista as oportunidades
-     
-     - GET /api/oportunidades
-     - Este recurso permite listar as oportunidades.
-     - examples: [{contentType=application/json, example={
-  "previousPage" : 123,
-  "last" : true,
-  "hasContent" : true,
-  "hasNextPage" : true,
-  "nextPage" : 123,
-  "content" : [ {
-    "dataAtualizacao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-    "idStatusOportunidade" : 123456789,
-    "numeroReceitaFederal" : "aeiou",
-    "id" : 123456789,
-    "dataFimVigencia" : "2000-01-23T04:56:07.000+0000",
-    "dataCadastro" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-    "dataInicioVigencia" : "2000-01-23T04:56:07.000+0000",
-    "flagAtivo" : false,
-    "detalhes" : [ {
-      "conteudo" : "aeiou",
-      "id" : 123456789,
-      "nomeCampo" : "aeiou"
-    } ],
-    "idTipoOportunidade" : 123456789
-  } ],
-  "totalElements" : 123456789,
-  "number" : 123,
-  "firstPage" : true,
-  "numberOfElements" : 123,
-  "size" : 123,
-  "totalPages" : 123,
-  "hasPreviousPage" : true,
-  "first" : true
-}}]
-     
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
-     - parameter idStatusOportunidade: (query) C\u00C3\u00B3digo identificador do status oportunidade (optional)
-     - parameter dataCadastro: (query) Data do cadastro da oportunidade (optional)
-     - parameter dataAtualizacao: (query) Data da atualiza\u00C3\u00A7\u00C3\u00A3o da oportunidade (optional)
-     - parameter numeroReceitaFederal: (query) N\u00C3\u00BAmero receita federal do cliente ao qual ser\u00C3\u00A1 ofertada a oportunidade (optional)
-     - parameter dataInicioVigencia: (query) Data de in\u00C3\u00ADcio da vig\u00C3\u00AAncia da oportunidade (optional)
-     - parameter dataFimVigencia: (query) Data do fim da vig\u00C3\u00AAncia da oportunidade (optional)
-     - parameter flagAtivo: (query) Flag de verifica\u00C3\u00A7\u00C3\u00A3o se a oportunidade est\u00C3\u00A1 ativa (optional)
-
-     - returns: RequestBuilder<PageOprtunidadesResponse> 
-     */
-    public class func listarUsingGET9WithRequestBuilder(page page: Int?, limit: Int?, idStatusOportunidade: Int?, dataCadastro: NSDate?, dataAtualizacao: NSDate?, numeroReceitaFederal: String?, dataInicioVigencia: NSDate?, dataFimVigencia: NSDate?, flagAtivo: Bool?) -> RequestBuilder<PageOprtunidadesResponse> {
-        let path = "/api/oportunidades"
-        let URLString = PierAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [
-            "page": page,
-            "limit": limit,
-            "idStatusOportunidade": idStatusOportunidade,
-            "dataCadastro": dataCadastro,
-            "dataAtualizacao": dataAtualizacao,
-            "numeroReceitaFederal": numeroReceitaFederal,
-            "dataInicioVigencia": dataInicioVigencia,
-            "dataFimVigencia": dataFimVigencia,
-            "flagAtivo": flagAtivo
-        ]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<PageOprtunidadesResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
     }
@@ -879,8 +879,8 @@ public class OportunidadesAPI: APIBase {
      - parameter persist: (body) persist 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func salvarUsingPOST10(persist persist: TipoOportunidade, completion: ((data: TipoOportunidadeResponse?, error: ErrorType?) -> Void)) {
-        salvarUsingPOST10WithRequestBuilder(persist: persist).execute { (response, error) -> Void in
+    public class func salvarUsingPOST11(persist persist: TipoOportunidade, completion: ((data: TipoOportunidadeResponse?, error: ErrorType?) -> Void)) {
+        salvarUsingPOST11WithRequestBuilder(persist: persist).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -902,7 +902,7 @@ public class OportunidadesAPI: APIBase {
 
      - returns: RequestBuilder<TipoOportunidadeResponse> 
      */
-    public class func salvarUsingPOST10WithRequestBuilder(persist persist: TipoOportunidade) -> RequestBuilder<TipoOportunidadeResponse> {
+    public class func salvarUsingPOST11WithRequestBuilder(persist persist: TipoOportunidade) -> RequestBuilder<TipoOportunidadeResponse> {
         let path = "/api/tipos-oportunidades"
         let URLString = PierAPI.basePath + path
         
@@ -920,8 +920,8 @@ public class OportunidadesAPI: APIBase {
      - parameter persist: (body) persist 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func salvarUsingPOST5(persist persist: OportunidadePersist, completion: ((data: OportunidadeResponse?, error: ErrorType?) -> Void)) {
-        salvarUsingPOST5WithRequestBuilder(persist: persist).execute { (response, error) -> Void in
+    public class func salvarUsingPOST6(persist persist: OportunidadePersist, completion: ((data: OportunidadeResponse?, error: ErrorType?) -> Void)) {
+        salvarUsingPOST6WithRequestBuilder(persist: persist).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -938,9 +938,9 @@ public class OportunidadesAPI: APIBase {
   "idStatusOportunidade" : 123456789,
   "numeroReceitaFederal" : "aeiou",
   "id" : 123456789,
-  "dataFimVigencia" : "2000-01-23T04:56:07.000+0000",
+  "dataFimVigencia" : "aeiou",
   "dataCadastro" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "dataInicioVigencia" : "2000-01-23T04:56:07.000+0000",
+  "dataInicioVigencia" : "aeiou",
   "flagAtivo" : false,
   "detalhes" : [ {
     "conteudo" : "aeiou",
@@ -954,7 +954,7 @@ public class OportunidadesAPI: APIBase {
 
      - returns: RequestBuilder<OportunidadeResponse> 
      */
-    public class func salvarUsingPOST5WithRequestBuilder(persist persist: OportunidadePersist) -> RequestBuilder<OportunidadeResponse> {
+    public class func salvarUsingPOST6WithRequestBuilder(persist persist: OportunidadePersist) -> RequestBuilder<OportunidadeResponse> {
         let path = "/api/oportunidades"
         let URLString = PierAPI.basePath + path
         

@@ -28,7 +28,7 @@ public class RiscoFraudeDetalhadoResponse: JSONEncodable {
     /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da transa\u00C3\u00A7\u00C3\u00A3o (id) */
     public var idTransacao: Int?
     /** Data que a transa\u00C3\u00A7\u00C3\u00A3o classificada com risco de fraude foi realizada */
-    public var dataTransacao: NSDate?
+    public var dataTransacao: String?
     /** Valor da transa\u00C3\u00A7\u00C3\u00A3o classificada com risco de fraude */
     public var valorTransacao: Double?
     /** C\u00C3\u00B3digo da moeda de origem utilizada para a transa\u00C3\u00A7\u00C3\u00A3o */
@@ -80,7 +80,7 @@ public class RiscoFraudeDetalhadoResponse: JSONEncodable {
         nillableDictionary["idCartao"] = self.idCartao
         nillableDictionary["idProduto"] = self.idProduto
         nillableDictionary["idTransacao"] = self.idTransacao
-        nillableDictionary["dataTransacao"] = self.dataTransacao?.encodeToJSON()
+        nillableDictionary["dataTransacao"] = self.dataTransacao
         nillableDictionary["valorTransacao"] = self.valorTransacao
         nillableDictionary["codigoMoedaOrigem"] = self.codigoMoedaOrigem
         nillableDictionary["valorOrigem"] = self.valorOrigem

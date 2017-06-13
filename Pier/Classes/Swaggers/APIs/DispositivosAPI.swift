@@ -103,7 +103,7 @@ public class DispositivosAPI: APIBase {
      Lista os dispositivos cadastrados
      
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter token: (query) Token do Dispositivo (optional)
      - parameter idUsuario: (query) Identificador do Usu\u00C3\u00A1rio (optional)
      - parameter idAplicacaoMobile: (query) Identificador da aplica\u00C3\u00A7\u00C3\u00A3o (optional)
@@ -111,8 +111,8 @@ public class DispositivosAPI: APIBase {
      - parameter dataDesativacao: (query) Apresenta a data e em que o registro foi desativado. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET5(page page: Int?, limit: Int?, token: String?, idUsuario: Int?, idAplicacaoMobile: Int?, dataCriacao: NSDate?, dataDesativacao: NSDate?, completion: ((data: PageDispositivos?, error: ErrorType?) -> Void)) {
-        listarUsingGET5WithRequestBuilder(page: page, limit: limit, token: token, idUsuario: idUsuario, idAplicacaoMobile: idAplicacaoMobile, dataCriacao: dataCriacao, dataDesativacao: dataDesativacao).execute { (response, error) -> Void in
+    public class func listarUsingGET7(page page: Int?, limit: Int?, token: String?, idUsuario: Int?, idAplicacaoMobile: Int?, dataCriacao: String?, dataDesativacao: String?, completion: ((data: PageDispositivos?, error: ErrorType?) -> Void)) {
+        listarUsingGET7WithRequestBuilder(page: page, limit: limit, token: token, idUsuario: idUsuario, idAplicacaoMobile: idAplicacaoMobile, dataCriacao: dataCriacao, dataDesativacao: dataDesativacao).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -147,7 +147,7 @@ public class DispositivosAPI: APIBase {
 }}]
      
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter token: (query) Token do Dispositivo (optional)
      - parameter idUsuario: (query) Identificador do Usu\u00C3\u00A1rio (optional)
      - parameter idAplicacaoMobile: (query) Identificador da aplica\u00C3\u00A7\u00C3\u00A3o (optional)
@@ -156,7 +156,7 @@ public class DispositivosAPI: APIBase {
 
      - returns: RequestBuilder<PageDispositivos> 
      */
-    public class func listarUsingGET5WithRequestBuilder(page page: Int?, limit: Int?, token: String?, idUsuario: Int?, idAplicacaoMobile: Int?, dataCriacao: NSDate?, dataDesativacao: NSDate?) -> RequestBuilder<PageDispositivos> {
+    public class func listarUsingGET7WithRequestBuilder(page page: Int?, limit: Int?, token: String?, idUsuario: Int?, idAplicacaoMobile: Int?, dataCriacao: String?, dataDesativacao: String?) -> RequestBuilder<PageDispositivos> {
         let path = "/api/dispositivos"
         let URLString = PierAPI.basePath + path
         

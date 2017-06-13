@@ -11,10 +11,11 @@ import Foundation
 /** Objeto Dados Cart\u00C3\u00A3o */
 public class DadosCarto: JSONEncodable {
 
+    public var flagVirtual: Int?
     /** N\u00C3\u00BAmero do cart\u00C3\u00A3o. */
     public var numeroCartao: String?
     /** Data de validade. */
-    public var dataValidade: NSDate?
+    public var dataValidade: String?
     /** CVV2 do cart\u00C3\u00A3o. */
     public var cvv2: String?
     /** Nome do portador. */
@@ -23,12 +24,18 @@ public class DadosCarto: JSONEncodable {
     public var idConta: Int?
     /** Identificador da cart\u00C3\u00A3o do portador. */
     public var idCartao: Int?
+    /** Apresenta o n\u00C3\u00BAmero da Ag\u00C3\u00AAncia a ser impresso no Cart\u00C3\u00A3o, quando aplic\u00C3\u00A1vel. */
+    public var numeroAgencia: Int?
+    /** Apresenta o n\u00C3\u00BAmero da Conta Corrente a ser impresso no Cart\u00C3\u00A3o, quando aplic\u00C3\u00A1vel. */
+    public var numeroContaCorente: String?
     /** Status da conta do portador. */
-    public var status: Int?
+    public var idStatusConta: Int?
     /** Descri\u00C3\u00A7\u00C3\u00A3o do status da conta do portador. */
-    public var statusDescricao: String?
-    /** Flag de verifica\u00C3\u00A7\u00C3\u00A3o se o cart\u00C3\u00A3o \u00C3\u00A9 provis\u00C3\u00B3rio. */
-    public var flagProvisorio: Int?
+    public var statusConta: String?
+    /** Status do cart\u00C3\u00A3o. */
+    public var idStatusCartao: Int?
+    /** Descri\u00C3\u00A7\u00C3\u00A3o do status do cart\u00C3\u00A3o. */
+    public var statusCartao: String?
     
 
     public init() {}
@@ -36,15 +43,19 @@ public class DadosCarto: JSONEncodable {
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
+        nillableDictionary["flagVirtual"] = self.flagVirtual
         nillableDictionary["numeroCartao"] = self.numeroCartao
-        nillableDictionary["dataValidade"] = self.dataValidade?.encodeToJSON()
+        nillableDictionary["dataValidade"] = self.dataValidade
         nillableDictionary["cvv2"] = self.cvv2
         nillableDictionary["nomePlastico"] = self.nomePlastico
         nillableDictionary["idConta"] = self.idConta
         nillableDictionary["idCartao"] = self.idCartao
-        nillableDictionary["status"] = self.status
-        nillableDictionary["statusDescricao"] = self.statusDescricao
-        nillableDictionary["flagProvisorio"] = self.flagProvisorio
+        nillableDictionary["numeroAgencia"] = self.numeroAgencia
+        nillableDictionary["numeroContaCorente"] = self.numeroContaCorente
+        nillableDictionary["idStatusConta"] = self.idStatusConta
+        nillableDictionary["statusConta"] = self.statusConta
+        nillableDictionary["idStatusCartao"] = self.idStatusCartao
+        nillableDictionary["statusCartao"] = self.statusCartao
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

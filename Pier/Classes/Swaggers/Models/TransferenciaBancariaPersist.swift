@@ -12,11 +12,11 @@ import Foundation
 public class TransferenciaBancariaPersist: JSONEncodable {
 
     /** Data da transfer\u00C3\u00AAncia */
-    public var dataCompra: NSDate?
+    public var dataCompra: String?
     /** Dia do vencimento padr\u00C3\u00A3o da fatura */
-    public var proximoVencimentoPadrao: NSDate?
+    public var proximoVencimentoPadrao: String?
     /** Data do vencimento real da fatura */
-    public var proximoVencimentoReal: NSDate?
+    public var proximoVencimentoReal: String?
     /** Valor da transfer\u00C3\u00AAncia */
     public var valorCompra: Double?
     /** Apresenta o &#39;Nome Completo da PF&#39; ou o &#39;Nome Completo da Raz\u00C3\u00A3o Social (Nome Empresarial)&#39;. */
@@ -42,9 +42,9 @@ public class TransferenciaBancariaPersist: JSONEncodable {
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
-        nillableDictionary["dataCompra"] = self.dataCompra?.encodeToJSON()
-        nillableDictionary["proximoVencimentoPadrao"] = self.proximoVencimentoPadrao?.encodeToJSON()
-        nillableDictionary["proximoVencimentoReal"] = self.proximoVencimentoReal?.encodeToJSON()
+        nillableDictionary["dataCompra"] = self.dataCompra
+        nillableDictionary["proximoVencimentoPadrao"] = self.proximoVencimentoPadrao
+        nillableDictionary["proximoVencimentoReal"] = self.proximoVencimentoReal
         nillableDictionary["valorCompra"] = self.valorCompra
         nillableDictionary["nomeFavorecido"] = self.nomeFavorecido
         nillableDictionary["documentoFavorecido"] = self.documentoFavorecido

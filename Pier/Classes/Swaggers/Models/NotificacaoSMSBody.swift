@@ -27,7 +27,7 @@ public class NotificacaoSMSBody: JSONEncodable {
     /** Apresenta o texto do SMS a ser enviado */
     public var conteudo: String?
     /** Apresenta a data e hora em que ser\u00C3\u00A1 enviado a notifica\u00C3\u00A7\u00C3\u00A3o */
-    public var dataAgendamento: NSDate?
+    public var dataAgendamento: String?
     /** Apresenta o tipoEvento a qual pertence a notifica\u00C3\u00A7\u00C3\u00A3o */
     public var tipoEvento: TipoEvento?
     
@@ -42,7 +42,7 @@ public class NotificacaoSMSBody: JSONEncodable {
         nillableDictionary["idConta"] = self.idConta
         nillableDictionary["celular"] = self.celular
         nillableDictionary["conteudo"] = self.conteudo
-        nillableDictionary["dataAgendamento"] = self.dataAgendamento?.encodeToJSON()
+        nillableDictionary["dataAgendamento"] = self.dataAgendamento
         nillableDictionary["tipoEvento"] = self.tipoEvento?.rawValue
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary

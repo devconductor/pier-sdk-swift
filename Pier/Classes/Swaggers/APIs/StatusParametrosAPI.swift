@@ -107,8 +107,8 @@ public class StatusParametrosAPI: APIBase {
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Status da Conta (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET11(id id: Int, completion: ((data: StatusConta?, error: ErrorType?) -> Void)) {
-        consultarUsingGET11WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET13(id id: Int, completion: ((data: StatusConta?, error: ErrorType?) -> Void)) {
+        consultarUsingGET13WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -132,7 +132,7 @@ public class StatusParametrosAPI: APIBase {
 
      - returns: RequestBuilder<StatusConta> 
      */
-    public class func consultarUsingGET11WithRequestBuilder(id id: Int) -> RequestBuilder<StatusConta> {
+    public class func consultarUsingGET13WithRequestBuilder(id id: Int) -> RequestBuilder<StatusConta> {
         var path = "/api/status-contas/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -152,8 +152,8 @@ public class StatusParametrosAPI: APIBase {
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Status de Impress\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET12(id id: Int, completion: ((data: StatusImpressao?, error: ErrorType?) -> Void)) {
-        consultarUsingGET12WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET14(id id: Int, completion: ((data: StatusImpressao?, error: ErrorType?) -> Void)) {
+        consultarUsingGET14WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -174,7 +174,7 @@ public class StatusParametrosAPI: APIBase {
 
      - returns: RequestBuilder<StatusImpressao> 
      */
-    public class func consultarUsingGET12WithRequestBuilder(id id: Int) -> RequestBuilder<StatusImpressao> {
+    public class func consultarUsingGET14WithRequestBuilder(id id: Int) -> RequestBuilder<StatusImpressao> {
         var path = "/api/status-impressoes/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -192,7 +192,7 @@ public class StatusParametrosAPI: APIBase {
      Lista as op\u00C3\u00A7\u00C3\u00B5es de Est\u00C3\u00A1gios do Cart\u00C3\u00A3o
      
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter id: (query) Id do est\u00C3\u00A1gio cart\u00C3\u00A3o (optional)
      - parameter nome: (query) Nome do est\u00C3\u00A1gio cart\u00C3\u00A3o (optional)
      - parameter completion: completion handler to receive the data and the error objects
@@ -231,7 +231,7 @@ public class StatusParametrosAPI: APIBase {
 }}]
      
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter id: (query) Id do est\u00C3\u00A1gio cart\u00C3\u00A3o (optional)
      - parameter nome: (query) Nome do est\u00C3\u00A1gio cart\u00C3\u00A3o (optional)
 
@@ -259,7 +259,7 @@ public class StatusParametrosAPI: APIBase {
      Lista as op\u00C3\u00A7\u00C3\u00B5es de Status do Cart\u00C3\u00A3o
      
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter id: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Status do Cart\u00C3\u00A3o (id)  (optional)
      - parameter nome: (query) Nome atribu\u00C3\u00ADdo ao Status de Entrega do Cart\u00C3\u00A3o. (optional)
      - parameter flagCancelaCartao: (query) Quando ativa, indica que ao ser atribu\u00C3\u00ADdo um idStatusCartao com essa caracter\u00C3\u00ADstica, o cart\u00C3\u00A3o ter\u00C3\u00A1 o seu idStatusCartao alterado para o que fora escolhido. Caso contr\u00C3\u00A1rio, o idStatusCartao s\u00C3\u00B3 ser\u00C3\u00A1 alterado ap\u00C3\u00B3s o desbloqueio de um novo cart\u00C3\u00A3o do mesmo Portador e Conta. (optional)
@@ -310,7 +310,7 @@ public class StatusParametrosAPI: APIBase {
 }}]
      
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter id: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Status do Cart\u00C3\u00A3o (id)  (optional)
      - parameter nome: (query) Nome atribu\u00C3\u00ADdo ao Status de Entrega do Cart\u00C3\u00A3o. (optional)
      - parameter flagCancelaCartao: (query) Quando ativa, indica que ao ser atribu\u00C3\u00ADdo um idStatusCartao com essa caracter\u00C3\u00ADstica, o cart\u00C3\u00A3o ter\u00C3\u00A1 o seu idStatusCartao alterado para o que fora escolhido. Caso contr\u00C3\u00A1rio, o idStatusCartao s\u00C3\u00B3 ser\u00C3\u00A1 alterado ap\u00C3\u00B3s o desbloqueio de um novo cart\u00C3\u00A3o do mesmo Portador e Conta. (optional)
@@ -350,7 +350,7 @@ public class StatusParametrosAPI: APIBase {
      Lista os Status Contas cadastrados para o Emissor
      
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter id: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Status da Conta (id). (optional)
      - parameter nome: (query) Nome atribu\u00C3\u00ADdo ao Status da Conta. (optional)
      - parameter flagAlteraLimite: (query) Par\u00C3\u00A2metro que define se o Status da Conta permite realizar a Altera\u00C3\u00A7\u00C3\u00A3o de Limites do Portador, sendo: 0: Inativo e 1: Ativo. (optional)
@@ -358,8 +358,8 @@ public class StatusParametrosAPI: APIBase {
      - parameter flagPermiteNovaViaCartao: (query) Par\u00C3\u00A2metro que define se o Status da conta permite a solicita\u00C3\u00A7\u00C3\u00A3o de um novo cart\u00C3\u00A3o, sendo: 0: Inativo e 1: Ativo. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET15(page page: Int?, limit: Int?, id: Int?, nome: String?, flagAlteraLimite: Int?, mensagemConsultaNegada: String?, flagPermiteNovaViaCartao: Int?, completion: ((data: PageStatusContas?, error: ErrorType?) -> Void)) {
-        listarUsingGET15WithRequestBuilder(page: page, limit: limit, id: id, nome: nome, flagAlteraLimite: flagAlteraLimite, mensagemConsultaNegada: mensagemConsultaNegada, flagPermiteNovaViaCartao: flagPermiteNovaViaCartao).execute { (response, error) -> Void in
+    public class func listarUsingGET19(page page: Int?, limit: Int?, id: Int?, nome: String?, flagAlteraLimite: Int?, mensagemConsultaNegada: String?, flagPermiteNovaViaCartao: Int?, completion: ((data: PageStatusContas?, error: ErrorType?) -> Void)) {
+        listarUsingGET19WithRequestBuilder(page: page, limit: limit, id: id, nome: nome, flagAlteraLimite: flagAlteraLimite, mensagemConsultaNegada: mensagemConsultaNegada, flagPermiteNovaViaCartao: flagPermiteNovaViaCartao).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -395,7 +395,7 @@ public class StatusParametrosAPI: APIBase {
 }}]
      
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter id: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Status da Conta (id). (optional)
      - parameter nome: (query) Nome atribu\u00C3\u00ADdo ao Status da Conta. (optional)
      - parameter flagAlteraLimite: (query) Par\u00C3\u00A2metro que define se o Status da Conta permite realizar a Altera\u00C3\u00A7\u00C3\u00A3o de Limites do Portador, sendo: 0: Inativo e 1: Ativo. (optional)
@@ -404,7 +404,7 @@ public class StatusParametrosAPI: APIBase {
 
      - returns: RequestBuilder<PageStatusContas> 
      */
-    public class func listarUsingGET15WithRequestBuilder(page page: Int?, limit: Int?, id: Int?, nome: String?, flagAlteraLimite: Int?, mensagemConsultaNegada: String?, flagPermiteNovaViaCartao: Int?) -> RequestBuilder<PageStatusContas> {
+    public class func listarUsingGET19WithRequestBuilder(page page: Int?, limit: Int?, id: Int?, nome: String?, flagAlteraLimite: Int?, mensagemConsultaNegada: String?, flagPermiteNovaViaCartao: Int?) -> RequestBuilder<PageStatusContas> {
         let path = "/api/status-contas"
         let URLString = PierAPI.basePath + path
         
@@ -429,13 +429,13 @@ public class StatusParametrosAPI: APIBase {
      Lista as op\u00C3\u00A7\u00C3\u00B5es de Status Impress\u00C3\u00A3o
      
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter id: (query) Id do est\u00C3\u00A1gio cart\u00C3\u00A3o (optional)
      - parameter nome: (query) Nome do status impress\u00C3\u00A3o (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET16(page page: Int?, limit: Int?, id: Int?, nome: String?, completion: ((data: PageStatusImpressao?, error: ErrorType?) -> Void)) {
-        listarUsingGET16WithRequestBuilder(page: page, limit: limit, id: id, nome: nome).execute { (response, error) -> Void in
+    public class func listarUsingGET20(page page: Int?, limit: Int?, id: Int?, nome: String?, completion: ((data: PageStatusImpressao?, error: ErrorType?) -> Void)) {
+        listarUsingGET20WithRequestBuilder(page: page, limit: limit, id: id, nome: nome).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -468,13 +468,13 @@ public class StatusParametrosAPI: APIBase {
 }}]
      
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter id: (query) Id do est\u00C3\u00A1gio cart\u00C3\u00A3o (optional)
      - parameter nome: (query) Nome do status impress\u00C3\u00A3o (optional)
 
      - returns: RequestBuilder<PageStatusImpressao> 
      */
-    public class func listarUsingGET16WithRequestBuilder(page page: Int?, limit: Int?, id: Int?, nome: String?) -> RequestBuilder<PageStatusImpressao> {
+    public class func listarUsingGET20WithRequestBuilder(page page: Int?, limit: Int?, id: Int?, nome: String?) -> RequestBuilder<PageStatusImpressao> {
         let path = "/api/status-impressoes"
         let URLString = PierAPI.basePath + path
         

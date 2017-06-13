@@ -26,11 +26,11 @@ public class ContaResponse: JSONEncodable {
     /** Apresenta o melhor dia de compra. */
     public var melhorDiaCompra: Int?
     /** Apresenta a data em que o idStatusConta atual fora atribu\u00C3\u00ADdo para ela. */
-    public var dataStatusConta: NSDate?
+    public var dataStatusConta: String?
     /** Apresenta a data em que o cart\u00C3\u00A3o foi gerado. */
-    public var dataCadastro: NSDate?
+    public var dataCadastro: String?
     /** Apresenta a data da ultima altera\u00C3\u00A7\u00C3\u00A3o de vencimento. */
-    public var dataUltimaAlteracaoVencimento: NSDate?
+    public var dataUltimaAlteracaoVencimento: String?
     /** Apresenta o valor da renda comprovada */
     public var valorRenda: Double?
     
@@ -47,9 +47,9 @@ public class ContaResponse: JSONEncodable {
         nillableDictionary["idStatusConta"] = self.idStatusConta
         nillableDictionary["diaVencimento"] = self.diaVencimento
         nillableDictionary["melhorDiaCompra"] = self.melhorDiaCompra
-        nillableDictionary["dataStatusConta"] = self.dataStatusConta?.encodeToJSON()
-        nillableDictionary["dataCadastro"] = self.dataCadastro?.encodeToJSON()
-        nillableDictionary["dataUltimaAlteracaoVencimento"] = self.dataUltimaAlteracaoVencimento?.encodeToJSON()
+        nillableDictionary["dataStatusConta"] = self.dataStatusConta
+        nillableDictionary["dataCadastro"] = self.dataCadastro
+        nillableDictionary["dataUltimaAlteracaoVencimento"] = self.dataUltimaAlteracaoVencimento
         nillableDictionary["valorRenda"] = self.valorRenda
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary

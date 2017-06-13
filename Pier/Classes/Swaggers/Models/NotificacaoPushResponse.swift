@@ -32,7 +32,7 @@ public class NotificacaoPushResponse: JSONEncodable {
     }
     
     /** Apresenta a data e em que o registro foi enviado para o dispositivo. */
-    public var dataEnvio: NSDate?
+    public var dataEnvio: String?
     /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do emissor (id). */
     public var idEmissor: Int?
     /** Nome do tipoEvento da notifica\u00C3\u00A7\u00C3\u00A3o */
@@ -60,7 +60,7 @@ public class NotificacaoPushResponse: JSONEncodable {
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
-        nillableDictionary["dataEnvio"] = self.dataEnvio?.encodeToJSON()
+        nillableDictionary["dataEnvio"] = self.dataEnvio
         nillableDictionary["idEmissor"] = self.idEmissor
         nillableDictionary["tipoEvento"] = self.tipoEvento?.rawValue
         nillableDictionary["status"] = self.status?.rawValue

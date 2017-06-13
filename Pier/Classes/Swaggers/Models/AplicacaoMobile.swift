@@ -15,8 +15,6 @@ public class AplicacaoMobile: JSONEncodable {
     public var id: Int?
     /** Apresenta o identificador da plataforma. */
     public var idPlataformaMobile: Int?
-    /** Apresenta o identificador do emissor. */
-    public var idEmissor: Int?
     /** Apresenta o token da aplicacao. */
     public var token: String?
     /** Apresenta a cor da mensagem da aplicacao. */
@@ -38,7 +36,6 @@ public class AplicacaoMobile: JSONEncodable {
         var nillableDictionary = [String:AnyObject?]()
         nillableDictionary["id"] = self.id
         nillableDictionary["idPlataformaMobile"] = self.idPlataformaMobile
-        nillableDictionary["idEmissor"] = self.idEmissor
         nillableDictionary["token"] = self.token
         nillableDictionary["cor"] = self.cor
         nillableDictionary["som"] = self.som

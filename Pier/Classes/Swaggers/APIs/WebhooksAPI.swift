@@ -68,8 +68,8 @@ public class WebhooksAPI: APIBase {
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Webhook (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET23(id id: Int, completion: ((data: WebHook?, error: ErrorType?) -> Void)) {
-        consultarUsingGET23WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET26(id id: Int, completion: ((data: WebHook?, error: ErrorType?) -> Void)) {
+        consultarUsingGET26WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -92,7 +92,7 @@ public class WebhooksAPI: APIBase {
 
      - returns: RequestBuilder<WebHook> 
      */
-    public class func consultarUsingGET23WithRequestBuilder(id id: Int) -> RequestBuilder<WebHook> {
+    public class func consultarUsingGET26WithRequestBuilder(id id: Int) -> RequestBuilder<WebHook> {
         var path = "/api/webhooks/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -110,15 +110,15 @@ public class WebhooksAPI: APIBase {
      Lista os Webhooks
      
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter id: (query) Id do WebHook (optional)
      - parameter tipoEvento: (query) TipoEvento a ser chamado pelo WebHook (optional)
      - parameter metodo: (query) M\u00C3\u00A9todo que a ser chamado pelo WebHook (optional)
      - parameter url: (query) URL que a ser consumida pelo WebHook (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET25(page page: Int?, limit: Int?, id: Int?, tipoEvento: String?, metodo: String?, url: String?, completion: ((data: PageWebHooks?, error: ErrorType?) -> Void)) {
-        listarUsingGET25WithRequestBuilder(page: page, limit: limit, id: id, tipoEvento: tipoEvento, metodo: metodo, url: url).execute { (response, error) -> Void in
+    public class func listarUsingGET30(page page: Int?, limit: Int?, id: Int?, tipoEvento: String?, metodo: String?, url: String?, completion: ((data: PageWebHooks?, error: ErrorType?) -> Void)) {
+        listarUsingGET30WithRequestBuilder(page: page, limit: limit, id: id, tipoEvento: tipoEvento, metodo: metodo, url: url).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -153,7 +153,7 @@ public class WebhooksAPI: APIBase {
 }}]
      
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter id: (query) Id do WebHook (optional)
      - parameter tipoEvento: (query) TipoEvento a ser chamado pelo WebHook (optional)
      - parameter metodo: (query) M\u00C3\u00A9todo que a ser chamado pelo WebHook (optional)
@@ -161,7 +161,7 @@ public class WebhooksAPI: APIBase {
 
      - returns: RequestBuilder<PageWebHooks> 
      */
-    public class func listarUsingGET25WithRequestBuilder(page page: Int?, limit: Int?, id: Int?, tipoEvento: String?, metodo: String?, url: String?) -> RequestBuilder<PageWebHooks> {
+    public class func listarUsingGET30WithRequestBuilder(page page: Int?, limit: Int?, id: Int?, tipoEvento: String?, metodo: String?, url: String?) -> RequestBuilder<PageWebHooks> {
         let path = "/api/webhooks"
         let URLString = PierAPI.basePath + path
         
@@ -188,8 +188,8 @@ public class WebhooksAPI: APIBase {
      - parameter url: (query) URL que a ser consumida pelo WebHook 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func salvarUsingPOST13(tipoEvento tipoEvento: String, url: String, completion: ((data: WebHook?, error: ErrorType?) -> Void)) {
-        salvarUsingPOST13WithRequestBuilder(tipoEvento: tipoEvento, url: url).execute { (response, error) -> Void in
+    public class func salvarUsingPOST14(tipoEvento tipoEvento: String, url: String, completion: ((data: WebHook?, error: ErrorType?) -> Void)) {
+        salvarUsingPOST14WithRequestBuilder(tipoEvento: tipoEvento, url: url).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -213,7 +213,7 @@ public class WebhooksAPI: APIBase {
 
      - returns: RequestBuilder<WebHook> 
      */
-    public class func salvarUsingPOST13WithRequestBuilder(tipoEvento tipoEvento: String, url: String) -> RequestBuilder<WebHook> {
+    public class func salvarUsingPOST14WithRequestBuilder(tipoEvento tipoEvento: String, url: String) -> RequestBuilder<WebHook> {
         let path = "/api/webhooks"
         let URLString = PierAPI.basePath + path
         

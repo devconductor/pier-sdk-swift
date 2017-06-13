@@ -20,7 +20,7 @@ public class PessoaJuridicaAprovadaPersist: JSONEncodable {
     /** N\u00C3\u00BAmero da Inscri\u00C3\u00A7\u00C3\u00A3o Estadual (IE). */
     public var inscricaoEstadual: String?
     /** Data de abertura da empresa, essa data deve ser informada no formato: aaaa-MM-dd. */
-    public var dataAberturaEmpresa: NSDate?
+    public var dataAberturaEmpresa: String?
     /** Id da origem comercial */
     public var idOrigemComercial: Int?
     /** Id do produto */
@@ -52,7 +52,7 @@ public class PessoaJuridicaAprovadaPersist: JSONEncodable {
         nillableDictionary["nomeFantasia"] = self.nomeFantasia
         nillableDictionary["cnpj"] = self.cnpj
         nillableDictionary["inscricaoEstadual"] = self.inscricaoEstadual
-        nillableDictionary["dataAberturaEmpresa"] = self.dataAberturaEmpresa?.encodeToJSON()
+        nillableDictionary["dataAberturaEmpresa"] = self.dataAberturaEmpresa
         nillableDictionary["idOrigemComercial"] = self.idOrigemComercial
         nillableDictionary["idProduto"] = self.idProduto
         nillableDictionary["numeroAgencia"] = self.numeroAgencia

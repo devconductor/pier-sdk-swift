@@ -36,9 +36,9 @@ public class Endereco: JSONEncodable {
     /** Apresenta nome do Pais */
     public var pais: String?
     /** Apresenta a data em que fora cadastrado o Endere\u00C3\u00A7o */
-    public var dataInclusao: NSDate?
+    public var dataInclusao: String?
     /** Data em que fora realizada a \u00C3\u00BAltima mudan\u00C3\u00A7a neste registro de endere\u00C3\u00A7o. Quando n\u00C3\u00A3o tiver ocorrido mudan\u00C3\u00A7a, conter\u00C3\u00A1 a mesma informa\u00C3\u00A7\u00C3\u00A3o que o campo dataInclusao */
-    public var dataUltimaAtualizacao: NSDate?
+    public var dataUltimaAtualizacao: String?
     
 
     public init() {}
@@ -58,8 +58,8 @@ public class Endereco: JSONEncodable {
         nillableDictionary["cidade"] = self.cidade
         nillableDictionary["uf"] = self.uf
         nillableDictionary["pais"] = self.pais
-        nillableDictionary["dataInclusao"] = self.dataInclusao?.encodeToJSON()
-        nillableDictionary["dataUltimaAtualizacao"] = self.dataUltimaAtualizacao?.encodeToJSON()
+        nillableDictionary["dataInclusao"] = self.dataInclusao
+        nillableDictionary["dataUltimaAtualizacao"] = self.dataUltimaAtualizacao
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

@@ -30,21 +30,21 @@ public class Cartao: JSONEncodable {
     /** Apresenta o nome impresso no cart\u00C3\u00A3o. */
     public var nomeImpresso: String?
     /** Apresenta a data em que o cart\u00C3\u00A3o foi gerado. */
-    public var dataGeracao: NSDate?
+    public var dataGeracao: String?
     /** Apresenta a data em que o idStatusCartao atual do cart\u00C3\u00A3o fora aplicado, quando houver. */
-    public var dataStatusCartao: NSDate?
+    public var dataStatusCartao: String?
     /** Apresenta a data em que o idEstagioCartao atual do cart\u00C3\u00A3o fora aplicado, quando houver. */
-    public var dataEstagioCartao: NSDate?
+    public var dataEstagioCartao: String?
     /** Apresenta a data de validade do cart\u00C3\u00A3o em formato yyyy-MM, quando houver. */
-    public var dataValidade: NSDate?
+    public var dataValidade: String?
     /** Apresenta a data em que o cart\u00C3\u00A3o fora impresso, caso impress\u00C3\u00A3o em loja, ou a data em que ele fora inclu\u00C3\u00ADdo no arquivo para impress\u00C3\u00A3o via gr\u00C3\u00A1fica. */
-    public var dataImpressao: NSDate?
+    public var dataImpressao: String?
     /** Apresenta o nome do arquivo onde o cart\u00C3\u00A3o fora inclu\u00C3\u00ADdo para impress\u00C3\u00A3o por uma gr\u00C3\u00A1fica, quando houver. */
     public var arquivoImpressao: String?
     /** Quando ativa, indica que o cart\u00C3\u00A3o fora impresso na Origem Comercial. */
     public var flagImpressaoOrigemComercial: Int?
-    /** Quando ativa, indica que o cart\u00C3\u00A3o \u00C3\u00A9 provis\u00C3\u00B3rio. Ou seja, \u00C3\u00A9 um cart\u00C3\u00A3o para uso tempor\u00C3\u00A1rio quando se deseja permitir que o cliente transacione sem que ele tenha recebido um cart\u00C3\u00A3o definitivo. */
-    public var flagProvisorio: Int?
+    /** Apresenta o status que informa se o cart\u00C3\u00A3o \u00C3\u00A9 virtual. */
+    public var flagVirtual: Int?
     /** Apresenta um c\u00C3\u00B3digo espec\u00C3\u00ADfico para ser utilizado como vari\u00C3\u00A1vel no processo de desbloqueio do cart\u00C3\u00A3o para emissores que querem usar esta funcionalidade. */
     public var codigoDesbloqueio: String?
     /** N\u00C3\u00BAmero sequencial do cart\u00C3\u00A3o */
@@ -65,14 +65,14 @@ public class Cartao: JSONEncodable {
         nillableDictionary["tipoPortador"] = self.tipoPortador
         nillableDictionary["numeroCartao"] = self.numeroCartao
         nillableDictionary["nomeImpresso"] = self.nomeImpresso
-        nillableDictionary["dataGeracao"] = self.dataGeracao?.encodeToJSON()
-        nillableDictionary["dataStatusCartao"] = self.dataStatusCartao?.encodeToJSON()
-        nillableDictionary["dataEstagioCartao"] = self.dataEstagioCartao?.encodeToJSON()
-        nillableDictionary["dataValidade"] = self.dataValidade?.encodeToJSON()
-        nillableDictionary["dataImpressao"] = self.dataImpressao?.encodeToJSON()
+        nillableDictionary["dataGeracao"] = self.dataGeracao
+        nillableDictionary["dataStatusCartao"] = self.dataStatusCartao
+        nillableDictionary["dataEstagioCartao"] = self.dataEstagioCartao
+        nillableDictionary["dataValidade"] = self.dataValidade
+        nillableDictionary["dataImpressao"] = self.dataImpressao
         nillableDictionary["arquivoImpressao"] = self.arquivoImpressao
         nillableDictionary["flagImpressaoOrigemComercial"] = self.flagImpressaoOrigemComercial
-        nillableDictionary["flagProvisorio"] = self.flagProvisorio
+        nillableDictionary["flagVirtual"] = self.flagVirtual
         nillableDictionary["codigoDesbloqueio"] = self.codigoDesbloqueio
         nillableDictionary["sequencialCartao"] = self.sequencialCartao
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]

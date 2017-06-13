@@ -28,15 +28,15 @@ public class AtendimentoCliente: JSONEncodable {
     /** Apresenta o nome do Sistema, Servidor, M\u00C3\u00B3dulo ou M\u00C3\u00A9todo REST que originou o registro do Atendimento. */
     public var nomeSistema: String?
     /** Apresenta a data e hora em que o Atendimento foi iniciado. Quando utilizado, serve para medir a performance dos Atendimentos. */
-    public var dataHoraInicioAtendimento: NSDate?
+    public var dataHoraInicioAtendimento: String?
     /** Apresenta a data e hora em que o Atendimento foi iniciado. Quando utilizado, serve para medir a performance dos Atendimentos. */
-    public var dataHoraFimAtendimento: NSDate?
+    public var dataHoraFimAtendimento: String?
     /** Apresenta a data e hora em que o Atendimento foi realizado. */
-    public var dataAtendimento: NSDate?
+    public var dataAtendimento: String?
     /** Quando utilizado, de acordo com o Tipo de Atendimento, apresenta a data e hora para processamento ou a data para retorno do Atendimento. */
-    public var dataAgendamento: NSDate?
+    public var dataAgendamento: String?
     /** Quando utilizado, apresenta a data e hora em que a solicita\u00C3\u00A7\u00C3\u00A3o registrada no Atendimento fora processada. */
-    public var dataProcessamento: NSDate?
+    public var dataProcessamento: String?
     /** Quando aplic\u00C3\u00A1vel, de acordo com o Indica se o Processamento da solicita\u00C3\u00A7\u00C3\u00A3o fora realizado. */
     public var flagProcessamento: Int?
     
@@ -54,11 +54,11 @@ public class AtendimentoCliente: JSONEncodable {
         nillableDictionary["detalhesAtendimento"] = self.detalhesAtendimento
         nillableDictionary["nomeAtendente"] = self.nomeAtendente
         nillableDictionary["nomeSistema"] = self.nomeSistema
-        nillableDictionary["dataHoraInicioAtendimento"] = self.dataHoraInicioAtendimento?.encodeToJSON()
-        nillableDictionary["dataHoraFimAtendimento"] = self.dataHoraFimAtendimento?.encodeToJSON()
-        nillableDictionary["dataAtendimento"] = self.dataAtendimento?.encodeToJSON()
-        nillableDictionary["dataAgendamento"] = self.dataAgendamento?.encodeToJSON()
-        nillableDictionary["dataProcessamento"] = self.dataProcessamento?.encodeToJSON()
+        nillableDictionary["dataHoraInicioAtendimento"] = self.dataHoraInicioAtendimento
+        nillableDictionary["dataHoraFimAtendimento"] = self.dataHoraFimAtendimento
+        nillableDictionary["dataAtendimento"] = self.dataAtendimento
+        nillableDictionary["dataAgendamento"] = self.dataAgendamento
+        nillableDictionary["dataProcessamento"] = self.dataProcessamento
         nillableDictionary["flagProcessamento"] = self.flagProcessamento
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary

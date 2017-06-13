@@ -28,9 +28,9 @@ public class Portador: JSONEncodable {
     /** Quanto ativa, indica que o cadastro do Portador est\u00C3\u00A1 ativo, em emissores que realizam este tipo de gest\u00C3\u00A3o. */
     public var flagAtivo: Int?
     /** Apresenta a data em que o Portador fora cadastrado, quando possuir esta informa\u00C3\u00A7\u00C3\u00A3o. */
-    public var dataCadastroPortador: NSDate?
+    public var dataCadastroPortador: String?
     /** Apresenta a data em que o Portador fora cancelado, quando possuir esta informa\u00C3\u00A7\u00C3\u00A3o. */
-    public var dataCancelamentoPortador: NSDate?
+    public var dataCancelamentoPortador: String?
     
 
     public init() {}
@@ -46,8 +46,8 @@ public class Portador: JSONEncodable {
         nillableDictionary["nomeImpresso"] = self.nomeImpresso
         nillableDictionary["idTipoCartao"] = self.idTipoCartao
         nillableDictionary["flagAtivo"] = self.flagAtivo
-        nillableDictionary["dataCadastroPortador"] = self.dataCadastroPortador?.encodeToJSON()
-        nillableDictionary["dataCancelamentoPortador"] = self.dataCancelamentoPortador?.encodeToJSON()
+        nillableDictionary["dataCadastroPortador"] = self.dataCadastroPortador
+        nillableDictionary["dataCancelamentoPortador"] = self.dataCancelamentoPortador
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

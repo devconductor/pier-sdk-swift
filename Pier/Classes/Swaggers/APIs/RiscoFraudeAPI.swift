@@ -71,8 +71,8 @@ public class RiscoFraudeAPI: APIBase {
      - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do risco de fraude 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET10(id id: Int, completion: ((data: RiscoFraudeDetalhadoResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET10WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET12(id id: Int, completion: ((data: RiscoFraudeDetalhadoResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET12WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -91,7 +91,7 @@ public class RiscoFraudeAPI: APIBase {
   "idPais" : "aeiou",
   "valorTransacao" : 1.3579000000000001069366817318950779736042022705078125,
   "cnpj" : "aeiou",
-  "dataTransacao" : "2000-01-23T04:56:07.000+0000",
+  "dataTransacao" : "aeiou",
   "idProduto" : 123456789,
   "descricaoTipoResolucao" : "aeiou",
   "descricaoRespostaAutorizador" : "aeiou",
@@ -126,7 +126,7 @@ public class RiscoFraudeAPI: APIBase {
 
      - returns: RequestBuilder<RiscoFraudeDetalhadoResponse> 
      */
-    public class func consultarUsingGET10WithRequestBuilder(id id: Int) -> RequestBuilder<RiscoFraudeDetalhadoResponse> {
+    public class func consultarUsingGET12WithRequestBuilder(id id: Int) -> RequestBuilder<RiscoFraudeDetalhadoResponse> {
         var path = "/api/riscos-fraudes/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -181,14 +181,14 @@ public class RiscoFraudeAPI: APIBase {
      Lista todos os atendimentos
      
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter idTipoAtendimento: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Tipo de Atendimento (id) (optional)
      - parameter idConta: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o de conta (id). (optional)
      - parameter nomeAtendente: (query) Apresenta o nome do Atendente que registrou o Atendimento. (optional)
      - parameter dataAtendimento: (query) Apresenta a data em que o Atendimento foi realizado. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET1(page page: Int?, limit: Int?, idTipoAtendimento: Int?, idConta: Int?, nomeAtendente: String?, dataAtendimento: NSDate?, completion: ((data: PageAtendimentoClientes?, error: ErrorType?) -> Void)) {
+    public class func listarUsingGET1(page page: Int?, limit: Int?, idTipoAtendimento: Int?, idConta: Int?, nomeAtendente: String?, dataAtendimento: String?, completion: ((data: PageAtendimentoClientes?, error: ErrorType?) -> Void)) {
         listarUsingGET1WithRequestBuilder(page: page, limit: limit, idTipoAtendimento: idTipoAtendimento, idConta: idConta, nomeAtendente: nomeAtendente, dataAtendimento: dataAtendimento).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -234,7 +234,7 @@ public class RiscoFraudeAPI: APIBase {
 }}]
      
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter idTipoAtendimento: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Tipo de Atendimento (id) (optional)
      - parameter idConta: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o de conta (id). (optional)
      - parameter nomeAtendente: (query) Apresenta o nome do Atendente que registrou o Atendimento. (optional)
@@ -242,7 +242,7 @@ public class RiscoFraudeAPI: APIBase {
 
      - returns: RequestBuilder<PageAtendimentoClientes> 
      */
-    public class func listarUsingGET1WithRequestBuilder(page page: Int?, limit: Int?, idTipoAtendimento: Int?, idConta: Int?, nomeAtendente: String?, dataAtendimento: NSDate?) -> RequestBuilder<PageAtendimentoClientes> {
+    public class func listarUsingGET1WithRequestBuilder(page page: Int?, limit: Int?, idTipoAtendimento: Int?, idConta: Int?, nomeAtendente: String?, dataAtendimento: String?) -> RequestBuilder<PageAtendimentoClientes> {
         let path = "/api/atendimento-clientes"
         let URLString = PierAPI.basePath + path
         
@@ -268,11 +268,11 @@ public class RiscoFraudeAPI: APIBase {
      - parameter idConta: (query) Id Conta 
      - parameter confirmacaoFraude: (query) Confirma\u00C3\u00A7\u00C3\u00A3o da fraude 
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET14(idConta idConta: Int, confirmacaoFraude: String, page: Int?, limit: Int?, completion: ((data: RiscoFraudeResponsePage?, error: ErrorType?) -> Void)) {
-        listarUsingGET14WithRequestBuilder(idConta: idConta, confirmacaoFraude: confirmacaoFraude, page: page, limit: limit).execute { (response, error) -> Void in
+    public class func listarUsingGET18(idConta idConta: Int, confirmacaoFraude: String, page: Int?, limit: Int?, completion: ((data: RiscoFraudeResponsePage?, error: ErrorType?) -> Void)) {
+        listarUsingGET18WithRequestBuilder(idConta: idConta, confirmacaoFraude: confirmacaoFraude, page: page, limit: limit).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -300,7 +300,7 @@ public class RiscoFraudeAPI: APIBase {
     "valorTransacao" : 1.3579000000000001069366817318950779736042022705078125,
     "id" : 123456789,
     "flagAltoRisco" : false,
-    "dataTransacao" : "2000-01-23T04:56:07.000+0000"
+    "dataTransacao" : "aeiou"
   } ],
   "totalElements" : 123456789,
   "number" : 123,
@@ -315,11 +315,11 @@ public class RiscoFraudeAPI: APIBase {
      - parameter idConta: (query) Id Conta 
      - parameter confirmacaoFraude: (query) Confirma\u00C3\u00A7\u00C3\u00A3o da fraude 
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 100, Max = 100) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
 
      - returns: RequestBuilder<RiscoFraudeResponsePage> 
      */
-    public class func listarUsingGET14WithRequestBuilder(idConta idConta: Int, confirmacaoFraude: String, page: Int?, limit: Int?) -> RequestBuilder<RiscoFraudeResponsePage> {
+    public class func listarUsingGET18WithRequestBuilder(idConta idConta: Int, confirmacaoFraude: String, page: Int?, limit: Int?) -> RequestBuilder<RiscoFraudeResponsePage> {
         let path = "/api/riscos-fraudes"
         let URLString = PierAPI.basePath + path
         
@@ -363,7 +363,7 @@ public class RiscoFraudeAPI: APIBase {
   "idPais" : "aeiou",
   "valorTransacao" : 1.3579000000000001069366817318950779736042022705078125,
   "cnpj" : "aeiou",
-  "dataTransacao" : "2000-01-23T04:56:07.000+0000",
+  "dataTransacao" : "aeiou",
   "idProduto" : 123456789,
   "descricaoTipoResolucao" : "aeiou",
   "descricaoRespostaAutorizador" : "aeiou",
@@ -438,7 +438,7 @@ public class RiscoFraudeAPI: APIBase {
   "idPais" : "aeiou",
   "valorTransacao" : 1.3579000000000001069366817318950779736042022705078125,
   "cnpj" : "aeiou",
-  "dataTransacao" : "2000-01-23T04:56:07.000+0000",
+  "dataTransacao" : "aeiou",
   "idProduto" : 123456789,
   "descricaoTipoResolucao" : "aeiou",
   "descricaoRespostaAutorizador" : "aeiou",
@@ -501,7 +501,7 @@ public class RiscoFraudeAPI: APIBase {
      - parameter flagFilaFraude: (query) Flag fila fraude (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func salvarUsingPOST1(idConta idConta: Int?, conteudoAtendimento: String?, detalhesAtendimento: String?, nomeAtendente: String?, dataAtendimento: NSDate?, dataAgendamento: NSDate?, dataHoraInicioAtendimento: NSDate?, dataHoraFimAtendimento: NSDate?, flagFilaFraude: Int?, completion: ((data: AtendimentoCliente?, error: ErrorType?) -> Void)) {
+    public class func salvarUsingPOST1(idConta idConta: Int?, conteudoAtendimento: String?, detalhesAtendimento: String?, nomeAtendente: String?, dataAtendimento: String?, dataAgendamento: String?, dataHoraInicioAtendimento: String?, dataHoraFimAtendimento: String?, flagFilaFraude: Int?, completion: ((data: AtendimentoCliente?, error: ErrorType?) -> Void)) {
         salvarUsingPOST1WithRequestBuilder(idConta: idConta, conteudoAtendimento: conteudoAtendimento, detalhesAtendimento: detalhesAtendimento, nomeAtendente: nomeAtendente, dataAtendimento: dataAtendimento, dataAgendamento: dataAgendamento, dataHoraInicioAtendimento: dataHoraInicioAtendimento, dataHoraFimAtendimento: dataHoraFimAtendimento, flagFilaFraude: flagFilaFraude).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -542,7 +542,7 @@ public class RiscoFraudeAPI: APIBase {
 
      - returns: RequestBuilder<AtendimentoCliente> 
      */
-    public class func salvarUsingPOST1WithRequestBuilder(idConta idConta: Int?, conteudoAtendimento: String?, detalhesAtendimento: String?, nomeAtendente: String?, dataAtendimento: NSDate?, dataAgendamento: NSDate?, dataHoraInicioAtendimento: NSDate?, dataHoraFimAtendimento: NSDate?, flagFilaFraude: Int?) -> RequestBuilder<AtendimentoCliente> {
+    public class func salvarUsingPOST1WithRequestBuilder(idConta idConta: Int?, conteudoAtendimento: String?, detalhesAtendimento: String?, nomeAtendente: String?, dataAtendimento: String?, dataAgendamento: String?, dataHoraInicioAtendimento: String?, dataHoraFimAtendimento: String?, flagFilaFraude: Int?) -> RequestBuilder<AtendimentoCliente> {
         let path = "/api/atendimento-clientes"
         let URLString = PierAPI.basePath + path
         

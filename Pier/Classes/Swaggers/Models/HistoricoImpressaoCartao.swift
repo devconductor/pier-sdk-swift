@@ -20,7 +20,7 @@ public class HistoricoImpressaoCartao: JSONEncodable {
     /** Apresenta uma mensagem que descreve a etapa do processo de impress\u00C3\u00A3o do cart\u00C3\u00A3o que fora realizado. */
     public var mensagemHistorico: String?
     /** Apresenta a data que o registro de Hist\u00C3\u00B3rico de Impress\u00C3\u00A3o de um Cart\u00C3\u00A3o fora inserido. */
-    public var dataHistorico: NSDate?
+    public var dataHistorico: String?
     
 
     public init() {}
@@ -32,7 +32,7 @@ public class HistoricoImpressaoCartao: JSONEncodable {
         nillableDictionary["idCartao"] = self.idCartao
         nillableDictionary["idStatusImpressaoCartao"] = self.idStatusImpressaoCartao
         nillableDictionary["mensagemHistorico"] = self.mensagemHistorico
-        nillableDictionary["dataHistorico"] = self.dataHistorico?.encodeToJSON()
+        nillableDictionary["dataHistorico"] = self.dataHistorico
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

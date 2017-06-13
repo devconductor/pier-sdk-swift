@@ -12,7 +12,7 @@ import Foundation
 public class HistoricoAtrasoFaturaResponse: JSONEncodable {
 
     /** Data vencimento fatura. */
-    public var dataVencimento: NSDate?
+    public var dataVencimento: String?
     /** Quantidade de dias em atraso. */
     public var diasPagamentoAposVencimento: Int?
     
@@ -22,7 +22,7 @@ public class HistoricoAtrasoFaturaResponse: JSONEncodable {
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
-        nillableDictionary["dataVencimento"] = self.dataVencimento?.encodeToJSON()
+        nillableDictionary["dataVencimento"] = self.dataVencimento
         nillableDictionary["diasPagamentoAposVencimento"] = self.diasPagamentoAposVencimento
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary

@@ -19,7 +19,7 @@ public class LinkTransferenciaBancariaResponse: JSONEncodable {
     /** C\u00C3\u00B3digo da autoriza\u00C3\u00A7\u00C3\u00A3o */
     public var codigoAutorizacao: String?
     /** Data da autoriza\u00C3\u00A7\u00C3\u00A3o */
-    public var dataAutorizacao: NSDate?
+    public var dataAutorizacao: String?
     /** Origem */
     public var origem: String?
     /** Valor */
@@ -31,7 +31,7 @@ public class LinkTransferenciaBancariaResponse: JSONEncodable {
     /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do cart\u00C3\u00A3o (id) */
     public var idCartao: Int?
     /** Data da transfer\u00C3\u00AAncia */
-    public var dataCompra: NSDate?
+    public var dataCompra: String?
     /** Valor da transfer\u00C3\u00AAncia */
     public var valorCompra: Double?
     /** N\u00C3\u00BAmero de parcelas */
@@ -41,7 +41,7 @@ public class LinkTransferenciaBancariaResponse: JSONEncodable {
     /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do estabelecimento (id) */
     public var idEstabelecimento: Int?
     /** Data do movimento */
-    public var dataMovimento: NSDate?
+    public var dataMovimento: String?
     /** Valor da transfer\u00C3\u00AAncia acrescido do valor da tarifa de saque se houver tarifa de saque */
     public var valorContrato: Double?
     /** Percentual de juros */
@@ -55,11 +55,12 @@ public class LinkTransferenciaBancariaResponse: JSONEncodable {
     /** Valor da entrada (primeira parcela) */
     public var valorEntrada: Double?
     /** Data do vencimento real da fatura */
-    public var dataVencimentoReal: NSDate?
+    public var dataVencimentoReal: String?
     /** Dia do vencimento padr\u00C3\u00A3o da fatura */
     public var dataVencimentoPadrao: String?
     /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta banc\u00C3\u00A1ria de destino (id) */
     public var idContaPortador: Int?
+    /** Atributo que representa o numero do estabelecimento. */
     public var numeroEstabelecimento: Int?
     
 
@@ -72,25 +73,25 @@ public class LinkTransferenciaBancariaResponse: JSONEncodable {
         nillableDictionary["idAutorizacao"] = self.idAutorizacao
         nillableDictionary["idTransferencia"] = self.idTransferencia
         nillableDictionary["codigoAutorizacao"] = self.codigoAutorizacao
-        nillableDictionary["dataAutorizacao"] = self.dataAutorizacao?.encodeToJSON()
+        nillableDictionary["dataAutorizacao"] = self.dataAutorizacao
         nillableDictionary["origem"] = self.origem
         nillableDictionary["valor"] = self.valor
         nillableDictionary["idOperacao"] = self.idOperacao
         nillableDictionary["terminal"] = self.terminal
         nillableDictionary["idCartao"] = self.idCartao
-        nillableDictionary["dataCompra"] = self.dataCompra?.encodeToJSON()
+        nillableDictionary["dataCompra"] = self.dataCompra
         nillableDictionary["valorCompra"] = self.valorCompra
         nillableDictionary["numeroParcelas"] = self.numeroParcelas
         nillableDictionary["valorParcela"] = self.valorParcela
         nillableDictionary["idEstabelecimento"] = self.idEstabelecimento
-        nillableDictionary["dataMovimento"] = self.dataMovimento?.encodeToJSON()
+        nillableDictionary["dataMovimento"] = self.dataMovimento
         nillableDictionary["valorContrato"] = self.valorContrato
         nillableDictionary["taxaJuros"] = self.taxaJuros
         nillableDictionary["valorIOF"] = self.valorIOF
         nillableDictionary["valorTAC"] = self.valorTAC
         nillableDictionary["idConta"] = self.idConta
         nillableDictionary["valorEntrada"] = self.valorEntrada
-        nillableDictionary["dataVencimentoReal"] = self.dataVencimentoReal?.encodeToJSON()
+        nillableDictionary["dataVencimentoReal"] = self.dataVencimentoReal
         nillableDictionary["dataVencimentoPadrao"] = self.dataVencimentoPadrao
         nillableDictionary["idContaPortador"] = self.idContaPortador
         nillableDictionary["numeroEstabelecimento"] = self.numeroEstabelecimento

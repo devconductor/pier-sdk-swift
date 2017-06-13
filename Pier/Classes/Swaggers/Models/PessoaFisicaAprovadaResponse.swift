@@ -18,7 +18,7 @@ public class PessoaFisicaAprovadaResponse: JSONEncodable {
     /** Apresenta o nome da m\u00C3\u00A3e da pessoa fisica */
     public var nomeMae: String?
     /** Data de Nascimento da Pessoa. Essa data deve ser informada no formato aaaa-MM-dd. */
-    public var dataNascimento: NSDate?
+    public var dataNascimento: String?
     /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do sexo da Pessoa, quando PF, sendo: (\&quot;M\&quot;: Masculino), (\&quot;F\&quot;: Feminino). */
     public var sexo: String?
     /** N\u00C3\u00BAmero do Cadastro de Pessoa Fisica (CPF) */
@@ -30,7 +30,7 @@ public class PessoaFisicaAprovadaResponse: JSONEncodable {
     /** Sigla da Unidade Federativa de onde foi expedido a Identidade */
     public var unidadeFederativaIdentidade: String?
     /** Data emiss\u00C3\u00A3o da Identidade no formato aaaa-MM-dd */
-    public var dataEmissaoIdentidade: NSDate?
+    public var dataEmissaoIdentidade: String?
     /** Id Estado civil da pessoa fisica */
     public var idEstadoCivil: Int?
     /** Profiss\u00C3\u00A3o da pessoa fisica */
@@ -69,13 +69,13 @@ public class PessoaFisicaAprovadaResponse: JSONEncodable {
         nillableDictionary["id"] = self.id
         nillableDictionary["nome"] = self.nome
         nillableDictionary["nomeMae"] = self.nomeMae
-        nillableDictionary["dataNascimento"] = self.dataNascimento?.encodeToJSON()
+        nillableDictionary["dataNascimento"] = self.dataNascimento
         nillableDictionary["sexo"] = self.sexo
         nillableDictionary["cpf"] = self.cpf
         nillableDictionary["numeroIdentidade"] = self.numeroIdentidade
         nillableDictionary["orgaoExpedidorIdentidade"] = self.orgaoExpedidorIdentidade
         nillableDictionary["unidadeFederativaIdentidade"] = self.unidadeFederativaIdentidade
-        nillableDictionary["dataEmissaoIdentidade"] = self.dataEmissaoIdentidade?.encodeToJSON()
+        nillableDictionary["dataEmissaoIdentidade"] = self.dataEmissaoIdentidade
         nillableDictionary["idEstadoCivil"] = self.idEstadoCivil
         nillableDictionary["profissao"] = self.profissao
         nillableDictionary["idNaturezaOcupacao"] = self.idNaturezaOcupacao

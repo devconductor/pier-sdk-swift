@@ -12,17 +12,18 @@ import Foundation
 public class BoletoDeFatura: JSONEncodable {
 
     /** Data do processamento (emiss\u00C3\u00A3o ou faturamento) do boleto */
-    public var dataProcessamento: NSDate?
+    public var dataProcessamento: String?
     /** Data do documento (impress\u00C3\u00A3o) */
-    public var dataDocumento: NSDate?
+    public var dataDocumento: String?
     /** Data do vencimento */
-    public var dataVencimento: NSDate?
+    public var dataVencimento: String?
+    /** Valor do Boleto. */
     public var valorBoleto: Double?
     /** N\u00C3\u00BAmero do documento \u00C3\u00A9 o c\u00C3\u00B3digo informado pelo banco para identifica\u00C3\u00A7\u00C3\u00A3o do cliente */
     public var numeroDoDocumento: String?
     /** Benefici\u00C3\u00A1rio \u00C3\u00A9 a pessoa/empresa que gera o boleto */
     public var nomeBeneficiario: String?
-    /** Ag\u00C3\u00AAncia */
+    /** Ag\u00C3\u00AAncia. */
     public var agencia: String?
     /** C\u00C3\u00B3digo do benefici\u00C3\u00A1rio */
     public var codigoBeneficiario: String?
@@ -50,6 +51,7 @@ public class BoletoDeFatura: JSONEncodable {
     public var locaisDePagamento: [String]?
     /** Pagador \u00C3\u00A9 a pessoa/empresa que deve pagar o boleto */
     public var nomePagador: String?
+    /** Documento do Beneficiario. */
     public var documentoBeneficiario: String?
     /** Documento do pagador (CPF ou CNPJ) */
     public var documentoPagador: String?
@@ -74,9 +76,9 @@ public class BoletoDeFatura: JSONEncodable {
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
-        nillableDictionary["dataProcessamento"] = self.dataProcessamento?.encodeToJSON()
-        nillableDictionary["dataDocumento"] = self.dataDocumento?.encodeToJSON()
-        nillableDictionary["dataVencimento"] = self.dataVencimento?.encodeToJSON()
+        nillableDictionary["dataProcessamento"] = self.dataProcessamento
+        nillableDictionary["dataDocumento"] = self.dataDocumento
+        nillableDictionary["dataVencimento"] = self.dataVencimento
         nillableDictionary["valorBoleto"] = self.valorBoleto
         nillableDictionary["numeroDoDocumento"] = self.numeroDoDocumento
         nillableDictionary["nomeBeneficiario"] = self.nomeBeneficiario

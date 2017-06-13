@@ -12,7 +12,52 @@ import Alamofire
 public class AutorizacoesAPI: APIBase {
     /**
      
-     Cancela Transa\u00C3\u00A7\u00C3\u00A3o financeira
+     Autoriza transa\u00C3\u00A7\u00C3\u00A3o financeira
+     
+     - parameter autorizacaoOnUsRequest: (body) autorizacaoOnUsRequest 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func autorizarUsingPOST(autorizacaoOnUsRequest autorizacaoOnUsRequest: AutorizacaoOnUsRequest, completion: ((data: TransacaoOnUsResponse?, error: ErrorType?) -> Void)) {
+        autorizarUsingPOSTWithRequestBuilder(autorizacaoOnUsRequest: autorizacaoOnUsRequest).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Autoriza transa\u00C3\u00A7\u00C3\u00A3o financeira
+     
+     - POST /api/autorizar-transacao
+     - Este m\u00C3\u00A9todo faz uma autoriza\u00C3\u00A7\u00C3\u00A3o de transa\u00C3\u00A7\u00C3\u00A3o financeira.
+     - examples: [{contentType=application/json, example={
+  "codigoAutorizacao" : "aeiou",
+  "planoDeParcelamento" : [ { } ],
+  "numeroMascaradoCartao" : "aeiou",
+  "nsuOrigem" : "aeiou",
+  "nomePortadorCartao" : "aeiou",
+  "terminalRequisitante" : "aeiou",
+  "nsuAutorizacao" : "aeiou"
+}}]
+     
+     - parameter autorizacaoOnUsRequest: (body) autorizacaoOnUsRequest 
+
+     - returns: RequestBuilder<TransacaoOnUsResponse> 
+     */
+    public class func autorizarUsingPOSTWithRequestBuilder(autorizacaoOnUsRequest autorizacaoOnUsRequest: AutorizacaoOnUsRequest) -> RequestBuilder<TransacaoOnUsResponse> {
+        let path = "/api/autorizar-transacao"
+        let URLString = PierAPI.basePath + path
+        
+        let parameters = autorizacaoOnUsRequest.encodeToJSON() as? [String:AnyObject]
+
+        let requestBuilder: RequestBuilder<TransacaoOnUsResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Cancela transa\u00C3\u00A7\u00C3\u00A3o financeira
      
      - parameter cancelamentoRequest: (body) cancelamentoRequest 
      - parameter completion: completion handler to receive the data and the error objects
@@ -26,7 +71,7 @@ public class AutorizacoesAPI: APIBase {
 
     /**
      
-     Cancela Transa\u00C3\u00A7\u00C3\u00A3o financeira
+     Cancela transa\u00C3\u00A7\u00C3\u00A3o financeira
      
      - POST /api/cancelar-transacao
      - Este m\u00C3\u00A9todo permite que seja cancelada uma transa\u00C3\u00A7\u00C3\u00A3o.
@@ -36,6 +81,7 @@ public class AutorizacoesAPI: APIBase {
   "numeroMascaradoCartao" : "aeiou",
   "nsuOrigem" : "aeiou",
   "nomePortadorCartao" : "aeiou",
+  "terminalRequisitante" : "aeiou",
   "nsuAutorizacao" : "aeiou"
 }}]
      
@@ -56,13 +102,12 @@ public class AutorizacoesAPI: APIBase {
 
     /**
      
-     Autoriza transa\u00C3\u00A7\u00C3\u00A3o financeira
+     Retorna c\u00C3\u00B3digos de processamento de autoriza\u00C3\u00A7\u00C3\u00A3o
      
-     - parameter autorizacaoOnUsRequest: (body) autorizacaoOnUsRequest 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func desfazerUsingPOST(autorizacaoOnUsRequest autorizacaoOnUsRequest: AutorizacaoOnUsRequest, completion: ((data: TransacaoOnUsResponse?, error: ErrorType?) -> Void)) {
-        desfazerUsingPOSTWithRequestBuilder(autorizacaoOnUsRequest: autorizacaoOnUsRequest).execute { (response, error) -> Void in
+    public class func listarCodigosProcessamentoAutorizacaoUsingGET(completion: ((data: [AnyObject]?, error: ErrorType?) -> Void)) {
+        listarCodigosProcessamentoAutorizacaoUsingGETWithRequestBuilder().execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -70,81 +115,29 @@ public class AutorizacoesAPI: APIBase {
 
     /**
      
-     Autoriza transa\u00C3\u00A7\u00C3\u00A3o financeira
+     Retorna c\u00C3\u00B3digos de processamento de autoriza\u00C3\u00A7\u00C3\u00A3o
      
-     - POST /api/autorizar-transacao
-     - Este m\u00C3\u00A9todo faz uma autoriza\u00C3\u00A7\u00C3\u00A3o de transa\u00C3\u00A7\u00C3\u00A3o financeira.
-     - examples: [{contentType=application/json, example={
-  "codigoAutorizacao" : "aeiou",
-  "planoDeParcelamento" : [ { } ],
-  "numeroMascaradoCartao" : "aeiou",
-  "nsuOrigem" : "aeiou",
-  "nomePortadorCartao" : "aeiou",
-  "nsuAutorizacao" : "aeiou"
-}}]
-     
-     - parameter autorizacaoOnUsRequest: (body) autorizacaoOnUsRequest 
+     - GET /api/consultar-codigos-processamento-autorizacao
+     - Este m\u00C3\u00A9todo retorna a lista dos c\u00C3\u00B3digos de processamento para autoriza\u00C3\u00A7\u00C3\u00A3o de transa\u00C3\u00A7\u00C3\u00B5es financeiras.
+     - examples: [{contentType=application/json, example=[ "{}" ]}]
 
-     - returns: RequestBuilder<TransacaoOnUsResponse> 
+     - returns: RequestBuilder<[AnyObject]> 
      */
-    public class func desfazerUsingPOSTWithRequestBuilder(autorizacaoOnUsRequest autorizacaoOnUsRequest: AutorizacaoOnUsRequest) -> RequestBuilder<TransacaoOnUsResponse> {
-        let path = "/api/autorizar-transacao"
+    public class func listarCodigosProcessamentoAutorizacaoUsingGETWithRequestBuilder() -> RequestBuilder<[AnyObject]> {
+        let path = "/api/consultar-codigos-processamento-autorizacao"
         let URLString = PierAPI.basePath + path
         
-        let parameters = autorizacaoOnUsRequest.encodeToJSON() as? [String:AnyObject]
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
 
-        let requestBuilder: RequestBuilder<TransacaoOnUsResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<[AnyObject]>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
     }
 
     /**
      
-     Desfazimento de Transa\u00C3\u00A7\u00C3\u00A3o
-     
-     - parameter desfazimentoRequest: (body) desfazimentoRequest 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func desfazerUsingPOST1(desfazimentoRequest desfazimentoRequest: DesfazimentoTransacaoOnURequest, completion: ((data: TransacaoOnUsResponse?, error: ErrorType?) -> Void)) {
-        desfazerUsingPOST1WithRequestBuilder(desfazimentoRequest: desfazimentoRequest).execute { (response, error) -> Void in
-            completion(data: response?.body, error: error);
-        }
-    }
-
-
-    /**
-     
-     Desfazimento de Transa\u00C3\u00A7\u00C3\u00A3o
-     
-     - POST /api/desfazer-transacao
-     - Este m\u00C3\u00A9todo permite que seja desfeita uma transa\u00C3\u00A7\u00C3\u00A3o.
-     - examples: [{contentType=application/json, example={
-  "codigoAutorizacao" : "aeiou",
-  "planoDeParcelamento" : [ { } ],
-  "numeroMascaradoCartao" : "aeiou",
-  "nsuOrigem" : "aeiou",
-  "nomePortadorCartao" : "aeiou",
-  "nsuAutorizacao" : "aeiou"
-}}]
-     
-     - parameter desfazimentoRequest: (body) desfazimentoRequest 
-
-     - returns: RequestBuilder<TransacaoOnUsResponse> 
-     */
-    public class func desfazerUsingPOST1WithRequestBuilder(desfazimentoRequest desfazimentoRequest: DesfazimentoTransacaoOnURequest) -> RequestBuilder<TransacaoOnUsResponse> {
-        let path = "/api/desfazer-transacao"
-        let URLString = PierAPI.basePath + path
-        
-        let parameters = desfazimentoRequest.encodeToJSON() as? [String:AnyObject]
-
-        let requestBuilder: RequestBuilder<TransacaoOnUsResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Simula Compra Parcelada
+     Simula planos de pagamento
      
      - parameter transacoesRequest: (body) transacoesRequest 
      - parameter completion: completion handler to receive the data and the error objects
@@ -158,16 +151,17 @@ public class AutorizacoesAPI: APIBase {
 
     /**
      
-     Simula Compra Parcelada
+     Simula planos de pagamento
      
      - POST /api/simular-transacao
-     - Este m\u00C3\u00A9todo permite que seja simulada uma compra parcelada.
+     - Este m\u00C3\u00A9todo permite que seja simulada um plano de pagamento.
      - examples: [{contentType=application/json, example={
   "codigoAutorizacao" : "aeiou",
   "planoDeParcelamento" : [ { } ],
   "numeroMascaradoCartao" : "aeiou",
   "nsuOrigem" : "aeiou",
   "nomePortadorCartao" : "aeiou",
+  "terminalRequisitante" : "aeiou",
   "nsuAutorizacao" : "aeiou"
 }}]
      

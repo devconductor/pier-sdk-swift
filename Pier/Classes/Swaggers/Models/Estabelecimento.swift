@@ -13,7 +13,7 @@ public class Estabelecimento: JSONEncodable {
 
     /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do estabelecimento (id). */
     public var id: Int?
-    /** N\u00C3\u00BAmero de identifica\u00C3\u00A7\u00C3\u00A3o do Estabelecimento na Conductor, com dois d\u00C3\u00ADgitos. */
+    /** N\u00C3\u00BAmero de identifica\u00C3\u00A7\u00C3\u00A3o do Estabelecimento na Conductor. */
     public var numeroEstabelecimento: String?
     /** Apresenta o n\u00C3\u00BAmero de identifica\u00C3\u00A7\u00C3\u00A3o do Estabelecimento na Receita Federal. */
     public var numeroReceitaFederal: Int?
@@ -40,7 +40,7 @@ public class Estabelecimento: JSONEncodable {
     /** Nome do pa\u00C3\u00ADs. */
     public var pais: String?
     /** Data de Cadastro do Estabelecimento. */
-    public var dataCadastramento: NSDate?
+    public var dataCadastramento: String?
     /** Detalhes espec\u00C3\u00ADficos quanto ao Cadastro do Estabelecimento. */
     public var obs: String?
     /** Nome da pessoa para contato com o Estabelecimento. */
@@ -74,7 +74,7 @@ public class Estabelecimento: JSONEncodable {
         nillableDictionary["cidade"] = self.cidade
         nillableDictionary["uf"] = self.uf
         nillableDictionary["pais"] = self.pais
-        nillableDictionary["dataCadastramento"] = self.dataCadastramento?.encodeToJSON()
+        nillableDictionary["dataCadastramento"] = self.dataCadastramento
         nillableDictionary["obs"] = self.obs
         nillableDictionary["contato"] = self.contato
         nillableDictionary["email"] = self.email
