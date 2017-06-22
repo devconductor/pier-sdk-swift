@@ -15,8 +15,8 @@ public class CompraAPI: APIBase {
      Faz a efetiva\u00C3\u00A7\u00C3\u00A3o da antecipa\u00C3\u00A7\u00C3\u00A3o
      
      - parameter idConta: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Conta. 
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da compra. 
-     - parameter quantidadeParcelas: (query) Quantidade de parcelas para serem antecipadas (quantidadeParcelas). 
+     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do evento. 
+     - parameter quantidadeParcelas: (query) Quantidade de parcelas para serem antecipadas. 
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func efetivarAntecipacaoUsingPOST(idConta idConta: Int, id: Int, quantidadeParcelas: Int, completion: ((data: AntecipacaoResponse?, error: ErrorType?) -> Void)) {
@@ -33,17 +33,20 @@ public class CompraAPI: APIBase {
      - POST /api/compras/{id}/efetivar-antecipacao
      - Metodo responsavel pela efetiva\u00C3\u00A7\u00C3\u00A3o da antecipa\u00C3\u00A7\u00C3\u00A3o.
      - examples: [{contentType=application/json, example={
+  "valorParcela" : 1.3579000000000001069366817318950779736042022705078125,
   "idConta" : 123456789,
+  "valorDescontoTotal" : 1.3579000000000001069366817318950779736042022705078125,
   "idCompra" : 123456789,
-  "valorParcelas" : 1.3579000000000001069366817318950779736042022705078125,
+  "taxaDesconto" : 1.3579000000000001069366817318950779736042022705078125,
   "id" : 123456789,
   "quantidadeParcelasTotal" : 123456789,
+  "valorTotalComDesconto" : 1.3579000000000001069366817318950779736042022705078125,
   "quantidadeParcelasAntecipadas" : 123456789
 }}]
      
      - parameter idConta: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Conta. 
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da compra. 
-     - parameter quantidadeParcelas: (query) Quantidade de parcelas para serem antecipadas (quantidadeParcelas). 
+     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do evento. 
+     - parameter quantidadeParcelas: (query) Quantidade de parcelas para serem antecipadas. 
 
      - returns: RequestBuilder<AntecipacaoResponse> 
      */
@@ -73,11 +76,11 @@ public class CompraAPI: APIBase {
      - parameter idCompra: (query) C\u00C3\u00B3digo identificador da Compra. (optional)
      - parameter parcelada: (query) Indica se a compra \u00C3\u00A9 parcelada. (optional)
      - parameter juros: (query) Indica se a compra \u00C3\u00A9 com ou sem juros. (optional)
-     - parameter tipoTransacao: (query) Indica se a compra \u00C3\u00A9 ON-US ou OFF-US (optional)
+     - parameter tipoOrigemTransacao: (query) Indica se a compra \u00C3\u00A9 ON-US ou OFF-US (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET5(idConta idConta: Int, page: Int?, limit: Int?, idCompra: Int?, parcelada: Bool?, juros: Bool?, tipoTransacao: String?, completion: ((data: PageCompras?, error: ErrorType?) -> Void)) {
-        listarUsingGET5WithRequestBuilder(idConta: idConta, page: page, limit: limit, idCompra: idCompra, parcelada: parcelada, juros: juros, tipoTransacao: tipoTransacao).execute { (response, error) -> Void in
+    public class func listarUsingGET6(idConta idConta: Int, page: Int?, limit: Int?, idCompra: Int?, parcelada: Bool?, juros: Bool?, tipoOrigemTransacao: String?, completion: ((data: PageCompraResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET6WithRequestBuilder(idConta: idConta, page: page, limit: limit, idCompra: idCompra, parcelada: parcelada, juros: juros, tipoOrigemTransacao: tipoOrigemTransacao).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -97,6 +100,7 @@ public class CompraAPI: APIBase {
   "nextPage" : 123,
   "content" : [ {
     "cidade" : "aeiou",
+    "tipoOrigemTransacao" : "aeiou",
     "idConta" : 123456789,
     "numeroParcelas" : 123,
     "valorTotalCompra" : 1.3579000000000001069366817318950779736042022705078125,
@@ -113,7 +117,6 @@ public class CompraAPI: APIBase {
     "valorParcela" : 1.3579000000000001069366817318950779736042022705078125,
     "cartao" : "aeiou",
     "idProduto" : 123456789,
-    "tipoTransacao" : "aeiou",
     "idCompra" : 123456789,
     "numeroParcelasAntecipaveis" : 123,
     "nomePortadorCartao" : "aeiou",
@@ -136,11 +139,11 @@ public class CompraAPI: APIBase {
      - parameter idCompra: (query) C\u00C3\u00B3digo identificador da Compra. (optional)
      - parameter parcelada: (query) Indica se a compra \u00C3\u00A9 parcelada. (optional)
      - parameter juros: (query) Indica se a compra \u00C3\u00A9 com ou sem juros. (optional)
-     - parameter tipoTransacao: (query) Indica se a compra \u00C3\u00A9 ON-US ou OFF-US (optional)
+     - parameter tipoOrigemTransacao: (query) Indica se a compra \u00C3\u00A9 ON-US ou OFF-US (optional)
 
-     - returns: RequestBuilder<PageCompras> 
+     - returns: RequestBuilder<PageCompraResponse> 
      */
-    public class func listarUsingGET5WithRequestBuilder(idConta idConta: Int, page: Int?, limit: Int?, idCompra: Int?, parcelada: Bool?, juros: Bool?, tipoTransacao: String?) -> RequestBuilder<PageCompras> {
+    public class func listarUsingGET6WithRequestBuilder(idConta idConta: Int, page: Int?, limit: Int?, idCompra: Int?, parcelada: Bool?, juros: Bool?, tipoOrigemTransacao: String?) -> RequestBuilder<PageCompraResponse> {
         let path = "/api/compras"
         let URLString = PierAPI.basePath + path
         
@@ -151,11 +154,11 @@ public class CompraAPI: APIBase {
             "idConta": idConta,
             "parcelada": parcelada,
             "juros": juros,
-            "tipoTransacao": tipoTransacao
+            "tipoOrigemTransacao": tipoOrigemTransacao
         ]
         let parameters = APIHelper.rejectNil(nillableParameters)
 
-        let requestBuilder: RequestBuilder<PageCompras>.Type = PierAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<PageCompraResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
     }
@@ -164,8 +167,8 @@ public class CompraAPI: APIBase {
      
      Simular antecipa\u00C3\u00A7\u00C3\u00A3o de parcelas
      
-     - parameter idConta: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da compra. 
+     - parameter idConta: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta. 
+     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do evento. 
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func simularAntecipacaoUsingGET(idConta idConta: Int, id: Int, completion: ((data: AntecipacaoSimuladaResponse?, error: ErrorType?) -> Void)) {
@@ -180,23 +183,26 @@ public class CompraAPI: APIBase {
      Simular antecipa\u00C3\u00A7\u00C3\u00A3o de parcelas
      
      - GET /api/compras/{id}/simular-antecipacao
-     - Simula a antecipa\u00C3\u00A7\u00C3\u00A3o de parcelas de uma compra, listando todos os planos de parcelamento dispon\u00C3\u00ADveis.
+     - Simula a antecipa\u00C3\u00A7\u00C3\u00A3o de parcelas de um evento, listando todos os planos de parcelamento dispon\u00C3\u00ADveis.
      - examples: [{contentType=application/json, example={
+  "valorParcela" : 1.3579000000000001069366817318950779736042022705078125,
   "idConta" : 123456789,
   "dataHoraSimulacao" : "aeiou",
-  "idSimulacao" : 123456789,
-  "idCompra" : 123456789,
+  "idAntecipacaoSimulada" : 123456789,
+  "idEventoExterno" : 123456789,
+  "idTipoTransacao" : 123456789,
+  "qtdeParcelasAntecipaveis" : 123,
   "detalhes" : [ {
     "valorDesconto" : 1.3579000000000001069366817318950779736042022705078125,
-    "idSimulacaoDetalhe" : 123456789,
     "valorParcelasDesconto" : 1.3579000000000001069366817318950779736042022705078125,
     "valorParcelas" : 1.3579000000000001069366817318950779736042022705078125,
     "quantidadeParcelas" : 123
-  } ]
+  } ],
+  "taxaAntecipacaoAno" : 1.3579000000000001069366817318950779736042022705078125
 }}]
      
-     - parameter idConta: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da compra. 
+     - parameter idConta: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta. 
+     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do evento. 
 
      - returns: RequestBuilder<AntecipacaoSimuladaResponse> 
      */

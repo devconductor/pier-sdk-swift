@@ -18,7 +18,7 @@ public class AplicacoesMobileAPI: APIBase {
      - parameter update: (body) update 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func atualizarUsingPUT(id id: Int, update: AplicacaoMobileUpdate, completion: ((data: AplicacaoMobile?, error: ErrorType?) -> Void)) {
+    public class func atualizarUsingPUT(id id: Int, update: AplicacaoMobileUpdate, completion: ((data: AplicacaoMobileResponse?, error: ErrorType?) -> Void)) {
         atualizarUsingPUTWithRequestBuilder(id: id, update: update).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -45,16 +45,16 @@ public class AplicacoesMobileAPI: APIBase {
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Aplicacao (id). 
      - parameter update: (body) update 
 
-     - returns: RequestBuilder<AplicacaoMobile> 
+     - returns: RequestBuilder<AplicacaoMobileResponse> 
      */
-    public class func atualizarUsingPUTWithRequestBuilder(id id: Int, update: AplicacaoMobileUpdate) -> RequestBuilder<AplicacaoMobile> {
+    public class func atualizarUsingPUTWithRequestBuilder(id id: Int, update: AplicacaoMobileUpdate) -> RequestBuilder<AplicacaoMobileResponse> {
         var path = "/api/aplicacoes-mobile/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
         
         let parameters = update.encodeToJSON() as? [String:AnyObject]
 
-        let requestBuilder: RequestBuilder<AplicacaoMobile>.Type = PierAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<AplicacaoMobileResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
     }
@@ -69,7 +69,7 @@ public class AplicacoesMobileAPI: APIBase {
      - parameter idPlataformaMobile: (query) Identificador da Plataforma Mobile (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET(page page: Int?, limit: Int?, id: String?, idPlataformaMobile: Int?, completion: ((data: PageAplicacoesMobile?, error: ErrorType?) -> Void)) {
+    public class func listarUsingGET(page page: Int?, limit: Int?, id: String?, idPlataformaMobile: Int?, completion: ((data: PageAplicacaoMobileResponse?, error: ErrorType?) -> Void)) {
         listarUsingGETWithRequestBuilder(page: page, limit: limit, id: id, idPlataformaMobile: idPlataformaMobile).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -113,9 +113,9 @@ public class AplicacoesMobileAPI: APIBase {
      - parameter id: (query) Identificador da Aplicacao Mobile (optional)
      - parameter idPlataformaMobile: (query) Identificador da Plataforma Mobile (optional)
 
-     - returns: RequestBuilder<PageAplicacoesMobile> 
+     - returns: RequestBuilder<PageAplicacaoMobileResponse> 
      */
-    public class func listarUsingGETWithRequestBuilder(page page: Int?, limit: Int?, id: String?, idPlataformaMobile: Int?) -> RequestBuilder<PageAplicacoesMobile> {
+    public class func listarUsingGETWithRequestBuilder(page page: Int?, limit: Int?, id: String?, idPlataformaMobile: Int?) -> RequestBuilder<PageAplicacaoMobileResponse> {
         let path = "/api/aplicacoes-mobile"
         let URLString = PierAPI.basePath + path
         
@@ -127,7 +127,7 @@ public class AplicacoesMobileAPI: APIBase {
         ]
         let parameters = APIHelper.rejectNil(nillableParameters)
 
-        let requestBuilder: RequestBuilder<PageAplicacoesMobile>.Type = PierAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<PageAplicacaoMobileResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
     }
@@ -139,7 +139,7 @@ public class AplicacoesMobileAPI: APIBase {
      - parameter persist: (body) persist 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func salvarUsingPOST(persist persist: AplicacaoMobilePersist, completion: ((data: AplicacaoMobile?, error: ErrorType?) -> Void)) {
+    public class func salvarUsingPOST(persist persist: AplicacaoMobilePersist, completion: ((data: AplicacaoMobileResponse?, error: ErrorType?) -> Void)) {
         salvarUsingPOSTWithRequestBuilder(persist: persist).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -165,15 +165,15 @@ public class AplicacoesMobileAPI: APIBase {
      
      - parameter persist: (body) persist 
 
-     - returns: RequestBuilder<AplicacaoMobile> 
+     - returns: RequestBuilder<AplicacaoMobileResponse> 
      */
-    public class func salvarUsingPOSTWithRequestBuilder(persist persist: AplicacaoMobilePersist) -> RequestBuilder<AplicacaoMobile> {
+    public class func salvarUsingPOSTWithRequestBuilder(persist persist: AplicacaoMobilePersist) -> RequestBuilder<AplicacaoMobileResponse> {
         let path = "/api/aplicacoes-mobile"
         let URLString = PierAPI.basePath + path
         
         let parameters = persist.encodeToJSON() as? [String:AnyObject]
 
-        let requestBuilder: RequestBuilder<AplicacaoMobile>.Type = PierAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<AplicacaoMobileResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
     }

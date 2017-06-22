@@ -17,7 +17,7 @@ public class DispositivosAPI: APIBase {
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Plataforma (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func ativarUsingPOST(id id: Int, completion: ((data: Dispositivo?, error: ErrorType?) -> Void)) {
+    public class func ativarUsingPOST(id id: Int, completion: ((data: DispositivoResponse?, error: ErrorType?) -> Void)) {
         ativarUsingPOSTWithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -39,9 +39,9 @@ public class DispositivosAPI: APIBase {
      
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Plataforma (id). 
 
-     - returns: RequestBuilder<Dispositivo> 
+     - returns: RequestBuilder<DispositivoResponse> 
      */
-    public class func ativarUsingPOSTWithRequestBuilder(id id: Int) -> RequestBuilder<Dispositivo> {
+    public class func ativarUsingPOSTWithRequestBuilder(id id: Int) -> RequestBuilder<DispositivoResponse> {
         var path = "/api/dispositivos/{id}/ativar-dispositivo"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -49,7 +49,7 @@ public class DispositivosAPI: APIBase {
         let nillableParameters: [String:AnyObject?] = [:]
         let parameters = APIHelper.rejectNil(nillableParameters)
 
-        let requestBuilder: RequestBuilder<Dispositivo>.Type = PierAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<DispositivoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
     }
@@ -61,7 +61,7 @@ public class DispositivosAPI: APIBase {
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Plataforma (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func desativarUsingPOST(id id: Int, completion: ((data: Dispositivo?, error: ErrorType?) -> Void)) {
+    public class func desativarUsingPOST(id id: Int, completion: ((data: DispositivoResponse?, error: ErrorType?) -> Void)) {
         desativarUsingPOSTWithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -83,9 +83,9 @@ public class DispositivosAPI: APIBase {
      
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Plataforma (id). 
 
-     - returns: RequestBuilder<Dispositivo> 
+     - returns: RequestBuilder<DispositivoResponse> 
      */
-    public class func desativarUsingPOSTWithRequestBuilder(id id: Int) -> RequestBuilder<Dispositivo> {
+    public class func desativarUsingPOSTWithRequestBuilder(id id: Int) -> RequestBuilder<DispositivoResponse> {
         var path = "/api/dispositivos/{id}/desativar-dispositivo"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -93,7 +93,7 @@ public class DispositivosAPI: APIBase {
         let nillableParameters: [String:AnyObject?] = [:]
         let parameters = APIHelper.rejectNil(nillableParameters)
 
-        let requestBuilder: RequestBuilder<Dispositivo>.Type = PierAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<DispositivoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
     }
@@ -111,8 +111,8 @@ public class DispositivosAPI: APIBase {
      - parameter dataDesativacao: (query) Apresenta a data e em que o registro foi desativado. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET7(page page: Int?, limit: Int?, token: String?, idUsuario: Int?, idAplicacaoMobile: Int?, dataCriacao: String?, dataDesativacao: String?, completion: ((data: PageDispositivos?, error: ErrorType?) -> Void)) {
-        listarUsingGET7WithRequestBuilder(page: page, limit: limit, token: token, idUsuario: idUsuario, idAplicacaoMobile: idAplicacaoMobile, dataCriacao: dataCriacao, dataDesativacao: dataDesativacao).execute { (response, error) -> Void in
+    public class func listarUsingGET8(page page: Int?, limit: Int?, token: String?, idUsuario: Int?, idAplicacaoMobile: Int?, dataCriacao: String?, dataDesativacao: String?, completion: ((data: PageDispositivoResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET8WithRequestBuilder(page: page, limit: limit, token: token, idUsuario: idUsuario, idAplicacaoMobile: idAplicacaoMobile, dataCriacao: dataCriacao, dataDesativacao: dataDesativacao).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -154,9 +154,9 @@ public class DispositivosAPI: APIBase {
      - parameter dataCriacao: (query) Apresenta a data e em que o registro foi criado. (optional)
      - parameter dataDesativacao: (query) Apresenta a data e em que o registro foi desativado. (optional)
 
-     - returns: RequestBuilder<PageDispositivos> 
+     - returns: RequestBuilder<PageDispositivoResponse> 
      */
-    public class func listarUsingGET7WithRequestBuilder(page page: Int?, limit: Int?, token: String?, idUsuario: Int?, idAplicacaoMobile: Int?, dataCriacao: String?, dataDesativacao: String?) -> RequestBuilder<PageDispositivos> {
+    public class func listarUsingGET8WithRequestBuilder(page page: Int?, limit: Int?, token: String?, idUsuario: Int?, idAplicacaoMobile: Int?, dataCriacao: String?, dataDesativacao: String?) -> RequestBuilder<PageDispositivoResponse> {
         let path = "/api/dispositivos"
         let URLString = PierAPI.basePath + path
         
@@ -171,7 +171,7 @@ public class DispositivosAPI: APIBase {
         ]
         let parameters = APIHelper.rejectNil(nillableParameters)
 
-        let requestBuilder: RequestBuilder<PageDispositivos>.Type = PierAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<PageDispositivoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
     }
@@ -183,7 +183,7 @@ public class DispositivosAPI: APIBase {
      - parameter persist: (body) persist 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func salvarUsingPOST3(persist persist: DispositivoPersist, completion: ((data: Dispositivo?, error: ErrorType?) -> Void)) {
+    public class func salvarUsingPOST3(persist persist: DispositivoPersist, completion: ((data: DispositivoResponse?, error: ErrorType?) -> Void)) {
         salvarUsingPOST3WithRequestBuilder(persist: persist).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -205,15 +205,15 @@ public class DispositivosAPI: APIBase {
      
      - parameter persist: (body) persist 
 
-     - returns: RequestBuilder<Dispositivo> 
+     - returns: RequestBuilder<DispositivoResponse> 
      */
-    public class func salvarUsingPOST3WithRequestBuilder(persist persist: DispositivoPersist) -> RequestBuilder<Dispositivo> {
+    public class func salvarUsingPOST3WithRequestBuilder(persist persist: DispositivoPersist) -> RequestBuilder<DispositivoResponse> {
         let path = "/api/dispositivos"
         let URLString = PierAPI.basePath + path
         
         let parameters = persist.encodeToJSON() as? [String:AnyObject]
 
-        let requestBuilder: RequestBuilder<Dispositivo>.Type = PierAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<DispositivoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
     }

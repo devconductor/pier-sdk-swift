@@ -262,8 +262,8 @@ public class UsuariosAPI: APIBase {
      - parameter status: (query) Status do Usuario (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET29(page page: Int?, limit: Int?, nome: String?, cpf: String?, email: String?, status: String?, completion: ((data: PageUsuarios?, error: ErrorType?) -> Void)) {
-        listarUsingGET29WithRequestBuilder(page: page, limit: limit, nome: nome, cpf: cpf, email: email, status: status).execute { (response, error) -> Void in
+    public class func listarUsingGET30(page page: Int?, limit: Int?, nome: String?, cpf: String?, email: String?, status: String?, completion: ((data: PageUsuarioResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET30WithRequestBuilder(page: page, limit: limit, nome: nome, cpf: cpf, email: email, status: status).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -310,9 +310,9 @@ public class UsuariosAPI: APIBase {
      - parameter email: (query) Email do Usuario (optional)
      - parameter status: (query) Status do Usuario (optional)
 
-     - returns: RequestBuilder<PageUsuarios> 
+     - returns: RequestBuilder<PageUsuarioResponse> 
      */
-    public class func listarUsingGET29WithRequestBuilder(page page: Int?, limit: Int?, nome: String?, cpf: String?, email: String?, status: String?) -> RequestBuilder<PageUsuarios> {
+    public class func listarUsingGET30WithRequestBuilder(page page: Int?, limit: Int?, nome: String?, cpf: String?, email: String?, status: String?) -> RequestBuilder<PageUsuarioResponse> {
         let path = "/api/usuarios"
         let URLString = PierAPI.basePath + path
         
@@ -326,7 +326,7 @@ public class UsuariosAPI: APIBase {
         ]
         let parameters = APIHelper.rejectNil(nillableParameters)
 
-        let requestBuilder: RequestBuilder<PageUsuarios>.Type = PierAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<PageUsuarioResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
     }

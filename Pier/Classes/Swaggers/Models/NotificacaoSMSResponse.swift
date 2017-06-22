@@ -8,13 +8,58 @@
 import Foundation
 
 
-/** Objeto Notifica\u00C3\u00A7\u00C3\u00A3o SMS */
+/** Objeto SMS */
 public class NotificacaoSMSResponse: JSONEncodable {
 
+    public enum TipoEvento: String { 
+        case RiscoFraude = "RISCO_FRAUDE"
+        case Outros = "OUTROS"
+    }
+    
+    public enum Status: String { 
+        case Pendente = "PENDENTE"
+        case Encaminhado = "ENCAMINHADO"
+        case Enviado = "ENVIADO"
+        case Respondido = "RESPONDIDO"
+        case Erro = "ERRO"
+        case ErroResposta = "ERRO_RESPOSTA"
+        case SucessoResposta = "SUCESSO_RESPOSTA"
+    }
+    
+    /** C\u00C3\u00B3digo Identificador. */
+    public var id: Int?
+    /** N\u00C3\u00BAmero sequencial \u00C3\u00BAnico. */
+    public var nsu: Int?
+    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do emissor (id). */
+    public var idEmissor: Int?
+    /** TipoEvento de notifica\u00C3\u00A7\u00C3\u00A3o */
+    public var tipoEvento: TipoEvento?
+    /** Status de envio da notifica\u00C3\u00A7\u00C3\u00A3o */
+    public var status: Status?
+    /** Descri\u00C3\u00A7\u00C3\u00A3o do status de envio da notifica\u00C3\u00A7\u00C3\u00A3o */
+    public var descricaoStatus: String?
+    /** C\u00C3\u00B3digo identificado da pessoa */
+    public var idPessoa: Int?
+    /** C\u00C3\u00B3digo identificador da conta */
+    public var idConta: Int?
+    /** Apresenta o celular a ser eviado o SMS no formato 5588999999999 ou 5588999999999 */
+    public var celular: String?
+    /** Apresenta a operadora do celular a ser eviado o SMS */
+    public var operadora: String?
+    /** Apresenta o texto da notifica\u00C3\u00A7\u00C3\u00A3o a ser enviado */
+    public var conteudo: String?
+    /** Apresenta o texto da resposta da notifica\u00C3\u00A7\u00C3\u00A3o que foi enviada */
+    public var resposta: String?
+    /** Apresenta a data e hora em que ser\u00C3\u00A1 enviado a notifica\u00C3\u00A7\u00C3\u00A3o */
+    public var dataAgendamento: String?
+    /** Quantidade de tentativas e envio da notifica\u00C3\u00A7\u00C3\u00A3o */
+    public var quantidadeTentativasEnvio: Int?
+    /** Apresenta a data e em que o registro foi inclu\u00C3\u00ADdo na base para ser enviado */
+    public var dataInclusao: String?
+    /** Apresenta a data e em que o Stattjus do registro foi modificado */
+    public var dataAlteracaoStatus: String?
     /** N\u00C3\u00BAmero do protocolo de envio de notifica\u00C3\u00A7\u00C3\u00B5es */
     public var protocolo: String?
-    /** Mensagem de resposta da solicita\u00C3\u00A7\u00C3\u00B5es de envio */
-    public var mensagem: String?
     
 
     public init() {}
@@ -22,8 +67,23 @@ public class NotificacaoSMSResponse: JSONEncodable {
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
+        nillableDictionary["id"] = self.id
+        nillableDictionary["nsu"] = self.nsu
+        nillableDictionary["idEmissor"] = self.idEmissor
+        nillableDictionary["tipoEvento"] = self.tipoEvento?.rawValue
+        nillableDictionary["status"] = self.status?.rawValue
+        nillableDictionary["descricaoStatus"] = self.descricaoStatus
+        nillableDictionary["idPessoa"] = self.idPessoa
+        nillableDictionary["idConta"] = self.idConta
+        nillableDictionary["celular"] = self.celular
+        nillableDictionary["operadora"] = self.operadora
+        nillableDictionary["conteudo"] = self.conteudo
+        nillableDictionary["resposta"] = self.resposta
+        nillableDictionary["dataAgendamento"] = self.dataAgendamento
+        nillableDictionary["quantidadeTentativasEnvio"] = self.quantidadeTentativasEnvio
+        nillableDictionary["dataInclusao"] = self.dataInclusao
+        nillableDictionary["dataAlteracaoStatus"] = self.dataAlteracaoStatus
         nillableDictionary["protocolo"] = self.protocolo
-        nillableDictionary["mensagem"] = self.mensagem
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

@@ -12,60 +12,6 @@ import Alamofire
 public class RiscoFraudeAPI: APIBase {
     /**
      
-     Apresenta os dados de um determinado Atendimento
-     
-     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do atendimento cliente (id). 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func consultarUsingGET(id id: Int, completion: ((data: AtendimentoCliente?, error: ErrorType?) -> Void)) {
-        consultarUsingGETWithRequestBuilder(id: id).execute { (response, error) -> Void in
-            completion(data: response?.body, error: error);
-        }
-    }
-
-
-    /**
-     
-     Apresenta os dados de um determinado Atendimento
-     
-     - GET /api/atendimento-clientes/{id}
-     - Este m\u00C3\u00A9todo permite consultar os par\u00C3\u00A2metros de um determinado Atendimento a partir do seu c\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o (idAtendimento).
-     - examples: [{contentType=application/json, example={
-  "conteudoAtendimento" : "aeiou",
-  "idConta" : 123456789,
-  "descricaoTipoAtendimento" : "aeiou",
-  "dataProcessamento" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "dataAgendamento" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "flagProcessamento" : 123,
-  "dataHoraFimAtendimento" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "detalhesAtendimento" : "aeiou",
-  "idAtendimento" : 123456789,
-  "dataAtendimento" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "dataHoraInicioAtendimento" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "nomeAtendente" : "aeiou",
-  "nomeSistema" : "aeiou",
-  "idTipoAtendimento" : 123456789
-}}]
-     
-     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do atendimento cliente (id). 
-
-     - returns: RequestBuilder<AtendimentoCliente> 
-     */
-    public class func consultarUsingGETWithRequestBuilder(id id: Int) -> RequestBuilder<AtendimentoCliente> {
-        var path = "/api/atendimento-clientes/{id}"
-        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
-        let URLString = PierAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<AtendimentoCliente>.Type = PierAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
      Consultar uma transa\u00C3\u00A7\u00C3\u00A3o classificada com risco de fraude
      
      - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do risco de fraude 
@@ -141,128 +87,6 @@ public class RiscoFraudeAPI: APIBase {
 
     /**
      
-     Receber Risco Fraude
-     
-     - parameter detalhadoResponses: (body) detalhadoResponses 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func informarRiscoFraudeUsingPOST(detalhadoResponses detalhadoResponses: [RiscoFraudeDetalhadoResponse], completion: ((data: String?, error: ErrorType?) -> Void)) {
-        informarRiscoFraudeUsingPOSTWithRequestBuilder(detalhadoResponses: detalhadoResponses).execute { (response, error) -> Void in
-            completion(data: response?.body, error: error);
-        }
-    }
-
-
-    /**
-     
-     Receber Risco Fraude
-     
-     - POST /api/riscos-fraudes
-     - Receber risco fraude
-     - examples: [{contentType=application/json, example="aeiou"}]
-     
-     - parameter detalhadoResponses: (body) detalhadoResponses 
-
-     - returns: RequestBuilder<String> 
-     */
-    public class func informarRiscoFraudeUsingPOSTWithRequestBuilder(detalhadoResponses detalhadoResponses: [RiscoFraudeDetalhadoResponse]) -> RequestBuilder<String> {
-        let path = "/api/riscos-fraudes"
-        let URLString = PierAPI.basePath + path
-        
-        let parameters = detalhadoResponses.encodeToJSON() as? [String:AnyObject]
-
-        let requestBuilder: RequestBuilder<String>.Type = PierAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Lista todos os atendimentos
-     
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
-     - parameter idTipoAtendimento: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Tipo de Atendimento (id) (optional)
-     - parameter idConta: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o de conta (id). (optional)
-     - parameter nomeAtendente: (query) Apresenta o nome do Atendente que registrou o Atendimento. (optional)
-     - parameter dataAtendimento: (query) Apresenta a data em que o Atendimento foi realizado. (optional)
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func listarUsingGET1(page page: Int?, limit: Int?, idTipoAtendimento: Int?, idConta: Int?, nomeAtendente: String?, dataAtendimento: String?, completion: ((data: PageAtendimentoClientes?, error: ErrorType?) -> Void)) {
-        listarUsingGET1WithRequestBuilder(page: page, limit: limit, idTipoAtendimento: idTipoAtendimento, idConta: idConta, nomeAtendente: nomeAtendente, dataAtendimento: dataAtendimento).execute { (response, error) -> Void in
-            completion(data: response?.body, error: error);
-        }
-    }
-
-
-    /**
-     
-     Lista todos os atendimentos
-     
-     - GET /api/atendimento-clientes
-     - Este m\u00C3\u00A9todo permite que sejam listados todos os Registro de Atendimento, independente do Tipo.
-     - examples: [{contentType=application/json, example={
-  "previousPage" : 123,
-  "last" : true,
-  "hasContent" : true,
-  "hasNextPage" : true,
-  "nextPage" : 123,
-  "content" : [ {
-    "conteudoAtendimento" : "aeiou",
-    "idConta" : 123456789,
-    "descricaoTipoAtendimento" : "aeiou",
-    "dataProcessamento" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-    "dataAgendamento" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-    "flagProcessamento" : 123,
-    "dataHoraFimAtendimento" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-    "detalhesAtendimento" : "aeiou",
-    "idAtendimento" : 123456789,
-    "dataAtendimento" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-    "dataHoraInicioAtendimento" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-    "nomeAtendente" : "aeiou",
-    "nomeSistema" : "aeiou",
-    "idTipoAtendimento" : 123456789
-  } ],
-  "totalElements" : 123456789,
-  "number" : 123,
-  "firstPage" : true,
-  "numberOfElements" : 123,
-  "size" : 123,
-  "totalPages" : 123,
-  "hasPreviousPage" : true,
-  "first" : true
-}}]
-     
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
-     - parameter idTipoAtendimento: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Tipo de Atendimento (id) (optional)
-     - parameter idConta: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o de conta (id). (optional)
-     - parameter nomeAtendente: (query) Apresenta o nome do Atendente que registrou o Atendimento. (optional)
-     - parameter dataAtendimento: (query) Apresenta a data em que o Atendimento foi realizado. (optional)
-
-     - returns: RequestBuilder<PageAtendimentoClientes> 
-     */
-    public class func listarUsingGET1WithRequestBuilder(page page: Int?, limit: Int?, idTipoAtendimento: Int?, idConta: Int?, nomeAtendente: String?, dataAtendimento: String?) -> RequestBuilder<PageAtendimentoClientes> {
-        let path = "/api/atendimento-clientes"
-        let URLString = PierAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [
-            "page": page,
-            "limit": limit,
-            "idTipoAtendimento": idTipoAtendimento,
-            "idConta": idConta,
-            "nomeAtendente": nomeAtendente,
-            "dataAtendimento": dataAtendimento
-        ]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<PageAtendimentoClientes>.Type = PierAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
-    }
-
-    /**
-     
      Listar as transa\u00C3\u00A7\u00C3\u00B5es com resolu\u00C3\u00A7\u00C3\u00A3o de risco fraude pendente
      
      - parameter idConta: (query) Id Conta 
@@ -271,8 +95,8 @@ public class RiscoFraudeAPI: APIBase {
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET18(idConta idConta: Int, confirmacaoFraude: String, page: Int?, limit: Int?, completion: ((data: RiscoFraudeResponsePage?, error: ErrorType?) -> Void)) {
-        listarUsingGET18WithRequestBuilder(idConta: idConta, confirmacaoFraude: confirmacaoFraude, page: page, limit: limit).execute { (response, error) -> Void in
+    public class func listarUsingGET19(idConta idConta: Int, confirmacaoFraude: String, page: Int?, limit: Int?, completion: ((data: RiscoFraudeResponsePage?, error: ErrorType?) -> Void)) {
+        listarUsingGET19WithRequestBuilder(idConta: idConta, confirmacaoFraude: confirmacaoFraude, page: page, limit: limit).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -319,7 +143,7 @@ public class RiscoFraudeAPI: APIBase {
 
      - returns: RequestBuilder<RiscoFraudeResponsePage> 
      */
-    public class func listarUsingGET18WithRequestBuilder(idConta idConta: Int, confirmacaoFraude: String, page: Int?, limit: Int?) -> RequestBuilder<RiscoFraudeResponsePage> {
+    public class func listarUsingGET19WithRequestBuilder(idConta idConta: Int, confirmacaoFraude: String, page: Int?, limit: Int?) -> RequestBuilder<RiscoFraudeResponsePage> {
         let path = "/api/riscos-fraudes"
         let URLString = PierAPI.basePath + path
         
@@ -484,84 +308,6 @@ public class RiscoFraudeAPI: APIBase {
         let requestBuilder: RequestBuilder<RiscoFraudeDetalhadoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Cadastro um novo Atendimento do tipo Gen\u00C3\u00A9rico para uma Conta
-     
-     - parameter idConta: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Conta a qual o Atendimento est\u00C3\u00A1 associado (optional)
-     - parameter conteudoAtendimento: (query) Apresenta as informa\u00C3\u00A7\u00C3\u00B5es que foram utilizadas para consultar, cadastrar ou alterar informa\u00C3\u00A7\u00C3\u00B5es relacionadas ao Atendimento. (optional)
-     - parameter detalhesAtendimento: (query) Apresenta os detalhes lan\u00C3\u00A7ados pelo sistema ou pelo Atendente durante relacionados ao Atendimento. (optional)
-     - parameter nomeAtendente: (query) Apresenta o nome do Atendente que registrou o Atendimento. (optional)
-     - parameter dataAtendimento: (query) Apresenta a data e hora em que o Atendimento foi realizado no formato yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSS&#39;Z&#39;. (optional)
-     - parameter dataAgendamento: (query) Quando utilizado, de acordo com o Tipo de Atendimento, apresenta a data e hora para processamento ou a data e hora para retorno do Atendimento no formato yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSS&#39;Z&#39;. (optional)
-     - parameter dataHoraInicioAtendimento: (query) Apresenta a data e hora em que o Atendimento foi iniciado. Quando utilizado, serve para medir a performance dos Atendimentos no formato yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSS&#39;Z&#39;. (optional)
-     - parameter dataHoraFimAtendimento: (query) Apresenta a data e hora em que o Atendimento foi iniciado. Quando utilizado, serve para medir a performance dos Atendimentos no formato yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSS&#39;Z&#39;. (optional)
-     - parameter flagFilaFraude: (query) Flag fila fraude (optional)
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func salvarUsingPOST1(idConta idConta: Int?, conteudoAtendimento: String?, detalhesAtendimento: String?, nomeAtendente: String?, dataAtendimento: String?, dataAgendamento: String?, dataHoraInicioAtendimento: String?, dataHoraFimAtendimento: String?, flagFilaFraude: Int?, completion: ((data: AtendimentoCliente?, error: ErrorType?) -> Void)) {
-        salvarUsingPOST1WithRequestBuilder(idConta: idConta, conteudoAtendimento: conteudoAtendimento, detalhesAtendimento: detalhesAtendimento, nomeAtendente: nomeAtendente, dataAtendimento: dataAtendimento, dataAgendamento: dataAgendamento, dataHoraInicioAtendimento: dataHoraInicioAtendimento, dataHoraFimAtendimento: dataHoraFimAtendimento, flagFilaFraude: flagFilaFraude).execute { (response, error) -> Void in
-            completion(data: response?.body, error: error);
-        }
-    }
-
-
-    /**
-     
-     Cadastro um novo Atendimento do tipo Gen\u00C3\u00A9rico para uma Conta
-     
-     - POST /api/atendimento-clientes
-     - examples: [{contentType=application/json, example={
-  "conteudoAtendimento" : "aeiou",
-  "idConta" : 123456789,
-  "descricaoTipoAtendimento" : "aeiou",
-  "dataProcessamento" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "dataAgendamento" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "flagProcessamento" : 123,
-  "dataHoraFimAtendimento" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "detalhesAtendimento" : "aeiou",
-  "idAtendimento" : 123456789,
-  "dataAtendimento" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "dataHoraInicioAtendimento" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "nomeAtendente" : "aeiou",
-  "nomeSistema" : "aeiou",
-  "idTipoAtendimento" : 123456789
-}}]
-     
-     - parameter idConta: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Conta a qual o Atendimento est\u00C3\u00A1 associado (optional)
-     - parameter conteudoAtendimento: (query) Apresenta as informa\u00C3\u00A7\u00C3\u00B5es que foram utilizadas para consultar, cadastrar ou alterar informa\u00C3\u00A7\u00C3\u00B5es relacionadas ao Atendimento. (optional)
-     - parameter detalhesAtendimento: (query) Apresenta os detalhes lan\u00C3\u00A7ados pelo sistema ou pelo Atendente durante relacionados ao Atendimento. (optional)
-     - parameter nomeAtendente: (query) Apresenta o nome do Atendente que registrou o Atendimento. (optional)
-     - parameter dataAtendimento: (query) Apresenta a data e hora em que o Atendimento foi realizado no formato yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSS&#39;Z&#39;. (optional)
-     - parameter dataAgendamento: (query) Quando utilizado, de acordo com o Tipo de Atendimento, apresenta a data e hora para processamento ou a data e hora para retorno do Atendimento no formato yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSS&#39;Z&#39;. (optional)
-     - parameter dataHoraInicioAtendimento: (query) Apresenta a data e hora em que o Atendimento foi iniciado. Quando utilizado, serve para medir a performance dos Atendimentos no formato yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSS&#39;Z&#39;. (optional)
-     - parameter dataHoraFimAtendimento: (query) Apresenta a data e hora em que o Atendimento foi iniciado. Quando utilizado, serve para medir a performance dos Atendimentos no formato yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSS&#39;Z&#39;. (optional)
-     - parameter flagFilaFraude: (query) Flag fila fraude (optional)
-
-     - returns: RequestBuilder<AtendimentoCliente> 
-     */
-    public class func salvarUsingPOST1WithRequestBuilder(idConta idConta: Int?, conteudoAtendimento: String?, detalhesAtendimento: String?, nomeAtendente: String?, dataAtendimento: String?, dataAgendamento: String?, dataHoraInicioAtendimento: String?, dataHoraFimAtendimento: String?, flagFilaFraude: Int?) -> RequestBuilder<AtendimentoCliente> {
-        let path = "/api/atendimento-clientes"
-        let URLString = PierAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [
-            "idConta": idConta,
-            "conteudoAtendimento": conteudoAtendimento,
-            "detalhesAtendimento": detalhesAtendimento,
-            "nomeAtendente": nomeAtendente,
-            "dataAtendimento": dataAtendimento,
-            "dataAgendamento": dataAgendamento,
-            "dataHoraInicioAtendimento": dataHoraInicioAtendimento,
-            "dataHoraFimAtendimento": dataHoraFimAtendimento,
-            "flagFilaFraude": flagFilaFraude
-        ]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<AtendimentoCliente>.Type = PierAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: false)
     }
 
 }

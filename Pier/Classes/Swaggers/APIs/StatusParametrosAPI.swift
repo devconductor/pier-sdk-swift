@@ -17,7 +17,7 @@ public class StatusParametrosAPI: APIBase {
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Est\u00C3\u00A1gio de Entrega do Cart\u00C3\u00A3o (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarEstagioCartaoUsingGET(id id: Int, completion: ((data: EstagioCartao?, error: ErrorType?) -> Void)) {
+    public class func consultarEstagioCartaoUsingGET(id id: Int, completion: ((data: EstagioCartaoResponse?, error: ErrorType?) -> Void)) {
         consultarEstagioCartaoUsingGETWithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -37,9 +37,9 @@ public class StatusParametrosAPI: APIBase {
      
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Est\u00C3\u00A1gio de Entrega do Cart\u00C3\u00A3o (id). 
 
-     - returns: RequestBuilder<EstagioCartao> 
+     - returns: RequestBuilder<EstagioCartaoResponse> 
      */
-    public class func consultarEstagioCartaoUsingGETWithRequestBuilder(id id: Int) -> RequestBuilder<EstagioCartao> {
+    public class func consultarEstagioCartaoUsingGETWithRequestBuilder(id id: Int) -> RequestBuilder<EstagioCartaoResponse> {
         var path = "/api/estagios-cartoes/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -47,7 +47,7 @@ public class StatusParametrosAPI: APIBase {
         let nillableParameters: [String:AnyObject?] = [:]
         let parameters = APIHelper.rejectNil(nillableParameters)
 
-        let requestBuilder: RequestBuilder<EstagioCartao>.Type = PierAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<EstagioCartaoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
     }
@@ -59,7 +59,7 @@ public class StatusParametrosAPI: APIBase {
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Est\u00C3\u00A1gio de Entrega do Cart\u00C3\u00A3o (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarStatusCartaoUsingGET(id id: Int, completion: ((data: StatusCartao?, error: ErrorType?) -> Void)) {
+    public class func consultarStatusCartaoUsingGET(id id: Int, completion: ((data: StatusCartaoResponse?, error: ErrorType?) -> Void)) {
         consultarStatusCartaoUsingGETWithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -77,6 +77,7 @@ public class StatusParametrosAPI: APIBase {
   "flagCancelaNoDesbloqueio" : 123,
   "idStatusDestinoDesbloqueio" : 123456789,
   "nome" : "aeiou",
+  "flagPermiteDesbloqueio" : 123,
   "id" : 123456789,
   "idStatusDestinoConta" : 123456789,
   "flagPermiteNovaViaCartao" : 123,
@@ -85,9 +86,9 @@ public class StatusParametrosAPI: APIBase {
      
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Est\u00C3\u00A1gio de Entrega do Cart\u00C3\u00A3o (id). 
 
-     - returns: RequestBuilder<StatusCartao> 
+     - returns: RequestBuilder<StatusCartaoResponse> 
      */
-    public class func consultarStatusCartaoUsingGETWithRequestBuilder(id id: Int) -> RequestBuilder<StatusCartao> {
+    public class func consultarStatusCartaoUsingGETWithRequestBuilder(id id: Int) -> RequestBuilder<StatusCartaoResponse> {
         var path = "/api/status-cartoes/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -95,7 +96,7 @@ public class StatusParametrosAPI: APIBase {
         let nillableParameters: [String:AnyObject?] = [:]
         let parameters = APIHelper.rejectNil(nillableParameters)
 
-        let requestBuilder: RequestBuilder<StatusCartao>.Type = PierAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<StatusCartaoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
     }
@@ -107,7 +108,7 @@ public class StatusParametrosAPI: APIBase {
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Status da Conta (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET13(id id: Int, completion: ((data: StatusConta?, error: ErrorType?) -> Void)) {
+    public class func consultarUsingGET13(id id: Int, completion: ((data: StatusContaResponse?, error: ErrorType?) -> Void)) {
         consultarUsingGET13WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -122,17 +123,19 @@ public class StatusParametrosAPI: APIBase {
      - Este m\u00C3\u00A9todo permite consultar os par\u00C3\u00A2metros de um determinado Status Conta a partir do seu c\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o (id).
      - examples: [{contentType=application/json, example={
   "mensagemConsultaNegada" : "aeiou",
+  "flagRecebeTransferencia" : 123,
   "nome" : "aeiou",
   "flagAlteraLimite" : 123,
   "id" : 123456789,
-  "flagPermiteNovaViaCartao" : 123
+  "flagPermiteNovaViaCartao" : 123,
+  "flagFazTransferencia" : 123
 }}]
      
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Status da Conta (id). 
 
-     - returns: RequestBuilder<StatusConta> 
+     - returns: RequestBuilder<StatusContaResponse> 
      */
-    public class func consultarUsingGET13WithRequestBuilder(id id: Int) -> RequestBuilder<StatusConta> {
+    public class func consultarUsingGET13WithRequestBuilder(id id: Int) -> RequestBuilder<StatusContaResponse> {
         var path = "/api/status-contas/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -140,7 +143,7 @@ public class StatusParametrosAPI: APIBase {
         let nillableParameters: [String:AnyObject?] = [:]
         let parameters = APIHelper.rejectNil(nillableParameters)
 
-        let requestBuilder: RequestBuilder<StatusConta>.Type = PierAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<StatusContaResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
     }
@@ -152,7 +155,7 @@ public class StatusParametrosAPI: APIBase {
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Status de Impress\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET14(id id: Int, completion: ((data: StatusImpressao?, error: ErrorType?) -> Void)) {
+    public class func consultarUsingGET14(id id: Int, completion: ((data: StatusImpressaoResponse?, error: ErrorType?) -> Void)) {
         consultarUsingGET14WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -172,9 +175,9 @@ public class StatusParametrosAPI: APIBase {
      
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Status de Impress\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
 
-     - returns: RequestBuilder<StatusImpressao> 
+     - returns: RequestBuilder<StatusImpressaoResponse> 
      */
-    public class func consultarUsingGET14WithRequestBuilder(id id: Int) -> RequestBuilder<StatusImpressao> {
+    public class func consultarUsingGET14WithRequestBuilder(id id: Int) -> RequestBuilder<StatusImpressaoResponse> {
         var path = "/api/status-impressoes/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -182,7 +185,7 @@ public class StatusParametrosAPI: APIBase {
         let nillableParameters: [String:AnyObject?] = [:]
         let parameters = APIHelper.rejectNil(nillableParameters)
 
-        let requestBuilder: RequestBuilder<StatusImpressao>.Type = PierAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<StatusImpressaoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
     }
@@ -197,7 +200,7 @@ public class StatusParametrosAPI: APIBase {
      - parameter nome: (query) Nome do est\u00C3\u00A1gio cart\u00C3\u00A3o (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarEstagiosCartoesUsingGET(page page: Int?, limit: Int?, id: Int?, nome: String?, completion: ((data: PageEstagiosCartoes?, error: ErrorType?) -> Void)) {
+    public class func listarEstagiosCartoesUsingGET(page page: Int?, limit: Int?, id: Int?, nome: String?, completion: ((data: PageEstagioCartaoResponse?, error: ErrorType?) -> Void)) {
         listarEstagiosCartoesUsingGETWithRequestBuilder(page: page, limit: limit, id: id, nome: nome).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -235,9 +238,9 @@ public class StatusParametrosAPI: APIBase {
      - parameter id: (query) Id do est\u00C3\u00A1gio cart\u00C3\u00A3o (optional)
      - parameter nome: (query) Nome do est\u00C3\u00A1gio cart\u00C3\u00A3o (optional)
 
-     - returns: RequestBuilder<PageEstagiosCartoes> 
+     - returns: RequestBuilder<PageEstagioCartaoResponse> 
      */
-    public class func listarEstagiosCartoesUsingGETWithRequestBuilder(page page: Int?, limit: Int?, id: Int?, nome: String?) -> RequestBuilder<PageEstagiosCartoes> {
+    public class func listarEstagiosCartoesUsingGETWithRequestBuilder(page page: Int?, limit: Int?, id: Int?, nome: String?) -> RequestBuilder<PageEstagioCartaoResponse> {
         let path = "/api/estagios-cartoes"
         let URLString = PierAPI.basePath + path
         
@@ -249,7 +252,7 @@ public class StatusParametrosAPI: APIBase {
         ]
         let parameters = APIHelper.rejectNil(nillableParameters)
 
-        let requestBuilder: RequestBuilder<PageEstagiosCartoes>.Type = PierAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<PageEstagioCartaoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
     }
@@ -268,10 +271,11 @@ public class StatusParametrosAPI: APIBase {
      - parameter idStatusDestinoConta: (query) Indica qual o idStatusCartao que ser\u00C3\u00A1 atribu\u00C3\u00ADdo a conta, caso ela seja cancelada devido ao bloqueio de um cart\u00C3\u00A3o quando for utilizado um idStatusCartao no processo de Bloqueio que possua essa caracter\u00C3\u00ADstica. (optional)
      - parameter flagCobraTarifa: (query) Quando ativa, indica que cart\u00C3\u00B5es que tiverem um idStatusCartao atribu\u00C3\u00ADdo com essa caracter\u00C3\u00ADstica, incluir\u00C3\u00A3o a cobran\u00C3\u00A7a de uma tarifa para a conta de acordo com os valores definidos nos par\u00C3\u00A2metros do emissor. (optional)
      - parameter flagPermiteNovaViaCartao: (query) Par\u00C3\u00A2metro que define se o status do cart\u00C3\u00A3o permite a solicita\u00C3\u00A7\u00C3\u00A3o de uma nova via, sendo: 0: Inativo e 1: Ativo. (optional)
+     - parameter flagPermiteDesbloqueio: (query) Par\u00C3\u00A2metro que define se o status do cart\u00C3\u00A3o permite o desbloqueio, sendo: 0: Inativo e 1: Ativo. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarStatusCartoesUsingGET(page page: Int?, limit: Int?, id: Int?, nome: String?, flagCancelaCartao: Int?, flagCancelaNoDesbloqueio: Int?, idStatusDestinoDesbloqueio: Int?, idStatusDestinoConta: Int?, flagCobraTarifa: Int?, flagPermiteNovaViaCartao: Int?, completion: ((data: PageStatusCartoes?, error: ErrorType?) -> Void)) {
-        listarStatusCartoesUsingGETWithRequestBuilder(page: page, limit: limit, id: id, nome: nome, flagCancelaCartao: flagCancelaCartao, flagCancelaNoDesbloqueio: flagCancelaNoDesbloqueio, idStatusDestinoDesbloqueio: idStatusDestinoDesbloqueio, idStatusDestinoConta: idStatusDestinoConta, flagCobraTarifa: flagCobraTarifa, flagPermiteNovaViaCartao: flagPermiteNovaViaCartao).execute { (response, error) -> Void in
+    public class func listarStatusCartoesUsingGET(page page: Int?, limit: Int?, id: Int?, nome: String?, flagCancelaCartao: Int?, flagCancelaNoDesbloqueio: Int?, idStatusDestinoDesbloqueio: Int?, idStatusDestinoConta: Int?, flagCobraTarifa: Int?, flagPermiteNovaViaCartao: Int?, flagPermiteDesbloqueio: Int?, completion: ((data: PageStatusCartaoResponse?, error: ErrorType?) -> Void)) {
+        listarStatusCartoesUsingGETWithRequestBuilder(page: page, limit: limit, id: id, nome: nome, flagCancelaCartao: flagCancelaCartao, flagCancelaNoDesbloqueio: flagCancelaNoDesbloqueio, idStatusDestinoDesbloqueio: idStatusDestinoDesbloqueio, idStatusDestinoConta: idStatusDestinoConta, flagCobraTarifa: flagCobraTarifa, flagPermiteNovaViaCartao: flagPermiteNovaViaCartao, flagPermiteDesbloqueio: flagPermiteDesbloqueio).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -294,6 +298,7 @@ public class StatusParametrosAPI: APIBase {
     "flagCancelaNoDesbloqueio" : 123,
     "idStatusDestinoDesbloqueio" : 123456789,
     "nome" : "aeiou",
+    "flagPermiteDesbloqueio" : 123,
     "id" : 123456789,
     "idStatusDestinoConta" : 123456789,
     "flagPermiteNovaViaCartao" : 123,
@@ -319,10 +324,11 @@ public class StatusParametrosAPI: APIBase {
      - parameter idStatusDestinoConta: (query) Indica qual o idStatusCartao que ser\u00C3\u00A1 atribu\u00C3\u00ADdo a conta, caso ela seja cancelada devido ao bloqueio de um cart\u00C3\u00A3o quando for utilizado um idStatusCartao no processo de Bloqueio que possua essa caracter\u00C3\u00ADstica. (optional)
      - parameter flagCobraTarifa: (query) Quando ativa, indica que cart\u00C3\u00B5es que tiverem um idStatusCartao atribu\u00C3\u00ADdo com essa caracter\u00C3\u00ADstica, incluir\u00C3\u00A3o a cobran\u00C3\u00A7a de uma tarifa para a conta de acordo com os valores definidos nos par\u00C3\u00A2metros do emissor. (optional)
      - parameter flagPermiteNovaViaCartao: (query) Par\u00C3\u00A2metro que define se o status do cart\u00C3\u00A3o permite a solicita\u00C3\u00A7\u00C3\u00A3o de uma nova via, sendo: 0: Inativo e 1: Ativo. (optional)
+     - parameter flagPermiteDesbloqueio: (query) Par\u00C3\u00A2metro que define se o status do cart\u00C3\u00A3o permite o desbloqueio, sendo: 0: Inativo e 1: Ativo. (optional)
 
-     - returns: RequestBuilder<PageStatusCartoes> 
+     - returns: RequestBuilder<PageStatusCartaoResponse> 
      */
-    public class func listarStatusCartoesUsingGETWithRequestBuilder(page page: Int?, limit: Int?, id: Int?, nome: String?, flagCancelaCartao: Int?, flagCancelaNoDesbloqueio: Int?, idStatusDestinoDesbloqueio: Int?, idStatusDestinoConta: Int?, flagCobraTarifa: Int?, flagPermiteNovaViaCartao: Int?) -> RequestBuilder<PageStatusCartoes> {
+    public class func listarStatusCartoesUsingGETWithRequestBuilder(page page: Int?, limit: Int?, id: Int?, nome: String?, flagCancelaCartao: Int?, flagCancelaNoDesbloqueio: Int?, idStatusDestinoDesbloqueio: Int?, idStatusDestinoConta: Int?, flagCobraTarifa: Int?, flagPermiteNovaViaCartao: Int?, flagPermiteDesbloqueio: Int?) -> RequestBuilder<PageStatusCartaoResponse> {
         let path = "/api/status-cartoes"
         let URLString = PierAPI.basePath + path
         
@@ -336,11 +342,12 @@ public class StatusParametrosAPI: APIBase {
             "idStatusDestinoDesbloqueio": idStatusDestinoDesbloqueio,
             "idStatusDestinoConta": idStatusDestinoConta,
             "flagCobraTarifa": flagCobraTarifa,
-            "flagPermiteNovaViaCartao": flagPermiteNovaViaCartao
+            "flagPermiteNovaViaCartao": flagPermiteNovaViaCartao,
+            "flagPermiteDesbloqueio": flagPermiteDesbloqueio
         ]
         let parameters = APIHelper.rejectNil(nillableParameters)
 
-        let requestBuilder: RequestBuilder<PageStatusCartoes>.Type = PierAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<PageStatusCartaoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
     }
@@ -356,10 +363,12 @@ public class StatusParametrosAPI: APIBase {
      - parameter flagAlteraLimite: (query) Par\u00C3\u00A2metro que define se o Status da Conta permite realizar a Altera\u00C3\u00A7\u00C3\u00A3o de Limites do Portador, sendo: 0: Inativo e 1: Ativo. (optional)
      - parameter mensagemConsultaNegada: (query) Apresenta o texto com o motivo que ser\u00C3\u00A1 apresentado na resposta as opera\u00C3\u00A7\u00C3\u00B5es de Listar e Consultar LimitesDisponibilidades. (optional)
      - parameter flagPermiteNovaViaCartao: (query) Par\u00C3\u00A2metro que define se o Status da conta permite a solicita\u00C3\u00A7\u00C3\u00A3o de um novo cart\u00C3\u00A3o, sendo: 0: Inativo e 1: Ativo. (optional)
+     - parameter flagFazTransferencia: (query) Par\u00C3\u00A2metro que define se o Status da conta permite fazer transferencia, sendo: 0: Inativo e 1: Ativo. (optional)
+     - parameter flagRecebeTransferencia: (query) Par\u00C3\u00A2metro que define se o Status da conta permite receber transferencia, sendo: 0: Inativo e 1: Ativo. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET19(page page: Int?, limit: Int?, id: Int?, nome: String?, flagAlteraLimite: Int?, mensagemConsultaNegada: String?, flagPermiteNovaViaCartao: Int?, completion: ((data: PageStatusContas?, error: ErrorType?) -> Void)) {
-        listarUsingGET19WithRequestBuilder(page: page, limit: limit, id: id, nome: nome, flagAlteraLimite: flagAlteraLimite, mensagemConsultaNegada: mensagemConsultaNegada, flagPermiteNovaViaCartao: flagPermiteNovaViaCartao).execute { (response, error) -> Void in
+    public class func listarUsingGET20(page page: Int?, limit: Int?, id: Int?, nome: String?, flagAlteraLimite: Int?, mensagemConsultaNegada: String?, flagPermiteNovaViaCartao: Int?, flagFazTransferencia: Int?, flagRecebeTransferencia: Int?, completion: ((data: PageStatusContaResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET20WithRequestBuilder(page: page, limit: limit, id: id, nome: nome, flagAlteraLimite: flagAlteraLimite, mensagemConsultaNegada: mensagemConsultaNegada, flagPermiteNovaViaCartao: flagPermiteNovaViaCartao, flagFazTransferencia: flagFazTransferencia, flagRecebeTransferencia: flagRecebeTransferencia).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -379,10 +388,12 @@ public class StatusParametrosAPI: APIBase {
   "nextPage" : 123,
   "content" : [ {
     "mensagemConsultaNegada" : "aeiou",
+    "flagRecebeTransferencia" : 123,
     "nome" : "aeiou",
     "flagAlteraLimite" : 123,
     "id" : 123456789,
-    "flagPermiteNovaViaCartao" : 123
+    "flagPermiteNovaViaCartao" : 123,
+    "flagFazTransferencia" : 123
   } ],
   "totalElements" : 123456789,
   "number" : 123,
@@ -401,10 +412,12 @@ public class StatusParametrosAPI: APIBase {
      - parameter flagAlteraLimite: (query) Par\u00C3\u00A2metro que define se o Status da Conta permite realizar a Altera\u00C3\u00A7\u00C3\u00A3o de Limites do Portador, sendo: 0: Inativo e 1: Ativo. (optional)
      - parameter mensagemConsultaNegada: (query) Apresenta o texto com o motivo que ser\u00C3\u00A1 apresentado na resposta as opera\u00C3\u00A7\u00C3\u00B5es de Listar e Consultar LimitesDisponibilidades. (optional)
      - parameter flagPermiteNovaViaCartao: (query) Par\u00C3\u00A2metro que define se o Status da conta permite a solicita\u00C3\u00A7\u00C3\u00A3o de um novo cart\u00C3\u00A3o, sendo: 0: Inativo e 1: Ativo. (optional)
+     - parameter flagFazTransferencia: (query) Par\u00C3\u00A2metro que define se o Status da conta permite fazer transferencia, sendo: 0: Inativo e 1: Ativo. (optional)
+     - parameter flagRecebeTransferencia: (query) Par\u00C3\u00A2metro que define se o Status da conta permite receber transferencia, sendo: 0: Inativo e 1: Ativo. (optional)
 
-     - returns: RequestBuilder<PageStatusContas> 
+     - returns: RequestBuilder<PageStatusContaResponse> 
      */
-    public class func listarUsingGET19WithRequestBuilder(page page: Int?, limit: Int?, id: Int?, nome: String?, flagAlteraLimite: Int?, mensagemConsultaNegada: String?, flagPermiteNovaViaCartao: Int?) -> RequestBuilder<PageStatusContas> {
+    public class func listarUsingGET20WithRequestBuilder(page page: Int?, limit: Int?, id: Int?, nome: String?, flagAlteraLimite: Int?, mensagemConsultaNegada: String?, flagPermiteNovaViaCartao: Int?, flagFazTransferencia: Int?, flagRecebeTransferencia: Int?) -> RequestBuilder<PageStatusContaResponse> {
         let path = "/api/status-contas"
         let URLString = PierAPI.basePath + path
         
@@ -415,11 +428,13 @@ public class StatusParametrosAPI: APIBase {
             "nome": nome,
             "flagAlteraLimite": flagAlteraLimite,
             "mensagemConsultaNegada": mensagemConsultaNegada,
-            "flagPermiteNovaViaCartao": flagPermiteNovaViaCartao
+            "flagPermiteNovaViaCartao": flagPermiteNovaViaCartao,
+            "flagFazTransferencia": flagFazTransferencia,
+            "flagRecebeTransferencia": flagRecebeTransferencia
         ]
         let parameters = APIHelper.rejectNil(nillableParameters)
 
-        let requestBuilder: RequestBuilder<PageStatusContas>.Type = PierAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<PageStatusContaResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
     }
@@ -434,8 +449,8 @@ public class StatusParametrosAPI: APIBase {
      - parameter nome: (query) Nome do status impress\u00C3\u00A3o (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET20(page page: Int?, limit: Int?, id: Int?, nome: String?, completion: ((data: PageStatusImpressao?, error: ErrorType?) -> Void)) {
-        listarUsingGET20WithRequestBuilder(page: page, limit: limit, id: id, nome: nome).execute { (response, error) -> Void in
+    public class func listarUsingGET21(page page: Int?, limit: Int?, id: Int?, nome: String?, completion: ((data: PageStatusImpressaoResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET21WithRequestBuilder(page: page, limit: limit, id: id, nome: nome).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -472,9 +487,9 @@ public class StatusParametrosAPI: APIBase {
      - parameter id: (query) Id do est\u00C3\u00A1gio cart\u00C3\u00A3o (optional)
      - parameter nome: (query) Nome do status impress\u00C3\u00A3o (optional)
 
-     - returns: RequestBuilder<PageStatusImpressao> 
+     - returns: RequestBuilder<PageStatusImpressaoResponse> 
      */
-    public class func listarUsingGET20WithRequestBuilder(page page: Int?, limit: Int?, id: Int?, nome: String?) -> RequestBuilder<PageStatusImpressao> {
+    public class func listarUsingGET21WithRequestBuilder(page page: Int?, limit: Int?, id: Int?, nome: String?) -> RequestBuilder<PageStatusImpressaoResponse> {
         let path = "/api/status-impressoes"
         let URLString = PierAPI.basePath + path
         
@@ -486,7 +501,7 @@ public class StatusParametrosAPI: APIBase {
         ]
         let parameters = APIHelper.rejectNil(nillableParameters)
 
-        let requestBuilder: RequestBuilder<PageStatusImpressao>.Type = PierAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<PageStatusImpressaoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
     }

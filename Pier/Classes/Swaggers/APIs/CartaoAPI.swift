@@ -57,7 +57,7 @@ public class CartaoAPI: APIBase {
      - parameter idStatusImpressao: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Status Impress\u00C3\u00A3o (Id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func alterarStatusImpressaoUsingPUT(id id: Int, idStatusImpressao: Int, completion: ((data: HistoricoImpressaoCartao?, error: ErrorType?) -> Void)) {
+    public class func alterarStatusImpressaoUsingPUT(id id: Int, idStatusImpressao: Int, completion: ((data: HistoricoImpressaoCartaoResponse?, error: ErrorType?) -> Void)) {
         alterarStatusImpressaoUsingPUTWithRequestBuilder(id: id, idStatusImpressao: idStatusImpressao).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -81,9 +81,9 @@ public class CartaoAPI: APIBase {
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
      - parameter idStatusImpressao: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Status Impress\u00C3\u00A3o (Id). 
 
-     - returns: RequestBuilder<HistoricoImpressaoCartao> 
+     - returns: RequestBuilder<HistoricoImpressaoCartaoResponse> 
      */
-    public class func alterarStatusImpressaoUsingPUTWithRequestBuilder(id id: Int, idStatusImpressao: Int) -> RequestBuilder<HistoricoImpressaoCartao> {
+    public class func alterarStatusImpressaoUsingPUTWithRequestBuilder(id id: Int, idStatusImpressao: Int) -> RequestBuilder<HistoricoImpressaoCartaoResponse> {
         var path = "/api/cartoes/{id}/alterar-status-impressao"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -93,7 +93,7 @@ public class CartaoAPI: APIBase {
         ]
         let parameters = APIHelper.rejectNil(nillableParameters)
 
-        let requestBuilder: RequestBuilder<HistoricoImpressaoCartao>.Type = PierAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<HistoricoImpressaoCartaoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: false)
     }
@@ -106,7 +106,7 @@ public class CartaoAPI: APIBase {
      - parameter idPessoa: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o de uma Pessoa (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func atribuirPessoaUsingPUT(id id: Int, idPessoa: Int, completion: ((data: Cartao?, error: ErrorType?) -> Void)) {
+    public class func atribuirPessoaUsingPUT(id id: Int, idPessoa: Int, completion: ((data: CartaoResponse?, error: ErrorType?) -> Void)) {
         atribuirPessoaUsingPUTWithRequestBuilder(id: id, idPessoa: idPessoa).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -144,9 +144,9 @@ public class CartaoAPI: APIBase {
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id) 
      - parameter idPessoa: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o de uma Pessoa (id). 
 
-     - returns: RequestBuilder<Cartao> 
+     - returns: RequestBuilder<CartaoResponse> 
      */
-    public class func atribuirPessoaUsingPUTWithRequestBuilder(id id: Int, idPessoa: Int) -> RequestBuilder<Cartao> {
+    public class func atribuirPessoaUsingPUTWithRequestBuilder(id id: Int, idPessoa: Int) -> RequestBuilder<CartaoResponse> {
         var path = "/api/cartoes/{id}/atribuir-titular"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -156,7 +156,7 @@ public class CartaoAPI: APIBase {
         ]
         let parameters = APIHelper.rejectNil(nillableParameters)
 
-        let requestBuilder: RequestBuilder<Cartao>.Type = PierAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CartaoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: false)
     }
@@ -170,7 +170,7 @@ public class CartaoAPI: APIBase {
      - parameter observacao: (query) Texto informando uma observa\u00C3\u00A7\u00C3\u00A3o sobre o bloqueio. 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func bloquearUsingPUT(id id: Int, idStatus: Int, observacao: String, completion: ((data: Cartao?, error: ErrorType?) -> Void)) {
+    public class func bloquearUsingPUT(id id: Int, idStatus: Int, observacao: String, completion: ((data: CartaoResponse?, error: ErrorType?) -> Void)) {
         bloquearUsingPUTWithRequestBuilder(id: id, idStatus: idStatus, observacao: observacao).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -209,9 +209,9 @@ public class CartaoAPI: APIBase {
      - parameter idStatus: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Novo Status Cart\u00C3\u00A3o. 
      - parameter observacao: (query) Texto informando uma observa\u00C3\u00A7\u00C3\u00A3o sobre o bloqueio. 
 
-     - returns: RequestBuilder<Cartao> 
+     - returns: RequestBuilder<CartaoResponse> 
      */
-    public class func bloquearUsingPUTWithRequestBuilder(id id: Int, idStatus: Int, observacao: String) -> RequestBuilder<Cartao> {
+    public class func bloquearUsingPUTWithRequestBuilder(id id: Int, idStatus: Int, observacao: String) -> RequestBuilder<CartaoResponse> {
         var path = "/api/cartoes/{id}/bloquear"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -222,7 +222,7 @@ public class CartaoAPI: APIBase {
         ]
         let parameters = APIHelper.rejectNil(nillableParameters)
 
-        let requestBuilder: RequestBuilder<Cartao>.Type = PierAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CartaoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: false)
     }
@@ -273,7 +273,7 @@ public class CartaoAPI: APIBase {
      - parameter id: (path) id 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarDadosReaisCartaoUsingGET(id id: Int, completion: ((data: DadosCarto?, error: ErrorType?) -> Void)) {
+    public class func consultarDadosReaisCartaoUsingGET(id id: Int, completion: ((data: DadosCartaoResponse?, error: ErrorType?) -> Void)) {
         consultarDadosReaisCartaoUsingGETWithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -304,9 +304,9 @@ public class CartaoAPI: APIBase {
      
      - parameter id: (path) id 
 
-     - returns: RequestBuilder<DadosCarto> 
+     - returns: RequestBuilder<DadosCartaoResponse> 
      */
-    public class func consultarDadosReaisCartaoUsingGETWithRequestBuilder(id id: Int) -> RequestBuilder<DadosCarto> {
+    public class func consultarDadosReaisCartaoUsingGETWithRequestBuilder(id id: Int) -> RequestBuilder<DadosCartaoResponse> {
         var path = "/api/cartoes/{id}/consultar-dados-reais"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -314,7 +314,7 @@ public class CartaoAPI: APIBase {
         let nillableParameters: [String:AnyObject?] = [:]
         let parameters = APIHelper.rejectNil(nillableParameters)
 
-        let requestBuilder: RequestBuilder<DadosCarto>.Type = PierAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<DadosCartaoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
     }
@@ -326,7 +326,7 @@ public class CartaoAPI: APIBase {
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarLimiteDisponibilidadeUsingGET(id id: Int, completion: ((data: LimiteDisponibilidade?, error: ErrorType?) -> Void)) {
+    public class func consultarLimiteDisponibilidadeUsingGET(id id: Int, completion: ((data: LimiteDisponibilidadeResponse?, error: ErrorType?) -> Void)) {
         consultarLimiteDisponibilidadeUsingGETWithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -365,9 +365,9 @@ public class CartaoAPI: APIBase {
      
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
 
-     - returns: RequestBuilder<LimiteDisponibilidade> 
+     - returns: RequestBuilder<LimiteDisponibilidadeResponse> 
      */
-    public class func consultarLimiteDisponibilidadeUsingGETWithRequestBuilder(id id: Int) -> RequestBuilder<LimiteDisponibilidade> {
+    public class func consultarLimiteDisponibilidadeUsingGETWithRequestBuilder(id id: Int) -> RequestBuilder<LimiteDisponibilidadeResponse> {
         var path = "/api/cartoes/{id}/limites-disponibilidades"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -375,7 +375,7 @@ public class CartaoAPI: APIBase {
         let nillableParameters: [String:AnyObject?] = [:]
         let parameters = APIHelper.rejectNil(nillableParameters)
 
-        let requestBuilder: RequestBuilder<LimiteDisponibilidade>.Type = PierAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<LimiteDisponibilidadeResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
     }
@@ -387,7 +387,7 @@ public class CartaoAPI: APIBase {
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do lote de cart\u00C3\u00B5es (id) 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarLotesCartoesPrePagosUsingGET(id id: Int, completion: ((data: LoteCartoesPrePagos?, error: ErrorType?) -> Void)) {
+    public class func consultarLotesCartoesPrePagosUsingGET(id id: Int, completion: ((data: LoteCartoesPrePagosResponse?, error: ErrorType?) -> Void)) {
         consultarLotesCartoesPrePagosUsingGETWithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -415,9 +415,9 @@ public class CartaoAPI: APIBase {
      
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do lote de cart\u00C3\u00B5es (id) 
 
-     - returns: RequestBuilder<LoteCartoesPrePagos> 
+     - returns: RequestBuilder<LoteCartoesPrePagosResponse> 
      */
-    public class func consultarLotesCartoesPrePagosUsingGETWithRequestBuilder(id id: Int) -> RequestBuilder<LoteCartoesPrePagos> {
+    public class func consultarLotesCartoesPrePagosUsingGETWithRequestBuilder(id id: Int) -> RequestBuilder<LoteCartoesPrePagosResponse> {
         var path = "/api/cartoes/lotes-cartoes-pre-pagos/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -425,7 +425,7 @@ public class CartaoAPI: APIBase {
         let nillableParameters: [String:AnyObject?] = [:]
         let parameters = APIHelper.rejectNil(nillableParameters)
 
-        let requestBuilder: RequestBuilder<LoteCartoesPrePagos>.Type = PierAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<LoteCartoesPrePagosResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
     }
@@ -437,7 +437,7 @@ public class CartaoAPI: APIBase {
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarPortadorUsingGET(id id: Int, completion: ((data: Portador?, error: ErrorType?) -> Void)) {
+    public class func consultarPortadorUsingGET(id id: Int, completion: ((data: PortadorResponse?, error: ErrorType?) -> Void)) {
         consultarPortadorUsingGETWithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -465,9 +465,9 @@ public class CartaoAPI: APIBase {
      
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
 
-     - returns: RequestBuilder<Portador> 
+     - returns: RequestBuilder<PortadorResponse> 
      */
-    public class func consultarPortadorUsingGETWithRequestBuilder(id id: Int) -> RequestBuilder<Portador> {
+    public class func consultarPortadorUsingGETWithRequestBuilder(id id: Int) -> RequestBuilder<PortadorResponse> {
         var path = "/api/cartoes/{id}/portadores"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -475,7 +475,7 @@ public class CartaoAPI: APIBase {
         let nillableParameters: [String:AnyObject?] = [:]
         let parameters = APIHelper.rejectNil(nillableParameters)
 
-        let requestBuilder: RequestBuilder<Portador>.Type = PierAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<PortadorResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
     }
@@ -487,7 +487,7 @@ public class CartaoAPI: APIBase {
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET3(id id: Int, completion: ((data: CartaoDetalhado?, error: ErrorType?) -> Void)) {
+    public class func consultarUsingGET3(id id: Int, completion: ((data: CartaoDetalheResponse?, error: ErrorType?) -> Void)) {
         consultarUsingGET3WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -526,9 +526,9 @@ public class CartaoAPI: APIBase {
      
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
 
-     - returns: RequestBuilder<CartaoDetalhado> 
+     - returns: RequestBuilder<CartaoDetalheResponse> 
      */
-    public class func consultarUsingGET3WithRequestBuilder(id id: Int) -> RequestBuilder<CartaoDetalhado> {
+    public class func consultarUsingGET3WithRequestBuilder(id id: Int) -> RequestBuilder<CartaoDetalheResponse> {
         var path = "/api/cartoes/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -536,7 +536,7 @@ public class CartaoAPI: APIBase {
         let nillableParameters: [String:AnyObject?] = [:]
         let parameters = APIHelper.rejectNil(nillableParameters)
 
-        let requestBuilder: RequestBuilder<CartaoDetalhado>.Type = PierAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CartaoDetalheResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
     }
@@ -548,7 +548,7 @@ public class CartaoAPI: APIBase {
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func desbloquearSenhaIncorretaUsingPOST(id id: Int, completion: ((data: Cartao?, error: ErrorType?) -> Void)) {
+    public class func desbloquearSenhaIncorretaUsingPOST(id id: Int, completion: ((data: CartaoResponse?, error: ErrorType?) -> Void)) {
         desbloquearSenhaIncorretaUsingPOSTWithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -585,9 +585,9 @@ public class CartaoAPI: APIBase {
      
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
 
-     - returns: RequestBuilder<Cartao> 
+     - returns: RequestBuilder<CartaoResponse> 
      */
-    public class func desbloquearSenhaIncorretaUsingPOSTWithRequestBuilder(id id: Int) -> RequestBuilder<Cartao> {
+    public class func desbloquearSenhaIncorretaUsingPOSTWithRequestBuilder(id id: Int) -> RequestBuilder<CartaoResponse> {
         var path = "/api/cartoes/{id}/desbloquear-senha-incorreta"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -595,7 +595,7 @@ public class CartaoAPI: APIBase {
         let nillableParameters: [String:AnyObject?] = [:]
         let parameters = APIHelper.rejectNil(nillableParameters)
 
-        let requestBuilder: RequestBuilder<Cartao>.Type = PierAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CartaoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
     }
@@ -607,7 +607,7 @@ public class CartaoAPI: APIBase {
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func desbloquearUsingPUT(id id: Int, completion: ((data: Cartao?, error: ErrorType?) -> Void)) {
+    public class func desbloquearUsingPUT(id id: Int, completion: ((data: CartaoResponse?, error: ErrorType?) -> Void)) {
         desbloquearUsingPUTWithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -644,9 +644,9 @@ public class CartaoAPI: APIBase {
      
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
 
-     - returns: RequestBuilder<Cartao> 
+     - returns: RequestBuilder<CartaoResponse> 
      */
-    public class func desbloquearUsingPUTWithRequestBuilder(id id: Int) -> RequestBuilder<Cartao> {
+    public class func desbloquearUsingPUTWithRequestBuilder(id id: Int) -> RequestBuilder<CartaoResponse> {
         var path = "/api/cartoes/{id}/desbloquear"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -654,7 +654,7 @@ public class CartaoAPI: APIBase {
         let nillableParameters: [String:AnyObject?] = [:]
         let parameters = APIHelper.rejectNil(nillableParameters)
 
-        let requestBuilder: RequestBuilder<Cartao>.Type = PierAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CartaoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
     }
@@ -671,7 +671,7 @@ public class CartaoAPI: APIBase {
      - parameter quantidadeCartoes: (query) N\u00C3\u00BAmero de cart\u00C3\u00B5es existentes no Lote. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func gerarLotesCartoesPrePagosUsingPOST(idOrigemComercial idOrigemComercial: Int?, idProduto: Int?, idTipoCartao: Int?, idImagem: Int?, idEndereco: Int?, quantidadeCartoes: Int?, completion: ((data: LoteCartoesPrePagos?, error: ErrorType?) -> Void)) {
+    public class func gerarLotesCartoesPrePagosUsingPOST(idOrigemComercial idOrigemComercial: Int?, idProduto: Int?, idTipoCartao: Int?, idImagem: Int?, idEndereco: Int?, quantidadeCartoes: Int?, completion: ((data: LoteCartoesPrePagosResponse?, error: ErrorType?) -> Void)) {
         gerarLotesCartoesPrePagosUsingPOSTWithRequestBuilder(idOrigemComercial: idOrigemComercial, idProduto: idProduto, idTipoCartao: idTipoCartao, idImagem: idImagem, idEndereco: idEndereco, quantidadeCartoes: quantidadeCartoes).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -704,9 +704,9 @@ public class CartaoAPI: APIBase {
      - parameter idEndereco: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Endere\u00C3\u00A7o (id). (optional)
      - parameter quantidadeCartoes: (query) N\u00C3\u00BAmero de cart\u00C3\u00B5es existentes no Lote. (optional)
 
-     - returns: RequestBuilder<LoteCartoesPrePagos> 
+     - returns: RequestBuilder<LoteCartoesPrePagosResponse> 
      */
-    public class func gerarLotesCartoesPrePagosUsingPOSTWithRequestBuilder(idOrigemComercial idOrigemComercial: Int?, idProduto: Int?, idTipoCartao: Int?, idImagem: Int?, idEndereco: Int?, quantidadeCartoes: Int?) -> RequestBuilder<LoteCartoesPrePagos> {
+    public class func gerarLotesCartoesPrePagosUsingPOSTWithRequestBuilder(idOrigemComercial idOrigemComercial: Int?, idProduto: Int?, idTipoCartao: Int?, idImagem: Int?, idEndereco: Int?, quantidadeCartoes: Int?) -> RequestBuilder<LoteCartoesPrePagosResponse> {
         let path = "/api/cartoes/lotes-cartoes-pre-pagos"
         let URLString = PierAPI.basePath + path
         
@@ -720,7 +720,7 @@ public class CartaoAPI: APIBase {
         ]
         let parameters = APIHelper.rejectNil(nillableParameters)
 
-        let requestBuilder: RequestBuilder<LoteCartoesPrePagos>.Type = PierAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<LoteCartoesPrePagosResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: false)
     }
@@ -732,7 +732,7 @@ public class CartaoAPI: APIBase {
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id) 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func gerarNovaViaUsingPOST(id id: Int, completion: ((data: Cartao?, error: ErrorType?) -> Void)) {
+    public class func gerarNovaViaUsingPOST(id id: Int, completion: ((data: CartaoResponse?, error: ErrorType?) -> Void)) {
         gerarNovaViaUsingPOSTWithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -769,9 +769,9 @@ public class CartaoAPI: APIBase {
      
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id) 
 
-     - returns: RequestBuilder<Cartao> 
+     - returns: RequestBuilder<CartaoResponse> 
      */
-    public class func gerarNovaViaUsingPOSTWithRequestBuilder(id id: Int) -> RequestBuilder<Cartao> {
+    public class func gerarNovaViaUsingPOSTWithRequestBuilder(id id: Int) -> RequestBuilder<CartaoResponse> {
         var path = "/api/cartoes/{id}/gerar-nova-via"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -779,7 +779,7 @@ public class CartaoAPI: APIBase {
         let nillableParameters: [String:AnyObject?] = [:]
         let parameters = APIHelper.rejectNil(nillableParameters)
 
-        let requestBuilder: RequestBuilder<Cartao>.Type = PierAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CartaoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
     }
@@ -906,8 +906,8 @@ public class CartaoAPI: APIBase {
      - parameter sequencialCartao: (query) N\u00C3\u00BAmero sequencial do cart\u00C3\u00A3o (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET4(page page: Int?, limit: Int?, idStatusCartao: Int?, idEstagioCartao: Int?, idConta: Int?, idPessoa: Int?, idProduto: Int?, tipoPortador: String?, numeroCartao: String?, nomeImpresso: String?, dataGeracao: String?, dataStatusCartao: String?, dataEstagioCartao: String?, dataValidade: String?, dataImpressao: String?, arquivoImpressao: String?, flagImpressaoOrigemComercial: Int?, flagProvisorio: Int?, codigoDesbloqueio: String?, sequencialCartao: Int?, completion: ((data: PageCartoes?, error: ErrorType?) -> Void)) {
-        listarUsingGET4WithRequestBuilder(page: page, limit: limit, idStatusCartao: idStatusCartao, idEstagioCartao: idEstagioCartao, idConta: idConta, idPessoa: idPessoa, idProduto: idProduto, tipoPortador: tipoPortador, numeroCartao: numeroCartao, nomeImpresso: nomeImpresso, dataGeracao: dataGeracao, dataStatusCartao: dataStatusCartao, dataEstagioCartao: dataEstagioCartao, dataValidade: dataValidade, dataImpressao: dataImpressao, arquivoImpressao: arquivoImpressao, flagImpressaoOrigemComercial: flagImpressaoOrigemComercial, flagProvisorio: flagProvisorio, codigoDesbloqueio: codigoDesbloqueio, sequencialCartao: sequencialCartao).execute { (response, error) -> Void in
+    public class func listarUsingGET5(page page: Int?, limit: Int?, idStatusCartao: Int?, idEstagioCartao: Int?, idConta: Int?, idPessoa: Int?, idProduto: Int?, tipoPortador: String?, numeroCartao: String?, nomeImpresso: String?, dataGeracao: String?, dataStatusCartao: String?, dataEstagioCartao: String?, dataValidade: String?, dataImpressao: String?, arquivoImpressao: String?, flagImpressaoOrigemComercial: Int?, flagProvisorio: Int?, codigoDesbloqueio: String?, sequencialCartao: Int?, completion: ((data: PageCartaoResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET5WithRequestBuilder(page: page, limit: limit, idStatusCartao: idStatusCartao, idEstagioCartao: idEstagioCartao, idConta: idConta, idPessoa: idPessoa, idProduto: idProduto, tipoPortador: tipoPortador, numeroCartao: numeroCartao, nomeImpresso: nomeImpresso, dataGeracao: dataGeracao, dataStatusCartao: dataStatusCartao, dataEstagioCartao: dataEstagioCartao, dataValidade: dataValidade, dataImpressao: dataImpressao, arquivoImpressao: arquivoImpressao, flagImpressaoOrigemComercial: flagImpressaoOrigemComercial, flagProvisorio: flagProvisorio, codigoDesbloqueio: codigoDesbloqueio, sequencialCartao: sequencialCartao).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -977,9 +977,9 @@ public class CartaoAPI: APIBase {
      - parameter codigoDesbloqueio: (query) Apresenta um c\u00C3\u00B3digo espec\u00C3\u00ADfico para ser utilizado como vari\u00C3\u00A1vel no processo de desbloqueio do cart\u00C3\u00A3o para emissores que querem usar esta funcionalidade. (optional)
      - parameter sequencialCartao: (query) N\u00C3\u00BAmero sequencial do cart\u00C3\u00A3o (optional)
 
-     - returns: RequestBuilder<PageCartoes> 
+     - returns: RequestBuilder<PageCartaoResponse> 
      */
-    public class func listarUsingGET4WithRequestBuilder(page page: Int?, limit: Int?, idStatusCartao: Int?, idEstagioCartao: Int?, idConta: Int?, idPessoa: Int?, idProduto: Int?, tipoPortador: String?, numeroCartao: String?, nomeImpresso: String?, dataGeracao: String?, dataStatusCartao: String?, dataEstagioCartao: String?, dataValidade: String?, dataImpressao: String?, arquivoImpressao: String?, flagImpressaoOrigemComercial: Int?, flagProvisorio: Int?, codigoDesbloqueio: String?, sequencialCartao: Int?) -> RequestBuilder<PageCartoes> {
+    public class func listarUsingGET5WithRequestBuilder(page page: Int?, limit: Int?, idStatusCartao: Int?, idEstagioCartao: Int?, idConta: Int?, idPessoa: Int?, idProduto: Int?, tipoPortador: String?, numeroCartao: String?, nomeImpresso: String?, dataGeracao: String?, dataStatusCartao: String?, dataEstagioCartao: String?, dataValidade: String?, dataImpressao: String?, arquivoImpressao: String?, flagImpressaoOrigemComercial: Int?, flagProvisorio: Int?, codigoDesbloqueio: String?, sequencialCartao: Int?) -> RequestBuilder<PageCartaoResponse> {
         let path = "/api/cartoes"
         let URLString = PierAPI.basePath + path
         
@@ -1007,7 +1007,7 @@ public class CartaoAPI: APIBase {
         ]
         let parameters = APIHelper.rejectNil(nillableParameters)
 
-        let requestBuilder: RequestBuilder<PageCartoes>.Type = PierAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<PageCartaoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
     }
@@ -1022,7 +1022,7 @@ public class CartaoAPI: APIBase {
      - parameter codigoSeguranca: (query) C\u00C3\u00B3digo de seguran\u00C3\u00A7a do cart\u00C3\u00A3o com tr\u00C3\u00AAs n\u00C3\u00BAmeros 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func validarDadosImpressosBandeiradoUsingGET(numeroCartao numeroCartao: String, nomePortador: String, dataValidade: String, codigoSeguranca: String, completion: ((data: ValidaCartao?, error: ErrorType?) -> Void)) {
+    public class func validarDadosImpressosBandeiradoUsingGET(numeroCartao numeroCartao: String, nomePortador: String, dataValidade: String, codigoSeguranca: String, completion: ((data: ValidaCartaoResponse?, error: ErrorType?) -> Void)) {
         validarDadosImpressosBandeiradoUsingGETWithRequestBuilder(numeroCartao: numeroCartao, nomePortador: nomePortador, dataValidade: dataValidade, codigoSeguranca: codigoSeguranca).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -1051,9 +1051,9 @@ public class CartaoAPI: APIBase {
      - parameter dataValidade: (query) Data de validade do cart\u00C3\u00A3o no formato yyyy-MM 
      - parameter codigoSeguranca: (query) C\u00C3\u00B3digo de seguran\u00C3\u00A7a do cart\u00C3\u00A3o com tr\u00C3\u00AAs n\u00C3\u00BAmeros 
 
-     - returns: RequestBuilder<ValidaCartao> 
+     - returns: RequestBuilder<ValidaCartaoResponse> 
      */
-    public class func validarDadosImpressosBandeiradoUsingGETWithRequestBuilder(numeroCartao numeroCartao: String, nomePortador: String, dataValidade: String, codigoSeguranca: String) -> RequestBuilder<ValidaCartao> {
+    public class func validarDadosImpressosBandeiradoUsingGETWithRequestBuilder(numeroCartao numeroCartao: String, nomePortador: String, dataValidade: String, codigoSeguranca: String) -> RequestBuilder<ValidaCartaoResponse> {
         let path = "/api/cartoes/validar-dados-impressos-bandeirados"
         let URLString = PierAPI.basePath + path
         
@@ -1065,7 +1065,7 @@ public class CartaoAPI: APIBase {
         ]
         let parameters = APIHelper.rejectNil(nillableParameters)
 
-        let requestBuilder: RequestBuilder<ValidaCartao>.Type = PierAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<ValidaCartaoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
     }
@@ -1080,7 +1080,7 @@ public class CartaoAPI: APIBase {
      - parameter codigoSeguranca: (query) C\u00C3\u00B3digo de seguran\u00C3\u00A7a do cart\u00C3\u00A3o com tr\u00C3\u00AAs n\u00C3\u00BAmeros 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func validarDadosImpressosNaoBandeiradoUsingGET(numeroCartao numeroCartao: String, nomePortador: String, dataValidade: String, codigoSeguranca: String, completion: ((data: ValidaCartao?, error: ErrorType?) -> Void)) {
+    public class func validarDadosImpressosNaoBandeiradoUsingGET(numeroCartao numeroCartao: String, nomePortador: String, dataValidade: String, codigoSeguranca: String, completion: ((data: ValidaCartaoResponse?, error: ErrorType?) -> Void)) {
         validarDadosImpressosNaoBandeiradoUsingGETWithRequestBuilder(numeroCartao: numeroCartao, nomePortador: nomePortador, dataValidade: dataValidade, codigoSeguranca: codigoSeguranca).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -1109,9 +1109,9 @@ public class CartaoAPI: APIBase {
      - parameter dataValidade: (query) Data de validade do cart\u00C3\u00A3o no formato yyyy-MM 
      - parameter codigoSeguranca: (query) C\u00C3\u00B3digo de seguran\u00C3\u00A7a do cart\u00C3\u00A3o com tr\u00C3\u00AAs n\u00C3\u00BAmeros 
 
-     - returns: RequestBuilder<ValidaCartao> 
+     - returns: RequestBuilder<ValidaCartaoResponse> 
      */
-    public class func validarDadosImpressosNaoBandeiradoUsingGETWithRequestBuilder(numeroCartao numeroCartao: String, nomePortador: String, dataValidade: String, codigoSeguranca: String) -> RequestBuilder<ValidaCartao> {
+    public class func validarDadosImpressosNaoBandeiradoUsingGETWithRequestBuilder(numeroCartao numeroCartao: String, nomePortador: String, dataValidade: String, codigoSeguranca: String) -> RequestBuilder<ValidaCartaoResponse> {
         let path = "/api/cartoes/validar-dados-impressos-nao-bandeirados"
         let URLString = PierAPI.basePath + path
         
@@ -1123,7 +1123,7 @@ public class CartaoAPI: APIBase {
         ]
         let parameters = APIHelper.rejectNil(nillableParameters)
 
-        let requestBuilder: RequestBuilder<ValidaCartao>.Type = PierAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<ValidaCartaoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
     }
@@ -1136,7 +1136,7 @@ public class CartaoAPI: APIBase {
      - parameter criptograma: (query) Criptograma do cart\u00C3\u00A3o no formato de55 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func validarDe55CartaoMastercardUsingGET(numeroCartao numeroCartao: String, criptograma: String, completion: ((data: ValidaCartao?, error: ErrorType?) -> Void)) {
+    public class func validarDe55CartaoMastercardUsingGET(numeroCartao numeroCartao: String, criptograma: String, completion: ((data: ValidaCartaoResponse?, error: ErrorType?) -> Void)) {
         validarDe55CartaoMastercardUsingGETWithRequestBuilder(numeroCartao: numeroCartao, criptograma: criptograma).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -1163,9 +1163,9 @@ public class CartaoAPI: APIBase {
      - parameter numeroCartao: (query) N\u00C3\u00BAmero do cart\u00C3\u00A3o a ser validado. 
      - parameter criptograma: (query) Criptograma do cart\u00C3\u00A3o no formato de55 
 
-     - returns: RequestBuilder<ValidaCartao> 
+     - returns: RequestBuilder<ValidaCartaoResponse> 
      */
-    public class func validarDe55CartaoMastercardUsingGETWithRequestBuilder(numeroCartao numeroCartao: String, criptograma: String) -> RequestBuilder<ValidaCartao> {
+    public class func validarDe55CartaoMastercardUsingGETWithRequestBuilder(numeroCartao numeroCartao: String, criptograma: String) -> RequestBuilder<ValidaCartaoResponse> {
         let path = "/api/cartoes/validar-de55-mastercard"
         let URLString = PierAPI.basePath + path
         
@@ -1175,7 +1175,7 @@ public class CartaoAPI: APIBase {
         ]
         let parameters = APIHelper.rejectNil(nillableParameters)
 
-        let requestBuilder: RequestBuilder<ValidaCartao>.Type = PierAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<ValidaCartaoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
     }
@@ -1187,7 +1187,7 @@ public class CartaoAPI: APIBase {
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func validarSenhaUsingGET(id id: Int, completion: ((data: ValidaSenhaCartao?, error: ErrorType?) -> Void)) {
+    public class func validarSenhaUsingGET(id id: Int, completion: ((data: ValidaSenhaCartaoResponse?, error: ErrorType?) -> Void)) {
         validarSenhaUsingGETWithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -1210,9 +1210,9 @@ public class CartaoAPI: APIBase {
      
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
 
-     - returns: RequestBuilder<ValidaSenhaCartao> 
+     - returns: RequestBuilder<ValidaSenhaCartaoResponse> 
      */
-    public class func validarSenhaUsingGETWithRequestBuilder(id id: Int) -> RequestBuilder<ValidaSenhaCartao> {
+    public class func validarSenhaUsingGETWithRequestBuilder(id id: Int) -> RequestBuilder<ValidaSenhaCartaoResponse> {
         var path = "/api/cartoes/{id}/validar-senha"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -1220,7 +1220,7 @@ public class CartaoAPI: APIBase {
         let nillableParameters: [String:AnyObject?] = [:]
         let parameters = APIHelper.rejectNil(nillableParameters)
 
-        let requestBuilder: RequestBuilder<ValidaSenhaCartao>.Type = PierAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<ValidaSenhaCartaoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
     }
@@ -1234,7 +1234,7 @@ public class CartaoAPI: APIBase {
      - parameter trilha2: (query) Trilha 2 do cart\u00C3\u00A3o a ser validado 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func validarTarjaUsingGET(numeroCartao numeroCartao: String, trilha1: String, trilha2: String, completion: ((data: ValidaCartao?, error: ErrorType?) -> Void)) {
+    public class func validarTarjaUsingGET(numeroCartao numeroCartao: String, trilha1: String, trilha2: String, completion: ((data: ValidaCartaoResponse?, error: ErrorType?) -> Void)) {
         validarTarjaUsingGETWithRequestBuilder(numeroCartao: numeroCartao, trilha1: trilha1, trilha2: trilha2).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -1262,9 +1262,9 @@ public class CartaoAPI: APIBase {
      - parameter trilha1: (query) Trilha 1 do cart\u00C3\u00A3o a ser validado 
      - parameter trilha2: (query) Trilha 2 do cart\u00C3\u00A3o a ser validado 
 
-     - returns: RequestBuilder<ValidaCartao> 
+     - returns: RequestBuilder<ValidaCartaoResponse> 
      */
-    public class func validarTarjaUsingGETWithRequestBuilder(numeroCartao numeroCartao: String, trilha1: String, trilha2: String) -> RequestBuilder<ValidaCartao> {
+    public class func validarTarjaUsingGETWithRequestBuilder(numeroCartao numeroCartao: String, trilha1: String, trilha2: String) -> RequestBuilder<ValidaCartaoResponse> {
         let path = "/api/cartoes/validar-tarja"
         let URLString = PierAPI.basePath + path
         
@@ -1275,7 +1275,7 @@ public class CartaoAPI: APIBase {
         ]
         let parameters = APIHelper.rejectNil(nillableParameters)
 
-        let requestBuilder: RequestBuilder<ValidaCartao>.Type = PierAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<ValidaCartaoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
     }

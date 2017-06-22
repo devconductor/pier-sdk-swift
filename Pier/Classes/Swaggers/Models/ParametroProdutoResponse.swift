@@ -11,7 +11,7 @@ import Foundation
 /** Objeto de Resposta Par\u00C3\u00A2metro Produto */
 public class ParametroProdutoResponse: JSONEncodable {
 
-    public enum TipoTransacao: String { 
+    public enum TipoOrigemTransacao: String { 
         case OnUs = "ON_US"
         case OffUs = "OFF_US"
     }
@@ -19,7 +19,7 @@ public class ParametroProdutoResponse: JSONEncodable {
     /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Produto (id). */
     public var idProduto: Int?
     /** Tipo da Transa\u00C3\u00A7\u00C3\u00A3o (ON_US ou OFF_US). */
-    public var tipoTransacao: TipoTransacao?
+    public var tipoOrigemTransacao: TipoOrigemTransacao?
     /** Descri\u00C3\u00A7\u00C3\u00A3o do Tipo da Transa\u00C3\u00A7\u00C3\u00A3o. */
     public var descricao: String?
     /** Valor do Par\u00C3\u00A2metro. */
@@ -34,7 +34,7 @@ public class ParametroProdutoResponse: JSONEncodable {
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
         nillableDictionary["idProduto"] = self.idProduto
-        nillableDictionary["tipoTransacao"] = self.tipoTransacao?.rawValue
+        nillableDictionary["tipoOrigemTransacao"] = self.tipoOrigemTransacao?.rawValue
         nillableDictionary["descricao"] = self.descricao
         nillableDictionary["valorParametro"] = self.valorParametro
         nillableDictionary["dataValidade"] = self.dataValidade

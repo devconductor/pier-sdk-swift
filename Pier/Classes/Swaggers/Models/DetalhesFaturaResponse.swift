@@ -14,7 +14,7 @@ public class DetalhesFaturaResponse: JSONEncodable {
     /** Apresenta os detalhes da fatura */
     public var fatura: FaturaResponse?
     /** Apresenta as transa\u00C3\u00A7\u00C3\u00B5es relacionadas a fatura. */
-    public var transacoes: [TransacoesCorrentes]?
+    public var transacoes: [TransacoesCorrentesResponse]?
     
 
     public init() {}

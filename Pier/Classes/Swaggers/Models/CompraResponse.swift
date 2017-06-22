@@ -32,7 +32,7 @@ public class CompraResponse: JSONEncodable {
     /** Nome do estabelecimento da compra. */
     public var nomeEstabelecimento: String?
     /** Tipo de transa\u00C3\u00A7\u00C3\u00A3o da compra. */
-    public var tipoTransacao: String?
+    public var tipoOrigemTransacao: String?
     /** Cidade onde a compra foi realizada. */
     public var cidade: String?
     /** Pa\u00C3\u00ADs onde a compra foi realizada. */
@@ -73,7 +73,7 @@ public class CompraResponse: JSONEncodable {
         nillableDictionary["numeroParcelas"] = self.numeroParcelas
         nillableDictionary["numeroParcelasAntecipaveis"] = self.numeroParcelasAntecipaveis
         nillableDictionary["nomeEstabelecimento"] = self.nomeEstabelecimento
-        nillableDictionary["tipoTransacao"] = self.tipoTransacao
+        nillableDictionary["tipoOrigemTransacao"] = self.tipoOrigemTransacao
         nillableDictionary["cidade"] = self.cidade
         nillableDictionary["pais"] = self.pais
         nillableDictionary["latitude"] = self.latitude

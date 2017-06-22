@@ -16,12 +16,18 @@ public class AntecipacaoResponse: JSONEncodable {
     public var idConta: Int?
     /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da compra */
     public var idCompra: Int?
-    /** Apresenta o numero total de parcelas da comprae */
+    /** Apresenta o numero total de parcelas da compra */
     public var quantidadeParcelasTotal: Int?
     /** Apresenta o numero de parcelas antecipadas */
     public var quantidadeParcelasAntecipadas: Int?
-    /** Apresenta o valor das parcelas efetivadas */
-    public var valorParcelas: Double?
+    /** Apresenta o valor de cada parcela antecipadas */
+    public var valorParcela: Double?
+    /** Apresenta o valor total do desconto */
+    public var valorDescontoTotal: Double?
+    /** Apresenta o valor total com desconto */
+    public var valorTotalComDesconto: Double?
+    /** Apresenta a taxa de desconto */
+    public var taxaDesconto: Double?
     
 
     public init() {}
@@ -34,7 +40,10 @@ public class AntecipacaoResponse: JSONEncodable {
         nillableDictionary["idCompra"] = self.idCompra
         nillableDictionary["quantidadeParcelasTotal"] = self.quantidadeParcelasTotal
         nillableDictionary["quantidadeParcelasAntecipadas"] = self.quantidadeParcelasAntecipadas
-        nillableDictionary["valorParcelas"] = self.valorParcelas
+        nillableDictionary["valorParcela"] = self.valorParcela
+        nillableDictionary["valorDescontoTotal"] = self.valorDescontoTotal
+        nillableDictionary["valorTotalComDesconto"] = self.valorTotalComDesconto
+        nillableDictionary["taxaDesconto"] = self.taxaDesconto
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

@@ -12,13 +12,21 @@ import Foundation
 public class AntecipacaoSimuladaResponse: JSONEncodable {
 
     /** C\u00C3\u00B3digo identificador da simula\u00C3\u00A7\u00C3\u00A3o de antecipa\u00C3\u00A7\u00C3\u00A3o. */
-    public var idSimulacao: Int?
-    /** C\u00C3\u00B3digo identificador da compra. */
-    public var idCompra: Int?
+    public var idAntecipacaoSimulada: Int?
     /** C\u00C3\u00B3digo identificador da conta. */
     public var idConta: Int?
+    /** C\u00C3\u00B3digo identificador do evento. */
+    public var idEventoExterno: Int?
+    /** C\u00C3\u00B3digo identificador do tipo do evento. */
+    public var idTipoTransacao: Int?
+    /** Quantidade de parcelas antecip\u00C3\u00A1veis. */
+    public var qtdeParcelasAntecipaveis: Int?
+    /** Valor da parcela. */
+    public var valorParcela: Double?
     /** Data e hora em que a simula\u00C3\u00A7\u00C3\u00A3o foi feita. */
     public var dataHoraSimulacao: String?
+    /** Taxa de antecipa\u00C3\u00A7\u00C3\u00A3o aplicada (ao ano). */
+    public var taxaAntecipacaoAno: Double?
     /** Detalhes da simula\u00C3\u00A7\u00C3\u00A3o. */
     public var detalhes: [AntecipacaoSimuladaDetalhesResponse]?
     
@@ -28,10 +36,14 @@ public class AntecipacaoSimuladaResponse: JSONEncodable {
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
-        nillableDictionary["idSimulacao"] = self.idSimulacao
-        nillableDictionary["idCompra"] = self.idCompra
+        nillableDictionary["idAntecipacaoSimulada"] = self.idAntecipacaoSimulada
         nillableDictionary["idConta"] = self.idConta
+        nillableDictionary["idEventoExterno"] = self.idEventoExterno
+        nillableDictionary["idTipoTransacao"] = self.idTipoTransacao
+        nillableDictionary["qtdeParcelasAntecipaveis"] = self.qtdeParcelasAntecipaveis
+        nillableDictionary["valorParcela"] = self.valorParcela
         nillableDictionary["dataHoraSimulacao"] = self.dataHoraSimulacao
+        nillableDictionary["taxaAntecipacaoAno"] = self.taxaAntecipacaoAno
         nillableDictionary["detalhes"] = self.detalhes?.encodeToJSON()
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary

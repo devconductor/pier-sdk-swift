@@ -21,7 +21,7 @@ public class NotificacoesAPI: APIBase {
      - parameter operadora: (query) Operadora (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func atualizarSMSUsingPOST(nsu nsu: String?, status: String?, data: String?, textoStatus: String?, operadora: String?, completion: ((data: SMS?, error: ErrorType?) -> Void)) {
+    public class func atualizarSMSUsingPOST(nsu nsu: String?, status: String?, data: String?, textoStatus: String?, operadora: String?, completion: ((data: NotificacaoSMSResponse?, error: ErrorType?) -> Void)) {
         atualizarSMSUsingPOSTWithRequestBuilder(nsu: nsu, status: status, data: data, textoStatus: textoStatus, operadora: operadora).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -60,9 +60,9 @@ public class NotificacoesAPI: APIBase {
      - parameter textoStatus: (query) TextoStatus (optional)
      - parameter operadora: (query) Operadora (optional)
 
-     - returns: RequestBuilder<SMS> 
+     - returns: RequestBuilder<NotificacaoSMSResponse> 
      */
-    public class func atualizarSMSUsingPOSTWithRequestBuilder(nsu nsu: String?, status: String?, data: String?, textoStatus: String?, operadora: String?) -> RequestBuilder<SMS> {
+    public class func atualizarSMSUsingPOSTWithRequestBuilder(nsu nsu: String?, status: String?, data: String?, textoStatus: String?, operadora: String?) -> RequestBuilder<NotificacaoSMSResponse> {
         let path = "/api/notificacoes/sms/atualizar-status"
         let URLString = PierAPI.basePath + path
         
@@ -75,7 +75,7 @@ public class NotificacoesAPI: APIBase {
         ]
         let parameters = APIHelper.rejectNil(nillableParameters)
 
-        let requestBuilder: RequestBuilder<SMS>.Type = PierAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<NotificacaoSMSResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: false)
     }
@@ -93,7 +93,7 @@ public class NotificacoesAPI: APIBase {
      - parameter protocolo: (query) N\u00C3\u00BAmero do protocolo de envio de notifica\u00C3\u00A7\u00C3\u00B5es (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarPushUsingGET(page page: Int?, limit: Int?, dataEnvio: String?, tipoEvento: String?, status: String?, plataforma: String?, protocolo: String?, completion: ((data: PagePush?, error: ErrorType?) -> Void)) {
+    public class func listarPushUsingGET(page page: Int?, limit: Int?, dataEnvio: String?, tipoEvento: String?, status: String?, plataforma: String?, protocolo: String?, completion: ((data: PagePushResponse?, error: ErrorType?) -> Void)) {
         listarPushUsingGETWithRequestBuilder(page: page, limit: limit, dataEnvio: dataEnvio, tipoEvento: tipoEvento, status: status, plataforma: plataforma, protocolo: protocolo).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -143,9 +143,9 @@ public class NotificacoesAPI: APIBase {
      - parameter plataforma: (query) Plataforma de Push notifications. (optional)
      - parameter protocolo: (query) N\u00C3\u00BAmero do protocolo de envio de notifica\u00C3\u00A7\u00C3\u00B5es (optional)
 
-     - returns: RequestBuilder<PagePush> 
+     - returns: RequestBuilder<PagePushResponse> 
      */
-    public class func listarPushUsingGETWithRequestBuilder(page page: Int?, limit: Int?, dataEnvio: String?, tipoEvento: String?, status: String?, plataforma: String?, protocolo: String?) -> RequestBuilder<PagePush> {
+    public class func listarPushUsingGETWithRequestBuilder(page page: Int?, limit: Int?, dataEnvio: String?, tipoEvento: String?, status: String?, plataforma: String?, protocolo: String?) -> RequestBuilder<PagePushResponse> {
         let path = "/api/notificacoes/push"
         let URLString = PierAPI.basePath + path
         
@@ -160,7 +160,7 @@ public class NotificacoesAPI: APIBase {
         ]
         let parameters = APIHelper.rejectNil(nillableParameters)
 
-        let requestBuilder: RequestBuilder<PagePush>.Type = PierAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<PagePushResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
     }
@@ -179,7 +179,7 @@ public class NotificacoesAPI: APIBase {
      - parameter nsu: (query) Apresenta o nsu da notifica\u00C3\u00A7\u00C3\u00A3o (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarSMSUsingGET(page page: Int?, limit: Int?, dataInclusao: String?, tipoEvento: String?, status: String?, operadora: String?, protocolo: String?, nsu: Int?, completion: ((data: PageSMS?, error: ErrorType?) -> Void)) {
+    public class func listarSMSUsingGET(page page: Int?, limit: Int?, dataInclusao: String?, tipoEvento: String?, status: String?, operadora: String?, protocolo: String?, nsu: Int?, completion: ((data: PageSMSResponse?, error: ErrorType?) -> Void)) {
         listarSMSUsingGETWithRequestBuilder(page: page, limit: limit, dataInclusao: dataInclusao, tipoEvento: tipoEvento, status: status, operadora: operadora, protocolo: protocolo, nsu: nsu).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -236,9 +236,9 @@ public class NotificacoesAPI: APIBase {
      - parameter protocolo: (query) N\u00C3\u00BAmero do protocolo de envio de notifica\u00C3\u00A7\u00C3\u00B5es (optional)
      - parameter nsu: (query) Apresenta o nsu da notifica\u00C3\u00A7\u00C3\u00A3o (optional)
 
-     - returns: RequestBuilder<PageSMS> 
+     - returns: RequestBuilder<PageSMSResponse> 
      */
-    public class func listarSMSUsingGETWithRequestBuilder(page page: Int?, limit: Int?, dataInclusao: String?, tipoEvento: String?, status: String?, operadora: String?, protocolo: String?, nsu: Int?) -> RequestBuilder<PageSMS> {
+    public class func listarSMSUsingGETWithRequestBuilder(page page: Int?, limit: Int?, dataInclusao: String?, tipoEvento: String?, status: String?, operadora: String?, protocolo: String?, nsu: Int?) -> RequestBuilder<PageSMSResponse> {
         let path = "/api/notificacoes/sms"
         let URLString = PierAPI.basePath + path
         
@@ -254,7 +254,7 @@ public class NotificacoesAPI: APIBase {
         ]
         let parameters = APIHelper.rejectNil(nillableParameters)
 
-        let requestBuilder: RequestBuilder<PageSMS>.Type = PierAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<PageSMSResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
     }
@@ -268,7 +268,7 @@ public class NotificacoesAPI: APIBase {
      - parameter resposta: (query) TextoStatus (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func responderSMSUsingPOST(nsu nsu: String?, data: String?, resposta: String?, completion: ((data: SMS?, error: ErrorType?) -> Void)) {
+    public class func responderSMSUsingPOST(nsu nsu: String?, data: String?, resposta: String?, completion: ((data: NotificacaoSMSResponse?, error: ErrorType?) -> Void)) {
         responderSMSUsingPOSTWithRequestBuilder(nsu: nsu, data: data, resposta: resposta).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -305,9 +305,9 @@ public class NotificacoesAPI: APIBase {
      - parameter data: (query) Data (optional)
      - parameter resposta: (query) TextoStatus (optional)
 
-     - returns: RequestBuilder<SMS> 
+     - returns: RequestBuilder<NotificacaoSMSResponse> 
      */
-    public class func responderSMSUsingPOSTWithRequestBuilder(nsu nsu: String?, data: String?, resposta: String?) -> RequestBuilder<SMS> {
+    public class func responderSMSUsingPOSTWithRequestBuilder(nsu nsu: String?, data: String?, resposta: String?) -> RequestBuilder<NotificacaoSMSResponse> {
         let path = "/api/notificacoes/sms/responder"
         let URLString = PierAPI.basePath + path
         
@@ -318,7 +318,7 @@ public class NotificacoesAPI: APIBase {
         ]
         let parameters = APIHelper.rejectNil(nillableParameters)
 
-        let requestBuilder: RequestBuilder<SMS>.Type = PierAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<NotificacaoSMSResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: false)
     }
@@ -330,7 +330,7 @@ public class NotificacoesAPI: APIBase {
      - parameter pushPersists: (body) pushPersists 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func salvarPushFCMUsingPOST(pushPersists pushPersists: [PushFCMEGCM], completion: ((data: NotificacaoSMSResponse?, error: ErrorType?) -> Void)) {
+    public class func salvarPushFCMUsingPOST(pushPersists pushPersists: [PushFCMEGCM], completion: ((data: NotificacaoResponse?, error: ErrorType?) -> Void)) {
         salvarPushFCMUsingPOSTWithRequestBuilder(pushPersists: pushPersists).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -350,15 +350,15 @@ public class NotificacoesAPI: APIBase {
      
      - parameter pushPersists: (body) pushPersists 
 
-     - returns: RequestBuilder<NotificacaoSMSResponse> 
+     - returns: RequestBuilder<NotificacaoResponse> 
      */
-    public class func salvarPushFCMUsingPOSTWithRequestBuilder(pushPersists pushPersists: [PushFCMEGCM]) -> RequestBuilder<NotificacaoSMSResponse> {
+    public class func salvarPushFCMUsingPOSTWithRequestBuilder(pushPersists pushPersists: [PushFCMEGCM]) -> RequestBuilder<NotificacaoResponse> {
         let path = "/api/notificacoes/push/fcm"
         let URLString = PierAPI.basePath + path
         
         let parameters = pushPersists.encodeToJSON() as? [String:AnyObject]
 
-        let requestBuilder: RequestBuilder<NotificacaoSMSResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<NotificacaoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
     }
@@ -370,7 +370,7 @@ public class NotificacoesAPI: APIBase {
      - parameter pushPersists: (body) pushPersists 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func salvarPushGCMUsingPOST(pushPersists pushPersists: [PushFCMEGCM], completion: ((data: NotificacaoSMSResponse?, error: ErrorType?) -> Void)) {
+    public class func salvarPushGCMUsingPOST(pushPersists pushPersists: [PushFCMEGCM], completion: ((data: NotificacaoResponse?, error: ErrorType?) -> Void)) {
         salvarPushGCMUsingPOSTWithRequestBuilder(pushPersists: pushPersists).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -390,15 +390,15 @@ public class NotificacoesAPI: APIBase {
      
      - parameter pushPersists: (body) pushPersists 
 
-     - returns: RequestBuilder<NotificacaoSMSResponse> 
+     - returns: RequestBuilder<NotificacaoResponse> 
      */
-    public class func salvarPushGCMUsingPOSTWithRequestBuilder(pushPersists pushPersists: [PushFCMEGCM]) -> RequestBuilder<NotificacaoSMSResponse> {
+    public class func salvarPushGCMUsingPOSTWithRequestBuilder(pushPersists pushPersists: [PushFCMEGCM]) -> RequestBuilder<NotificacaoResponse> {
         let path = "/api/notificacoes/push/gcm"
         let URLString = PierAPI.basePath + path
         
         let parameters = pushPersists.encodeToJSON() as? [String:AnyObject]
 
-        let requestBuilder: RequestBuilder<NotificacaoSMSResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<NotificacaoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
     }
@@ -410,7 +410,7 @@ public class NotificacoesAPI: APIBase {
      - parameter pushPersists: (body) pushPersists 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func salvarPushUsingPOST(pushPersists pushPersists: [PushAPNS], completion: ((data: NotificacaoSMSResponse?, error: ErrorType?) -> Void)) {
+    public class func salvarPushUsingPOST(pushPersists pushPersists: [PushAPNS], completion: ((data: NotificacaoResponse?, error: ErrorType?) -> Void)) {
         salvarPushUsingPOSTWithRequestBuilder(pushPersists: pushPersists).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -430,15 +430,15 @@ public class NotificacoesAPI: APIBase {
      
      - parameter pushPersists: (body) pushPersists 
 
-     - returns: RequestBuilder<NotificacaoSMSResponse> 
+     - returns: RequestBuilder<NotificacaoResponse> 
      */
-    public class func salvarPushUsingPOSTWithRequestBuilder(pushPersists pushPersists: [PushAPNS]) -> RequestBuilder<NotificacaoSMSResponse> {
+    public class func salvarPushUsingPOSTWithRequestBuilder(pushPersists pushPersists: [PushAPNS]) -> RequestBuilder<NotificacaoResponse> {
         let path = "/api/notificacoes/push/apns"
         let URLString = PierAPI.basePath + path
         
         let parameters = pushPersists.encodeToJSON() as? [String:AnyObject]
 
-        let requestBuilder: RequestBuilder<NotificacaoSMSResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<NotificacaoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
     }
@@ -450,7 +450,7 @@ public class NotificacoesAPI: APIBase {
      - parameter listaSMS: (body) listaSMS 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func salvarSMSUsingPOST(listaSMS listaSMS: [NotificacaoSMSBody], completion: ((data: NotificacaoSMSResponse?, error: ErrorType?) -> Void)) {
+    public class func salvarSMSUsingPOST(listaSMS listaSMS: [NotificacaoSMSBody], completion: ((data: NotificacaoResponse?, error: ErrorType?) -> Void)) {
         salvarSMSUsingPOSTWithRequestBuilder(listaSMS: listaSMS).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -470,15 +470,15 @@ public class NotificacoesAPI: APIBase {
      
      - parameter listaSMS: (body) listaSMS 
 
-     - returns: RequestBuilder<NotificacaoSMSResponse> 
+     - returns: RequestBuilder<NotificacaoResponse> 
      */
-    public class func salvarSMSUsingPOSTWithRequestBuilder(listaSMS listaSMS: [NotificacaoSMSBody]) -> RequestBuilder<NotificacaoSMSResponse> {
+    public class func salvarSMSUsingPOSTWithRequestBuilder(listaSMS listaSMS: [NotificacaoSMSBody]) -> RequestBuilder<NotificacaoResponse> {
         let path = "/api/notificacoes/sms"
         let URLString = PierAPI.basePath + path
         
         let parameters = listaSMS.encodeToJSON() as? [String:AnyObject]
 
-        let requestBuilder: RequestBuilder<NotificacaoSMSResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<NotificacaoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
     }

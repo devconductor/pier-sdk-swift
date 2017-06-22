@@ -8,11 +8,9 @@
 import Foundation
 
 
-/** Representa\u00C3\u00A7\u00C3\u00A3o da resposta do recurso Antecipacao Simulada */
+/** Representa\u00C3\u00A7\u00C3\u00A3o da resposta dos detalhes do recurso Antecipacao Simulada */
 public class AntecipacaoSimuladaDetalhesResponse: JSONEncodable {
 
-    /** C\u00C3\u00B3digo identificador do detalhe da simula\u00C3\u00A7\u00C3\u00A3o de antecipa\u00C3\u00A7\u00C3\u00A3o. */
-    public var idSimulacaoDetalhe: Int?
     /** Quantidade de parcelas do plano de parcelamento simulado. */
     public var quantidadeParcelas: Int?
     /** Valor total das parcelas do plano de parcelamento. */
@@ -28,7 +26,6 @@ public class AntecipacaoSimuladaDetalhesResponse: JSONEncodable {
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
-        nillableDictionary["idSimulacaoDetalhe"] = self.idSimulacaoDetalhe
         nillableDictionary["quantidadeParcelas"] = self.quantidadeParcelas
         nillableDictionary["valorParcelas"] = self.valorParcelas
         nillableDictionary["valorDesconto"] = self.valorDesconto

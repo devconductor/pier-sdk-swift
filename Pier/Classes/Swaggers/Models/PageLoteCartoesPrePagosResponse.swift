@@ -11,7 +11,7 @@ import Foundation
 /** Lista atendimento clientes */
 public class PageLoteCartoesPrePagosResponse: JSONEncodable {
 
-    public var content: [LoteCartoesPrePagos]?
+    public var content: [LoteCartoesPrePagosResponse]?
     public var first: Bool?
     public var firstPage: Bool?
     public var hasContent: Bool?
