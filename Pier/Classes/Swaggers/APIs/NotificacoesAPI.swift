@@ -12,6 +12,117 @@ import Alamofire
 public class NotificacoesAPI: APIBase {
     /**
      
+     Altera configura\u00C3\u00A7\u00C3\u00B5es de E-mail
+     
+     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da configura\u00C3\u00A7\u00C3\u00A3o de e-mail. 
+     - parameter persist: (body) persist 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func alterarConfiguracaoUsingPUT(id id: Int, persist: ConfiguracaoEmailPersist, completion: ((data: ConfiguracaoEmailResponse?, error: ErrorType?) -> Void)) {
+        alterarConfiguracaoUsingPUTWithRequestBuilder(id: id, persist: persist).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Altera configura\u00C3\u00A7\u00C3\u00B5es de E-mail
+     
+     - PUT /api/configuracoes-email/{id}
+     - Esse recurso permite salvar altera\u00C3\u00A7\u00C3\u00B5es de configura\u00C3\u00A7\u00C3\u00B5es de E-mail.
+     - examples: [{contentType=application/json, example={
+  "portSSL" : "aeiou",
+  "requerTLS" : false,
+  "dataAlteracao" : "aeiou",
+  "protocolo" : "aeiou",
+  "requerAutenticacao" : false,
+  "senha" : "aeiou",
+  "requerSSL" : false,
+  "port" : "aeiou",
+  "host" : "aeiou",
+  "portTLSSTARTTLS" : "aeiou",
+  "dataInclusao" : "aeiou",
+  "usuario" : "aeiou",
+  "id" : 123456789
+}}]
+     
+     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da configura\u00C3\u00A7\u00C3\u00A3o de e-mail. 
+     - parameter persist: (body) persist 
+
+     - returns: RequestBuilder<ConfiguracaoEmailResponse> 
+     */
+    public class func alterarConfiguracaoUsingPUTWithRequestBuilder(id id: Int, persist: ConfiguracaoEmailPersist) -> RequestBuilder<ConfiguracaoEmailResponse> {
+        var path = "/api/configuracoes-email/{id}"
+        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
+        let URLString = PierAPI.basePath + path
+        
+        let parameters = persist.encodeToJSON() as? [String:AnyObject]
+
+        let requestBuilder: RequestBuilder<ConfiguracaoEmailResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Alterar template de notifica\u00C3\u00A7\u00C3\u00A3o
+     
+     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do layout de e-mail. 
+     - parameter conteudo: (body) Template HTML 
+     - parameter idConfiguracaoEmail: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da configra\u00C3\u00A7\u00C3\u00A3o de EMAIL. (optional)
+     - parameter tipoLayout: (query) Tipo do layout. (optional)
+     - parameter tipoNotificacao: (query) Tipo da notifica\u00C3\u00A7\u00C3\u00A3o. (optional)
+     - parameter assunto: (query) Assunto da Notificaca\u00C3\u00A7\u00C3\u00A3o. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func alterarTemplateNotificacaoUsingPUT(id id: Int, conteudo: String, idConfiguracaoEmail: Int?, tipoLayout: String?, tipoNotificacao: String?, assunto: String?, completion: ((data: TemplateNotificacaoResponse?, error: ErrorType?) -> Void)) {
+        alterarTemplateNotificacaoUsingPUTWithRequestBuilder(id: id, conteudo: conteudo, idConfiguracaoEmail: idConfiguracaoEmail, tipoLayout: tipoLayout, tipoNotificacao: tipoNotificacao, assunto: assunto).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Alterar template de notifica\u00C3\u00A7\u00C3\u00A3o
+     
+     - PUT /api/templates-notificacoes/{id}
+     - Esse recurso permite salvar altera\u00C3\u00A7\u00C3\u00B5es de templates notifica\u00C3\u00A7\u00C3\u00B5es.
+     - examples: [{contentType=application/json, example={
+  "idConfiguracaoEmail" : 123456789,
+  "assunto" : "aeiou",
+  "conteudo" : "aeiou",
+  "dataInclusao" : "aeiou",
+  "id" : 123456789,
+  "tipoNotificacao" : "aeiou",
+  "tipoLayout" : "aeiou",
+  "dataAlteracao" : "aeiou"
+}}]
+     
+     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do layout de e-mail. 
+     - parameter conteudo: (body) Template HTML 
+     - parameter idConfiguracaoEmail: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da configra\u00C3\u00A7\u00C3\u00A3o de EMAIL. (optional)
+     - parameter tipoLayout: (query) Tipo do layout. (optional)
+     - parameter tipoNotificacao: (query) Tipo da notifica\u00C3\u00A7\u00C3\u00A3o. (optional)
+     - parameter assunto: (query) Assunto da Notificaca\u00C3\u00A7\u00C3\u00A3o. (optional)
+
+     - returns: RequestBuilder<TemplateNotificacaoResponse> 
+     */
+    public class func alterarTemplateNotificacaoUsingPUTWithRequestBuilder(id id: Int, conteudo: String, idConfiguracaoEmail: Int?, tipoLayout: String?, tipoNotificacao: String?, assunto: String?) -> RequestBuilder<TemplateNotificacaoResponse> {
+        var path = "/api/templates-notificacoes/{id}"
+        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
+        let URLString = PierAPI.basePath + path
+        
+        let parameters = conteudo.encodeToJSON() as? [String:AnyObject]
+
+        let requestBuilder: RequestBuilder<TemplateNotificacaoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: false)
+    }
+
+    /**
+     
      Atualizar SMS
      
      - parameter nsu: (query) Seu n\u00C3\u00BAmero (optional)
@@ -78,6 +189,216 @@ public class NotificacoesAPI: APIBase {
         let requestBuilder: RequestBuilder<NotificacaoSMSResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: false)
+    }
+
+    /**
+     
+     Consulta configura\u00C3\u00A7\u00C3\u00A3o de E-mail
+     
+     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da configura\u00C3\u00A7\u00C3\u00A3o de e-mail. 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func consultarConfiguracaoUsingGET(id id: Int, completion: ((data: ConfiguracaoEmailResponse?, error: ErrorType?) -> Void)) {
+        consultarConfiguracaoUsingGETWithRequestBuilder(id: id).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Consulta configura\u00C3\u00A7\u00C3\u00A3o de E-mail
+     
+     - GET /api/configuracoes-email/{id}
+     - Esse recurso permite consultar uma configura\u00C3\u00A7\u00C3\u00A3o espec\u00C3\u00ADfica por id.
+     - examples: [{contentType=application/json, example={
+  "portSSL" : "aeiou",
+  "requerTLS" : false,
+  "dataAlteracao" : "aeiou",
+  "protocolo" : "aeiou",
+  "requerAutenticacao" : false,
+  "senha" : "aeiou",
+  "requerSSL" : false,
+  "port" : "aeiou",
+  "host" : "aeiou",
+  "portTLSSTARTTLS" : "aeiou",
+  "dataInclusao" : "aeiou",
+  "usuario" : "aeiou",
+  "id" : 123456789
+}}]
+     
+     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da configura\u00C3\u00A7\u00C3\u00A3o de e-mail. 
+
+     - returns: RequestBuilder<ConfiguracaoEmailResponse> 
+     */
+    public class func consultarConfiguracaoUsingGETWithRequestBuilder(id id: Int) -> RequestBuilder<ConfiguracaoEmailResponse> {
+        var path = "/api/configuracoes-email/{id}"
+        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<ConfiguracaoEmailResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Consulta template de notifica\u00C3\u00A7\u00C3\u00A3o
+     
+     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do layout de e-mail. 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func consultarTemplateNotificacaoUsingGET(id id: Int, completion: ((data: TemplateNotificacaoResponse?, error: ErrorType?) -> Void)) {
+        consultarTemplateNotificacaoUsingGETWithRequestBuilder(id: id).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Consulta template de notifica\u00C3\u00A7\u00C3\u00A3o
+     
+     - GET /api/templates-notificacoes/{id}
+     - Esse recurso permite consultar uma configura\u00C3\u00A7\u00C3\u00A3o espec\u00C3\u00ADfica por id.
+     - examples: [{contentType=application/json, example={
+  "idConfiguracaoEmail" : 123456789,
+  "assunto" : "aeiou",
+  "conteudo" : "aeiou",
+  "dataInclusao" : "aeiou",
+  "id" : 123456789,
+  "tipoNotificacao" : "aeiou",
+  "tipoLayout" : "aeiou",
+  "dataAlteracao" : "aeiou"
+}}]
+     
+     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do layout de e-mail. 
+
+     - returns: RequestBuilder<TemplateNotificacaoResponse> 
+     */
+    public class func consultarTemplateNotificacaoUsingGETWithRequestBuilder(id id: Int) -> RequestBuilder<TemplateNotificacaoResponse> {
+        var path = "/api/templates-notificacoes/{id}"
+        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<TemplateNotificacaoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Gerar c\u00C3\u00B3digo de seguran\u00C3\u00A7a e enviar por sms
+     
+     - parameter persist: (body) persist 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func gerarTokenUsingPOST(persist persist: CodigoSegurancaSMSPersist, completion: ((data: String?, error: ErrorType?) -> Void)) {
+        gerarTokenUsingPOSTWithRequestBuilder(persist: persist).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Gerar c\u00C3\u00B3digo de seguran\u00C3\u00A7a e enviar por sms
+     
+     - POST /api/notificacoes-sms/gerar-codigo-seguranca
+     - Esse recurso permite gerar e enviar c\u00C3\u00B3digos de seguran\u00C3\u00A7a por sms, para valida\u00C3\u00A7\u00C3\u00A3o de dispositivos.
+     - examples: [{contentType=application/json, example="aeiou"}]
+     
+     - parameter persist: (body) persist 
+
+     - returns: RequestBuilder<String> 
+     */
+    public class func gerarTokenUsingPOSTWithRequestBuilder(persist persist: CodigoSegurancaSMSPersist) -> RequestBuilder<String> {
+        let path = "/api/notificacoes-sms/gerar-codigo-seguranca"
+        let URLString = PierAPI.basePath + path
+        
+        let parameters = persist.encodeToJSON() as? [String:AnyObject]
+
+        let requestBuilder: RequestBuilder<String>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Lista configura\u00C3\u00A7\u00C3\u00B5es de E-mails
+     
+     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func listarConfiguracaoUsingGET(page page: Int?, limit: Int?, completion: ((data: PageConfiguracaoEmailResponse?, error: ErrorType?) -> Void)) {
+        listarConfiguracaoUsingGETWithRequestBuilder(page: page, limit: limit).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Lista configura\u00C3\u00A7\u00C3\u00B5es de E-mails
+     
+     - GET /api/configuracoes-email
+     - Esse recurso permite listar as configura\u00C3\u00A7\u00C3\u00B5es de E-mails.
+     - examples: [{contentType=application/json, example={
+  "previousPage" : 123,
+  "last" : true,
+  "hasContent" : true,
+  "hasNextPage" : true,
+  "nextPage" : 123,
+  "content" : [ {
+    "portSSL" : "aeiou",
+    "requerTLS" : false,
+    "dataAlteracao" : "aeiou",
+    "protocolo" : "aeiou",
+    "requerAutenticacao" : false,
+    "senha" : "aeiou",
+    "requerSSL" : false,
+    "port" : "aeiou",
+    "host" : "aeiou",
+    "portTLSSTARTTLS" : "aeiou",
+    "dataInclusao" : "aeiou",
+    "usuario" : "aeiou",
+    "id" : 123456789
+  } ],
+  "totalElements" : 123456789,
+  "number" : 123,
+  "firstPage" : true,
+  "numberOfElements" : 123,
+  "size" : 123,
+  "totalPages" : 123,
+  "hasPreviousPage" : true,
+  "first" : true
+}}]
+     
+     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+
+     - returns: RequestBuilder<PageConfiguracaoEmailResponse> 
+     */
+    public class func listarConfiguracaoUsingGETWithRequestBuilder(page page: Int?, limit: Int?) -> RequestBuilder<PageConfiguracaoEmailResponse> {
+        let path = "/api/configuracoes-email"
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [
+            "page": page,
+            "limit": limit
+        ]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<PageConfiguracaoEmailResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
     }
 
     /**
@@ -261,6 +582,108 @@ public class NotificacoesAPI: APIBase {
 
     /**
      
+     Lista templates de notifica\u00C3\u00A7\u00C3\u00B5es
+     
+     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func listarTemplateNotificacaoUsingGET(page page: Int?, limit: Int?, completion: ((data: PageTemplateNotificacaoResponse?, error: ErrorType?) -> Void)) {
+        listarTemplateNotificacaoUsingGETWithRequestBuilder(page: page, limit: limit).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Lista templates de notifica\u00C3\u00A7\u00C3\u00B5es
+     
+     - GET /api/templates-notificacoes
+     - Esse recurso permite listar templates notifica\u00C3\u00A7\u00C3\u00B5es.
+     - examples: [{contentType=application/json, example={
+  "previousPage" : 123,
+  "last" : true,
+  "hasContent" : true,
+  "hasNextPage" : true,
+  "nextPage" : 123,
+  "content" : [ {
+    "idConfiguracaoEmail" : 123456789,
+    "assunto" : "aeiou",
+    "conteudo" : "aeiou",
+    "dataInclusao" : "aeiou",
+    "id" : 123456789,
+    "tipoNotificacao" : "aeiou",
+    "tipoLayout" : "aeiou",
+    "dataAlteracao" : "aeiou"
+  } ],
+  "totalElements" : 123456789,
+  "number" : 123,
+  "firstPage" : true,
+  "numberOfElements" : 123,
+  "size" : 123,
+  "totalPages" : 123,
+  "hasPreviousPage" : true,
+  "first" : true
+}}]
+     
+     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+
+     - returns: RequestBuilder<PageTemplateNotificacaoResponse> 
+     */
+    public class func listarTemplateNotificacaoUsingGETWithRequestBuilder(page page: Int?, limit: Int?) -> RequestBuilder<PageTemplateNotificacaoResponse> {
+        let path = "/api/templates-notificacoes"
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [
+            "page": page,
+            "limit": limit
+        ]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<PageTemplateNotificacaoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
+    }
+
+    /**
+     
+     Lista os tipos templates de notifica\u00C3\u00A7\u00C3\u00A3o
+     
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func listarTiposLayoutsUsingGET(completion: ((data: [AnyObject]?, error: ErrorType?) -> Void)) {
+        listarTiposLayoutsUsingGETWithRequestBuilder().execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Lista os tipos templates de notifica\u00C3\u00A7\u00C3\u00A3o
+     
+     - GET /api/tipos-layouts
+     - Esse recurso permite listar os tipos de templates dispon\u00C3\u00ADveis os par\u00C3\u00A2metros devem ser usados entre chaves. Ex: {{nomeParametro}} .
+     - examples: [{contentType=application/json, example=[ "{}" ]}]
+
+     - returns: RequestBuilder<[AnyObject]> 
+     */
+    public class func listarTiposLayoutsUsingGETWithRequestBuilder() -> RequestBuilder<[AnyObject]> {
+        let path = "/api/tipos-layouts"
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<[AnyObject]>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
      Responder SMS
      
      - parameter nsu: (query) Seu n\u00C3\u00BAmero (optional)
@@ -321,6 +744,57 @@ public class NotificacoesAPI: APIBase {
         let requestBuilder: RequestBuilder<NotificacaoSMSResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: false)
+    }
+
+    /**
+     
+     Salva configura\u00C3\u00A7\u00C3\u00B5es de E-mail
+     
+     - parameter persist: (body) persist 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func salvarConfiguracaoUsingPOST(persist persist: ConfiguracaoEmailPersist, completion: ((data: ConfiguracaoEmailResponse?, error: ErrorType?) -> Void)) {
+        salvarConfiguracaoUsingPOSTWithRequestBuilder(persist: persist).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Salva configura\u00C3\u00A7\u00C3\u00B5es de E-mail
+     
+     - POST /api/configuracoes-email
+     - Esse recurso salvar configura\u00C3\u00A7\u00C3\u00B5es de E-mail.
+     - examples: [{contentType=application/json, example={
+  "portSSL" : "aeiou",
+  "requerTLS" : false,
+  "dataAlteracao" : "aeiou",
+  "protocolo" : "aeiou",
+  "requerAutenticacao" : false,
+  "senha" : "aeiou",
+  "requerSSL" : false,
+  "port" : "aeiou",
+  "host" : "aeiou",
+  "portTLSSTARTTLS" : "aeiou",
+  "dataInclusao" : "aeiou",
+  "usuario" : "aeiou",
+  "id" : 123456789
+}}]
+     
+     - parameter persist: (body) persist 
+
+     - returns: RequestBuilder<ConfiguracaoEmailResponse> 
+     */
+    public class func salvarConfiguracaoUsingPOSTWithRequestBuilder(persist persist: ConfiguracaoEmailPersist) -> RequestBuilder<ConfiguracaoEmailResponse> {
+        let path = "/api/configuracoes-email"
+        let URLString = PierAPI.basePath + path
+        
+        let parameters = persist.encodeToJSON() as? [String:AnyObject]
+
+        let requestBuilder: RequestBuilder<ConfiguracaoEmailResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
     }
 
     /**
@@ -479,6 +953,97 @@ public class NotificacoesAPI: APIBase {
         let parameters = listaSMS.encodeToJSON() as? [String:AnyObject]
 
         let requestBuilder: RequestBuilder<NotificacaoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Salva template de notifica\u00C3\u00A7\u00C3\u00A3o
+     
+     - parameter conteudo: (body) Template HTML 
+     - parameter idConfiguracaoEmail: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da configra\u00C3\u00A7\u00C3\u00A3o de EMAIL. (optional)
+     - parameter tipoLayout: (query) Tipo do layout. (optional)
+     - parameter tipoNotificacao: (query) Tipo da notifica\u00C3\u00A7\u00C3\u00A3o. (optional)
+     - parameter assunto: (query) Assunto da Notificaca\u00C3\u00A7\u00C3\u00A3o. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func salvarTemplateNotificacaoUsingPOST(conteudo conteudo: String, idConfiguracaoEmail: Int?, tipoLayout: String?, tipoNotificacao: String?, assunto: String?, completion: ((data: TemplateNotificacaoResponse?, error: ErrorType?) -> Void)) {
+        salvarTemplateNotificacaoUsingPOSTWithRequestBuilder(conteudo: conteudo, idConfiguracaoEmail: idConfiguracaoEmail, tipoLayout: tipoLayout, tipoNotificacao: tipoNotificacao, assunto: assunto).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Salva template de notifica\u00C3\u00A7\u00C3\u00A3o
+     
+     - POST /api/templates-notificacoes
+     - Esse recurso salvar template notifica\u00C3\u00A7\u00C3\u00B5e.
+     - examples: [{contentType=application/json, example={
+  "idConfiguracaoEmail" : 123456789,
+  "assunto" : "aeiou",
+  "conteudo" : "aeiou",
+  "dataInclusao" : "aeiou",
+  "id" : 123456789,
+  "tipoNotificacao" : "aeiou",
+  "tipoLayout" : "aeiou",
+  "dataAlteracao" : "aeiou"
+}}]
+     
+     - parameter conteudo: (body) Template HTML 
+     - parameter idConfiguracaoEmail: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da configra\u00C3\u00A7\u00C3\u00A3o de EMAIL. (optional)
+     - parameter tipoLayout: (query) Tipo do layout. (optional)
+     - parameter tipoNotificacao: (query) Tipo da notifica\u00C3\u00A7\u00C3\u00A3o. (optional)
+     - parameter assunto: (query) Assunto da Notificaca\u00C3\u00A7\u00C3\u00A3o. (optional)
+
+     - returns: RequestBuilder<TemplateNotificacaoResponse> 
+     */
+    public class func salvarTemplateNotificacaoUsingPOSTWithRequestBuilder(conteudo conteudo: String, idConfiguracaoEmail: Int?, tipoLayout: String?, tipoNotificacao: String?, assunto: String?) -> RequestBuilder<TemplateNotificacaoResponse> {
+        let path = "/api/templates-notificacoes"
+        let URLString = PierAPI.basePath + path
+        
+        let parameters = conteudo.encodeToJSON() as? [String:AnyObject]
+
+        let requestBuilder: RequestBuilder<TemplateNotificacaoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: false)
+    }
+
+    /**
+     
+     Validar c\u00C3\u00B3digo de seguran\u00C3\u00A7a enviado por sms
+     
+     - parameter request: (body) request 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func validarTokenUsingPOST(request request: CodigoSegurancaSMSRequest, completion: ((data: String?, error: ErrorType?) -> Void)) {
+        validarTokenUsingPOSTWithRequestBuilder(request: request).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Validar c\u00C3\u00B3digo de seguran\u00C3\u00A7a enviado por sms
+     
+     - POST /api/notificacoes-sms/validar-codigo-seguranca
+     - Esse recurso permite validar os c\u00C3\u00B3digos de seguran\u00C3\u00A7a enviador por sms, para valida\u00C3\u00A7\u00C3\u00A3o de dispositivos.
+     - examples: [{contentType=application/json, example="aeiou"}]
+     
+     - parameter request: (body) request 
+
+     - returns: RequestBuilder<String> 
+     */
+    public class func validarTokenUsingPOSTWithRequestBuilder(request request: CodigoSegurancaSMSRequest) -> RequestBuilder<String> {
+        let path = "/api/notificacoes-sms/validar-codigo-seguranca"
+        let URLString = PierAPI.basePath + path
+        
+        let parameters = request.encodeToJSON() as? [String:AnyObject]
+
+        let requestBuilder: RequestBuilder<String>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
     }

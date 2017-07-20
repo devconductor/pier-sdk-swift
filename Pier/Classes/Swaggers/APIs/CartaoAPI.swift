@@ -170,8 +170,8 @@ public class CartaoAPI: APIBase {
      - parameter observacao: (query) Texto informando uma observa\u00C3\u00A7\u00C3\u00A3o sobre o bloqueio. 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func bloquearUsingPUT(id id: Int, idStatus: Int, observacao: String, completion: ((data: CartaoResponse?, error: ErrorType?) -> Void)) {
-        bloquearUsingPUTWithRequestBuilder(id: id, idStatus: idStatus, observacao: observacao).execute { (response, error) -> Void in
+    public class func bloquearUsingPOST(id id: Int, idStatus: Int, observacao: String, completion: ((data: CartaoResponse?, error: ErrorType?) -> Void)) {
+        bloquearUsingPOSTWithRequestBuilder(id: id, idStatus: idStatus, observacao: observacao).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -181,7 +181,7 @@ public class CartaoAPI: APIBase {
      
      Realiza o bloqueio de um determinado Cart\u00C3\u00A3o
      
-     - PUT /api/cartoes/{id}/bloquear
+     - POST /api/cartoes/{id}/bloquear
      - Este m\u00C3\u00A9todo permite a realiza\u00C3\u00A7\u00C3\u00A3o do bloqueio (tempor\u00C3\u00A1rio) ou do cancelamento (definitivo) de um determinado cart\u00C3\u00A3o a partir do seu c\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o (id). Para isso, \u00C3\u00A9 preciso informar qual o motivo deste bloqueio que nada mais \u00C3\u00A9 do que atribuir um novo StatusCartao para ele dentre as op\u00C3\u00A7\u00C3\u00B5es praticadas pelo emissor.
      - examples: [{contentType=application/json, example={
   "idConta" : 123456789,
@@ -211,7 +211,7 @@ public class CartaoAPI: APIBase {
 
      - returns: RequestBuilder<CartaoResponse> 
      */
-    public class func bloquearUsingPUTWithRequestBuilder(id id: Int, idStatus: Int, observacao: String) -> RequestBuilder<CartaoResponse> {
+    public class func bloquearUsingPOSTWithRequestBuilder(id id: Int, idStatus: Int, observacao: String) -> RequestBuilder<CartaoResponse> {
         var path = "/api/cartoes/{id}/bloquear"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -224,7 +224,7 @@ public class CartaoAPI: APIBase {
 
         let requestBuilder: RequestBuilder<CartaoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: false)
     }
 
     /**
@@ -264,6 +264,72 @@ public class CartaoAPI: APIBase {
         let requestBuilder: RequestBuilder<String>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Realiza o cancelamento de um determinado Cart\u00C3\u00A3o
+     
+     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
+     - parameter idStatus: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Novo Status Cart\u00C3\u00A3o. 
+     - parameter observacao: (query) Texto informando uma observa\u00C3\u00A7\u00C3\u00A3o sobre o cancelamento. 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func cancelarUsingPOST(id id: Int, idStatus: Int, observacao: String, completion: ((data: CartaoResponse?, error: ErrorType?) -> Void)) {
+        cancelarUsingPOSTWithRequestBuilder(id: id, idStatus: idStatus, observacao: observacao).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Realiza o cancelamento de um determinado Cart\u00C3\u00A3o
+     
+     - POST /api/cartoes/{id}/cancelar
+     - Este m\u00C3\u00A9todo permite a realiza\u00C3\u00A7\u00C3\u00A3o cancelamento de um determinado cart\u00C3\u00A3o a partir do seu c\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o (id). Para isso, \u00C3\u00A9 preciso informar qual o motivo deste bloqueio que nada mais \u00C3\u00A9 do que atribuir um novo StatusCartao para ele dentre as op\u00C3\u00A7\u00C3\u00B5es praticadas pelo emissor.
+     - examples: [{contentType=application/json, example={
+  "idConta" : 123456789,
+  "dataStatusCartao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "codigoDesbloqueio" : "aeiou",
+  "idEstagioCartao" : 123456789,
+  "arquivoImpressao" : "aeiou",
+  "numeroCartao" : "aeiou",
+  "idPessoa" : 123456789,
+  "idProduto" : 123456789,
+  "dataValidade" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "idStatusCartao" : 123456789,
+  "dataEstagioCartao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "flagImpressaoOrigemComercial" : 123,
+  "sequencialCartao" : 123,
+  "id" : 123456789,
+  "nomeImpresso" : "aeiou",
+  "flagVirtual" : 123,
+  "dataImpressao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "tipoPortador" : "aeiou",
+  "dataGeracao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+}}]
+     
+     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
+     - parameter idStatus: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Novo Status Cart\u00C3\u00A3o. 
+     - parameter observacao: (query) Texto informando uma observa\u00C3\u00A7\u00C3\u00A3o sobre o cancelamento. 
+
+     - returns: RequestBuilder<CartaoResponse> 
+     */
+    public class func cancelarUsingPOSTWithRequestBuilder(id id: Int, idStatus: Int, observacao: String) -> RequestBuilder<CartaoResponse> {
+        var path = "/api/cartoes/{id}/cancelar"
+        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [
+            "id_status": idStatus,
+            "observacao": observacao
+        ]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<CartaoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: false)
     }
 
     /**
@@ -350,6 +416,7 @@ public class CartaoAPI: APIBase {
   "limiteInternacionalSaquePeriodo" : 1.3579000000000001069366817318950779736042022705078125,
   "limiteParcelado" : 1.3579000000000001069366817318950779736042022705078125,
   "saldoDisponivelSaqueInternacional" : 1.3579000000000001069366817318950779736042022705078125,
+  "limiteMaximo" : 1.3579000000000001069366817318950779736042022705078125,
   "saldoPontosFidelidade" : 1.3579000000000001069366817318950779736042022705078125,
   "limiteInternacionalParcelado" : 1.3579000000000001069366817318950779736042022705078125,
   "saldoDisponivelParcelas" : 1.3579000000000001069366817318950779736042022705078125,
@@ -487,8 +554,8 @@ public class CartaoAPI: APIBase {
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET3(id id: Int, completion: ((data: CartaoDetalheResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET3WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET4(id id: Int, completion: ((data: CartaoDetalheResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET4WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -528,7 +595,7 @@ public class CartaoAPI: APIBase {
 
      - returns: RequestBuilder<CartaoDetalheResponse> 
      */
-    public class func consultarUsingGET3WithRequestBuilder(id id: Int) -> RequestBuilder<CartaoDetalheResponse> {
+    public class func consultarUsingGET4WithRequestBuilder(id id: Int) -> RequestBuilder<CartaoDetalheResponse> {
         var path = "/api/cartoes/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -607,8 +674,8 @@ public class CartaoAPI: APIBase {
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func desbloquearUsingPUT(id id: Int, completion: ((data: CartaoResponse?, error: ErrorType?) -> Void)) {
-        desbloquearUsingPUTWithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func desbloquearUsingPOST(id id: Int, completion: ((data: CartaoResponse?, error: ErrorType?) -> Void)) {
+        desbloquearUsingPOSTWithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -618,7 +685,7 @@ public class CartaoAPI: APIBase {
      
      Realiza o desbloqueio de um determinado Cart\u00C3\u00A3o
      
-     - PUT /api/cartoes/{id}/desbloquear
+     - POST /api/cartoes/{id}/desbloquear
      - Este m\u00C3\u00A9todo permite que seja desbloqueado um determinado cart\u00C3\u00A3o a partir do seu c\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o (id).
      - examples: [{contentType=application/json, example={
   "idConta" : 123456789,
@@ -646,7 +713,7 @@ public class CartaoAPI: APIBase {
 
      - returns: RequestBuilder<CartaoResponse> 
      */
-    public class func desbloquearUsingPUTWithRequestBuilder(id id: Int) -> RequestBuilder<CartaoResponse> {
+    public class func desbloquearUsingPOSTWithRequestBuilder(id id: Int) -> RequestBuilder<CartaoResponse> {
         var path = "/api/cartoes/{id}/desbloquear"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -656,7 +723,7 @@ public class CartaoAPI: APIBase {
 
         let requestBuilder: RequestBuilder<CartaoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
     }
 
     /**
@@ -1010,6 +1077,65 @@ public class CartaoAPI: APIBase {
         let requestBuilder: RequestBuilder<PageCartaoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
+    }
+
+    /**
+     
+     Realiza a reativa\u00C3\u00A7\u00C3\u00A3o de um determinado Cart\u00C3\u00A3o
+     
+     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func reativarUsingPOST(id id: Int, completion: ((data: CartaoResponse?, error: ErrorType?) -> Void)) {
+        reativarUsingPOSTWithRequestBuilder(id: id).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Realiza a reativa\u00C3\u00A7\u00C3\u00A3o de um determinado Cart\u00C3\u00A3o
+     
+     - POST /api/cartoes/{id}/reativar
+     - Este m\u00C3\u00A9todo permite a realiza\u00C3\u00A7\u00C3\u00A3o da reativa\u00C3\u00A7\u00C3\u00A3o de um determinado cart\u00C3\u00A3o a partir do seu c\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o (id).
+     - examples: [{contentType=application/json, example={
+  "idConta" : 123456789,
+  "dataStatusCartao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "codigoDesbloqueio" : "aeiou",
+  "idEstagioCartao" : 123456789,
+  "arquivoImpressao" : "aeiou",
+  "numeroCartao" : "aeiou",
+  "idPessoa" : 123456789,
+  "idProduto" : 123456789,
+  "dataValidade" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "idStatusCartao" : 123456789,
+  "dataEstagioCartao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "flagImpressaoOrigemComercial" : 123,
+  "sequencialCartao" : 123,
+  "id" : 123456789,
+  "nomeImpresso" : "aeiou",
+  "flagVirtual" : 123,
+  "dataImpressao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "tipoPortador" : "aeiou",
+  "dataGeracao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+}}]
+     
+     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
+
+     - returns: RequestBuilder<CartaoResponse> 
+     */
+    public class func reativarUsingPOSTWithRequestBuilder(id id: Int) -> RequestBuilder<CartaoResponse> {
+        var path = "/api/cartoes/{id}/reativar"
+        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<CartaoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
     }
 
     /**

@@ -35,6 +35,10 @@ public class PessoaJuridicaAprovadaPersist: JSONEncodable {
     public var diaVencimento: Int?
     /** Nome que deve ser impresso no cart\u00C3\u00A3o */
     public var nomeImpresso: String?
+    /** Apresenta o valor da renda compravada */
+    public var valorRenda: Double?
+    /** Indica o canal pelo qual o cadastro do cliente foi realizado */
+    public var canalEntrada: String?
     /** Apresenta os telefones da empresa */
     public var telefones: [TelefonePessoaAprovadaPersist]?
     /** Pode ser informado os seguintes tipos de endere\u00C3\u00A7o: Residencial, Comercial, e Outros */
@@ -60,6 +64,8 @@ public class PessoaJuridicaAprovadaPersist: JSONEncodable {
         nillableDictionary["email"] = self.email
         nillableDictionary["diaVencimento"] = self.diaVencimento
         nillableDictionary["nomeImpresso"] = self.nomeImpresso
+        nillableDictionary["valorRenda"] = self.valorRenda
+        nillableDictionary["canalEntrada"] = self.canalEntrada
         nillableDictionary["telefones"] = self.telefones?.encodeToJSON()
         nillableDictionary["enderecos"] = self.enderecos?.encodeToJSON()
         nillableDictionary["socios"] = self.socios?.encodeToJSON()

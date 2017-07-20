@@ -75,13 +75,16 @@ public class StatusParametrosAPI: APIBase {
      - examples: [{contentType=application/json, example={
   "flagCancelaCartao" : 123,
   "flagCancelaNoDesbloqueio" : 123,
+  "flagPermiteBloqueio" : 123,
   "idStatusDestinoDesbloqueio" : 123456789,
   "nome" : "aeiou",
   "flagPermiteDesbloqueio" : 123,
   "id" : 123456789,
   "idStatusDestinoConta" : 123456789,
   "flagPermiteNovaViaCartao" : 123,
-  "flagCobraTarifa" : 123
+  "flagCobraTarifa" : 123,
+  "flagCancelamento" : 123,
+  "flagReativar" : 123
 }}]
      
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Est\u00C3\u00A1gio de Entrega do Cart\u00C3\u00A3o (id). 
@@ -108,8 +111,8 @@ public class StatusParametrosAPI: APIBase {
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Status da Conta (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET13(id id: Int, completion: ((data: StatusContaResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET13WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET14(id id: Int, completion: ((data: StatusContaResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET14WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -135,7 +138,7 @@ public class StatusParametrosAPI: APIBase {
 
      - returns: RequestBuilder<StatusContaResponse> 
      */
-    public class func consultarUsingGET13WithRequestBuilder(id id: Int) -> RequestBuilder<StatusContaResponse> {
+    public class func consultarUsingGET14WithRequestBuilder(id id: Int) -> RequestBuilder<StatusContaResponse> {
         var path = "/api/status-contas/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -155,8 +158,8 @@ public class StatusParametrosAPI: APIBase {
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Status de Impress\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET14(id id: Int, completion: ((data: StatusImpressaoResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET14WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET15(id id: Int, completion: ((data: StatusImpressaoResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET15WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -177,7 +180,7 @@ public class StatusParametrosAPI: APIBase {
 
      - returns: RequestBuilder<StatusImpressaoResponse> 
      */
-    public class func consultarUsingGET14WithRequestBuilder(id id: Int) -> RequestBuilder<StatusImpressaoResponse> {
+    public class func consultarUsingGET15WithRequestBuilder(id id: Int) -> RequestBuilder<StatusImpressaoResponse> {
         var path = "/api/status-impressoes/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -272,10 +275,13 @@ public class StatusParametrosAPI: APIBase {
      - parameter flagCobraTarifa: (query) Quando ativa, indica que cart\u00C3\u00B5es que tiverem um idStatusCartao atribu\u00C3\u00ADdo com essa caracter\u00C3\u00ADstica, incluir\u00C3\u00A3o a cobran\u00C3\u00A7a de uma tarifa para a conta de acordo com os valores definidos nos par\u00C3\u00A2metros do emissor. (optional)
      - parameter flagPermiteNovaViaCartao: (query) Par\u00C3\u00A2metro que define se o status do cart\u00C3\u00A3o permite a solicita\u00C3\u00A7\u00C3\u00A3o de uma nova via, sendo: 0: Inativo e 1: Ativo. (optional)
      - parameter flagPermiteDesbloqueio: (query) Par\u00C3\u00A2metro que define se o status do cart\u00C3\u00A3o permite o desbloqueio, sendo: 0: Inativo e 1: Ativo. (optional)
+     - parameter flagCancelamento: (query) Par\u00C3\u00A2metro que define se o status do cart\u00C3\u00A3o permite o cancelamento, sendo: 0: Inativo e 1: Ativo. (optional)
+     - parameter flagPermiteBloqueio: (query) Par\u00C3\u00A2metro que define se o status do cart\u00C3\u00A3o permite o Bloqueio, sendo: 0: Inativo e 1: Ativo. (optional)
+     - parameter flagReativar: (query) Par\u00C3\u00A2metro que define se o status do cart\u00C3\u00A3o permite a reativa\u00C3\u00A7\u00C3\u00A3o do cart\u00C3\u00A3o, sendo: 0: Inativo e 1: Ativo. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarStatusCartoesUsingGET(page page: Int?, limit: Int?, id: Int?, nome: String?, flagCancelaCartao: Int?, flagCancelaNoDesbloqueio: Int?, idStatusDestinoDesbloqueio: Int?, idStatusDestinoConta: Int?, flagCobraTarifa: Int?, flagPermiteNovaViaCartao: Int?, flagPermiteDesbloqueio: Int?, completion: ((data: PageStatusCartaoResponse?, error: ErrorType?) -> Void)) {
-        listarStatusCartoesUsingGETWithRequestBuilder(page: page, limit: limit, id: id, nome: nome, flagCancelaCartao: flagCancelaCartao, flagCancelaNoDesbloqueio: flagCancelaNoDesbloqueio, idStatusDestinoDesbloqueio: idStatusDestinoDesbloqueio, idStatusDestinoConta: idStatusDestinoConta, flagCobraTarifa: flagCobraTarifa, flagPermiteNovaViaCartao: flagPermiteNovaViaCartao, flagPermiteDesbloqueio: flagPermiteDesbloqueio).execute { (response, error) -> Void in
+    public class func listarStatusCartoesUsingGET(page page: Int?, limit: Int?, id: Int?, nome: String?, flagCancelaCartao: Int?, flagCancelaNoDesbloqueio: Int?, idStatusDestinoDesbloqueio: Int?, idStatusDestinoConta: Int?, flagCobraTarifa: Int?, flagPermiteNovaViaCartao: Int?, flagPermiteDesbloqueio: Int?, flagCancelamento: Int?, flagPermiteBloqueio: Int?, flagReativar: Int?, completion: ((data: PageStatusCartaoResponse?, error: ErrorType?) -> Void)) {
+        listarStatusCartoesUsingGETWithRequestBuilder(page: page, limit: limit, id: id, nome: nome, flagCancelaCartao: flagCancelaCartao, flagCancelaNoDesbloqueio: flagCancelaNoDesbloqueio, idStatusDestinoDesbloqueio: idStatusDestinoDesbloqueio, idStatusDestinoConta: idStatusDestinoConta, flagCobraTarifa: flagCobraTarifa, flagPermiteNovaViaCartao: flagPermiteNovaViaCartao, flagPermiteDesbloqueio: flagPermiteDesbloqueio, flagCancelamento: flagCancelamento, flagPermiteBloqueio: flagPermiteBloqueio, flagReativar: flagReativar).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -296,13 +302,16 @@ public class StatusParametrosAPI: APIBase {
   "content" : [ {
     "flagCancelaCartao" : 123,
     "flagCancelaNoDesbloqueio" : 123,
+    "flagPermiteBloqueio" : 123,
     "idStatusDestinoDesbloqueio" : 123456789,
     "nome" : "aeiou",
     "flagPermiteDesbloqueio" : 123,
     "id" : 123456789,
     "idStatusDestinoConta" : 123456789,
     "flagPermiteNovaViaCartao" : 123,
-    "flagCobraTarifa" : 123
+    "flagCobraTarifa" : 123,
+    "flagCancelamento" : 123,
+    "flagReativar" : 123
   } ],
   "totalElements" : 123456789,
   "number" : 123,
@@ -325,10 +334,13 @@ public class StatusParametrosAPI: APIBase {
      - parameter flagCobraTarifa: (query) Quando ativa, indica que cart\u00C3\u00B5es que tiverem um idStatusCartao atribu\u00C3\u00ADdo com essa caracter\u00C3\u00ADstica, incluir\u00C3\u00A3o a cobran\u00C3\u00A7a de uma tarifa para a conta de acordo com os valores definidos nos par\u00C3\u00A2metros do emissor. (optional)
      - parameter flagPermiteNovaViaCartao: (query) Par\u00C3\u00A2metro que define se o status do cart\u00C3\u00A3o permite a solicita\u00C3\u00A7\u00C3\u00A3o de uma nova via, sendo: 0: Inativo e 1: Ativo. (optional)
      - parameter flagPermiteDesbloqueio: (query) Par\u00C3\u00A2metro que define se o status do cart\u00C3\u00A3o permite o desbloqueio, sendo: 0: Inativo e 1: Ativo. (optional)
+     - parameter flagCancelamento: (query) Par\u00C3\u00A2metro que define se o status do cart\u00C3\u00A3o permite o cancelamento, sendo: 0: Inativo e 1: Ativo. (optional)
+     - parameter flagPermiteBloqueio: (query) Par\u00C3\u00A2metro que define se o status do cart\u00C3\u00A3o permite o Bloqueio, sendo: 0: Inativo e 1: Ativo. (optional)
+     - parameter flagReativar: (query) Par\u00C3\u00A2metro que define se o status do cart\u00C3\u00A3o permite a reativa\u00C3\u00A7\u00C3\u00A3o do cart\u00C3\u00A3o, sendo: 0: Inativo e 1: Ativo. (optional)
 
      - returns: RequestBuilder<PageStatusCartaoResponse> 
      */
-    public class func listarStatusCartoesUsingGETWithRequestBuilder(page page: Int?, limit: Int?, id: Int?, nome: String?, flagCancelaCartao: Int?, flagCancelaNoDesbloqueio: Int?, idStatusDestinoDesbloqueio: Int?, idStatusDestinoConta: Int?, flagCobraTarifa: Int?, flagPermiteNovaViaCartao: Int?, flagPermiteDesbloqueio: Int?) -> RequestBuilder<PageStatusCartaoResponse> {
+    public class func listarStatusCartoesUsingGETWithRequestBuilder(page page: Int?, limit: Int?, id: Int?, nome: String?, flagCancelaCartao: Int?, flagCancelaNoDesbloqueio: Int?, idStatusDestinoDesbloqueio: Int?, idStatusDestinoConta: Int?, flagCobraTarifa: Int?, flagPermiteNovaViaCartao: Int?, flagPermiteDesbloqueio: Int?, flagCancelamento: Int?, flagPermiteBloqueio: Int?, flagReativar: Int?) -> RequestBuilder<PageStatusCartaoResponse> {
         let path = "/api/status-cartoes"
         let URLString = PierAPI.basePath + path
         
@@ -343,7 +355,10 @@ public class StatusParametrosAPI: APIBase {
             "idStatusDestinoConta": idStatusDestinoConta,
             "flagCobraTarifa": flagCobraTarifa,
             "flagPermiteNovaViaCartao": flagPermiteNovaViaCartao,
-            "flagPermiteDesbloqueio": flagPermiteDesbloqueio
+            "flagPermiteDesbloqueio": flagPermiteDesbloqueio,
+            "flagCancelamento": flagCancelamento,
+            "flagPermiteBloqueio": flagPermiteBloqueio,
+            "flagReativar": flagReativar
         ]
         let parameters = APIHelper.rejectNil(nillableParameters)
 
@@ -365,10 +380,13 @@ public class StatusParametrosAPI: APIBase {
      - parameter flagPermiteNovaViaCartao: (query) Par\u00C3\u00A2metro que define se o Status da conta permite a solicita\u00C3\u00A7\u00C3\u00A3o de um novo cart\u00C3\u00A3o, sendo: 0: Inativo e 1: Ativo. (optional)
      - parameter flagFazTransferencia: (query) Par\u00C3\u00A2metro que define se o Status da conta permite fazer transferencia, sendo: 0: Inativo e 1: Ativo. (optional)
      - parameter flagRecebeTransferencia: (query) Par\u00C3\u00A2metro que define se o Status da conta permite receber transferencia, sendo: 0: Inativo e 1: Ativo. (optional)
+     - parameter flagPermiteBloqueio: (query) Par\u00C3\u00A2metro que define se o Status da conta permite receber bloqueio, sendo: 0: Inativo e 1: Ativo. (optional)
+     - parameter flagPermiteDesbloqueio: (query) Par\u00C3\u00A2metro que define se o Status da conta permite receber desbloqueio, sendo: 0: Inativo e 1: Ativo. (optional)
+     - parameter flagCancelaConta: (query) Par\u00C3\u00A2metro que define se o Status da conta permite receber cancelamento, sendo: 0: Inativo e 1: Ativo. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET20(page page: Int?, limit: Int?, id: Int?, nome: String?, flagAlteraLimite: Int?, mensagemConsultaNegada: String?, flagPermiteNovaViaCartao: Int?, flagFazTransferencia: Int?, flagRecebeTransferencia: Int?, completion: ((data: PageStatusContaResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET20WithRequestBuilder(page: page, limit: limit, id: id, nome: nome, flagAlteraLimite: flagAlteraLimite, mensagemConsultaNegada: mensagemConsultaNegada, flagPermiteNovaViaCartao: flagPermiteNovaViaCartao, flagFazTransferencia: flagFazTransferencia, flagRecebeTransferencia: flagRecebeTransferencia).execute { (response, error) -> Void in
+    public class func listarUsingGET20(page page: Int?, limit: Int?, id: Int?, nome: String?, flagAlteraLimite: Int?, mensagemConsultaNegada: String?, flagPermiteNovaViaCartao: Int?, flagFazTransferencia: Int?, flagRecebeTransferencia: Int?, flagPermiteBloqueio: Int?, flagPermiteDesbloqueio: Int?, flagCancelaConta: Int?, completion: ((data: PageStatusContaResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET20WithRequestBuilder(page: page, limit: limit, id: id, nome: nome, flagAlteraLimite: flagAlteraLimite, mensagemConsultaNegada: mensagemConsultaNegada, flagPermiteNovaViaCartao: flagPermiteNovaViaCartao, flagFazTransferencia: flagFazTransferencia, flagRecebeTransferencia: flagRecebeTransferencia, flagPermiteBloqueio: flagPermiteBloqueio, flagPermiteDesbloqueio: flagPermiteDesbloqueio, flagCancelaConta: flagCancelaConta).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -414,10 +432,13 @@ public class StatusParametrosAPI: APIBase {
      - parameter flagPermiteNovaViaCartao: (query) Par\u00C3\u00A2metro que define se o Status da conta permite a solicita\u00C3\u00A7\u00C3\u00A3o de um novo cart\u00C3\u00A3o, sendo: 0: Inativo e 1: Ativo. (optional)
      - parameter flagFazTransferencia: (query) Par\u00C3\u00A2metro que define se o Status da conta permite fazer transferencia, sendo: 0: Inativo e 1: Ativo. (optional)
      - parameter flagRecebeTransferencia: (query) Par\u00C3\u00A2metro que define se o Status da conta permite receber transferencia, sendo: 0: Inativo e 1: Ativo. (optional)
+     - parameter flagPermiteBloqueio: (query) Par\u00C3\u00A2metro que define se o Status da conta permite receber bloqueio, sendo: 0: Inativo e 1: Ativo. (optional)
+     - parameter flagPermiteDesbloqueio: (query) Par\u00C3\u00A2metro que define se o Status da conta permite receber desbloqueio, sendo: 0: Inativo e 1: Ativo. (optional)
+     - parameter flagCancelaConta: (query) Par\u00C3\u00A2metro que define se o Status da conta permite receber cancelamento, sendo: 0: Inativo e 1: Ativo. (optional)
 
      - returns: RequestBuilder<PageStatusContaResponse> 
      */
-    public class func listarUsingGET20WithRequestBuilder(page page: Int?, limit: Int?, id: Int?, nome: String?, flagAlteraLimite: Int?, mensagemConsultaNegada: String?, flagPermiteNovaViaCartao: Int?, flagFazTransferencia: Int?, flagRecebeTransferencia: Int?) -> RequestBuilder<PageStatusContaResponse> {
+    public class func listarUsingGET20WithRequestBuilder(page page: Int?, limit: Int?, id: Int?, nome: String?, flagAlteraLimite: Int?, mensagemConsultaNegada: String?, flagPermiteNovaViaCartao: Int?, flagFazTransferencia: Int?, flagRecebeTransferencia: Int?, flagPermiteBloqueio: Int?, flagPermiteDesbloqueio: Int?, flagCancelaConta: Int?) -> RequestBuilder<PageStatusContaResponse> {
         let path = "/api/status-contas"
         let URLString = PierAPI.basePath + path
         
@@ -430,7 +451,10 @@ public class StatusParametrosAPI: APIBase {
             "mensagemConsultaNegada": mensagemConsultaNegada,
             "flagPermiteNovaViaCartao": flagPermiteNovaViaCartao,
             "flagFazTransferencia": flagFazTransferencia,
-            "flagRecebeTransferencia": flagRecebeTransferencia
+            "flagRecebeTransferencia": flagRecebeTransferencia,
+            "flagPermiteBloqueio": flagPermiteBloqueio,
+            "flagPermiteDesbloqueio": flagPermiteDesbloqueio,
+            "flagCancelaConta": flagCancelaConta
         ]
         let parameters = APIHelper.rejectNil(nillableParameters)
 

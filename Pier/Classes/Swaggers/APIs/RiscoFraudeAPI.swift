@@ -17,8 +17,8 @@ public class RiscoFraudeAPI: APIBase {
      - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do risco de fraude 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET12(id id: Int, completion: ((data: RiscoFraudeDetalhadoResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET12WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET13(id id: Int, completion: ((data: RiscoFraudeDetalhadoResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET13WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -29,7 +29,7 @@ public class RiscoFraudeAPI: APIBase {
      Consultar uma transa\u00C3\u00A7\u00C3\u00A3o classificada com risco de fraude
      
      - GET /api/riscos-fraudes/{id}
-     - Consulta os detalhes de uma transa\u00C3\u00A7\u00C3\u00A3o classificada com risco de fraude.
+     - Consulta os detalhes de uma transa\u00C3\u00A7\u00C3\u00A3o classificada como risco de fraude.
      - examples: [{contentType=application/json, example={
   "valorOrigem" : 1.3579000000000001069366817318950779736042022705078125,
   "origemTransacao" : "aeiou",
@@ -72,7 +72,7 @@ public class RiscoFraudeAPI: APIBase {
 
      - returns: RequestBuilder<RiscoFraudeDetalhadoResponse> 
      */
-    public class func consultarUsingGET12WithRequestBuilder(id id: Int) -> RequestBuilder<RiscoFraudeDetalhadoResponse> {
+    public class func consultarUsingGET13WithRequestBuilder(id id: Int) -> RequestBuilder<RiscoFraudeDetalhadoResponse> {
         var path = "/api/riscos-fraudes/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -87,16 +87,14 @@ public class RiscoFraudeAPI: APIBase {
 
     /**
      
-     Listar as transa\u00C3\u00A7\u00C3\u00B5es com resolu\u00C3\u00A7\u00C3\u00A3o de risco fraude pendente
+     Listar os tipos de resolu\u00C3\u00A7\u00C3\u00A3o de fraude
      
-     - parameter idConta: (query) Id Conta 
-     - parameter confirmacaoFraude: (query) Confirma\u00C3\u00A7\u00C3\u00A3o da fraude 
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET19(idConta idConta: Int, confirmacaoFraude: String, page: Int?, limit: Int?, completion: ((data: RiscoFraudeResponsePage?, error: ErrorType?) -> Void)) {
-        listarUsingGET19WithRequestBuilder(idConta: idConta, confirmacaoFraude: confirmacaoFraude, page: page, limit: limit).execute { (response, error) -> Void in
+    public class func listarTiposResolucaoUsingGET(page page: Int?, limit: Int?, completion: ((data: TipoResolucaoResponse?, error: ErrorType?) -> Void)) {
+        listarTiposResolucaoUsingGETWithRequestBuilder(page: page, limit: limit).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -104,210 +102,33 @@ public class RiscoFraudeAPI: APIBase {
 
     /**
      
-     Listar as transa\u00C3\u00A7\u00C3\u00B5es com resolu\u00C3\u00A7\u00C3\u00A3o de risco fraude pendente
+     Listar os tipos de resolu\u00C3\u00A7\u00C3\u00A3o de fraude
      
-     - GET /api/riscos-fraudes
-     - Este recurso permite que sejam listados os riscos de fraudes existentes
+     - GET /api/tipos-resolucao
+     - Este recurso permite que sejam listados os tipos de resolu\u00C3\u00A7\u00C3\u00A3o de fraude, cadastrados para um emissor
      - examples: [{contentType=application/json, example={
-  "previousPage" : 123,
-  "last" : true,
-  "hasContent" : true,
-  "hasNextPage" : true,
-  "nextPage" : 123,
-  "content" : [ {
-    "nomeEstabelecimento" : "aeiou",
-    "idCartao" : 123456789,
-    "idConta" : 123456789,
-    "descricaoTipoResolucao" : "aeiou",
-    "idTransacao" : 123456789,
-    "idTipoResolucao" : 123456789,
-    "valorTransacao" : 1.3579000000000001069366817318950779736042022705078125,
-    "id" : 123456789,
-    "flagAltoRisco" : false,
-    "dataTransacao" : "aeiou"
-  } ],
-  "totalElements" : 123456789,
-  "number" : 123,
-  "firstPage" : true,
-  "numberOfElements" : 123,
-  "size" : 123,
-  "totalPages" : 123,
-  "hasPreviousPage" : true,
-  "first" : true
+  "id" : 123456789,
+  "descricao" : "aeiou"
 }}]
      
-     - parameter idConta: (query) Id Conta 
-     - parameter confirmacaoFraude: (query) Confirma\u00C3\u00A7\u00C3\u00A3o da fraude 
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
 
-     - returns: RequestBuilder<RiscoFraudeResponsePage> 
+     - returns: RequestBuilder<TipoResolucaoResponse> 
      */
-    public class func listarUsingGET19WithRequestBuilder(idConta idConta: Int, confirmacaoFraude: String, page: Int?, limit: Int?) -> RequestBuilder<RiscoFraudeResponsePage> {
-        let path = "/api/riscos-fraudes"
+    public class func listarTiposResolucaoUsingGETWithRequestBuilder(page page: Int?, limit: Int?) -> RequestBuilder<TipoResolucaoResponse> {
+        let path = "/api/tipos-resolucao"
         let URLString = PierAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
-            "id_conta": idConta,
-            "confirmacao_fraude": confirmacaoFraude,
             "page": page,
             "limit": limit
         ]
         let parameters = APIHelper.rejectNil(nillableParameters)
 
-        let requestBuilder: RequestBuilder<RiscoFraudeResponsePage>.Type = PierAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<TipoResolucaoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
-    }
-
-    /**
-     
-     Negar autenticidade da transa\u00C3\u00A7\u00C3\u00A3o com risco de fraude
-     
-     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do risco de fraude 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func negarUsingPOST(id id: Int, completion: ((data: RiscoFraudeDetalhadoResponse?, error: ErrorType?) -> Void)) {
-        negarUsingPOSTWithRequestBuilder(id: id).execute { (response, error) -> Void in
-            completion(data: response?.body, error: error);
-        }
-    }
-
-
-    /**
-     
-     Negar autenticidade da transa\u00C3\u00A7\u00C3\u00A3o com risco de fraude
-     
-     - POST /api/riscos-fraudes/{id}/negar
-     - Nega a realiza\u00C3\u00A7\u00C3\u00A3o da transa\u00C3\u00A7\u00C3\u00A3o classificada com risco de fraude.
-     - examples: [{contentType=application/json, example={
-  "valorOrigem" : 1.3579000000000001069366817318950779736042022705078125,
-  "origemTransacao" : "aeiou",
-  "codigoMoedaOrigem" : "aeiou",
-  "idPais" : "aeiou",
-  "valorTransacao" : 1.3579000000000001069366817318950779736042022705078125,
-  "cnpj" : "aeiou",
-  "dataTransacao" : "aeiou",
-  "idProduto" : 123456789,
-  "descricaoTipoResolucao" : "aeiou",
-  "descricaoRespostaAutorizador" : "aeiou",
-  "cpf" : "aeiou",
-  "id" : 123456789,
-  "flagAltoRisco" : false,
-  "email" : "aeiou",
-  "idCartao" : 123456789,
-  "idConta" : 123456789,
-  "codigoMoedaDestino" : "aeiou",
-  "codigoModoEntradaTerminal" : "aeiou",
-  "valorDestino" : 1.3579000000000001069366817318950779736042022705078125,
-  "idTipoResolucao" : 123456789,
-  "nomeEstabelecimento" : "aeiou",
-  "codigoRespostaFraude" : "aeiou",
-  "descricaoModoEntradaTerminal" : "aeiou",
-  "idTransacao" : 123456789,
-  "tefefones" : [ {
-    "idPessoa" : 123456789,
-    "telefone" : "aeiou",
-    "ddd" : "aeiou",
-    "idTipoTelefone" : 123456789,
-    "id" : 123456789,
-    "ramal" : "aeiou",
-    "status" : 123
-  } ],
-  "descricaoRespostaFraude" : "aeiou",
-  "codigoRespostaAutorizador" : "aeiou"
-}}]
-     
-     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do risco de fraude 
-
-     - returns: RequestBuilder<RiscoFraudeDetalhadoResponse> 
-     */
-    public class func negarUsingPOSTWithRequestBuilder(id id: Int) -> RequestBuilder<RiscoFraudeDetalhadoResponse> {
-        var path = "/api/riscos-fraudes/{id}/negar"
-        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
-        let URLString = PierAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<RiscoFraudeDetalhadoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Reconhecer a transa\u00C3\u00A7\u00C3\u00A3o com risco de fraude
-     
-     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do risco de fraude 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func reconhecerUsingPOST(id id: Int, completion: ((data: RiscoFraudeDetalhadoResponse?, error: ErrorType?) -> Void)) {
-        reconhecerUsingPOSTWithRequestBuilder(id: id).execute { (response, error) -> Void in
-            completion(data: response?.body, error: error);
-        }
-    }
-
-
-    /**
-     
-     Reconhecer a transa\u00C3\u00A7\u00C3\u00A3o com risco de fraude
-     
-     - POST /api/riscos-fraudes/{id}/reconhecer
-     - Confirma a autenticidade da transa\u00C3\u00A7\u00C3\u00A3o classificada com risco de fraude.
-     - examples: [{contentType=application/json, example={
-  "valorOrigem" : 1.3579000000000001069366817318950779736042022705078125,
-  "origemTransacao" : "aeiou",
-  "codigoMoedaOrigem" : "aeiou",
-  "idPais" : "aeiou",
-  "valorTransacao" : 1.3579000000000001069366817318950779736042022705078125,
-  "cnpj" : "aeiou",
-  "dataTransacao" : "aeiou",
-  "idProduto" : 123456789,
-  "descricaoTipoResolucao" : "aeiou",
-  "descricaoRespostaAutorizador" : "aeiou",
-  "cpf" : "aeiou",
-  "id" : 123456789,
-  "flagAltoRisco" : false,
-  "email" : "aeiou",
-  "idCartao" : 123456789,
-  "idConta" : 123456789,
-  "codigoMoedaDestino" : "aeiou",
-  "codigoModoEntradaTerminal" : "aeiou",
-  "valorDestino" : 1.3579000000000001069366817318950779736042022705078125,
-  "idTipoResolucao" : 123456789,
-  "nomeEstabelecimento" : "aeiou",
-  "codigoRespostaFraude" : "aeiou",
-  "descricaoModoEntradaTerminal" : "aeiou",
-  "idTransacao" : 123456789,
-  "tefefones" : [ {
-    "idPessoa" : 123456789,
-    "telefone" : "aeiou",
-    "ddd" : "aeiou",
-    "idTipoTelefone" : 123456789,
-    "id" : 123456789,
-    "ramal" : "aeiou",
-    "status" : 123
-  } ],
-  "descricaoRespostaFraude" : "aeiou",
-  "codigoRespostaAutorizador" : "aeiou"
-}}]
-     
-     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do risco de fraude 
-
-     - returns: RequestBuilder<RiscoFraudeDetalhadoResponse> 
-     */
-    public class func reconhecerUsingPOSTWithRequestBuilder(id id: Int) -> RequestBuilder<RiscoFraudeDetalhadoResponse> {
-        var path = "/api/riscos-fraudes/{id}/reconhecer"
-        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
-        let URLString = PierAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<RiscoFraudeDetalhadoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
     }
 
 }

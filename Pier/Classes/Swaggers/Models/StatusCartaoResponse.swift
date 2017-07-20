@@ -29,6 +29,12 @@ public class StatusCartaoResponse: JSONEncodable {
     public var flagPermiteNovaViaCartao: Int?
     /** Par\u00C3\u00A2metro que define se o status do cart\u00C3\u00A3o permite o desbloqueio, sendo: 0: Inativo e 1: Ativo. */
     public var flagPermiteDesbloqueio: Int?
+    /** Par\u00C3\u00A2metro que define se o status do cart\u00C3\u00A3o permite o cancelamento, sendo: 0: Inativo e 1: Ativo. */
+    public var flagCancelamento: Int?
+    /** Par\u00C3\u00A2metro que define se o status do cart\u00C3\u00A3o permite o bloqueio, sendo: 0: Inativo e 1: Ativo. */
+    public var flagPermiteBloqueio: Int?
+    /** Par\u00C3\u00A2metro que define se o status do cart\u00C3\u00A3o permite a reativa\u00C3\u00A7\u00C3\u00A3o do cart\u00C3\u00A3o, sendo: 0: Inativo e 1: Ativo. */
+    public var flagReativar: Int?
     
 
     public init() {}
@@ -45,6 +51,9 @@ public class StatusCartaoResponse: JSONEncodable {
         nillableDictionary["flagCobraTarifa"] = self.flagCobraTarifa
         nillableDictionary["flagPermiteNovaViaCartao"] = self.flagPermiteNovaViaCartao
         nillableDictionary["flagPermiteDesbloqueio"] = self.flagPermiteDesbloqueio
+        nillableDictionary["flagCancelamento"] = self.flagCancelamento
+        nillableDictionary["flagPermiteBloqueio"] = self.flagPermiteBloqueio
+        nillableDictionary["flagReativar"] = self.flagReativar
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

@@ -12,6 +12,14 @@ public class AjusteResponse: JSONEncodable {
 
     /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do ajuste (id) */
     public var idAjuste: Int?
+    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do tipo do ajuste */
+    public var idTipoAjuste: Int?
+    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (idConta) */
+    public var idConta: Int?
+    /** Data do ajuste */
+    public var dataAjuste: String?
+    /** Valor do ajuste */
+    public var valor: Double?
     
 
     public init() {}
@@ -20,6 +28,10 @@ public class AjusteResponse: JSONEncodable {
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
         nillableDictionary["idAjuste"] = self.idAjuste
+        nillableDictionary["idTipoAjuste"] = self.idTipoAjuste
+        nillableDictionary["idConta"] = self.idConta
+        nillableDictionary["dataAjuste"] = self.dataAjuste
+        nillableDictionary["valor"] = self.valor
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

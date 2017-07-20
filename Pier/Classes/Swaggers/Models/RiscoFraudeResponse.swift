@@ -11,21 +11,21 @@ import Foundation
 /** Par\u00C3\u00A2metros de resposta de risco de fraude */
 public class RiscoFraudeResponse: JSONEncodable {
 
-    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do risco de fraude (id) */
+    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do risco de fraude */
     public var id: Int?
-    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do tipo de resolu\u00C3\u00A7\u00C3\u00A3o atribu\u00C3\u00ADdo ao registro (id) */
+    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do tipo de resolu\u00C3\u00A7\u00C3\u00A3o atribu\u00C3\u00ADdo ao registro */
     public var idTipoResolucao: Int?
     /** Descri\u00C3\u00A7\u00C3\u00A3o do tipo de resolu\u00C3\u00A7\u00C3\u00A3o atribu\u00C3\u00ADdo ao registro */
     public var descricaoTipoResolucao: String?
-    /** Quando ativa, indica que a transa\u00C3\u00A7\u00C3\u00A3o possui um alto risco de fraude e que todas as transa\u00C3\u00A7\u00C3\u00B5es seguintes a ela ser\u00C3\u00A3o negadas at\u00C3\u00A9 que todas as transa\u00C3\u00A7\u00C3\u00B5es classificadas com risco de fraude ser\u00C3\u00A3o analisadas */
+    /** Quando ativa, indica que a transa\u00C3\u00A7\u00C3\u00A3o possui um alto risco de fraude e que todas as transa\u00C3\u00A7\u00C3\u00B5es seguintes a ela ser\u00C3\u00A3o negadas at\u00C3\u00A9 que todas as transa\u00C3\u00A7\u00C3\u00B5es classificadas com risco de fraude sejam analisadas */
     public var flagAltoRisco: Bool?
-    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id) */
+    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta */
     public var idConta: Int?
-    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do cart\u00C3\u00A3o (id) */
+    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do cart\u00C3\u00A3o */
     public var idCartao: Int?
-    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da transa\u00C3\u00A7\u00C3\u00A3o (id) */
+    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da transa\u00C3\u00A7\u00C3\u00A3o */
     public var idTransacao: Int?
-    /** Data que a transa\u00C3\u00A7\u00C3\u00A3o classificada com risco de fraude foi realizada */
+    /** Data em que a transa\u00C3\u00A7\u00C3\u00A3o classificada com risco de fraude foi realizada */
     public var dataTransacao: String?
     /** Valor da transa\u00C3\u00A7\u00C3\u00A3o classificada com risco de fraude */
     public var valorTransacao: Double?

@@ -12,7 +12,7 @@ import Alamofire
 public class UsuariosAPI: APIBase {
     /**
      
-     Alterar senha do usu\u00C3\u00A1rio
+     Alterar senha do usu\u00C3\u00A1rio na base do PIER ou WS.
      
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Usu\u00C3\u00A1rio (id). 
      - parameter completion: completion handler to receive the data and the error objects
@@ -26,7 +26,7 @@ public class UsuariosAPI: APIBase {
 
     /**
      
-     Alterar senha do usu\u00C3\u00A1rio
+     Alterar senha do usu\u00C3\u00A1rio na base do PIER ou WS.
      
      - PUT /api/usuarios/{id}/alterar-senha
      - Este m\u00C3\u00A9todo realiza a altera\u00C3\u00A7\u00C3\u00A3o da senha do usu\u00C3\u00A1rio.
@@ -51,7 +51,7 @@ public class UsuariosAPI: APIBase {
 
     /**
      
-     Altera os usu\u00C3\u00A1rios cadastrados
+     Altera os usu\u00C3\u00A1rios cadastrados na base do PIER ou WS.
      
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Usu\u00C3\u00A1rio (id). 
      - parameter update: (body) update 
@@ -66,7 +66,7 @@ public class UsuariosAPI: APIBase {
 
     /**
      
-     Altera os usu\u00C3\u00A1rios cadastrados
+     Altera os usu\u00C3\u00A1rios cadastrados na base do PIER ou WS.
      
      - PUT /api/usuarios/{id}
      - Este m\u00C3\u00A9todo realiza a altera\u00C3\u00A7\u00C3\u00A3o dos usu\u00C3\u00A1rios.
@@ -102,7 +102,7 @@ public class UsuariosAPI: APIBase {
 
     /**
      
-     Ativa os usu\u00C3\u00A1rios cadastrados
+     Ativa os usu\u00C3\u00A1rios cadastrados na base do PIER ou WS.
      
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Usu\u00C3\u00A1rio (id). 
      - parameter completion: completion handler to receive the data and the error objects
@@ -116,7 +116,7 @@ public class UsuariosAPI: APIBase {
 
     /**
      
-     Ativa os usu\u00C3\u00A1rios cadastrados
+     Ativa os usu\u00C3\u00A1rios cadastrados na base do PIER ou WS.
      
      - POST /api/usuarios/{id}/ativar-usuario
      - Este m\u00C3\u00A9todo realiza a ativa\u00C3\u00A7\u00C3\u00A3o dos usu\u00C3\u00A1rios.
@@ -152,13 +152,13 @@ public class UsuariosAPI: APIBase {
 
     /**
      
-     Apresenta os dados de um determinado Usu\u00C3\u00A1rio
+     Apresenta os dados de um determinado Usu\u00C3\u00A1rio na base do PIER ou WS.
      
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Usu\u00C3\u00A1rio (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET25(id id: Int, completion: ((data: UsuarioResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET25WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET26(id id: Int, completion: ((data: UsuarioResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET26WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -166,7 +166,7 @@ public class UsuariosAPI: APIBase {
 
     /**
      
-     Apresenta os dados de um determinado Usu\u00C3\u00A1rio
+     Apresenta os dados de um determinado Usu\u00C3\u00A1rio na base do PIER ou WS.
      
      - GET /api/usuarios/{id}
      - Este m\u00C3\u00A9todo permite consultar as informa\u00C3\u00A7\u00C3\u00B5es de um determinado Usu\u00C3\u00A1rio a partir do seu c\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o (id).
@@ -187,7 +187,7 @@ public class UsuariosAPI: APIBase {
 
      - returns: RequestBuilder<UsuarioResponse> 
      */
-    public class func consultarUsingGET25WithRequestBuilder(id id: Int) -> RequestBuilder<UsuarioResponse> {
+    public class func consultarUsingGET26WithRequestBuilder(id id: Int) -> RequestBuilder<UsuarioResponse> {
         var path = "/api/usuarios/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -202,7 +202,7 @@ public class UsuariosAPI: APIBase {
 
     /**
      
-     Desativa os usu\u00C3\u00A1rios cadastrados
+     Desativa os usu\u00C3\u00A1rios cadastrados na base do PIER ou WS.
      
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Usu\u00C3\u00A1rio (id). 
      - parameter completion: completion handler to receive the data and the error objects
@@ -216,7 +216,7 @@ public class UsuariosAPI: APIBase {
 
     /**
      
-     Desativa os usu\u00C3\u00A1rios cadastrados
+     Desativa os usu\u00C3\u00A1rios cadastrados na base do PIER ou WS.
      
      - POST /api/usuarios/{id}/desativar-usuario
      - Este m\u00C3\u00A9todo realiza a desativa\u00C3\u00A7\u00C3\u00A3o dos usu\u00C3\u00A1rios.
@@ -252,7 +252,7 @@ public class UsuariosAPI: APIBase {
 
     /**
      
-     Lista os Usu\u00C3\u00A1rios cadastrados
+     Lista os Usu\u00C3\u00A1rios cadastrados na base do PIER ou WS.
      
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
@@ -271,7 +271,7 @@ public class UsuariosAPI: APIBase {
 
     /**
      
-     Lista os Usu\u00C3\u00A1rios cadastrados
+     Lista os Usu\u00C3\u00A1rios cadastrados na base do PIER ou WS.
      
      - GET /api/usuarios
      - Este m\u00C3\u00A9todo permite que sejam listados os usu\u00C3\u00A1rios existentes na base do PIER.
@@ -333,7 +333,7 @@ public class UsuariosAPI: APIBase {
 
     /**
      
-     Recuperar senha do usu\u00C3\u00A1rio
+     Recuperar senha do usu\u00C3\u00A1rio na base do PIER ou WS.
      
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Usu\u00C3\u00A1rio (id). 
      - parameter completion: completion handler to receive the data and the error objects
@@ -347,7 +347,7 @@ public class UsuariosAPI: APIBase {
 
     /**
      
-     Recuperar senha do usu\u00C3\u00A1rio
+     Recuperar senha do usu\u00C3\u00A1rio na base do PIER ou WS.
      
      - POST /api/usuarios/{id}/recuperar-senha
      - Esse recurso permite recuperar a senha do usu\u00C3\u00A1rio.
@@ -372,13 +372,13 @@ public class UsuariosAPI: APIBase {
 
     /**
      
-     Cadastra Usu\u00C3\u00A1rio
+     Cadastra Usu\u00C3\u00A1rio na base do PIER ou WS.
      
      - parameter persist: (body) persist 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func salvarUsingPOST13(persist persist: UsuarioPersist, completion: ((data: UsuarioResponse?, error: ErrorType?) -> Void)) {
-        salvarUsingPOST13WithRequestBuilder(persist: persist).execute { (response, error) -> Void in
+    public class func salvarUsingPOST15(persist persist: UsuarioPersist, completion: ((data: UsuarioResponse?, error: ErrorType?) -> Void)) {
+        salvarUsingPOST15WithRequestBuilder(persist: persist).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -386,7 +386,7 @@ public class UsuariosAPI: APIBase {
 
     /**
      
-     Cadastra Usu\u00C3\u00A1rio
+     Cadastra Usu\u00C3\u00A1rio na base do PIER ou WS.
      
      - POST /api/usuarios
      - Esse recurso permite cadastrar usu\u00C3\u00A1rios.
@@ -407,7 +407,7 @@ public class UsuariosAPI: APIBase {
 
      - returns: RequestBuilder<UsuarioResponse> 
      */
-    public class func salvarUsingPOST13WithRequestBuilder(persist persist: UsuarioPersist) -> RequestBuilder<UsuarioResponse> {
+    public class func salvarUsingPOST15WithRequestBuilder(persist persist: UsuarioPersist) -> RequestBuilder<UsuarioResponse> {
         let path = "/api/usuarios"
         let URLString = PierAPI.basePath + path
         
@@ -420,7 +420,7 @@ public class UsuariosAPI: APIBase {
 
     /**
      
-     Validar a senha do usu\u00C3\u00A1rio
+     Validar a senha do usu\u00C3\u00A1rio na base do PIER ou WS.
      
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Usu\u00C3\u00A1rio (id). 
      - parameter completion: completion handler to receive the data and the error objects
@@ -434,7 +434,7 @@ public class UsuariosAPI: APIBase {
 
     /**
      
-     Validar a senha do usu\u00C3\u00A1rio
+     Validar a senha do usu\u00C3\u00A1rio na base do PIER ou WS.
      
      - GET /api/usuarios/{id}/validar-senha
      - Este m\u00C3\u00A9todo permite validar a senha do usu\u00C3\u00A1rio).

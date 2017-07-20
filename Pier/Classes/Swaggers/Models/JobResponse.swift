@@ -12,8 +12,8 @@ import Foundation
 public class JobResponse: JSONEncodable {
 
     public enum Status: String { 
-        case Ativo = "ATIVO"
         case Inativo = "INATIVO"
+        case Ativo = "ATIVO"
     }
     
     /** Identificador do Job */

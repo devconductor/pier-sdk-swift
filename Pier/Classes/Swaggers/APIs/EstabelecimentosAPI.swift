@@ -17,8 +17,8 @@ public class EstabelecimentosAPI: APIBase {
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Terminal (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET16(id id: Int, completion: ((data: TerminalResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET16WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET17(id id: Int, completion: ((data: TerminalResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET17WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -41,7 +41,7 @@ public class EstabelecimentosAPI: APIBase {
 
      - returns: RequestBuilder<TerminalResponse> 
      */
-    public class func consultarUsingGET16WithRequestBuilder(id id: Int) -> RequestBuilder<TerminalResponse> {
+    public class func consultarUsingGET17WithRequestBuilder(id id: Int) -> RequestBuilder<TerminalResponse> {
         var path = "/api/terminais/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -61,8 +61,8 @@ public class EstabelecimentosAPI: APIBase {
      - parameter id: (path) Id 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET6(id id: Int, completion: ((data: EstabelecimentoResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET6WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET7(id id: Int, completion: ((data: EstabelecimentoResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET7WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -102,7 +102,7 @@ public class EstabelecimentosAPI: APIBase {
 
      - returns: RequestBuilder<EstabelecimentoResponse> 
      */
-    public class func consultarUsingGET6WithRequestBuilder(id id: Int) -> RequestBuilder<EstabelecimentoResponse> {
+    public class func consultarUsingGET7WithRequestBuilder(id id: Int) -> RequestBuilder<EstabelecimentoResponse> {
         var path = "/api/estabelecimentos/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path

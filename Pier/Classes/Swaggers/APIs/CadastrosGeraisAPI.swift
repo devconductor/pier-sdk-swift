@@ -12,314 +12,6 @@ import Alamofire
 public class CadastrosGeraisAPI: APIBase {
     /**
      
-     Atualiza os dados de um determinado Endere\u00C3\u00A7o
-     
-     - parameter id: (query) id 
-     - parameter idPessoa: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Pessoa a qual o endere\u00C3\u00A7o pertence (id) (optional)
-     - parameter idTipoEndereco: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Tipo Endere\u00C3\u00A7o (id) (optional)
-     - parameter cep: (query) Apresenta o C\u00C3\u00B3digo de Endere\u00C3\u00A7amento Postal (CEP) no formaro &#39;58800000&#39; (optional)
-     - parameter logradouro: (query) Apresenta o nome do Logradouro (optional)
-     - parameter numero: (query) Apresenta o n\u00C3\u00BAmero do endere\u00C3\u00A7o (optional)
-     - parameter complemento: (query) Apresenta descri\u00C3\u00A7oes complementares referente ao endere\u00C3\u00A7o (optional)
-     - parameter pontoReferencia: (query) Apresenta a descri\u00C3\u00A7\u00C3\u00A3o de ponto de refer\u00C3\u00AAncia do endere\u00C3\u00A7o (optional)
-     - parameter bairro: (query) Apresenta nome do bairro (optional)
-     - parameter cidade: (query) Apresenta nome da cidade (optional)
-     - parameter uf: (query) Apresenta sigla da Unidade Federativa (optional)
-     - parameter pais: (query) Apresenta nome do Pais (optional)
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func alterarUsingPUT1(id id: Int, idPessoa: Int?, idTipoEndereco: Int?, cep: String?, logradouro: String?, numero: Int?, complemento: String?, pontoReferencia: String?, bairro: String?, cidade: String?, uf: String?, pais: String?, completion: ((data: EnderecoResponse?, error: ErrorType?) -> Void)) {
-        alterarUsingPUT1WithRequestBuilder(id: id, idPessoa: idPessoa, idTipoEndereco: idTipoEndereco, cep: cep, logradouro: logradouro, numero: numero, complemento: complemento, pontoReferencia: pontoReferencia, bairro: bairro, cidade: cidade, uf: uf, pais: pais).execute { (response, error) -> Void in
-            completion(data: response?.body, error: error);
-        }
-    }
-
-
-    /**
-     
-     Atualiza os dados de um determinado Endere\u00C3\u00A7o
-     
-     - PUT /api/enderecos
-     - Este m\u00C3\u00A9todo permite que seja alterado na base do emissor um ou mais registros ligados a um determinado Endere\u00C3\u00A7o.
-     - examples: [{contentType=application/json, example={
-  "pontoReferencia" : "aeiou",
-  "cidade" : "aeiou",
-  "numero" : 123,
-  "bairro" : "aeiou",
-  "idTipoEndereco" : 123456789,
-  "cep" : "aeiou",
-  "pais" : "aeiou",
-  "idPessoa" : 123456789,
-  "uf" : "aeiou",
-  "complemento" : "aeiou",
-  "logradouro" : "aeiou",
-  "dataInclusao" : "aeiou",
-  "dataUltimaAtualizacao" : "aeiou",
-  "id" : 123456789
-}}]
-     
-     - parameter id: (query) id 
-     - parameter idPessoa: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Pessoa a qual o endere\u00C3\u00A7o pertence (id) (optional)
-     - parameter idTipoEndereco: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Tipo Endere\u00C3\u00A7o (id) (optional)
-     - parameter cep: (query) Apresenta o C\u00C3\u00B3digo de Endere\u00C3\u00A7amento Postal (CEP) no formaro &#39;58800000&#39; (optional)
-     - parameter logradouro: (query) Apresenta o nome do Logradouro (optional)
-     - parameter numero: (query) Apresenta o n\u00C3\u00BAmero do endere\u00C3\u00A7o (optional)
-     - parameter complemento: (query) Apresenta descri\u00C3\u00A7oes complementares referente ao endere\u00C3\u00A7o (optional)
-     - parameter pontoReferencia: (query) Apresenta a descri\u00C3\u00A7\u00C3\u00A3o de ponto de refer\u00C3\u00AAncia do endere\u00C3\u00A7o (optional)
-     - parameter bairro: (query) Apresenta nome do bairro (optional)
-     - parameter cidade: (query) Apresenta nome da cidade (optional)
-     - parameter uf: (query) Apresenta sigla da Unidade Federativa (optional)
-     - parameter pais: (query) Apresenta nome do Pais (optional)
-
-     - returns: RequestBuilder<EnderecoResponse> 
-     */
-    public class func alterarUsingPUT1WithRequestBuilder(id id: Int, idPessoa: Int?, idTipoEndereco: Int?, cep: String?, logradouro: String?, numero: Int?, complemento: String?, pontoReferencia: String?, bairro: String?, cidade: String?, uf: String?, pais: String?) -> RequestBuilder<EnderecoResponse> {
-        let path = "/api/enderecos"
-        let URLString = PierAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [
-            "id": id,
-            "idPessoa": idPessoa,
-            "idTipoEndereco": idTipoEndereco,
-            "cep": cep,
-            "logradouro": logradouro,
-            "numero": numero,
-            "complemento": complemento,
-            "pontoReferencia": pontoReferencia,
-            "bairro": bairro,
-            "cidade": cidade,
-            "uf": uf,
-            "pais": pais
-        ]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<EnderecoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: false)
-    }
-
-    /**
-     
-     Atualiza os detalhes de uma determinada Pessoa
-     
-     - parameter id: (path) ID da Pessoa 
-     - parameter nomeMae: (query) Apresenta o nome da m\u00C3\u00A3e da pessoa fisica (optional)
-     - parameter idEstadoCivil: (query) Id Estado civil da pessoa fisica (optional)
-     - parameter profissao: (query) Profiss\u00C3\u00A3o da pessoa fisica (optional)
-     - parameter idNaturezaOcupacao: (query) Id Natureza Ocupa\u00C3\u00A7\u00C3\u00A3o da pessoa fisica (optional)
-     - parameter idNacionalidade: (query) Id Nacionalidade da pessoa fisica (optional)
-     - parameter numeroAgencia: (query) N\u00C3\u00BAmero da ag\u00C3\u00AAncia. (optional)
-     - parameter numeroContaCorrente: (query) N\u00C3\u00BAmero da conta corrente. (optional)
-     - parameter email: (query) Email da pessoa fisica (optional)
-     - parameter nomeEmpresa: (query) Nome que deve ser impresso no cart\u00C3\u00A3o (optional)
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func alterarUsingPUT4(id id: Int, nomeMae: String?, idEstadoCivil: Int?, profissao: String?, idNaturezaOcupacao: Int?, idNacionalidade: Int?, numeroAgencia: Int?, numeroContaCorrente: String?, email: String?, nomeEmpresa: String?, completion: ((data: PessoaDetalheResponse?, error: ErrorType?) -> Void)) {
-        alterarUsingPUT4WithRequestBuilder(id: id, nomeMae: nomeMae, idEstadoCivil: idEstadoCivil, profissao: profissao, idNaturezaOcupacao: idNaturezaOcupacao, idNacionalidade: idNacionalidade, numeroAgencia: numeroAgencia, numeroContaCorrente: numeroContaCorrente, email: email, nomeEmpresa: nomeEmpresa).execute { (response, error) -> Void in
-            completion(data: response?.body, error: error);
-        }
-    }
-
-
-    /**
-     
-     Atualiza os detalhes de uma determinada Pessoa
-     
-     - PUT /api/pessoas-detalhes/{id}
-     - Este m\u00C3\u00A9todo permite que seja alterado na base do emissor os detalhes de uma determinada Pessoa.
-     - examples: [{contentType=application/json, example={
-  "idNacionalidade" : 123456789,
-  "idPessoa" : 123456789,
-  "idEstadoCivil" : 123456789,
-  "nomeEmpresa" : "aeiou",
-  "idNaturezaOcupacao" : 123456789,
-  "numeroContaCorrente" : "aeiou",
-  "profissao" : "aeiou",
-  "numeroAgencia" : 123,
-  "nomeMae" : "aeiou",
-  "email" : "aeiou"
-}}]
-     
-     - parameter id: (path) ID da Pessoa 
-     - parameter nomeMae: (query) Apresenta o nome da m\u00C3\u00A3e da pessoa fisica (optional)
-     - parameter idEstadoCivil: (query) Id Estado civil da pessoa fisica (optional)
-     - parameter profissao: (query) Profiss\u00C3\u00A3o da pessoa fisica (optional)
-     - parameter idNaturezaOcupacao: (query) Id Natureza Ocupa\u00C3\u00A7\u00C3\u00A3o da pessoa fisica (optional)
-     - parameter idNacionalidade: (query) Id Nacionalidade da pessoa fisica (optional)
-     - parameter numeroAgencia: (query) N\u00C3\u00BAmero da ag\u00C3\u00AAncia. (optional)
-     - parameter numeroContaCorrente: (query) N\u00C3\u00BAmero da conta corrente. (optional)
-     - parameter email: (query) Email da pessoa fisica (optional)
-     - parameter nomeEmpresa: (query) Nome que deve ser impresso no cart\u00C3\u00A3o (optional)
-
-     - returns: RequestBuilder<PessoaDetalheResponse> 
-     */
-    public class func alterarUsingPUT4WithRequestBuilder(id id: Int, nomeMae: String?, idEstadoCivil: Int?, profissao: String?, idNaturezaOcupacao: Int?, idNacionalidade: Int?, numeroAgencia: Int?, numeroContaCorrente: String?, email: String?, nomeEmpresa: String?) -> RequestBuilder<PessoaDetalheResponse> {
-        var path = "/api/pessoas-detalhes/{id}"
-        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
-        let URLString = PierAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [
-            "nomeMae": nomeMae,
-            "idEstadoCivil": idEstadoCivil,
-            "profissao": profissao,
-            "idNaturezaOcupacao": idNaturezaOcupacao,
-            "idNacionalidade": idNacionalidade,
-            "numeroAgencia": numeroAgencia,
-            "numeroContaCorrente": numeroContaCorrente,
-            "email": email,
-            "nomeEmpresa": nomeEmpresa
-        ]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<PessoaDetalheResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: false)
-    }
-
-    /**
-     
-     Atualiza os dados de uma determinada Pessoa
-     
-     - parameter id: (path) ID da Pessoa 
-     - parameter nome: (query) Apresenta o &#39;Nome Completo da PF&#39; ou o &#39;Nome Completo da Raz\u00C3\u00A3o Social (Nome Empresarial)&#39;. 
-     - parameter tipo: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do tipo da Pessoa, sendo: (\&quot;PF\&quot;: Pessoa F\u00C3\u00ADsica), (\&quot;PJ\&quot;: Pessoa Jur\u00C3\u00ADdica). 
-     - parameter cpf: (query) N\u00C3\u00BAmero do CPF, quando PF. (optional)
-     - parameter cnpj: (query) N\u00C3\u00BAmero do CNPJ, quando PJ. (optional)
-     - parameter dataNascimento: (query) Data de Nascimento da Pessoa, quando PF, ou a Data de Abertura da Empresa, quando PJ. Essa data deve ser informada no formato aaaa-MM-dd. (optional)
-     - parameter sexo: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do sexo da Pessoa, quando PF, sendo: (\&quot;M\&quot;: Masculino), (\&quot;F\&quot;: Feminino), (\&quot;O\&quot;: Outro), (\&quot;N\&quot;: N\u00C3\u00A3o Especificado). (optional)
-     - parameter numeroIdentidade: (query) N\u00C3\u00BAmero da Identidade. (optional)
-     - parameter orgaoExpedidorIdentidade: (query) Org\u00C3\u00A3o expedidor do Identidade. (optional)
-     - parameter unidadeFederativaIdentidade: (query) Sigla da Unidade Federativa de onde foi expedido a Identidade (optional)
-     - parameter dataEmissaoIdentidade: (query) Data emiss\u00C3\u00A3o da Identidade. (optional)
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func alterarUsingPUT5(id id: Int, nome: String, tipo: String, cpf: String?, cnpj: String?, dataNascimento: String?, sexo: String?, numeroIdentidade: String?, orgaoExpedidorIdentidade: String?, unidadeFederativaIdentidade: String?, dataEmissaoIdentidade: String?, completion: ((data: PessoaResponse?, error: ErrorType?) -> Void)) {
-        alterarUsingPUT5WithRequestBuilder(id: id, nome: nome, tipo: tipo, cpf: cpf, cnpj: cnpj, dataNascimento: dataNascimento, sexo: sexo, numeroIdentidade: numeroIdentidade, orgaoExpedidorIdentidade: orgaoExpedidorIdentidade, unidadeFederativaIdentidade: unidadeFederativaIdentidade, dataEmissaoIdentidade: dataEmissaoIdentidade).execute { (response, error) -> Void in
-            completion(data: response?.body, error: error);
-        }
-    }
-
-
-    /**
-     
-     Atualiza os dados de uma determinada Pessoa
-     
-     - PUT /api/pessoas/{id}
-     - Este m\u00C3\u00A9todo permite que seja alterado na base do emissor um registro de determinada Pessoa.
-     - examples: [{contentType=application/json, example={
-  "numeroIdentidade" : "aeiou",
-  "tipo" : "aeiou",
-  "cpf" : "aeiou",
-  "unidadeFederativaIdentidade" : "aeiou",
-  "nome" : "aeiou",
-  "id" : 123456789,
-  "cnpj" : "aeiou",
-  "dataNascimento" : "aeiou",
-  "sexo" : "aeiou",
-  "dataEmissaoIdentidade" : "aeiou",
-  "orgaoExpedidorIdentidade" : "aeiou"
-}}]
-     
-     - parameter id: (path) ID da Pessoa 
-     - parameter nome: (query) Apresenta o &#39;Nome Completo da PF&#39; ou o &#39;Nome Completo da Raz\u00C3\u00A3o Social (Nome Empresarial)&#39;. 
-     - parameter tipo: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do tipo da Pessoa, sendo: (\&quot;PF\&quot;: Pessoa F\u00C3\u00ADsica), (\&quot;PJ\&quot;: Pessoa Jur\u00C3\u00ADdica). 
-     - parameter cpf: (query) N\u00C3\u00BAmero do CPF, quando PF. (optional)
-     - parameter cnpj: (query) N\u00C3\u00BAmero do CNPJ, quando PJ. (optional)
-     - parameter dataNascimento: (query) Data de Nascimento da Pessoa, quando PF, ou a Data de Abertura da Empresa, quando PJ. Essa data deve ser informada no formato aaaa-MM-dd. (optional)
-     - parameter sexo: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do sexo da Pessoa, quando PF, sendo: (\&quot;M\&quot;: Masculino), (\&quot;F\&quot;: Feminino), (\&quot;O\&quot;: Outro), (\&quot;N\&quot;: N\u00C3\u00A3o Especificado). (optional)
-     - parameter numeroIdentidade: (query) N\u00C3\u00BAmero da Identidade. (optional)
-     - parameter orgaoExpedidorIdentidade: (query) Org\u00C3\u00A3o expedidor do Identidade. (optional)
-     - parameter unidadeFederativaIdentidade: (query) Sigla da Unidade Federativa de onde foi expedido a Identidade (optional)
-     - parameter dataEmissaoIdentidade: (query) Data emiss\u00C3\u00A3o da Identidade. (optional)
-
-     - returns: RequestBuilder<PessoaResponse> 
-     */
-    public class func alterarUsingPUT5WithRequestBuilder(id id: Int, nome: String, tipo: String, cpf: String?, cnpj: String?, dataNascimento: String?, sexo: String?, numeroIdentidade: String?, orgaoExpedidorIdentidade: String?, unidadeFederativaIdentidade: String?, dataEmissaoIdentidade: String?) -> RequestBuilder<PessoaResponse> {
-        var path = "/api/pessoas/{id}"
-        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
-        let URLString = PierAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [
-            "nome": nome,
-            "tipo": tipo,
-            "cpf": cpf,
-            "cnpj": cnpj,
-            "dataNascimento": dataNascimento,
-            "sexo": sexo,
-            "numeroIdentidade": numeroIdentidade,
-            "orgaoExpedidorIdentidade": orgaoExpedidorIdentidade,
-            "unidadeFederativaIdentidade": unidadeFederativaIdentidade,
-            "dataEmissaoIdentidade": dataEmissaoIdentidade
-        ]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<PessoaResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: false)
-    }
-
-    /**
-     
-     Realiza a altera\u00C3\u00A7\u00C3\u00A3o de um determinado Telefone
-     
-     - parameter id: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Telefone (id). 
-     - parameter idTipoTelefone: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Tipo do Telefone (id). (optional)
-     - parameter ddd: (query) C\u00C3\u00B3digo DDD do telefone (id). (optional)
-     - parameter telefone: (query) N\u00C3\u00BAmero do telefone. (optional)
-     - parameter ramal: (query) N\u00C3\u00BAmero do ramal. (optional)
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func alterarUsingPUT6(id id: Int, idTipoTelefone: Int?, ddd: String?, telefone: String?, ramal: String?, completion: ((data: TelefoneResponse?, error: ErrorType?) -> Void)) {
-        alterarUsingPUT6WithRequestBuilder(id: id, idTipoTelefone: idTipoTelefone, ddd: ddd, telefone: telefone, ramal: ramal).execute { (response, error) -> Void in
-            completion(data: response?.body, error: error);
-        }
-    }
-
-
-    /**
-     
-     Realiza a altera\u00C3\u00A7\u00C3\u00A3o de um determinado Telefone
-     
-     - PUT /api/telefones
-     - Este m\u00C3\u00A9todo permite que seja alterado um determinado Telefone na base de dados do Emissor.
-     - examples: [{contentType=application/json, example={
-  "idPessoa" : 123456789,
-  "telefone" : "aeiou",
-  "ddd" : "aeiou",
-  "idTipoTelefone" : 123456789,
-  "id" : 123456789,
-  "ramal" : "aeiou",
-  "status" : 123
-}}]
-     
-     - parameter id: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Telefone (id). 
-     - parameter idTipoTelefone: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Tipo do Telefone (id). (optional)
-     - parameter ddd: (query) C\u00C3\u00B3digo DDD do telefone (id). (optional)
-     - parameter telefone: (query) N\u00C3\u00BAmero do telefone. (optional)
-     - parameter ramal: (query) N\u00C3\u00BAmero do ramal. (optional)
-
-     - returns: RequestBuilder<TelefoneResponse> 
-     */
-    public class func alterarUsingPUT6WithRequestBuilder(id id: Int, idTipoTelefone: Int?, ddd: String?, telefone: String?, ramal: String?) -> RequestBuilder<TelefoneResponse> {
-        let path = "/api/telefones"
-        let URLString = PierAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [
-            "id": id,
-            "idTipoTelefone": idTipoTelefone,
-            "ddd": ddd,
-            "telefone": telefone,
-            "ramal": ramal
-        ]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<TelefoneResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: false)
-    }
-
-    /**
-     
      Ativa o par\u00C3\u00A2metro uso exterior para o produto
      
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Produto (id) 
@@ -431,9 +123,18 @@ public class CadastrosGeraisAPI: APIBase {
      - GET /api/origens-comerciais/{id}
      - Este m\u00C3\u00A9todo permite que sejam listados os registros de uma determinada Origem Comercial existente na base do emissor. Para isso, \u00C3\u00A9 preciso informar o seu respectivo c\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o (id).
      - examples: [{contentType=application/json, example={
+  "nomeGrupoOrigemComercial" : "aeiou",
+  "idGrupoOrigemComercial" : 123456789,
+  "idEstabelecimento" : 123456789,
+  "idTipoOrigemComercial" : 123456789,
+  "produtosOrigem" : [ {
+    "idProduto" : 123456789
+  } ],
   "nome" : "aeiou",
   "id" : 123456789,
-  "status" : 123
+  "nomeTipoOrigemComercial" : "aeiou",
+  "descricao" : "aeiou",
+  "status" : false
 }}]
      
      - parameter id: (path) ID da Origem Comercial 
@@ -509,8 +210,8 @@ public class CadastrosGeraisAPI: APIBase {
      - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do atendimento cliente (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET(id id: Int, completion: ((data: AtendimentoClienteResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGETWithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET1(id id: Int, completion: ((data: AtendimentoClienteResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET1WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -543,7 +244,7 @@ public class CadastrosGeraisAPI: APIBase {
 
      - returns: RequestBuilder<AtendimentoClienteResponse> 
      */
-    public class func consultarUsingGETWithRequestBuilder(id id: Int) -> RequestBuilder<AtendimentoClienteResponse> {
+    public class func consultarUsingGET1WithRequestBuilder(id id: Int) -> RequestBuilder<AtendimentoClienteResponse> {
         var path = "/api/atendimento-clientes/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -558,108 +259,13 @@ public class CadastrosGeraisAPI: APIBase {
 
     /**
      
-     Apresenta os dados de um determinado Banco
-     
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Banco (id). 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func consultarUsingGET1(id id: Int, completion: ((data: BancoResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET1WithRequestBuilder(id: id).execute { (response, error) -> Void in
-            completion(data: response?.body, error: error);
-        }
-    }
-
-
-    /**
-     
-     Apresenta os dados de um determinado Banco
-     
-     - GET /api/bancos/{id}
-     - Este m\u00C3\u00A9todo permite consultar um determinado Banco a partir do seu c\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o (id).
-     - examples: [{contentType=application/json, example={
-  "nome" : "aeiou",
-  "id" : 123456789,
-  "digitoBanco" : "aeiou",
-  "descricao" : "aeiou"
-}}]
-     
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Banco (id). 
-
-     - returns: RequestBuilder<BancoResponse> 
-     */
-    public class func consultarUsingGET1WithRequestBuilder(id id: Int) -> RequestBuilder<BancoResponse> {
-        var path = "/api/bancos/{id}"
-        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
-        let URLString = PierAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<BancoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Apresenta os dados de uma determinada Pessoa
-     
-     - parameter id: (path) ID da Pessoa 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func consultarUsingGET10(id id: Int, completion: ((data: PessoaResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET10WithRequestBuilder(id: id).execute { (response, error) -> Void in
-            completion(data: response?.body, error: error);
-        }
-    }
-
-
-    /**
-     
-     Apresenta os dados de uma determinada Pessoa
-     
-     - GET /api/pessoas/{id}
-     - Este m\u00C3\u00A9todo permite que sejam listadas as Pessoas existentes na base de dados do Emissor.
-     - examples: [{contentType=application/json, example={
-  "numeroIdentidade" : "aeiou",
-  "tipo" : "aeiou",
-  "cpf" : "aeiou",
-  "unidadeFederativaIdentidade" : "aeiou",
-  "nome" : "aeiou",
-  "id" : 123456789,
-  "cnpj" : "aeiou",
-  "dataNascimento" : "aeiou",
-  "sexo" : "aeiou",
-  "dataEmissaoIdentidade" : "aeiou",
-  "orgaoExpedidorIdentidade" : "aeiou"
-}}]
-     
-     - parameter id: (path) ID da Pessoa 
-
-     - returns: RequestBuilder<PessoaResponse> 
-     */
-    public class func consultarUsingGET10WithRequestBuilder(id id: Int) -> RequestBuilder<PessoaResponse> {
-        var path = "/api/pessoas/{id}"
-        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
-        let URLString = PierAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<PessoaResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
      Apresenta os dados de um determinado Produto
      
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Produto (id) 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET11(id id: Int, completion: ((data: ProdutoDetalhesResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET11WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET12(id id: Int, completion: ((data: ProdutoDetalhesResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET12WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -684,7 +290,7 @@ public class CadastrosGeraisAPI: APIBase {
 
      - returns: RequestBuilder<ProdutoDetalhesResponse> 
      */
-    public class func consultarUsingGET11WithRequestBuilder(id id: Int) -> RequestBuilder<ProdutoDetalhesResponse> {
+    public class func consultarUsingGET12WithRequestBuilder(id id: Int) -> RequestBuilder<ProdutoDetalhesResponse> {
         var path = "/api/produtos/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -699,53 +305,6 @@ public class CadastrosGeraisAPI: APIBase {
 
     /**
      
-     Apresenta os dados de um determinado Telefone
-     
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Telefone (id). 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func consultarUsingGET15(id id: Int, completion: ((data: TelefoneResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET15WithRequestBuilder(id: id).execute { (response, error) -> Void in
-            completion(data: response?.body, error: error);
-        }
-    }
-
-
-    /**
-     
-     Apresenta os dados de um determinado Telefone
-     
-     - GET /api/telefones/{id}
-     - Este m\u00C3\u00A9todo permite consultar um determinado Telefone a partir do seu c\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o (id).
-     - examples: [{contentType=application/json, example={
-  "idPessoa" : 123456789,
-  "telefone" : "aeiou",
-  "ddd" : "aeiou",
-  "idTipoTelefone" : 123456789,
-  "id" : 123456789,
-  "ramal" : "aeiou",
-  "status" : 123
-}}]
-     
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Telefone (id). 
-
-     - returns: RequestBuilder<TelefoneResponse> 
-     */
-    public class func consultarUsingGET15WithRequestBuilder(id id: Int) -> RequestBuilder<TelefoneResponse> {
-        var path = "/api/telefones/{id}"
-        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
-        let URLString = PierAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<TelefoneResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
      Lista os tipos de ajustes do emissor 
      
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
@@ -754,8 +313,8 @@ public class CadastrosGeraisAPI: APIBase {
      - parameter descricao: (query) Descri\u00C3\u00A7\u00C3\u00A3o do tipo de ajuste. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET17(page page: Int?, limit: Int?, id: Int?, descricao: String?, completion: ((data: PageTipoAjusteResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET17WithRequestBuilder(page: page, limit: limit, id: id, descricao: descricao).execute { (response, error) -> Void in
+    public class func consultarUsingGET18(page page: Int?, limit: Int?, id: Int?, descricao: String?, completion: ((data: PageTipoAjusteResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET18WithRequestBuilder(page: page, limit: limit, id: id, descricao: descricao).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -794,7 +353,7 @@ public class CadastrosGeraisAPI: APIBase {
 
      - returns: RequestBuilder<PageTipoAjusteResponse> 
      */
-    public class func consultarUsingGET17WithRequestBuilder(page page: Int?, limit: Int?, id: Int?, descricao: String?) -> RequestBuilder<PageTipoAjusteResponse> {
+    public class func consultarUsingGET18WithRequestBuilder(page page: Int?, limit: Int?, id: Int?, descricao: String?) -> RequestBuilder<PageTipoAjusteResponse> {
         let path = "/api/tipos-ajustes"
         let URLString = PierAPI.basePath + path
         
@@ -822,8 +381,8 @@ public class CadastrosGeraisAPI: APIBase {
      - parameter banco: (query) C\u00C3\u00B3digo identificador do banco. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET18(page page: Int?, limit: Int?, id: Int?, descricao: String?, banco: Int?, completion: ((data: PageTipoBoletoResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET18WithRequestBuilder(page: page, limit: limit, id: id, descricao: descricao, banco: banco).execute { (response, error) -> Void in
+    public class func consultarUsingGET19(page page: Int?, limit: Int?, id: Int?, descricao: String?, banco: Int?, completion: ((data: PageTipoBoletoResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET19WithRequestBuilder(page: page, limit: limit, id: id, descricao: descricao, banco: banco).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -869,7 +428,7 @@ public class CadastrosGeraisAPI: APIBase {
 
      - returns: RequestBuilder<PageTipoBoletoResponse> 
      */
-    public class func consultarUsingGET18WithRequestBuilder(page page: Int?, limit: Int?, id: Int?, descricao: String?, banco: Int?) -> RequestBuilder<PageTipoBoletoResponse> {
+    public class func consultarUsingGET19WithRequestBuilder(page page: Int?, limit: Int?, id: Int?, descricao: String?, banco: Int?) -> RequestBuilder<PageTipoBoletoResponse> {
         let path = "/api/tipos-boletos"
         let URLString = PierAPI.basePath + path
         
@@ -889,13 +448,57 @@ public class CadastrosGeraisAPI: APIBase {
 
     /**
      
+     Apresenta os dados de um determinado Banco
+     
+     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Banco (id). 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func consultarUsingGET2(id id: Int, completion: ((data: BancoResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET2WithRequestBuilder(id: id).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Apresenta os dados de um determinado Banco
+     
+     - GET /api/bancos/{id}
+     - Este m\u00C3\u00A9todo permite consultar um determinado Banco a partir do seu c\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o (id).
+     - examples: [{contentType=application/json, example={
+  "nome" : "aeiou",
+  "id" : 123456789,
+  "digitoBanco" : "aeiou",
+  "descricao" : "aeiou"
+}}]
+     
+     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Banco (id). 
+
+     - returns: RequestBuilder<BancoResponse> 
+     */
+    public class func consultarUsingGET2WithRequestBuilder(id id: Int) -> RequestBuilder<BancoResponse> {
+        var path = "/api/bancos/{id}"
+        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<BancoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
      Apresenta os dados de um determinado Tipo de Endere\u00C3\u00A7o
      
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Tipo do Endere\u00C3\u00A7o (id) 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET19(id id: Int, completion: ((data: TipoEnderecoResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET19WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET20(id id: Int, completion: ((data: TipoEnderecoResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET20WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -916,7 +519,7 @@ public class CadastrosGeraisAPI: APIBase {
 
      - returns: RequestBuilder<TipoEnderecoResponse> 
      */
-    public class func consultarUsingGET19WithRequestBuilder(id id: Int) -> RequestBuilder<TipoEnderecoResponse> {
+    public class func consultarUsingGET20WithRequestBuilder(id id: Int) -> RequestBuilder<TipoEnderecoResponse> {
         var path = "/api/tipos-enderecos/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -936,8 +539,8 @@ public class CadastrosGeraisAPI: APIBase {
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Tipo do Telefone (id) 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET21(id id: Int, completion: ((data: TipoTelefoneResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET21WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET22(id id: Int, completion: ((data: TipoTelefoneResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET22WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -958,7 +561,7 @@ public class CadastrosGeraisAPI: APIBase {
 
      - returns: RequestBuilder<TipoTelefoneResponse> 
      */
-    public class func consultarUsingGET21WithRequestBuilder(id id: Int) -> RequestBuilder<TipoTelefoneResponse> {
+    public class func consultarUsingGET22WithRequestBuilder(id id: Int) -> RequestBuilder<TipoTelefoneResponse> {
         var path = "/api/tipos-telefones/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -967,110 +570,6 @@ public class CadastrosGeraisAPI: APIBase {
         let parameters = APIHelper.rejectNil(nillableParameters)
 
         let requestBuilder: RequestBuilder<TipoTelefoneResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Apresenta os dados de um determinado Endere\u00C3\u00A7o
-     
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Endere\u00C3\u00A7o (id). 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func consultarUsingGET5(id id: Int, completion: ((data: EnderecoResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET5WithRequestBuilder(id: id).execute { (response, error) -> Void in
-            completion(data: response?.body, error: error);
-        }
-    }
-
-
-    /**
-     
-     Apresenta os dados de um determinado Endere\u00C3\u00A7o
-     
-     - GET /api/enderecos/{id}
-     - Este m\u00C3\u00A9todo permite consultar um determinado Endere\u00C3\u00A7o a partir do seu c\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o (id).
-     - examples: [{contentType=application/json, example={
-  "pontoReferencia" : "aeiou",
-  "cidade" : "aeiou",
-  "numero" : 123,
-  "bairro" : "aeiou",
-  "idTipoEndereco" : 123456789,
-  "cep" : "aeiou",
-  "pais" : "aeiou",
-  "idPessoa" : 123456789,
-  "uf" : "aeiou",
-  "complemento" : "aeiou",
-  "logradouro" : "aeiou",
-  "dataInclusao" : "aeiou",
-  "dataUltimaAtualizacao" : "aeiou",
-  "id" : 123456789
-}}]
-     
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Endere\u00C3\u00A7o (id). 
-
-     - returns: RequestBuilder<EnderecoResponse> 
-     */
-    public class func consultarUsingGET5WithRequestBuilder(id id: Int) -> RequestBuilder<EnderecoResponse> {
-        var path = "/api/enderecos/{id}"
-        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
-        let URLString = PierAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<EnderecoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Apresenta os detalhes de uma determinada Pessoa
-     
-     - parameter id: (path) ID da Pessoa 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func consultarUsingGET9(id id: Int, completion: ((data: PessoaDetalheResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET9WithRequestBuilder(id: id).execute { (response, error) -> Void in
-            completion(data: response?.body, error: error);
-        }
-    }
-
-
-    /**
-     
-     Apresenta os detalhes de uma determinada Pessoa
-     
-     - GET /api/pessoas-detalhes/{id}
-     - Este m\u00C3\u00A9todo permite a consulta dos detalhes de uma Pessoa existentes na base de dados do Emissor.
-     - examples: [{contentType=application/json, example={
-  "idNacionalidade" : 123456789,
-  "idPessoa" : 123456789,
-  "idEstadoCivil" : 123456789,
-  "nomeEmpresa" : "aeiou",
-  "idNaturezaOcupacao" : 123456789,
-  "numeroContaCorrente" : "aeiou",
-  "profissao" : "aeiou",
-  "numeroAgencia" : 123,
-  "nomeMae" : "aeiou",
-  "email" : "aeiou"
-}}]
-     
-     - parameter id: (path) ID da Pessoa 
-
-     - returns: RequestBuilder<PessoaDetalheResponse> 
-     */
-    public class func consultarUsingGET9WithRequestBuilder(id id: Int) -> RequestBuilder<PessoaDetalheResponse> {
-        var path = "/api/pessoas-detalhes/{id}"
-        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
-        let URLString = PierAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<PessoaDetalheResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
     }
@@ -1446,10 +945,12 @@ public class CadastrosGeraisAPI: APIBase {
      - parameter id: (query) Id da origem comercial (optional)
      - parameter nome: (query) Nome da origem comercial (optional)
      - parameter status: (query) Status da origem comercial (optional)
+     - parameter idEstabelecimento: (query) C\u00C3\u00B3digo identificador do estabelecimento (optional)
+     - parameter idProduto: (query) C\u00C3\u00B3digo identificador do produto (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarOrigensComerciaisUsingGET(page page: Int?, limit: Int?, id: Int?, nome: String?, status: Int?, completion: ((data: PageOrigemComercialResponse?, error: ErrorType?) -> Void)) {
-        listarOrigensComerciaisUsingGETWithRequestBuilder(page: page, limit: limit, id: id, nome: nome, status: status).execute { (response, error) -> Void in
+    public class func listarOrigensComerciaisUsingGET(page page: Int?, limit: Int?, id: Int?, nome: String?, status: Int?, idEstabelecimento: Int?, idProduto: Int?, completion: ((data: PageOrigemComercialResponse?, error: ErrorType?) -> Void)) {
+        listarOrigensComerciaisUsingGETWithRequestBuilder(page: page, limit: limit, id: id, nome: nome, status: status, idEstabelecimento: idEstabelecimento, idProduto: idProduto).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -1468,9 +969,18 @@ public class CadastrosGeraisAPI: APIBase {
   "hasNextPage" : true,
   "nextPage" : 123,
   "content" : [ {
+    "nomeGrupoOrigemComercial" : "aeiou",
+    "idGrupoOrigemComercial" : 123456789,
+    "idEstabelecimento" : 123456789,
+    "idTipoOrigemComercial" : 123456789,
+    "produtosOrigem" : [ {
+      "idProduto" : 123456789
+    } ],
     "nome" : "aeiou",
     "id" : 123456789,
-    "status" : 123
+    "nomeTipoOrigemComercial" : "aeiou",
+    "descricao" : "aeiou",
+    "status" : false
   } ],
   "totalElements" : 123456789,
   "number" : 123,
@@ -1487,10 +997,12 @@ public class CadastrosGeraisAPI: APIBase {
      - parameter id: (query) Id da origem comercial (optional)
      - parameter nome: (query) Nome da origem comercial (optional)
      - parameter status: (query) Status da origem comercial (optional)
+     - parameter idEstabelecimento: (query) C\u00C3\u00B3digo identificador do estabelecimento (optional)
+     - parameter idProduto: (query) C\u00C3\u00B3digo identificador do produto (optional)
 
      - returns: RequestBuilder<PageOrigemComercialResponse> 
      */
-    public class func listarOrigensComerciaisUsingGETWithRequestBuilder(page page: Int?, limit: Int?, id: Int?, nome: String?, status: Int?) -> RequestBuilder<PageOrigemComercialResponse> {
+    public class func listarOrigensComerciaisUsingGETWithRequestBuilder(page page: Int?, limit: Int?, id: Int?, nome: String?, status: Int?, idEstabelecimento: Int?, idProduto: Int?) -> RequestBuilder<PageOrigemComercialResponse> {
         let path = "/api/origens-comerciais"
         let URLString = PierAPI.basePath + path
         
@@ -1499,11 +1011,74 @@ public class CadastrosGeraisAPI: APIBase {
             "limit": limit,
             "id": id,
             "nome": nome,
-            "status": status
+            "status": status,
+            "idEstabelecimento": idEstabelecimento,
+            "idProduto": idProduto
         ]
         let parameters = APIHelper.rejectNil(nillableParameters)
 
         let requestBuilder: RequestBuilder<PageOrigemComercialResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
+    }
+
+    /**
+     
+     Lista os Parentescos
+     
+     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func listarParentescosUsingGET(page page: Int?, limit: Int?, completion: ((data: PageCampoCodificadoDescricaoResponse?, error: ErrorType?) -> Void)) {
+        listarParentescosUsingGETWithRequestBuilder(page: page, limit: limit).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Lista os Parentescos
+     
+     - GET /api/parentescos
+     - Este m\u00C3\u00A9todo permite que sejam listados parentescos na base de dados do Emissor.
+     - examples: [{contentType=application/json, example={
+  "previousPage" : 123,
+  "last" : true,
+  "hasContent" : true,
+  "hasNextPage" : true,
+  "nextPage" : 123,
+  "content" : [ {
+    "codigo" : 123456789,
+    "descricao" : "aeiou"
+  } ],
+  "totalElements" : 123456789,
+  "number" : 123,
+  "firstPage" : true,
+  "numberOfElements" : 123,
+  "size" : 123,
+  "totalPages" : 123,
+  "hasPreviousPage" : true,
+  "first" : true
+}}]
+     
+     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+
+     - returns: RequestBuilder<PageCampoCodificadoDescricaoResponse> 
+     */
+    public class func listarParentescosUsingGETWithRequestBuilder(page page: Int?, limit: Int?) -> RequestBuilder<PageCampoCodificadoDescricaoResponse> {
+        let path = "/api/parentescos"
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [
+            "page": page,
+            "limit": limit
+        ]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<PageCampoCodificadoDescricaoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
     }
@@ -1650,208 +1225,6 @@ public class CadastrosGeraisAPI: APIBase {
         let parameters = APIHelper.rejectNil(nillableParameters)
 
         let requestBuilder: RequestBuilder<PageAtendimentoClienteResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
-    }
-
-    /**
-     
-     Lista os Detalhes das Pessoas cadastradas no Emissor
-     
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
-     - parameter idPessoa: (query) C\u00C3\u00B3digo identificador da pessoa (optional)
-     - parameter nomeMae: (query) Apresenta o nome da m\u00C3\u00A3e da pessoa fisica (optional)
-     - parameter idEstadoCivil: (query) Id Estado civil da pessoa fisica (optional)
-     - parameter profissao: (query) Profiss\u00C3\u00A3o da pessoa fisica (optional)
-     - parameter idNaturezaOcupacao: (query) Id Natureza Ocupa\u00C3\u00A7\u00C3\u00A3o da pessoa fisica (optional)
-     - parameter idNacionalidade: (query) Id Nacionalidade da pessoa fisica (optional)
-     - parameter numeroAgencia: (query) N\u00C3\u00BAmero da ag\u00C3\u00AAncia. (optional)
-     - parameter numeroContaCorrente: (query) N\u00C3\u00BAmero da conta corrente. (optional)
-     - parameter email: (query) Email da pessoa fisica (optional)
-     - parameter nomeEmpresa: (query) Nome que deve ser impresso no cart\u00C3\u00A3o (optional)
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func listarUsingGET14(page page: Int?, limit: Int?, idPessoa: Int?, nomeMae: String?, idEstadoCivil: Int?, profissao: String?, idNaturezaOcupacao: Int?, idNacionalidade: Int?, numeroAgencia: Int?, numeroContaCorrente: String?, email: String?, nomeEmpresa: String?, completion: ((data: PagePessoaDetalheResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET14WithRequestBuilder(page: page, limit: limit, idPessoa: idPessoa, nomeMae: nomeMae, idEstadoCivil: idEstadoCivil, profissao: profissao, idNaturezaOcupacao: idNaturezaOcupacao, idNacionalidade: idNacionalidade, numeroAgencia: numeroAgencia, numeroContaCorrente: numeroContaCorrente, email: email, nomeEmpresa: nomeEmpresa).execute { (response, error) -> Void in
-            completion(data: response?.body, error: error);
-        }
-    }
-
-
-    /**
-     
-     Lista os Detalhes das Pessoas cadastradas no Emissor
-     
-     - GET /api/pessoas-detalhes
-     - Este m\u00C3\u00A9todo permite que sejam listadas od detalhes das Pessoas existentes na base de dados do Emissor.
-     - examples: [{contentType=application/json, example={
-  "previousPage" : 123,
-  "last" : true,
-  "hasContent" : true,
-  "hasNextPage" : true,
-  "nextPage" : 123,
-  "content" : [ {
-    "idNacionalidade" : 123456789,
-    "idPessoa" : 123456789,
-    "idEstadoCivil" : 123456789,
-    "nomeEmpresa" : "aeiou",
-    "idNaturezaOcupacao" : 123456789,
-    "numeroContaCorrente" : "aeiou",
-    "profissao" : "aeiou",
-    "numeroAgencia" : 123,
-    "nomeMae" : "aeiou",
-    "email" : "aeiou"
-  } ],
-  "totalElements" : 123456789,
-  "number" : 123,
-  "firstPage" : true,
-  "numberOfElements" : 123,
-  "size" : 123,
-  "totalPages" : 123,
-  "hasPreviousPage" : true,
-  "first" : true
-}}]
-     
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
-     - parameter idPessoa: (query) C\u00C3\u00B3digo identificador da pessoa (optional)
-     - parameter nomeMae: (query) Apresenta o nome da m\u00C3\u00A3e da pessoa fisica (optional)
-     - parameter idEstadoCivil: (query) Id Estado civil da pessoa fisica (optional)
-     - parameter profissao: (query) Profiss\u00C3\u00A3o da pessoa fisica (optional)
-     - parameter idNaturezaOcupacao: (query) Id Natureza Ocupa\u00C3\u00A7\u00C3\u00A3o da pessoa fisica (optional)
-     - parameter idNacionalidade: (query) Id Nacionalidade da pessoa fisica (optional)
-     - parameter numeroAgencia: (query) N\u00C3\u00BAmero da ag\u00C3\u00AAncia. (optional)
-     - parameter numeroContaCorrente: (query) N\u00C3\u00BAmero da conta corrente. (optional)
-     - parameter email: (query) Email da pessoa fisica (optional)
-     - parameter nomeEmpresa: (query) Nome que deve ser impresso no cart\u00C3\u00A3o (optional)
-
-     - returns: RequestBuilder<PagePessoaDetalheResponse> 
-     */
-    public class func listarUsingGET14WithRequestBuilder(page page: Int?, limit: Int?, idPessoa: Int?, nomeMae: String?, idEstadoCivil: Int?, profissao: String?, idNaturezaOcupacao: Int?, idNacionalidade: Int?, numeroAgencia: Int?, numeroContaCorrente: String?, email: String?, nomeEmpresa: String?) -> RequestBuilder<PagePessoaDetalheResponse> {
-        let path = "/api/pessoas-detalhes"
-        let URLString = PierAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [
-            "page": page,
-            "limit": limit,
-            "idPessoa": idPessoa,
-            "nomeMae": nomeMae,
-            "idEstadoCivil": idEstadoCivil,
-            "profissao": profissao,
-            "idNaturezaOcupacao": idNaturezaOcupacao,
-            "idNacionalidade": idNacionalidade,
-            "numeroAgencia": numeroAgencia,
-            "numeroContaCorrente": numeroContaCorrente,
-            "email": email,
-            "nomeEmpresa": nomeEmpresa
-        ]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<PagePessoaDetalheResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
-    }
-
-    /**
-     
-     Lista as Pessoas cadastradas no Emissor
-     
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
-     - parameter id: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Pessoa (id). (optional)
-     - parameter nome: (query) Apresenta o &#39;Nome Completo da PF&#39; ou o &#39;Nome Completo da Raz\u00C3\u00A3o Social (Nome Empresarial)&#39;. (optional)
-     - parameter tipo: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do tipo da Pessoa, sendo: (\&quot;PF\&quot;: Pessoa F\u00C3\u00ADsica), (\&quot;PJ\&quot;: Pessoa Jur\u00C3\u00ADdica). (optional)
-     - parameter cpf: (query) N\u00C3\u00BAmero do CPF, quando PF. (optional)
-     - parameter cnpj: (query) N\u00C3\u00BAmero do CNPJ, quando PJ. (optional)
-     - parameter dataNascimento: (query) Data de Nascimento da Pessoa, quando PF, ou a Data de Abertura da Empresa, quando PJ. (optional)
-     - parameter sexo: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do sexo da Pessoa, quando PF, sendo: (\&quot;M\&quot;: Masculino), (\&quot;F\&quot;: Feminino), (\&quot;O\&quot;: Outro), (\&quot;N\&quot;: N\u00C3\u00A3o Especificado). (optional)
-     - parameter numeroIdentidade: (query) N\u00C3\u00BAmero da Identidade (optional)
-     - parameter orgaoExpedidorIdentidade: (query) Org\u00C3\u00A3o expedidor do RG. (optional)
-     - parameter unidadeFederativaIdentidade: (query) Sigla da Unidade Federativa de onde foi expedido a Identidade (optional)
-     - parameter dataEmissaoIdentidade: (query) Data emiss\u00C3\u00A3o da identidade no formato aaaa-MM-dd (optional)
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func listarUsingGET15(page page: Int?, limit: Int?, id: Int?, nome: String?, tipo: String?, cpf: String?, cnpj: String?, dataNascimento: String?, sexo: String?, numeroIdentidade: String?, orgaoExpedidorIdentidade: String?, unidadeFederativaIdentidade: String?, dataEmissaoIdentidade: String?, completion: ((data: PagePessoaResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET15WithRequestBuilder(page: page, limit: limit, id: id, nome: nome, tipo: tipo, cpf: cpf, cnpj: cnpj, dataNascimento: dataNascimento, sexo: sexo, numeroIdentidade: numeroIdentidade, orgaoExpedidorIdentidade: orgaoExpedidorIdentidade, unidadeFederativaIdentidade: unidadeFederativaIdentidade, dataEmissaoIdentidade: dataEmissaoIdentidade).execute { (response, error) -> Void in
-            completion(data: response?.body, error: error);
-        }
-    }
-
-
-    /**
-     
-     Lista as Pessoas cadastradas no Emissor
-     
-     - GET /api/pessoas
-     - Este m\u00C3\u00A9todo permite que sejam listadas as Pessoas existentes na base de dados do Emissor.
-     - examples: [{contentType=application/json, example={
-  "previousPage" : 123,
-  "last" : true,
-  "hasContent" : true,
-  "hasNextPage" : true,
-  "nextPage" : 123,
-  "content" : [ {
-    "numeroIdentidade" : "aeiou",
-    "tipo" : "aeiou",
-    "cpf" : "aeiou",
-    "unidadeFederativaIdentidade" : "aeiou",
-    "nome" : "aeiou",
-    "id" : 123456789,
-    "cnpj" : "aeiou",
-    "dataNascimento" : "aeiou",
-    "sexo" : "aeiou",
-    "dataEmissaoIdentidade" : "aeiou",
-    "orgaoExpedidorIdentidade" : "aeiou"
-  } ],
-  "totalElements" : 123456789,
-  "number" : 123,
-  "firstPage" : true,
-  "numberOfElements" : 123,
-  "size" : 123,
-  "totalPages" : 123,
-  "hasPreviousPage" : true,
-  "first" : true
-}}]
-     
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
-     - parameter id: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Pessoa (id). (optional)
-     - parameter nome: (query) Apresenta o &#39;Nome Completo da PF&#39; ou o &#39;Nome Completo da Raz\u00C3\u00A3o Social (Nome Empresarial)&#39;. (optional)
-     - parameter tipo: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do tipo da Pessoa, sendo: (\&quot;PF\&quot;: Pessoa F\u00C3\u00ADsica), (\&quot;PJ\&quot;: Pessoa Jur\u00C3\u00ADdica). (optional)
-     - parameter cpf: (query) N\u00C3\u00BAmero do CPF, quando PF. (optional)
-     - parameter cnpj: (query) N\u00C3\u00BAmero do CNPJ, quando PJ. (optional)
-     - parameter dataNascimento: (query) Data de Nascimento da Pessoa, quando PF, ou a Data de Abertura da Empresa, quando PJ. (optional)
-     - parameter sexo: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do sexo da Pessoa, quando PF, sendo: (\&quot;M\&quot;: Masculino), (\&quot;F\&quot;: Feminino), (\&quot;O\&quot;: Outro), (\&quot;N\&quot;: N\u00C3\u00A3o Especificado). (optional)
-     - parameter numeroIdentidade: (query) N\u00C3\u00BAmero da Identidade (optional)
-     - parameter orgaoExpedidorIdentidade: (query) Org\u00C3\u00A3o expedidor do RG. (optional)
-     - parameter unidadeFederativaIdentidade: (query) Sigla da Unidade Federativa de onde foi expedido a Identidade (optional)
-     - parameter dataEmissaoIdentidade: (query) Data emiss\u00C3\u00A3o da identidade no formato aaaa-MM-dd (optional)
-
-     - returns: RequestBuilder<PagePessoaResponse> 
-     */
-    public class func listarUsingGET15WithRequestBuilder(page page: Int?, limit: Int?, id: Int?, nome: String?, tipo: String?, cpf: String?, cnpj: String?, dataNascimento: String?, sexo: String?, numeroIdentidade: String?, orgaoExpedidorIdentidade: String?, unidadeFederativaIdentidade: String?, dataEmissaoIdentidade: String?) -> RequestBuilder<PagePessoaResponse> {
-        let path = "/api/pessoas"
-        let URLString = PierAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [
-            "page": page,
-            "limit": limit,
-            "id": id,
-            "nome": nome,
-            "tipo": tipo,
-            "cpf": cpf,
-            "cnpj": cnpj,
-            "dataNascimento": dataNascimento,
-            "sexo": sexo,
-            "numeroIdentidade": numeroIdentidade,
-            "orgaoExpedidorIdentidade": orgaoExpedidorIdentidade,
-            "unidadeFederativaIdentidade": unidadeFederativaIdentidade,
-            "dataEmissaoIdentidade": dataEmissaoIdentidade
-        ]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<PagePessoaResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
     }
@@ -2092,93 +1465,6 @@ public class CadastrosGeraisAPI: APIBase {
 
     /**
      
-     Lista os Telefones cadastrados no Emissor
-     
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
-     - parameter id: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Telefone (id). (optional)
-     - parameter idTipoTelefone: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Tipo do Telefone (id). (optional)
-     - parameter idPessoa: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Pessoa (id) a qual o telefone pertence. (optional)
-     - parameter ddd: (query) C\u00C3\u00B3digo DDD do telefone (id). (optional)
-     - parameter telefone: (query) N\u00C3\u00BAmero do telefone. (optional)
-     - parameter ramal: (query) N\u00C3\u00BAmero do ramal. (optional)
-     - parameter status: (query) Apresenta o Status do Telefone, onde: &#39;0&#39;: Inativo e &#39;1&#39;: Ativo (optional)
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func listarUsingGET22(page page: Int?, limit: Int?, id: Int?, idTipoTelefone: Int?, idPessoa: Int?, ddd: String?, telefone: String?, ramal: String?, status: Int?, completion: ((data: PageTelefoneResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET22WithRequestBuilder(page: page, limit: limit, id: id, idTipoTelefone: idTipoTelefone, idPessoa: idPessoa, ddd: ddd, telefone: telefone, ramal: ramal, status: status).execute { (response, error) -> Void in
-            completion(data: response?.body, error: error);
-        }
-    }
-
-
-    /**
-     
-     Lista os Telefones cadastrados no Emissor
-     
-     - GET /api/telefones
-     - Este m\u00C3\u00A9todo permite que sejam listados os Telefones existentes na base de dados do Emissor.
-     - examples: [{contentType=application/json, example={
-  "previousPage" : 123,
-  "last" : true,
-  "hasContent" : true,
-  "hasNextPage" : true,
-  "nextPage" : 123,
-  "content" : [ {
-    "idPessoa" : 123456789,
-    "telefone" : "aeiou",
-    "ddd" : "aeiou",
-    "idTipoTelefone" : 123456789,
-    "id" : 123456789,
-    "ramal" : "aeiou",
-    "status" : 123
-  } ],
-  "totalElements" : 123456789,
-  "number" : 123,
-  "firstPage" : true,
-  "numberOfElements" : 123,
-  "size" : 123,
-  "totalPages" : 123,
-  "hasPreviousPage" : true,
-  "first" : true
-}}]
-     
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
-     - parameter id: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Telefone (id). (optional)
-     - parameter idTipoTelefone: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Tipo do Telefone (id). (optional)
-     - parameter idPessoa: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Pessoa (id) a qual o telefone pertence. (optional)
-     - parameter ddd: (query) C\u00C3\u00B3digo DDD do telefone (id). (optional)
-     - parameter telefone: (query) N\u00C3\u00BAmero do telefone. (optional)
-     - parameter ramal: (query) N\u00C3\u00BAmero do ramal. (optional)
-     - parameter status: (query) Apresenta o Status do Telefone, onde: &#39;0&#39;: Inativo e &#39;1&#39;: Ativo (optional)
-
-     - returns: RequestBuilder<PageTelefoneResponse> 
-     */
-    public class func listarUsingGET22WithRequestBuilder(page page: Int?, limit: Int?, id: Int?, idTipoTelefone: Int?, idPessoa: Int?, ddd: String?, telefone: String?, ramal: String?, status: Int?) -> RequestBuilder<PageTelefoneResponse> {
-        let path = "/api/telefones"
-        let URLString = PierAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [
-            "page": page,
-            "limit": limit,
-            "id": id,
-            "idTipoTelefone": idTipoTelefone,
-            "idPessoa": idPessoa,
-            "ddd": ddd,
-            "telefone": telefone,
-            "ramal": ramal,
-            "status": status
-        ]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<PageTelefoneResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
-    }
-
-    /**
-     
      Lista as op\u00C3\u00B5es de Tipos de Endere\u00C3\u00A7os do Emissor 
      
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
@@ -2313,290 +1599,6 @@ public class CadastrosGeraisAPI: APIBase {
 
     /**
      
-     Lista os Endere\u00C3\u00A7os cadastrados para o Emissor
-     
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
-     - parameter id: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Endere\u00C3\u00A7o (id). (optional)
-     - parameter idPessoa: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Pessoa a qual o endere\u00C3\u00A7o pertence (id) (optional)
-     - parameter idTipoEndereco: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Tipo Endere\u00C3\u00A7o (id) (optional)
-     - parameter cep: (query) Apresenta o C\u00C3\u00B3digo de Endere\u00C3\u00A7amento Postal (CEP) (optional)
-     - parameter logradouro: (query) Apresenta o nome do Logradouro (optional)
-     - parameter numero: (query) Apresenta o n\u00C3\u00BAmero do endere\u00C3\u00A7o (optional)
-     - parameter complemento: (query) Apresenta descri\u00C3\u00A7oes complementares referente ao endere\u00C3\u00A7o (optional)
-     - parameter pontoReferencia: (query) Apresenta a descri\u00C3\u00A7\u00C3\u00A3o de ponto de refer\u00C3\u00AAncia do endere\u00C3\u00A7o (optional)
-     - parameter bairro: (query) Apresenta nome do bairro (optional)
-     - parameter cidade: (query) Apresenta nome da cidade (optional)
-     - parameter uf: (query) Apresenta sigla da Unidade Federativa (optional)
-     - parameter pais: (query) Apresenta nome do Pais (optional)
-     - parameter dataInclusao: (query) Apresenta a data em que fora cadastrado o Endere\u00C3\u00A7o (optional)
-     - parameter dataUltimaAtualizacao: (query) Data em que fora realizada a \u00C3\u00BAltima mudan\u00C3\u00A7a neste registro de endere\u00C3\u00A7o. Quando n\u00C3\u00A3o tiver ocorrido mudan\u00C3\u00A7a, conter\u00C3\u00A1 a mesma informa\u00C3\u00A7\u00C3\u00A3o que o campo dataInclusao (optional)
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func listarUsingGET9(page page: Int?, limit: Int?, id: Int?, idPessoa: Int?, idTipoEndereco: Int?, cep: String?, logradouro: String?, numero: Int?, complemento: String?, pontoReferencia: String?, bairro: String?, cidade: String?, uf: String?, pais: String?, dataInclusao: String?, dataUltimaAtualizacao: String?, completion: ((data: PageEnderecoResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET9WithRequestBuilder(page: page, limit: limit, id: id, idPessoa: idPessoa, idTipoEndereco: idTipoEndereco, cep: cep, logradouro: logradouro, numero: numero, complemento: complemento, pontoReferencia: pontoReferencia, bairro: bairro, cidade: cidade, uf: uf, pais: pais, dataInclusao: dataInclusao, dataUltimaAtualizacao: dataUltimaAtualizacao).execute { (response, error) -> Void in
-            completion(data: response?.body, error: error);
-        }
-    }
-
-
-    /**
-     
-     Lista os Endere\u00C3\u00A7os cadastrados para o Emissor
-     
-     - GET /api/enderecos
-     - Este m\u00C3\u00A9todo permite que sejam listados os Endere\u00C3\u00A7os existentes na base de dados do Emissor.
-     - examples: [{contentType=application/json, example={
-  "previousPage" : 123,
-  "last" : true,
-  "hasContent" : true,
-  "hasNextPage" : true,
-  "nextPage" : 123,
-  "content" : [ {
-    "pontoReferencia" : "aeiou",
-    "cidade" : "aeiou",
-    "numero" : 123,
-    "bairro" : "aeiou",
-    "idTipoEndereco" : 123456789,
-    "cep" : "aeiou",
-    "pais" : "aeiou",
-    "idPessoa" : 123456789,
-    "uf" : "aeiou",
-    "complemento" : "aeiou",
-    "logradouro" : "aeiou",
-    "dataInclusao" : "aeiou",
-    "dataUltimaAtualizacao" : "aeiou",
-    "id" : 123456789
-  } ],
-  "totalElements" : 123456789,
-  "number" : 123,
-  "firstPage" : true,
-  "numberOfElements" : 123,
-  "size" : 123,
-  "totalPages" : 123,
-  "hasPreviousPage" : true,
-  "first" : true
-}}]
-     
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
-     - parameter id: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Endere\u00C3\u00A7o (id). (optional)
-     - parameter idPessoa: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Pessoa a qual o endere\u00C3\u00A7o pertence (id) (optional)
-     - parameter idTipoEndereco: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Tipo Endere\u00C3\u00A7o (id) (optional)
-     - parameter cep: (query) Apresenta o C\u00C3\u00B3digo de Endere\u00C3\u00A7amento Postal (CEP) (optional)
-     - parameter logradouro: (query) Apresenta o nome do Logradouro (optional)
-     - parameter numero: (query) Apresenta o n\u00C3\u00BAmero do endere\u00C3\u00A7o (optional)
-     - parameter complemento: (query) Apresenta descri\u00C3\u00A7oes complementares referente ao endere\u00C3\u00A7o (optional)
-     - parameter pontoReferencia: (query) Apresenta a descri\u00C3\u00A7\u00C3\u00A3o de ponto de refer\u00C3\u00AAncia do endere\u00C3\u00A7o (optional)
-     - parameter bairro: (query) Apresenta nome do bairro (optional)
-     - parameter cidade: (query) Apresenta nome da cidade (optional)
-     - parameter uf: (query) Apresenta sigla da Unidade Federativa (optional)
-     - parameter pais: (query) Apresenta nome do Pais (optional)
-     - parameter dataInclusao: (query) Apresenta a data em que fora cadastrado o Endere\u00C3\u00A7o (optional)
-     - parameter dataUltimaAtualizacao: (query) Data em que fora realizada a \u00C3\u00BAltima mudan\u00C3\u00A7a neste registro de endere\u00C3\u00A7o. Quando n\u00C3\u00A3o tiver ocorrido mudan\u00C3\u00A7a, conter\u00C3\u00A1 a mesma informa\u00C3\u00A7\u00C3\u00A3o que o campo dataInclusao (optional)
-
-     - returns: RequestBuilder<PageEnderecoResponse> 
-     */
-    public class func listarUsingGET9WithRequestBuilder(page page: Int?, limit: Int?, id: Int?, idPessoa: Int?, idTipoEndereco: Int?, cep: String?, logradouro: String?, numero: Int?, complemento: String?, pontoReferencia: String?, bairro: String?, cidade: String?, uf: String?, pais: String?, dataInclusao: String?, dataUltimaAtualizacao: String?) -> RequestBuilder<PageEnderecoResponse> {
-        let path = "/api/enderecos"
-        let URLString = PierAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [
-            "page": page,
-            "limit": limit,
-            "id": id,
-            "idPessoa": idPessoa,
-            "idTipoEndereco": idTipoEndereco,
-            "cep": cep,
-            "logradouro": logradouro,
-            "numero": numero,
-            "complemento": complemento,
-            "pontoReferencia": pontoReferencia,
-            "bairro": bairro,
-            "cidade": cidade,
-            "uf": uf,
-            "pais": pais,
-            "dataInclusao": dataInclusao,
-            "dataUltimaAtualizacao": dataUltimaAtualizacao
-        ]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<PageEnderecoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
-    }
-
-    /**
-     
-     Cadastro de Conta e Pessoa Fisica
-     
-     - parameter pessoaPersist: (body) pessoaPersist 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func salvarPessoaFisicaAprovadaUsingPOST(pessoaPersist pessoaPersist: PessoaFisicaAprovadaPersist, completion: ((data: PessoaFisicaAprovadaResponse?, error: ErrorType?) -> Void)) {
-        salvarPessoaFisicaAprovadaUsingPOSTWithRequestBuilder(pessoaPersist: pessoaPersist).execute { (response, error) -> Void in
-            completion(data: response?.body, error: error);
-        }
-    }
-
-
-    /**
-     
-     Cadastro de Conta e Pessoa Fisica
-     
-     - POST /api/clientes-pessoas-fisicas
-     - Permite realizar o cadastro de uma Conta para um cliente do tipo Pessoa F\u00C3\u00ADsica, recebendo nesta opera\u00C3\u00A7\u00C3\u00A3o todos os dados cadastrais que se fazem necess\u00C3\u00A1rios para isso. Uma vez criado, poder\u00C3\u00A1 ser acionado o m\u00C3\u00A9todo de 'Gera\u00C3\u00A7\u00C3\u00A3o de Cart\u00C3\u00A3o' para o cliente e seus adicionais.
-     - examples: [{contentType=application/json, example={
-  "numeroIdentidade" : "aeiou",
-  "idEstadoCivil" : 123456789,
-  "idOrigemComercial" : 123456789,
-  "idNaturezaOcupacao" : 123456789,
-  "profissao" : "aeiou",
-  "nome" : "aeiou",
-  "diaVencimento" : 123,
-  "telefones" : [ {
-    "telefone" : "aeiou",
-    "ddd" : "aeiou",
-    "idTipoTelefone" : 123456789,
-    "id" : 123456789,
-    "ramal" : "aeiou"
-  } ],
-  "orgaoExpedidorIdentidade" : "aeiou",
-  "idNacionalidade" : 123456789,
-  "idProduto" : 123456789,
-  "nomeEmpresa" : "aeiou",
-  "enderecos" : [ {
-    "pontoReferencia" : "aeiou",
-    "enderecoCorrespondencia" : false,
-    "uf" : "aeiou",
-    "cidade" : "aeiou",
-    "complemento" : "aeiou",
-    "numero" : 123,
-    "logradouro" : "aeiou",
-    "bairro" : "aeiou",
-    "id" : 123456789,
-    "idTipoEndereco" : 123456789,
-    "cep" : "aeiou",
-    "pais" : "aeiou"
-  } ],
-  "numeroContaCorrente" : "aeiou",
-  "cpf" : "aeiou",
-  "unidadeFederativaIdentidade" : "aeiou",
-  "id" : 123456789,
-  "dataNascimento" : "aeiou",
-  "sexo" : "aeiou",
-  "dataEmissaoIdentidade" : "aeiou",
-  "nomeImpresso" : "aeiou",
-  "numeroAgencia" : 123,
-  "nomeMae" : "aeiou",
-  "email" : "aeiou"
-}}]
-     
-     - parameter pessoaPersist: (body) pessoaPersist 
-
-     - returns: RequestBuilder<PessoaFisicaAprovadaResponse> 
-     */
-    public class func salvarPessoaFisicaAprovadaUsingPOSTWithRequestBuilder(pessoaPersist pessoaPersist: PessoaFisicaAprovadaPersist) -> RequestBuilder<PessoaFisicaAprovadaResponse> {
-        let path = "/api/clientes-pessoas-fisicas"
-        let URLString = PierAPI.basePath + path
-        
-        let parameters = pessoaPersist.encodeToJSON() as? [String:AnyObject]
-
-        let requestBuilder: RequestBuilder<PessoaFisicaAprovadaResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Cadastro de Conta e Pessoa Jur\u00C3\u00ADdica
-     
-     - parameter pessoaPersist: (body) pessoaPersist 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func salvarPessoaJuridicaAprovadaUsingPOST(pessoaPersist pessoaPersist: PessoaJuridicaAprovadaPersist, completion: ((data: PessoaJuridicaAprovadaResponse?, error: ErrorType?) -> Void)) {
-        salvarPessoaJuridicaAprovadaUsingPOSTWithRequestBuilder(pessoaPersist: pessoaPersist).execute { (response, error) -> Void in
-            completion(data: response?.body, error: error);
-        }
-    }
-
-
-    /**
-     
-     Cadastro de Conta e Pessoa Jur\u00C3\u00ADdica
-     
-     - POST /api/clientes-pessoas-juridicas
-     - Cadastro de Conta e Pessoa Jur\u00C3\u00ADdica Permite realizar o cadastro de uma Conta para um cliente do tipo Pessoa Jur\u00C3\u00ADdica, recebendo nesta opera\u00C3\u00A7\u00C3\u00A3o todos os dados cadastrais que se fazem necess\u00C3\u00A1rios para isso, inclu\u00C3\u00ADndo o registro de cada um dos s\u00C3\u00B3cios. Uma vez criado, poder\u00C3\u00A1 ser acionado o m\u00C3\u00A9todo de 'Gera\u00C3\u00A7\u00C3\u00A3o de Cart\u00C3\u00A3o' para o cliente e cada um dos s\u00C3\u00B3cios vinculados.
-     - examples: [{contentType=application/json, example={
-  "idOrigemComercial" : 123456789,
-  "dataAberturaEmpresa" : "aeiou",
-  "cnpj" : "aeiou",
-  "diaVencimento" : 123,
-  "telefones" : [ {
-    "telefone" : "aeiou",
-    "ddd" : "aeiou",
-    "idTipoTelefone" : 123456789,
-    "id" : 123456789,
-    "ramal" : "aeiou"
-  } ],
-  "socios" : [ {
-    "numeroIdentidade" : "aeiou",
-    "profissao" : "aeiou",
-    "nome" : "aeiou",
-    "estadoCivil" : "aeiou",
-    "telefones" : [ "" ],
-    "orgaoExpedidorIdentidade" : "aeiou",
-    "cpf" : "aeiou",
-    "unidadeFederativaIdentidade" : "aeiou",
-    "id" : 123456789,
-    "dataNascimento" : "aeiou",
-    "sexo" : "aeiou",
-    "dataEmissaoIdentidade" : "aeiou",
-    "nacionalidade" : "aeiou",
-    "email" : "aeiou"
-  } ],
-  "nomeFantasia" : "aeiou",
-  "idProduto" : 123456789,
-  "enderecos" : [ {
-    "pontoReferencia" : "aeiou",
-    "enderecoCorrespondencia" : false,
-    "uf" : "aeiou",
-    "cidade" : "aeiou",
-    "complemento" : "aeiou",
-    "numero" : 123,
-    "logradouro" : "aeiou",
-    "bairro" : "aeiou",
-    "id" : 123456789,
-    "idTipoEndereco" : 123456789,
-    "cep" : "aeiou",
-    "pais" : "aeiou"
-  } ],
-  "inscricaoEstadual" : "aeiou",
-  "numeroContaCorrente" : "aeiou",
-  "id" : 123456789,
-  "nomeImpresso" : "aeiou",
-  "razaoSocial" : "aeiou",
-  "numeroAgencia" : 123,
-  "email" : "aeiou"
-}}]
-     
-     - parameter pessoaPersist: (body) pessoaPersist 
-
-     - returns: RequestBuilder<PessoaJuridicaAprovadaResponse> 
-     */
-    public class func salvarPessoaJuridicaAprovadaUsingPOSTWithRequestBuilder(pessoaPersist pessoaPersist: PessoaJuridicaAprovadaPersist) -> RequestBuilder<PessoaJuridicaAprovadaResponse> {
-        let path = "/api/clientes-pessoas-juridicas"
-        let URLString = PierAPI.basePath + path
-        
-        let parameters = pessoaPersist.encodeToJSON() as? [String:AnyObject]
-
-        let requestBuilder: RequestBuilder<PessoaJuridicaAprovadaResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
      Cadastro um novo Atendimento do tipo Gen\u00C3\u00A9rico para uma Conta
      
      - parameter idConta: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Conta a qual o Atendimento est\u00C3\u00A1 associado (optional)
@@ -2606,12 +1608,12 @@ public class CadastrosGeraisAPI: APIBase {
      - parameter dataAtendimento: (query) Apresenta a data e hora em que o Atendimento foi realizado no formato yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSS&#39;Z&#39;. (optional)
      - parameter dataAgendamento: (query) Quando utilizado, de acordo com o Tipo de Atendimento, apresenta a data e hora para processamento ou a data e hora para retorno do Atendimento no formato yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSS&#39;Z&#39;. (optional)
      - parameter dataHoraInicioAtendimento: (query) Apresenta a data e hora em que o Atendimento foi iniciado. Quando utilizado, serve para medir a performance dos Atendimentos no formato yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSS&#39;Z&#39;. (optional)
-     - parameter dataHoraFimAtendimento: (query) Apresenta a data e hora em que o Atendimento foi iniciado. Quando utilizado, serve para medir a performance dos Atendimentos no formato yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSS&#39;Z&#39;. (optional)
+     - parameter dataHoraFimAtendimento: (query) Apresenta a data e hora em que o Atendimento foi finalizado. Quando utilizado, serve para medir a performance dos Atendimentos no formato yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSS&#39;Z&#39;. (optional)
      - parameter flagFilaFraude: (query) Flag fila fraude (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func salvarUsingPOST1(idConta idConta: Int?, conteudoAtendimento: String?, detalhesAtendimento: String?, nomeAtendente: String?, dataAtendimento: String?, dataAgendamento: String?, dataHoraInicioAtendimento: String?, dataHoraFimAtendimento: String?, flagFilaFraude: Int?, completion: ((data: AtendimentoClienteResponse?, error: ErrorType?) -> Void)) {
-        salvarUsingPOST1WithRequestBuilder(idConta: idConta, conteudoAtendimento: conteudoAtendimento, detalhesAtendimento: detalhesAtendimento, nomeAtendente: nomeAtendente, dataAtendimento: dataAtendimento, dataAgendamento: dataAgendamento, dataHoraInicioAtendimento: dataHoraInicioAtendimento, dataHoraFimAtendimento: dataHoraFimAtendimento, flagFilaFraude: flagFilaFraude).execute { (response, error) -> Void in
+    public class func salvarUsingPOST2(idConta idConta: Int?, conteudoAtendimento: String?, detalhesAtendimento: String?, nomeAtendente: String?, dataAtendimento: String?, dataAgendamento: String?, dataHoraInicioAtendimento: String?, dataHoraFimAtendimento: String?, flagFilaFraude: Int?, completion: ((data: AtendimentoClienteResponse?, error: ErrorType?) -> Void)) {
+        salvarUsingPOST2WithRequestBuilder(idConta: idConta, conteudoAtendimento: conteudoAtendimento, detalhesAtendimento: detalhesAtendimento, nomeAtendente: nomeAtendente, dataAtendimento: dataAtendimento, dataAgendamento: dataAgendamento, dataHoraInicioAtendimento: dataHoraInicioAtendimento, dataHoraFimAtendimento: dataHoraFimAtendimento, flagFilaFraude: flagFilaFraude).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -2646,12 +1648,12 @@ public class CadastrosGeraisAPI: APIBase {
      - parameter dataAtendimento: (query) Apresenta a data e hora em que o Atendimento foi realizado no formato yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSS&#39;Z&#39;. (optional)
      - parameter dataAgendamento: (query) Quando utilizado, de acordo com o Tipo de Atendimento, apresenta a data e hora para processamento ou a data e hora para retorno do Atendimento no formato yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSS&#39;Z&#39;. (optional)
      - parameter dataHoraInicioAtendimento: (query) Apresenta a data e hora em que o Atendimento foi iniciado. Quando utilizado, serve para medir a performance dos Atendimentos no formato yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSS&#39;Z&#39;. (optional)
-     - parameter dataHoraFimAtendimento: (query) Apresenta a data e hora em que o Atendimento foi iniciado. Quando utilizado, serve para medir a performance dos Atendimentos no formato yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSS&#39;Z&#39;. (optional)
+     - parameter dataHoraFimAtendimento: (query) Apresenta a data e hora em que o Atendimento foi finalizado. Quando utilizado, serve para medir a performance dos Atendimentos no formato yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSS&#39;Z&#39;. (optional)
      - parameter flagFilaFraude: (query) Flag fila fraude (optional)
 
      - returns: RequestBuilder<AtendimentoClienteResponse> 
      */
-    public class func salvarUsingPOST1WithRequestBuilder(idConta idConta: Int?, conteudoAtendimento: String?, detalhesAtendimento: String?, nomeAtendente: String?, dataAtendimento: String?, dataAgendamento: String?, dataHoraInicioAtendimento: String?, dataHoraFimAtendimento: String?, flagFilaFraude: Int?) -> RequestBuilder<AtendimentoClienteResponse> {
+    public class func salvarUsingPOST2WithRequestBuilder(idConta idConta: Int?, conteudoAtendimento: String?, detalhesAtendimento: String?, nomeAtendente: String?, dataAtendimento: String?, dataAgendamento: String?, dataHoraInicioAtendimento: String?, dataHoraFimAtendimento: String?, flagFilaFraude: Int?) -> RequestBuilder<AtendimentoClienteResponse> {
         let path = "/api/atendimento-clientes"
         let URLString = PierAPI.basePath + path
         
@@ -2669,308 +1671,6 @@ public class CadastrosGeraisAPI: APIBase {
         let parameters = APIHelper.rejectNil(nillableParameters)
 
         let requestBuilder: RequestBuilder<AtendimentoClienteResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: false)
-    }
-
-    /**
-     
-     Realiza o cadastro de um novo Telefone
-     
-     - parameter idTipoTelefone: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Tipo do Telefone (id). (optional)
-     - parameter idPessoa: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Pessoa (id) a qual o telefone pertence. (optional)
-     - parameter ddd: (query) C\u00C3\u00B3digo DDD do telefone (id). (optional)
-     - parameter telefone: (query) N\u00C3\u00BAmero do telefone. (optional)
-     - parameter ramal: (query) N\u00C3\u00BAmero do ramal. (optional)
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func salvarUsingPOST10(idTipoTelefone idTipoTelefone: Int?, idPessoa: Int?, ddd: String?, telefone: String?, ramal: String?, completion: ((data: TelefoneResponse?, error: ErrorType?) -> Void)) {
-        salvarUsingPOST10WithRequestBuilder(idTipoTelefone: idTipoTelefone, idPessoa: idPessoa, ddd: ddd, telefone: telefone, ramal: ramal).execute { (response, error) -> Void in
-            completion(data: response?.body, error: error);
-        }
-    }
-
-
-    /**
-     
-     Realiza o cadastro de um novo Telefone
-     
-     - POST /api/telefones
-     - Este m\u00C3\u00A9todo permite que seja cadastrado um novo Telefone na base de dados do Emissor.
-     - examples: [{contentType=application/json, example={
-  "idPessoa" : 123456789,
-  "telefone" : "aeiou",
-  "ddd" : "aeiou",
-  "idTipoTelefone" : 123456789,
-  "id" : 123456789,
-  "ramal" : "aeiou",
-  "status" : 123
-}}]
-     
-     - parameter idTipoTelefone: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Tipo do Telefone (id). (optional)
-     - parameter idPessoa: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Pessoa (id) a qual o telefone pertence. (optional)
-     - parameter ddd: (query) C\u00C3\u00B3digo DDD do telefone (id). (optional)
-     - parameter telefone: (query) N\u00C3\u00BAmero do telefone. (optional)
-     - parameter ramal: (query) N\u00C3\u00BAmero do ramal. (optional)
-
-     - returns: RequestBuilder<TelefoneResponse> 
-     */
-    public class func salvarUsingPOST10WithRequestBuilder(idTipoTelefone idTipoTelefone: Int?, idPessoa: Int?, ddd: String?, telefone: String?, ramal: String?) -> RequestBuilder<TelefoneResponse> {
-        let path = "/api/telefones"
-        let URLString = PierAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [
-            "idTipoTelefone": idTipoTelefone,
-            "idPessoa": idPessoa,
-            "ddd": ddd,
-            "telefone": telefone,
-            "ramal": ramal
-        ]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<TelefoneResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: false)
-    }
-
-    /**
-     
-     Realiza o cadastro de um novo Endere\u00C3\u00A7o
-     
-     - parameter idPessoa: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Pessoa a qual o endere\u00C3\u00A7o pertence (id) (optional)
-     - parameter idTipoEndereco: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Tipo Endere\u00C3\u00A7o (id) (optional)
-     - parameter cep: (query) Apresenta o C\u00C3\u00B3digo de Endere\u00C3\u00A7amento Postal (CEP) no formaro &#39;58800000&#39; (optional)
-     - parameter logradouro: (query) Apresenta o nome do Logradouro (optional)
-     - parameter numero: (query) Apresenta o n\u00C3\u00BAmero do endere\u00C3\u00A7o (optional)
-     - parameter complemento: (query) Apresenta descri\u00C3\u00A7oes complementares referente ao endere\u00C3\u00A7o (optional)
-     - parameter pontoReferencia: (query) Apresenta a descri\u00C3\u00A7\u00C3\u00A3o de ponto de refer\u00C3\u00AAncia do endere\u00C3\u00A7o (optional)
-     - parameter bairro: (query) Apresenta nome do bairro (optional)
-     - parameter cidade: (query) Apresenta nome da cidade (optional)
-     - parameter uf: (query) Apresenta sigla da Unidade Federativa (optional)
-     - parameter pais: (query) Apresenta nome do Pais (optional)
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func salvarUsingPOST4(idPessoa idPessoa: Int?, idTipoEndereco: Int?, cep: String?, logradouro: String?, numero: Int?, complemento: String?, pontoReferencia: String?, bairro: String?, cidade: String?, uf: String?, pais: String?, completion: ((data: EnderecoResponse?, error: ErrorType?) -> Void)) {
-        salvarUsingPOST4WithRequestBuilder(idPessoa: idPessoa, idTipoEndereco: idTipoEndereco, cep: cep, logradouro: logradouro, numero: numero, complemento: complemento, pontoReferencia: pontoReferencia, bairro: bairro, cidade: cidade, uf: uf, pais: pais).execute { (response, error) -> Void in
-            completion(data: response?.body, error: error);
-        }
-    }
-
-
-    /**
-     
-     Realiza o cadastro de um novo Endere\u00C3\u00A7o
-     
-     - POST /api/enderecos
-     - Este m\u00C3\u00A9todo permite que seja cadastrado um novo Endere\u00C3\u00A7o na base de dados do Emissor.
-     - examples: [{contentType=application/json, example={
-  "pontoReferencia" : "aeiou",
-  "cidade" : "aeiou",
-  "numero" : 123,
-  "bairro" : "aeiou",
-  "idTipoEndereco" : 123456789,
-  "cep" : "aeiou",
-  "pais" : "aeiou",
-  "idPessoa" : 123456789,
-  "uf" : "aeiou",
-  "complemento" : "aeiou",
-  "logradouro" : "aeiou",
-  "dataInclusao" : "aeiou",
-  "dataUltimaAtualizacao" : "aeiou",
-  "id" : 123456789
-}}]
-     
-     - parameter idPessoa: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Pessoa a qual o endere\u00C3\u00A7o pertence (id) (optional)
-     - parameter idTipoEndereco: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Tipo Endere\u00C3\u00A7o (id) (optional)
-     - parameter cep: (query) Apresenta o C\u00C3\u00B3digo de Endere\u00C3\u00A7amento Postal (CEP) no formaro &#39;58800000&#39; (optional)
-     - parameter logradouro: (query) Apresenta o nome do Logradouro (optional)
-     - parameter numero: (query) Apresenta o n\u00C3\u00BAmero do endere\u00C3\u00A7o (optional)
-     - parameter complemento: (query) Apresenta descri\u00C3\u00A7oes complementares referente ao endere\u00C3\u00A7o (optional)
-     - parameter pontoReferencia: (query) Apresenta a descri\u00C3\u00A7\u00C3\u00A3o de ponto de refer\u00C3\u00AAncia do endere\u00C3\u00A7o (optional)
-     - parameter bairro: (query) Apresenta nome do bairro (optional)
-     - parameter cidade: (query) Apresenta nome da cidade (optional)
-     - parameter uf: (query) Apresenta sigla da Unidade Federativa (optional)
-     - parameter pais: (query) Apresenta nome do Pais (optional)
-
-     - returns: RequestBuilder<EnderecoResponse> 
-     */
-    public class func salvarUsingPOST4WithRequestBuilder(idPessoa idPessoa: Int?, idTipoEndereco: Int?, cep: String?, logradouro: String?, numero: Int?, complemento: String?, pontoReferencia: String?, bairro: String?, cidade: String?, uf: String?, pais: String?) -> RequestBuilder<EnderecoResponse> {
-        let path = "/api/enderecos"
-        let URLString = PierAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [
-            "idPessoa": idPessoa,
-            "idTipoEndereco": idTipoEndereco,
-            "cep": cep,
-            "logradouro": logradouro,
-            "numero": numero,
-            "complemento": complemento,
-            "pontoReferencia": pontoReferencia,
-            "bairro": bairro,
-            "cidade": cidade,
-            "uf": uf,
-            "pais": pais
-        ]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<EnderecoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: false)
-    }
-
-    /**
-     
-     Salvar os detalhes de uma determinada Pessoa
-     
-     - parameter idPessoa: (query) Apresenta o c\u00C3\u00B3digo identificador da pessoa (optional)
-     - parameter nomeMae: (query) Apresenta o nome da m\u00C3\u00A3e da pessoa fisica (optional)
-     - parameter idEstadoCivil: (query) Id Estado civil da pessoa fisica (optional)
-     - parameter profissao: (query) Profiss\u00C3\u00A3o da pessoa fisica (optional)
-     - parameter idNaturezaOcupacao: (query) Id Natureza Ocupa\u00C3\u00A7\u00C3\u00A3o da pessoa fisica (optional)
-     - parameter idNacionalidade: (query) Id Nacionalidade da pessoa fisica (optional)
-     - parameter numeroAgencia: (query) N\u00C3\u00BAmero da ag\u00C3\u00AAncia. (optional)
-     - parameter numeroContaCorrente: (query) N\u00C3\u00BAmero da conta corrente. (optional)
-     - parameter email: (query) Email da pessoa fisica (optional)
-     - parameter nomeEmpresa: (query) Nome que deve ser impresso no cart\u00C3\u00A3o (optional)
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func salvarUsingPOST7(idPessoa idPessoa: Int?, nomeMae: String?, idEstadoCivil: Int?, profissao: String?, idNaturezaOcupacao: Int?, idNacionalidade: Int?, numeroAgencia: Int?, numeroContaCorrente: String?, email: String?, nomeEmpresa: String?, completion: ((data: PessoaDetalheResponse?, error: ErrorType?) -> Void)) {
-        salvarUsingPOST7WithRequestBuilder(idPessoa: idPessoa, nomeMae: nomeMae, idEstadoCivil: idEstadoCivil, profissao: profissao, idNaturezaOcupacao: idNaturezaOcupacao, idNacionalidade: idNacionalidade, numeroAgencia: numeroAgencia, numeroContaCorrente: numeroContaCorrente, email: email, nomeEmpresa: nomeEmpresa).execute { (response, error) -> Void in
-            completion(data: response?.body, error: error);
-        }
-    }
-
-
-    /**
-     
-     Salvar os detalhes de uma determinada Pessoa
-     
-     - POST /api/pessoas-detalhes
-     - Este m\u00C3\u00A9todo permite que seja incluido na base do emissor os detalhes de uma determinada Pessoa.
-     - examples: [{contentType=application/json, example={
-  "idNacionalidade" : 123456789,
-  "idPessoa" : 123456789,
-  "idEstadoCivil" : 123456789,
-  "nomeEmpresa" : "aeiou",
-  "idNaturezaOcupacao" : 123456789,
-  "numeroContaCorrente" : "aeiou",
-  "profissao" : "aeiou",
-  "numeroAgencia" : 123,
-  "nomeMae" : "aeiou",
-  "email" : "aeiou"
-}}]
-     
-     - parameter idPessoa: (query) Apresenta o c\u00C3\u00B3digo identificador da pessoa (optional)
-     - parameter nomeMae: (query) Apresenta o nome da m\u00C3\u00A3e da pessoa fisica (optional)
-     - parameter idEstadoCivil: (query) Id Estado civil da pessoa fisica (optional)
-     - parameter profissao: (query) Profiss\u00C3\u00A3o da pessoa fisica (optional)
-     - parameter idNaturezaOcupacao: (query) Id Natureza Ocupa\u00C3\u00A7\u00C3\u00A3o da pessoa fisica (optional)
-     - parameter idNacionalidade: (query) Id Nacionalidade da pessoa fisica (optional)
-     - parameter numeroAgencia: (query) N\u00C3\u00BAmero da ag\u00C3\u00AAncia. (optional)
-     - parameter numeroContaCorrente: (query) N\u00C3\u00BAmero da conta corrente. (optional)
-     - parameter email: (query) Email da pessoa fisica (optional)
-     - parameter nomeEmpresa: (query) Nome que deve ser impresso no cart\u00C3\u00A3o (optional)
-
-     - returns: RequestBuilder<PessoaDetalheResponse> 
-     */
-    public class func salvarUsingPOST7WithRequestBuilder(idPessoa idPessoa: Int?, nomeMae: String?, idEstadoCivil: Int?, profissao: String?, idNaturezaOcupacao: Int?, idNacionalidade: Int?, numeroAgencia: Int?, numeroContaCorrente: String?, email: String?, nomeEmpresa: String?) -> RequestBuilder<PessoaDetalheResponse> {
-        let path = "/api/pessoas-detalhes"
-        let URLString = PierAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [
-            "idPessoa": idPessoa,
-            "nomeMae": nomeMae,
-            "idEstadoCivil": idEstadoCivil,
-            "profissao": profissao,
-            "idNaturezaOcupacao": idNaturezaOcupacao,
-            "idNacionalidade": idNacionalidade,
-            "numeroAgencia": numeroAgencia,
-            "numeroContaCorrente": numeroContaCorrente,
-            "email": email,
-            "nomeEmpresa": nomeEmpresa
-        ]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<PessoaDetalheResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: false)
-    }
-
-    /**
-     
-     Realiza o cadastro de um nova Pessoa
-     
-     - parameter nome: (query) Apresenta o &#39;Nome Completo da PF&#39; ou o &#39;Nome Completo da Raz\u00C3\u00A3o Social (Nome Empresarial)&#39;. 
-     - parameter tipo: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do tipo da Pessoa, sendo: (\&quot;PF\&quot;: Pessoa F\u00C3\u00ADsica), (\&quot;PJ\&quot;: Pessoa Jur\u00C3\u00ADdica). 
-     - parameter cpf: (query) N\u00C3\u00BAmero do CPF, quando PF. (optional)
-     - parameter cnpj: (query) N\u00C3\u00BAmero do CNPJ, quando PJ. (optional)
-     - parameter dataNascimento: (query) Data de Nascimento da Pessoa, quando PF, ou a Data de Abertura da Empresa, quando PJ. Essa data deve ser informada no formato aaaa-MM-dd. (optional)
-     - parameter sexo: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do sexo da Pessoa, quando PF, sendo: (\&quot;M\&quot;: Masculino), (\&quot;F\&quot;: Feminino), (\&quot;O\&quot;: Outro), (\&quot;N\&quot;: N\u00C3\u00A3o Especificado). (optional)
-     - parameter numeroIdentidade: (query) N\u00C3\u00BAmero da Identidade. (optional)
-     - parameter orgaoExpedidorIdentidade: (query) Org\u00C3\u00A3o expedidor do Identidade. (optional)
-     - parameter unidadeFederativaIdentidade: (query) Sigla da Unidade Federativa de onde foi expedido a Identidade (optional)
-     - parameter dataEmissaoIdentidade: (query) Data emiss\u00C3\u00A3o da Identidade. (optional)
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func salvarUsingPOST8(nome nome: String, tipo: String, cpf: String?, cnpj: String?, dataNascimento: String?, sexo: String?, numeroIdentidade: String?, orgaoExpedidorIdentidade: String?, unidadeFederativaIdentidade: String?, dataEmissaoIdentidade: String?, completion: ((data: PessoaResponse?, error: ErrorType?) -> Void)) {
-        salvarUsingPOST8WithRequestBuilder(nome: nome, tipo: tipo, cpf: cpf, cnpj: cnpj, dataNascimento: dataNascimento, sexo: sexo, numeroIdentidade: numeroIdentidade, orgaoExpedidorIdentidade: orgaoExpedidorIdentidade, unidadeFederativaIdentidade: unidadeFederativaIdentidade, dataEmissaoIdentidade: dataEmissaoIdentidade).execute { (response, error) -> Void in
-            completion(data: response?.body, error: error);
-        }
-    }
-
-
-    /**
-     
-     Realiza o cadastro de um nova Pessoa
-     
-     - POST /api/pessoas
-     - Este m\u00C3\u00A9todo permite que seja cadastrado uma nova Pessoa na base de dados do Emissor.
-     - examples: [{contentType=application/json, example={
-  "numeroIdentidade" : "aeiou",
-  "tipo" : "aeiou",
-  "cpf" : "aeiou",
-  "unidadeFederativaIdentidade" : "aeiou",
-  "nome" : "aeiou",
-  "id" : 123456789,
-  "cnpj" : "aeiou",
-  "dataNascimento" : "aeiou",
-  "sexo" : "aeiou",
-  "dataEmissaoIdentidade" : "aeiou",
-  "orgaoExpedidorIdentidade" : "aeiou"
-}}]
-     
-     - parameter nome: (query) Apresenta o &#39;Nome Completo da PF&#39; ou o &#39;Nome Completo da Raz\u00C3\u00A3o Social (Nome Empresarial)&#39;. 
-     - parameter tipo: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do tipo da Pessoa, sendo: (\&quot;PF\&quot;: Pessoa F\u00C3\u00ADsica), (\&quot;PJ\&quot;: Pessoa Jur\u00C3\u00ADdica). 
-     - parameter cpf: (query) N\u00C3\u00BAmero do CPF, quando PF. (optional)
-     - parameter cnpj: (query) N\u00C3\u00BAmero do CNPJ, quando PJ. (optional)
-     - parameter dataNascimento: (query) Data de Nascimento da Pessoa, quando PF, ou a Data de Abertura da Empresa, quando PJ. Essa data deve ser informada no formato aaaa-MM-dd. (optional)
-     - parameter sexo: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do sexo da Pessoa, quando PF, sendo: (\&quot;M\&quot;: Masculino), (\&quot;F\&quot;: Feminino), (\&quot;O\&quot;: Outro), (\&quot;N\&quot;: N\u00C3\u00A3o Especificado). (optional)
-     - parameter numeroIdentidade: (query) N\u00C3\u00BAmero da Identidade. (optional)
-     - parameter orgaoExpedidorIdentidade: (query) Org\u00C3\u00A3o expedidor do Identidade. (optional)
-     - parameter unidadeFederativaIdentidade: (query) Sigla da Unidade Federativa de onde foi expedido a Identidade (optional)
-     - parameter dataEmissaoIdentidade: (query) Data emiss\u00C3\u00A3o da Identidade. (optional)
-
-     - returns: RequestBuilder<PessoaResponse> 
-     */
-    public class func salvarUsingPOST8WithRequestBuilder(nome nome: String, tipo: String, cpf: String?, cnpj: String?, dataNascimento: String?, sexo: String?, numeroIdentidade: String?, orgaoExpedidorIdentidade: String?, unidadeFederativaIdentidade: String?, dataEmissaoIdentidade: String?) -> RequestBuilder<PessoaResponse> {
-        let path = "/api/pessoas"
-        let URLString = PierAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [
-            "nome": nome,
-            "tipo": tipo,
-            "cpf": cpf,
-            "cnpj": cnpj,
-            "dataNascimento": dataNascimento,
-            "sexo": sexo,
-            "numeroIdentidade": numeroIdentidade,
-            "orgaoExpedidorIdentidade": orgaoExpedidorIdentidade,
-            "unidadeFederativaIdentidade": unidadeFederativaIdentidade,
-            "dataEmissaoIdentidade": dataEmissaoIdentidade
-        ]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<PessoaResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: false)
     }

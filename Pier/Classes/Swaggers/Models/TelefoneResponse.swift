@@ -8,16 +8,16 @@
 import Foundation
 
 
-/** ObjetoTelefone */
+/** Objeto de Resposta de Telefone */
 public class TelefoneResponse: JSONEncodable {
 
-    /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Telefone (id). */
+    /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Telefone. */
     public var id: Int?
-    /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Tipo do Telefone (id). */
+    /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Tipo do Telefone. */
     public var idTipoTelefone: Int?
-    /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Pessoa (id) a qual o telefone pertence. */
+    /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Pessoa a qual o telefone pertence. */
     public var idPessoa: Int?
-    /** C\u00C3\u00B3digo DDD do telefone (id). */
+    /** C\u00C3\u00B3digo DDD do telefone. */
     public var ddd: String?
     /** N\u00C3\u00BAmero do telefone. */
     public var telefone: String?

@@ -62,8 +62,8 @@ public class AutorizacoesAPI: APIBase {
      - parameter cancelamentoRequest: (body) cancelamentoRequest 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func cancelarUsingPOST(cancelamentoRequest cancelamentoRequest: CancelamentoTransacaoOnUsRequest, completion: ((data: TransacaoOnUsResponse?, error: ErrorType?) -> Void)) {
-        cancelarUsingPOSTWithRequestBuilder(cancelamentoRequest: cancelamentoRequest).execute { (response, error) -> Void in
+    public class func cancelarUsingPOST2(cancelamentoRequest cancelamentoRequest: CancelamentoTransacaoOnUsRequest, completion: ((data: TransacaoOnUsResponse?, error: ErrorType?) -> Void)) {
+        cancelarUsingPOST2WithRequestBuilder(cancelamentoRequest: cancelamentoRequest).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -89,7 +89,7 @@ public class AutorizacoesAPI: APIBase {
 
      - returns: RequestBuilder<TransacaoOnUsResponse> 
      */
-    public class func cancelarUsingPOSTWithRequestBuilder(cancelamentoRequest cancelamentoRequest: CancelamentoTransacaoOnUsRequest) -> RequestBuilder<TransacaoOnUsResponse> {
+    public class func cancelarUsingPOST2WithRequestBuilder(cancelamentoRequest cancelamentoRequest: CancelamentoTransacaoOnUsRequest) -> RequestBuilder<TransacaoOnUsResponse> {
         let path = "/api/cancelar-transacao"
         let URLString = PierAPI.basePath + path
         
@@ -137,7 +137,7 @@ public class AutorizacoesAPI: APIBase {
 
     /**
      
-     Simula planos de pagamento
+     Simula planos de transa\u00C3\u00A7\u00C3\u00B5es
      
      - parameter transacoesRequest: (body) transacoesRequest 
      - parameter completion: completion handler to receive the data and the error objects
@@ -151,10 +151,10 @@ public class AutorizacoesAPI: APIBase {
 
     /**
      
-     Simula planos de pagamento
+     Simula planos de transa\u00C3\u00A7\u00C3\u00B5es
      
      - POST /api/simular-transacao
-     - Este m\u00C3\u00A9todo permite que seja simulada um plano de pagamento.
+     - Este m\u00C3\u00A9todo permite que seja simulada um plano de transa\u00C3\u00A7\u00C3\u00B5es.
      - examples: [{contentType=application/json, example={
   "codigoAutorizacao" : "aeiou",
   "planoDeParcelamento" : [ { } ],

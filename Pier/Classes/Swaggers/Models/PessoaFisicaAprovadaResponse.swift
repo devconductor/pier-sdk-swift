@@ -11,7 +11,7 @@ import Foundation
 /** PessoaFisicaAprovadaResponse */
 public class PessoaFisicaAprovadaResponse: JSONEncodable {
 
-    /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Endere\u00C3\u00A7o (id) */
+    /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da pessoa fisica (id) */
     public var id: Int?
     /** Apresenta o nome completo da pessoa fisica. */
     public var nome: String?
@@ -34,7 +34,7 @@ public class PessoaFisicaAprovadaResponse: JSONEncodable {
     /** Id Estado civil da pessoa fisica */
     public var idEstadoCivil: Int?
     /** Profiss\u00C3\u00A3o da pessoa fisica */
-    public var profissao: String?
+    public var idProfissao: Int?
     /** Id Natureza Ocupa\u00C3\u00A7\u00C3\u00A3o da pessoa fisica */
     public var idNaturezaOcupacao: Int?
     /** Id Nacionalidade da pessoa fisica */
@@ -53,8 +53,14 @@ public class PessoaFisicaAprovadaResponse: JSONEncodable {
     public var diaVencimento: Int?
     /** Nome que deve ser impresso no cart\u00C3\u00A3o */
     public var nomeImpresso: String?
-    /** Nome que deve ser impresso no cart\u00C3\u00A3o */
+    /** Nome da empresa */
     public var nomeEmpresa: String?
+    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta cadastrada */
+    public var idConta: Int?
+    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da proposta */
+    public var idProposta: Int?
+    /** Indica o canal pelo qual o cadastro do cliente foi realizado */
+    public var canalEntrada: String?
     /** Apresenta os telefones da empresa */
     public var telefones: [TelefonePessoaAprovadaResponse]?
     /** Pode ser informado os seguintes tipos de endere\u00C3\u00A7o: Residencial, Comercial, e Outros */
@@ -77,7 +83,7 @@ public class PessoaFisicaAprovadaResponse: JSONEncodable {
         nillableDictionary["unidadeFederativaIdentidade"] = self.unidadeFederativaIdentidade
         nillableDictionary["dataEmissaoIdentidade"] = self.dataEmissaoIdentidade
         nillableDictionary["idEstadoCivil"] = self.idEstadoCivil
-        nillableDictionary["profissao"] = self.profissao
+        nillableDictionary["idProfissao"] = self.idProfissao
         nillableDictionary["idNaturezaOcupacao"] = self.idNaturezaOcupacao
         nillableDictionary["idNacionalidade"] = self.idNacionalidade
         nillableDictionary["idOrigemComercial"] = self.idOrigemComercial
@@ -88,6 +94,9 @@ public class PessoaFisicaAprovadaResponse: JSONEncodable {
         nillableDictionary["diaVencimento"] = self.diaVencimento
         nillableDictionary["nomeImpresso"] = self.nomeImpresso
         nillableDictionary["nomeEmpresa"] = self.nomeEmpresa
+        nillableDictionary["idConta"] = self.idConta
+        nillableDictionary["idProposta"] = self.idProposta
+        nillableDictionary["canalEntrada"] = self.canalEntrada
         nillableDictionary["telefones"] = self.telefones?.encodeToJSON()
         nillableDictionary["enderecos"] = self.enderecos?.encodeToJSON()
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]

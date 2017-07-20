@@ -35,6 +35,8 @@ public class OportunidadeAUDResponse: JSONEncodable {
     public var revDate: String?
     /** Tipo da auditoria */
     public var revType: Int?
+    /** Identificador da auditoria */
+    public var rev: Int?
     
 
     public init() {}
@@ -54,6 +56,7 @@ public class OportunidadeAUDResponse: JSONEncodable {
         nillableDictionary["detalhes"] = self.detalhes?.encodeToJSON()
         nillableDictionary["revDate"] = self.revDate
         nillableDictionary["revType"] = self.revType
+        nillableDictionary["rev"] = self.rev
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

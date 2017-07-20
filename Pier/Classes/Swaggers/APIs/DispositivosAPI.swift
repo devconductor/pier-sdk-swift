@@ -183,8 +183,8 @@ public class DispositivosAPI: APIBase {
      - parameter persist: (body) persist 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func salvarUsingPOST3(persist persist: DispositivoPersist, completion: ((data: DispositivoResponse?, error: ErrorType?) -> Void)) {
-        salvarUsingPOST3WithRequestBuilder(persist: persist).execute { (response, error) -> Void in
+    public class func salvarUsingPOST4(persist persist: DispositivoPersist, completion: ((data: DispositivoResponse?, error: ErrorType?) -> Void)) {
+        salvarUsingPOST4WithRequestBuilder(persist: persist).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -207,7 +207,7 @@ public class DispositivosAPI: APIBase {
 
      - returns: RequestBuilder<DispositivoResponse> 
      */
-    public class func salvarUsingPOST3WithRequestBuilder(persist persist: DispositivoPersist) -> RequestBuilder<DispositivoResponse> {
+    public class func salvarUsingPOST4WithRequestBuilder(persist persist: DispositivoPersist) -> RequestBuilder<DispositivoResponse> {
         let path = "/api/dispositivos"
         let URLString = PierAPI.basePath + path
         

@@ -12,8 +12,8 @@ import Foundation
 public class UsuarioResponse: JSONEncodable {
 
     public enum Status: String { 
-        case Ativo = "ATIVO"
         case Inativo = "INATIVO"
+        case Ativo = "ATIVO"
     }
     
     /** Id do Usu\u00C3\u00A1rio */

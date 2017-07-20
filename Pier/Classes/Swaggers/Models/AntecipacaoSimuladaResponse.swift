@@ -15,12 +15,12 @@ public class AntecipacaoSimuladaResponse: JSONEncodable {
     public var idAntecipacaoSimulada: Int?
     /** C\u00C3\u00B3digo identificador da conta. */
     public var idConta: Int?
-    /** C\u00C3\u00B3digo identificador do evento. */
-    public var idEventoExterno: Int?
-    /** C\u00C3\u00B3digo identificador do tipo do evento. */
+    /** C\u00C3\u00B3digo identificador do evento compra. */
+    public var idCompra: Int?
+    /** C\u00C3\u00B3digo identificador do tipo do evento compra. */
     public var idTipoTransacao: Int?
     /** Quantidade de parcelas antecip\u00C3\u00A1veis. */
-    public var qtdeParcelasAntecipaveis: Int?
+    public var quantidadeParcelasAntecipaveis: Int?
     /** Valor da parcela. */
     public var valorParcela: Double?
     /** Data e hora em que a simula\u00C3\u00A7\u00C3\u00A3o foi feita. */
@@ -38,9 +38,9 @@ public class AntecipacaoSimuladaResponse: JSONEncodable {
         var nillableDictionary = [String:AnyObject?]()
         nillableDictionary["idAntecipacaoSimulada"] = self.idAntecipacaoSimulada
         nillableDictionary["idConta"] = self.idConta
-        nillableDictionary["idEventoExterno"] = self.idEventoExterno
+        nillableDictionary["idCompra"] = self.idCompra
         nillableDictionary["idTipoTransacao"] = self.idTipoTransacao
-        nillableDictionary["qtdeParcelasAntecipaveis"] = self.qtdeParcelasAntecipaveis
+        nillableDictionary["quantidadeParcelasAntecipaveis"] = self.quantidadeParcelasAntecipaveis
         nillableDictionary["valorParcela"] = self.valorParcela
         nillableDictionary["dataHoraSimulacao"] = self.dataHoraSimulacao
         nillableDictionary["taxaAntecipacaoAno"] = self.taxaAntecipacaoAno

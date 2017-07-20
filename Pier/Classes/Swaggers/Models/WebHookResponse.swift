@@ -13,6 +13,7 @@ public class WebHookResponse: JSONEncodable {
 
     public enum TipoEvento: String { 
         case RiscoFraude = "RISCO_FRAUDE"
+        case TokenSms = "TOKEN_SMS"
         case Outros = "OUTROS"
     }
     
@@ -23,6 +24,11 @@ public class WebHookResponse: JSONEncodable {
         case Delete = "DELETE"
     }
     
+    public enum Status: String { 
+        case Inativo = "INATIVO"
+        case Ativo = "ATIVO"
+    }
+    
     /** Id do WebHook */
     public var id: Int?
     /** TipoEvento a ser chamado pelo WebHook */
@@ -31,6 +37,8 @@ public class WebHookResponse: JSONEncodable {
     public var metodo: Metodo?
     /** URL que a ser consumida pelo WebHook */
     public var url: String?
+    /** Status do WebHook */
+    public var status: Status?
     
 
     public init() {}
@@ -42,6 +50,7 @@ public class WebHookResponse: JSONEncodable {
         nillableDictionary["tipoEvento"] = self.tipoEvento?.rawValue
         nillableDictionary["metodo"] = self.metodo?.rawValue
         nillableDictionary["url"] = self.url
+        nillableDictionary["status"] = self.status?.rawValue
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

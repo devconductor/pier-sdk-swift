@@ -13,6 +13,7 @@ public class PushFCMEGCM: JSONEncodable {
 
     public enum TipoEvento: String { 
         case RiscoFraude = "RISCO_FRAUDE"
+        case TokenSms = "TOKEN_SMS"
         case Outros = "OUTROS"
     }
     
