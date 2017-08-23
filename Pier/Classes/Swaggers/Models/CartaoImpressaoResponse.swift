@@ -56,6 +56,8 @@ public class CartaoImpressaoResponse: JSONEncodable {
     public var trilhaCVV1: String?
     /** Apresenta os dados da TrilhaCVV02, seguindo as regras de trilha do emissor. */
     public var trilhaCVV2: String?
+    /** Apresenta o numero da hash do cart\u00C3\u00A3o  */
+    public var numeroCartaoHash: Int?
     
 
     public init() {}
@@ -86,6 +88,7 @@ public class CartaoImpressaoResponse: JSONEncodable {
         nillableDictionary["trilha2"] = self.trilha2
         nillableDictionary["trilhaCVV1"] = self.trilhaCVV1
         nillableDictionary["trilhaCVV2"] = self.trilhaCVV2
+        nillableDictionary["numeroCartaoHash"] = self.numeroCartaoHash
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

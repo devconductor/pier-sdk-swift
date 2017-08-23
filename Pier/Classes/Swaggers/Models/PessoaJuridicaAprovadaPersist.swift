@@ -39,12 +39,20 @@ public class PessoaJuridicaAprovadaPersist: JSONEncodable {
     public var valorRenda: Double?
     /** Indica o canal pelo qual o cadastro do cliente foi realizado */
     public var canalEntrada: String?
+    /** Indica o valor da pontua\u00C3\u00A7\u00C3\u00A3o atribuido ao cliente (caso n\u00C3\u00A3o informado ser\u00C3\u00A1 atribuido o valor = 0) */
+    public var valorPontuacao: Int?
     /** Apresenta os telefones da empresa */
     public var telefones: [TelefonePessoaAprovadaPersist]?
     /** Pode ser informado os seguintes tipos de endere\u00C3\u00A7o: Residencial, Comercial, e Outros */
     public var enderecos: [EnderecoAprovadoPersist]?
+    /** Valor do Limite Global */
+    public var limiteGlobal: Double?
     /** Apresenta os dados dos s\u00C3\u00B3cios da empresa, caso exista */
     public var socios: [PessoaPersist]?
+    /** Valor m\u00C3\u00A1ximo do limite de cr\u00C3\u00A9dito para realizar transa\u00C3\u00A7\u00C3\u00B5es */
+    public var limiteMaximo: Double?
+    /** Valor do limite de cr\u00C3\u00A9dito acumulado da soma das parcelas das compras */
+    public var limiteParcelas: Double?
     
 
     public init() {}
@@ -66,9 +74,13 @@ public class PessoaJuridicaAprovadaPersist: JSONEncodable {
         nillableDictionary["nomeImpresso"] = self.nomeImpresso
         nillableDictionary["valorRenda"] = self.valorRenda
         nillableDictionary["canalEntrada"] = self.canalEntrada
+        nillableDictionary["valorPontuacao"] = self.valorPontuacao
         nillableDictionary["telefones"] = self.telefones?.encodeToJSON()
         nillableDictionary["enderecos"] = self.enderecos?.encodeToJSON()
+        nillableDictionary["limiteGlobal"] = self.limiteGlobal
         nillableDictionary["socios"] = self.socios?.encodeToJSON()
+        nillableDictionary["limiteMaximo"] = self.limiteMaximo
+        nillableDictionary["limiteParcelas"] = self.limiteParcelas
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

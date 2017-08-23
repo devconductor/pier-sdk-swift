@@ -29,8 +29,8 @@ public class TransacoesCorrentesResponse: JSONEncodable {
     public var cartaoMascarado: String?
     /** Nome completo do Portador do Cart\u00C3\u00A3o. */
     public var nomePortador: String?
-    /** Data em que a Transa\u00C3\u00A7\u00C3\u00A3o foi realizada sob o padr\u00C3\u00A3o de Tempo Universal Coordenado (UTC). */
-    public var dataTransacaoUTC: String?
+    /** Data em que a Transa\u00C3\u00A7\u00C3\u00A3o foi realizada. */
+    public var dataTransacao: String?
     /** Data de Faturamento da Transa\u00C3\u00A7\u00C3\u00A3o. */
     public var dataFaturamento: String?
     /** Data de Vencimento da Fatura. */
@@ -101,7 +101,7 @@ public class TransacoesCorrentesResponse: JSONEncodable {
         nillableDictionary["idConta"] = self.idConta
         nillableDictionary["cartaoMascarado"] = self.cartaoMascarado
         nillableDictionary["nomePortador"] = self.nomePortador
-        nillableDictionary["dataTransacaoUTC"] = self.dataTransacaoUTC
+        nillableDictionary["dataTransacao"] = self.dataTransacao
         nillableDictionary["dataFaturamento"] = self.dataFaturamento
         nillableDictionary["dataVencimento"] = self.dataVencimento
         nillableDictionary["modoEntradaTransacao"] = self.modoEntradaTransacao

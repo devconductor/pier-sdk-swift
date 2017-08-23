@@ -307,14 +307,15 @@ public class CadastrosGeraisAPI: APIBase {
      
      Lista os tipos de ajustes do emissor 
      
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter id: (query) C\u00C3\u00B3digo identificador do tipo de ajuste. (optional)
      - parameter descricao: (query) Descri\u00C3\u00A7\u00C3\u00A3o do tipo de ajuste. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET18(page page: Int?, limit: Int?, id: Int?, descricao: String?, completion: ((data: PageTipoAjusteResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET18WithRequestBuilder(page: page, limit: limit, id: id, descricao: descricao).execute { (response, error) -> Void in
+    public class func consultarUsingGET18(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, descricao: String?, completion: ((data: PageTipoAjusteResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET18WithRequestBuilder(sort: sort, page: page, limit: limit, id: id, descricao: descricao).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -346,6 +347,7 @@ public class CadastrosGeraisAPI: APIBase {
   "first" : true
 }}]
      
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter id: (query) C\u00C3\u00B3digo identificador do tipo de ajuste. (optional)
@@ -353,11 +355,12 @@ public class CadastrosGeraisAPI: APIBase {
 
      - returns: RequestBuilder<PageTipoAjusteResponse> 
      */
-    public class func consultarUsingGET18WithRequestBuilder(page page: Int?, limit: Int?, id: Int?, descricao: String?) -> RequestBuilder<PageTipoAjusteResponse> {
+    public class func consultarUsingGET18WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, descricao: String?) -> RequestBuilder<PageTipoAjusteResponse> {
         let path = "/api/tipos-ajustes"
         let URLString = PierAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
+            "sort": sort,
             "page": page,
             "limit": limit,
             "id": id,
@@ -374,6 +377,7 @@ public class CadastrosGeraisAPI: APIBase {
      
      Lista os tipos de boletos do emissor 
      
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter id: (query) C\u00C3\u00B3digo identificador do tipo de boleto. (optional)
@@ -381,8 +385,8 @@ public class CadastrosGeraisAPI: APIBase {
      - parameter banco: (query) C\u00C3\u00B3digo identificador do banco. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET19(page page: Int?, limit: Int?, id: Int?, descricao: String?, banco: Int?, completion: ((data: PageTipoBoletoResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET19WithRequestBuilder(page: page, limit: limit, id: id, descricao: descricao, banco: banco).execute { (response, error) -> Void in
+    public class func consultarUsingGET19(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, descricao: String?, banco: Int?, completion: ((data: PageTipoBoletoResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET19WithRequestBuilder(sort: sort, page: page, limit: limit, id: id, descricao: descricao, banco: banco).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -420,6 +424,7 @@ public class CadastrosGeraisAPI: APIBase {
   "first" : true
 }}]
      
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter id: (query) C\u00C3\u00B3digo identificador do tipo de boleto. (optional)
@@ -428,11 +433,12 @@ public class CadastrosGeraisAPI: APIBase {
 
      - returns: RequestBuilder<PageTipoBoletoResponse> 
      */
-    public class func consultarUsingGET19WithRequestBuilder(page page: Int?, limit: Int?, id: Int?, descricao: String?, banco: Int?) -> RequestBuilder<PageTipoBoletoResponse> {
+    public class func consultarUsingGET19WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, descricao: String?, banco: Int?) -> RequestBuilder<PageTipoBoletoResponse> {
         let path = "/api/tipos-boletos"
         let URLString = PierAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
+            "sort": sort,
             "page": page,
             "limit": limit,
             "id": id,
@@ -625,12 +631,13 @@ public class CadastrosGeraisAPI: APIBase {
      Lista as contas da pessoa
      
      - parameter numeroReceitaFederal: (query) N\u00C3\u00BAmero de identifica\u00C3\u00A7\u00C3\u00A3o do cliente na Receita Federal (CPF ou CNPJ) 
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarContasPorPessoaUsingGET(numeroReceitaFederal numeroReceitaFederal: String, page: Int?, limit: Int?, completion: ((data: PageContaDetalheResponse?, error: ErrorType?) -> Void)) {
-        listarContasPorPessoaUsingGETWithRequestBuilder(numeroReceitaFederal: numeroReceitaFederal, page: page, limit: limit).execute { (response, error) -> Void in
+    public class func listarContasPorPessoaUsingGET(numeroReceitaFederal numeroReceitaFederal: String, sort: [String]?, page: Int?, limit: Int?, completion: ((data: PageContaDetalheResponse?, error: ErrorType?) -> Void)) {
+        listarContasPorPessoaUsingGETWithRequestBuilder(numeroReceitaFederal: numeroReceitaFederal, sort: sort, page: page, limit: limit).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -687,17 +694,19 @@ public class CadastrosGeraisAPI: APIBase {
 }}]
      
      - parameter numeroReceitaFederal: (query) N\u00C3\u00BAmero de identifica\u00C3\u00A7\u00C3\u00A3o do cliente na Receita Federal (CPF ou CNPJ) 
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
 
      - returns: RequestBuilder<PageContaDetalheResponse> 
      */
-    public class func listarContasPorPessoaUsingGETWithRequestBuilder(numeroReceitaFederal numeroReceitaFederal: String, page: Int?, limit: Int?) -> RequestBuilder<PageContaDetalheResponse> {
+    public class func listarContasPorPessoaUsingGETWithRequestBuilder(numeroReceitaFederal numeroReceitaFederal: String, sort: [String]?, page: Int?, limit: Int?) -> RequestBuilder<PageContaDetalheResponse> {
         let path = "/api/pessoas/listar-contas"
         let URLString = PierAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
             "numeroReceitaFederal": numeroReceitaFederal,
+            "sort": sort,
             "page": page,
             "limit": limit
         ]
@@ -712,12 +721,13 @@ public class CadastrosGeraisAPI: APIBase {
      
      Lista os Estados C\u00C3\u00ADvis
      
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarEstadosCivisUsingGET(page page: Int?, limit: Int?, completion: ((data: PageCampoCodificadoDescricaoResponse?, error: ErrorType?) -> Void)) {
-        listarEstadosCivisUsingGETWithRequestBuilder(page: page, limit: limit).execute { (response, error) -> Void in
+    public class func listarEstadosCivisUsingGET(sort sort: [String]?, page: Int?, limit: Int?, completion: ((data: PageCampoCodificadoDescricaoResponse?, error: ErrorType?) -> Void)) {
+        listarEstadosCivisUsingGETWithRequestBuilder(sort: sort, page: page, limit: limit).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -749,22 +759,89 @@ public class CadastrosGeraisAPI: APIBase {
   "first" : true
 }}]
      
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
 
      - returns: RequestBuilder<PageCampoCodificadoDescricaoResponse> 
      */
-    public class func listarEstadosCivisUsingGETWithRequestBuilder(page page: Int?, limit: Int?) -> RequestBuilder<PageCampoCodificadoDescricaoResponse> {
+    public class func listarEstadosCivisUsingGETWithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?) -> RequestBuilder<PageCampoCodificadoDescricaoResponse> {
         let path = "/api/estados-civis"
         let URLString = PierAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
+            "sort": sort,
             "page": page,
             "limit": limit
         ]
         let parameters = APIHelper.rejectNil(nillableParameters)
 
         let requestBuilder: RequestBuilder<PageCampoCodificadoDescricaoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
+    }
+
+    /**
+     
+     Listar Fantasias B\u00C3\u00A1sicas
+     
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
+     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func listarFantasiasBasicasUsingGET(sort sort: [String]?, page: Int?, limit: Int?, completion: ((data: PageFantasiaBasicaResponse?, error: ErrorType?) -> Void)) {
+        listarFantasiasBasicasUsingGETWithRequestBuilder(sort: sort, page: page, limit: limit).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Listar Fantasias B\u00C3\u00A1sicas
+     
+     - GET /api/fantasias-basicas
+     - Lista as fantasia b\u00C3\u00A1sicas.
+     - examples: [{contentType=application/json, example={
+  "previousPage" : 123,
+  "last" : true,
+  "hasContent" : true,
+  "hasNextPage" : true,
+  "nextPage" : 123,
+  "content" : [ {
+    "nome" : "aeiou",
+    "id" : 123456789,
+    "descricao" : "aeiou"
+  } ],
+  "totalElements" : 123456789,
+  "number" : 123,
+  "firstPage" : true,
+  "numberOfElements" : 123,
+  "size" : 123,
+  "totalPages" : 123,
+  "hasPreviousPage" : true,
+  "first" : true
+}}]
+     
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
+     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+
+     - returns: RequestBuilder<PageFantasiaBasicaResponse> 
+     */
+    public class func listarFantasiasBasicasUsingGETWithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?) -> RequestBuilder<PageFantasiaBasicaResponse> {
+        let path = "/api/fantasias-basicas"
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [
+            "sort": sort,
+            "page": page,
+            "limit": limit
+        ]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<PageFantasiaBasicaResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
     }
@@ -818,12 +895,13 @@ public class CadastrosGeraisAPI: APIBase {
      
      Lista nacionalidades
      
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarNacionalidadesUsingGET(page page: Int?, limit: Int?, completion: ((data: PageCampoCodificadoDescricaoResponse?, error: ErrorType?) -> Void)) {
-        listarNacionalidadesUsingGETWithRequestBuilder(page: page, limit: limit).execute { (response, error) -> Void in
+    public class func listarNacionalidadesUsingGET(sort sort: [String]?, page: Int?, limit: Int?, completion: ((data: PageCampoCodificadoDescricaoResponse?, error: ErrorType?) -> Void)) {
+        listarNacionalidadesUsingGETWithRequestBuilder(sort: sort, page: page, limit: limit).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -855,16 +933,18 @@ public class CadastrosGeraisAPI: APIBase {
   "first" : true
 }}]
      
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
 
      - returns: RequestBuilder<PageCampoCodificadoDescricaoResponse> 
      */
-    public class func listarNacionalidadesUsingGETWithRequestBuilder(page page: Int?, limit: Int?) -> RequestBuilder<PageCampoCodificadoDescricaoResponse> {
+    public class func listarNacionalidadesUsingGETWithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?) -> RequestBuilder<PageCampoCodificadoDescricaoResponse> {
         let path = "/api/nacionalidades"
         let URLString = PierAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
+            "sort": sort,
             "page": page,
             "limit": limit
         ]
@@ -879,12 +959,13 @@ public class CadastrosGeraisAPI: APIBase {
      
      Lista as Ocupa\u00C3\u00A7\u00C3\u00B5es
      
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarNaturezasOcupacoesUsingGET(page page: Int?, limit: Int?, completion: ((data: PageCampoCodificadoDescricaoResponse?, error: ErrorType?) -> Void)) {
-        listarNaturezasOcupacoesUsingGETWithRequestBuilder(page: page, limit: limit).execute { (response, error) -> Void in
+    public class func listarNaturezasOcupacoesUsingGET(sort sort: [String]?, page: Int?, limit: Int?, completion: ((data: PageCampoCodificadoDescricaoResponse?, error: ErrorType?) -> Void)) {
+        listarNaturezasOcupacoesUsingGETWithRequestBuilder(sort: sort, page: page, limit: limit).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -916,16 +997,18 @@ public class CadastrosGeraisAPI: APIBase {
   "first" : true
 }}]
      
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
 
      - returns: RequestBuilder<PageCampoCodificadoDescricaoResponse> 
      */
-    public class func listarNaturezasOcupacoesUsingGETWithRequestBuilder(page page: Int?, limit: Int?) -> RequestBuilder<PageCampoCodificadoDescricaoResponse> {
+    public class func listarNaturezasOcupacoesUsingGETWithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?) -> RequestBuilder<PageCampoCodificadoDescricaoResponse> {
         let path = "/api/ocupacoes"
         let URLString = PierAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
+            "sort": sort,
             "page": page,
             "limit": limit
         ]
@@ -940,6 +1023,7 @@ public class CadastrosGeraisAPI: APIBase {
      
      Opera\u00C3\u00A7\u00C3\u00A3o utilizada para listar Origens Comerciais
      
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter id: (query) Id da origem comercial (optional)
@@ -949,8 +1033,8 @@ public class CadastrosGeraisAPI: APIBase {
      - parameter idProduto: (query) C\u00C3\u00B3digo identificador do produto (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarOrigensComerciaisUsingGET(page page: Int?, limit: Int?, id: Int?, nome: String?, status: Int?, idEstabelecimento: Int?, idProduto: Int?, completion: ((data: PageOrigemComercialResponse?, error: ErrorType?) -> Void)) {
-        listarOrigensComerciaisUsingGETWithRequestBuilder(page: page, limit: limit, id: id, nome: nome, status: status, idEstabelecimento: idEstabelecimento, idProduto: idProduto).execute { (response, error) -> Void in
+    public class func listarOrigensComerciaisUsingGET(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, nome: String?, status: Int?, idEstabelecimento: Int?, idProduto: Int?, completion: ((data: PageOrigemComercialResponse?, error: ErrorType?) -> Void)) {
+        listarOrigensComerciaisUsingGETWithRequestBuilder(sort: sort, page: page, limit: limit, id: id, nome: nome, status: status, idEstabelecimento: idEstabelecimento, idProduto: idProduto).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -992,6 +1076,7 @@ public class CadastrosGeraisAPI: APIBase {
   "first" : true
 }}]
      
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter id: (query) Id da origem comercial (optional)
@@ -1002,11 +1087,12 @@ public class CadastrosGeraisAPI: APIBase {
 
      - returns: RequestBuilder<PageOrigemComercialResponse> 
      */
-    public class func listarOrigensComerciaisUsingGETWithRequestBuilder(page page: Int?, limit: Int?, id: Int?, nome: String?, status: Int?, idEstabelecimento: Int?, idProduto: Int?) -> RequestBuilder<PageOrigemComercialResponse> {
+    public class func listarOrigensComerciaisUsingGETWithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, nome: String?, status: Int?, idEstabelecimento: Int?, idProduto: Int?) -> RequestBuilder<PageOrigemComercialResponse> {
         let path = "/api/origens-comerciais"
         let URLString = PierAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
+            "sort": sort,
             "page": page,
             "limit": limit,
             "id": id,
@@ -1026,12 +1112,13 @@ public class CadastrosGeraisAPI: APIBase {
      
      Lista os Parentescos
      
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarParentescosUsingGET(page page: Int?, limit: Int?, completion: ((data: PageCampoCodificadoDescricaoResponse?, error: ErrorType?) -> Void)) {
-        listarParentescosUsingGETWithRequestBuilder(page: page, limit: limit).execute { (response, error) -> Void in
+    public class func listarParentescosUsingGET(sort sort: [String]?, page: Int?, limit: Int?, completion: ((data: PageCampoCodificadoDescricaoResponse?, error: ErrorType?) -> Void)) {
+        listarParentescosUsingGETWithRequestBuilder(sort: sort, page: page, limit: limit).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -1063,16 +1150,18 @@ public class CadastrosGeraisAPI: APIBase {
   "first" : true
 }}]
      
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
 
      - returns: RequestBuilder<PageCampoCodificadoDescricaoResponse> 
      */
-    public class func listarParentescosUsingGETWithRequestBuilder(page page: Int?, limit: Int?) -> RequestBuilder<PageCampoCodificadoDescricaoResponse> {
+    public class func listarParentescosUsingGETWithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?) -> RequestBuilder<PageCampoCodificadoDescricaoResponse> {
         let path = "/api/parentescos"
         let URLString = PierAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
+            "sort": sort,
             "page": page,
             "limit": limit
         ]
@@ -1087,12 +1176,13 @@ public class CadastrosGeraisAPI: APIBase {
      
      Lista profiss\u00C3\u00B5es
      
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarProfissoesUsingGET(page page: Int?, limit: Int?, completion: ((data: PageCampoCodificadoDescricaoResponse?, error: ErrorType?) -> Void)) {
-        listarProfissoesUsingGETWithRequestBuilder(page: page, limit: limit).execute { (response, error) -> Void in
+    public class func listarProfissoesUsingGET(sort sort: [String]?, page: Int?, limit: Int?, completion: ((data: PageCampoCodificadoDescricaoResponse?, error: ErrorType?) -> Void)) {
+        listarProfissoesUsingGETWithRequestBuilder(sort: sort, page: page, limit: limit).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -1124,16 +1214,18 @@ public class CadastrosGeraisAPI: APIBase {
   "first" : true
 }}]
      
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
 
      - returns: RequestBuilder<PageCampoCodificadoDescricaoResponse> 
      */
-    public class func listarProfissoesUsingGETWithRequestBuilder(page page: Int?, limit: Int?) -> RequestBuilder<PageCampoCodificadoDescricaoResponse> {
+    public class func listarProfissoesUsingGETWithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?) -> RequestBuilder<PageCampoCodificadoDescricaoResponse> {
         let path = "/api/profissoes"
         let URLString = PierAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
+            "sort": sort,
             "page": page,
             "limit": limit
         ]
@@ -1146,8 +1238,186 @@ public class CadastrosGeraisAPI: APIBase {
 
     /**
      
+     Lista os Portadores existentes
+     
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
+     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+     - parameter idConta: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Conta (id). (optional)
+     - parameter idProduto: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Produto (id). (optional)
+     - parameter idPessoa: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Pessoa (id). (optional)
+     - parameter idParentesco: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Parentesco (id) (optional)
+     - parameter tipoPortador: (query) Apresenta o tipo do Portador do cart\u00C3\u00A3o, sendo: (&#39;T&#39;: Titular, &#39;A&#39;: Adicional). (optional)
+     - parameter nomeImpresso: (query) Apresenta o nome a ser impresso no cart\u00C3\u00A3o. (optional)
+     - parameter idTipoCartao: (query) Apresenta o c\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do tipo do cart\u00C3\u00A3o (id), que ser\u00C3\u00A1 utilizado para gerar os cart\u00C3\u00B5es deste portador, vinculados a sua respectiva conta atrav\u00C3\u00A9s do campo idConta. (optional)
+     - parameter flagAtivo: (query) Quanto ativa, indica que o cadastro do Portador est\u00C3\u00A1 ativo, em emissores que realizam este tipo de gest\u00C3\u00A3o. (optional)
+     - parameter dataCadastroPortador: (query) Apresenta a data em que o Portador fora cadastrado, quando possuir esta informa\u00C3\u00A7\u00C3\u00A3o. (optional)
+     - parameter dataCancelamentoPortador: (query) Apresenta a data em que o Portador fora cancelado, quando possuir esta informa\u00C3\u00A7\u00C3\u00A3o. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func listarUsingGET18(sort sort: [String]?, page: Int?, limit: Int?, idConta: Int?, idProduto: Int?, idPessoa: Int?, idParentesco: Int?, tipoPortador: String?, nomeImpresso: String?, idTipoCartao: Int?, flagAtivo: Int?, dataCadastroPortador: String?, dataCancelamentoPortador: String?, completion: ((data: PagePortadorResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET18WithRequestBuilder(sort: sort, page: page, limit: limit, idConta: idConta, idProduto: idProduto, idPessoa: idPessoa, idParentesco: idParentesco, tipoPortador: tipoPortador, nomeImpresso: nomeImpresso, idTipoCartao: idTipoCartao, flagAtivo: flagAtivo, dataCadastroPortador: dataCadastroPortador, dataCancelamentoPortador: dataCancelamentoPortador).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Lista os Portadores existentes
+     
+     - GET /api/portadores
+     - Este m\u00C3\u00A9todo permite que sejam listados os portadores cadastrados na base do emissor.
+     - examples: [{contentType=application/json, example={
+  "previousPage" : 123,
+  "last" : true,
+  "hasContent" : true,
+  "hasNextPage" : true,
+  "nextPage" : 123,
+  "content" : [ {
+    "idPessoa" : 123456789,
+    "idConta" : 123456789,
+    "idProduto" : 123456789,
+    "dataCancelamentoPortador" : "aeiou",
+    "idTipoCartao" : 123456789,
+    "idParentesco" : 123456789,
+    "dataCadastroPortador" : "aeiou",
+    "nomeImpresso" : "aeiou",
+    "flagAtivo" : 123,
+    "tipoPortador" : "aeiou"
+  } ],
+  "totalElements" : 123456789,
+  "number" : 123,
+  "firstPage" : true,
+  "numberOfElements" : 123,
+  "size" : 123,
+  "totalPages" : 123,
+  "hasPreviousPage" : true,
+  "first" : true
+}}]
+     
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
+     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+     - parameter idConta: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Conta (id). (optional)
+     - parameter idProduto: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Produto (id). (optional)
+     - parameter idPessoa: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Pessoa (id). (optional)
+     - parameter idParentesco: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Parentesco (id) (optional)
+     - parameter tipoPortador: (query) Apresenta o tipo do Portador do cart\u00C3\u00A3o, sendo: (&#39;T&#39;: Titular, &#39;A&#39;: Adicional). (optional)
+     - parameter nomeImpresso: (query) Apresenta o nome a ser impresso no cart\u00C3\u00A3o. (optional)
+     - parameter idTipoCartao: (query) Apresenta o c\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do tipo do cart\u00C3\u00A3o (id), que ser\u00C3\u00A1 utilizado para gerar os cart\u00C3\u00B5es deste portador, vinculados a sua respectiva conta atrav\u00C3\u00A9s do campo idConta. (optional)
+     - parameter flagAtivo: (query) Quanto ativa, indica que o cadastro do Portador est\u00C3\u00A1 ativo, em emissores que realizam este tipo de gest\u00C3\u00A3o. (optional)
+     - parameter dataCadastroPortador: (query) Apresenta a data em que o Portador fora cadastrado, quando possuir esta informa\u00C3\u00A7\u00C3\u00A3o. (optional)
+     - parameter dataCancelamentoPortador: (query) Apresenta a data em que o Portador fora cancelado, quando possuir esta informa\u00C3\u00A7\u00C3\u00A3o. (optional)
+
+     - returns: RequestBuilder<PagePortadorResponse> 
+     */
+    public class func listarUsingGET18WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, idConta: Int?, idProduto: Int?, idPessoa: Int?, idParentesco: Int?, tipoPortador: String?, nomeImpresso: String?, idTipoCartao: Int?, flagAtivo: Int?, dataCadastroPortador: String?, dataCancelamentoPortador: String?) -> RequestBuilder<PagePortadorResponse> {
+        let path = "/api/portadores"
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [
+            "sort": sort,
+            "page": page,
+            "limit": limit,
+            "idConta": idConta,
+            "idProduto": idProduto,
+            "idPessoa": idPessoa,
+            "idParentesco": idParentesco,
+            "tipoPortador": tipoPortador,
+            "nomeImpresso": nomeImpresso,
+            "idTipoCartao": idTipoCartao,
+            "flagAtivo": flagAtivo,
+            "dataCadastroPortador": dataCadastroPortador,
+            "dataCancelamentoPortador": dataCancelamentoPortador
+        ]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<PagePortadorResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
+    }
+
+    /**
+     
+     Lista os Produtos do Emissor
+     
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
+     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+     - parameter nome: (query) Descri\u00C3\u00A7\u00C3\u00A3o do Nome do Produto. (optional)
+     - parameter status: (query) Representa o Status do Produto, onde: (\&quot;0\&quot;: Inativo), (\&quot;1\&quot;: Ativo). (optional)
+     - parameter idFantasiaBasica: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Fantasia B\u00C3\u00A1sica (id) a qual o produto pertence. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func listarUsingGET19(sort sort: [String]?, page: Int?, limit: Int?, nome: String?, status: Int?, idFantasiaBasica: Int?, completion: ((data: PageProdutoResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET19WithRequestBuilder(sort: sort, page: page, limit: limit, nome: nome, status: status, idFantasiaBasica: idFantasiaBasica).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Lista os Produtos do Emissor
+     
+     - GET /api/produtos
+     - Este m\u00C3\u00A9todo permite que sejam listados os Produtos existentes na base de dados do Emissor.
+     - examples: [{contentType=application/json, example={
+  "previousPage" : 123,
+  "last" : true,
+  "hasContent" : true,
+  "hasNextPage" : true,
+  "nextPage" : 123,
+  "content" : [ {
+    "idFantasiaBasica" : 123456789,
+    "nome" : "aeiou",
+    "id" : 123456789,
+    "status" : 123
+  } ],
+  "totalElements" : 123456789,
+  "number" : 123,
+  "firstPage" : true,
+  "numberOfElements" : 123,
+  "size" : 123,
+  "totalPages" : 123,
+  "hasPreviousPage" : true,
+  "first" : true
+}}]
+     
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
+     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+     - parameter nome: (query) Descri\u00C3\u00A7\u00C3\u00A3o do Nome do Produto. (optional)
+     - parameter status: (query) Representa o Status do Produto, onde: (\&quot;0\&quot;: Inativo), (\&quot;1\&quot;: Ativo). (optional)
+     - parameter idFantasiaBasica: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Fantasia B\u00C3\u00A1sica (id) a qual o produto pertence. (optional)
+
+     - returns: RequestBuilder<PageProdutoResponse> 
+     */
+    public class func listarUsingGET19WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, nome: String?, status: Int?, idFantasiaBasica: Int?) -> RequestBuilder<PageProdutoResponse> {
+        let path = "/api/produtos"
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [
+            "sort": sort,
+            "page": page,
+            "limit": limit,
+            "nome": nome,
+            "status": status,
+            "idFantasiaBasica": idFantasiaBasica
+        ]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<PageProdutoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
+    }
+
+    /**
+     
      Lista todos os atendimentos
      
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter idTipoAtendimento: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Tipo de Atendimento (id) (optional)
@@ -1156,8 +1426,8 @@ public class CadastrosGeraisAPI: APIBase {
      - parameter dataAtendimento: (query) Apresenta a data em que o Atendimento foi realizado. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET1(page page: Int?, limit: Int?, idTipoAtendimento: Int?, idConta: Int?, nomeAtendente: String?, dataAtendimento: String?, completion: ((data: PageAtendimentoClienteResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET1WithRequestBuilder(page: page, limit: limit, idTipoAtendimento: idTipoAtendimento, idConta: idConta, nomeAtendente: nomeAtendente, dataAtendimento: dataAtendimento).execute { (response, error) -> Void in
+    public class func listarUsingGET2(sort sort: [String]?, page: Int?, limit: Int?, idTipoAtendimento: Int?, idConta: Int?, nomeAtendente: String?, dataAtendimento: String?, completion: ((data: PageAtendimentoClienteResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET2WithRequestBuilder(sort: sort, page: page, limit: limit, idTipoAtendimento: idTipoAtendimento, idConta: idConta, nomeAtendente: nomeAtendente, dataAtendimento: dataAtendimento).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -1201,6 +1471,7 @@ public class CadastrosGeraisAPI: APIBase {
   "first" : true
 }}]
      
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter idTipoAtendimento: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Tipo de Atendimento (id) (optional)
@@ -1210,11 +1481,12 @@ public class CadastrosGeraisAPI: APIBase {
 
      - returns: RequestBuilder<PageAtendimentoClienteResponse> 
      */
-    public class func listarUsingGET1WithRequestBuilder(page page: Int?, limit: Int?, idTipoAtendimento: Int?, idConta: Int?, nomeAtendente: String?, dataAtendimento: String?) -> RequestBuilder<PageAtendimentoClienteResponse> {
+    public class func listarUsingGET2WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, idTipoAtendimento: Int?, idConta: Int?, nomeAtendente: String?, dataAtendimento: String?) -> RequestBuilder<PageAtendimentoClienteResponse> {
         let path = "/api/atendimento-clientes"
         let URLString = PierAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
+            "sort": sort,
             "page": page,
             "limit": limit,
             "idTipoAtendimento": idTipoAtendimento,
@@ -1231,24 +1503,20 @@ public class CadastrosGeraisAPI: APIBase {
 
     /**
      
-     Lista os Portadores existentes
+     Lista promotores cadastrados na base do emissor
      
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
-     - parameter idConta: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Conta (id). (optional)
-     - parameter idProduto: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Produto (id). (optional)
-     - parameter idPessoa: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Pessoa (id). (optional)
-     - parameter idParentesco: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Parentesco (id) (optional)
-     - parameter tipoPortador: (query) Apresenta o tipo do Portador do cart\u00C3\u00A3o, sendo: (&#39;T&#39;: Titular, &#39;A&#39;: Adicional). (optional)
-     - parameter nomeImpresso: (query) Apresenta o nome a ser impresso no cart\u00C3\u00A3o. (optional)
-     - parameter idTipoCartao: (query) Apresenta o c\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do tipo do cart\u00C3\u00A3o (id), que ser\u00C3\u00A1 utilizado para gerar os cart\u00C3\u00B5es deste portador, vinculados a sua respectiva conta atrav\u00C3\u00A9s do campo idConta. (optional)
-     - parameter flagAtivo: (query) Quanto ativa, indica que o cadastro do Portador est\u00C3\u00A1 ativo, em emissores que realizam este tipo de gest\u00C3\u00A3o. (optional)
-     - parameter dataCadastroPortador: (query) Apresenta a data em que o Portador fora cadastrado, quando possuir esta informa\u00C3\u00A7\u00C3\u00A3o. (optional)
-     - parameter dataCancelamentoPortador: (query) Apresenta a data em que o Portador fora cancelado, quando possuir esta informa\u00C3\u00A7\u00C3\u00A3o. (optional)
+     - parameter id: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do promotor (id) (optional)
+     - parameter nome: (query) Nome do Promotor (optional)
+     - parameter dataCadastro: (query) Data da Inclus\u00C3\u00A3o. (optional)
+     - parameter idEstabelecimento: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Estabelecimento (optional)
+     - parameter idUsuario: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do usu\u00C3\u00A1rio (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET17(page page: Int?, limit: Int?, idConta: Int?, idProduto: Int?, idPessoa: Int?, idParentesco: Int?, tipoPortador: String?, nomeImpresso: String?, idTipoCartao: Int?, flagAtivo: Int?, dataCadastroPortador: String?, dataCancelamentoPortador: String?, completion: ((data: PagePortadorResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET17WithRequestBuilder(page: page, limit: limit, idConta: idConta, idProduto: idProduto, idPessoa: idPessoa, idParentesco: idParentesco, tipoPortador: tipoPortador, nomeImpresso: nomeImpresso, idTipoCartao: idTipoCartao, flagAtivo: flagAtivo, dataCadastroPortador: dataCadastroPortador, dataCancelamentoPortador: dataCancelamentoPortador).execute { (response, error) -> Void in
+    public class func listarUsingGET20(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, nome: String?, dataCadastro: String?, idEstabelecimento: Int?, idUsuario: Int?, completion: ((data: PagePromotorResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET20WithRequestBuilder(sort: sort, page: page, limit: limit, id: id, nome: nome, dataCadastro: dataCadastro, idEstabelecimento: idEstabelecimento, idUsuario: idUsuario).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -1256,10 +1524,10 @@ public class CadastrosGeraisAPI: APIBase {
 
     /**
      
-     Lista os Portadores existentes
+     Lista promotores cadastrados na base do emissor
      
-     - GET /api/portadores
-     - Este m\u00C3\u00A9todo permite que sejam listados os portadores cadastrados na base do emissor.
+     - GET /api/promotores
+     - Este m\u00C3\u00A9todo permite que sejam listados os cadastros de Promoteres existentes na base de dados do Emissor.
      - examples: [{contentType=application/json, example={
   "previousPage" : 123,
   "last" : true,
@@ -1267,16 +1535,11 @@ public class CadastrosGeraisAPI: APIBase {
   "hasNextPage" : true,
   "nextPage" : 123,
   "content" : [ {
-    "idPessoa" : 123456789,
-    "idConta" : 123456789,
-    "idProduto" : 123456789,
-    "dataCancelamentoPortador" : "aeiou",
-    "idTipoCartao" : 123456789,
-    "idParentesco" : 123456789,
-    "dataCadastroPortador" : "aeiou",
-    "nomeImpresso" : "aeiou",
-    "flagAtivo" : 123,
-    "tipoPortador" : "aeiou"
+    "idEstabelecimento" : 123456789,
+    "idUsuario" : 123456789,
+    "nome" : "aeiou",
+    "id" : 123456789,
+    "dataCadastro" : "aeiou"
   } ],
   "totalElements" : 123456789,
   "number" : 123,
@@ -1288,59 +1551,51 @@ public class CadastrosGeraisAPI: APIBase {
   "first" : true
 }}]
      
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
-     - parameter idConta: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Conta (id). (optional)
-     - parameter idProduto: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Produto (id). (optional)
-     - parameter idPessoa: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Pessoa (id). (optional)
-     - parameter idParentesco: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Parentesco (id) (optional)
-     - parameter tipoPortador: (query) Apresenta o tipo do Portador do cart\u00C3\u00A3o, sendo: (&#39;T&#39;: Titular, &#39;A&#39;: Adicional). (optional)
-     - parameter nomeImpresso: (query) Apresenta o nome a ser impresso no cart\u00C3\u00A3o. (optional)
-     - parameter idTipoCartao: (query) Apresenta o c\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do tipo do cart\u00C3\u00A3o (id), que ser\u00C3\u00A1 utilizado para gerar os cart\u00C3\u00B5es deste portador, vinculados a sua respectiva conta atrav\u00C3\u00A9s do campo idConta. (optional)
-     - parameter flagAtivo: (query) Quanto ativa, indica que o cadastro do Portador est\u00C3\u00A1 ativo, em emissores que realizam este tipo de gest\u00C3\u00A3o. (optional)
-     - parameter dataCadastroPortador: (query) Apresenta a data em que o Portador fora cadastrado, quando possuir esta informa\u00C3\u00A7\u00C3\u00A3o. (optional)
-     - parameter dataCancelamentoPortador: (query) Apresenta a data em que o Portador fora cancelado, quando possuir esta informa\u00C3\u00A7\u00C3\u00A3o. (optional)
+     - parameter id: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do promotor (id) (optional)
+     - parameter nome: (query) Nome do Promotor (optional)
+     - parameter dataCadastro: (query) Data da Inclus\u00C3\u00A3o. (optional)
+     - parameter idEstabelecimento: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Estabelecimento (optional)
+     - parameter idUsuario: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do usu\u00C3\u00A1rio (optional)
 
-     - returns: RequestBuilder<PagePortadorResponse> 
+     - returns: RequestBuilder<PagePromotorResponse> 
      */
-    public class func listarUsingGET17WithRequestBuilder(page page: Int?, limit: Int?, idConta: Int?, idProduto: Int?, idPessoa: Int?, idParentesco: Int?, tipoPortador: String?, nomeImpresso: String?, idTipoCartao: Int?, flagAtivo: Int?, dataCadastroPortador: String?, dataCancelamentoPortador: String?) -> RequestBuilder<PagePortadorResponse> {
-        let path = "/api/portadores"
+    public class func listarUsingGET20WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, nome: String?, dataCadastro: String?, idEstabelecimento: Int?, idUsuario: Int?) -> RequestBuilder<PagePromotorResponse> {
+        let path = "/api/promotores"
         let URLString = PierAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
+            "sort": sort,
             "page": page,
             "limit": limit,
-            "idConta": idConta,
-            "idProduto": idProduto,
-            "idPessoa": idPessoa,
-            "idParentesco": idParentesco,
-            "tipoPortador": tipoPortador,
-            "nomeImpresso": nomeImpresso,
-            "idTipoCartao": idTipoCartao,
-            "flagAtivo": flagAtivo,
-            "dataCadastroPortador": dataCadastroPortador,
-            "dataCancelamentoPortador": dataCancelamentoPortador
+            "id": id,
+            "nome": nome,
+            "dataCadastro": dataCadastro,
+            "idEstabelecimento": idEstabelecimento,
+            "idUsuario": idUsuario
         ]
         let parameters = APIHelper.rejectNil(nillableParameters)
 
-        let requestBuilder: RequestBuilder<PagePortadorResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<PagePromotorResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
     }
 
     /**
      
-     Lista os Produtos do Emissor
+     Lista as op\u00C3\u00B5es de Tipos de Endere\u00C3\u00A7os do Emissor 
      
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
-     - parameter nome: (query) Descri\u00C3\u00A7\u00C3\u00A3o do Nome do Produto. (optional)
-     - parameter status: (query) Representa o Status do Produto, onde: (\&quot;0\&quot;: Inativo), (\&quot;1\&quot;: Ativo). (optional)
-     - parameter idFantasiaBasica: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Fantasia B\u00C3\u00A1sica (id) a qual o produto pertence. (optional)
+     - parameter id: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Tipo do Endere\u00C3\u00A7o (id) (optional)
+     - parameter nome: (query) Nome do Tipo do Endere\u00C3\u00A7o (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET18(page page: Int?, limit: Int?, nome: String?, status: Int?, idFantasiaBasica: Int?, completion: ((data: PageProdutoResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET18WithRequestBuilder(page: page, limit: limit, nome: nome, status: status, idFantasiaBasica: idFantasiaBasica).execute { (response, error) -> Void in
+    public class func listarUsingGET26(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, nome: String?, completion: ((data: PageTipoEnderecoResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET26WithRequestBuilder(sort: sort, page: page, limit: limit, id: id, nome: nome).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -1348,10 +1603,10 @@ public class CadastrosGeraisAPI: APIBase {
 
     /**
      
-     Lista os Produtos do Emissor
+     Lista as op\u00C3\u00B5es de Tipos de Endere\u00C3\u00A7os do Emissor 
      
-     - GET /api/produtos
-     - Este m\u00C3\u00A9todo permite que sejam listados os Produtos existentes na base de dados do Emissor.
+     - GET /api/tipos-enderecos
+     - Este m\u00C3\u00A9todo permite que sejam listados os Tipos de Endere\u00C3\u00A7os existentes na base de dados do Emissor.
      - examples: [{contentType=application/json, example={
   "previousPage" : 123,
   "last" : true,
@@ -1359,10 +1614,8 @@ public class CadastrosGeraisAPI: APIBase {
   "hasNextPage" : true,
   "nextPage" : 123,
   "content" : [ {
-    "idFantasiaBasica" : 123456789,
     "nome" : "aeiou",
-    "id" : 123456789,
-    "status" : 123
+    "id" : 123456789
   } ],
   "totalElements" : 123456789,
   "number" : 123,
@@ -1374,28 +1627,98 @@ public class CadastrosGeraisAPI: APIBase {
   "first" : true
 }}]
      
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
-     - parameter nome: (query) Descri\u00C3\u00A7\u00C3\u00A3o do Nome do Produto. (optional)
-     - parameter status: (query) Representa o Status do Produto, onde: (\&quot;0\&quot;: Inativo), (\&quot;1\&quot;: Ativo). (optional)
-     - parameter idFantasiaBasica: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Fantasia B\u00C3\u00A1sica (id) a qual o produto pertence. (optional)
+     - parameter id: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Tipo do Endere\u00C3\u00A7o (id) (optional)
+     - parameter nome: (query) Nome do Tipo do Endere\u00C3\u00A7o (optional)
 
-     - returns: RequestBuilder<PageProdutoResponse> 
+     - returns: RequestBuilder<PageTipoEnderecoResponse> 
      */
-    public class func listarUsingGET18WithRequestBuilder(page page: Int?, limit: Int?, nome: String?, status: Int?, idFantasiaBasica: Int?) -> RequestBuilder<PageProdutoResponse> {
-        let path = "/api/produtos"
+    public class func listarUsingGET26WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, nome: String?) -> RequestBuilder<PageTipoEnderecoResponse> {
+        let path = "/api/tipos-enderecos"
         let URLString = PierAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
+            "sort": sort,
             "page": page,
             "limit": limit,
-            "nome": nome,
-            "status": status,
-            "idFantasiaBasica": idFantasiaBasica
+            "id": id,
+            "nome": nome
         ]
         let parameters = APIHelper.rejectNil(nillableParameters)
 
-        let requestBuilder: RequestBuilder<PageProdutoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<PageTipoEnderecoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
+    }
+
+    /**
+     
+     Lista os Tipos de Telefones
+     
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
+     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+     - parameter id: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Tipo do Telefone (id). (optional)
+     - parameter nome: (query) Nome do Tipo do Telefone (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func listarUsingGET28(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, nome: String?, completion: ((data: PageTipoTelefoneResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET28WithRequestBuilder(sort: sort, page: page, limit: limit, id: id, nome: nome).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Lista os Tipos de Telefones
+     
+     - GET /api/tipos-telefones
+     - Este m\u00C3\u00A9todo permite que sejam listados os Tipos de Telefones existentes na base de dados do Emissor.
+     - examples: [{contentType=application/json, example={
+  "previousPage" : 123,
+  "last" : true,
+  "hasContent" : true,
+  "hasNextPage" : true,
+  "nextPage" : 123,
+  "content" : [ {
+    "nome" : "aeiou",
+    "id" : 123456789
+  } ],
+  "totalElements" : 123456789,
+  "number" : 123,
+  "firstPage" : true,
+  "numberOfElements" : 123,
+  "size" : 123,
+  "totalPages" : 123,
+  "hasPreviousPage" : true,
+  "first" : true
+}}]
+     
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
+     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+     - parameter id: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Tipo do Telefone (id). (optional)
+     - parameter nome: (query) Nome do Tipo do Telefone (optional)
+
+     - returns: RequestBuilder<PageTipoTelefoneResponse> 
+     */
+    public class func listarUsingGET28WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, nome: String?) -> RequestBuilder<PageTipoTelefoneResponse> {
+        let path = "/api/tipos-telefones"
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [
+            "sort": sort,
+            "page": page,
+            "limit": limit,
+            "id": id,
+            "nome": nome
+        ]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<PageTipoTelefoneResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
     }
@@ -1404,12 +1727,13 @@ public class CadastrosGeraisAPI: APIBase {
      
      Lista os Bancos cadastrados para o Emissor
      
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET2(page page: Int?, limit: Int?, completion: ((data: PageBancoResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET2WithRequestBuilder(page: page, limit: limit).execute { (response, error) -> Void in
+    public class func listarUsingGET3(sort sort: [String]?, page: Int?, limit: Int?, completion: ((data: PageBancoResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET3WithRequestBuilder(sort: sort, page: page, limit: limit).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -1443,16 +1767,18 @@ public class CadastrosGeraisAPI: APIBase {
   "first" : true
 }}]
      
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
 
      - returns: RequestBuilder<PageBancoResponse> 
      */
-    public class func listarUsingGET2WithRequestBuilder(page page: Int?, limit: Int?) -> RequestBuilder<PageBancoResponse> {
+    public class func listarUsingGET3WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?) -> RequestBuilder<PageBancoResponse> {
         let path = "/api/bancos"
         let URLString = PierAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
+            "sort": sort,
             "page": page,
             "limit": limit
         ]
@@ -1465,16 +1791,16 @@ public class CadastrosGeraisAPI: APIBase {
 
     /**
      
-     Lista as op\u00C3\u00B5es de Tipos de Endere\u00C3\u00A7os do Emissor 
+     Listar Vencimentos
      
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
-     - parameter id: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Tipo do Endere\u00C3\u00A7o (id) (optional)
-     - parameter nome: (query) Nome do Tipo do Endere\u00C3\u00A7o (optional)
+     - parameter dataVencimento: (query) Indica a data de vencimento das faturas (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET24(page page: Int?, limit: Int?, id: Int?, nome: String?, completion: ((data: PageTipoEnderecoResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET24WithRequestBuilder(page: page, limit: limit, id: id, nome: nome).execute { (response, error) -> Void in
+    public class func listarUsingGET33(sort sort: [String]?, page: Int?, limit: Int?, dataVencimento: String?, completion: ((data: PageControleVencimentoResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET33WithRequestBuilder(sort: sort, page: page, limit: limit, dataVencimento: dataVencimento).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -1482,10 +1808,10 @@ public class CadastrosGeraisAPI: APIBase {
 
     /**
      
-     Lista as op\u00C3\u00B5es de Tipos de Endere\u00C3\u00A7os do Emissor 
+     Listar Vencimentos
      
-     - GET /api/tipos-enderecos
-     - Este m\u00C3\u00A9todo permite que sejam listados os Tipos de Endere\u00C3\u00A7os existentes na base de dados do Emissor.
+     - GET /api/vencimentos
+     - Este recurso permite que sejam listados os Vencimentos do emissor.
      - examples: [{contentType=application/json, example={
   "previousPage" : 123,
   "last" : true,
@@ -1493,8 +1819,12 @@ public class CadastrosGeraisAPI: APIBase {
   "hasNextPage" : true,
   "nextPage" : 123,
   "content" : [ {
-    "nome" : "aeiou",
-    "id" : 123456789
+    "dataPrevistaFaturamento" : "aeiou",
+    "dataHoraRealizacaoCorte" : "aeiou",
+    "dataVencimento" : "aeiou",
+    "dataHoraRealizacaoFaturamento" : "aeiou",
+    "dataRealVencimento" : "aeiou",
+    "dataPrevistaCorte" : "aeiou"
   } ],
   "totalElements" : 123456789,
   "number" : 123,
@@ -1506,93 +1836,26 @@ public class CadastrosGeraisAPI: APIBase {
   "first" : true
 }}]
      
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
-     - parameter id: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Tipo do Endere\u00C3\u00A7o (id) (optional)
-     - parameter nome: (query) Nome do Tipo do Endere\u00C3\u00A7o (optional)
+     - parameter dataVencimento: (query) Indica a data de vencimento das faturas (optional)
 
-     - returns: RequestBuilder<PageTipoEnderecoResponse> 
+     - returns: RequestBuilder<PageControleVencimentoResponse> 
      */
-    public class func listarUsingGET24WithRequestBuilder(page page: Int?, limit: Int?, id: Int?, nome: String?) -> RequestBuilder<PageTipoEnderecoResponse> {
-        let path = "/api/tipos-enderecos"
+    public class func listarUsingGET33WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, dataVencimento: String?) -> RequestBuilder<PageControleVencimentoResponse> {
+        let path = "/api/vencimentos"
         let URLString = PierAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
+            "sort": sort,
             "page": page,
             "limit": limit,
-            "id": id,
-            "nome": nome
+            "dataVencimento": dataVencimento
         ]
         let parameters = APIHelper.rejectNil(nillableParameters)
 
-        let requestBuilder: RequestBuilder<PageTipoEnderecoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
-    }
-
-    /**
-     
-     Lista os Tipos de Telefones
-     
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
-     - parameter id: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Tipo do Telefone (id). (optional)
-     - parameter nome: (query) Nome do Tipo do Telefone (optional)
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func listarUsingGET26(page page: Int?, limit: Int?, id: Int?, nome: String?, completion: ((data: PageTipoTelefoneResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET26WithRequestBuilder(page: page, limit: limit, id: id, nome: nome).execute { (response, error) -> Void in
-            completion(data: response?.body, error: error);
-        }
-    }
-
-
-    /**
-     
-     Lista os Tipos de Telefones
-     
-     - GET /api/tipos-telefones
-     - Este m\u00C3\u00A9todo permite que sejam listados os Tipos de Telefones existentes na base de dados do Emissor.
-     - examples: [{contentType=application/json, example={
-  "previousPage" : 123,
-  "last" : true,
-  "hasContent" : true,
-  "hasNextPage" : true,
-  "nextPage" : 123,
-  "content" : [ {
-    "nome" : "aeiou",
-    "id" : 123456789
-  } ],
-  "totalElements" : 123456789,
-  "number" : 123,
-  "firstPage" : true,
-  "numberOfElements" : 123,
-  "size" : 123,
-  "totalPages" : 123,
-  "hasPreviousPage" : true,
-  "first" : true
-}}]
-     
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
-     - parameter id: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Tipo do Telefone (id). (optional)
-     - parameter nome: (query) Nome do Tipo do Telefone (optional)
-
-     - returns: RequestBuilder<PageTipoTelefoneResponse> 
-     */
-    public class func listarUsingGET26WithRequestBuilder(page page: Int?, limit: Int?, id: Int?, nome: String?) -> RequestBuilder<PageTipoTelefoneResponse> {
-        let path = "/api/tipos-telefones"
-        let URLString = PierAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [
-            "page": page,
-            "limit": limit,
-            "id": id,
-            "nome": nome
-        ]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<PageTipoTelefoneResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<PageControleVencimentoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
     }

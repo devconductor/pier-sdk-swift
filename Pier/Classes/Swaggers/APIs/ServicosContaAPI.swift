@@ -16,6 +16,7 @@ public class ServicosContaAPI: APIBase {
      
      - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
      - parameter idAnuidade: (query) Identificador da anuidade 
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter DDD: (query) DDD do celular (optional)
@@ -24,8 +25,8 @@ public class ServicosContaAPI: APIBase {
      - parameter idOrigemComercial: (query) Identificador da origem comercial (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func ativarAnuidadeUsingPOST(id id: Int, idAnuidade: Int, page: Int?, limit: Int?, DDD: String?, celular: String?, idOperadora: Int?, idOrigemComercial: Int?, completion: ((data: AnyObject?, error: ErrorType?) -> Void)) {
-        ativarAnuidadeUsingPOSTWithRequestBuilder(id: id, idAnuidade: idAnuidade, page: page, limit: limit, DDD: DDD, celular: celular, idOperadora: idOperadora, idOrigemComercial: idOrigemComercial).execute { (response, error) -> Void in
+    public class func ativarAnuidadeUsingPOST(id id: Int, idAnuidade: Int, sort: [String]?, page: Int?, limit: Int?, DDD: String?, celular: String?, idOperadora: Int?, idOrigemComercial: Int?, completion: ((data: AnyObject?, error: ErrorType?) -> Void)) {
+        ativarAnuidadeUsingPOSTWithRequestBuilder(id: id, idAnuidade: idAnuidade, sort: sort, page: page, limit: limit, DDD: DDD, celular: celular, idOperadora: idOperadora, idOrigemComercial: idOrigemComercial).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -41,6 +42,7 @@ public class ServicosContaAPI: APIBase {
      
      - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
      - parameter idAnuidade: (query) Identificador da anuidade 
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter DDD: (query) DDD do celular (optional)
@@ -50,12 +52,13 @@ public class ServicosContaAPI: APIBase {
 
      - returns: RequestBuilder<AnyObject> 
      */
-    public class func ativarAnuidadeUsingPOSTWithRequestBuilder(id id: Int, idAnuidade: Int, page: Int?, limit: Int?, DDD: String?, celular: String?, idOperadora: Int?, idOrigemComercial: Int?) -> RequestBuilder<AnyObject> {
+    public class func ativarAnuidadeUsingPOSTWithRequestBuilder(id id: Int, idAnuidade: Int, sort: [String]?, page: Int?, limit: Int?, DDD: String?, celular: String?, idOperadora: Int?, idOrigemComercial: Int?) -> RequestBuilder<AnyObject> {
         var path = "/api/contas/{id}/atribuir-anuidade"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
+            "sort": sort,
             "page": page,
             "limit": limit,
             "idAnuidade": idAnuidade,
@@ -153,12 +156,13 @@ public class ServicosContaAPI: APIBase {
      
      Listar Anuidades
      
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarAnuidadesUsingGET(page page: Int?, limit: Int?, completion: ((data: PageAnuidadeResponse?, error: ErrorType?) -> Void)) {
-        listarAnuidadesUsingGETWithRequestBuilder(page: page, limit: limit).execute { (response, error) -> Void in
+    public class func listarAnuidadesUsingGET(sort sort: [String]?, page: Int?, limit: Int?, completion: ((data: PageAnuidadeResponse?, error: ErrorType?) -> Void)) {
+        listarAnuidadesUsingGETWithRequestBuilder(sort: sort, page: page, limit: limit).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -168,7 +172,7 @@ public class ServicosContaAPI: APIBase {
      
      Listar Anuidades
      
-     - GET /api/api/anuidades
+     - GET /api/anuidades
      - Lista as anuidades
      - examples: [{contentType=application/json, example={
   "previousPage" : 123,
@@ -192,16 +196,18 @@ public class ServicosContaAPI: APIBase {
   "first" : true
 }}]
      
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
 
      - returns: RequestBuilder<PageAnuidadeResponse> 
      */
-    public class func listarAnuidadesUsingGETWithRequestBuilder(page page: Int?, limit: Int?) -> RequestBuilder<PageAnuidadeResponse> {
-        let path = "/api/api/anuidades"
+    public class func listarAnuidadesUsingGETWithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?) -> RequestBuilder<PageAnuidadeResponse> {
+        let path = "/api/anuidades"
         let URLString = PierAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
+            "sort": sort,
             "page": page,
             "limit": limit
         ]
@@ -216,12 +222,13 @@ public class ServicosContaAPI: APIBase {
      
      Listar Operadoras
      
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarOperadorasTelefonicasUsingGET(page page: Int?, limit: Int?, completion: ((data: PageOperadoraResponse?, error: ErrorType?) -> Void)) {
-        listarOperadorasTelefonicasUsingGETWithRequestBuilder(page: page, limit: limit).execute { (response, error) -> Void in
+    public class func listarOperadorasTelefonicasUsingGET(sort sort: [String]?, page: Int?, limit: Int?, completion: ((data: PageOperadoraResponse?, error: ErrorType?) -> Void)) {
+        listarOperadorasTelefonicasUsingGETWithRequestBuilder(sort: sort, page: page, limit: limit).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -253,16 +260,18 @@ public class ServicosContaAPI: APIBase {
   "first" : true
 }}]
      
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
 
      - returns: RequestBuilder<PageOperadoraResponse> 
      */
-    public class func listarOperadorasTelefonicasUsingGETWithRequestBuilder(page page: Int?, limit: Int?) -> RequestBuilder<PageOperadoraResponse> {
+    public class func listarOperadorasTelefonicasUsingGETWithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?) -> RequestBuilder<PageOperadoraResponse> {
         let path = "/api/operadoras-telefonicas"
         let URLString = PierAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
+            "sort": sort,
             "page": page,
             "limit": limit
         ]

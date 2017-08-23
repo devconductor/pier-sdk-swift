@@ -13,7 +13,7 @@ public class WebHookResponse: JSONEncodable {
 
     public enum TipoEvento: String { 
         case RiscoFraude = "RISCO_FRAUDE"
-        case TokenSms = "TOKEN_SMS"
+        case CodigoSeguranca = "CODIGO_SEGURANCA"
         case Outros = "OUTROS"
     }
     

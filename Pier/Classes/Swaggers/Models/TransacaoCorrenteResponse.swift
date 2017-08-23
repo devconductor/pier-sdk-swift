@@ -12,8 +12,6 @@ import Foundation
 public class TransacaoCorrenteResponse: JSONEncodable {
 
     public var ultimaParcelaLancada: Int?
-    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da timeline (idTimeline). */
-    public var id: Int?
     /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). */
     public var idConta: Int?
     /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do tipo de transacao (id). */
@@ -56,7 +54,6 @@ public class TransacaoCorrenteResponse: JSONEncodable {
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
         nillableDictionary["ultimaParcelaLancada"] = self.ultimaParcelaLancada
-        nillableDictionary["id"] = self.id
         nillableDictionary["idConta"] = self.idConta
         nillableDictionary["idTipoRegistro"] = self.idTipoRegistro
         nillableDictionary["ordem"] = self.ordem

@@ -70,22 +70,22 @@ public class ContaAPI: APIBase {
      Realiza a altera\u00C3\u00A7\u00C3\u00A3o dos limites da conta
      
      - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
-     - parameter limiteGlobal: (query) Apresenta o valor do limite de cr\u00C3\u00A9dito que o portador do cart\u00C3\u00A3o possui. 
-     - parameter limiteCompra: (query) Quando utilizado pelo emissor, este campo apresenta o valor do limite de cr\u00C3\u00A9dito que o portador possui para uso exclusivo em Compras Nacionais. 
-     - parameter limiteParcelado: (query) Quando utilizado pelo emissor, este campo apresenta o valor do limite de cr\u00C3\u00A9dito que o portador possui para realizar transa\u00C3\u00A7\u00C3\u00B5es de compras parceladas. 
-     - parameter limiteParcelas: (query) Quando utilizado pelo emissor, este campo apresenta o valor do limite de cr\u00C3\u00A9dito que portador pode acumular a partir da soma das parcelas das compras que forem realizadas nesta modalidade. 
-     - parameter limiteSaqueGlobal: (query) Quando utilizado pelo emissor, este campo apresenta o valor do limite de cr\u00C3\u00A9dito que o portador pode utilizar para realizar transa\u00C3\u00A7\u00C3\u00B5es de Saque Nacional. 
-     - parameter limiteSaquePeriodo: (query) Quando utilizado pelo emissor, este campo apresenta o valor do limite de cr\u00C3\u00A9dito que o portador pode utilizar para realizar transa\u00C3\u00A7\u00C3\u00B5es de Saque Nacional dentro de cada ciclo de faturamento. 
-     - parameter limiteConsignado: (query) Quando utilizado pelo emissor, este campo apresenta o valor da margem de cr\u00C3\u00A9dito que ele poder\u00C3\u00A1 utilizar para ser cobrado de forma consignada (desconto em folha) em seu sal\u00C3\u00A1rio/vencimentos. 
-     - parameter limiteInternacionalCompra: (query) Quando utilizado pelo emissor, este campo apresenta o valor do limite de cr\u00C3\u00A9dito que o portador possui para uso exclusivo em Compras Internacionais. 
-     - parameter limiteInternacionalParcelado: (query) Quando utilizado pelo emissor, este campo apresenta o valor do limite de cr\u00C3\u00A9dito que o portador possui para realizar transa\u00C3\u00A7\u00C3\u00B5es Internacionais de Compras Parceladas. 
-     - parameter limiteInternacionalParcelas: (query) Quando utilizado pelo emissor, este campo apresenta o valor do limite de cr\u00C3\u00A9dito que portador pode acumular a partir da soma das parcelas das compras internacionais que forem realizadas nesta modalidade. 
-     - parameter limiteInternacionalSaqueGlobal: (query) Quando utilizado pelo emissor, este campo apresenta o valor do limite de cr\u00C3\u00A9dito que o portador pode utilizar para realizar transa\u00C3\u00A7\u00C3\u00B5es de Saque Internacional. 
-     - parameter limiteInternacionalSaquePeriodo: (query) Quando utilizado pelo emissor, este campo apresenta o valor do limite de cr\u00C3\u00A9dito que o portador pode utilizar para realizar transa\u00C3\u00A7\u00C3\u00B5es de Saque Internacional dentro de cada ciclo de faturamento. 
-     - parameter limiteMaximo: (query) Valor m\u00C3\u00A1ximo do limite de cr\u00C3\u00A9dito para realizar transa\u00C3\u00A7\u00C3\u00B5es. 
+     - parameter limiteGlobal: (query) Apresenta o valor do limite de cr\u00C3\u00A9dito que o portador do cart\u00C3\u00A3o possui. (optional)
+     - parameter limiteCompra: (query) Quando utilizado pelo emissor, este campo apresenta o valor do limite de cr\u00C3\u00A9dito que o portador possui para uso exclusivo em Compras Nacionais. (optional)
+     - parameter limiteParcelado: (query) Quando utilizado pelo emissor, este campo apresenta o valor do limite de cr\u00C3\u00A9dito que o portador possui para realizar transa\u00C3\u00A7\u00C3\u00B5es de compras parceladas. (optional)
+     - parameter limiteParcelas: (query) Quando utilizado pelo emissor, este campo apresenta o valor do limite de cr\u00C3\u00A9dito que portador pode acumular a partir da soma das parcelas das compras que forem realizadas nesta modalidade. (optional)
+     - parameter limiteSaqueGlobal: (query) Quando utilizado pelo emissor, este campo apresenta o valor do limite de cr\u00C3\u00A9dito que o portador pode utilizar para realizar transa\u00C3\u00A7\u00C3\u00B5es de Saque Nacional. (optional)
+     - parameter limiteSaquePeriodo: (query) Quando utilizado pelo emissor, este campo apresenta o valor do limite de cr\u00C3\u00A9dito que o portador pode utilizar para realizar transa\u00C3\u00A7\u00C3\u00B5es de Saque Nacional dentro de cada ciclo de faturamento. (optional)
+     - parameter limiteConsignado: (query) Quando utilizado pelo emissor, este campo apresenta o valor da margem de cr\u00C3\u00A9dito que ele poder\u00C3\u00A1 utilizar para ser cobrado de forma consignada (desconto em folha) em seu sal\u00C3\u00A1rio/vencimentos. (optional)
+     - parameter limiteInternacionalCompra: (query) Quando utilizado pelo emissor, este campo apresenta o valor do limite de cr\u00C3\u00A9dito que o portador possui para uso exclusivo em Compras Internacionais. (optional)
+     - parameter limiteInternacionalParcelado: (query) Quando utilizado pelo emissor, este campo apresenta o valor do limite de cr\u00C3\u00A9dito que o portador possui para realizar transa\u00C3\u00A7\u00C3\u00B5es Internacionais de Compras Parceladas. (optional)
+     - parameter limiteInternacionalParcelas: (query) Quando utilizado pelo emissor, este campo apresenta o valor do limite de cr\u00C3\u00A9dito que portador pode acumular a partir da soma das parcelas das compras internacionais que forem realizadas nesta modalidade. (optional)
+     - parameter limiteInternacionalSaqueGlobal: (query) Quando utilizado pelo emissor, este campo apresenta o valor do limite de cr\u00C3\u00A9dito que o portador pode utilizar para realizar transa\u00C3\u00A7\u00C3\u00B5es de Saque Internacional. (optional)
+     - parameter limiteInternacionalSaquePeriodo: (query) Quando utilizado pelo emissor, este campo apresenta o valor do limite de cr\u00C3\u00A9dito que o portador pode utilizar para realizar transa\u00C3\u00A7\u00C3\u00B5es de Saque Internacional dentro de cada ciclo de faturamento. (optional)
+     - parameter limiteMaximo: (query) Valor m\u00C3\u00A1ximo do limite de cr\u00C3\u00A9dito para realizar transa\u00C3\u00A7\u00C3\u00B5es. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func alterarLimiteUsingPUT(id id: Int, limiteGlobal: Double, limiteCompra: Double, limiteParcelado: Double, limiteParcelas: Double, limiteSaqueGlobal: Double, limiteSaquePeriodo: Double, limiteConsignado: Double, limiteInternacionalCompra: Double, limiteInternacionalParcelado: Double, limiteInternacionalParcelas: Double, limiteInternacionalSaqueGlobal: Double, limiteInternacionalSaquePeriodo: Double, limiteMaximo: Double, completion: ((data: LimiteDisponibilidadeResponse?, error: ErrorType?) -> Void)) {
+    public class func alterarLimiteUsingPUT(id id: Int, limiteGlobal: Double?, limiteCompra: Double?, limiteParcelado: Double?, limiteParcelas: Double?, limiteSaqueGlobal: Double?, limiteSaquePeriodo: Double?, limiteConsignado: Double?, limiteInternacionalCompra: Double?, limiteInternacionalParcelado: Double?, limiteInternacionalParcelas: Double?, limiteInternacionalSaqueGlobal: Double?, limiteInternacionalSaquePeriodo: Double?, limiteMaximo: Double?, completion: ((data: LimiteDisponibilidadeResponse?, error: ErrorType?) -> Void)) {
         alterarLimiteUsingPUTWithRequestBuilder(id: id, limiteGlobal: limiteGlobal, limiteCompra: limiteCompra, limiteParcelado: limiteParcelado, limiteParcelas: limiteParcelas, limiteSaqueGlobal: limiteSaqueGlobal, limiteSaquePeriodo: limiteSaquePeriodo, limiteConsignado: limiteConsignado, limiteInternacionalCompra: limiteInternacionalCompra, limiteInternacionalParcelado: limiteInternacionalParcelado, limiteInternacionalParcelas: limiteInternacionalParcelas, limiteInternacionalSaqueGlobal: limiteInternacionalSaqueGlobal, limiteInternacionalSaquePeriodo: limiteInternacionalSaquePeriodo, limiteMaximo: limiteMaximo).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -124,23 +124,23 @@ public class ContaAPI: APIBase {
 }}]
      
      - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
-     - parameter limiteGlobal: (query) Apresenta o valor do limite de cr\u00C3\u00A9dito que o portador do cart\u00C3\u00A3o possui. 
-     - parameter limiteCompra: (query) Quando utilizado pelo emissor, este campo apresenta o valor do limite de cr\u00C3\u00A9dito que o portador possui para uso exclusivo em Compras Nacionais. 
-     - parameter limiteParcelado: (query) Quando utilizado pelo emissor, este campo apresenta o valor do limite de cr\u00C3\u00A9dito que o portador possui para realizar transa\u00C3\u00A7\u00C3\u00B5es de compras parceladas. 
-     - parameter limiteParcelas: (query) Quando utilizado pelo emissor, este campo apresenta o valor do limite de cr\u00C3\u00A9dito que portador pode acumular a partir da soma das parcelas das compras que forem realizadas nesta modalidade. 
-     - parameter limiteSaqueGlobal: (query) Quando utilizado pelo emissor, este campo apresenta o valor do limite de cr\u00C3\u00A9dito que o portador pode utilizar para realizar transa\u00C3\u00A7\u00C3\u00B5es de Saque Nacional. 
-     - parameter limiteSaquePeriodo: (query) Quando utilizado pelo emissor, este campo apresenta o valor do limite de cr\u00C3\u00A9dito que o portador pode utilizar para realizar transa\u00C3\u00A7\u00C3\u00B5es de Saque Nacional dentro de cada ciclo de faturamento. 
-     - parameter limiteConsignado: (query) Quando utilizado pelo emissor, este campo apresenta o valor da margem de cr\u00C3\u00A9dito que ele poder\u00C3\u00A1 utilizar para ser cobrado de forma consignada (desconto em folha) em seu sal\u00C3\u00A1rio/vencimentos. 
-     - parameter limiteInternacionalCompra: (query) Quando utilizado pelo emissor, este campo apresenta o valor do limite de cr\u00C3\u00A9dito que o portador possui para uso exclusivo em Compras Internacionais. 
-     - parameter limiteInternacionalParcelado: (query) Quando utilizado pelo emissor, este campo apresenta o valor do limite de cr\u00C3\u00A9dito que o portador possui para realizar transa\u00C3\u00A7\u00C3\u00B5es Internacionais de Compras Parceladas. 
-     - parameter limiteInternacionalParcelas: (query) Quando utilizado pelo emissor, este campo apresenta o valor do limite de cr\u00C3\u00A9dito que portador pode acumular a partir da soma das parcelas das compras internacionais que forem realizadas nesta modalidade. 
-     - parameter limiteInternacionalSaqueGlobal: (query) Quando utilizado pelo emissor, este campo apresenta o valor do limite de cr\u00C3\u00A9dito que o portador pode utilizar para realizar transa\u00C3\u00A7\u00C3\u00B5es de Saque Internacional. 
-     - parameter limiteInternacionalSaquePeriodo: (query) Quando utilizado pelo emissor, este campo apresenta o valor do limite de cr\u00C3\u00A9dito que o portador pode utilizar para realizar transa\u00C3\u00A7\u00C3\u00B5es de Saque Internacional dentro de cada ciclo de faturamento. 
-     - parameter limiteMaximo: (query) Valor m\u00C3\u00A1ximo do limite de cr\u00C3\u00A9dito para realizar transa\u00C3\u00A7\u00C3\u00B5es. 
+     - parameter limiteGlobal: (query) Apresenta o valor do limite de cr\u00C3\u00A9dito que o portador do cart\u00C3\u00A3o possui. (optional)
+     - parameter limiteCompra: (query) Quando utilizado pelo emissor, este campo apresenta o valor do limite de cr\u00C3\u00A9dito que o portador possui para uso exclusivo em Compras Nacionais. (optional)
+     - parameter limiteParcelado: (query) Quando utilizado pelo emissor, este campo apresenta o valor do limite de cr\u00C3\u00A9dito que o portador possui para realizar transa\u00C3\u00A7\u00C3\u00B5es de compras parceladas. (optional)
+     - parameter limiteParcelas: (query) Quando utilizado pelo emissor, este campo apresenta o valor do limite de cr\u00C3\u00A9dito que portador pode acumular a partir da soma das parcelas das compras que forem realizadas nesta modalidade. (optional)
+     - parameter limiteSaqueGlobal: (query) Quando utilizado pelo emissor, este campo apresenta o valor do limite de cr\u00C3\u00A9dito que o portador pode utilizar para realizar transa\u00C3\u00A7\u00C3\u00B5es de Saque Nacional. (optional)
+     - parameter limiteSaquePeriodo: (query) Quando utilizado pelo emissor, este campo apresenta o valor do limite de cr\u00C3\u00A9dito que o portador pode utilizar para realizar transa\u00C3\u00A7\u00C3\u00B5es de Saque Nacional dentro de cada ciclo de faturamento. (optional)
+     - parameter limiteConsignado: (query) Quando utilizado pelo emissor, este campo apresenta o valor da margem de cr\u00C3\u00A9dito que ele poder\u00C3\u00A1 utilizar para ser cobrado de forma consignada (desconto em folha) em seu sal\u00C3\u00A1rio/vencimentos. (optional)
+     - parameter limiteInternacionalCompra: (query) Quando utilizado pelo emissor, este campo apresenta o valor do limite de cr\u00C3\u00A9dito que o portador possui para uso exclusivo em Compras Internacionais. (optional)
+     - parameter limiteInternacionalParcelado: (query) Quando utilizado pelo emissor, este campo apresenta o valor do limite de cr\u00C3\u00A9dito que o portador possui para realizar transa\u00C3\u00A7\u00C3\u00B5es Internacionais de Compras Parceladas. (optional)
+     - parameter limiteInternacionalParcelas: (query) Quando utilizado pelo emissor, este campo apresenta o valor do limite de cr\u00C3\u00A9dito que portador pode acumular a partir da soma das parcelas das compras internacionais que forem realizadas nesta modalidade. (optional)
+     - parameter limiteInternacionalSaqueGlobal: (query) Quando utilizado pelo emissor, este campo apresenta o valor do limite de cr\u00C3\u00A9dito que o portador pode utilizar para realizar transa\u00C3\u00A7\u00C3\u00B5es de Saque Internacional. (optional)
+     - parameter limiteInternacionalSaquePeriodo: (query) Quando utilizado pelo emissor, este campo apresenta o valor do limite de cr\u00C3\u00A9dito que o portador pode utilizar para realizar transa\u00C3\u00A7\u00C3\u00B5es de Saque Internacional dentro de cada ciclo de faturamento. (optional)
+     - parameter limiteMaximo: (query) Valor m\u00C3\u00A1ximo do limite de cr\u00C3\u00A9dito para realizar transa\u00C3\u00A7\u00C3\u00B5es. (optional)
 
      - returns: RequestBuilder<LimiteDisponibilidadeResponse> 
      */
-    public class func alterarLimiteUsingPUTWithRequestBuilder(id id: Int, limiteGlobal: Double, limiteCompra: Double, limiteParcelado: Double, limiteParcelas: Double, limiteSaqueGlobal: Double, limiteSaquePeriodo: Double, limiteConsignado: Double, limiteInternacionalCompra: Double, limiteInternacionalParcelado: Double, limiteInternacionalParcelas: Double, limiteInternacionalSaqueGlobal: Double, limiteInternacionalSaquePeriodo: Double, limiteMaximo: Double) -> RequestBuilder<LimiteDisponibilidadeResponse> {
+    public class func alterarLimiteUsingPUTWithRequestBuilder(id id: Int, limiteGlobal: Double?, limiteCompra: Double?, limiteParcelado: Double?, limiteParcelas: Double?, limiteSaqueGlobal: Double?, limiteSaquePeriodo: Double?, limiteConsignado: Double?, limiteInternacionalCompra: Double?, limiteInternacionalParcelado: Double?, limiteInternacionalParcelas: Double?, limiteInternacionalSaqueGlobal: Double?, limiteInternacionalSaquePeriodo: Double?, limiteMaximo: Double?) -> RequestBuilder<LimiteDisponibilidadeResponse> {
         var path = "/api/contas/{id}/alterar-limites"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -165,6 +165,73 @@ public class ContaAPI: APIBase {
         let requestBuilder: RequestBuilder<LimiteDisponibilidadeResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: false)
+    }
+
+    /**
+     
+     Altera o produto associado \u00C3\u00A0 conta.
+     
+     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
+     - parameter idProduto: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do novo produto a ser associado (idProduto). 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func alterarProdutoUsingPOST(id id: Int, idProduto: Int, completion: ((data: PageContaHistoricoPagamentoResponse?, error: ErrorType?) -> Void)) {
+        alterarProdutoUsingPOSTWithRequestBuilder(id: id, idProduto: idProduto).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Altera o produto associado \u00C3\u00A0 conta.
+     
+     - POST /api/contas/{id}/alterar-produto
+     - O recurso permite fazer modifica\u00C3\u00A7\u00C3\u00A3o do produto associado \u00C3\u00A0 conta.
+     - examples: [{contentType=application/json, example={
+  "previousPage" : 123,
+  "last" : true,
+  "hasContent" : true,
+  "hasNextPage" : true,
+  "nextPage" : 123,
+  "content" : [ {
+    "idPagamento" : 123456789,
+    "idEstabelecimento" : 123456789,
+    "idBanco" : 123456789,
+    "idCartao" : 123456789,
+    "dataHoraPagamento" : "aeiou",
+    "dataHoraEntradaPagamento" : "aeiou",
+    "valorPagamento" : 1.3579000000000001069366817318950779736042022705078125,
+    "status" : 123456789
+  } ],
+  "totalElements" : 123456789,
+  "number" : 123,
+  "firstPage" : true,
+  "numberOfElements" : 123,
+  "size" : 123,
+  "totalPages" : 123,
+  "hasPreviousPage" : true,
+  "first" : true
+}}]
+     
+     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
+     - parameter idProduto: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do novo produto a ser associado (idProduto). 
+
+     - returns: RequestBuilder<PageContaHistoricoPagamentoResponse> 
+     */
+    public class func alterarProdutoUsingPOSTWithRequestBuilder(id id: Int, idProduto: Int) -> RequestBuilder<PageContaHistoricoPagamentoResponse> {
+        var path = "/api/contas/{id}/alterar-produto"
+        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [
+            "idProduto": idProduto
+        ]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<PageContaHistoricoPagamentoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: false)
     }
 
     /**
@@ -283,6 +350,7 @@ public class ContaAPI: APIBase {
      
      - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
      - parameter idAnuidade: (query) Identificador da anuidade 
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter DDD: (query) DDD do celular (optional)
@@ -291,8 +359,8 @@ public class ContaAPI: APIBase {
      - parameter idOrigemComercial: (query) Identificador da origem comercial (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func ativarAnuidadeUsingPOST(id id: Int, idAnuidade: Int, page: Int?, limit: Int?, DDD: String?, celular: String?, idOperadora: Int?, idOrigemComercial: Int?, completion: ((data: AnyObject?, error: ErrorType?) -> Void)) {
-        ativarAnuidadeUsingPOSTWithRequestBuilder(id: id, idAnuidade: idAnuidade, page: page, limit: limit, DDD: DDD, celular: celular, idOperadora: idOperadora, idOrigemComercial: idOrigemComercial).execute { (response, error) -> Void in
+    public class func ativarAnuidadeUsingPOST(id id: Int, idAnuidade: Int, sort: [String]?, page: Int?, limit: Int?, DDD: String?, celular: String?, idOperadora: Int?, idOrigemComercial: Int?, completion: ((data: AnyObject?, error: ErrorType?) -> Void)) {
+        ativarAnuidadeUsingPOSTWithRequestBuilder(id: id, idAnuidade: idAnuidade, sort: sort, page: page, limit: limit, DDD: DDD, celular: celular, idOperadora: idOperadora, idOrigemComercial: idOrigemComercial).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -308,6 +376,7 @@ public class ContaAPI: APIBase {
      
      - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
      - parameter idAnuidade: (query) Identificador da anuidade 
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter DDD: (query) DDD do celular (optional)
@@ -317,12 +386,13 @@ public class ContaAPI: APIBase {
 
      - returns: RequestBuilder<AnyObject> 
      */
-    public class func ativarAnuidadeUsingPOSTWithRequestBuilder(id id: Int, idAnuidade: Int, page: Int?, limit: Int?, DDD: String?, celular: String?, idOperadora: Int?, idOrigemComercial: Int?) -> RequestBuilder<AnyObject> {
+    public class func ativarAnuidadeUsingPOSTWithRequestBuilder(id id: Int, idAnuidade: Int, sort: [String]?, page: Int?, limit: Int?, DDD: String?, celular: String?, idOperadora: Int?, idOrigemComercial: Int?) -> RequestBuilder<AnyObject> {
         var path = "/api/contas/{id}/atribuir-anuidade"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
+            "sort": sort,
             "page": page,
             "limit": limit,
             "idAnuidade": idAnuidade,
@@ -561,14 +631,15 @@ public class ContaAPI: APIBase {
      Consulta a d\u00C3\u00ADvida atualizada do cliente
      
      - parameter id: (path) Id Conta 
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter dataVencimento: (query) Data do vencimento (optional)
      - parameter idEscritorioCobranca: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do escrit\u00C3\u00B3rio de cobran\u00C3\u00A7a (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarDividaAtualizadaClienteUsingGET(id id: Int, page: Int?, limit: Int?, dataVencimento: String?, idEscritorioCobranca: Int?, completion: ((data: DividaClienteResponse?, error: ErrorType?) -> Void)) {
-        consultarDividaAtualizadaClienteUsingGETWithRequestBuilder(id: id, page: page, limit: limit, dataVencimento: dataVencimento, idEscritorioCobranca: idEscritorioCobranca).execute { (response, error) -> Void in
+    public class func consultarDividaAtualizadaClienteUsingGET(id id: Int, sort: [String]?, page: Int?, limit: Int?, dataVencimento: String?, idEscritorioCobranca: Int?, completion: ((data: DividaClienteResponse?, error: ErrorType?) -> Void)) {
+        consultarDividaAtualizadaClienteUsingGETWithRequestBuilder(id: id, sort: sort, page: page, limit: limit, dataVencimento: dataVencimento, idEscritorioCobranca: idEscritorioCobranca).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -601,6 +672,7 @@ public class ContaAPI: APIBase {
 }}]
      
      - parameter id: (path) Id Conta 
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter dataVencimento: (query) Data do vencimento (optional)
@@ -608,12 +680,13 @@ public class ContaAPI: APIBase {
 
      - returns: RequestBuilder<DividaClienteResponse> 
      */
-    public class func consultarDividaAtualizadaClienteUsingGETWithRequestBuilder(id id: Int, page: Int?, limit: Int?, dataVencimento: String?, idEscritorioCobranca: Int?) -> RequestBuilder<DividaClienteResponse> {
+    public class func consultarDividaAtualizadaClienteUsingGETWithRequestBuilder(id id: Int, sort: [String]?, page: Int?, limit: Int?, dataVencimento: String?, idEscritorioCobranca: Int?) -> RequestBuilder<DividaClienteResponse> {
         var path = "/api/contas/{id}/recuperar-divida-atualizada"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
+            "sort": sort,
             "page": page,
             "limit": limit,
             "dataVencimento": dataVencimento,
@@ -661,6 +734,7 @@ public class ContaAPI: APIBase {
     "dataCotacaoUSD" : "aeiou",
     "nomePortador" : "aeiou",
     "dataFaturamento" : "aeiou",
+    "dataTransacao" : "aeiou",
     "descricaoAbreviada" : "aeiou",
     "localidadeEstabelecimento" : "aeiou",
     "idTipoTransacao" : 123456789,
@@ -677,7 +751,6 @@ public class ContaAPI: APIBase {
     "idConta" : 123456789,
     "codigoMoedaDestino" : "aeiou",
     "idEvento" : 123456789,
-    "dataTransacaoUTC" : "aeiou",
     "modoEntradaTransacao" : "aeiou",
     "idTransacaoEstorno" : 123456789,
     "nomeEstabelecimento" : "aeiou",
@@ -895,6 +968,7 @@ public class ContaAPI: APIBase {
     "dataCotacaoUSD" : "aeiou",
     "nomePortador" : "aeiou",
     "dataFaturamento" : "aeiou",
+    "dataTransacao" : "aeiou",
     "descricaoAbreviada" : "aeiou",
     "localidadeEstabelecimento" : "aeiou",
     "idTipoTransacao" : 123456789,
@@ -911,7 +985,6 @@ public class ContaAPI: APIBase {
     "idConta" : 123456789,
     "codigoMoedaDestino" : "aeiou",
     "idEvento" : 123456789,
-    "dataTransacaoUTC" : "aeiou",
     "modoEntradaTransacao" : "aeiou",
     "idTransacaoEstorno" : 123456789,
     "nomeEstabelecimento" : "aeiou",
@@ -1008,6 +1081,7 @@ public class ContaAPI: APIBase {
     "dataCotacaoUSD" : "aeiou",
     "nomePortador" : "aeiou",
     "dataFaturamento" : "aeiou",
+    "dataTransacao" : "aeiou",
     "descricaoAbreviada" : "aeiou",
     "localidadeEstabelecimento" : "aeiou",
     "idTipoTransacao" : 123456789,
@@ -1024,7 +1098,6 @@ public class ContaAPI: APIBase {
     "idConta" : 123456789,
     "codigoMoedaDestino" : "aeiou",
     "idEvento" : 123456789,
-    "dataTransacaoUTC" : "aeiou",
     "modoEntradaTransacao" : "aeiou",
     "idTransacaoEstorno" : 123456789,
     "nomeEstabelecimento" : "aeiou",
@@ -1052,6 +1125,96 @@ public class ContaAPI: APIBase {
         let parameters = APIHelper.rejectNil(nillableParameters)
 
         let requestBuilder: RequestBuilder<DetalhesFaturaResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
+    }
+
+    /**
+     
+     Listar planos de parcelamento
+     
+     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
+     - parameter dataVencimentoPadrao: (query) Indica a data de vencimento padr\u00C3\u00A3o das faturas 
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
+     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+     - parameter quantidadeParcelas: (query)  (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func consultarLancamentosFuturosFaturaUsingGET1(id id: Int, dataVencimentoPadrao: String, sort: [String]?, page: Int?, limit: Int?, quantidadeParcelas: Int?, completion: ((data: PagePlanoParcelamentoResponse?, error: ErrorType?) -> Void)) {
+        consultarLancamentosFuturosFaturaUsingGET1WithRequestBuilder(id: id, dataVencimentoPadrao: dataVencimentoPadrao, sort: sort, page: page, limit: limit, quantidadeParcelas: quantidadeParcelas).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Listar planos de parcelamento
+     
+     - GET /api/contas/{id}/faturas/planos-parcelamento
+     - Lista os planos de parcelamento da fatura de uma conta.
+     - examples: [{contentType=application/json, example={
+  "previousPage" : 123,
+  "last" : true,
+  "hasContent" : true,
+  "hasNextPage" : true,
+  "nextPage" : 123,
+  "content" : [ {
+    "valorEntrada" : 1.3579000000000001069366817318950779736042022705078125,
+    "idConta" : 123456789,
+    "nomeCampanha" : "aeiou",
+    "statusAdesao" : 123,
+    "quantidadeParcelas" : 123,
+    "dataVencimentoPadrao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+    "valorParcela" : 1.3579000000000001069366817318950779736042022705078125,
+    "valorTAC" : 1.3579000000000001069366817318950779736042022705078125,
+    "valorTotalRefinanciamento" : 1.3579000000000001069366817318950779736042022705078125,
+    "dataFechamentoFatura" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+    "taxaRefinanciamento" : 1.3579000000000001069366817318950779736042022705078125,
+    "dataInclusao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+    "id" : 123456789,
+    "comEntrada" : false,
+    "dataProcessamentoAdesao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+    "custoEfetivoTotal" : 1.3579000000000001069366817318950779736042022705078125,
+    "descricaoServicoTipo" : "aeiou",
+    "valorTotalFatura" : 1.3579000000000001069366817318950779736042022705078125,
+    "valorIOF" : 1.3579000000000001069366817318950779736042022705078125
+  } ],
+  "totalElements" : 123456789,
+  "number" : 123,
+  "firstPage" : true,
+  "numberOfElements" : 123,
+  "size" : 123,
+  "totalPages" : 123,
+  "hasPreviousPage" : true,
+  "first" : true
+}}]
+     
+     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
+     - parameter dataVencimentoPadrao: (query) Indica a data de vencimento padr\u00C3\u00A3o das faturas 
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
+     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+     - parameter quantidadeParcelas: (query)  (optional)
+
+     - returns: RequestBuilder<PagePlanoParcelamentoResponse> 
+     */
+    public class func consultarLancamentosFuturosFaturaUsingGET1WithRequestBuilder(id id: Int, dataVencimentoPadrao: String, sort: [String]?, page: Int?, limit: Int?, quantidadeParcelas: Int?) -> RequestBuilder<PagePlanoParcelamentoResponse> {
+        var path = "/api/contas/{id}/faturas/planos-parcelamento"
+        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [
+            "sort": sort,
+            "page": page,
+            "limit": limit,
+            "dataVencimentoPadrao": dataVencimentoPadrao,
+            "quantidadeParcelas": quantidadeParcelas
+        ]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<PagePlanoParcelamentoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
     }
@@ -1123,12 +1286,13 @@ public class ContaAPI: APIBase {
      Permite consultar a partir do ID da conta as taxas e tarifas
      
      - parameter id: (path) ID da conta a ser consultada. 
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarTaxasTarifasUsingGET(id id: Int, page: Int?, limit: Int?, completion: ((data: PageTaxasRefinanciamentoResponse?, error: ErrorType?) -> Void)) {
-        consultarTaxasTarifasUsingGETWithRequestBuilder(id: id, page: page, limit: limit).execute { (response, error) -> Void in
+    public class func consultarTaxasTarifasUsingGET(id id: Int, sort: [String]?, page: Int?, limit: Int?, completion: ((data: PageTaxasRefinanciamentoResponse?, error: ErrorType?) -> Void)) {
+        consultarTaxasTarifasUsingGETWithRequestBuilder(id: id, sort: sort, page: page, limit: limit).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -1181,17 +1345,19 @@ public class ContaAPI: APIBase {
 }}]
      
      - parameter id: (path) ID da conta a ser consultada. 
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
 
      - returns: RequestBuilder<PageTaxasRefinanciamentoResponse> 
      */
-    public class func consultarTaxasTarifasUsingGETWithRequestBuilder(id id: Int, page: Int?, limit: Int?) -> RequestBuilder<PageTaxasRefinanciamentoResponse> {
+    public class func consultarTaxasTarifasUsingGETWithRequestBuilder(id id: Int, sort: [String]?, page: Int?, limit: Int?) -> RequestBuilder<PageTaxasRefinanciamentoResponse> {
         var path = "/api/contas/{id}/consultar-taxas-tarifas"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
+            "sort": sort,
             "page": page,
             "limit": limit
         ]
@@ -1250,6 +1416,7 @@ public class ContaAPI: APIBase {
   "taxaJuros" : 1.3579000000000001069366817318950779736042022705078125,
   "numeroEstabelecimento" : 123456789,
   "dataVencimentoReal" : "aeiou",
+  "valorTaxaSaque" : 1.3579000000000001069366817318950779736042022705078125,
   "valorIOF" : 1.3579000000000001069366817318950779736042022705078125
 }}]
      
@@ -1448,6 +1615,52 @@ public class ContaAPI: APIBase {
 
     /**
      
+     Envia 2\u00C2\u00AA via de fatura por E-mail
+     
+     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
+     - parameter dataVencimento: (path) Data de Vencimento da fatura. 
+     - parameter email: (query) E-mail para envio da 2\u00C2\u00AA via da fatura, caso n\u00C3\u00A3o seja informado ser\u00C3\u00A1 usado o e-mail cadastrado. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func enviarFaturaEmailUsingPOST(id id: Int, dataVencimento: String, email: String?, completion: ((data: String?, error: ErrorType?) -> Void)) {
+        enviarFaturaEmailUsingPOSTWithRequestBuilder(id: id, dataVencimento: dataVencimento, email: email).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Envia 2\u00C2\u00AA via de fatura por E-mail
+     
+     - POST /api/contas/{id}/faturas/{dataVencimento}/enviar-email
+     - Envia a segunda via da fatura para o e-mail informado/cadastrado.
+     - examples: [{contentType=application/json, example="aeiou"}]
+     
+     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
+     - parameter dataVencimento: (path) Data de Vencimento da fatura. 
+     - parameter email: (query) E-mail para envio da 2\u00C2\u00AA via da fatura, caso n\u00C3\u00A3o seja informado ser\u00C3\u00A1 usado o e-mail cadastrado. (optional)
+
+     - returns: RequestBuilder<String> 
+     */
+    public class func enviarFaturaEmailUsingPOSTWithRequestBuilder(id id: Int, dataVencimento: String, email: String?) -> RequestBuilder<String> {
+        var path = "/api/contas/{id}/faturas/{dataVencimento}/enviar-email"
+        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
+        path = path.stringByReplacingOccurrencesOfString("{dataVencimento}", withString: "\(dataVencimento)", options: .LiteralSearch, range: nil)
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [
+            "email": email
+        ]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<String>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: false)
+    }
+
+    /**
+     
      Gera um boleto de recarga
      
      - parameter id: (path) Id Conta 
@@ -1524,6 +1737,77 @@ public class ContaAPI: APIBase {
 
     /**
      
+     Realiza o envio para gera\u00C3\u00A7\u00C3\u00A3o de um novo cart\u00C3\u00A3o na gr\u00C3\u00A1fica
+     
+     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
+     - parameter idPessoa: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da pessoa (id). 
+     - parameter idTipoPlastico: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do TipoPlastico (id). (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func gerarCartaoEmbossingUsingPOST(id id: Int, idPessoa: Int, idTipoPlastico: Int?, completion: ((data: CartaoImpressaoResponse?, error: ErrorType?) -> Void)) {
+        gerarCartaoEmbossingUsingPOSTWithRequestBuilder(id: id, idPessoa: idPessoa, idTipoPlastico: idTipoPlastico).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Realiza o envio para gera\u00C3\u00A7\u00C3\u00A3o de um novo cart\u00C3\u00A3o na gr\u00C3\u00A1fica
+     
+     - POST /api/contas/{id}/gerar-cartao-grafica
+     - Este recurso permite que seja gerado um novo Cart\u00C3\u00A3o para um determinado Portador que esteja vinculado a uma Conta. Para isso, ser\u00C3\u00A1 preciso informar o c\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da Conta (id), o idPessoa do Portador e o idTipoPlastico do Cart\u00C3\u00A3o que dever\u00C3\u00A1 ser gerado para impress\u00C3\u00A3o. Esta funcionalidade poder\u00C3\u00A1 ser utilizada para impress\u00C3\u00A3o de cart\u00C3\u00B5es em gr\u00C3\u00A1fica.
+     - examples: [{contentType=application/json, example={
+  "cvv2" : "aeiou",
+  "idCartao" : 123456789,
+  "trilha1" : "aeiou",
+  "trilhaCVV2" : "aeiou",
+  "idConta" : 123456789,
+  "trilhaCVV1" : "aeiou",
+  "numeroCartaoHash" : 123456789,
+  "idTipoCartao" : 123456789,
+  "idBandeira" : 123456789,
+  "trilha2" : "aeiou",
+  "nomeEmpregador" : "aeiou",
+  "numeroCartao" : "aeiou",
+  "numeroContaCorente" : "aeiou",
+  "idPessoa" : 123456789,
+  "nomeEmpresa" : "aeiou",
+  "dataValidade" : "aeiou",
+  "nomeOrigemComercial" : "aeiou",
+  "cpf" : "aeiou",
+  "nomePlastico" : "aeiou",
+  "flagVirtual" : 123,
+  "numeroAgencia" : 123,
+  "nomeEmpresaBeneficio" : "aeiou",
+  "dataGeracao" : "aeiou",
+  "tipoPortador" : "aeiou"
+}}]
+     
+     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
+     - parameter idPessoa: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da pessoa (id). 
+     - parameter idTipoPlastico: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do TipoPlastico (id). (optional)
+
+     - returns: RequestBuilder<CartaoImpressaoResponse> 
+     */
+    public class func gerarCartaoEmbossingUsingPOSTWithRequestBuilder(id id: Int, idPessoa: Int, idTipoPlastico: Int?) -> RequestBuilder<CartaoImpressaoResponse> {
+        var path = "/api/contas/{id}/gerar-cartao-grafica"
+        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
+        path = path.stringByReplacingOccurrencesOfString("{idPessoa}", withString: "\(idPessoa)", options: .LiteralSearch, range: nil)
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [
+            "id_tipo_plastico": idTipoPlastico
+        ]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<CartaoImpressaoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: false)
+    }
+
+    /**
+     
      Realiza a gera\u00C3\u00A7\u00C3\u00A3o de um novo cart\u00C3\u00A3o para impress\u00C3\u00A3o avulsa
      
      - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
@@ -1551,6 +1835,7 @@ public class ContaAPI: APIBase {
   "trilhaCVV2" : "aeiou",
   "idConta" : 123456789,
   "trilhaCVV1" : "aeiou",
+  "numeroCartaoHash" : 123456789,
   "idTipoCartao" : 123456789,
   "idBandeira" : 123456789,
   "trilha2" : "aeiou",
@@ -1620,6 +1905,7 @@ public class ContaAPI: APIBase {
   "trilhaCVV2" : "aeiou",
   "idConta" : 123456789,
   "trilhaCVV1" : "aeiou",
+  "numeroCartaoHash" : 123456789,
   "idTipoCartao" : 123456789,
   "idBandeira" : 123456789,
   "trilha2" : "aeiou",
@@ -1664,13 +1950,14 @@ public class ContaAPI: APIBase {
      Lista as faturas consignadas da conta
      
      - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter dataVencimento: (query) Apresenta a data de vencimento da fatura. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarFaturasConsignadasUsingGET(id id: Int, page: Int?, limit: Int?, dataVencimento: String?, completion: ((data: PageFaturaConsignadaResponse?, error: ErrorType?) -> Void)) {
-        listarFaturasConsignadasUsingGETWithRequestBuilder(id: id, page: page, limit: limit, dataVencimento: dataVencimento).execute { (response, error) -> Void in
+    public class func listarFaturasConsignadasUsingGET(id id: Int, sort: [String]?, page: Int?, limit: Int?, dataVencimento: String?, completion: ((data: PageFaturaConsignadaResponse?, error: ErrorType?) -> Void)) {
+        listarFaturasConsignadasUsingGETWithRequestBuilder(id: id, sort: sort, page: page, limit: limit, dataVencimento: dataVencimento).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -1729,18 +2016,20 @@ public class ContaAPI: APIBase {
 }}]
      
      - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter dataVencimento: (query) Apresenta a data de vencimento da fatura. (optional)
 
      - returns: RequestBuilder<PageFaturaConsignadaResponse> 
      */
-    public class func listarFaturasConsignadasUsingGETWithRequestBuilder(id id: Int, page: Int?, limit: Int?, dataVencimento: String?) -> RequestBuilder<PageFaturaConsignadaResponse> {
+    public class func listarFaturasConsignadasUsingGETWithRequestBuilder(id id: Int, sort: [String]?, page: Int?, limit: Int?, dataVencimento: String?) -> RequestBuilder<PageFaturaConsignadaResponse> {
         var path = "/api/contas/{id}/faturas-consignadas"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
+            "sort": sort,
             "page": page,
             "limit": limit,
             "dataVencimento": dataVencimento
@@ -1757,13 +2046,14 @@ public class ContaAPI: APIBase {
      Lista as faturas da conta
      
      - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter dataVencimento: (query) Data de Vencimento da Fatura. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarFaturasUsingGET(id id: Int, page: Int?, limit: Int?, dataVencimento: String?, completion: ((data: PageFaturaResponse?, error: ErrorType?) -> Void)) {
-        listarFaturasUsingGETWithRequestBuilder(id: id, page: page, limit: limit, dataVencimento: dataVencimento).execute { (response, error) -> Void in
+    public class func listarFaturasUsingGET(id id: Int, sort: [String]?, page: Int?, limit: Int?, dataVencimento: String?, completion: ((data: PageFaturaResponse?, error: ErrorType?) -> Void)) {
+        listarFaturasUsingGETWithRequestBuilder(id: id, sort: sort, page: page, limit: limit, dataVencimento: dataVencimento).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -1822,18 +2112,20 @@ public class ContaAPI: APIBase {
 }}]
      
      - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter dataVencimento: (query) Data de Vencimento da Fatura. (optional)
 
      - returns: RequestBuilder<PageFaturaResponse> 
      */
-    public class func listarFaturasUsingGETWithRequestBuilder(id id: Int, page: Int?, limit: Int?, dataVencimento: String?) -> RequestBuilder<PageFaturaResponse> {
+    public class func listarFaturasUsingGETWithRequestBuilder(id id: Int, sort: [String]?, page: Int?, limit: Int?, dataVencimento: String?) -> RequestBuilder<PageFaturaResponse> {
         var path = "/api/contas/{id}/faturas"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
+            "sort": sort,
             "page": page,
             "limit": limit,
             "dataVencimento": dataVencimento
@@ -1850,12 +2142,13 @@ public class ContaAPI: APIBase {
      Lista o hist\u00C3\u00B3rico de altera\u00C3\u00A7\u00C3\u00B5es de limites da conta
      
      - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarHistoricoAlteracoesLimitesUsingGET(id id: Int, page: Int?, limit: Int?, completion: ((data: PageHistoricoEventosResponse?, error: ErrorType?) -> Void)) {
-        listarHistoricoAlteracoesLimitesUsingGETWithRequestBuilder(id: id, page: page, limit: limit).execute { (response, error) -> Void in
+    public class func listarHistoricoAlteracoesLimitesUsingGET(id id: Int, sort: [String]?, page: Int?, limit: Int?, completion: ((data: PageHistoricoEventosResponse?, error: ErrorType?) -> Void)) {
+        listarHistoricoAlteracoesLimitesUsingGETWithRequestBuilder(id: id, sort: sort, page: page, limit: limit).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -1891,17 +2184,19 @@ public class ContaAPI: APIBase {
 }}]
      
      - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
 
      - returns: RequestBuilder<PageHistoricoEventosResponse> 
      */
-    public class func listarHistoricoAlteracoesLimitesUsingGETWithRequestBuilder(id id: Int, page: Int?, limit: Int?) -> RequestBuilder<PageHistoricoEventosResponse> {
+    public class func listarHistoricoAlteracoesLimitesUsingGETWithRequestBuilder(id id: Int, sort: [String]?, page: Int?, limit: Int?) -> RequestBuilder<PageHistoricoEventosResponse> {
         var path = "/api/contas/{id}/historicos-alteracoes-limites"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
+            "sort": sort,
             "page": page,
             "limit": limit
         ]
@@ -1917,12 +2212,13 @@ public class ContaAPI: APIBase {
      Lista o hist\u00C3\u00B3rico de entradas/sa\u00C3\u00ADdas de assessorias de cobran\u00C3\u00A7a
      
      - parameter id: (path) Id Conta 
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarHistoricoAssessoriaUsingGET(id id: Int, page: Int?, limit: Int?, completion: ((data: PageHistoricoAssessoriaResponse?, error: ErrorType?) -> Void)) {
-        listarHistoricoAssessoriaUsingGETWithRequestBuilder(id: id, page: page, limit: limit).execute { (response, error) -> Void in
+    public class func listarHistoricoAssessoriaUsingGET(id id: Int, sort: [String]?, page: Int?, limit: Int?, completion: ((data: PageHistoricoAssessoriaResponse?, error: ErrorType?) -> Void)) {
+        listarHistoricoAssessoriaUsingGETWithRequestBuilder(id: id, sort: sort, page: page, limit: limit).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -1956,17 +2252,19 @@ public class ContaAPI: APIBase {
 }}]
      
      - parameter id: (path) Id Conta 
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
 
      - returns: RequestBuilder<PageHistoricoAssessoriaResponse> 
      */
-    public class func listarHistoricoAssessoriaUsingGETWithRequestBuilder(id id: Int, page: Int?, limit: Int?) -> RequestBuilder<PageHistoricoAssessoriaResponse> {
+    public class func listarHistoricoAssessoriaUsingGETWithRequestBuilder(id id: Int, sort: [String]?, page: Int?, limit: Int?) -> RequestBuilder<PageHistoricoAssessoriaResponse> {
         var path = "/api/contas/{id}/historicos-assessorias-cobranca"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
+            "sort": sort,
             "page": page,
             "limit": limit
         ]
@@ -1982,10 +2280,13 @@ public class ContaAPI: APIBase {
      Lista o historico de atrasos das faturas
      
      - parameter id: (path) Id Conta 
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
+     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarHistoricoAtrasosFaturasUsingGET(id id: Int, completion: ((data: PageHistoricoAtrasoFaturaResponse?, error: ErrorType?) -> Void)) {
-        listarHistoricoAtrasosFaturasUsingGETWithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func listarHistoricoAtrasosFaturasUsingGET(id id: Int, sort: [String]?, page: Int?, limit: Int?, completion: ((data: PageHistoricoAtrasoFaturaResponse?, error: ErrorType?) -> Void)) {
+        listarHistoricoAtrasosFaturasUsingGETWithRequestBuilder(id: id, sort: sort, page: page, limit: limit).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -2018,20 +2319,27 @@ public class ContaAPI: APIBase {
 }}]
      
      - parameter id: (path) Id Conta 
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
+     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
 
      - returns: RequestBuilder<PageHistoricoAtrasoFaturaResponse> 
      */
-    public class func listarHistoricoAtrasosFaturasUsingGETWithRequestBuilder(id id: Int) -> RequestBuilder<PageHistoricoAtrasoFaturaResponse> {
+    public class func listarHistoricoAtrasosFaturasUsingGETWithRequestBuilder(id id: Int, sort: [String]?, page: Int?, limit: Int?) -> RequestBuilder<PageHistoricoAtrasoFaturaResponse> {
         var path = "/api/contas/{id}/historicos-faturas-atrasos"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
         
-        let nillableParameters: [String:AnyObject?] = [:]
+        let nillableParameters: [String:AnyObject?] = [
+            "sort": sort,
+            "page": page,
+            "limit": limit
+        ]
         let parameters = APIHelper.rejectNil(nillableParameters)
 
         let requestBuilder: RequestBuilder<PageHistoricoAtrasoFaturaResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
     }
 
     /**
@@ -2039,14 +2347,15 @@ public class ContaAPI: APIBase {
      Lista as transa\u00C3\u00A7\u00C3\u00B5es n\u00C3\u00A3o processadas da conta
      
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter dataInicio: (query) Data de in\u00C3\u00ADcio da consulta do extrato no formato yyyy-MM-dd (Par\u00C3\u00A2mentro Ignorado se dataFim n\u00C3\u00A3o for definida). (optional)
      - parameter dataFim: (query) Data fim da consulta do extrato no formato yyyy-MM-dd  (Par\u00C3\u00A2mentro Ignorado se dataInicio n\u00C3\u00A3o for definida). (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarNaoProcessadasUsingGET(id id: Int, page: Int?, limit: Int?, dataInicio: String?, dataFim: String?, completion: ((data: PageTransacoesCorrentesResponse?, error: ErrorType?) -> Void)) {
-        listarNaoProcessadasUsingGETWithRequestBuilder(id: id, page: page, limit: limit, dataInicio: dataInicio, dataFim: dataFim).execute { (response, error) -> Void in
+    public class func listarNaoProcessadasUsingGET(id id: Int, sort: [String]?, page: Int?, limit: Int?, dataInicio: String?, dataFim: String?, completion: ((data: PageTransacoesCorrentesResponse?, error: ErrorType?) -> Void)) {
+        listarNaoProcessadasUsingGETWithRequestBuilder(id: id, sort: sort, page: page, limit: limit, dataInicio: dataInicio, dataFim: dataFim).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -2077,6 +2386,7 @@ public class ContaAPI: APIBase {
     "dataCotacaoUSD" : "aeiou",
     "nomePortador" : "aeiou",
     "dataFaturamento" : "aeiou",
+    "dataTransacao" : "aeiou",
     "descricaoAbreviada" : "aeiou",
     "localidadeEstabelecimento" : "aeiou",
     "idTipoTransacao" : 123456789,
@@ -2093,7 +2403,6 @@ public class ContaAPI: APIBase {
     "idConta" : 123456789,
     "codigoMoedaDestino" : "aeiou",
     "idEvento" : 123456789,
-    "dataTransacaoUTC" : "aeiou",
     "modoEntradaTransacao" : "aeiou",
     "idTransacaoEstorno" : 123456789,
     "nomeEstabelecimento" : "aeiou",
@@ -2114,6 +2423,7 @@ public class ContaAPI: APIBase {
 }}]
      
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter dataInicio: (query) Data de in\u00C3\u00ADcio da consulta do extrato no formato yyyy-MM-dd (Par\u00C3\u00A2mentro Ignorado se dataFim n\u00C3\u00A3o for definida). (optional)
@@ -2121,12 +2431,13 @@ public class ContaAPI: APIBase {
 
      - returns: RequestBuilder<PageTransacoesCorrentesResponse> 
      */
-    public class func listarNaoProcessadasUsingGETWithRequestBuilder(id id: Int, page: Int?, limit: Int?, dataInicio: String?, dataFim: String?) -> RequestBuilder<PageTransacoesCorrentesResponse> {
+    public class func listarNaoProcessadasUsingGETWithRequestBuilder(id id: Int, sort: [String]?, page: Int?, limit: Int?, dataInicio: String?, dataFim: String?) -> RequestBuilder<PageTransacoesCorrentesResponse> {
         var path = "/api/contas/{id}/transacoes/listar-nao-processadas"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
+            "sort": sort,
             "page": page,
             "limit": limit,
             "dataInicio": dataInicio,
@@ -2141,9 +2452,101 @@ public class ContaAPI: APIBase {
 
     /**
      
+     Lista hist\u00C3\u00B3rico de pagamentos da conta
+     
+     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
+     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+     - parameter idPagamento: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Pagamento (optional)
+     - parameter idEstabelecimento: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Estabelecimento onde o Pagamento foi realizado, quando este for o local de pagamento (optional)
+     - parameter idBanco: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Institui\u00C3\u00A7\u00C3\u00A3o Banc\u00C3\u00A1ria onde o Pagamento foi realizado, quando este for o local de pagamento (optional)
+     - parameter idCartao: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (optional)
+     - parameter dataHoraPagamento: (query) Data e Hora da realiza\u00C3\u00A7\u00C3\u00A3o do Pagamento. Quando feito em Institui\u00C3\u00A7\u00C3\u00A3o Banc\u00C3\u00A1ria, o hor\u00C3\u00A1rio do pagamento \u00C3\u00A9 exibido com valor zero (optional)
+     - parameter status: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Status do Pagamento (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func listarPagamentosUsingGET(id id: Int, sort: [String]?, page: Int?, limit: Int?, idPagamento: Int?, idEstabelecimento: Int?, idBanco: Int?, idCartao: Int?, dataHoraPagamento: String?, status: Int?, completion: ((data: PageContaHistoricoPagamentoResponse?, error: ErrorType?) -> Void)) {
+        listarPagamentosUsingGETWithRequestBuilder(id: id, sort: sort, page: page, limit: limit, idPagamento: idPagamento, idEstabelecimento: idEstabelecimento, idBanco: idBanco, idCartao: idCartao, dataHoraPagamento: dataHoraPagamento, status: status).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Lista hist\u00C3\u00B3rico de pagamentos da conta
+     
+     - GET /api/contas/{id}/pagamentos
+     - Este recurso permite listar todos os Pagamentos realizados por uma determinada Conta independente do seu Status de Processamento.
+     - examples: [{contentType=application/json, example={
+  "previousPage" : 123,
+  "last" : true,
+  "hasContent" : true,
+  "hasNextPage" : true,
+  "nextPage" : 123,
+  "content" : [ {
+    "idPagamento" : 123456789,
+    "idEstabelecimento" : 123456789,
+    "idBanco" : 123456789,
+    "idCartao" : 123456789,
+    "dataHoraPagamento" : "aeiou",
+    "dataHoraEntradaPagamento" : "aeiou",
+    "valorPagamento" : 1.3579000000000001069366817318950779736042022705078125,
+    "status" : 123456789
+  } ],
+  "totalElements" : 123456789,
+  "number" : 123,
+  "firstPage" : true,
+  "numberOfElements" : 123,
+  "size" : 123,
+  "totalPages" : 123,
+  "hasPreviousPage" : true,
+  "first" : true
+}}]
+     
+     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
+     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+     - parameter idPagamento: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Pagamento (optional)
+     - parameter idEstabelecimento: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Estabelecimento onde o Pagamento foi realizado, quando este for o local de pagamento (optional)
+     - parameter idBanco: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Institui\u00C3\u00A7\u00C3\u00A3o Banc\u00C3\u00A1ria onde o Pagamento foi realizado, quando este for o local de pagamento (optional)
+     - parameter idCartao: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (optional)
+     - parameter dataHoraPagamento: (query) Data e Hora da realiza\u00C3\u00A7\u00C3\u00A3o do Pagamento. Quando feito em Institui\u00C3\u00A7\u00C3\u00A3o Banc\u00C3\u00A1ria, o hor\u00C3\u00A1rio do pagamento \u00C3\u00A9 exibido com valor zero (optional)
+     - parameter status: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Status do Pagamento (optional)
+
+     - returns: RequestBuilder<PageContaHistoricoPagamentoResponse> 
+     */
+    public class func listarPagamentosUsingGETWithRequestBuilder(id id: Int, sort: [String]?, page: Int?, limit: Int?, idPagamento: Int?, idEstabelecimento: Int?, idBanco: Int?, idCartao: Int?, dataHoraPagamento: String?, status: Int?) -> RequestBuilder<PageContaHistoricoPagamentoResponse> {
+        var path = "/api/contas/{id}/pagamentos"
+        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [
+            "sort": sort,
+            "page": page,
+            "limit": limit,
+            "idPagamento": idPagamento,
+            "idEstabelecimento": idEstabelecimento,
+            "idBanco": idBanco,
+            "idCartao": idCartao,
+            "dataHoraPagamento": dataHoraPagamento,
+            "status": status
+        ]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<PageContaHistoricoPagamentoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
+    }
+
+    /**
+     
      Lista as transa\u00C3\u00A7\u00C3\u00B5es processadas da conta
      
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter dataVencimento: (query) Data de vencimento do extrato no formato yyyy-MM-dd. (optional)
@@ -2151,8 +2554,8 @@ public class ContaAPI: APIBase {
      - parameter dataFim: (query) Data fim da consulta do extrato no formato yyyy-MM-dd  (Ignorado quando o par\u00C3\u00A2mentro dataVencimento \u00C3\u00A9 usado). (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarProcessadasUsingGET(id id: Int, page: Int?, limit: Int?, dataVencimento: String?, dataInicio: String?, dataFim: String?, completion: ((data: PageTransacoesCorrentesResponse?, error: ErrorType?) -> Void)) {
-        listarProcessadasUsingGETWithRequestBuilder(id: id, page: page, limit: limit, dataVencimento: dataVencimento, dataInicio: dataInicio, dataFim: dataFim).execute { (response, error) -> Void in
+    public class func listarProcessadasUsingGET(id id: Int, sort: [String]?, page: Int?, limit: Int?, dataVencimento: String?, dataInicio: String?, dataFim: String?, completion: ((data: PageTransacoesCorrentesResponse?, error: ErrorType?) -> Void)) {
+        listarProcessadasUsingGETWithRequestBuilder(id: id, sort: sort, page: page, limit: limit, dataVencimento: dataVencimento, dataInicio: dataInicio, dataFim: dataFim).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -2183,6 +2586,7 @@ public class ContaAPI: APIBase {
     "dataCotacaoUSD" : "aeiou",
     "nomePortador" : "aeiou",
     "dataFaturamento" : "aeiou",
+    "dataTransacao" : "aeiou",
     "descricaoAbreviada" : "aeiou",
     "localidadeEstabelecimento" : "aeiou",
     "idTipoTransacao" : 123456789,
@@ -2199,7 +2603,6 @@ public class ContaAPI: APIBase {
     "idConta" : 123456789,
     "codigoMoedaDestino" : "aeiou",
     "idEvento" : 123456789,
-    "dataTransacaoUTC" : "aeiou",
     "modoEntradaTransacao" : "aeiou",
     "idTransacaoEstorno" : 123456789,
     "nomeEstabelecimento" : "aeiou",
@@ -2220,6 +2623,7 @@ public class ContaAPI: APIBase {
 }}]
      
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter dataVencimento: (query) Data de vencimento do extrato no formato yyyy-MM-dd. (optional)
@@ -2228,12 +2632,13 @@ public class ContaAPI: APIBase {
 
      - returns: RequestBuilder<PageTransacoesCorrentesResponse> 
      */
-    public class func listarProcessadasUsingGETWithRequestBuilder(id id: Int, page: Int?, limit: Int?, dataVencimento: String?, dataInicio: String?, dataFim: String?) -> RequestBuilder<PageTransacoesCorrentesResponse> {
+    public class func listarProcessadasUsingGETWithRequestBuilder(id id: Int, sort: [String]?, page: Int?, limit: Int?, dataVencimento: String?, dataInicio: String?, dataFim: String?) -> RequestBuilder<PageTransacoesCorrentesResponse> {
         var path = "/api/contas/{id}/transacoes/listar-processadas"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
+            "sort": sort,
             "page": page,
             "limit": limit,
             "dataVencimento": dataVencimento,
@@ -2253,12 +2658,13 @@ public class ContaAPI: APIBase {
      
      - parameter id: (path) Id Conta 
      - parameter idContaBancariaDestino: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta banc\u00C3\u00A1ria de destino (id) (optional)
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET28(id id: Int, idContaBancariaDestino: Int?, page: Int?, limit: Int?, completion: ((data: PageTransferenciaBancariaResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET28WithRequestBuilder(id: id, idContaBancariaDestino: idContaBancariaDestino, page: page, limit: limit).execute { (response, error) -> Void in
+    public class func listarUsingGET30(id id: Int, idContaBancariaDestino: Int?, sort: [String]?, page: Int?, limit: Int?, completion: ((data: PageTransferenciaBancariaResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET30WithRequestBuilder(id: id, idContaBancariaDestino: idContaBancariaDestino, sort: sort, page: page, limit: limit).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -2302,6 +2708,7 @@ public class ContaAPI: APIBase {
     "taxaJuros" : 1.3579000000000001069366817318950779736042022705078125,
     "numeroEstabelecimento" : 123456789,
     "dataVencimentoReal" : "aeiou",
+    "valorTaxaSaque" : 1.3579000000000001069366817318950779736042022705078125,
     "valorIOF" : 1.3579000000000001069366817318950779736042022705078125
   } ],
   "totalElements" : 123456789,
@@ -2316,18 +2723,20 @@ public class ContaAPI: APIBase {
      
      - parameter id: (path) Id Conta 
      - parameter idContaBancariaDestino: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta banc\u00C3\u00A1ria de destino (id) (optional)
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
 
      - returns: RequestBuilder<PageTransferenciaBancariaResponse> 
      */
-    public class func listarUsingGET28WithRequestBuilder(id id: Int, idContaBancariaDestino: Int?, page: Int?, limit: Int?) -> RequestBuilder<PageTransferenciaBancariaResponse> {
+    public class func listarUsingGET30WithRequestBuilder(id id: Int, idContaBancariaDestino: Int?, sort: [String]?, page: Int?, limit: Int?) -> RequestBuilder<PageTransferenciaBancariaResponse> {
         var path = "/api/contas/{id}/transferencias-creditos-contas-bancarias"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
             "id_conta_bancaria_destino": idContaBancariaDestino,
+            "sort": sort,
             "page": page,
             "limit": limit
         ]
@@ -2343,6 +2752,7 @@ public class ContaAPI: APIBase {
      Lista as transfer\u00C3\u00AAncias realizadas pela conta
      
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter idTransferencia: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da transfer\u00C3\u00AAncia (id). (optional)
@@ -2352,8 +2762,8 @@ public class ContaAPI: APIBase {
      - parameter dataTransferencia: (query) Data estabelecida para ocorrer a transfer\u00C3\u00AAncia. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET29(id id: Int, page: Int?, limit: Int?, idTransferencia: Int?, idContaOrigem: Int?, idContaDestino: Int?, valorTransferencia: Double?, dataTransferencia: String?, completion: ((data: PageTransferenciaResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET29WithRequestBuilder(id: id, page: page, limit: limit, idTransferencia: idTransferencia, idContaOrigem: idContaOrigem, idContaDestino: idContaDestino, valorTransferencia: valorTransferencia, dataTransferencia: dataTransferencia).execute { (response, error) -> Void in
+    public class func listarUsingGET31(id id: Int, sort: [String]?, page: Int?, limit: Int?, idTransferencia: Int?, idContaOrigem: Int?, idContaDestino: Int?, valorTransferencia: Double?, dataTransferencia: String?, completion: ((data: PageTransferenciaResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET31WithRequestBuilder(id: id, sort: sort, page: page, limit: limit, idTransferencia: idTransferencia, idContaOrigem: idContaOrigem, idContaDestino: idContaDestino, valorTransferencia: valorTransferencia, dataTransferencia: dataTransferencia).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -2392,6 +2802,7 @@ public class ContaAPI: APIBase {
 }}]
      
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter idTransferencia: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da transfer\u00C3\u00AAncia (id). (optional)
@@ -2402,12 +2813,13 @@ public class ContaAPI: APIBase {
 
      - returns: RequestBuilder<PageTransferenciaResponse> 
      */
-    public class func listarUsingGET29WithRequestBuilder(id id: Int, page: Int?, limit: Int?, idTransferencia: Int?, idContaOrigem: Int?, idContaDestino: Int?, valorTransferencia: Double?, dataTransferencia: String?) -> RequestBuilder<PageTransferenciaResponse> {
+    public class func listarUsingGET31WithRequestBuilder(id id: Int, sort: [String]?, page: Int?, limit: Int?, idTransferencia: Int?, idContaOrigem: Int?, idContaDestino: Int?, valorTransferencia: Double?, dataTransferencia: String?) -> RequestBuilder<PageTransferenciaResponse> {
         var path = "/api/contas/{id}/transferencias-creditos-cartoes"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
+            "sort": sort,
             "page": page,
             "limit": limit,
             "idTransferencia": idTransferencia,
@@ -2427,12 +2839,13 @@ public class ContaAPI: APIBase {
      
      Lista contas existentes na base de dados do Emissor
      
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter idProduto: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do produto ao qual a conta faz parte. (id). (optional)
      - parameter idOrigemComercial: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Origem Comercial (id) que deu origem a Conta. (optional)
      - parameter idPessoa: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Pessoa Titular da Conta (id). (optional)
-     - parameter idStatusConta: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Produto a qual o cart\u00C3\u00A3o pertence (id). (optional)
+     - parameter idStatusConta: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do status da conta. (optional)
      - parameter diaVencimento: (query) Apresenta o dia de vencimento. (optional)
      - parameter melhorDiaCompra: (query) Apresenta o melhor dia de compra. (optional)
      - parameter dataStatusConta: (query) Apresenta a data em que o idStatusConta atual fora atribu\u00C3\u00ADdo para ela. (optional)
@@ -2440,8 +2853,8 @@ public class ContaAPI: APIBase {
      - parameter dataUltimaAlteracaoVencimento: (query) Apresenta a data da ultima altera\u00C3\u00A7\u00C3\u00A3o de vencimento. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET7(page page: Int?, limit: Int?, idProduto: Int?, idOrigemComercial: Int?, idPessoa: Int?, idStatusConta: Int?, diaVencimento: Int?, melhorDiaCompra: Int?, dataStatusConta: String?, dataCadastro: String?, dataUltimaAlteracaoVencimento: String?, completion: ((data: PageContaResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET7WithRequestBuilder(page: page, limit: limit, idProduto: idProduto, idOrigemComercial: idOrigemComercial, idPessoa: idPessoa, idStatusConta: idStatusConta, diaVencimento: diaVencimento, melhorDiaCompra: melhorDiaCompra, dataStatusConta: dataStatusConta, dataCadastro: dataCadastro, dataUltimaAlteracaoVencimento: dataUltimaAlteracaoVencimento).execute { (response, error) -> Void in
+    public class func listarUsingGET8(sort sort: [String]?, page: Int?, limit: Int?, idProduto: Int?, idOrigemComercial: Int?, idPessoa: Int?, idStatusConta: Int?, diaVencimento: Int?, melhorDiaCompra: Int?, dataStatusConta: String?, dataCadastro: String?, dataUltimaAlteracaoVencimento: String?, completion: ((data: PageContaResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET8WithRequestBuilder(sort: sort, page: page, limit: limit, idProduto: idProduto, idOrigemComercial: idOrigemComercial, idPessoa: idPessoa, idStatusConta: idStatusConta, diaVencimento: diaVencimento, melhorDiaCompra: melhorDiaCompra, dataStatusConta: dataStatusConta, dataCadastro: dataCadastro, dataUltimaAlteracaoVencimento: dataUltimaAlteracaoVencimento).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -2482,12 +2895,13 @@ public class ContaAPI: APIBase {
   "first" : true
 }}]
      
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter idProduto: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do produto ao qual a conta faz parte. (id). (optional)
      - parameter idOrigemComercial: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Origem Comercial (id) que deu origem a Conta. (optional)
      - parameter idPessoa: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Pessoa Titular da Conta (id). (optional)
-     - parameter idStatusConta: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Produto a qual o cart\u00C3\u00A3o pertence (id). (optional)
+     - parameter idStatusConta: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do status da conta. (optional)
      - parameter diaVencimento: (query) Apresenta o dia de vencimento. (optional)
      - parameter melhorDiaCompra: (query) Apresenta o melhor dia de compra. (optional)
      - parameter dataStatusConta: (query) Apresenta a data em que o idStatusConta atual fora atribu\u00C3\u00ADdo para ela. (optional)
@@ -2496,11 +2910,12 @@ public class ContaAPI: APIBase {
 
      - returns: RequestBuilder<PageContaResponse> 
      */
-    public class func listarUsingGET7WithRequestBuilder(page page: Int?, limit: Int?, idProduto: Int?, idOrigemComercial: Int?, idPessoa: Int?, idStatusConta: Int?, diaVencimento: Int?, melhorDiaCompra: Int?, dataStatusConta: String?, dataCadastro: String?, dataUltimaAlteracaoVencimento: String?) -> RequestBuilder<PageContaResponse> {
+    public class func listarUsingGET8WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, idProduto: Int?, idOrigemComercial: Int?, idPessoa: Int?, idStatusConta: Int?, diaVencimento: Int?, melhorDiaCompra: Int?, dataStatusConta: String?, dataCadastro: String?, dataUltimaAlteracaoVencimento: String?) -> RequestBuilder<PageContaResponse> {
         let path = "/api/contas"
         let URLString = PierAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
+            "sort": sort,
             "page": page,
             "limit": limit,
             "idProduto": idProduto,
@@ -2564,12 +2979,13 @@ public class ContaAPI: APIBase {
      Permite listar uma linha do tempo com os eventos da conta
      
      - parameter id: (path) Id Conta 
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func transacoesUsingGET(id id: Int, page: Int?, limit: Int?, completion: ((data: PageTransacaoResponse?, error: ErrorType?) -> Void)) {
-        transacoesUsingGETWithRequestBuilder(id: id, page: page, limit: limit).execute { (response, error) -> Void in
+    public class func transacoesUsingGET(id id: Int, sort: [String]?, page: Int?, limit: Int?, completion: ((data: PageTransacaoResponse?, error: ErrorType?) -> Void)) {
+        transacoesUsingGETWithRequestBuilder(id: id, sort: sort, page: page, limit: limit).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -2604,7 +3020,6 @@ public class ContaAPI: APIBase {
     "estabelecimento" : "aeiou",
     "ordem" : 123,
     "ultimaParcelaLancada" : 123,
-    "id" : 123456789,
     "valorDolar" : 1.3579000000000001069366817318950779736042022705078125,
     "status" : 123
   } ],
@@ -2619,17 +3034,19 @@ public class ContaAPI: APIBase {
 }}]
      
      - parameter id: (path) Id Conta 
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
 
      - returns: RequestBuilder<PageTransacaoResponse> 
      */
-    public class func transacoesUsingGETWithRequestBuilder(id id: Int, page: Int?, limit: Int?) -> RequestBuilder<PageTransacaoResponse> {
+    public class func transacoesUsingGETWithRequestBuilder(id id: Int, sort: [String]?, page: Int?, limit: Int?) -> RequestBuilder<PageTransacaoResponse> {
         var path = "/api/contas/{id}/timeline"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
+            "sort": sort,
             "page": page,
             "limit": limit
         ]
@@ -2687,6 +3104,7 @@ public class ContaAPI: APIBase {
   "taxaJuros" : 1.3579000000000001069366817318950779736042022705078125,
   "numeroEstabelecimento" : 123456789,
   "dataVencimentoReal" : "aeiou",
+  "valorTaxaSaque" : 1.3579000000000001069366817318950779736042022705078125,
   "valorIOF" : 1.3579000000000001069366817318950779736042022705078125
 }}]
      

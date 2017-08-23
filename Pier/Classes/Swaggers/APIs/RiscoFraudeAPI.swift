@@ -105,7 +105,7 @@ public class RiscoFraudeAPI: APIBase {
      Listar os tipos de resolu\u00C3\u00A7\u00C3\u00A3o de fraude
      
      - GET /api/tipos-resolucao
-     - Este recurso permite que sejam listados os tipos de resolu\u00C3\u00A7\u00C3\u00A3o de fraude, cadastrados para um emissor
+     - Este recurso permite que sejam listados os tipos de resolu\u00C3\u00A7\u00C3\u00A3o de fraude, cadastrados para um emissor.
      - examples: [{contentType=application/json, example={
   "id" : 123456789,
   "descricao" : "aeiou"
@@ -129,6 +129,84 @@ public class RiscoFraudeAPI: APIBase {
         let requestBuilder: RequestBuilder<TipoResolucaoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
+    }
+
+    /**
+     
+     Negar autenticidade de uma transa\u00C3\u00A7\u00C3\u00A3o classificada como risco de fraude
+     
+     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do risco de fraude 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func negarUsingPOST(id id: Int, completion: ((data: AnyObject?, error: ErrorType?) -> Void)) {
+        negarUsingPOSTWithRequestBuilder(id: id).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Negar autenticidade de uma transa\u00C3\u00A7\u00C3\u00A3o classificada como risco de fraude
+     
+     - POST /api/riscos-fraudes/{id}/negar
+     - Nega a realiza\u00C3\u00A7\u00C3\u00A3o de uma transa\u00C3\u00A7\u00C3\u00A3o classificada como risco de fraude.
+     - examples: [{contentType=application/json, example="{}"}]
+     
+     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do risco de fraude 
+
+     - returns: RequestBuilder<AnyObject> 
+     */
+    public class func negarUsingPOSTWithRequestBuilder(id id: Int) -> RequestBuilder<AnyObject> {
+        var path = "/api/riscos-fraudes/{id}/negar"
+        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<AnyObject>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Reconhecer autenticidade de uma transa\u00C3\u00A7\u00C3\u00A3o classificada como risco de fraude
+     
+     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do risco de fraude 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func reconhecerUsingPOST(id id: Int, completion: ((data: AnyObject?, error: ErrorType?) -> Void)) {
+        reconhecerUsingPOSTWithRequestBuilder(id: id).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Reconhecer autenticidade de uma transa\u00C3\u00A7\u00C3\u00A3o classificada como risco de fraude
+     
+     - POST /api/riscos-fraudes/{id}/reconhecer
+     - Confirma a autenticidade de uma transa\u00C3\u00A7\u00C3\u00A3o classificada como risco de fraude.
+     - examples: [{contentType=application/json, example="{}"}]
+     
+     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do risco de fraude 
+
+     - returns: RequestBuilder<AnyObject> 
+     */
+    public class func reconhecerUsingPOSTWithRequestBuilder(id id: Int) -> RequestBuilder<AnyObject> {
+        var path = "/api/riscos-fraudes/{id}/reconhecer"
+        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<AnyObject>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
     }
 
 }

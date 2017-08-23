@@ -86,8 +86,8 @@ public class FAQAPI: APIBase {
      - parameter status: (query) Status descrevendo a situa\u00C3\u00A7\u00C3\u00A3o atual da FAQ. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func alterarUsingPUT2(id id: Int, pergunta: String, resposta: String, relevancia: Int?, plataforma: String?, categoria: String?, status: String?, completion: ((data: FaqResponse?, error: ErrorType?) -> Void)) {
-        alterarUsingPUT2WithRequestBuilder(id: id, pergunta: pergunta, resposta: resposta, relevancia: relevancia, plataforma: plataforma, categoria: categoria, status: status).execute { (response, error) -> Void in
+    public class func alterarUsingPUT3(id id: Int, pergunta: String, resposta: String, relevancia: Int?, plataforma: String?, categoria: String?, status: String?, completion: ((data: FaqResponse?, error: ErrorType?) -> Void)) {
+        alterarUsingPUT3WithRequestBuilder(id: id, pergunta: pergunta, resposta: resposta, relevancia: relevancia, plataforma: plataforma, categoria: categoria, status: status).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -119,7 +119,7 @@ public class FAQAPI: APIBase {
 
      - returns: RequestBuilder<FaqResponse> 
      */
-    public class func alterarUsingPUT2WithRequestBuilder(id id: Int, pergunta: String, resposta: String, relevancia: Int?, plataforma: String?, categoria: String?, status: String?) -> RequestBuilder<FaqResponse> {
+    public class func alterarUsingPUT3WithRequestBuilder(id id: Int, pergunta: String, resposta: String, relevancia: Int?, plataforma: String?, categoria: String?, status: String?) -> RequestBuilder<FaqResponse> {
         var path = "/api/faqs/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -190,6 +190,7 @@ public class FAQAPI: APIBase {
      
      Lista FAQs
      
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter idFaq: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da FAQ (id). (optional)
@@ -201,8 +202,8 @@ public class FAQAPI: APIBase {
      - parameter status: (query) Status descrevendo a situa\u00C3\u00A7\u00C3\u00A3o atual da FAQ. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET11(page page: Int?, limit: Int?, idFaq: Int?, pergunta: String?, resposta: String?, relevancia: Int?, plataforma: String?, categoria: String?, status: String?, completion: ((data: PageFaqResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET11WithRequestBuilder(page: page, limit: limit, idFaq: idFaq, pergunta: pergunta, resposta: resposta, relevancia: relevancia, plataforma: plataforma, categoria: categoria, status: status).execute { (response, error) -> Void in
+    public class func listarUsingGET12(sort sort: [String]?, page: Int?, limit: Int?, idFaq: Int?, pergunta: String?, resposta: String?, relevancia: Int?, plataforma: String?, categoria: String?, status: String?, completion: ((data: PageFaqResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET12WithRequestBuilder(sort: sort, page: page, limit: limit, idFaq: idFaq, pergunta: pergunta, resposta: resposta, relevancia: relevancia, plataforma: plataforma, categoria: categoria, status: status).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -239,6 +240,7 @@ public class FAQAPI: APIBase {
   "first" : true
 }}]
      
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter idFaq: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da FAQ (id). (optional)
@@ -251,11 +253,12 @@ public class FAQAPI: APIBase {
 
      - returns: RequestBuilder<PageFaqResponse> 
      */
-    public class func listarUsingGET11WithRequestBuilder(page page: Int?, limit: Int?, idFaq: Int?, pergunta: String?, resposta: String?, relevancia: Int?, plataforma: String?, categoria: String?, status: String?) -> RequestBuilder<PageFaqResponse> {
+    public class func listarUsingGET12WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, idFaq: Int?, pergunta: String?, resposta: String?, relevancia: Int?, plataforma: String?, categoria: String?, status: String?) -> RequestBuilder<PageFaqResponse> {
         let path = "/api/faqs"
         let URLString = PierAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
+            "sort": sort,
             "page": page,
             "limit": limit,
             "idFaq": idFaq,

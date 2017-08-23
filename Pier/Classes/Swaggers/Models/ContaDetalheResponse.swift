@@ -27,7 +27,7 @@ public class ContaDetalheResponse: JSONEncodable {
     public var idFantasiaBasica: Int?
     /** Nome da Fantasia Basica */
     public var nomeFantasiaBasica: String?
-    /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Produto a qual o cart\u00C3\u00A3o pertence (id). */
+    /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do status atribuido a conta. */
     public var idStatusConta: Int?
     /** Descri\u00C3\u00A7\u00C3\u00A3o do status da conta */
     public var statusConta: String?

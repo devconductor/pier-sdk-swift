@@ -62,6 +62,8 @@ public class TransferenciaBancariaResponse: JSONEncodable {
     public var idContaPortador: Int?
     /** Atributo que representa o numero do estabelecimento. */
     public var numeroEstabelecimento: Int?
+    /** Valor da taxa saque. */
+    public var valorTaxaSaque: Double?
     
 
     public init() {}
@@ -95,6 +97,7 @@ public class TransferenciaBancariaResponse: JSONEncodable {
         nillableDictionary["dataVencimentoPadrao"] = self.dataVencimentoPadrao
         nillableDictionary["idContaPortador"] = self.idContaPortador
         nillableDictionary["numeroEstabelecimento"] = self.numeroEstabelecimento
+        nillableDictionary["valorTaxaSaque"] = self.valorTaxaSaque
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

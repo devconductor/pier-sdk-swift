@@ -333,12 +333,13 @@ public class NotificacoesAPI: APIBase {
      
      Lista configura\u00C3\u00A7\u00C3\u00B5es de E-mails
      
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarConfiguracaoUsingGET(page page: Int?, limit: Int?, completion: ((data: PageConfiguracaoEmailResponse?, error: ErrorType?) -> Void)) {
-        listarConfiguracaoUsingGETWithRequestBuilder(page: page, limit: limit).execute { (response, error) -> Void in
+    public class func listarConfiguracaoUsingGET(sort sort: [String]?, page: Int?, limit: Int?, completion: ((data: PageConfiguracaoEmailResponse?, error: ErrorType?) -> Void)) {
+        listarConfiguracaoUsingGETWithRequestBuilder(sort: sort, page: page, limit: limit).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -381,16 +382,18 @@ public class NotificacoesAPI: APIBase {
   "first" : true
 }}]
      
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
 
      - returns: RequestBuilder<PageConfiguracaoEmailResponse> 
      */
-    public class func listarConfiguracaoUsingGETWithRequestBuilder(page page: Int?, limit: Int?) -> RequestBuilder<PageConfiguracaoEmailResponse> {
+    public class func listarConfiguracaoUsingGETWithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?) -> RequestBuilder<PageConfiguracaoEmailResponse> {
         let path = "/api/configuracoes-email"
         let URLString = PierAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
+            "sort": sort,
             "page": page,
             "limit": limit
         ]
@@ -405,6 +408,7 @@ public class NotificacoesAPI: APIBase {
      
      Listar Push
      
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter dataEnvio: (query) Apresenta a data e em que o registro foi enviado para o dispositivo. (optional)
@@ -414,8 +418,8 @@ public class NotificacoesAPI: APIBase {
      - parameter protocolo: (query) N\u00C3\u00BAmero do protocolo de envio de notifica\u00C3\u00A7\u00C3\u00B5es (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarPushUsingGET(page page: Int?, limit: Int?, dataEnvio: String?, tipoEvento: String?, status: String?, plataforma: String?, protocolo: String?, completion: ((data: PagePushResponse?, error: ErrorType?) -> Void)) {
-        listarPushUsingGETWithRequestBuilder(page: page, limit: limit, dataEnvio: dataEnvio, tipoEvento: tipoEvento, status: status, plataforma: plataforma, protocolo: protocolo).execute { (response, error) -> Void in
+    public class func listarPushUsingGET(sort sort: [String]?, page: Int?, limit: Int?, dataEnvio: String?, tipoEvento: String?, status: String?, plataforma: String?, protocolo: String?, completion: ((data: PagePushResponse?, error: ErrorType?) -> Void)) {
+        listarPushUsingGETWithRequestBuilder(sort: sort, page: page, limit: limit, dataEnvio: dataEnvio, tipoEvento: tipoEvento, status: status, plataforma: plataforma, protocolo: protocolo).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -456,6 +460,7 @@ public class NotificacoesAPI: APIBase {
   "first" : true
 }}]
      
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter dataEnvio: (query) Apresenta a data e em que o registro foi enviado para o dispositivo. (optional)
@@ -466,11 +471,12 @@ public class NotificacoesAPI: APIBase {
 
      - returns: RequestBuilder<PagePushResponse> 
      */
-    public class func listarPushUsingGETWithRequestBuilder(page page: Int?, limit: Int?, dataEnvio: String?, tipoEvento: String?, status: String?, plataforma: String?, protocolo: String?) -> RequestBuilder<PagePushResponse> {
+    public class func listarPushUsingGETWithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, dataEnvio: String?, tipoEvento: String?, status: String?, plataforma: String?, protocolo: String?) -> RequestBuilder<PagePushResponse> {
         let path = "/api/notificacoes/push"
         let URLString = PierAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
+            "sort": sort,
             "page": page,
             "limit": limit,
             "dataEnvio": dataEnvio,
@@ -490,6 +496,7 @@ public class NotificacoesAPI: APIBase {
      
      Listar SMS
      
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter dataInclusao: (query) Apresenta a data e em que o registro foi inclu\u00C3\u00ADdo na base para ser enviado (optional)
@@ -500,8 +507,8 @@ public class NotificacoesAPI: APIBase {
      - parameter nsu: (query) Apresenta o nsu da notifica\u00C3\u00A7\u00C3\u00A3o (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarSMSUsingGET(page page: Int?, limit: Int?, dataInclusao: String?, tipoEvento: String?, status: String?, operadora: String?, protocolo: String?, nsu: Int?, completion: ((data: PageSMSResponse?, error: ErrorType?) -> Void)) {
-        listarSMSUsingGETWithRequestBuilder(page: page, limit: limit, dataInclusao: dataInclusao, tipoEvento: tipoEvento, status: status, operadora: operadora, protocolo: protocolo, nsu: nsu).execute { (response, error) -> Void in
+    public class func listarSMSUsingGET(sort sort: [String]?, page: Int?, limit: Int?, dataInclusao: String?, tipoEvento: String?, status: String?, operadora: String?, protocolo: String?, nsu: Int?, completion: ((data: PageSMSResponse?, error: ErrorType?) -> Void)) {
+        listarSMSUsingGETWithRequestBuilder(sort: sort, page: page, limit: limit, dataInclusao: dataInclusao, tipoEvento: tipoEvento, status: status, operadora: operadora, protocolo: protocolo, nsu: nsu).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -548,6 +555,7 @@ public class NotificacoesAPI: APIBase {
   "first" : true
 }}]
      
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter dataInclusao: (query) Apresenta a data e em que o registro foi inclu\u00C3\u00ADdo na base para ser enviado (optional)
@@ -559,11 +567,12 @@ public class NotificacoesAPI: APIBase {
 
      - returns: RequestBuilder<PageSMSResponse> 
      */
-    public class func listarSMSUsingGETWithRequestBuilder(page page: Int?, limit: Int?, dataInclusao: String?, tipoEvento: String?, status: String?, operadora: String?, protocolo: String?, nsu: Int?) -> RequestBuilder<PageSMSResponse> {
+    public class func listarSMSUsingGETWithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, dataInclusao: String?, tipoEvento: String?, status: String?, operadora: String?, protocolo: String?, nsu: Int?) -> RequestBuilder<PageSMSResponse> {
         let path = "/api/notificacoes/sms"
         let URLString = PierAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
+            "sort": sort,
             "page": page,
             "limit": limit,
             "dataInclusao": dataInclusao,
@@ -584,12 +593,13 @@ public class NotificacoesAPI: APIBase {
      
      Lista templates de notifica\u00C3\u00A7\u00C3\u00B5es
      
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarTemplateNotificacaoUsingGET(page page: Int?, limit: Int?, completion: ((data: PageTemplateNotificacaoResponse?, error: ErrorType?) -> Void)) {
-        listarTemplateNotificacaoUsingGETWithRequestBuilder(page: page, limit: limit).execute { (response, error) -> Void in
+    public class func listarTemplateNotificacaoUsingGET(sort sort: [String]?, page: Int?, limit: Int?, completion: ((data: PageTemplateNotificacaoResponse?, error: ErrorType?) -> Void)) {
+        listarTemplateNotificacaoUsingGETWithRequestBuilder(sort: sort, page: page, limit: limit).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -627,16 +637,18 @@ public class NotificacoesAPI: APIBase {
   "first" : true
 }}]
      
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
 
      - returns: RequestBuilder<PageTemplateNotificacaoResponse> 
      */
-    public class func listarTemplateNotificacaoUsingGETWithRequestBuilder(page page: Int?, limit: Int?) -> RequestBuilder<PageTemplateNotificacaoResponse> {
+    public class func listarTemplateNotificacaoUsingGETWithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?) -> RequestBuilder<PageTemplateNotificacaoResponse> {
         let path = "/api/templates-notificacoes"
         let URLString = PierAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
+            "sort": sort,
             "page": page,
             "limit": limit
         ]

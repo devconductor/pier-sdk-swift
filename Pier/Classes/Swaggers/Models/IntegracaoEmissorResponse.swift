@@ -15,10 +15,14 @@ public class IntegracaoEmissorResponse: JSONEncodable {
     public var id: Int?
     /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta. */
     public var idConta: Int?
+    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do arquivo. */
+    public var idArquivo: Int?
     /** Status do registro. */
-    public var status: Int?
+    public var status: String?
     /** Data de inclus\u00C3\u00A3o do registro. */
-    public var dataEvento: String?
+    public var dataInclusao: String?
+    /** Data da ultima altera\u00C3\u00A7\u00C3\u00A3o do registro. */
+    public var dataAlteracao: String?
     
 
     public init() {}
@@ -28,8 +32,10 @@ public class IntegracaoEmissorResponse: JSONEncodable {
         var nillableDictionary = [String:AnyObject?]()
         nillableDictionary["id"] = self.id
         nillableDictionary["idConta"] = self.idConta
+        nillableDictionary["idArquivo"] = self.idArquivo
         nillableDictionary["status"] = self.status
-        nillableDictionary["dataEvento"] = self.dataEvento
+        nillableDictionary["dataInclusao"] = self.dataInclusao
+        nillableDictionary["dataAlteracao"] = self.dataAlteracao
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

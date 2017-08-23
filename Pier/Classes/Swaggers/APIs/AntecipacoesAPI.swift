@@ -166,6 +166,7 @@ public class AntecipacoesAPI: APIBase {
      Listar compras com parcelas antecip\u00C3\u00A1veis
      
      - parameter idConta: (query) C\u00C3\u00B3digo identificador da conta da Compra. 
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter idCompra: (query) C\u00C3\u00B3digo identificador da Compra. (optional)
@@ -174,8 +175,8 @@ public class AntecipacoesAPI: APIBase {
      - parameter tipoOrigemTransacao: (query) Indica se a compra \u00C3\u00A9 ON-US ou OFF-US (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET6(idConta idConta: Int, page: Int?, limit: Int?, idCompra: Int?, parcelada: Bool?, juros: Bool?, tipoOrigemTransacao: String?, completion: ((data: PageCompraResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET6WithRequestBuilder(idConta: idConta, page: page, limit: limit, idCompra: idCompra, parcelada: parcelada, juros: juros, tipoOrigemTransacao: tipoOrigemTransacao).execute { (response, error) -> Void in
+    public class func listarUsingGET7(idConta idConta: Int, sort: [String]?, page: Int?, limit: Int?, idCompra: Int?, parcelada: Bool?, juros: Bool?, tipoOrigemTransacao: String?, completion: ((data: PageCompraResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET7WithRequestBuilder(idConta: idConta, sort: sort, page: page, limit: limit, idCompra: idCompra, parcelada: parcelada, juros: juros, tipoOrigemTransacao: tipoOrigemTransacao).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -229,6 +230,7 @@ public class AntecipacoesAPI: APIBase {
 }}]
      
      - parameter idConta: (query) C\u00C3\u00B3digo identificador da conta da Compra. 
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter idCompra: (query) C\u00C3\u00B3digo identificador da Compra. (optional)
@@ -238,11 +240,12 @@ public class AntecipacoesAPI: APIBase {
 
      - returns: RequestBuilder<PageCompraResponse> 
      */
-    public class func listarUsingGET6WithRequestBuilder(idConta idConta: Int, page: Int?, limit: Int?, idCompra: Int?, parcelada: Bool?, juros: Bool?, tipoOrigemTransacao: String?) -> RequestBuilder<PageCompraResponse> {
+    public class func listarUsingGET7WithRequestBuilder(idConta idConta: Int, sort: [String]?, page: Int?, limit: Int?, idCompra: Int?, parcelada: Bool?, juros: Bool?, tipoOrigemTransacao: String?) -> RequestBuilder<PageCompraResponse> {
         let path = "/api/compras-antecipaveis"
         let URLString = PierAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
+            "sort": sort,
             "page": page,
             "limit": limit,
             "idCompra": idCompra,

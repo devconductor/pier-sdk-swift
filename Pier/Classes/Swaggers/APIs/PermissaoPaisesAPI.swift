@@ -94,6 +94,7 @@ public class PermissaoPaisesAPI: APIBase {
      
      Lista os pa\u00C3\u00ADses
      
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter codigo: (query) C\u00C3\u00B3digo do pa\u00C3\u00ADs (optional)
@@ -103,8 +104,8 @@ public class PermissaoPaisesAPI: APIBase {
      - parameter flagAtivo: (query) Atributo que representa se o pa\u00C3\u00ADs est\u00C3\u00A1 ativo (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarPaisesUsingGET(page page: Int?, limit: Int?, codigo: String?, sigla: String?, descricao: String?, continente: String?, flagAtivo: Bool?, completion: ((data: PagePaisResponse?, error: ErrorType?) -> Void)) {
-        listarPaisesUsingGETWithRequestBuilder(page: page, limit: limit, codigo: codigo, sigla: sigla, descricao: descricao, continente: continente, flagAtivo: flagAtivo).execute { (response, error) -> Void in
+    public class func listarPaisesUsingGET(sort sort: [String]?, page: Int?, limit: Int?, codigo: String?, sigla: String?, descricao: String?, continente: String?, flagAtivo: Bool?, completion: ((data: PagePaisResponse?, error: ErrorType?) -> Void)) {
+        listarPaisesUsingGETWithRequestBuilder(sort: sort, page: page, limit: limit, codigo: codigo, sigla: sigla, descricao: descricao, continente: continente, flagAtivo: flagAtivo).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -139,6 +140,7 @@ public class PermissaoPaisesAPI: APIBase {
   "first" : true
 }}]
      
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter codigo: (query) C\u00C3\u00B3digo do pa\u00C3\u00ADs (optional)
@@ -149,11 +151,12 @@ public class PermissaoPaisesAPI: APIBase {
 
      - returns: RequestBuilder<PagePaisResponse> 
      */
-    public class func listarPaisesUsingGETWithRequestBuilder(page page: Int?, limit: Int?, codigo: String?, sigla: String?, descricao: String?, continente: String?, flagAtivo: Bool?) -> RequestBuilder<PagePaisResponse> {
+    public class func listarPaisesUsingGETWithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, codigo: String?, sigla: String?, descricao: String?, continente: String?, flagAtivo: Bool?) -> RequestBuilder<PagePaisResponse> {
         let path = "/api/paises"
         let URLString = PierAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
+            "sort": sort,
             "page": page,
             "limit": limit,
             "codigo": codigo,

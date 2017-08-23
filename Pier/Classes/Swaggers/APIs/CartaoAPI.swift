@@ -120,25 +120,28 @@ public class CartaoAPI: APIBase {
      - PUT /api/cartoes/{id}/atribuir-titular
      - Esta m\u00C3\u00A9todo permite que um cart\u00C3\u00A3o pr\u00C3\u00A9-pago impresso de forma avulsa e an\u00C3\u00B4nimo seja atribu\u00C3\u00ADdo a uma pessoa para que esta passe a ser a portadora titular dele.
      - examples: [{contentType=application/json, example={
+  "numeroBin" : 123456789,
   "idConta" : 123456789,
-  "dataStatusCartao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "nomeArquivoImpressao" : "aeiou",
   "codigoDesbloqueio" : "aeiou",
-  "idEstagioCartao" : 123456789,
-  "arquivoImpressao" : "aeiou",
+  "numeroCartaoHash" : 123456789,
+  "flagTitular" : 123,
+  "dataStatus" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "dataEmissao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "idStatus" : 123456789,
   "numeroCartao" : "aeiou",
   "idPessoa" : 123456789,
+  "dataEstagio" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "cartaoVirtual" : 123,
   "idProduto" : 123456789,
+  "numeroCartaoCriptografado" : "aeiou",
+  "idEstagio" : 123456789,
   "dataValidade" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "idStatusCartao" : 123456789,
-  "dataEstagioCartao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "flagImpressaoOrigemComercial" : 123,
   "sequencialCartao" : 123,
   "id" : 123456789,
   "nomeImpresso" : "aeiou",
-  "flagVirtual" : 123,
   "dataImpressao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "tipoPortador" : "aeiou",
-  "dataGeracao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+  "impressaoAvulsa" : 123
 }}]
      
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id) 
@@ -184,25 +187,28 @@ public class CartaoAPI: APIBase {
      - POST /api/cartoes/{id}/bloquear
      - Este m\u00C3\u00A9todo permite a realiza\u00C3\u00A7\u00C3\u00A3o do bloqueio (tempor\u00C3\u00A1rio) ou do cancelamento (definitivo) de um determinado cart\u00C3\u00A3o a partir do seu c\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o (id). Para isso, \u00C3\u00A9 preciso informar qual o motivo deste bloqueio que nada mais \u00C3\u00A9 do que atribuir um novo StatusCartao para ele dentre as op\u00C3\u00A7\u00C3\u00B5es praticadas pelo emissor.
      - examples: [{contentType=application/json, example={
+  "numeroBin" : 123456789,
   "idConta" : 123456789,
-  "dataStatusCartao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "nomeArquivoImpressao" : "aeiou",
   "codigoDesbloqueio" : "aeiou",
-  "idEstagioCartao" : 123456789,
-  "arquivoImpressao" : "aeiou",
+  "numeroCartaoHash" : 123456789,
+  "flagTitular" : 123,
+  "dataStatus" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "dataEmissao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "idStatus" : 123456789,
   "numeroCartao" : "aeiou",
   "idPessoa" : 123456789,
+  "dataEstagio" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "cartaoVirtual" : 123,
   "idProduto" : 123456789,
+  "numeroCartaoCriptografado" : "aeiou",
+  "idEstagio" : 123456789,
   "dataValidade" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "idStatusCartao" : 123456789,
-  "dataEstagioCartao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "flagImpressaoOrigemComercial" : 123,
   "sequencialCartao" : 123,
   "id" : 123456789,
   "nomeImpresso" : "aeiou",
-  "flagVirtual" : 123,
   "dataImpressao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "tipoPortador" : "aeiou",
-  "dataGeracao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+  "impressaoAvulsa" : 123
 }}]
      
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
@@ -289,25 +295,28 @@ public class CartaoAPI: APIBase {
      - POST /api/cartoes/{id}/cancelar
      - Este m\u00C3\u00A9todo permite a realiza\u00C3\u00A7\u00C3\u00A3o cancelamento de um determinado cart\u00C3\u00A3o a partir do seu c\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o (id). Para isso, \u00C3\u00A9 preciso informar qual o motivo deste bloqueio que nada mais \u00C3\u00A9 do que atribuir um novo StatusCartao para ele dentre as op\u00C3\u00A7\u00C3\u00B5es praticadas pelo emissor.
      - examples: [{contentType=application/json, example={
+  "numeroBin" : 123456789,
   "idConta" : 123456789,
-  "dataStatusCartao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "nomeArquivoImpressao" : "aeiou",
   "codigoDesbloqueio" : "aeiou",
-  "idEstagioCartao" : 123456789,
-  "arquivoImpressao" : "aeiou",
+  "numeroCartaoHash" : 123456789,
+  "flagTitular" : 123,
+  "dataStatus" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "dataEmissao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "idStatus" : 123456789,
   "numeroCartao" : "aeiou",
   "idPessoa" : 123456789,
+  "dataEstagio" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "cartaoVirtual" : 123,
   "idProduto" : 123456789,
+  "numeroCartaoCriptografado" : "aeiou",
+  "idEstagio" : 123456789,
   "dataValidade" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "idStatusCartao" : 123456789,
-  "dataEstagioCartao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "flagImpressaoOrigemComercial" : 123,
   "sequencialCartao" : 123,
   "id" : 123456789,
   "nomeImpresso" : "aeiou",
-  "flagVirtual" : 123,
   "dataImpressao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "tipoPortador" : "aeiou",
-  "dataGeracao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+  "impressaoAvulsa" : 123
 }}]
      
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
@@ -568,27 +577,30 @@ public class CartaoAPI: APIBase {
      - GET /api/cartoes/{id}
      - Este m\u00C3\u00A9todo permite consultar as informa\u00C3\u00A7\u00C3\u00B5es b\u00C3\u00A1sicas de um determinado Cart\u00C3\u00A3o a partir do seu c\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o (id).
      - examples: [{contentType=application/json, example={
+  "numeroBin" : 123456789,
   "idConta" : 123456789,
-  "dataStatusCartao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
   "descricaoTipoCartao" : "aeiou",
+  "nomeArquivoImpressao" : "aeiou",
   "codigoDesbloqueio" : "aeiou",
-  "idEstagioCartao" : 123456789,
-  "arquivoImpressao" : "aeiou",
+  "numeroCartaoHash" : 123456789,
+  "flagTitular" : 123,
+  "dataStatus" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "dataEmissao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "idStatus" : 123456789,
   "numeroCartao" : "aeiou",
   "idPessoa" : 123456789,
+  "dataEstagio" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "cartaoVirtual" : 123,
   "idProduto" : 123456789,
   "tipoCartao" : 123456789,
+  "numeroCartaoCriptografado" : "aeiou",
+  "idEstagio" : 123456789,
   "dataValidade" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "idStatusCartao" : 123456789,
-  "dataEstagioCartao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "flagImpressaoOrigemComercial" : 123,
   "sequencialCartao" : 123,
   "id" : 123456789,
   "nomeImpresso" : "aeiou",
-  "flagVirtual" : 123,
   "dataImpressao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "tipoPortador" : "aeiou",
-  "dataGeracao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+  "impressaoAvulsa" : 123
 }}]
      
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
@@ -629,25 +641,28 @@ public class CartaoAPI: APIBase {
      - POST /api/cartoes/{id}/desbloquear-senha-incorreta
      - Este m\u00C3\u00A9todo permite que seja desbloqueado um determinado cart\u00C3\u00A3o que foi bloqueado por tentativas de senha incorretas, a partir do seu c\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o (id).
      - examples: [{contentType=application/json, example={
+  "numeroBin" : 123456789,
   "idConta" : 123456789,
-  "dataStatusCartao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "nomeArquivoImpressao" : "aeiou",
   "codigoDesbloqueio" : "aeiou",
-  "idEstagioCartao" : 123456789,
-  "arquivoImpressao" : "aeiou",
+  "numeroCartaoHash" : 123456789,
+  "flagTitular" : 123,
+  "dataStatus" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "dataEmissao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "idStatus" : 123456789,
   "numeroCartao" : "aeiou",
   "idPessoa" : 123456789,
+  "dataEstagio" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "cartaoVirtual" : 123,
   "idProduto" : 123456789,
+  "numeroCartaoCriptografado" : "aeiou",
+  "idEstagio" : 123456789,
   "dataValidade" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "idStatusCartao" : 123456789,
-  "dataEstagioCartao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "flagImpressaoOrigemComercial" : 123,
   "sequencialCartao" : 123,
   "id" : 123456789,
   "nomeImpresso" : "aeiou",
-  "flagVirtual" : 123,
   "dataImpressao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "tipoPortador" : "aeiou",
-  "dataGeracao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+  "impressaoAvulsa" : 123
 }}]
      
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
@@ -688,25 +703,28 @@ public class CartaoAPI: APIBase {
      - POST /api/cartoes/{id}/desbloquear
      - Este m\u00C3\u00A9todo permite que seja desbloqueado um determinado cart\u00C3\u00A3o a partir do seu c\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o (id).
      - examples: [{contentType=application/json, example={
+  "numeroBin" : 123456789,
   "idConta" : 123456789,
-  "dataStatusCartao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "nomeArquivoImpressao" : "aeiou",
   "codigoDesbloqueio" : "aeiou",
-  "idEstagioCartao" : 123456789,
-  "arquivoImpressao" : "aeiou",
+  "numeroCartaoHash" : 123456789,
+  "flagTitular" : 123,
+  "dataStatus" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "dataEmissao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "idStatus" : 123456789,
   "numeroCartao" : "aeiou",
   "idPessoa" : 123456789,
+  "dataEstagio" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "cartaoVirtual" : 123,
   "idProduto" : 123456789,
+  "numeroCartaoCriptografado" : "aeiou",
+  "idEstagio" : 123456789,
   "dataValidade" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "idStatusCartao" : 123456789,
-  "dataEstagioCartao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "flagImpressaoOrigemComercial" : 123,
   "sequencialCartao" : 123,
   "id" : 123456789,
   "nomeImpresso" : "aeiou",
-  "flagVirtual" : 123,
   "dataImpressao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "tipoPortador" : "aeiou",
-  "dataGeracao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+  "impressaoAvulsa" : 123
 }}]
      
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
@@ -813,25 +831,28 @@ public class CartaoAPI: APIBase {
      - POST /api/cartoes/{id}/gerar-nova-via
      - Esta opera\u00C3\u00A7\u00C3\u00A3o tem como objetivo permitir que os Emissores ou seus clientes possam solicitar a gera\u00C3\u00A7\u00C3\u00A3o de uma nova via de Cart\u00C3\u00A3o que ser\u00C3\u00A1 encaminhando para impress\u00C3\u00A3o e postagem de acordo com os fluxos padr\u00C3\u00B5es j\u00C3\u00A1 definidos pelo emissor. Para isso, \u00C3\u00A9 preciso que o cliente j\u00C3\u00A1 possua um cart\u00C3\u00A3o gerado e informar o C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o deste (idCartao) para que ele possa utilizar esta opera\u00C3\u00A7\u00C3\u00A3o. Assim, esta funcionalidade se aplica apenas para a gera\u00C3\u00A7\u00C3\u00A3o de cart\u00C3\u00B5es f\u00C3\u00ADsicos.
      - examples: [{contentType=application/json, example={
+  "numeroBin" : 123456789,
   "idConta" : 123456789,
-  "dataStatusCartao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "nomeArquivoImpressao" : "aeiou",
   "codigoDesbloqueio" : "aeiou",
-  "idEstagioCartao" : 123456789,
-  "arquivoImpressao" : "aeiou",
+  "numeroCartaoHash" : 123456789,
+  "flagTitular" : 123,
+  "dataStatus" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "dataEmissao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "idStatus" : 123456789,
   "numeroCartao" : "aeiou",
   "idPessoa" : 123456789,
+  "dataEstagio" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "cartaoVirtual" : 123,
   "idProduto" : 123456789,
+  "numeroCartaoCriptografado" : "aeiou",
+  "idEstagio" : 123456789,
   "dataValidade" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "idStatusCartao" : 123456789,
-  "dataEstagioCartao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "flagImpressaoOrigemComercial" : 123,
   "sequencialCartao" : 123,
   "id" : 123456789,
   "nomeImpresso" : "aeiou",
-  "flagVirtual" : 123,
   "dataImpressao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "tipoPortador" : "aeiou",
-  "dataGeracao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+  "impressaoAvulsa" : 123
 }}]
      
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id) 
@@ -853,8 +874,48 @@ public class CartaoAPI: APIBase {
 
     /**
      
+     Adiciona tarifa de ajuste da segunda via do cart\u00C3\u00A3o
+     
+     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do cart\u00C3\u00A3o (id). 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func lancarTarifaSegundaViaUsingPOST(id id: Int, completion: ((data: AnyObject?, error: ErrorType?) -> Void)) {
+        lancarTarifaSegundaViaUsingPOSTWithRequestBuilder(id: id).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Adiciona tarifa de ajuste da segunda via do cart\u00C3\u00A3o
+     
+     - POST /api/cartoes/{id}/lancar-tarifa-reemissao
+     - Esse recurso permite adicionar tar\u00C3\u00ADfa de ajuste pela emiss\u00C3\u00A3o da segunda via do cart\u00C3\u00A3o.
+     - examples: [{contentType=application/json, example="{}"}]
+     
+     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do cart\u00C3\u00A3o (id). 
+
+     - returns: RequestBuilder<AnyObject> 
+     */
+    public class func lancarTarifaSegundaViaUsingPOSTWithRequestBuilder(id id: Int) -> RequestBuilder<AnyObject> {
+        var path = "/api/cartoes/{id}/lancar-tarifa-reemissao"
+        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<AnyObject>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
      Permite listar os Lotes de Cart\u00C3\u00B5es Pr\u00C3\u00A9-Pago
      
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter idOrigemComercial: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Origem Comercial (id). (optional)
@@ -868,8 +929,8 @@ public class CartaoAPI: APIBase {
      - parameter statusProcessamento: (query) Indica o Status de Processamento do Lote. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarLotesCartoesPrePagosUsingGET(page page: Int?, limit: Int?, idOrigemComercial: Int?, idProduto: Int?, idTipoCartao: Int?, idImagem: Int?, idEndereco: Int?, quantidadeCartoes: Int?, dataCadastro: String?, usuarioCadastro: String?, statusProcessamento: Int?, completion: ((data: PageLoteCartoesPrePagosResponse?, error: ErrorType?) -> Void)) {
-        listarLotesCartoesPrePagosUsingGETWithRequestBuilder(page: page, limit: limit, idOrigemComercial: idOrigemComercial, idProduto: idProduto, idTipoCartao: idTipoCartao, idImagem: idImagem, idEndereco: idEndereco, quantidadeCartoes: quantidadeCartoes, dataCadastro: dataCadastro, usuarioCadastro: usuarioCadastro, statusProcessamento: statusProcessamento).execute { (response, error) -> Void in
+    public class func listarLotesCartoesPrePagosUsingGET(sort sort: [String]?, page: Int?, limit: Int?, idOrigemComercial: Int?, idProduto: Int?, idTipoCartao: Int?, idImagem: Int?, idEndereco: Int?, quantidadeCartoes: Int?, dataCadastro: String?, usuarioCadastro: String?, statusProcessamento: Int?, completion: ((data: PageLoteCartoesPrePagosResponse?, error: ErrorType?) -> Void)) {
+        listarLotesCartoesPrePagosUsingGETWithRequestBuilder(sort: sort, page: page, limit: limit, idOrigemComercial: idOrigemComercial, idProduto: idProduto, idTipoCartao: idTipoCartao, idImagem: idImagem, idEndereco: idEndereco, quantidadeCartoes: quantidadeCartoes, dataCadastro: dataCadastro, usuarioCadastro: usuarioCadastro, statusProcessamento: statusProcessamento).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -909,6 +970,7 @@ public class CartaoAPI: APIBase {
   "first" : true
 }}]
      
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter idOrigemComercial: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Origem Comercial (id). (optional)
@@ -923,11 +985,12 @@ public class CartaoAPI: APIBase {
 
      - returns: RequestBuilder<PageLoteCartoesPrePagosResponse> 
      */
-    public class func listarLotesCartoesPrePagosUsingGETWithRequestBuilder(page page: Int?, limit: Int?, idOrigemComercial: Int?, idProduto: Int?, idTipoCartao: Int?, idImagem: Int?, idEndereco: Int?, quantidadeCartoes: Int?, dataCadastro: String?, usuarioCadastro: String?, statusProcessamento: Int?) -> RequestBuilder<PageLoteCartoesPrePagosResponse> {
+    public class func listarLotesCartoesPrePagosUsingGETWithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, idOrigemComercial: Int?, idProduto: Int?, idTipoCartao: Int?, idImagem: Int?, idEndereco: Int?, quantidadeCartoes: Int?, dataCadastro: String?, usuarioCadastro: String?, statusProcessamento: Int?) -> RequestBuilder<PageLoteCartoesPrePagosResponse> {
         let path = "/api/cartoes/lotes-cartoes-pre-pagos"
         let URLString = PierAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
+            "sort": sort,
             "page": page,
             "limit": limit,
             "idOrigemComercial": idOrigemComercial,
@@ -951,6 +1014,7 @@ public class CartaoAPI: APIBase {
      
      Lista os Cart\u00C3\u00B5es gerados pelo Emissor
      
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter idStatusCartao: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Status do Cart\u00C3\u00A3o (id). (optional)
@@ -973,8 +1037,8 @@ public class CartaoAPI: APIBase {
      - parameter sequencialCartao: (query) N\u00C3\u00BAmero sequencial do cart\u00C3\u00A3o (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET5(page page: Int?, limit: Int?, idStatusCartao: Int?, idEstagioCartao: Int?, idConta: Int?, idPessoa: Int?, idProduto: Int?, tipoPortador: String?, numeroCartao: String?, nomeImpresso: String?, dataGeracao: String?, dataStatusCartao: String?, dataEstagioCartao: String?, dataValidade: String?, dataImpressao: String?, arquivoImpressao: String?, flagImpressaoOrigemComercial: Int?, flagProvisorio: Int?, codigoDesbloqueio: String?, sequencialCartao: Int?, completion: ((data: PageCartaoResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET5WithRequestBuilder(page: page, limit: limit, idStatusCartao: idStatusCartao, idEstagioCartao: idEstagioCartao, idConta: idConta, idPessoa: idPessoa, idProduto: idProduto, tipoPortador: tipoPortador, numeroCartao: numeroCartao, nomeImpresso: nomeImpresso, dataGeracao: dataGeracao, dataStatusCartao: dataStatusCartao, dataEstagioCartao: dataEstagioCartao, dataValidade: dataValidade, dataImpressao: dataImpressao, arquivoImpressao: arquivoImpressao, flagImpressaoOrigemComercial: flagImpressaoOrigemComercial, flagProvisorio: flagProvisorio, codigoDesbloqueio: codigoDesbloqueio, sequencialCartao: sequencialCartao).execute { (response, error) -> Void in
+    public class func listarUsingGET6(sort sort: [String]?, page: Int?, limit: Int?, idStatusCartao: Int?, idEstagioCartao: Int?, idConta: Int?, idPessoa: Int?, idProduto: Int?, tipoPortador: String?, numeroCartao: String?, nomeImpresso: String?, dataGeracao: String?, dataStatusCartao: String?, dataEstagioCartao: String?, dataValidade: String?, dataImpressao: String?, arquivoImpressao: String?, flagImpressaoOrigemComercial: Int?, flagProvisorio: Int?, codigoDesbloqueio: String?, sequencialCartao: Int?, completion: ((data: PageCartaoResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET6WithRequestBuilder(sort: sort, page: page, limit: limit, idStatusCartao: idStatusCartao, idEstagioCartao: idEstagioCartao, idConta: idConta, idPessoa: idPessoa, idProduto: idProduto, tipoPortador: tipoPortador, numeroCartao: numeroCartao, nomeImpresso: nomeImpresso, dataGeracao: dataGeracao, dataStatusCartao: dataStatusCartao, dataEstagioCartao: dataEstagioCartao, dataValidade: dataValidade, dataImpressao: dataImpressao, arquivoImpressao: arquivoImpressao, flagImpressaoOrigemComercial: flagImpressaoOrigemComercial, flagProvisorio: flagProvisorio, codigoDesbloqueio: codigoDesbloqueio, sequencialCartao: sequencialCartao).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -993,25 +1057,28 @@ public class CartaoAPI: APIBase {
   "hasNextPage" : true,
   "nextPage" : 123,
   "content" : [ {
+    "numeroBin" : 123456789,
     "idConta" : 123456789,
-    "dataStatusCartao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+    "nomeArquivoImpressao" : "aeiou",
     "codigoDesbloqueio" : "aeiou",
-    "idEstagioCartao" : 123456789,
-    "arquivoImpressao" : "aeiou",
+    "numeroCartaoHash" : 123456789,
+    "flagTitular" : 123,
+    "dataStatus" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+    "dataEmissao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+    "idStatus" : 123456789,
     "numeroCartao" : "aeiou",
     "idPessoa" : 123456789,
+    "dataEstagio" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+    "cartaoVirtual" : 123,
     "idProduto" : 123456789,
+    "numeroCartaoCriptografado" : "aeiou",
+    "idEstagio" : 123456789,
     "dataValidade" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-    "idStatusCartao" : 123456789,
-    "dataEstagioCartao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-    "flagImpressaoOrigemComercial" : 123,
     "sequencialCartao" : 123,
     "id" : 123456789,
     "nomeImpresso" : "aeiou",
-    "flagVirtual" : 123,
     "dataImpressao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-    "tipoPortador" : "aeiou",
-    "dataGeracao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+    "impressaoAvulsa" : 123
   } ],
   "totalElements" : 123456789,
   "number" : 123,
@@ -1023,6 +1090,7 @@ public class CartaoAPI: APIBase {
   "first" : true
 }}]
      
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter idStatusCartao: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Status do Cart\u00C3\u00A3o (id). (optional)
@@ -1046,11 +1114,12 @@ public class CartaoAPI: APIBase {
 
      - returns: RequestBuilder<PageCartaoResponse> 
      */
-    public class func listarUsingGET5WithRequestBuilder(page page: Int?, limit: Int?, idStatusCartao: Int?, idEstagioCartao: Int?, idConta: Int?, idPessoa: Int?, idProduto: Int?, tipoPortador: String?, numeroCartao: String?, nomeImpresso: String?, dataGeracao: String?, dataStatusCartao: String?, dataEstagioCartao: String?, dataValidade: String?, dataImpressao: String?, arquivoImpressao: String?, flagImpressaoOrigemComercial: Int?, flagProvisorio: Int?, codigoDesbloqueio: String?, sequencialCartao: Int?) -> RequestBuilder<PageCartaoResponse> {
+    public class func listarUsingGET6WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, idStatusCartao: Int?, idEstagioCartao: Int?, idConta: Int?, idPessoa: Int?, idProduto: Int?, tipoPortador: String?, numeroCartao: String?, nomeImpresso: String?, dataGeracao: String?, dataStatusCartao: String?, dataEstagioCartao: String?, dataValidade: String?, dataImpressao: String?, arquivoImpressao: String?, flagImpressaoOrigemComercial: Int?, flagProvisorio: Int?, codigoDesbloqueio: String?, sequencialCartao: Int?) -> RequestBuilder<PageCartaoResponse> {
         let path = "/api/cartoes"
         let URLString = PierAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
+            "sort": sort,
             "page": page,
             "limit": limit,
             "idStatusCartao": idStatusCartao,
@@ -1100,25 +1169,28 @@ public class CartaoAPI: APIBase {
      - POST /api/cartoes/{id}/reativar
      - Este m\u00C3\u00A9todo permite a realiza\u00C3\u00A7\u00C3\u00A3o da reativa\u00C3\u00A7\u00C3\u00A3o de um determinado cart\u00C3\u00A3o a partir do seu c\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o (id).
      - examples: [{contentType=application/json, example={
+  "numeroBin" : 123456789,
   "idConta" : 123456789,
-  "dataStatusCartao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "nomeArquivoImpressao" : "aeiou",
   "codigoDesbloqueio" : "aeiou",
-  "idEstagioCartao" : 123456789,
-  "arquivoImpressao" : "aeiou",
+  "numeroCartaoHash" : 123456789,
+  "flagTitular" : 123,
+  "dataStatus" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "dataEmissao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "idStatus" : 123456789,
   "numeroCartao" : "aeiou",
   "idPessoa" : 123456789,
+  "dataEstagio" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "cartaoVirtual" : 123,
   "idProduto" : 123456789,
+  "numeroCartaoCriptografado" : "aeiou",
+  "idEstagio" : 123456789,
   "dataValidade" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "idStatusCartao" : 123456789,
-  "dataEstagioCartao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "flagImpressaoOrigemComercial" : 123,
   "sequencialCartao" : 123,
   "id" : 123456789,
   "nomeImpresso" : "aeiou",
-  "flagVirtual" : 123,
   "dataImpressao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "tipoPortador" : "aeiou",
-  "dataGeracao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+  "impressaoAvulsa" : 123
 }}]
      
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 

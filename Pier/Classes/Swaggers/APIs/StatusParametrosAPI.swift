@@ -73,18 +73,12 @@ public class StatusParametrosAPI: APIBase {
      - GET /api/status-cartoes/{id}
      - Este m\u00C3\u00A9todo permite consultar os par\u00C3\u00A2metros de um determinado Status de Cart\u00C3\u00A3o a partir do seu c\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o (id).
      - examples: [{contentType=application/json, example={
-  "flagCancelaCartao" : 123,
-  "flagCancelaNoDesbloqueio" : 123,
-  "flagPermiteBloqueio" : 123,
-  "idStatusDestinoDesbloqueio" : 123456789,
+  "permiteAtribuirComoBloqueio" : 123,
+  "permiteAtribuirComoCancelamento" : 123,
+  "cobrarTarifaAoEmitirNovaVia" : 123,
   "nome" : "aeiou",
-  "flagPermiteDesbloqueio" : 123,
   "id" : 123456789,
-  "idStatusDestinoConta" : 123456789,
-  "flagPermiteNovaViaCartao" : 123,
-  "flagCobraTarifa" : 123,
-  "flagCancelamento" : 123,
-  "flagReativar" : 123
+  "permiteDesbloquear" : 123
 }}]
      
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Est\u00C3\u00A1gio de Entrega do Cart\u00C3\u00A3o (id). 
@@ -125,13 +119,17 @@ public class StatusParametrosAPI: APIBase {
      - GET /api/status-contas/{id}
      - Este m\u00C3\u00A9todo permite consultar os par\u00C3\u00A2metros de um determinado Status Conta a partir do seu c\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o (id).
      - examples: [{contentType=application/json, example={
-  "mensagemConsultaNegada" : "aeiou",
-  "flagRecebeTransferencia" : 123,
+  "permiteAlterarVencimento" : 123,
+  "permiteFazerTransferencia" : 123,
+  "permiteEmitirNovaViaCartao" : 123,
+  "permiteAlterarLimite" : 123,
+  "permiteAtribuirComoBloqueio" : 123,
+  "permiteAtribuirComoCancelamento" : 123,
+  "permiteCriarAcordoCobranca" : 123,
   "nome" : "aeiou",
-  "flagAlteraLimite" : 123,
   "id" : 123456789,
-  "flagPermiteNovaViaCartao" : 123,
-  "flagFazTransferencia" : 123
+  "permiteDesbloquear" : 123,
+  "permiteReceberTransferencia" : 123
 }}]
      
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Status da Conta (id). 
@@ -197,14 +195,15 @@ public class StatusParametrosAPI: APIBase {
      
      Lista as op\u00C3\u00A7\u00C3\u00B5es de Est\u00C3\u00A1gios do Cart\u00C3\u00A3o
      
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter id: (query) Id do est\u00C3\u00A1gio cart\u00C3\u00A3o (optional)
      - parameter nome: (query) Nome do est\u00C3\u00A1gio cart\u00C3\u00A3o (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarEstagiosCartoesUsingGET(page page: Int?, limit: Int?, id: Int?, nome: String?, completion: ((data: PageEstagioCartaoResponse?, error: ErrorType?) -> Void)) {
-        listarEstagiosCartoesUsingGETWithRequestBuilder(page: page, limit: limit, id: id, nome: nome).execute { (response, error) -> Void in
+    public class func listarEstagiosCartoesUsingGET(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, nome: String?, completion: ((data: PageEstagioCartaoResponse?, error: ErrorType?) -> Void)) {
+        listarEstagiosCartoesUsingGETWithRequestBuilder(sort: sort, page: page, limit: limit, id: id, nome: nome).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -236,6 +235,7 @@ public class StatusParametrosAPI: APIBase {
   "first" : true
 }}]
      
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter id: (query) Id do est\u00C3\u00A1gio cart\u00C3\u00A3o (optional)
@@ -243,11 +243,12 @@ public class StatusParametrosAPI: APIBase {
 
      - returns: RequestBuilder<PageEstagioCartaoResponse> 
      */
-    public class func listarEstagiosCartoesUsingGETWithRequestBuilder(page page: Int?, limit: Int?, id: Int?, nome: String?) -> RequestBuilder<PageEstagioCartaoResponse> {
+    public class func listarEstagiosCartoesUsingGETWithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, nome: String?) -> RequestBuilder<PageEstagioCartaoResponse> {
         let path = "/api/estagios-cartoes"
         let URLString = PierAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
+            "sort": sort,
             "page": page,
             "limit": limit,
             "id": id,
@@ -264,24 +265,19 @@ public class StatusParametrosAPI: APIBase {
      
      Lista as op\u00C3\u00A7\u00C3\u00B5es de Status do Cart\u00C3\u00A3o
      
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter id: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Status do Cart\u00C3\u00A3o (id)  (optional)
      - parameter nome: (query) Nome atribu\u00C3\u00ADdo ao Status de Entrega do Cart\u00C3\u00A3o. (optional)
-     - parameter flagCancelaCartao: (query) Quando ativa, indica que ao ser atribu\u00C3\u00ADdo um idStatusCartao com essa caracter\u00C3\u00ADstica, o cart\u00C3\u00A3o ter\u00C3\u00A1 o seu idStatusCartao alterado para o que fora escolhido. Caso contr\u00C3\u00A1rio, o idStatusCartao s\u00C3\u00B3 ser\u00C3\u00A1 alterado ap\u00C3\u00B3s o desbloqueio de um novo cart\u00C3\u00A3o do mesmo Portador e Conta. (optional)
-     - parameter flagCancelaNoDesbloqueio: (query) Quando ativa, indica que o cart\u00C3\u00A3o ativo que o portador possuir na mesma conta do cart\u00C3\u00A3o a ser desbloqueado, e que o status dele possua essa caracter\u00C3\u00ADstica, dever\u00C3\u00A1 ser cancelado quando um novo cart\u00C3\u00A3o for desbloqueado. (optional)
-     - parameter idStatusDestinoDesbloqueio: (query) Indica qual o idStatusCartao que ser\u00C3\u00A1 atribu\u00C3\u00ADdo aos cart\u00C3\u00B5es que forem cancelados devido ao desbloqueio de um novo cart\u00C3\u00A3o. (optional)
-     - parameter idStatusDestinoConta: (query) Indica qual o idStatusCartao que ser\u00C3\u00A1 atribu\u00C3\u00ADdo a conta, caso ela seja cancelada devido ao bloqueio de um cart\u00C3\u00A3o quando for utilizado um idStatusCartao no processo de Bloqueio que possua essa caracter\u00C3\u00ADstica. (optional)
-     - parameter flagCobraTarifa: (query) Quando ativa, indica que cart\u00C3\u00B5es que tiverem um idStatusCartao atribu\u00C3\u00ADdo com essa caracter\u00C3\u00ADstica, incluir\u00C3\u00A3o a cobran\u00C3\u00A7a de uma tarifa para a conta de acordo com os valores definidos nos par\u00C3\u00A2metros do emissor. (optional)
-     - parameter flagPermiteNovaViaCartao: (query) Par\u00C3\u00A2metro que define se o status do cart\u00C3\u00A3o permite a solicita\u00C3\u00A7\u00C3\u00A3o de uma nova via, sendo: 0: Inativo e 1: Ativo. (optional)
-     - parameter flagPermiteDesbloqueio: (query) Par\u00C3\u00A2metro que define se o status do cart\u00C3\u00A3o permite o desbloqueio, sendo: 0: Inativo e 1: Ativo. (optional)
-     - parameter flagCancelamento: (query) Par\u00C3\u00A2metro que define se o status do cart\u00C3\u00A3o permite o cancelamento, sendo: 0: Inativo e 1: Ativo. (optional)
-     - parameter flagPermiteBloqueio: (query) Par\u00C3\u00A2metro que define se o status do cart\u00C3\u00A3o permite o Bloqueio, sendo: 0: Inativo e 1: Ativo. (optional)
-     - parameter flagReativar: (query) Par\u00C3\u00A2metro que define se o status do cart\u00C3\u00A3o permite a reativa\u00C3\u00A7\u00C3\u00A3o do cart\u00C3\u00A3o, sendo: 0: Inativo e 1: Ativo. (optional)
+     - parameter permiteDesbloquear: (query) Par\u00C3\u00A2metro que define se o status do cart\u00C3\u00A3o permite a reativa\u00C3\u00A7\u00C3\u00A3o do cart\u00C3\u00A3o, sendo: 0: Inativo e 1: Ativo. (optional)
+     - parameter permiteAtribuirComoBloqueio: (query) Par\u00C3\u00A2metro que define se o status do cart\u00C3\u00A3o permite a reativa\u00C3\u00A7\u00C3\u00A3o do cart\u00C3\u00A3o, sendo: 0: Inativo e 1: Ativo. (optional)
+     - parameter permiteAtribuirComoCancelamento: (query) Par\u00C3\u00A2metro que define se o status do cart\u00C3\u00A3o permite a reativa\u00C3\u00A7\u00C3\u00A3o do cart\u00C3\u00A3o, sendo: 0: Inativo e 1: Ativo. (optional)
+     - parameter cobrarTarifaAoEmitirNovaVia: (query) Par\u00C3\u00A2metro que define se o status do cart\u00C3\u00A3o permite a reativa\u00C3\u00A7\u00C3\u00A3o do cart\u00C3\u00A3o, sendo: 0: Inativo e 1: Ativo. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarStatusCartoesUsingGET(page page: Int?, limit: Int?, id: Int?, nome: String?, flagCancelaCartao: Int?, flagCancelaNoDesbloqueio: Int?, idStatusDestinoDesbloqueio: Int?, idStatusDestinoConta: Int?, flagCobraTarifa: Int?, flagPermiteNovaViaCartao: Int?, flagPermiteDesbloqueio: Int?, flagCancelamento: Int?, flagPermiteBloqueio: Int?, flagReativar: Int?, completion: ((data: PageStatusCartaoResponse?, error: ErrorType?) -> Void)) {
-        listarStatusCartoesUsingGETWithRequestBuilder(page: page, limit: limit, id: id, nome: nome, flagCancelaCartao: flagCancelaCartao, flagCancelaNoDesbloqueio: flagCancelaNoDesbloqueio, idStatusDestinoDesbloqueio: idStatusDestinoDesbloqueio, idStatusDestinoConta: idStatusDestinoConta, flagCobraTarifa: flagCobraTarifa, flagPermiteNovaViaCartao: flagPermiteNovaViaCartao, flagPermiteDesbloqueio: flagPermiteDesbloqueio, flagCancelamento: flagCancelamento, flagPermiteBloqueio: flagPermiteBloqueio, flagReativar: flagReativar).execute { (response, error) -> Void in
+    public class func listarStatusCartoesUsingGET(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, nome: String?, permiteDesbloquear: Int?, permiteAtribuirComoBloqueio: Int?, permiteAtribuirComoCancelamento: Int?, cobrarTarifaAoEmitirNovaVia: Int?, completion: ((data: PageStatusCartaoResponse?, error: ErrorType?) -> Void)) {
+        listarStatusCartoesUsingGETWithRequestBuilder(sort: sort, page: page, limit: limit, id: id, nome: nome, permiteDesbloquear: permiteDesbloquear, permiteAtribuirComoBloqueio: permiteAtribuirComoBloqueio, permiteAtribuirComoCancelamento: permiteAtribuirComoCancelamento, cobrarTarifaAoEmitirNovaVia: cobrarTarifaAoEmitirNovaVia).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -300,18 +296,12 @@ public class StatusParametrosAPI: APIBase {
   "hasNextPage" : true,
   "nextPage" : 123,
   "content" : [ {
-    "flagCancelaCartao" : 123,
-    "flagCancelaNoDesbloqueio" : 123,
-    "flagPermiteBloqueio" : 123,
-    "idStatusDestinoDesbloqueio" : 123456789,
+    "permiteAtribuirComoBloqueio" : 123,
+    "permiteAtribuirComoCancelamento" : 123,
+    "cobrarTarifaAoEmitirNovaVia" : 123,
     "nome" : "aeiou",
-    "flagPermiteDesbloqueio" : 123,
     "id" : 123456789,
-    "idStatusDestinoConta" : 123456789,
-    "flagPermiteNovaViaCartao" : 123,
-    "flagCobraTarifa" : 123,
-    "flagCancelamento" : 123,
-    "flagReativar" : 123
+    "permiteDesbloquear" : 123
   } ],
   "totalElements" : 123456789,
   "number" : 123,
@@ -323,42 +313,32 @@ public class StatusParametrosAPI: APIBase {
   "first" : true
 }}]
      
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter id: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Status do Cart\u00C3\u00A3o (id)  (optional)
      - parameter nome: (query) Nome atribu\u00C3\u00ADdo ao Status de Entrega do Cart\u00C3\u00A3o. (optional)
-     - parameter flagCancelaCartao: (query) Quando ativa, indica que ao ser atribu\u00C3\u00ADdo um idStatusCartao com essa caracter\u00C3\u00ADstica, o cart\u00C3\u00A3o ter\u00C3\u00A1 o seu idStatusCartao alterado para o que fora escolhido. Caso contr\u00C3\u00A1rio, o idStatusCartao s\u00C3\u00B3 ser\u00C3\u00A1 alterado ap\u00C3\u00B3s o desbloqueio de um novo cart\u00C3\u00A3o do mesmo Portador e Conta. (optional)
-     - parameter flagCancelaNoDesbloqueio: (query) Quando ativa, indica que o cart\u00C3\u00A3o ativo que o portador possuir na mesma conta do cart\u00C3\u00A3o a ser desbloqueado, e que o status dele possua essa caracter\u00C3\u00ADstica, dever\u00C3\u00A1 ser cancelado quando um novo cart\u00C3\u00A3o for desbloqueado. (optional)
-     - parameter idStatusDestinoDesbloqueio: (query) Indica qual o idStatusCartao que ser\u00C3\u00A1 atribu\u00C3\u00ADdo aos cart\u00C3\u00B5es que forem cancelados devido ao desbloqueio de um novo cart\u00C3\u00A3o. (optional)
-     - parameter idStatusDestinoConta: (query) Indica qual o idStatusCartao que ser\u00C3\u00A1 atribu\u00C3\u00ADdo a conta, caso ela seja cancelada devido ao bloqueio de um cart\u00C3\u00A3o quando for utilizado um idStatusCartao no processo de Bloqueio que possua essa caracter\u00C3\u00ADstica. (optional)
-     - parameter flagCobraTarifa: (query) Quando ativa, indica que cart\u00C3\u00B5es que tiverem um idStatusCartao atribu\u00C3\u00ADdo com essa caracter\u00C3\u00ADstica, incluir\u00C3\u00A3o a cobran\u00C3\u00A7a de uma tarifa para a conta de acordo com os valores definidos nos par\u00C3\u00A2metros do emissor. (optional)
-     - parameter flagPermiteNovaViaCartao: (query) Par\u00C3\u00A2metro que define se o status do cart\u00C3\u00A3o permite a solicita\u00C3\u00A7\u00C3\u00A3o de uma nova via, sendo: 0: Inativo e 1: Ativo. (optional)
-     - parameter flagPermiteDesbloqueio: (query) Par\u00C3\u00A2metro que define se o status do cart\u00C3\u00A3o permite o desbloqueio, sendo: 0: Inativo e 1: Ativo. (optional)
-     - parameter flagCancelamento: (query) Par\u00C3\u00A2metro que define se o status do cart\u00C3\u00A3o permite o cancelamento, sendo: 0: Inativo e 1: Ativo. (optional)
-     - parameter flagPermiteBloqueio: (query) Par\u00C3\u00A2metro que define se o status do cart\u00C3\u00A3o permite o Bloqueio, sendo: 0: Inativo e 1: Ativo. (optional)
-     - parameter flagReativar: (query) Par\u00C3\u00A2metro que define se o status do cart\u00C3\u00A3o permite a reativa\u00C3\u00A7\u00C3\u00A3o do cart\u00C3\u00A3o, sendo: 0: Inativo e 1: Ativo. (optional)
+     - parameter permiteDesbloquear: (query) Par\u00C3\u00A2metro que define se o status do cart\u00C3\u00A3o permite a reativa\u00C3\u00A7\u00C3\u00A3o do cart\u00C3\u00A3o, sendo: 0: Inativo e 1: Ativo. (optional)
+     - parameter permiteAtribuirComoBloqueio: (query) Par\u00C3\u00A2metro que define se o status do cart\u00C3\u00A3o permite a reativa\u00C3\u00A7\u00C3\u00A3o do cart\u00C3\u00A3o, sendo: 0: Inativo e 1: Ativo. (optional)
+     - parameter permiteAtribuirComoCancelamento: (query) Par\u00C3\u00A2metro que define se o status do cart\u00C3\u00A3o permite a reativa\u00C3\u00A7\u00C3\u00A3o do cart\u00C3\u00A3o, sendo: 0: Inativo e 1: Ativo. (optional)
+     - parameter cobrarTarifaAoEmitirNovaVia: (query) Par\u00C3\u00A2metro que define se o status do cart\u00C3\u00A3o permite a reativa\u00C3\u00A7\u00C3\u00A3o do cart\u00C3\u00A3o, sendo: 0: Inativo e 1: Ativo. (optional)
 
      - returns: RequestBuilder<PageStatusCartaoResponse> 
      */
-    public class func listarStatusCartoesUsingGETWithRequestBuilder(page page: Int?, limit: Int?, id: Int?, nome: String?, flagCancelaCartao: Int?, flagCancelaNoDesbloqueio: Int?, idStatusDestinoDesbloqueio: Int?, idStatusDestinoConta: Int?, flagCobraTarifa: Int?, flagPermiteNovaViaCartao: Int?, flagPermiteDesbloqueio: Int?, flagCancelamento: Int?, flagPermiteBloqueio: Int?, flagReativar: Int?) -> RequestBuilder<PageStatusCartaoResponse> {
+    public class func listarStatusCartoesUsingGETWithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, nome: String?, permiteDesbloquear: Int?, permiteAtribuirComoBloqueio: Int?, permiteAtribuirComoCancelamento: Int?, cobrarTarifaAoEmitirNovaVia: Int?) -> RequestBuilder<PageStatusCartaoResponse> {
         let path = "/api/status-cartoes"
         let URLString = PierAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
+            "sort": sort,
             "page": page,
             "limit": limit,
             "id": id,
             "nome": nome,
-            "flagCancelaCartao": flagCancelaCartao,
-            "flagCancelaNoDesbloqueio": flagCancelaNoDesbloqueio,
-            "idStatusDestinoDesbloqueio": idStatusDestinoDesbloqueio,
-            "idStatusDestinoConta": idStatusDestinoConta,
-            "flagCobraTarifa": flagCobraTarifa,
-            "flagPermiteNovaViaCartao": flagPermiteNovaViaCartao,
-            "flagPermiteDesbloqueio": flagPermiteDesbloqueio,
-            "flagCancelamento": flagCancelamento,
-            "flagPermiteBloqueio": flagPermiteBloqueio,
-            "flagReativar": flagReativar
+            "permiteDesbloquear": permiteDesbloquear,
+            "permiteAtribuirComoBloqueio": permiteAtribuirComoBloqueio,
+            "permiteAtribuirComoCancelamento": permiteAtribuirComoCancelamento,
+            "cobrarTarifaAoEmitirNovaVia": cobrarTarifaAoEmitirNovaVia
         ]
         let parameters = APIHelper.rejectNil(nillableParameters)
 
@@ -371,22 +351,24 @@ public class StatusParametrosAPI: APIBase {
      
      Lista os Status Contas cadastrados para o Emissor
      
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter id: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Status da Conta (id). (optional)
      - parameter nome: (query) Nome atribu\u00C3\u00ADdo ao Status da Conta. (optional)
-     - parameter flagAlteraLimite: (query) Par\u00C3\u00A2metro que define se o Status da Conta permite realizar a Altera\u00C3\u00A7\u00C3\u00A3o de Limites do Portador, sendo: 0: Inativo e 1: Ativo. (optional)
-     - parameter mensagemConsultaNegada: (query) Apresenta o texto com o motivo que ser\u00C3\u00A1 apresentado na resposta as opera\u00C3\u00A7\u00C3\u00B5es de Listar e Consultar LimitesDisponibilidades. (optional)
-     - parameter flagPermiteNovaViaCartao: (query) Par\u00C3\u00A2metro que define se o Status da conta permite a solicita\u00C3\u00A7\u00C3\u00A3o de um novo cart\u00C3\u00A3o, sendo: 0: Inativo e 1: Ativo. (optional)
-     - parameter flagFazTransferencia: (query) Par\u00C3\u00A2metro que define se o Status da conta permite fazer transferencia, sendo: 0: Inativo e 1: Ativo. (optional)
-     - parameter flagRecebeTransferencia: (query) Par\u00C3\u00A2metro que define se o Status da conta permite receber transferencia, sendo: 0: Inativo e 1: Ativo. (optional)
-     - parameter flagPermiteBloqueio: (query) Par\u00C3\u00A2metro que define se o Status da conta permite receber bloqueio, sendo: 0: Inativo e 1: Ativo. (optional)
-     - parameter flagPermiteDesbloqueio: (query) Par\u00C3\u00A2metro que define se o Status da conta permite receber desbloqueio, sendo: 0: Inativo e 1: Ativo. (optional)
-     - parameter flagCancelaConta: (query) Par\u00C3\u00A2metro que define se o Status da conta permite receber cancelamento, sendo: 0: Inativo e 1: Ativo. (optional)
+     - parameter permiteAlterarVencimento: (query) Par\u00C3\u00A2metro que define se o Status da conta permite a solicita\u00C3\u00A7\u00C3\u00A3o da altera\u00C3\u00A7\u00C3\u00A3o do Dia para Vencimento das Faturas, sendo: 0: Inativo e 1: Ativo. (optional)
+     - parameter permiteAlterarLimite: (query) Par\u00C3\u00A2metro que define se o Status da conta permite altera\u00C3\u00A7\u00C3\u00A3o de Limites, sendo: 0: Inativo e 1: Ativo. (optional)
+     - parameter permiteEmitirNovaViaCartao: (query) Par\u00C3\u00A2metro que define se o Status da conta permite solicitar uma nova via de Cart\u00C3\u00A3o, sendo: 0: Inativo e 1: Ativo. (optional)
+     - parameter permiteFazerTransferencia: (query) Par\u00C3\u00A2metro que define se o Status da conta permite originar Transfer\u00C3\u00AAncias de Cr\u00C3\u00A9dito para outras Contas do mesmo Emissor ou para uma Conta Banc\u00C3\u00A1ria, sendo: 0: Inativo e 1: Ativo. (optional)
+     - parameter permiteReceberTransferencia: (query) Par\u00C3\u00A2metro que define se o Status da conta permite  receber Transfer\u00C3\u00AAncias de Cr\u00C3\u00A9dito originadas de outras Contas do mesmo emissor, sendo: 0: Inativo e 1: Ativo. (optional)
+     - parameter permiteCriarAcordoCobranca: (query) Par\u00C3\u00A2metro que define se o Status da conta permite ter um Acordo de Cobran\u00C3\u00A7a de D\u00C3\u00ADvida criado para ela, sendo: 0: Inativo e 1: Ativo. (optional)
+     - parameter permiteAtribuirComoBloqueio: (query) Par\u00C3\u00A2metro que define se o Status da conta permite ser atribu\u00C3\u00ADdo para Bloquear temporariamente uma Conta, sendo: 0: Inativo e 1: Ativo. (optional)
+     - parameter permiteDesbloquear: (query) Par\u00C3\u00A2metro que define se o Status da conta permite ser desbloqueada, sendo: 0: Inativo e 1: Ativo. (optional)
+     - parameter permiteAtribuirComoCancelamento: (query) Par\u00C3\u00A2metro que define se o Status da conta permite ser atribu\u00C3\u00ADdo para realizar o cancelamento definitivo de uma conta, sendo: 0: Inativo e 1: Ativo. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET20(page page: Int?, limit: Int?, id: Int?, nome: String?, flagAlteraLimite: Int?, mensagemConsultaNegada: String?, flagPermiteNovaViaCartao: Int?, flagFazTransferencia: Int?, flagRecebeTransferencia: Int?, flagPermiteBloqueio: Int?, flagPermiteDesbloqueio: Int?, flagCancelaConta: Int?, completion: ((data: PageStatusContaResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET20WithRequestBuilder(page: page, limit: limit, id: id, nome: nome, flagAlteraLimite: flagAlteraLimite, mensagemConsultaNegada: mensagemConsultaNegada, flagPermiteNovaViaCartao: flagPermiteNovaViaCartao, flagFazTransferencia: flagFazTransferencia, flagRecebeTransferencia: flagRecebeTransferencia, flagPermiteBloqueio: flagPermiteBloqueio, flagPermiteDesbloqueio: flagPermiteDesbloqueio, flagCancelaConta: flagCancelaConta).execute { (response, error) -> Void in
+    public class func listarUsingGET22(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, nome: String?, permiteAlterarVencimento: Int?, permiteAlterarLimite: Int?, permiteEmitirNovaViaCartao: Int?, permiteFazerTransferencia: Int?, permiteReceberTransferencia: Int?, permiteCriarAcordoCobranca: Int?, permiteAtribuirComoBloqueio: Int?, permiteDesbloquear: Int?, permiteAtribuirComoCancelamento: Int?, completion: ((data: PageStatusContaResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET22WithRequestBuilder(sort: sort, page: page, limit: limit, id: id, nome: nome, permiteAlterarVencimento: permiteAlterarVencimento, permiteAlterarLimite: permiteAlterarLimite, permiteEmitirNovaViaCartao: permiteEmitirNovaViaCartao, permiteFazerTransferencia: permiteFazerTransferencia, permiteReceberTransferencia: permiteReceberTransferencia, permiteCriarAcordoCobranca: permiteCriarAcordoCobranca, permiteAtribuirComoBloqueio: permiteAtribuirComoBloqueio, permiteDesbloquear: permiteDesbloquear, permiteAtribuirComoCancelamento: permiteAtribuirComoCancelamento).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -405,13 +387,17 @@ public class StatusParametrosAPI: APIBase {
   "hasNextPage" : true,
   "nextPage" : 123,
   "content" : [ {
-    "mensagemConsultaNegada" : "aeiou",
-    "flagRecebeTransferencia" : 123,
+    "permiteAlterarVencimento" : 123,
+    "permiteFazerTransferencia" : 123,
+    "permiteEmitirNovaViaCartao" : 123,
+    "permiteAlterarLimite" : 123,
+    "permiteAtribuirComoBloqueio" : 123,
+    "permiteAtribuirComoCancelamento" : 123,
+    "permiteCriarAcordoCobranca" : 123,
     "nome" : "aeiou",
-    "flagAlteraLimite" : 123,
     "id" : 123456789,
-    "flagPermiteNovaViaCartao" : 123,
-    "flagFazTransferencia" : 123
+    "permiteDesbloquear" : 123,
+    "permiteReceberTransferencia" : 123
   } ],
   "totalElements" : 123456789,
   "number" : 123,
@@ -423,38 +409,42 @@ public class StatusParametrosAPI: APIBase {
   "first" : true
 }}]
      
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter id: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Status da Conta (id). (optional)
      - parameter nome: (query) Nome atribu\u00C3\u00ADdo ao Status da Conta. (optional)
-     - parameter flagAlteraLimite: (query) Par\u00C3\u00A2metro que define se o Status da Conta permite realizar a Altera\u00C3\u00A7\u00C3\u00A3o de Limites do Portador, sendo: 0: Inativo e 1: Ativo. (optional)
-     - parameter mensagemConsultaNegada: (query) Apresenta o texto com o motivo que ser\u00C3\u00A1 apresentado na resposta as opera\u00C3\u00A7\u00C3\u00B5es de Listar e Consultar LimitesDisponibilidades. (optional)
-     - parameter flagPermiteNovaViaCartao: (query) Par\u00C3\u00A2metro que define se o Status da conta permite a solicita\u00C3\u00A7\u00C3\u00A3o de um novo cart\u00C3\u00A3o, sendo: 0: Inativo e 1: Ativo. (optional)
-     - parameter flagFazTransferencia: (query) Par\u00C3\u00A2metro que define se o Status da conta permite fazer transferencia, sendo: 0: Inativo e 1: Ativo. (optional)
-     - parameter flagRecebeTransferencia: (query) Par\u00C3\u00A2metro que define se o Status da conta permite receber transferencia, sendo: 0: Inativo e 1: Ativo. (optional)
-     - parameter flagPermiteBloqueio: (query) Par\u00C3\u00A2metro que define se o Status da conta permite receber bloqueio, sendo: 0: Inativo e 1: Ativo. (optional)
-     - parameter flagPermiteDesbloqueio: (query) Par\u00C3\u00A2metro que define se o Status da conta permite receber desbloqueio, sendo: 0: Inativo e 1: Ativo. (optional)
-     - parameter flagCancelaConta: (query) Par\u00C3\u00A2metro que define se o Status da conta permite receber cancelamento, sendo: 0: Inativo e 1: Ativo. (optional)
+     - parameter permiteAlterarVencimento: (query) Par\u00C3\u00A2metro que define se o Status da conta permite a solicita\u00C3\u00A7\u00C3\u00A3o da altera\u00C3\u00A7\u00C3\u00A3o do Dia para Vencimento das Faturas, sendo: 0: Inativo e 1: Ativo. (optional)
+     - parameter permiteAlterarLimite: (query) Par\u00C3\u00A2metro que define se o Status da conta permite altera\u00C3\u00A7\u00C3\u00A3o de Limites, sendo: 0: Inativo e 1: Ativo. (optional)
+     - parameter permiteEmitirNovaViaCartao: (query) Par\u00C3\u00A2metro que define se o Status da conta permite solicitar uma nova via de Cart\u00C3\u00A3o, sendo: 0: Inativo e 1: Ativo. (optional)
+     - parameter permiteFazerTransferencia: (query) Par\u00C3\u00A2metro que define se o Status da conta permite originar Transfer\u00C3\u00AAncias de Cr\u00C3\u00A9dito para outras Contas do mesmo Emissor ou para uma Conta Banc\u00C3\u00A1ria, sendo: 0: Inativo e 1: Ativo. (optional)
+     - parameter permiteReceberTransferencia: (query) Par\u00C3\u00A2metro que define se o Status da conta permite  receber Transfer\u00C3\u00AAncias de Cr\u00C3\u00A9dito originadas de outras Contas do mesmo emissor, sendo: 0: Inativo e 1: Ativo. (optional)
+     - parameter permiteCriarAcordoCobranca: (query) Par\u00C3\u00A2metro que define se o Status da conta permite ter um Acordo de Cobran\u00C3\u00A7a de D\u00C3\u00ADvida criado para ela, sendo: 0: Inativo e 1: Ativo. (optional)
+     - parameter permiteAtribuirComoBloqueio: (query) Par\u00C3\u00A2metro que define se o Status da conta permite ser atribu\u00C3\u00ADdo para Bloquear temporariamente uma Conta, sendo: 0: Inativo e 1: Ativo. (optional)
+     - parameter permiteDesbloquear: (query) Par\u00C3\u00A2metro que define se o Status da conta permite ser desbloqueada, sendo: 0: Inativo e 1: Ativo. (optional)
+     - parameter permiteAtribuirComoCancelamento: (query) Par\u00C3\u00A2metro que define se o Status da conta permite ser atribu\u00C3\u00ADdo para realizar o cancelamento definitivo de uma conta, sendo: 0: Inativo e 1: Ativo. (optional)
 
      - returns: RequestBuilder<PageStatusContaResponse> 
      */
-    public class func listarUsingGET20WithRequestBuilder(page page: Int?, limit: Int?, id: Int?, nome: String?, flagAlteraLimite: Int?, mensagemConsultaNegada: String?, flagPermiteNovaViaCartao: Int?, flagFazTransferencia: Int?, flagRecebeTransferencia: Int?, flagPermiteBloqueio: Int?, flagPermiteDesbloqueio: Int?, flagCancelaConta: Int?) -> RequestBuilder<PageStatusContaResponse> {
+    public class func listarUsingGET22WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, nome: String?, permiteAlterarVencimento: Int?, permiteAlterarLimite: Int?, permiteEmitirNovaViaCartao: Int?, permiteFazerTransferencia: Int?, permiteReceberTransferencia: Int?, permiteCriarAcordoCobranca: Int?, permiteAtribuirComoBloqueio: Int?, permiteDesbloquear: Int?, permiteAtribuirComoCancelamento: Int?) -> RequestBuilder<PageStatusContaResponse> {
         let path = "/api/status-contas"
         let URLString = PierAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
+            "sort": sort,
             "page": page,
             "limit": limit,
             "id": id,
             "nome": nome,
-            "flagAlteraLimite": flagAlteraLimite,
-            "mensagemConsultaNegada": mensagemConsultaNegada,
-            "flagPermiteNovaViaCartao": flagPermiteNovaViaCartao,
-            "flagFazTransferencia": flagFazTransferencia,
-            "flagRecebeTransferencia": flagRecebeTransferencia,
-            "flagPermiteBloqueio": flagPermiteBloqueio,
-            "flagPermiteDesbloqueio": flagPermiteDesbloqueio,
-            "flagCancelaConta": flagCancelaConta
+            "permiteAlterarVencimento": permiteAlterarVencimento,
+            "permiteAlterarLimite": permiteAlterarLimite,
+            "permiteEmitirNovaViaCartao": permiteEmitirNovaViaCartao,
+            "permiteFazerTransferencia": permiteFazerTransferencia,
+            "permiteReceberTransferencia": permiteReceberTransferencia,
+            "permiteCriarAcordoCobranca": permiteCriarAcordoCobranca,
+            "permiteAtribuirComoBloqueio": permiteAtribuirComoBloqueio,
+            "permiteDesbloquear": permiteDesbloquear,
+            "permiteAtribuirComoCancelamento": permiteAtribuirComoCancelamento
         ]
         let parameters = APIHelper.rejectNil(nillableParameters)
 
@@ -467,14 +457,15 @@ public class StatusParametrosAPI: APIBase {
      
      Lista as op\u00C3\u00A7\u00C3\u00B5es de Status Impress\u00C3\u00A3o
      
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter id: (query) Id do est\u00C3\u00A1gio cart\u00C3\u00A3o (optional)
      - parameter nome: (query) Nome do status impress\u00C3\u00A3o (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET21(page page: Int?, limit: Int?, id: Int?, nome: String?, completion: ((data: PageStatusImpressaoResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET21WithRequestBuilder(page: page, limit: limit, id: id, nome: nome).execute { (response, error) -> Void in
+    public class func listarUsingGET23(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, nome: String?, completion: ((data: PageStatusImpressaoResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET23WithRequestBuilder(sort: sort, page: page, limit: limit, id: id, nome: nome).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -506,6 +497,7 @@ public class StatusParametrosAPI: APIBase {
   "first" : true
 }}]
      
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter id: (query) Id do est\u00C3\u00A1gio cart\u00C3\u00A3o (optional)
@@ -513,11 +505,12 @@ public class StatusParametrosAPI: APIBase {
 
      - returns: RequestBuilder<PageStatusImpressaoResponse> 
      */
-    public class func listarUsingGET21WithRequestBuilder(page page: Int?, limit: Int?, id: Int?, nome: String?) -> RequestBuilder<PageStatusImpressaoResponse> {
+    public class func listarUsingGET23WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, nome: String?) -> RequestBuilder<PageStatusImpressaoResponse> {
         let path = "/api/status-impressoes"
         let URLString = PierAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
+            "sort": sort,
             "page": page,
             "limit": limit,
             "id": id,

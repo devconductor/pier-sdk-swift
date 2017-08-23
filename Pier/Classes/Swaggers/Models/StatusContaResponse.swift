@@ -15,16 +15,24 @@ public class StatusContaResponse: JSONEncodable {
     public var id: Int?
     /** Nome atribu\u00C3\u00ADdo ao Status da Conta. */
     public var nome: String?
-    /** Par\u00C3\u00A2metro que define se o Status da Conta permite realizar a Altera\u00C3\u00A7\u00C3\u00A3o de Limites do Portador, sendo: 0: Inativo e 1: Ativo. */
-    public var flagAlteraLimite: Int?
-    /** Apresenta o texto com o motivo que ser\u00C3\u00A1 apresentado na resposta as opera\u00C3\u00A7\u00C3\u00B5es de Listar e Consultar LimitesDisponibilidades. */
-    public var mensagemConsultaNegada: String?
-    /** Par\u00C3\u00A2metro que define se o Status da conta permite a solicita\u00C3\u00A7\u00C3\u00A3o de um novo cart\u00C3\u00A3o, sendo: 0: Inativo e 1: Ativo. */
-    public var flagPermiteNovaViaCartao: Int?
-    /** Par\u00C3\u00A2metro que define se o Status da conta permite fazer transferencia, sendo: 0: Inativo e 1: Ativo. */
-    public var flagFazTransferencia: Int?
-    /** Par\u00C3\u00A2metro que define se o Status da conta permite receber transferencia, sendo: 0: Inativo e 1: Ativo. */
-    public var flagRecebeTransferencia: Int?
+    /** Par\u00C3\u00A2metro que define se o Status da conta permite a solicita\u00C3\u00A7\u00C3\u00A3o da altera\u00C3\u00A7\u00C3\u00A3o do Dia para Vencimento das Faturas, sendo: 0: Inativo e 1: Ativo. */
+    public var permiteAlterarVencimento: Int?
+    /** Par\u00C3\u00A2metro que define se o Status da conta permite altera\u00C3\u00A7\u00C3\u00A3o de Limites, sendo: 0: Inativo e 1: Ativo. */
+    public var permiteAlterarLimite: Int?
+    /** Par\u00C3\u00A2metro que define se o Status da conta permite solicitar uma nova via de Cart\u00C3\u00A3o, sendo: 0: Inativo e 1: Ativo. */
+    public var permiteEmitirNovaViaCartao: Int?
+    /** Par\u00C3\u00A2metro que define se o Status da conta permite originar Transfer\u00C3\u00AAncias de Cr\u00C3\u00A9dito para outras Contas do mesmo Emissor ou para uma Conta Banc\u00C3\u00A1ria, sendo: 0: Inativo e 1: Ativo. */
+    public var permiteFazerTransferencia: Int?
+    /** Par\u00C3\u00A2metro que define se o Status da conta permite  receber Transfer\u00C3\u00AAncias de Cr\u00C3\u00A9dito originadas de outras Contas do mesmo emissor, sendo: 0: Inativo e 1: Ativo. */
+    public var permiteReceberTransferencia: Int?
+    /** Par\u00C3\u00A2metro que define se o Status da conta permite ter um Acordo de Cobran\u00C3\u00A7a de D\u00C3\u00ADvida criado para ela, sendo: 0: Inativo e 1: Ativo. */
+    public var permiteCriarAcordoCobranca: Int?
+    /** Par\u00C3\u00A2metro que define se o Status da conta permite ser atribu\u00C3\u00ADdo para Bloquear temporariamente uma Conta, sendo: 0: Inativo e 1: Ativo. */
+    public var permiteAtribuirComoBloqueio: Int?
+    /** Par\u00C3\u00A2metro que define se o Status da conta permite ser desbloqueada, sendo: 0: Inativo e 1: Ativo. */
+    public var permiteDesbloquear: Int?
+    /** Par\u00C3\u00A2metro que define se o Status da conta permite ser atribu\u00C3\u00ADdo para realizar o cancelamento definitivo de uma conta, sendo: 0: Inativo e 1: Ativo. */
+    public var permiteAtribuirComoCancelamento: Int?
     
 
     public init() {}
@@ -34,11 +42,15 @@ public class StatusContaResponse: JSONEncodable {
         var nillableDictionary = [String:AnyObject?]()
         nillableDictionary["id"] = self.id
         nillableDictionary["nome"] = self.nome
-        nillableDictionary["flagAlteraLimite"] = self.flagAlteraLimite
-        nillableDictionary["mensagemConsultaNegada"] = self.mensagemConsultaNegada
-        nillableDictionary["flagPermiteNovaViaCartao"] = self.flagPermiteNovaViaCartao
-        nillableDictionary["flagFazTransferencia"] = self.flagFazTransferencia
-        nillableDictionary["flagRecebeTransferencia"] = self.flagRecebeTransferencia
+        nillableDictionary["permiteAlterarVencimento"] = self.permiteAlterarVencimento
+        nillableDictionary["permiteAlterarLimite"] = self.permiteAlterarLimite
+        nillableDictionary["permiteEmitirNovaViaCartao"] = self.permiteEmitirNovaViaCartao
+        nillableDictionary["permiteFazerTransferencia"] = self.permiteFazerTransferencia
+        nillableDictionary["permiteReceberTransferencia"] = self.permiteReceberTransferencia
+        nillableDictionary["permiteCriarAcordoCobranca"] = self.permiteCriarAcordoCobranca
+        nillableDictionary["permiteAtribuirComoBloqueio"] = self.permiteAtribuirComoBloqueio
+        nillableDictionary["permiteDesbloquear"] = self.permiteDesbloquear
+        nillableDictionary["permiteAtribuirComoCancelamento"] = self.permiteAtribuirComoCancelamento
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }
