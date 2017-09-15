@@ -13,6 +13,7 @@ public class TemplateNotificacaoResponse: JSONEncodable {
 
     public enum TipoLayout: String { 
         case RecuperarSenha = "RECUPERAR_SENHA"
+        case FaturaPorEmail = "FATURA_POR_EMAIL"
         case ValidarDispositivo = "VALIDAR_DISPOSITIVO"
     }
     

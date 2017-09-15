@@ -11,34 +11,38 @@ import Foundation
 /** Representa\u00C3\u00A7\u00C3\u00A3o da resposta do boleto de fatura */
 public class BoletoResponse: JSONEncodable {
 
+    /** N\u00C3\u00BAmero do documento \u00C3\u00A9 o c\u00C3\u00B3digo informado pelo banco para identifica\u00C3\u00A7\u00C3\u00A3o do cliente */
+    public var numeroDoDocumento: String?
     /** Data do processamento (emiss\u00C3\u00A3o ou faturamento) do boleto */
     public var dataProcessamento: String?
     /** Data do documento (impress\u00C3\u00A3o) */
     public var dataDocumento: String?
     /** Data do vencimento */
     public var dataVencimento: String?
+    /** Data do fechamento */
+    public var dataFechamento: String?
     /** Valor do Boleto. */
     public var valorBoleto: Double?
-    /** N\u00C3\u00BAmero do documento \u00C3\u00A9 o c\u00C3\u00B3digo informado pelo banco para identifica\u00C3\u00A7\u00C3\u00A3o do cliente */
-    public var numeroDoDocumento: String?
     /** Benefici\u00C3\u00A1rio \u00C3\u00A9 a pessoa/empresa que gera o boleto */
     public var nomeBeneficiario: String?
+    /** Documento do Beneficiario. */
+    public var documentoBeneficiario: String?
     /** Ag\u00C3\u00AAncia. */
     public var agencia: String?
     /** C\u00C3\u00B3digo do benefici\u00C3\u00A1rio */
     public var codigoBeneficiario: String?
-    /** D\u00C3\u00ADgito do c\u00C3\u00B3digo do benefici\u00C3\u00A1rio */
-    public var digitoCodigoBeneficiario: String?
     /** N\u00C3\u00BAmero do conv\u00C3\u00AAnio fornecido pelo banco \u00C3\u00A9 o c\u00C3\u00B3digo que identifica um emissor junto ao seu banco para associar seus boletos. */
     public var numeroConvenio: String?
+    /** D\u00C3\u00ADgito do c\u00C3\u00B3digo do benefici\u00C3\u00A1rio */
+    public var digitoCodigoBeneficiario: String?
     /** Carteira \u00C3\u00A9 o c\u00C3\u00B3digo informado pelo banco pra identifica\u00C3\u00A7\u00C3\u00A3o do tipo do boleto */
     public var carteira: String?
     /** Nosso n\u00C3\u00BAmero \u00C3\u00A9 o c\u00C3\u00B3digo que o benefici\u00C3\u00A1rio escolhe para manter controle sobre seus boletos. Esse valor serve para o cedente identificar quais boletos foram pagos ou n\u00C3\u00A3o. Recomenda-se o uso de n\u00C3\u00BAmeros sequ\u00C3\u00AAnciais, na gera\u00C3\u00A7\u00C3\u00A3o de diversos boletos, para facilitar a identifica\u00C3\u00A7\u00C3\u00A3o dos boletos pagos */
     public var nossoNumero: String?
-    /** Banco */
-    public var banco: String?
     /** D\u00C3\u00ADgito do nosso n\u00C3\u00BAmero */
     public var digitoNossoNumero: String?
+    /** Banco */
+    public var banco: String?
     /** Aceite informa ao banco se deve aceitar o boleto ap\u00C3\u00B3s a data de vencimento (padr\u00C3\u00A3o: \&quot;N\&quot;) */
     public var aceite: Bool?
     /** Esp\u00C3\u00A9cie do documento \u00C3\u00A9 o identificador do tipo de boleto (padr\u00C3\u00A3o: \&quot;DV\&quot;) */
@@ -51,8 +55,6 @@ public class BoletoResponse: JSONEncodable {
     public var locaisDePagamento: [String]?
     /** Pagador \u00C3\u00A9 a pessoa/empresa que deve pagar o boleto */
     public var nomePagador: String?
-    /** Documento do Beneficiario. */
-    public var documentoBeneficiario: String?
     /** Documento do pagador (CPF ou CNPJ) */
     public var documentoPagador: String?
     /** Logradouro do pagador */
@@ -76,27 +78,28 @@ public class BoletoResponse: JSONEncodable {
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
+        nillableDictionary["numeroDoDocumento"] = self.numeroDoDocumento
         nillableDictionary["dataProcessamento"] = self.dataProcessamento
         nillableDictionary["dataDocumento"] = self.dataDocumento
         nillableDictionary["dataVencimento"] = self.dataVencimento
+        nillableDictionary["dataFechamento"] = self.dataFechamento
         nillableDictionary["valorBoleto"] = self.valorBoleto
-        nillableDictionary["numeroDoDocumento"] = self.numeroDoDocumento
         nillableDictionary["nomeBeneficiario"] = self.nomeBeneficiario
+        nillableDictionary["documentoBeneficiario"] = self.documentoBeneficiario
         nillableDictionary["agencia"] = self.agencia
         nillableDictionary["codigoBeneficiario"] = self.codigoBeneficiario
-        nillableDictionary["digitoCodigoBeneficiario"] = self.digitoCodigoBeneficiario
         nillableDictionary["numeroConvenio"] = self.numeroConvenio
+        nillableDictionary["digitoCodigoBeneficiario"] = self.digitoCodigoBeneficiario
         nillableDictionary["carteira"] = self.carteira
         nillableDictionary["nossoNumero"] = self.nossoNumero
-        nillableDictionary["banco"] = self.banco
         nillableDictionary["digitoNossoNumero"] = self.digitoNossoNumero
+        nillableDictionary["banco"] = self.banco
         nillableDictionary["aceite"] = self.aceite
         nillableDictionary["especieDoDocumento"] = self.especieDoDocumento
         nillableDictionary["especie"] = self.especie
         nillableDictionary["instrucoes"] = self.instrucoes?.encodeToJSON()
         nillableDictionary["locaisDePagamento"] = self.locaisDePagamento?.encodeToJSON()
         nillableDictionary["nomePagador"] = self.nomePagador
-        nillableDictionary["documentoBeneficiario"] = self.documentoBeneficiario
         nillableDictionary["documentoPagador"] = self.documentoPagador
         nillableDictionary["logradouroPagador"] = self.logradouroPagador
         nillableDictionary["bairroPagador"] = self.bairroPagador

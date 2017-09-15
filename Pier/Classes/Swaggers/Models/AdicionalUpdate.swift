@@ -29,18 +29,10 @@ public class AdicionalUpdate: JSONEncodable {
     public var unidadeFederativaIdentidade: String?
     /** Data de emiss\u00C3\u00A3o do Documento de Identidade do Adicional em formato yyyy-MM-dd. */
     public var dataEmissaoIdentidade: String?
-    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do Estado Civil do Adicional. */
-    public var idEstadoCivil: Int?
-    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da Profissao do Adicional. */
-    public var idProfissao: Int?
-    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da Nacionalidade do Adicional. */
-    public var idNacionalidade: Int?
     /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do Parentesco do Adicional com o Titular. */
     public var idParentesco: Int?
-    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do Parentesco do Adicional com o Titular. */
-    public var email: String?
     /** Lista de telefones do adicional. */
-    public var telefones: [TelefoneAdicionalPersist]?
+    public var telefones: [TelefoneAdicionalUpdate]?
     
 
     public init() {}
@@ -57,11 +49,7 @@ public class AdicionalUpdate: JSONEncodable {
         nillableDictionary["orgaoExpedidorIdentidade"] = self.orgaoExpedidorIdentidade
         nillableDictionary["unidadeFederativaIdentidade"] = self.unidadeFederativaIdentidade
         nillableDictionary["dataEmissaoIdentidade"] = self.dataEmissaoIdentidade
-        nillableDictionary["idEstadoCivil"] = self.idEstadoCivil
-        nillableDictionary["idProfissao"] = self.idProfissao
-        nillableDictionary["idNacionalidade"] = self.idNacionalidade
         nillableDictionary["idParentesco"] = self.idParentesco
-        nillableDictionary["email"] = self.email
         nillableDictionary["telefones"] = self.telefones?.encodeToJSON()
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary

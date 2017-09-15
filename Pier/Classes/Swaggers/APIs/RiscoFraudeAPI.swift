@@ -17,8 +17,8 @@ public class RiscoFraudeAPI: APIBase {
      - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do risco de fraude 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET13(id id: Int, completion: ((data: RiscoFraudeDetalhadoResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET13WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET14(id id: Int, completion: ((data: RiscoFraudeDetalhadoResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET14WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -72,7 +72,7 @@ public class RiscoFraudeAPI: APIBase {
 
      - returns: RequestBuilder<RiscoFraudeDetalhadoResponse> 
      */
-    public class func consultarUsingGET13WithRequestBuilder(id id: Int) -> RequestBuilder<RiscoFraudeDetalhadoResponse> {
+    public class func consultarUsingGET14WithRequestBuilder(id id: Int) -> RequestBuilder<RiscoFraudeDetalhadoResponse> {
         var path = "/api/riscos-fraudes/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path

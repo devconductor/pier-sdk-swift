@@ -11,7 +11,6 @@ import Foundation
 /** Objeto Cart\u00C3\u00A3o para Impresso */
 public class CartaoImpressaoResponse: JSONEncodable {
 
-    public var flagVirtual: Int?
     /** Apresenta o C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Conta (id) a qual o cart\u00C3\u00A3o gerado pertence. */
     public var idConta: Int?
     /** Apresenta o C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Pessoa (id) portadora do cart\u00C3\u00A3o gerado. */
@@ -56,6 +55,8 @@ public class CartaoImpressaoResponse: JSONEncodable {
     public var trilhaCVV1: String?
     /** Apresenta os dados da TrilhaCVV02, seguindo as regras de trilha do emissor. */
     public var trilhaCVV2: String?
+    /** Apresenta o status que informa se o cart\u00C3\u00A3o \u00C3\u00A9 virtual  */
+    public var flagVirtual: Int?
     /** Apresenta o numero da hash do cart\u00C3\u00A3o  */
     public var numeroCartaoHash: Int?
     
@@ -65,7 +66,6 @@ public class CartaoImpressaoResponse: JSONEncodable {
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
-        nillableDictionary["flagVirtual"] = self.flagVirtual
         nillableDictionary["idConta"] = self.idConta
         nillableDictionary["idPessoa"] = self.idPessoa
         nillableDictionary["idCartao"] = self.idCartao
@@ -88,6 +88,7 @@ public class CartaoImpressaoResponse: JSONEncodable {
         nillableDictionary["trilha2"] = self.trilha2
         nillableDictionary["trilhaCVV1"] = self.trilhaCVV1
         nillableDictionary["trilhaCVV2"] = self.trilhaCVV2
+        nillableDictionary["flagVirtual"] = self.flagVirtual
         nillableDictionary["numeroCartaoHash"] = self.numeroCartaoHash
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary

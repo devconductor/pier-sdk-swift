@@ -32,7 +32,7 @@ public class PessoaFisicaAprovadaPersist: JSONEncodable {
     /** Id Estado civil da pessoa fisica */
     public var idEstadoCivil: Int?
     /** Profiss\u00C3\u00A3o da pessoa fisica */
-    public var idProfissao: Int?
+    public var idProfissao: String?
     /** Id Natureza Ocupa\u00C3\u00A7\u00C3\u00A3o da pessoa fisica */
     public var idNaturezaOcupacao: Int?
     /** Id Nacionalidade da pessoa fisica */
