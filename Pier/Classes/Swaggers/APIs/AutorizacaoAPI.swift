@@ -150,6 +150,54 @@ public class AutorizacaoAPI: APIBase {
 
     /**
      
+     Cancela transa\u00C3\u00A7\u00C3\u00A3o financeira por idCartao
+     
+     - parameter id: (path) Id Cartao 
+     - parameter cancelamentoRequest: (body) cancelamentoRequest 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func cancelarUsingPOST3(id id: Int, cancelamentoRequest: CancelamentoTransacaoPorIdCartaoRequest, completion: ((data: TransacaoOnUsResponse?, error: ErrorType?) -> Void)) {
+        cancelarUsingPOST3WithRequestBuilder(id: id, cancelamentoRequest: cancelamentoRequest).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Cancela transa\u00C3\u00A7\u00C3\u00A3o financeira por idCartao
+     
+     - POST /api/cartoes/{id}/cancelar-transacao
+     - Este m\u00C3\u00A9todo permite que seja cancelada uma transa\u00C3\u00A7\u00C3\u00A3o a partir do idCartao.
+     - examples: [{contentType=application/json, example={
+  "codigoAutorizacao" : "aeiou",
+  "planoDeParcelamento" : [ { } ],
+  "numeroMascaradoCartao" : "aeiou",
+  "nsuOrigem" : "aeiou",
+  "nomePortadorCartao" : "aeiou",
+  "terminalRequisitante" : "aeiou",
+  "nsuAutorizacao" : "aeiou"
+}}]
+     
+     - parameter id: (path) Id Cartao 
+     - parameter cancelamentoRequest: (body) cancelamentoRequest 
+
+     - returns: RequestBuilder<TransacaoOnUsResponse> 
+     */
+    public class func cancelarUsingPOST3WithRequestBuilder(id id: Int, cancelamentoRequest: CancelamentoTransacaoPorIdCartaoRequest) -> RequestBuilder<TransacaoOnUsResponse> {
+        var path = "/api/cartoes/{id}/cancelar-transacao"
+        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
+        let URLString = PierAPI.basePath + path
+        
+        let parameters = cancelamentoRequest.encodeToJSON() as? [String:AnyObject]
+
+        let requestBuilder: RequestBuilder<TransacaoOnUsResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
      Retorna c\u00C3\u00B3digos de processamento de autoriza\u00C3\u00A7\u00C3\u00A3o
      
      - parameter completion: completion handler to receive the data and the error objects

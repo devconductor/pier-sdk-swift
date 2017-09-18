@@ -496,76 +496,13 @@ public class CadastroGeralAPI: APIBase {
 
     /**
      
-     Apresenta dados de um determinado tipo de opera\u00C3\u00A7\u00C3\u00A3o
-     
-     - parameter idCartao: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do cartao (idCartao). 
-     - parameter idEstabelecimento: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do estabelecimento (idEstabelecimento). 
-     - parameter codigoProcessamento: (query) C\u00C3\u00B3digo de processamento da opera\u00C3\u00A7\u00C3\u00A3o. 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func consultarUsingGET22(idCartao idCartao: Int, idEstabelecimento: Int, codigoProcessamento: String, completion: ((data: TipoOperacaoResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET22WithRequestBuilder(idCartao: idCartao, idEstabelecimento: idEstabelecimento, codigoProcessamento: codigoProcessamento).execute { (response, error) -> Void in
-            completion(data: response?.body, error: error);
-        }
-    }
-
-
-    /**
-     
-     Apresenta dados de um determinado tipo de opera\u00C3\u00A7\u00C3\u00A3o
-     
-     - GET /api/tipo-operacao
-     - Este recurso permite consultar dados de um determinado tipo opera\u00C3\u00A7\u00C3\u00A3o a partir do idCartao, idEstabelecimento e codigoProcessamento.
-     - examples: [{contentType=application/json, example={
-  "tarifa" : 1.3579000000000001069366817318950779736042022705078125,
-  "idEstabelecimento" : 123456789,
-  "flagTiraTac" : 123,
-  "nome" : "aeiou",
-  "tipoOperacao" : "aeiou",
-  "planoMaximo" : 123,
-  "descricao" : "aeiou",
-  "valorMaximo" : 1.3579000000000001069366817318950779736042022705078125,
-  "valorTAC" : 1.3579000000000001069366817318950779736042022705078125,
-  "planoMinimo" : 123,
-  "idProduto" : 123456789,
-  "tipoExcedentePermitido" : "aeiou",
-  "remuneracaoEmissor" : 1.3579000000000001069366817318950779736042022705078125,
-  "excedentePermitido" : 1.3579000000000001069366817318950779736042022705078125,
-  "id" : 123456789,
-  "valorMinimo" : 1.3579000000000001069366817318950779736042022705078125
-}}]
-     
-     - parameter idCartao: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do cartao (idCartao). 
-     - parameter idEstabelecimento: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do estabelecimento (idEstabelecimento). 
-     - parameter codigoProcessamento: (query) C\u00C3\u00B3digo de processamento da opera\u00C3\u00A7\u00C3\u00A3o. 
-
-     - returns: RequestBuilder<TipoOperacaoResponse> 
-     */
-    public class func consultarUsingGET22WithRequestBuilder(idCartao idCartao: Int, idEstabelecimento: Int, codigoProcessamento: String) -> RequestBuilder<TipoOperacaoResponse> {
-        let path = "/api/tipo-operacao"
-        let URLString = PierAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [
-            "idCartao": idCartao,
-            "idEstabelecimento": idEstabelecimento,
-            "codigoProcessamento": codigoProcessamento
-        ]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<TipoOperacaoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
-    }
-
-    /**
-     
      Apresenta os dados de um determinado Tipo de Telefone
      
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Tipo do Telefone (id) 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET24(id id: Int, completion: ((data: TipoTelefoneResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET24WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET23(id id: Int, completion: ((data: TipoTelefoneResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET23WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -586,7 +523,7 @@ public class CadastroGeralAPI: APIBase {
 
      - returns: RequestBuilder<TipoTelefoneResponse> 
      */
-    public class func consultarUsingGET24WithRequestBuilder(id id: Int) -> RequestBuilder<TipoTelefoneResponse> {
+    public class func consultarUsingGET23WithRequestBuilder(id id: Int) -> RequestBuilder<TipoTelefoneResponse> {
         var path = "/api/tipos-telefones/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path

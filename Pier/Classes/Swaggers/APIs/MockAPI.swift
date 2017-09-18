@@ -154,7 +154,7 @@ public class MockAPI: APIBase {
      - parameter dataVencimento: (path) Data de Vencimento da fatura. 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func visualizarDocumentoUsingPOST(id id: Int, dataVencimento: String, completion: ((data: [ByteArray]?, error: ErrorType?) -> Void)) {
+    public class func visualizarDocumentoUsingPOST(id id: Int, dataVencimento: String, completion: ((data: AnyObject?, error: ErrorType?) -> Void)) {
         visualizarDocumentoUsingPOSTWithRequestBuilder(id: id, dataVencimento: dataVencimento).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -172,9 +172,9 @@ public class MockAPI: APIBase {
      - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
      - parameter dataVencimento: (path) Data de Vencimento da fatura. 
 
-     - returns: RequestBuilder<[ByteArray]> 
+     - returns: RequestBuilder<AnyObject> 
      */
-    public class func visualizarDocumentoUsingPOSTWithRequestBuilder(id id: Int, dataVencimento: String) -> RequestBuilder<[ByteArray]> {
+    public class func visualizarDocumentoUsingPOSTWithRequestBuilder(id id: Int, dataVencimento: String) -> RequestBuilder<AnyObject> {
         var path = "/api/contas/{id}/faturas/{dataVencimento}/arquivo.pdf"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{dataVencimento}", withString: "\(dataVencimento)", options: .LiteralSearch, range: nil)
@@ -183,7 +183,7 @@ public class MockAPI: APIBase {
         let nillableParameters: [String:AnyObject?] = [:]
         let parameters = APIHelper.rejectNil(nillableParameters)
 
-        let requestBuilder: RequestBuilder<[ByteArray]>.Type = PierAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<AnyObject>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
     }
