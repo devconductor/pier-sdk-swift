@@ -21,8 +21,6 @@ public class EmprestimoPessoalRequest: JSONEncodable {
     public var periodoTaxa: String?
     /** Sistema para amortiza\u00C3\u00A7\u00C3\u00A3o do valor das parcelas */
     public var sistemaAmortizacao: String?
-    /** Dia para cobran\u00C3\u00A7a da primeira parcela */
-    public var diaVencimento: Int?
     /** N\u00C3\u00BAmero de meses para cobran\u00C3\u00A7a da primeira parcela */
     public var numeroMesesCarencia: Int?
     
@@ -37,7 +35,6 @@ public class EmprestimoPessoalRequest: JSONEncodable {
         nillableDictionary["taxaJuros"] = self.taxaJuros
         nillableDictionary["periodoTaxa"] = self.periodoTaxa
         nillableDictionary["sistemaAmortizacao"] = self.sistemaAmortizacao
-        nillableDictionary["diaVencimento"] = self.diaVencimento
         nillableDictionary["numeroMesesCarencia"] = self.numeroMesesCarencia
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary

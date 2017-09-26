@@ -17,10 +17,10 @@ public class PlanoParcelamentoEmprestimoResponse: JSONEncodable {
     public var valorParcelas: Double?
     /** Taxa de juros aplicado no empr\u00C3\u00A9stimo/financiamento */
     public var taxaJuros: Double?
-    /** valor percentual do Custo Efetivo Total, ao ano, do empr\u00C3\u00A9stimo / financiamento */
-    public var valorPercentualCET: Double?
     /** valor total estimado dos tributos do Imposto sobre Opera\u00C3\u00A7\u00C3\u00B5es Financeiras */
     public var valorTributosIOF: Double?
+    /** valor percentual do Custo Efetivo Total, ao ano, do empr\u00C3\u00A9stimo / financiamento */
+    public var valorPercentualCET: Double?
     
 
     public init() {}
@@ -31,8 +31,8 @@ public class PlanoParcelamentoEmprestimoResponse: JSONEncodable {
         nillableDictionary["numeroParcelas"] = self.numeroParcelas
         nillableDictionary["valorParcelas"] = self.valorParcelas
         nillableDictionary["taxaJuros"] = self.taxaJuros
-        nillableDictionary["valorPercentualCET"] = self.valorPercentualCET
         nillableDictionary["valorTributosIOF"] = self.valorTributosIOF
+        nillableDictionary["valorPercentualCET"] = self.valorPercentualCET
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

@@ -893,54 +893,13 @@ public class OportunidadeAPI: APIBase {
 
     /**
      
-     Cadastra tipos oportunidades
-     
-     - parameter persist: (body) persist 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func salvarUsingPOST14(persist persist: TipoOportunidade, completion: ((data: TipoOportunidadeResponse?, error: ErrorType?) -> Void)) {
-        salvarUsingPOST14WithRequestBuilder(persist: persist).execute { (response, error) -> Void in
-            completion(data: response?.body, error: error);
-        }
-    }
-
-
-    /**
-     
-     Cadastra tipos oportunidades
-     
-     - POST /api/tipos-oportunidades
-     - Esse recurso permite cadastrar tipos oportunidades.
-     - examples: [{contentType=application/json, example={
-  "id" : 123456789,
-  "flagAtivo" : true,
-  "descricao" : "aeiou"
-}}]
-     
-     - parameter persist: (body) persist 
-
-     - returns: RequestBuilder<TipoOportunidadeResponse> 
-     */
-    public class func salvarUsingPOST14WithRequestBuilder(persist persist: TipoOportunidade) -> RequestBuilder<TipoOportunidadeResponse> {
-        let path = "/api/tipos-oportunidades"
-        let URLString = PierAPI.basePath + path
-        
-        let parameters = persist.encodeToJSON() as? [String:AnyObject]
-
-        let requestBuilder: RequestBuilder<TipoOportunidadeResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
      Cadastra as oportunidades
      
      - parameter persist: (body) persist 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func salvarUsingPOST9(persist persist: OportunidadePersist, completion: ((data: OportunidadeResponse?, error: ErrorType?) -> Void)) {
-        salvarUsingPOST9WithRequestBuilder(persist: persist).execute { (response, error) -> Void in
+    public class func salvarUsingPOST12(persist persist: OportunidadePersist, completion: ((data: OportunidadeResponse?, error: ErrorType?) -> Void)) {
+        salvarUsingPOST12WithRequestBuilder(persist: persist).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -973,13 +932,54 @@ public class OportunidadeAPI: APIBase {
 
      - returns: RequestBuilder<OportunidadeResponse> 
      */
-    public class func salvarUsingPOST9WithRequestBuilder(persist persist: OportunidadePersist) -> RequestBuilder<OportunidadeResponse> {
+    public class func salvarUsingPOST12WithRequestBuilder(persist persist: OportunidadePersist) -> RequestBuilder<OportunidadeResponse> {
         let path = "/api/oportunidades"
         let URLString = PierAPI.basePath + path
         
         let parameters = persist.encodeToJSON() as? [String:AnyObject]
 
         let requestBuilder: RequestBuilder<OportunidadeResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Cadastra tipos oportunidades
+     
+     - parameter persist: (body) persist 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func salvarUsingPOST17(persist persist: TipoOportunidade, completion: ((data: TipoOportunidadeResponse?, error: ErrorType?) -> Void)) {
+        salvarUsingPOST17WithRequestBuilder(persist: persist).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Cadastra tipos oportunidades
+     
+     - POST /api/tipos-oportunidades
+     - Esse recurso permite cadastrar tipos oportunidades.
+     - examples: [{contentType=application/json, example={
+  "id" : 123456789,
+  "flagAtivo" : true,
+  "descricao" : "aeiou"
+}}]
+     
+     - parameter persist: (body) persist 
+
+     - returns: RequestBuilder<TipoOportunidadeResponse> 
+     */
+    public class func salvarUsingPOST17WithRequestBuilder(persist persist: TipoOportunidade) -> RequestBuilder<TipoOportunidadeResponse> {
+        let path = "/api/tipos-oportunidades"
+        let URLString = PierAPI.basePath + path
+        
+        let parameters = persist.encodeToJSON() as? [String:AnyObject]
+
+        let requestBuilder: RequestBuilder<TipoOportunidadeResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
     }

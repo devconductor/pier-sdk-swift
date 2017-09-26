@@ -12,6 +12,45 @@ import Alamofire
 public class UsuarioAPI: APIBase {
     /**
      
+     Alterar senha do usu\u00C3\u00A1rio.
+     
+     - parameter login: (path) Login do usu\u00C3\u00A1rio. 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func alterarSenhaLoginUsingPOST(login login: String, completion: ((data: String?, error: ErrorType?) -> Void)) {
+        alterarSenhaLoginUsingPOSTWithRequestBuilder(login: login).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Alterar senha do usu\u00C3\u00A1rio.
+     
+     - POST /api/usuarios/{login}/alterar-senha
+     - Este m\u00C3\u00A9todo realiza a altera\u00C3\u00A7\u00C3\u00A3o da senha do usu\u00C3\u00A1rio.
+     - examples: [{contentType=application/json, example="aeiou"}]
+     
+     - parameter login: (path) Login do usu\u00C3\u00A1rio. 
+
+     - returns: RequestBuilder<String> 
+     */
+    public class func alterarSenhaLoginUsingPOSTWithRequestBuilder(login login: String) -> RequestBuilder<String> {
+        var path = "/api/usuarios/{login}/alterar-senha"
+        path = path.stringByReplacingOccurrencesOfString("{login}", withString: "\(login)", options: .LiteralSearch, range: nil)
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<String>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
      Alterar senha do usu\u00C3\u00A1rio na base do PIER ou WS.
      
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Usu\u00C3\u00A1rio (id). 
@@ -51,7 +90,7 @@ public class UsuarioAPI: APIBase {
 
     /**
      
-     Altera os usu\u00C3\u00A1rios cadastrados na base do PIER ou WS.
+     Altera os usu\u00C3\u00A1rios cadastrados na base.
      
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Usu\u00C3\u00A1rio (id). 
      - parameter update: (body) update 
@@ -66,7 +105,7 @@ public class UsuarioAPI: APIBase {
 
     /**
      
-     Altera os usu\u00C3\u00A1rios cadastrados na base do PIER ou WS.
+     Altera os usu\u00C3\u00A1rios cadastrados na base.
      
      - PUT /api/usuarios/{id}
      - Este m\u00C3\u00A9todo realiza a altera\u00C3\u00A7\u00C3\u00A3o dos usu\u00C3\u00A1rios.
@@ -375,13 +414,13 @@ public class UsuarioAPI: APIBase {
 
     /**
      
-     Cadastra Usu\u00C3\u00A1rio na base do PIER ou WS.
+     Cadastra Usu\u00C3\u00A1rio na base.
      
      - parameter persist: (body) persist 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func salvarUsingPOST16(persist persist: UsuarioPersist, completion: ((data: UsuarioResponse?, error: ErrorType?) -> Void)) {
-        salvarUsingPOST16WithRequestBuilder(persist: persist).execute { (response, error) -> Void in
+    public class func salvarUsingPOST19(persist persist: UsuarioPersist, completion: ((data: UsuarioResponse?, error: ErrorType?) -> Void)) {
+        salvarUsingPOST19WithRequestBuilder(persist: persist).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -389,7 +428,7 @@ public class UsuarioAPI: APIBase {
 
     /**
      
-     Cadastra Usu\u00C3\u00A1rio na base do PIER ou WS.
+     Cadastra Usu\u00C3\u00A1rio na base.
      
      - POST /api/usuarios
      - Esse recurso permite cadastrar usu\u00C3\u00A1rios.
@@ -410,13 +449,52 @@ public class UsuarioAPI: APIBase {
 
      - returns: RequestBuilder<UsuarioResponse> 
      */
-    public class func salvarUsingPOST16WithRequestBuilder(persist persist: UsuarioPersist) -> RequestBuilder<UsuarioResponse> {
+    public class func salvarUsingPOST19WithRequestBuilder(persist persist: UsuarioPersist) -> RequestBuilder<UsuarioResponse> {
         let path = "/api/usuarios"
         let URLString = PierAPI.basePath + path
         
         let parameters = persist.encodeToJSON() as? [String:AnyObject]
 
         let requestBuilder: RequestBuilder<UsuarioResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Realiza login com valida\u00C3\u00A7\u00C3\u00A3o de senha dos usu\u00C3\u00A1rios cadastrados na base do PIER ou WS.
+     
+     - parameter login: (path) Login identificador do usu\u00C3\u00A1rio (login). 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func validarSenhaLoginUsingPOST(login login: String, completion: ((data: AnyObject?, error: ErrorType?) -> Void)) {
+        validarSenhaLoginUsingPOSTWithRequestBuilder(login: login).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Realiza login com valida\u00C3\u00A7\u00C3\u00A3o de senha dos usu\u00C3\u00A1rios cadastrados na base do PIER ou WS.
+     
+     - POST /api/usuarios/{login}/validar-senha
+     - O recurso permite fazer login do usu\u00C3\u00A1rio atrav\u00C3\u00A9s da senha definida pelo emissor.
+     - examples: [{contentType=application/json, example="{}"}]
+     
+     - parameter login: (path) Login identificador do usu\u00C3\u00A1rio (login). 
+
+     - returns: RequestBuilder<AnyObject> 
+     */
+    public class func validarSenhaLoginUsingPOSTWithRequestBuilder(login login: String) -> RequestBuilder<AnyObject> {
+        var path = "/api/usuarios/{login}/validar-senha"
+        path = path.stringByReplacingOccurrencesOfString("{login}", withString: "\(login)", options: .LiteralSearch, range: nil)
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<AnyObject>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
     }

@@ -492,6 +492,47 @@ public class ContaAPI: APIBase {
 
     /**
      
+     Apresenta a data m\u00C3\u00A1xima para pagamento da fatura em atraso para receber o benef\u00C3\u00ADcio.
+     
+     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func consultarBeneficioPagamentoAtrasoUsingGET(id id: Int, completion: ((data: BeneficioPagamentoAtrasoResponse?, error: ErrorType?) -> Void)) {
+        consultarBeneficioPagamentoAtrasoUsingGETWithRequestBuilder(id: id).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Apresenta a data m\u00C3\u00A1xima para pagamento da fatura em atraso para receber o benef\u00C3\u00ADcio.
+     
+     - GET /api/contas/{id}/consultar-beneficio-pagamento-atraso
+     - Este m\u00C3\u00A9todo permite consultar se o cliente tem direito ao benef\u00C3\u00ADcio de pagamento em atraso, em loja, at\u00C3\u00A9 o s\u00C3\u00A1bado subsequente ao vencimento, ficando isento do pagamento de multa, encargos, mora e IOF.
+     - examples: [{contentType=application/json, example={
+  "dataBeneficio" : "yyyy-MM-dd"
+}}]
+     
+     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
+
+     - returns: RequestBuilder<BeneficioPagamentoAtrasoResponse> 
+     */
+    public class func consultarBeneficioPagamentoAtrasoUsingGETWithRequestBuilder(id id: Int) -> RequestBuilder<BeneficioPagamentoAtrasoResponse> {
+        var path = "/api/contas/{id}/consultar-beneficio-pagamento-atraso"
+        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<BeneficioPagamentoAtrasoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
      Consulta os dados de um determinado boleto da fatura
      
      - parameter id: (path) Id Conta 
@@ -2794,6 +2835,62 @@ public class ContaAPI: APIBase {
         let parameters = APIHelper.rejectNil(nillableParameters)
 
         let requestBuilder: RequestBuilder<AnyObject>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Simula valores de presta\u00C3\u00A7\u00C3\u00B5es de empr\u00C3\u00A9stimos/financiamentos
+     
+     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
+     - parameter request: (body) request 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func simularEmprestimoFinanciamentoUsingPOST(id id: Int, request: EmprestimoPessoalRequest, completion: ((data: EmprestimoPessoalResponse?, error: ErrorType?) -> Void)) {
+        simularEmprestimoFinanciamentoUsingPOSTWithRequestBuilder(id: id, request: request).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Simula valores de presta\u00C3\u00A7\u00C3\u00B5es de empr\u00C3\u00A9stimos/financiamentos
+     
+     - POST /api/contas/{id}/simular-emprestimos-financiamentos
+     - Esta opera\u00C3\u00A7\u00C3\u00A3o pode ser utilizada para simular opera\u00C3\u00A7\u00C3\u00B5es financeiras a partir de informa\u00C3\u00A7\u00C3\u00B5es fornecidas pelo usu\u00C3\u00A1rio. Os c\u00C3\u00A1lculos gerados devem ser considerados apenas como refer\u00C3\u00AAncia para as situa\u00C3\u00A7\u00C3\u00B5es reais e n\u00C3\u00A3o como valores oficiais.
+     - examples: [{contentType=application/json, example={
+  "valorSolicitado" : 1.3579000000000001069366817318950779736042022705078125,
+  "numeroParcelas" : 123,
+  "valorMaximoParcela" : 1.3579000000000001069366817318950779736042022705078125,
+  "valorMaximoSolicitacao" : 1.3579000000000001069366817318950779736042022705078125,
+  "sistemaAmortizacao" : "aeiou",
+  "taxaJuros" : 1.3579000000000001069366817318950779736042022705078125,
+  "periodoTaxa" : "aeiou",
+  "planosParcelamentos" : [ {
+    "numeroParcelas" : 123,
+    "valorPercentualCET" : 1.3579000000000001069366817318950779736042022705078125,
+    "valorParcelas" : 1.3579000000000001069366817318950779736042022705078125,
+    "taxaJuros" : 1.3579000000000001069366817318950779736042022705078125,
+    "valorTributosIOF" : 1.3579000000000001069366817318950779736042022705078125
+  } ],
+  "dataPrimeiraParcela" : "aeiou"
+}}]
+     
+     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
+     - parameter request: (body) request 
+
+     - returns: RequestBuilder<EmprestimoPessoalResponse> 
+     */
+    public class func simularEmprestimoFinanciamentoUsingPOSTWithRequestBuilder(id id: Int, request: EmprestimoPessoalRequest) -> RequestBuilder<EmprestimoPessoalResponse> {
+        var path = "/api/contas/{id}/simular-emprestimos-financiamentos"
+        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
+        let URLString = PierAPI.basePath + path
+        
+        let parameters = request.encodeToJSON() as? [String:AnyObject]
+
+        let requestBuilder: RequestBuilder<EmprestimoPessoalResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
     }

@@ -235,8 +235,8 @@ public class JobAPI: APIBase {
      - parameter groovy: (body) groovy 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func salvarUsingPOST8(descricao descricao: String, cron: String, groovy: String, completion: ((data: JobResponse?, error: ErrorType?) -> Void)) {
-        salvarUsingPOST8WithRequestBuilder(descricao: descricao, cron: cron, groovy: groovy).execute { (response, error) -> Void in
+    public class func salvarUsingPOST11(descricao descricao: String, cron: String, groovy: String, completion: ((data: JobResponse?, error: ErrorType?) -> Void)) {
+        salvarUsingPOST11WithRequestBuilder(descricao: descricao, cron: cron, groovy: groovy).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -262,7 +262,7 @@ public class JobAPI: APIBase {
 
      - returns: RequestBuilder<JobResponse> 
      */
-    public class func salvarUsingPOST8WithRequestBuilder(descricao descricao: String, cron: String, groovy: String) -> RequestBuilder<JobResponse> {
+    public class func salvarUsingPOST11WithRequestBuilder(descricao descricao: String, cron: String, groovy: String) -> RequestBuilder<JobResponse> {
         let path = "/api/jobs"
         let URLString = PierAPI.basePath + path
         

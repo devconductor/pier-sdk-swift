@@ -14,14 +14,20 @@ public class EmprestimoPessoalResponse: JSONEncodable {
     public var planosParcelamentos: [PlanoParcelamentoEmprestimoResponse]?
     /** Valor solicitado do empr\u00C3\u00A9stimo/financiamento */
     public var valorSolicitado: Double?
-    /** Valor total do empr\u00C3\u00A9stimo/financiamento */
-    public var valorTotal: Double?
-    /** Sistema para amortiza\u00C3\u00A7\u00C3\u00A3o do valor das parcelas */
-    public var sistemaAmortizacao: String?
+    /** Valor m\u00C3\u00A1ximo de empr\u00C3\u00A9stimo pelo valor limite de parcela */
+    public var valorMaximoSolicitacao: Double?
+    /** N\u00C3\u00BAmero de parcelas solicitado */
+    public var numeroParcelas: Int?
+    /** Limite m\u00C3\u00A1ximo de parcela permitido */
+    public var valorMaximoParcela: Double?
+    /** Data do desconto da primeira parcela */
+    public var dataPrimeiraParcela: String?
     /** Per\u00C3\u00ADodo de aplica da taxa de juros */
     public var periodoTaxa: String?
-    /** Data da primeira parcela do empr\u00C3\u00A9stimo/financiamento */
-    public var dataPrimeiraParcela: String?
+    /** Sistema para amortiza\u00C3\u00A7\u00C3\u00A3o do valor das parcelas */
+    public var sistemaAmortizacao: String?
+    /** Valor percentual da taxa de juros a ser aplicada */
+    public var taxaJuros: Double?
     
 
     public init() {}
@@ -31,10 +37,13 @@ public class EmprestimoPessoalResponse: JSONEncodable {
         var nillableDictionary = [String:AnyObject?]()
         nillableDictionary["planosParcelamentos"] = self.planosParcelamentos?.encodeToJSON()
         nillableDictionary["valorSolicitado"] = self.valorSolicitado
-        nillableDictionary["valorTotal"] = self.valorTotal
-        nillableDictionary["sistemaAmortizacao"] = self.sistemaAmortizacao
-        nillableDictionary["periodoTaxa"] = self.periodoTaxa
+        nillableDictionary["valorMaximoSolicitacao"] = self.valorMaximoSolicitacao
+        nillableDictionary["numeroParcelas"] = self.numeroParcelas
+        nillableDictionary["valorMaximoParcela"] = self.valorMaximoParcela
         nillableDictionary["dataPrimeiraParcela"] = self.dataPrimeiraParcela
+        nillableDictionary["periodoTaxa"] = self.periodoTaxa
+        nillableDictionary["sistemaAmortizacao"] = self.sistemaAmortizacao
+        nillableDictionary["taxaJuros"] = self.taxaJuros
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

@@ -73,11 +73,12 @@ public class NotificacaoAPI: APIBase {
      - parameter idConfiguracaoEmail: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da configra\u00C3\u00A7\u00C3\u00A3o de EMAIL. (optional)
      - parameter tipoLayout: (query) Tipo do layout. (optional)
      - parameter tipoNotificacao: (query) Tipo da notifica\u00C3\u00A7\u00C3\u00A3o. (optional)
+     - parameter remetente: (query) Remetente (optional)
      - parameter assunto: (query) Assunto da Notificaca\u00C3\u00A7\u00C3\u00A3o. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func alterarTemplateNotificacaoUsingPUT(id id: Int, conteudo: String, idConfiguracaoEmail: Int?, tipoLayout: String?, tipoNotificacao: String?, assunto: String?, completion: ((data: TemplateNotificacaoResponse?, error: ErrorType?) -> Void)) {
-        alterarTemplateNotificacaoUsingPUTWithRequestBuilder(id: id, conteudo: conteudo, idConfiguracaoEmail: idConfiguracaoEmail, tipoLayout: tipoLayout, tipoNotificacao: tipoNotificacao, assunto: assunto).execute { (response, error) -> Void in
+    public class func alterarTemplateNotificacaoUsingPUT(id id: Int, conteudo: String, idConfiguracaoEmail: Int?, tipoLayout: String?, tipoNotificacao: String?, remetente: String?, assunto: String?, completion: ((data: TemplateNotificacaoResponse?, error: ErrorType?) -> Void)) {
+        alterarTemplateNotificacaoUsingPUTWithRequestBuilder(id: id, conteudo: conteudo, idConfiguracaoEmail: idConfiguracaoEmail, tipoLayout: tipoLayout, tipoNotificacao: tipoNotificacao, remetente: remetente, assunto: assunto).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -91,6 +92,7 @@ public class NotificacaoAPI: APIBase {
      - Esse recurso permite salvar altera\u00C3\u00A7\u00C3\u00B5es de templates notifica\u00C3\u00A7\u00C3\u00B5es.
      - examples: [{contentType=application/json, example={
   "idConfiguracaoEmail" : 123456789,
+  "remetente" : "aeiou",
   "assunto" : "aeiou",
   "conteudo" : "aeiou",
   "dataInclusao" : "aeiou",
@@ -105,11 +107,12 @@ public class NotificacaoAPI: APIBase {
      - parameter idConfiguracaoEmail: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da configra\u00C3\u00A7\u00C3\u00A3o de EMAIL. (optional)
      - parameter tipoLayout: (query) Tipo do layout. (optional)
      - parameter tipoNotificacao: (query) Tipo da notifica\u00C3\u00A7\u00C3\u00A3o. (optional)
+     - parameter remetente: (query) Remetente (optional)
      - parameter assunto: (query) Assunto da Notificaca\u00C3\u00A7\u00C3\u00A3o. (optional)
 
      - returns: RequestBuilder<TemplateNotificacaoResponse> 
      */
-    public class func alterarTemplateNotificacaoUsingPUTWithRequestBuilder(id id: Int, conteudo: String, idConfiguracaoEmail: Int?, tipoLayout: String?, tipoNotificacao: String?, assunto: String?) -> RequestBuilder<TemplateNotificacaoResponse> {
+    public class func alterarTemplateNotificacaoUsingPUTWithRequestBuilder(id id: Int, conteudo: String, idConfiguracaoEmail: Int?, tipoLayout: String?, tipoNotificacao: String?, remetente: String?, assunto: String?) -> RequestBuilder<TemplateNotificacaoResponse> {
         var path = "/api/templates-notificacoes/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -266,6 +269,7 @@ public class NotificacaoAPI: APIBase {
      - Esse recurso permite consultar uma configura\u00C3\u00A7\u00C3\u00A3o espec\u00C3\u00ADfica por id.
      - examples: [{contentType=application/json, example={
   "idConfiguracaoEmail" : 123456789,
+  "remetente" : "aeiou",
   "assunto" : "aeiou",
   "conteudo" : "aeiou",
   "dataInclusao" : "aeiou",
@@ -619,6 +623,7 @@ public class NotificacaoAPI: APIBase {
   "nextPage" : 123,
   "content" : [ {
     "idConfiguracaoEmail" : 123456789,
+    "remetente" : "aeiou",
     "assunto" : "aeiou",
     "conteudo" : "aeiou",
     "dataInclusao" : "aeiou",
@@ -692,6 +697,49 @@ public class NotificacaoAPI: APIBase {
         let requestBuilder: RequestBuilder<[AnyObject]>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Enviar notifica\u00C3\u00A7\u00C3\u00A3o por email
+     
+     - parameter request: (body) request 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func notificacaoEmailUsingPOST(request request: NotificacaoEmailRequest, completion: ((data: NotificacaoEmailResponse?, error: ErrorType?) -> Void)) {
+        notificacaoEmailUsingPOSTWithRequestBuilder(request: request).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Enviar notifica\u00C3\u00A7\u00C3\u00A3o por email
+     
+     - POST /api/notificacoes-email
+     - Esse recurso permite enviar uma mensagem de notifica\u00C3\u00A7\u00C3\u00A3o por email
+     - examples: [{contentType=application/json, example={
+  "remetente" : "aeiou",
+  "idDocumento" : 123456789,
+  "idTemplateNotificacao" : 123456789,
+  "id" : 123456789,
+  "destinatario" : "aeiou"
+}}]
+     
+     - parameter request: (body) request 
+
+     - returns: RequestBuilder<NotificacaoEmailResponse> 
+     */
+    public class func notificacaoEmailUsingPOSTWithRequestBuilder(request request: NotificacaoEmailRequest) -> RequestBuilder<NotificacaoEmailResponse> {
+        let path = "/api/notificacoes-email"
+        let URLString = PierAPI.basePath + path
+        
+        let parameters = request.encodeToJSON() as? [String:AnyObject]
+
+        let requestBuilder: RequestBuilder<NotificacaoEmailResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
     }
 
     /**
@@ -977,11 +1025,12 @@ public class NotificacaoAPI: APIBase {
      - parameter idConfiguracaoEmail: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da configra\u00C3\u00A7\u00C3\u00A3o de EMAIL. (optional)
      - parameter tipoLayout: (query) Tipo do layout. (optional)
      - parameter tipoNotificacao: (query) Tipo da notifica\u00C3\u00A7\u00C3\u00A3o. (optional)
+     - parameter remetente: (query) Remetente (optional)
      - parameter assunto: (query) Assunto da Notificaca\u00C3\u00A7\u00C3\u00A3o. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func salvarTemplateNotificacaoUsingPOST(conteudo conteudo: String, idConfiguracaoEmail: Int?, tipoLayout: String?, tipoNotificacao: String?, assunto: String?, completion: ((data: TemplateNotificacaoResponse?, error: ErrorType?) -> Void)) {
-        salvarTemplateNotificacaoUsingPOSTWithRequestBuilder(conteudo: conteudo, idConfiguracaoEmail: idConfiguracaoEmail, tipoLayout: tipoLayout, tipoNotificacao: tipoNotificacao, assunto: assunto).execute { (response, error) -> Void in
+    public class func salvarTemplateNotificacaoUsingPOST(conteudo conteudo: String, idConfiguracaoEmail: Int?, tipoLayout: String?, tipoNotificacao: String?, remetente: String?, assunto: String?, completion: ((data: TemplateNotificacaoResponse?, error: ErrorType?) -> Void)) {
+        salvarTemplateNotificacaoUsingPOSTWithRequestBuilder(conteudo: conteudo, idConfiguracaoEmail: idConfiguracaoEmail, tipoLayout: tipoLayout, tipoNotificacao: tipoNotificacao, remetente: remetente, assunto: assunto).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -995,6 +1044,7 @@ public class NotificacaoAPI: APIBase {
      - Esse recurso salvar template notifica\u00C3\u00A7\u00C3\u00B5e.
      - examples: [{contentType=application/json, example={
   "idConfiguracaoEmail" : 123456789,
+  "remetente" : "aeiou",
   "assunto" : "aeiou",
   "conteudo" : "aeiou",
   "dataInclusao" : "aeiou",
@@ -1008,11 +1058,12 @@ public class NotificacaoAPI: APIBase {
      - parameter idConfiguracaoEmail: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da configra\u00C3\u00A7\u00C3\u00A3o de EMAIL. (optional)
      - parameter tipoLayout: (query) Tipo do layout. (optional)
      - parameter tipoNotificacao: (query) Tipo da notifica\u00C3\u00A7\u00C3\u00A3o. (optional)
+     - parameter remetente: (query) Remetente (optional)
      - parameter assunto: (query) Assunto da Notificaca\u00C3\u00A7\u00C3\u00A3o. (optional)
 
      - returns: RequestBuilder<TemplateNotificacaoResponse> 
      */
-    public class func salvarTemplateNotificacaoUsingPOSTWithRequestBuilder(conteudo conteudo: String, idConfiguracaoEmail: Int?, tipoLayout: String?, tipoNotificacao: String?, assunto: String?) -> RequestBuilder<TemplateNotificacaoResponse> {
+    public class func salvarTemplateNotificacaoUsingPOSTWithRequestBuilder(conteudo conteudo: String, idConfiguracaoEmail: Int?, tipoLayout: String?, tipoNotificacao: String?, remetente: String?, assunto: String?) -> RequestBuilder<TemplateNotificacaoResponse> {
         let path = "/api/templates-notificacoes"
         let URLString = PierAPI.basePath + path
         

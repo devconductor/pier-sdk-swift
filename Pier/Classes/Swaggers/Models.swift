@@ -580,6 +580,19 @@ class Decoders {
             }
 			
 
+			// Decoder for [BeneficioPagamentoAtrasoResponse]
+            Decoders.addDecoder(clazz: [BeneficioPagamentoAtrasoResponse].self) { (source: AnyObject) -> [BeneficioPagamentoAtrasoResponse] in
+                return Decoders.decode(clazz: [BeneficioPagamentoAtrasoResponse].self, source: source)
+            }
+			// Decoder for BeneficioPagamentoAtrasoResponse
+            Decoders.addDecoder(clazz: BeneficioPagamentoAtrasoResponse.self) { (source: AnyObject) -> BeneficioPagamentoAtrasoResponse in
+                let sourceDictionary = source as! [NSObject:AnyObject]
+                let instance = BeneficioPagamentoAtrasoResponse()
+                instance.dataBeneficio = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["dataBeneficio"])
+                return instance
+            }
+			
+
 			// Decoder for [BodyAccessToken]
             Decoders.addDecoder(clazz: [BodyAccessToken].self) { (source: AnyObject) -> [BodyAccessToken] in
                 return Decoders.decode(clazz: [BodyAccessToken].self, source: source)
@@ -1267,6 +1280,115 @@ class Decoders {
             }
 			
 
+			// Decoder for [DocumentoDetalheResponse]
+            Decoders.addDecoder(clazz: [DocumentoDetalheResponse].self) { (source: AnyObject) -> [DocumentoDetalheResponse] in
+                return Decoders.decode(clazz: [DocumentoDetalheResponse].self, source: source)
+            }
+			// Decoder for DocumentoDetalheResponse
+            Decoders.addDecoder(clazz: DocumentoDetalheResponse.self) { (source: AnyObject) -> DocumentoDetalheResponse in
+                let sourceDictionary = source as! [NSObject:AnyObject]
+                let instance = DocumentoDetalheResponse()
+                instance.id = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["id"])
+                instance.propriedade = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["propriedade"])
+                instance.conteudo = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["conteudo"])
+                return instance
+            }
+			
+
+			// Decoder for [DocumentoParametrosRequest]
+            Decoders.addDecoder(clazz: [DocumentoParametrosRequest].self) { (source: AnyObject) -> [DocumentoParametrosRequest] in
+                return Decoders.decode(clazz: [DocumentoParametrosRequest].self, source: source)
+            }
+			// Decoder for DocumentoParametrosRequest
+            Decoders.addDecoder(clazz: DocumentoParametrosRequest.self) { (source: AnyObject) -> DocumentoParametrosRequest in
+                let sourceDictionary = source as! [NSObject:AnyObject]
+                let instance = DocumentoParametrosRequest()
+                instance.idTipoDocumento = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["idTipoDocumento"])
+                instance.idTemplateDocumento = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["idTemplateDocumento"])
+                instance.nome = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["nome"])
+                instance.parametrosConteudo = Decoders.decodeOptional(clazz: Dictionary.self, source: sourceDictionary["parametrosConteudo"])
+                return instance
+            }
+			
+
+			// Decoder for [DocumentoResponse]
+            Decoders.addDecoder(clazz: [DocumentoResponse].self) { (source: AnyObject) -> [DocumentoResponse] in
+                return Decoders.decode(clazz: [DocumentoResponse].self, source: source)
+            }
+			// Decoder for DocumentoResponse
+            Decoders.addDecoder(clazz: DocumentoResponse.self) { (source: AnyObject) -> DocumentoResponse in
+                let sourceDictionary = source as! [NSObject:AnyObject]
+                let instance = DocumentoResponse()
+                instance.id = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["id"])
+                instance.idDocumentoTipo = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["idDocumentoTipo"])
+                instance.idDocumentoTemplate = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["idDocumentoTemplate"])
+                instance.nome = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["nome"])
+                instance.documento = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["documento"])
+                instance.extensao = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["extensao"])
+                instance.documentoDetalhes = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["documentoDetalhes"])
+                return instance
+            }
+			
+
+			// Decoder for [DocumentoTemplateRequest]
+            Decoders.addDecoder(clazz: [DocumentoTemplateRequest].self) { (source: AnyObject) -> [DocumentoTemplateRequest] in
+                return Decoders.decode(clazz: [DocumentoTemplateRequest].self, source: source)
+            }
+			// Decoder for DocumentoTemplateRequest
+            Decoders.addDecoder(clazz: DocumentoTemplateRequest.self) { (source: AnyObject) -> DocumentoTemplateRequest in
+                let sourceDictionary = source as! [NSObject:AnyObject]
+                let instance = DocumentoTemplateRequest()
+                instance.idTipoDocumento = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["idTipoDocumento"])
+                instance.template = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["template"])
+                return instance
+            }
+			
+
+			// Decoder for [DocumentoTemplateResponse]
+            Decoders.addDecoder(clazz: [DocumentoTemplateResponse].self) { (source: AnyObject) -> [DocumentoTemplateResponse] in
+                return Decoders.decode(clazz: [DocumentoTemplateResponse].self, source: source)
+            }
+			// Decoder for DocumentoTemplateResponse
+            Decoders.addDecoder(clazz: DocumentoTemplateResponse.self) { (source: AnyObject) -> DocumentoTemplateResponse in
+                let sourceDictionary = source as! [NSObject:AnyObject]
+                let instance = DocumentoTemplateResponse()
+                instance.id = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["id"])
+                instance.idTipoDocumento = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["idTipoDocumento"])
+                return instance
+            }
+			
+
+			// Decoder for [DocumentoTipoRequest]
+            Decoders.addDecoder(clazz: [DocumentoTipoRequest].self) { (source: AnyObject) -> [DocumentoTipoRequest] in
+                return Decoders.decode(clazz: [DocumentoTipoRequest].self, source: source)
+            }
+			// Decoder for DocumentoTipoRequest
+            Decoders.addDecoder(clazz: DocumentoTipoRequest.self) { (source: AnyObject) -> DocumentoTipoRequest in
+                let sourceDictionary = source as! [NSObject:AnyObject]
+                let instance = DocumentoTipoRequest()
+                instance.nome = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["nome"])
+                instance.descricao = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["descricao"])
+                instance.sigla = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["sigla"])
+                return instance
+            }
+			
+
+			// Decoder for [DocumentoTipoResponse]
+            Decoders.addDecoder(clazz: [DocumentoTipoResponse].self) { (source: AnyObject) -> [DocumentoTipoResponse] in
+                return Decoders.decode(clazz: [DocumentoTipoResponse].self, source: source)
+            }
+			// Decoder for DocumentoTipoResponse
+            Decoders.addDecoder(clazz: DocumentoTipoResponse.self) { (source: AnyObject) -> DocumentoTipoResponse in
+                let sourceDictionary = source as! [NSObject:AnyObject]
+                let instance = DocumentoTipoResponse()
+                instance.id = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["id"])
+                instance.nome = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["nome"])
+                instance.descricao = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["descricao"])
+                instance.sigla = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["sigla"])
+                return instance
+            }
+			
+
 			// Decoder for [EmprestimoPessoalRequest]
             Decoders.addDecoder(clazz: [EmprestimoPessoalRequest].self) { (source: AnyObject) -> [EmprestimoPessoalRequest] in
                 return Decoders.decode(clazz: [EmprestimoPessoalRequest].self, source: source)
@@ -1280,7 +1402,6 @@ class Decoders {
                 instance.taxaJuros = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["taxaJuros"])
                 instance.periodoTaxa = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["periodoTaxa"])
                 instance.sistemaAmortizacao = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["sistemaAmortizacao"])
-                instance.diaVencimento = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["diaVencimento"])
                 instance.numeroMesesCarencia = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["numeroMesesCarencia"])
                 return instance
             }
@@ -1296,10 +1417,13 @@ class Decoders {
                 let instance = EmprestimoPessoalResponse()
                 instance.planosParcelamentos = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["planosParcelamentos"])
                 instance.valorSolicitado = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["valorSolicitado"])
-                instance.valorTotal = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["valorTotal"])
-                instance.sistemaAmortizacao = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["sistemaAmortizacao"])
-                instance.periodoTaxa = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["periodoTaxa"])
+                instance.valorMaximoSolicitacao = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["valorMaximoSolicitacao"])
+                instance.numeroParcelas = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["numeroParcelas"])
+                instance.valorMaximoParcela = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["valorMaximoParcela"])
                 instance.dataPrimeiraParcela = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["dataPrimeiraParcela"])
+                instance.periodoTaxa = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["periodoTaxa"])
+                instance.sistemaAmortizacao = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["sistemaAmortizacao"])
+                instance.taxaJuros = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["taxaJuros"])
                 return instance
             }
 			
@@ -1803,6 +1927,40 @@ class Decoders {
             Decoders.addDecoder(clazz: MapOfstringAndstring.self) { (source: AnyObject) -> MapOfstringAndstring in
                 let sourceDictionary = source as! [NSObject:AnyObject]
                 let instance = MapOfstringAndstring()
+                return instance
+            }
+			
+
+			// Decoder for [NotificacaoEmailRequest]
+            Decoders.addDecoder(clazz: [NotificacaoEmailRequest].self) { (source: AnyObject) -> [NotificacaoEmailRequest] in
+                return Decoders.decode(clazz: [NotificacaoEmailRequest].self, source: source)
+            }
+			// Decoder for NotificacaoEmailRequest
+            Decoders.addDecoder(clazz: NotificacaoEmailRequest.self) { (source: AnyObject) -> NotificacaoEmailRequest in
+                let sourceDictionary = source as! [NSObject:AnyObject]
+                let instance = NotificacaoEmailRequest()
+                instance.idDocumento = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["idDocumento"])
+                instance.idTemplateNotificacao = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["idTemplateNotificacao"])
+                instance.destinatario = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["destinatario"])
+                instance.tipoLayout = NotificacaoEmailRequest.TipoLayout(rawValue: (sourceDictionary["tipoLayout"] as? String) ?? "") 
+                instance.parametrosConteudo = Decoders.decodeOptional(clazz: Dictionary.self, source: sourceDictionary["parametrosConteudo"])
+                return instance
+            }
+			
+
+			// Decoder for [NotificacaoEmailResponse]
+            Decoders.addDecoder(clazz: [NotificacaoEmailResponse].self) { (source: AnyObject) -> [NotificacaoEmailResponse] in
+                return Decoders.decode(clazz: [NotificacaoEmailResponse].self, source: source)
+            }
+			// Decoder for NotificacaoEmailResponse
+            Decoders.addDecoder(clazz: NotificacaoEmailResponse.self) { (source: AnyObject) -> NotificacaoEmailResponse in
+                let sourceDictionary = source as! [NSObject:AnyObject]
+                let instance = NotificacaoEmailResponse()
+                instance.id = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["id"])
+                instance.idTemplateNotificacao = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["idTemplateNotificacao"])
+                instance.idDocumento = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["idDocumento"])
+                instance.destinatario = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["destinatario"])
+                instance.remetente = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["remetente"])
                 return instance
             }
 			
@@ -3918,8 +4076,8 @@ class Decoders {
                 instance.numeroParcelas = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["numeroParcelas"])
                 instance.valorParcelas = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["valorParcelas"])
                 instance.taxaJuros = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["taxaJuros"])
-                instance.valorPercentualCET = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["valorPercentualCET"])
                 instance.valorTributosIOF = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["valorTributosIOF"])
+                instance.valorPercentualCET = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["valorPercentualCET"])
                 return instance
             }
 			
@@ -4464,6 +4622,7 @@ class Decoders {
                 instance.idConfiguracaoEmail = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["idConfiguracaoEmail"])
                 instance.tipoLayout = TemplateNotificacaoResponse.TipoLayout(rawValue: (sourceDictionary["tipoLayout"] as? String) ?? "") 
                 instance.tipoNotificacao = TemplateNotificacaoResponse.TipoNotificacao(rawValue: (sourceDictionary["tipoNotificacao"] as? String) ?? "") 
+                instance.remetente = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["remetente"])
                 instance.assunto = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["assunto"])
                 instance.conteudo = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["conteudo"])
                 instance.dataInclusao = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["dataInclusao"])

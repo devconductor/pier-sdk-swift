@@ -197,8 +197,8 @@ public class WebhookAPI: APIBase {
      - parameter url: (query) URL que a ser consumida pelo WebHook 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func salvarUsingPOST17(tipoEvento tipoEvento: String, url: String, completion: ((data: WebHookResponse?, error: ErrorType?) -> Void)) {
-        salvarUsingPOST17WithRequestBuilder(tipoEvento: tipoEvento, url: url).execute { (response, error) -> Void in
+    public class func salvarUsingPOST20(tipoEvento tipoEvento: String, url: String, completion: ((data: WebHookResponse?, error: ErrorType?) -> Void)) {
+        salvarUsingPOST20WithRequestBuilder(tipoEvento: tipoEvento, url: url).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -223,7 +223,7 @@ public class WebhookAPI: APIBase {
 
      - returns: RequestBuilder<WebHookResponse> 
      */
-    public class func salvarUsingPOST17WithRequestBuilder(tipoEvento tipoEvento: String, url: String) -> RequestBuilder<WebHookResponse> {
+    public class func salvarUsingPOST20WithRequestBuilder(tipoEvento tipoEvento: String, url: String) -> RequestBuilder<WebHookResponse> {
         let path = "/api/webhooks"
         let URLString = PierAPI.basePath + path
         

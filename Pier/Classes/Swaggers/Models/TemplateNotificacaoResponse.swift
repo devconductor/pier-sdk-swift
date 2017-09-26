@@ -15,6 +15,7 @@ public class TemplateNotificacaoResponse: JSONEncodable {
         case RecuperarSenha = "RECUPERAR_SENHA"
         case FaturaPorEmail = "FATURA_POR_EMAIL"
         case ValidarDispositivo = "VALIDAR_DISPOSITIVO"
+        case NotificacaoEmail = "NOTIFICACAO_EMAIL"
     }
     
     public enum TipoNotificacao: String { 
@@ -33,6 +34,8 @@ public class TemplateNotificacaoResponse: JSONEncodable {
     public var tipoLayout: TipoLayout?
     /** Tipo da notifica\u00C3\u00A7\u00C3\u00A3o. */
     public var tipoNotificacao: TipoNotificacao?
+    /** Remetente. */
+    public var remetente: String?
     /** Assunto do e-mail. */
     public var assunto: String?
     /** Conteudo do e-mail. */
@@ -52,6 +55,7 @@ public class TemplateNotificacaoResponse: JSONEncodable {
         nillableDictionary["idConfiguracaoEmail"] = self.idConfiguracaoEmail
         nillableDictionary["tipoLayout"] = self.tipoLayout?.rawValue
         nillableDictionary["tipoNotificacao"] = self.tipoNotificacao?.rawValue
+        nillableDictionary["remetente"] = self.remetente
         nillableDictionary["assunto"] = self.assunto
         nillableDictionary["conteudo"] = self.conteudo
         nillableDictionary["dataInclusao"] = self.dataInclusao

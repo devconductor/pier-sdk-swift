@@ -97,4 +97,92 @@ public class FaturaAPI: APIBase {
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
     }
 
+    /**
+     
+     Envia 2\u00C2\u00AA via de fatura por E-mail
+     
+     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
+     - parameter dataVencimento: (path) Data de Vencimento da fatura (yyyy-MM-dd). 
+     - parameter email: (query) E-mail para envio da 2\u00C2\u00AA via da fatura, caso n\u00C3\u00A3o seja informado ser\u00C3\u00A1 usado o e-mail cadastrado. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func enviarFaturaEmailUsingPOST(id id: Int, dataVencimento: String, email: String?, completion: ((data: AnyObject?, error: ErrorType?) -> Void)) {
+        enviarFaturaEmailUsingPOSTWithRequestBuilder(id: id, dataVencimento: dataVencimento, email: email).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Envia 2\u00C2\u00AA via de fatura por E-mail
+     
+     - POST /api/contas/{id}/faturas/{dataVencimento}/enviar-email
+     - Envia a segunda via da fatura para o e-mail informado/cadastrado.
+     - examples: [{contentType=application/json, example="{}"}]
+     
+     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
+     - parameter dataVencimento: (path) Data de Vencimento da fatura (yyyy-MM-dd). 
+     - parameter email: (query) E-mail para envio da 2\u00C2\u00AA via da fatura, caso n\u00C3\u00A3o seja informado ser\u00C3\u00A1 usado o e-mail cadastrado. (optional)
+
+     - returns: RequestBuilder<AnyObject> 
+     */
+    public class func enviarFaturaEmailUsingPOSTWithRequestBuilder(id id: Int, dataVencimento: String, email: String?) -> RequestBuilder<AnyObject> {
+        var path = "/api/contas/{id}/faturas/{dataVencimento}/enviar-email"
+        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
+        path = path.stringByReplacingOccurrencesOfString("{dataVencimento}", withString: "\(dataVencimento)", options: .LiteralSearch, range: nil)
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [
+            "email": email
+        ]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<AnyObject>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: false)
+    }
+
+    /**
+     
+     Permite visualizar o extrato da fatura em formato PDF
+     
+     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
+     - parameter dataVencimento: (path) Data de Vencimento da fatura. 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func visualizarDocumentoUsingGET(id id: Int, dataVencimento: String, completion: ((data: AnyObject?, error: ErrorType?) -> Void)) {
+        visualizarDocumentoUsingGETWithRequestBuilder(id: id, dataVencimento: dataVencimento).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Permite visualizar o extrato da fatura em formato PDF
+     
+     - GET /api/contas/{id}/faturas/{dataVencimento}/arquivo.pdf
+     - Esta opera\u00C3\u00A7\u00C3\u00A3o permite visualizar o extrato da fatura de uma determinada conta, em formato PDF. Quando ela for a fatura ativa, ou seja, a do m\u00C3\u00AAs corrente, o pdf ser\u00C3\u00A1 composto pelo extrato de lan\u00C3\u00A7amentos e pela ficha de compensa\u00C3\u00A7\u00C3\u00A3o banc\u00C3\u00A1ria. Quando for de uma fatura do hist\u00C3\u00B3rico do cliente, o PDF ser\u00C3\u00A1 composto apenas pelo extrato de transa\u00C3\u00A7\u00C3\u00B5es.
+     - examples: [{output=none}]
+     
+     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
+     - parameter dataVencimento: (path) Data de Vencimento da fatura. 
+
+     - returns: RequestBuilder<AnyObject> 
+     */
+    public class func visualizarDocumentoUsingGETWithRequestBuilder(id id: Int, dataVencimento: String) -> RequestBuilder<AnyObject> {
+        var path = "/api/contas/{id}/faturas/{dataVencimento}/arquivo.pdf"
+        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
+        path = path.stringByReplacingOccurrencesOfString("{dataVencimento}", withString: "\(dataVencimento)", options: .LiteralSearch, range: nil)
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<AnyObject>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
 }
