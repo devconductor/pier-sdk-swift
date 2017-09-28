@@ -11,10 +11,12 @@ import Foundation
 /** Representa\u00C3\u00A7\u00C3\u00A3o da requisi\u00C3\u00A7\u00C3\u00A3o do  recurso Dispositivo */
 public class AlterarProdutoRequest: JSONEncodable {
 
-    /** C\u00C3\u00B3digo identificador da origem comercial. */
-    public var idOrigemComercial: Int?
     /** C\u00C3\u00B3digo identificador do produto. */
     public var idProduto: Int?
+    /** C\u00C3\u00B3digo identificador da origem comercial. */
+    public var idOrigemComercial: Int?
+    /** Valor do novo limite Global. */
+    public var limiteGlobal: Double?
     
 
     public init() {}
@@ -22,8 +24,9 @@ public class AlterarProdutoRequest: JSONEncodable {
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
-        nillableDictionary["idOrigemComercial"] = self.idOrigemComercial
         nillableDictionary["idProduto"] = self.idProduto
+        nillableDictionary["idOrigemComercial"] = self.idOrigemComercial
+        nillableDictionary["limiteGlobal"] = self.limiteGlobal
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

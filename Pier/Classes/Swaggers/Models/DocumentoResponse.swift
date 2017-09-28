@@ -14,9 +14,9 @@ public class DocumentoResponse: JSONEncodable {
     /** ID do Documento. */
     public var id: Int?
     /** ID do Tipo de Documento associado. */
-    public var idDocumentoTipo: Int?
+    public var idTipoDocumento: Int?
     /** ID do Template de Documento associado. */
-    public var idDocumentoTemplate: Int?
+    public var idTemplateDocumento: Int?
     /** Nome do Documento. */
     public var nome: String?
     /** Nome do Documento. */
@@ -33,8 +33,8 @@ public class DocumentoResponse: JSONEncodable {
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
         nillableDictionary["id"] = self.id
-        nillableDictionary["idDocumentoTipo"] = self.idDocumentoTipo
-        nillableDictionary["idDocumentoTemplate"] = self.idDocumentoTemplate
+        nillableDictionary["idTipoDocumento"] = self.idTipoDocumento
+        nillableDictionary["idTemplateDocumento"] = self.idTemplateDocumento
         nillableDictionary["nome"] = self.nome
         nillableDictionary["documento"] = self.documento
         nillableDictionary["extensao"] = self.extensao

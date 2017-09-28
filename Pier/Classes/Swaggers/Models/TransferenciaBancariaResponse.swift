@@ -64,6 +64,22 @@ public class TransferenciaBancariaResponse: JSONEncodable {
     public var numeroEstabelecimento: Int?
     /** Valor da taxa saque. */
     public var valorTaxaSaque: Double?
+    /** C\u00C3\u00B3digo do Banco */
+    public var banco: Int?
+    /** N\u00C3\u00BAmero da Ag\u00C3\u00AAncia */
+    public var numeroAgencia: String?
+    /** D\u00C3\u00ADgito da Ag\u00C3\u00AAncia */
+    public var digitoAgencia: String?
+    /** N\u00C3\u00BAmero da Conta */
+    public var numeroConta: String?
+    /** D\u00C3\u00ADgito da Conta */
+    public var digitoConta: String?
+    /** Tipo da Conta */
+    public var flagContaPoupanca: Int?
+    /** Documento do Favorecido */
+    public var documentoFavorecido: String?
+    /** Nome do Favorecido */
+    public var nomeFavorecido: String?
     
 
     public init() {}
@@ -98,6 +114,14 @@ public class TransferenciaBancariaResponse: JSONEncodable {
         nillableDictionary["idContaPortador"] = self.idContaPortador
         nillableDictionary["numeroEstabelecimento"] = self.numeroEstabelecimento
         nillableDictionary["valorTaxaSaque"] = self.valorTaxaSaque
+        nillableDictionary["banco"] = self.banco
+        nillableDictionary["numeroAgencia"] = self.numeroAgencia
+        nillableDictionary["digitoAgencia"] = self.digitoAgencia
+        nillableDictionary["numeroConta"] = self.numeroConta
+        nillableDictionary["digitoConta"] = self.digitoConta
+        nillableDictionary["flagContaPoupanca"] = self.flagContaPoupanca
+        nillableDictionary["documentoFavorecido"] = self.documentoFavorecido
+        nillableDictionary["nomeFavorecido"] = self.nomeFavorecido
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

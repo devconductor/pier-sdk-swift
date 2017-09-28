@@ -17,8 +17,8 @@ public class DocumentoParametrosRequest: JSONEncodable {
     public var idTemplateDocumento: Int?
     /** Nome para o arquivo. */
     public var nome: String?
-    /** Mapa de par\u00C3\u00A2metros para montagem do documento. */
-    public var parametrosConteudo: [String:AnyObject]?
+    /** Lista de par\u00C3\u00A2metros para montagem do documento. */
+    public var parametrosConteudo: [PropriedadeDocumentoRequest]?
     
 
     public init() {}

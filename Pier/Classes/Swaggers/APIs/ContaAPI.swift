@@ -16,7 +16,7 @@ public class ContaAPI: APIBase {
      
      - parameter id: (path) Id Conta 
      - parameter idTipoAjuste: (query) C\u00C3\u00B3digo identificador do tipo de ajuste. 
-     - parameter dataAjuste: (query) Data do ajuste. 
+     - parameter dataAjuste: (query) Data do ajuste no formato yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZ. 
      - parameter valorAjuste: (query) Valor do ajuste 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -43,7 +43,7 @@ public class ContaAPI: APIBase {
      
      - parameter id: (path) Id Conta 
      - parameter idTipoAjuste: (query) C\u00C3\u00B3digo identificador do tipo de ajuste. 
-     - parameter dataAjuste: (query) Data do ajuste. 
+     - parameter dataAjuste: (query) Data do ajuste no formato yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZ. 
      - parameter valorAjuste: (query) Valor do ajuste 
 
      - returns: RequestBuilder<AjusteResponse> 
@@ -165,6 +165,46 @@ public class ContaAPI: APIBase {
         let requestBuilder: RequestBuilder<LimiteDisponibilidadeResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: false)
+    }
+
+    /**
+     
+     Altera o produto associado \u00C3\u00A0 conta.
+     
+     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
+     - parameter request: (body) request 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func alterarProdutoUsingPOST(id id: Int, request: AlterarProdutoRequest, completion: ((data: String?, error: ErrorType?) -> Void)) {
+        alterarProdutoUsingPOSTWithRequestBuilder(id: id, request: request).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Altera o produto associado \u00C3\u00A0 conta.
+     
+     - POST /api/contas/{id}/alterar-produto
+     - O recurso permite fazer modifica\u00C3\u00A7\u00C3\u00A3o do produto associado \u00C3\u00A0 conta.
+     - examples: [{contentType=application/json, example="aeiou"}]
+     
+     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
+     - parameter request: (body) request 
+
+     - returns: RequestBuilder<String> 
+     */
+    public class func alterarProdutoUsingPOSTWithRequestBuilder(id id: Int, request: AlterarProdutoRequest) -> RequestBuilder<String> {
+        var path = "/api/contas/{id}/alterar-produto"
+        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
+        let URLString = PierAPI.basePath + path
+        
+        let parameters = request.encodeToJSON() as? [String:AnyObject]
+
+        let requestBuilder: RequestBuilder<String>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
     }
 
     /**
@@ -1262,8 +1302,8 @@ public class ContaAPI: APIBase {
      - parameter idContaBancariaDestino: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta banc\u00C3\u00A1ria de destino (id) (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET25(id id: Int, idTransferencia: Int, idContaBancariaDestino: Int?, completion: ((data: TransferenciaBancariaResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET25WithRequestBuilder(id: id, idTransferencia: idTransferencia, idContaBancariaDestino: idContaBancariaDestino).execute { (response, error) -> Void in
+    public class func consultarUsingGET27(id id: Int, idTransferencia: Int, idContaBancariaDestino: Int?, completion: ((data: TransferenciaBancariaResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET27WithRequestBuilder(id: id, idTransferencia: idTransferencia, idContaBancariaDestino: idContaBancariaDestino).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -1276,6 +1316,7 @@ public class ContaAPI: APIBase {
      - GET /api/contas/{id}/transferencias-creditos-contas-bancarias/{idTransferencia}
      - Este recurso permite consultar os detalhes de uma determinada transfer\u00C3\u00AAncia de cr\u00C3\u00A9dito realizada para uma conta banc\u00C3\u00A1ria. De modo geral, esta opera\u00C3\u00A7\u00C3\u00A3o poder\u00C3\u00A1 ser utilizada para uma consulta simples destes detalhes ou para realizar a montagem de um comprovante de 2\u00C2\u00AA via de transfer\u00C3\u00AAncia entre contas.
      - examples: [{contentType=application/json, example={
+  "digitoAgencia" : "aeiou",
   "numeroParcelas" : 123,
   "idOperacao" : 123456789,
   "idAutorizacao" : 123456789,
@@ -1289,17 +1330,24 @@ public class ContaAPI: APIBase {
   "valorContrato" : 1.3579000000000001069366817318950779736042022705078125,
   "valorTAC" : 1.3579000000000001069366817318950779736042022705078125,
   "dataAutorizacao" : "aeiou",
+  "numeroConta" : "aeiou",
+  "digitoConta" : "aeiou",
+  "documentoFavorecido" : "aeiou",
   "valorEntrada" : 1.3579000000000001069366817318950779736042022705078125,
   "idCartao" : 123456789,
   "idEstabelecimento" : 123456789,
   "idConta" : 123456789,
   "valor" : 1.3579000000000001069366817318950779736042022705078125,
+  "banco" : 123456789,
   "terminal" : "aeiou",
   "codigoAutorizacao" : "aeiou",
   "valorParcela" : 1.3579000000000001069366817318950779736042022705078125,
+  "nomeFavorecido" : "aeiou",
   "dataMovimento" : "aeiou",
   "taxaJuros" : 1.3579000000000001069366817318950779736042022705078125,
   "numeroEstabelecimento" : 123456789,
+  "flagContaPoupanca" : 123,
+  "numeroAgencia" : "aeiou",
   "dataVencimentoReal" : "aeiou",
   "valorTaxaSaque" : 1.3579000000000001069366817318950779736042022705078125,
   "valorIOF" : 1.3579000000000001069366817318950779736042022705078125
@@ -1311,7 +1359,7 @@ public class ContaAPI: APIBase {
 
      - returns: RequestBuilder<TransferenciaBancariaResponse> 
      */
-    public class func consultarUsingGET25WithRequestBuilder(id id: Int, idTransferencia: Int, idContaBancariaDestino: Int?) -> RequestBuilder<TransferenciaBancariaResponse> {
+    public class func consultarUsingGET27WithRequestBuilder(id id: Int, idTransferencia: Int, idContaBancariaDestino: Int?) -> RequestBuilder<TransferenciaBancariaResponse> {
         var path = "/api/contas/{id}/transferencias-creditos-contas-bancarias/{idTransferencia}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{idTransferencia}", withString: "\(idTransferencia)", options: .LiteralSearch, range: nil)
@@ -1335,8 +1383,8 @@ public class ContaAPI: APIBase {
      - parameter idTransferencia: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da transfer\u00C3\u00AAncia (id_transferencia). 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET26(id id: Int, idTransferencia: Int, completion: ((data: PageTransferenciaResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET26WithRequestBuilder(id: id, idTransferencia: idTransferencia).execute { (response, error) -> Void in
+    public class func consultarUsingGET28(id id: Int, idTransferencia: Int, completion: ((data: PageTransferenciaResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET28WithRequestBuilder(id: id, idTransferencia: idTransferencia).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -1379,7 +1427,7 @@ public class ContaAPI: APIBase {
 
      - returns: RequestBuilder<PageTransferenciaResponse> 
      */
-    public class func consultarUsingGET26WithRequestBuilder(id id: Int, idTransferencia: Int) -> RequestBuilder<PageTransferenciaResponse> {
+    public class func consultarUsingGET28WithRequestBuilder(id id: Int, idTransferencia: Int) -> RequestBuilder<PageTransferenciaResponse> {
         var path = "/api/contas/{id}/transferencias-creditos-cartoes/{idTransferencia}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{idTransferencia}", withString: "\(idTransferencia)", options: .LiteralSearch, range: nil)
@@ -2528,8 +2576,8 @@ public class ContaAPI: APIBase {
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET30(id id: Int, idContaBancariaDestino: Int?, sort: [String]?, page: Int?, limit: Int?, completion: ((data: PageTransferenciaBancariaResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET30WithRequestBuilder(id: id, idContaBancariaDestino: idContaBancariaDestino, sort: sort, page: page, limit: limit).execute { (response, error) -> Void in
+    public class func listarUsingGET31(id id: Int, idContaBancariaDestino: Int?, sort: [String]?, page: Int?, limit: Int?, completion: ((data: PageTransferenciaBancariaResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET31WithRequestBuilder(id: id, idContaBancariaDestino: idContaBancariaDestino, sort: sort, page: page, limit: limit).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -2548,6 +2596,7 @@ public class ContaAPI: APIBase {
   "hasNextPage" : true,
   "nextPage" : 123,
   "content" : [ {
+    "digitoAgencia" : "aeiou",
     "numeroParcelas" : 123,
     "idOperacao" : 123456789,
     "idAutorizacao" : 123456789,
@@ -2561,17 +2610,24 @@ public class ContaAPI: APIBase {
     "valorContrato" : 1.3579000000000001069366817318950779736042022705078125,
     "valorTAC" : 1.3579000000000001069366817318950779736042022705078125,
     "dataAutorizacao" : "aeiou",
+    "numeroConta" : "aeiou",
+    "digitoConta" : "aeiou",
+    "documentoFavorecido" : "aeiou",
     "valorEntrada" : 1.3579000000000001069366817318950779736042022705078125,
     "idCartao" : 123456789,
     "idEstabelecimento" : 123456789,
     "idConta" : 123456789,
     "valor" : 1.3579000000000001069366817318950779736042022705078125,
+    "banco" : 123456789,
     "terminal" : "aeiou",
     "codigoAutorizacao" : "aeiou",
     "valorParcela" : 1.3579000000000001069366817318950779736042022705078125,
+    "nomeFavorecido" : "aeiou",
     "dataMovimento" : "aeiou",
     "taxaJuros" : 1.3579000000000001069366817318950779736042022705078125,
     "numeroEstabelecimento" : 123456789,
+    "flagContaPoupanca" : 123,
+    "numeroAgencia" : "aeiou",
     "dataVencimentoReal" : "aeiou",
     "valorTaxaSaque" : 1.3579000000000001069366817318950779736042022705078125,
     "valorIOF" : 1.3579000000000001069366817318950779736042022705078125
@@ -2594,7 +2650,7 @@ public class ContaAPI: APIBase {
 
      - returns: RequestBuilder<PageTransferenciaBancariaResponse> 
      */
-    public class func listarUsingGET30WithRequestBuilder(id id: Int, idContaBancariaDestino: Int?, sort: [String]?, page: Int?, limit: Int?) -> RequestBuilder<PageTransferenciaBancariaResponse> {
+    public class func listarUsingGET31WithRequestBuilder(id id: Int, idContaBancariaDestino: Int?, sort: [String]?, page: Int?, limit: Int?) -> RequestBuilder<PageTransferenciaBancariaResponse> {
         var path = "/api/contas/{id}/transferencias-creditos-contas-bancarias"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -2627,8 +2683,8 @@ public class ContaAPI: APIBase {
      - parameter dataTransferencia: (query) Data estabelecida para ocorrer a transfer\u00C3\u00AAncia. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET31(id id: Int, sort: [String]?, page: Int?, limit: Int?, idTransferencia: Int?, idContaOrigem: Int?, idContaDestino: Int?, valorTransferencia: Double?, dataTransferencia: String?, completion: ((data: PageTransferenciaResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET31WithRequestBuilder(id: id, sort: sort, page: page, limit: limit, idTransferencia: idTransferencia, idContaOrigem: idContaOrigem, idContaDestino: idContaDestino, valorTransferencia: valorTransferencia, dataTransferencia: dataTransferencia).execute { (response, error) -> Void in
+    public class func listarUsingGET32(id id: Int, sort: [String]?, page: Int?, limit: Int?, idTransferencia: Int?, idContaOrigem: Int?, idContaDestino: Int?, valorTransferencia: Double?, dataTransferencia: String?, completion: ((data: PageTransferenciaResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET32WithRequestBuilder(id: id, sort: sort, page: page, limit: limit, idTransferencia: idTransferencia, idContaOrigem: idContaOrigem, idContaDestino: idContaDestino, valorTransferencia: valorTransferencia, dataTransferencia: dataTransferencia).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -2678,7 +2734,7 @@ public class ContaAPI: APIBase {
 
      - returns: RequestBuilder<PageTransferenciaResponse> 
      */
-    public class func listarUsingGET31WithRequestBuilder(id id: Int, sort: [String]?, page: Int?, limit: Int?, idTransferencia: Int?, idContaOrigem: Int?, idContaDestino: Int?, valorTransferencia: Double?, dataTransferencia: String?) -> RequestBuilder<PageTransferenciaResponse> {
+    public class func listarUsingGET32WithRequestBuilder(id id: Int, sort: [String]?, page: Int?, limit: Int?, idTransferencia: Int?, idContaOrigem: Int?, idContaDestino: Int?, valorTransferencia: Double?, dataTransferencia: String?) -> RequestBuilder<PageTransferenciaResponse> {
         var path = "/api/contas/{id}/transferencias-creditos-cartoes"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -3000,6 +3056,7 @@ public class ContaAPI: APIBase {
      - POST /api/contas/{id}/transferencias-creditos-contas-bancarias
      - Este recurso tem como objetivo permitir que o portador de um cart\u00C3\u00A3o possa realizar a transfer\u00C3\u00AAncia de cr\u00C3\u00A9dito para uma conta banc\u00C3\u00A1ria. Assim, o valor do cr\u00C3\u00A9dito somado a tarifa para transfer\u00C3\u00AAncia, quando praticada pelo emissor, ser\u00C3\u00A1 debitado da conta de origem, se houver saldo suficiente, e ser\u00C3\u00A1 creditado na conta banc\u00C3\u00A1ria de destino.
      - examples: [{contentType=application/json, example={
+  "digitoAgencia" : "aeiou",
   "numeroParcelas" : 123,
   "idOperacao" : 123456789,
   "idAutorizacao" : 123456789,
@@ -3013,17 +3070,24 @@ public class ContaAPI: APIBase {
   "valorContrato" : 1.3579000000000001069366817318950779736042022705078125,
   "valorTAC" : 1.3579000000000001069366817318950779736042022705078125,
   "dataAutorizacao" : "aeiou",
+  "numeroConta" : "aeiou",
+  "digitoConta" : "aeiou",
+  "documentoFavorecido" : "aeiou",
   "valorEntrada" : 1.3579000000000001069366817318950779736042022705078125,
   "idCartao" : 123456789,
   "idEstabelecimento" : 123456789,
   "idConta" : 123456789,
   "valor" : 1.3579000000000001069366817318950779736042022705078125,
+  "banco" : 123456789,
   "terminal" : "aeiou",
   "codigoAutorizacao" : "aeiou",
   "valorParcela" : 1.3579000000000001069366817318950779736042022705078125,
+  "nomeFavorecido" : "aeiou",
   "dataMovimento" : "aeiou",
   "taxaJuros" : 1.3579000000000001069366817318950779736042022705078125,
   "numeroEstabelecimento" : 123456789,
+  "flagContaPoupanca" : 123,
+  "numeroAgencia" : "aeiou",
   "dataVencimentoReal" : "aeiou",
   "valorTaxaSaque" : 1.3579000000000001069366817318950779736042022705078125,
   "valorIOF" : 1.3579000000000001069366817318950779736042022705078125

@@ -17,8 +17,8 @@ public class EstabelecimentoAPI: APIBase {
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Terminal (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET18(id id: Int, completion: ((data: TerminalResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET18WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET19(id id: Int, completion: ((data: TerminalResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET19WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -41,7 +41,7 @@ public class EstabelecimentoAPI: APIBase {
 
      - returns: RequestBuilder<TerminalResponse> 
      */
-    public class func consultarUsingGET18WithRequestBuilder(id id: Int) -> RequestBuilder<TerminalResponse> {
+    public class func consultarUsingGET19WithRequestBuilder(id id: Int) -> RequestBuilder<TerminalResponse> {
         var path = "/api/terminais/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -61,8 +61,8 @@ public class EstabelecimentoAPI: APIBase {
      - parameter id: (path) Id 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET8(id id: Int, completion: ((data: EstabelecimentoResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET8WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET9(id id: Int, completion: ((data: EstabelecimentoResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET9WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -102,7 +102,7 @@ public class EstabelecimentoAPI: APIBase {
 
      - returns: RequestBuilder<EstabelecimentoResponse> 
      */
-    public class func consultarUsingGET8WithRequestBuilder(id id: Int) -> RequestBuilder<EstabelecimentoResponse> {
+    public class func consultarUsingGET9WithRequestBuilder(id id: Int) -> RequestBuilder<EstabelecimentoResponse> {
         var path = "/api/estabelecimentos/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -143,8 +143,8 @@ public class EstabelecimentoAPI: APIBase {
      - parameter inativo: (query) Indica se o estabelecimento est\u00C3\u00A1 inativo. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET11(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, numeroReceitaFederal: Int?, nome: String?, descricao: String?, nomeFantasia: String?, cep: String?, nomeLogradouro: String?, numeroEndereco: Int?, complemento: String?, bairro: String?, cidade: String?, uf: String?, pais: String?, dataCadastramento: String?, contato: String?, email: String?, flagArquivoSecrFazenda: Int?, flagCartaoDigitado: Int?, inativo: Int?, completion: ((data: PageEstabelecimentoResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET11WithRequestBuilder(sort: sort, page: page, limit: limit, id: id, numeroReceitaFederal: numeroReceitaFederal, nome: nome, descricao: descricao, nomeFantasia: nomeFantasia, cep: cep, nomeLogradouro: nomeLogradouro, numeroEndereco: numeroEndereco, complemento: complemento, bairro: bairro, cidade: cidade, uf: uf, pais: pais, dataCadastramento: dataCadastramento, contato: contato, email: email, flagArquivoSecrFazenda: flagArquivoSecrFazenda, flagCartaoDigitado: flagCartaoDigitado, inativo: inativo).execute { (response, error) -> Void in
+    public class func listarUsingGET12(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, numeroReceitaFederal: Int?, nome: String?, descricao: String?, nomeFantasia: String?, cep: String?, nomeLogradouro: String?, numeroEndereco: Int?, complemento: String?, bairro: String?, cidade: String?, uf: String?, pais: String?, dataCadastramento: String?, contato: String?, email: String?, flagArquivoSecrFazenda: Int?, flagCartaoDigitado: Int?, inativo: Int?, completion: ((data: PageEstabelecimentoResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET12WithRequestBuilder(sort: sort, page: page, limit: limit, id: id, numeroReceitaFederal: numeroReceitaFederal, nome: nome, descricao: descricao, nomeFantasia: nomeFantasia, cep: cep, nomeLogradouro: nomeLogradouro, numeroEndereco: numeroEndereco, complemento: complemento, bairro: bairro, cidade: cidade, uf: uf, pais: pais, dataCadastramento: dataCadastramento, contato: contato, email: email, flagArquivoSecrFazenda: flagArquivoSecrFazenda, flagCartaoDigitado: flagCartaoDigitado, inativo: inativo).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -220,7 +220,7 @@ public class EstabelecimentoAPI: APIBase {
 
      - returns: RequestBuilder<PageEstabelecimentoResponse> 
      */
-    public class func listarUsingGET11WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, numeroReceitaFederal: Int?, nome: String?, descricao: String?, nomeFantasia: String?, cep: String?, nomeLogradouro: String?, numeroEndereco: Int?, complemento: String?, bairro: String?, cidade: String?, uf: String?, pais: String?, dataCadastramento: String?, contato: String?, email: String?, flagArquivoSecrFazenda: Int?, flagCartaoDigitado: Int?, inativo: Int?) -> RequestBuilder<PageEstabelecimentoResponse> {
+    public class func listarUsingGET12WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, numeroReceitaFederal: Int?, nome: String?, descricao: String?, nomeFantasia: String?, cep: String?, nomeLogradouro: String?, numeroEndereco: Int?, complemento: String?, bairro: String?, cidade: String?, uf: String?, pais: String?, dataCadastramento: String?, contato: String?, email: String?, flagArquivoSecrFazenda: Int?, flagCartaoDigitado: Int?, inativo: Int?) -> RequestBuilder<PageEstabelecimentoResponse> {
         let path = "/api/estabelecimentos"
         let URLString = PierAPI.basePath + path
         
@@ -268,8 +268,8 @@ public class EstabelecimentoAPI: APIBase {
      - parameter idEstabelecimento: (query) N\u00C3\u00BAmero de identifica\u00C3\u00A7\u00C3\u00A3o do estabelecimento a qual o terminal pertence. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET25(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, terminal: String?, numeroEstabelecimento: Int?, idEstabelecimento: Int?, completion: ((data: PageTerminalResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET25WithRequestBuilder(sort: sort, page: page, limit: limit, id: id, terminal: terminal, numeroEstabelecimento: numeroEstabelecimento, idEstabelecimento: idEstabelecimento).execute { (response, error) -> Void in
+    public class func listarUsingGET26(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, terminal: String?, numeroEstabelecimento: Int?, idEstabelecimento: Int?, completion: ((data: PageTerminalResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET26WithRequestBuilder(sort: sort, page: page, limit: limit, id: id, terminal: terminal, numeroEstabelecimento: numeroEstabelecimento, idEstabelecimento: idEstabelecimento).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -313,7 +313,7 @@ public class EstabelecimentoAPI: APIBase {
 
      - returns: RequestBuilder<PageTerminalResponse> 
      */
-    public class func listarUsingGET25WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, terminal: String?, numeroEstabelecimento: Int?, idEstabelecimento: Int?) -> RequestBuilder<PageTerminalResponse> {
+    public class func listarUsingGET26WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, terminal: String?, numeroEstabelecimento: Int?, idEstabelecimento: Int?) -> RequestBuilder<PageTerminalResponse> {
         let path = "/api/terminais"
         let URLString = PierAPI.basePath + path
         
