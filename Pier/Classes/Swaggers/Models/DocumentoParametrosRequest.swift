@@ -11,8 +11,6 @@ import Foundation
 /** Objeto que encapsula os par\u00C3\u00A2metros para gera\u00C3\u00A7\u00C3\u00A3o de um documento */
 public class DocumentoParametrosRequest: JSONEncodable {
 
-    /** ID para o tipo de documento. */
-    public var idTipoDocumento: Int?
     /** ID para o template do documento. */
     public var idTemplateDocumento: Int?
     /** Nome para o arquivo. */
@@ -26,7 +24,6 @@ public class DocumentoParametrosRequest: JSONEncodable {
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
-        nillableDictionary["idTipoDocumento"] = self.idTipoDocumento
         nillableDictionary["idTemplateDocumento"] = self.idTemplateDocumento
         nillableDictionary["nome"] = self.nome
         nillableDictionary["parametrosConteudo"] = self.parametrosConteudo?.encodeToJSON()

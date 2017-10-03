@@ -11,10 +11,12 @@ import Foundation
 /** Representa\u00C3\u00A7\u00C3\u00A3o do template do documento. */
 public class DocumentoTemplatePersist: JSONEncodable {
 
-    /** ID para o Tipo de Documento vinculado ao template. */
-    public var idTipoDocumento: Int?
+    /** ID para o Tipo de Template vinculado ao template. */
+    public var idTipoTemplate: Int?
     /** Template para o conte\u00C3\u00BAdo do documento. */
     public var template: String?
+    /** Lista de configura\u00C3\u00A7\u00C3\u00B5es de integra\u00C3\u00A7\u00C3\u00A3o */
+    public var integracoes: [ReferenciaIdPersist]?
     
 
     public init() {}
@@ -22,8 +24,9 @@ public class DocumentoTemplatePersist: JSONEncodable {
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
-        nillableDictionary["idTipoDocumento"] = self.idTipoDocumento
+        nillableDictionary["idTipoTemplate"] = self.idTipoTemplate
         nillableDictionary["template"] = self.template
+        nillableDictionary["integracoes"] = self.integracoes?.encodeToJSON()
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

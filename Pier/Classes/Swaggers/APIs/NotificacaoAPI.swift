@@ -75,10 +75,11 @@ public class NotificacaoAPI: APIBase {
      - parameter tipoNotificacao: (query) Tipo da notifica\u00C3\u00A7\u00C3\u00A3o. (optional)
      - parameter remetente: (query) Remetente (optional)
      - parameter assunto: (query) Assunto da Notificaca\u00C3\u00A7\u00C3\u00A3o. (optional)
+     - parameter templatePadrao: (query) Template Padr\u00C3\u00A3o. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func alterarTemplateNotificacaoUsingPUT(id id: Int, conteudo: String, idConfiguracaoEmail: Int?, tipoLayout: String?, tipoNotificacao: String?, remetente: String?, assunto: String?, completion: ((data: TemplateNotificacaoResponse?, error: ErrorType?) -> Void)) {
-        alterarTemplateNotificacaoUsingPUTWithRequestBuilder(id: id, conteudo: conteudo, idConfiguracaoEmail: idConfiguracaoEmail, tipoLayout: tipoLayout, tipoNotificacao: tipoNotificacao, remetente: remetente, assunto: assunto).execute { (response, error) -> Void in
+    public class func alterarTemplateNotificacaoUsingPUT(id id: Int, conteudo: String, idConfiguracaoEmail: Int?, tipoLayout: String?, tipoNotificacao: String?, remetente: String?, assunto: String?, templatePadrao: Bool?, completion: ((data: TemplateNotificacaoDetalheResponse?, error: ErrorType?) -> Void)) {
+        alterarTemplateNotificacaoUsingPUTWithRequestBuilder(id: id, conteudo: conteudo, idConfiguracaoEmail: idConfiguracaoEmail, tipoLayout: tipoLayout, tipoNotificacao: tipoNotificacao, remetente: remetente, assunto: assunto, templatePadrao: templatePadrao).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -95,6 +96,7 @@ public class NotificacaoAPI: APIBase {
   "remetente" : "aeiou",
   "assunto" : "aeiou",
   "conteudo" : "aeiou",
+  "templatePadrao" : "aeiou",
   "dataInclusao" : "aeiou",
   "id" : 123456789,
   "tipoNotificacao" : "aeiou",
@@ -109,17 +111,18 @@ public class NotificacaoAPI: APIBase {
      - parameter tipoNotificacao: (query) Tipo da notifica\u00C3\u00A7\u00C3\u00A3o. (optional)
      - parameter remetente: (query) Remetente (optional)
      - parameter assunto: (query) Assunto da Notificaca\u00C3\u00A7\u00C3\u00A3o. (optional)
+     - parameter templatePadrao: (query) Template Padr\u00C3\u00A3o. (optional)
 
-     - returns: RequestBuilder<TemplateNotificacaoResponse> 
+     - returns: RequestBuilder<TemplateNotificacaoDetalheResponse> 
      */
-    public class func alterarTemplateNotificacaoUsingPUTWithRequestBuilder(id id: Int, conteudo: String, idConfiguracaoEmail: Int?, tipoLayout: String?, tipoNotificacao: String?, remetente: String?, assunto: String?) -> RequestBuilder<TemplateNotificacaoResponse> {
+    public class func alterarTemplateNotificacaoUsingPUTWithRequestBuilder(id id: Int, conteudo: String, idConfiguracaoEmail: Int?, tipoLayout: String?, tipoNotificacao: String?, remetente: String?, assunto: String?, templatePadrao: Bool?) -> RequestBuilder<TemplateNotificacaoDetalheResponse> {
         var path = "/api/templates-notificacoes/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
         
         let parameters = conteudo.encodeToJSON() as? [String:AnyObject]
 
-        let requestBuilder: RequestBuilder<TemplateNotificacaoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<TemplateNotificacaoDetalheResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: false)
     }
@@ -249,12 +252,104 @@ public class NotificacaoAPI: APIBase {
 
     /**
      
+     Consulta c\u00C3\u00B3digo de seguran\u00C3\u00A7a E-mail
+     
+     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da configura\u00C3\u00A7\u00C3\u00A3o de e-mail. 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func consultarPorEmailUsingGET(id id: Int, completion: ((data: CodigoSegurancaResponse?, error: ErrorType?) -> Void)) {
+        consultarPorEmailUsingGETWithRequestBuilder(id: id).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Consulta c\u00C3\u00B3digo de seguran\u00C3\u00A7a E-mail
+     
+     - GET /api/codigos-seguranca-email/{id}
+     - Esse recurso permite consultar um c\u00C3\u00B3digo de seguran\u00C3\u00A7a E-mail espec\u00C3\u00ADfico por id.
+     - examples: [{contentType=application/json, example={
+  "ativo" : false,
+  "dataValidade" : "aeiou",
+  "modoEnvio" : "aeiou",
+  "id" : 123456789,
+  "idEmissor" : 123456789,
+  "contato" : "aeiou"
+}}]
+     
+     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da configura\u00C3\u00A7\u00C3\u00A3o de e-mail. 
+
+     - returns: RequestBuilder<CodigoSegurancaResponse> 
+     */
+    public class func consultarPorEmailUsingGETWithRequestBuilder(id id: Int) -> RequestBuilder<CodigoSegurancaResponse> {
+        var path = "/api/codigos-seguranca-email/{id}"
+        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<CodigoSegurancaResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Consulta c\u00C3\u00B3digo de seguran\u00C3\u00A7a SMS
+     
+     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da configura\u00C3\u00A7\u00C3\u00A3o de e-mail. 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func consultarPorSMSUsingGET(id id: Int, completion: ((data: CodigoSegurancaResponse?, error: ErrorType?) -> Void)) {
+        consultarPorSMSUsingGETWithRequestBuilder(id: id).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Consulta c\u00C3\u00B3digo de seguran\u00C3\u00A7a SMS
+     
+     - GET /api/codigos-seguranca-sms/{id}
+     - Esse recurso permite consultar um c\u00C3\u00B3digo de seguran\u00C3\u00A7a SMS espec\u00C3\u00ADfico por id.
+     - examples: [{contentType=application/json, example={
+  "ativo" : false,
+  "dataValidade" : "aeiou",
+  "modoEnvio" : "aeiou",
+  "id" : 123456789,
+  "idEmissor" : 123456789,
+  "contato" : "aeiou"
+}}]
+     
+     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da configura\u00C3\u00A7\u00C3\u00A3o de e-mail. 
+
+     - returns: RequestBuilder<CodigoSegurancaResponse> 
+     */
+    public class func consultarPorSMSUsingGETWithRequestBuilder(id id: Int) -> RequestBuilder<CodigoSegurancaResponse> {
+        var path = "/api/codigos-seguranca-sms/{id}"
+        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<CodigoSegurancaResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
      Consulta template de notifica\u00C3\u00A7\u00C3\u00A3o
      
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do layout de e-mail. 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarTemplateNotificacaoUsingGET(id id: Int, completion: ((data: TemplateNotificacaoResponse?, error: ErrorType?) -> Void)) {
+    public class func consultarTemplateNotificacaoUsingGET(id id: Int, completion: ((data: TemplateNotificacaoDetalheResponse?, error: ErrorType?) -> Void)) {
         consultarTemplateNotificacaoUsingGETWithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -272,6 +367,7 @@ public class NotificacaoAPI: APIBase {
   "remetente" : "aeiou",
   "assunto" : "aeiou",
   "conteudo" : "aeiou",
+  "templatePadrao" : "aeiou",
   "dataInclusao" : "aeiou",
   "id" : 123456789,
   "tipoNotificacao" : "aeiou",
@@ -281,9 +377,9 @@ public class NotificacaoAPI: APIBase {
      
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do layout de e-mail. 
 
-     - returns: RequestBuilder<TemplateNotificacaoResponse> 
+     - returns: RequestBuilder<TemplateNotificacaoDetalheResponse> 
      */
-    public class func consultarTemplateNotificacaoUsingGETWithRequestBuilder(id id: Int) -> RequestBuilder<TemplateNotificacaoResponse> {
+    public class func consultarTemplateNotificacaoUsingGETWithRequestBuilder(id id: Int) -> RequestBuilder<TemplateNotificacaoDetalheResponse> {
         var path = "/api/templates-notificacoes/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -291,9 +387,46 @@ public class NotificacaoAPI: APIBase {
         let nillableParameters: [String:AnyObject?] = [:]
         let parameters = APIHelper.rejectNil(nillableParameters)
 
-        let requestBuilder: RequestBuilder<TemplateNotificacaoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<TemplateNotificacaoDetalheResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Gerar c\u00C3\u00B3digo de seguran\u00C3\u00A7a e enviar por e-mail
+     
+     - parameter email: (body) email 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func gerarTokenEMAILUsingPOST(email email: String, completion: ((data: String?, error: ErrorType?) -> Void)) {
+        gerarTokenEMAILUsingPOSTWithRequestBuilder(email: email).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Gerar c\u00C3\u00B3digo de seguran\u00C3\u00A7a e enviar por e-mail
+     
+     - POST /api/notificacoes-email/gerar-codigo-seguranca
+     - Esse recurso permite gerar e enviar c\u00C3\u00B3digos de seguran\u00C3\u00A7a por e-mail, para valida\u00C3\u00A7\u00C3\u00A3o de dispositivos.
+     - examples: [{contentType=application/json, example="aeiou"}]
+     
+     - parameter email: (body) email 
+
+     - returns: RequestBuilder<String> 
+     */
+    public class func gerarTokenEMAILUsingPOSTWithRequestBuilder(email email: String) -> RequestBuilder<String> {
+        let path = "/api/notificacoes-email/gerar-codigo-seguranca"
+        let URLString = PierAPI.basePath + path
+        
+        let parameters = email.encodeToJSON() as? [String:AnyObject]
+
+        let requestBuilder: RequestBuilder<String>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
     }
 
     /**
@@ -303,8 +436,8 @@ public class NotificacaoAPI: APIBase {
      - parameter persist: (body) persist 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func gerarTokenUsingPOST(persist persist: CodigoSegurancaSMSPersist, completion: ((data: String?, error: ErrorType?) -> Void)) {
-        gerarTokenUsingPOSTWithRequestBuilder(persist: persist).execute { (response, error) -> Void in
+    public class func gerarTokenSMSUsingPOST(persist persist: CodigoSegurancaSMSPersist, completion: ((data: String?, error: ErrorType?) -> Void)) {
+        gerarTokenSMSUsingPOSTWithRequestBuilder(persist: persist).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -322,7 +455,7 @@ public class NotificacaoAPI: APIBase {
 
      - returns: RequestBuilder<String> 
      */
-    public class func gerarTokenUsingPOSTWithRequestBuilder(persist persist: CodigoSegurancaSMSPersist) -> RequestBuilder<String> {
+    public class func gerarTokenSMSUsingPOSTWithRequestBuilder(persist persist: CodigoSegurancaSMSPersist) -> RequestBuilder<String> {
         let path = "/api/notificacoes-sms/gerar-codigo-seguranca"
         let URLString = PierAPI.basePath + path
         
@@ -404,6 +537,142 @@ public class NotificacaoAPI: APIBase {
         let parameters = APIHelper.rejectNil(nillableParameters)
 
         let requestBuilder: RequestBuilder<PageConfiguracaoEmailResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
+    }
+
+    /**
+     
+     Lista os c\u00C3\u00B3digos de seguran\u00C3\u00A7a E-Mail
+     
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
+     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func listarPorEmailUsingGET(sort sort: [String]?, page: Int?, limit: Int?, completion: ((data: PageCodigoSegurancaResponse?, error: ErrorType?) -> Void)) {
+        listarPorEmailUsingGETWithRequestBuilder(sort: sort, page: page, limit: limit).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Lista os c\u00C3\u00B3digos de seguran\u00C3\u00A7a E-Mail
+     
+     - GET /api/codigos-seguranca-email
+     - Esse recurso permite listar os codigos de seguran\u00C3\u00A7a por E-Mail.
+     - examples: [{contentType=application/json, example={
+  "previousPage" : 123,
+  "last" : true,
+  "hasContent" : true,
+  "hasNextPage" : true,
+  "nextPage" : 123,
+  "content" : [ {
+    "ativo" : false,
+    "dataValidade" : "aeiou",
+    "modoEnvio" : "aeiou",
+    "id" : 123456789,
+    "idEmissor" : 123456789,
+    "contato" : "aeiou"
+  } ],
+  "totalElements" : 123456789,
+  "number" : 123,
+  "firstPage" : true,
+  "numberOfElements" : 123,
+  "size" : 123,
+  "totalPages" : 123,
+  "hasPreviousPage" : true,
+  "first" : true
+}}]
+     
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
+     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+
+     - returns: RequestBuilder<PageCodigoSegurancaResponse> 
+     */
+    public class func listarPorEmailUsingGETWithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?) -> RequestBuilder<PageCodigoSegurancaResponse> {
+        let path = "/api/codigos-seguranca-email"
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [
+            "sort": sort,
+            "page": page,
+            "limit": limit
+        ]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<PageCodigoSegurancaResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
+    }
+
+    /**
+     
+     Lista os c\u00C3\u00B3digos de seguran\u00C3\u00A7a SMS
+     
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
+     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func listarPorSMSUsingGET(sort sort: [String]?, page: Int?, limit: Int?, completion: ((data: PageCodigoSegurancaResponse?, error: ErrorType?) -> Void)) {
+        listarPorSMSUsingGETWithRequestBuilder(sort: sort, page: page, limit: limit).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Lista os c\u00C3\u00B3digos de seguran\u00C3\u00A7a SMS
+     
+     - GET /api/codigos-seguranca-sms
+     - Esse recurso permite listar os codigos de seguran\u00C3\u00A7a por SMS.
+     - examples: [{contentType=application/json, example={
+  "previousPage" : 123,
+  "last" : true,
+  "hasContent" : true,
+  "hasNextPage" : true,
+  "nextPage" : 123,
+  "content" : [ {
+    "ativo" : false,
+    "dataValidade" : "aeiou",
+    "modoEnvio" : "aeiou",
+    "id" : 123456789,
+    "idEmissor" : 123456789,
+    "contato" : "aeiou"
+  } ],
+  "totalElements" : 123456789,
+  "number" : 123,
+  "firstPage" : true,
+  "numberOfElements" : 123,
+  "size" : 123,
+  "totalPages" : 123,
+  "hasPreviousPage" : true,
+  "first" : true
+}}]
+     
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
+     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+
+     - returns: RequestBuilder<PageCodigoSegurancaResponse> 
+     */
+    public class func listarPorSMSUsingGETWithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?) -> RequestBuilder<PageCodigoSegurancaResponse> {
+        let path = "/api/codigos-seguranca-sms"
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [
+            "sort": sort,
+            "page": page,
+            "limit": limit
+        ]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<PageCodigoSegurancaResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
     }
@@ -625,7 +894,7 @@ public class NotificacaoAPI: APIBase {
     "idConfiguracaoEmail" : 123456789,
     "remetente" : "aeiou",
     "assunto" : "aeiou",
-    "conteudo" : "aeiou",
+    "templatePadrao" : "aeiou",
     "dataInclusao" : "aeiou",
     "id" : 123456789,
     "tipoNotificacao" : "aeiou",
@@ -1027,10 +1296,11 @@ public class NotificacaoAPI: APIBase {
      - parameter tipoNotificacao: (query) Tipo da notifica\u00C3\u00A7\u00C3\u00A3o. (optional)
      - parameter remetente: (query) Remetente (optional)
      - parameter assunto: (query) Assunto da Notificaca\u00C3\u00A7\u00C3\u00A3o. (optional)
+     - parameter templatePadrao: (query) Template Padr\u00C3\u00A3o. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func salvarTemplateNotificacaoUsingPOST(conteudo conteudo: String, idConfiguracaoEmail: Int?, tipoLayout: String?, tipoNotificacao: String?, remetente: String?, assunto: String?, completion: ((data: TemplateNotificacaoResponse?, error: ErrorType?) -> Void)) {
-        salvarTemplateNotificacaoUsingPOSTWithRequestBuilder(conteudo: conteudo, idConfiguracaoEmail: idConfiguracaoEmail, tipoLayout: tipoLayout, tipoNotificacao: tipoNotificacao, remetente: remetente, assunto: assunto).execute { (response, error) -> Void in
+    public class func salvarTemplateNotificacaoUsingPOST(conteudo conteudo: String, idConfiguracaoEmail: Int?, tipoLayout: String?, tipoNotificacao: String?, remetente: String?, assunto: String?, templatePadrao: Bool?, completion: ((data: TemplateNotificacaoDetalheResponse?, error: ErrorType?) -> Void)) {
+        salvarTemplateNotificacaoUsingPOSTWithRequestBuilder(conteudo: conteudo, idConfiguracaoEmail: idConfiguracaoEmail, tipoLayout: tipoLayout, tipoNotificacao: tipoNotificacao, remetente: remetente, assunto: assunto, templatePadrao: templatePadrao).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -1047,6 +1317,7 @@ public class NotificacaoAPI: APIBase {
   "remetente" : "aeiou",
   "assunto" : "aeiou",
   "conteudo" : "aeiou",
+  "templatePadrao" : "aeiou",
   "dataInclusao" : "aeiou",
   "id" : 123456789,
   "tipoNotificacao" : "aeiou",
@@ -1060,18 +1331,56 @@ public class NotificacaoAPI: APIBase {
      - parameter tipoNotificacao: (query) Tipo da notifica\u00C3\u00A7\u00C3\u00A3o. (optional)
      - parameter remetente: (query) Remetente (optional)
      - parameter assunto: (query) Assunto da Notificaca\u00C3\u00A7\u00C3\u00A3o. (optional)
+     - parameter templatePadrao: (query) Template Padr\u00C3\u00A3o. (optional)
 
-     - returns: RequestBuilder<TemplateNotificacaoResponse> 
+     - returns: RequestBuilder<TemplateNotificacaoDetalheResponse> 
      */
-    public class func salvarTemplateNotificacaoUsingPOSTWithRequestBuilder(conteudo conteudo: String, idConfiguracaoEmail: Int?, tipoLayout: String?, tipoNotificacao: String?, remetente: String?, assunto: String?) -> RequestBuilder<TemplateNotificacaoResponse> {
+    public class func salvarTemplateNotificacaoUsingPOSTWithRequestBuilder(conteudo conteudo: String, idConfiguracaoEmail: Int?, tipoLayout: String?, tipoNotificacao: String?, remetente: String?, assunto: String?, templatePadrao: Bool?) -> RequestBuilder<TemplateNotificacaoDetalheResponse> {
         let path = "/api/templates-notificacoes"
         let URLString = PierAPI.basePath + path
         
         let parameters = conteudo.encodeToJSON() as? [String:AnyObject]
 
-        let requestBuilder: RequestBuilder<TemplateNotificacaoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<TemplateNotificacaoDetalheResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: false)
+    }
+
+    /**
+     
+     Validar c\u00C3\u00B3digo de seguran\u00C3\u00A7a enviado por e-mail
+     
+     - parameter request: (body) request 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func validarTokenEMAILUsingPOST(request request: CodigoSegurancaEMAILPersist, completion: ((data: String?, error: ErrorType?) -> Void)) {
+        validarTokenEMAILUsingPOSTWithRequestBuilder(request: request).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Validar c\u00C3\u00B3digo de seguran\u00C3\u00A7a enviado por e-mail
+     
+     - POST /api/notificacoes-email/validar-codigo-seguranca
+     - Esse recurso permite validar os c\u00C3\u00B3digos de seguran\u00C3\u00A7a enviador por e-mail, para valida\u00C3\u00A7\u00C3\u00A3o de dispositivos.
+     - examples: [{contentType=application/json, example="aeiou"}]
+     
+     - parameter request: (body) request 
+
+     - returns: RequestBuilder<String> 
+     */
+    public class func validarTokenEMAILUsingPOSTWithRequestBuilder(request request: CodigoSegurancaEMAILPersist) -> RequestBuilder<String> {
+        let path = "/api/notificacoes-email/validar-codigo-seguranca"
+        let URLString = PierAPI.basePath + path
+        
+        let parameters = request.encodeToJSON() as? [String:AnyObject]
+
+        let requestBuilder: RequestBuilder<String>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
     }
 
     /**
@@ -1081,8 +1390,8 @@ public class NotificacaoAPI: APIBase {
      - parameter request: (body) request 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func validarTokenUsingPOST(request request: CodigoSegurancaSMSRequest, completion: ((data: String?, error: ErrorType?) -> Void)) {
-        validarTokenUsingPOSTWithRequestBuilder(request: request).execute { (response, error) -> Void in
+    public class func validarTokenSMSUsingPOST(request request: CodigoSegurancaSMSRequest, completion: ((data: String?, error: ErrorType?) -> Void)) {
+        validarTokenSMSUsingPOSTWithRequestBuilder(request: request).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -1100,7 +1409,7 @@ public class NotificacaoAPI: APIBase {
 
      - returns: RequestBuilder<String> 
      */
-    public class func validarTokenUsingPOSTWithRequestBuilder(request request: CodigoSegurancaSMSRequest) -> RequestBuilder<String> {
+    public class func validarTokenSMSUsingPOSTWithRequestBuilder(request request: CodigoSegurancaSMSRequest) -> RequestBuilder<String> {
         let path = "/api/notificacoes-sms/validar-codigo-seguranca"
         let URLString = PierAPI.basePath + path
         

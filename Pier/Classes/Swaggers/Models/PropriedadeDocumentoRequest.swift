@@ -12,7 +12,6 @@ import Foundation
 public class PropriedadeDocumentoRequest: JSONEncodable {
 
     public enum DetalhesTipo: String { 
-        case List = "LIST"
         case Imagem = "IMAGEM"
         case Texto = "TEXTO"
         case Numero = "NUMERO"
@@ -24,6 +23,8 @@ public class PropriedadeDocumentoRequest: JSONEncodable {
     public var valor: String?
     /** Tipo da propriedade do Documento. */
     public var detalhesTipo: DetalhesTipo?
+    /** Atributo que indica se o par\u00C3\u00A2metro \u00C3\u00A9 um \u00C3\u00ADndice (default = false) */
+    public var flagIndice: Bool?
     
 
     public init() {}
@@ -34,6 +35,7 @@ public class PropriedadeDocumentoRequest: JSONEncodable {
         nillableDictionary["chave"] = self.chave
         nillableDictionary["valor"] = self.valor
         nillableDictionary["detalhesTipo"] = self.detalhesTipo?.rawValue
+        nillableDictionary["flagIndice"] = self.flagIndice
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }
