@@ -63,8 +63,8 @@ public class PlataformaMobileAPI: APIBase {
      - parameter nome: (query) Nome da Plataforma Mobile (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET19(sort sort: [String]?, page: Int?, limit: Int?, nome: String?, completion: ((data: PagePlataformaMobileResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET19WithRequestBuilder(sort: sort, page: page, limit: limit, nome: nome).execute { (response, error) -> Void in
+    public class func listarUsingGET20(sort sort: [String]?, page: Int?, limit: Int?, nome: String?, completion: ((data: PagePlataformaMobileResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET20WithRequestBuilder(sort: sort, page: page, limit: limit, nome: nome).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -103,7 +103,7 @@ public class PlataformaMobileAPI: APIBase {
 
      - returns: RequestBuilder<PagePlataformaMobileResponse> 
      */
-    public class func listarUsingGET19WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, nome: String?) -> RequestBuilder<PagePlataformaMobileResponse> {
+    public class func listarUsingGET20WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, nome: String?) -> RequestBuilder<PagePlataformaMobileResponse> {
         let path = "/api/plataformas-mobile"
         let URLString = PierAPI.basePath + path
         
@@ -127,8 +127,8 @@ public class PlataformaMobileAPI: APIBase {
      - parameter persist: (body) persist 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func salvarUsingPOST14(persist persist: PlataformaMobilePersist, completion: ((data: PlataformaMobileResponse?, error: ErrorType?) -> Void)) {
-        salvarUsingPOST14WithRequestBuilder(persist: persist).execute { (response, error) -> Void in
+    public class func salvarUsingPOST15(persist persist: PlataformaMobilePersist, completion: ((data: PlataformaMobileResponse?, error: ErrorType?) -> Void)) {
+        salvarUsingPOST15WithRequestBuilder(persist: persist).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -149,7 +149,7 @@ public class PlataformaMobileAPI: APIBase {
 
      - returns: RequestBuilder<PlataformaMobileResponse> 
      */
-    public class func salvarUsingPOST14WithRequestBuilder(persist persist: PlataformaMobilePersist) -> RequestBuilder<PlataformaMobileResponse> {
+    public class func salvarUsingPOST15WithRequestBuilder(persist persist: PlataformaMobilePersist) -> RequestBuilder<PlataformaMobileResponse> {
         let path = "/api/plataformas-mobile"
         let URLString = PierAPI.basePath + path
         

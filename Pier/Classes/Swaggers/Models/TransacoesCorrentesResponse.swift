@@ -69,6 +69,8 @@ public class TransacoesCorrentesResponse: JSONEncodable {
     public var idEstabelecimento: Int?
     /** Nome do Estabelecimento. */
     public var nomeEstabelecimento: String?
+    /** Nome Fantasia do Estabelecimento. */
+    public var nomeFantasiaEstabelecimento: String?
     /** Localidade do Estabelecimento. */
     public var localidadeEstabelecimento: String?
     /** Quando a Transa\u00C3\u00A7\u00C3\u00A3o for do tipo Parcelada, apresenta o n\u00C3\u00BAmero total de Parcelas. */
@@ -121,6 +123,7 @@ public class TransacoesCorrentesResponse: JSONEncodable {
         nillableDictionary["grupoDescricaoMCC"] = self.grupoDescricaoMCC
         nillableDictionary["idEstabelecimento"] = self.idEstabelecimento
         nillableDictionary["nomeEstabelecimento"] = self.nomeEstabelecimento
+        nillableDictionary["nomeFantasiaEstabelecimento"] = self.nomeFantasiaEstabelecimento
         nillableDictionary["localidadeEstabelecimento"] = self.localidadeEstabelecimento
         nillableDictionary["planoParcelamento"] = self.planoParcelamento
         nillableDictionary["numeroParcela"] = self.numeroParcela

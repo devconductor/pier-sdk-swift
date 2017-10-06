@@ -837,6 +837,154 @@ class Decoders {
             }
 			
 
+			// Decoder for [CartaoPayAtualizarChaveResponse]
+            Decoders.addDecoder(clazz: [CartaoPayAtualizarChaveResponse].self) { (source: AnyObject) -> [CartaoPayAtualizarChaveResponse] in
+                return Decoders.decode(clazz: [CartaoPayAtualizarChaveResponse].self, source: source)
+            }
+			// Decoder for CartaoPayAtualizarChaveResponse
+            Decoders.addDecoder(clazz: CartaoPayAtualizarChaveResponse.self) { (source: AnyObject) -> CartaoPayAtualizarChaveResponse in
+                let sourceDictionary = source as! [NSObject:AnyObject]
+                let instance = CartaoPayAtualizarChaveResponse()
+                instance.id = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["id"])
+                instance.numeroCartao = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["numeroCartao"])
+                instance.dataValidadeCartao = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["dataValidadeCartao"])
+                instance.nomeImpresso = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["nomeImpresso"])
+                instance.idEntidade = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["idEntidade"])
+                instance.nomeEntidade = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["nomeEntidade"])
+                instance.status = CartaoPayAtualizarChaveResponse.Status(rawValue: (sourceDictionary["status"] as? String) ?? "") 
+                instance.chaveCriptograma = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["chaveCriptograma"])
+                return instance
+            }
+			
+
+			// Decoder for [CartaoPayCadastroResponse]
+            Decoders.addDecoder(clazz: [CartaoPayCadastroResponse].self) { (source: AnyObject) -> [CartaoPayCadastroResponse] in
+                return Decoders.decode(clazz: [CartaoPayCadastroResponse].self, source: source)
+            }
+			// Decoder for CartaoPayCadastroResponse
+            Decoders.addDecoder(clazz: CartaoPayCadastroResponse.self) { (source: AnyObject) -> CartaoPayCadastroResponse in
+                let sourceDictionary = source as! [NSObject:AnyObject]
+                let instance = CartaoPayCadastroResponse()
+                instance.id = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["id"])
+                instance.numeroCartao = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["numeroCartao"])
+                instance.dataValidadeCartao = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["dataValidadeCartao"])
+                instance.nomeImpresso = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["nomeImpresso"])
+                instance.idEntidade = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["idEntidade"])
+                instance.nomeEntidade = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["nomeEntidade"])
+                instance.status = CartaoPayCadastroResponse.Status(rawValue: (sourceDictionary["status"] as? String) ?? "") 
+                instance.dataValidadeChaveCriptograma = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["dataValidadeChaveCriptograma"])
+                instance.cvv = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["cvv"])
+                instance.chaveCriptograma = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["chaveCriptograma"])
+                return instance
+            }
+			
+
+			// Decoder for [CartaoPayConfirmarChaveResponse]
+            Decoders.addDecoder(clazz: [CartaoPayConfirmarChaveResponse].self) { (source: AnyObject) -> [CartaoPayConfirmarChaveResponse] in
+                return Decoders.decode(clazz: [CartaoPayConfirmarChaveResponse].self, source: source)
+            }
+			// Decoder for CartaoPayConfirmarChaveResponse
+            Decoders.addDecoder(clazz: CartaoPayConfirmarChaveResponse.self) { (source: AnyObject) -> CartaoPayConfirmarChaveResponse in
+                let sourceDictionary = source as! [NSObject:AnyObject]
+                let instance = CartaoPayConfirmarChaveResponse()
+                instance.id = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["id"])
+                instance.numeroCartao = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["numeroCartao"])
+                instance.dataValidadeCartao = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["dataValidadeCartao"])
+                instance.nomeImpresso = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["nomeImpresso"])
+                instance.idEntidade = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["idEntidade"])
+                instance.nomeEntidade = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["nomeEntidade"])
+                instance.status = CartaoPayConfirmarChaveResponse.Status(rawValue: (sourceDictionary["status"] as? String) ?? "") 
+                instance.dataValidadeChaveCriptograma = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["dataValidadeChaveCriptograma"])
+                instance.chaveCriptograma = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["chaveCriptograma"])
+                return instance
+            }
+			
+
+			// Decoder for [CartaoPayDetalheResponse]
+            Decoders.addDecoder(clazz: [CartaoPayDetalheResponse].self) { (source: AnyObject) -> [CartaoPayDetalheResponse] in
+                return Decoders.decode(clazz: [CartaoPayDetalheResponse].self, source: source)
+            }
+			// Decoder for CartaoPayDetalheResponse
+            Decoders.addDecoder(clazz: CartaoPayDetalheResponse.self) { (source: AnyObject) -> CartaoPayDetalheResponse in
+                let sourceDictionary = source as! [NSObject:AnyObject]
+                let instance = CartaoPayDetalheResponse()
+                instance.id = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["id"])
+                instance.numeroCartao = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["numeroCartao"])
+                instance.dataValidadeCartao = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["dataValidadeCartao"])
+                instance.nomeImpresso = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["nomeImpresso"])
+                instance.idEntidade = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["idEntidade"])
+                instance.nomeEntidade = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["nomeEntidade"])
+                instance.status = CartaoPayDetalheResponse.Status(rawValue: (sourceDictionary["status"] as? String) ?? "") 
+                instance.cvv = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["cvv"])
+                instance.dataValidadeChaveCriptograma = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["dataValidadeChaveCriptograma"])
+                return instance
+            }
+			
+
+			// Decoder for [CartaoPayKeyUpdate]
+            Decoders.addDecoder(clazz: [CartaoPayKeyUpdate].self) { (source: AnyObject) -> [CartaoPayKeyUpdate] in
+                return Decoders.decode(clazz: [CartaoPayKeyUpdate].self, source: source)
+            }
+			// Decoder for CartaoPayKeyUpdate
+            Decoders.addDecoder(clazz: CartaoPayKeyUpdate.self) { (source: AnyObject) -> CartaoPayKeyUpdate in
+                let sourceDictionary = source as! [NSObject:AnyObject]
+                let instance = CartaoPayKeyUpdate()
+                instance.chaveCriptograma = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["chaveCriptograma"])
+                return instance
+            }
+			
+
+			// Decoder for [CartaoPayPersist]
+            Decoders.addDecoder(clazz: [CartaoPayPersist].self) { (source: AnyObject) -> [CartaoPayPersist] in
+                return Decoders.decode(clazz: [CartaoPayPersist].self, source: source)
+            }
+			// Decoder for CartaoPayPersist
+            Decoders.addDecoder(clazz: CartaoPayPersist.self) { (source: AnyObject) -> CartaoPayPersist in
+                let sourceDictionary = source as! [NSObject:AnyObject]
+                let instance = CartaoPayPersist()
+                instance.numeroCartao = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["numeroCartao"])
+                instance.dataValidade = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["dataValidade"])
+                instance.cvv = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["cvv"])
+                instance.numeroReceitaFederal = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["numeroReceitaFederal"])
+                instance.nomeImpresso = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["nomeImpresso"])
+                instance.chavePublicaDevice = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["chavePublicaDevice"])
+                return instance
+            }
+			
+
+			// Decoder for [CartaoPayResponse]
+            Decoders.addDecoder(clazz: [CartaoPayResponse].self) { (source: AnyObject) -> [CartaoPayResponse] in
+                return Decoders.decode(clazz: [CartaoPayResponse].self, source: source)
+            }
+			// Decoder for CartaoPayResponse
+            Decoders.addDecoder(clazz: CartaoPayResponse.self) { (source: AnyObject) -> CartaoPayResponse in
+                let sourceDictionary = source as! [NSObject:AnyObject]
+                let instance = CartaoPayResponse()
+                instance.id = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["id"])
+                instance.numeroCartao = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["numeroCartao"])
+                instance.dataValidadeCartao = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["dataValidadeCartao"])
+                instance.nomeImpresso = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["nomeImpresso"])
+                instance.idEntidade = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["idEntidade"])
+                instance.nomeEntidade = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["nomeEntidade"])
+                instance.status = CartaoPayResponse.Status(rawValue: (sourceDictionary["status"] as? String) ?? "") 
+                instance.dataValidadeChaveCriptograma = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["dataValidadeChaveCriptograma"])
+                return instance
+            }
+			
+
+			// Decoder for [CartaoPayUpdate]
+            Decoders.addDecoder(clazz: [CartaoPayUpdate].self) { (source: AnyObject) -> [CartaoPayUpdate] in
+                return Decoders.decode(clazz: [CartaoPayUpdate].self, source: source)
+            }
+			// Decoder for CartaoPayUpdate
+            Decoders.addDecoder(clazz: CartaoPayUpdate.self) { (source: AnyObject) -> CartaoPayUpdate in
+                let sourceDictionary = source as! [NSObject:AnyObject]
+                let instance = CartaoPayUpdate()
+                instance.status = CartaoPayUpdate.Status(rawValue: (sourceDictionary["status"] as? String) ?? "") 
+                return instance
+            }
+			
+
 			// Decoder for [CartaoResponse]
             Decoders.addDecoder(clazz: [CartaoResponse].self) { (source: AnyObject) -> [CartaoResponse] in
                 return Decoders.decode(clazz: [CartaoResponse].self, source: source)
@@ -2342,6 +2490,32 @@ class Decoders {
             Decoders.addDecoder(clazz: PageCampoCodificadoDescricaoResponse.self) { (source: AnyObject) -> PageCampoCodificadoDescricaoResponse in
                 let sourceDictionary = source as! [NSObject:AnyObject]
                 let instance = PageCampoCodificadoDescricaoResponse()
+                instance.content = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["content"])
+                instance.first = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["first"])
+                instance.firstPage = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["firstPage"])
+                instance.hasContent = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["hasContent"])
+                instance.hasNextPage = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["hasNextPage"])
+                instance.hasPreviousPage = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["hasPreviousPage"])
+                instance.last = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["last"])
+                instance.nextPage = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["nextPage"])
+                instance.number = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["number"])
+                instance.numberOfElements = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["numberOfElements"])
+                instance.previousPage = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["previousPage"])
+                instance.size = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["size"])
+                instance.totalElements = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["totalElements"])
+                instance.totalPages = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["totalPages"])
+                return instance
+            }
+			
+
+			// Decoder for [PageCartaoPayResponse]
+            Decoders.addDecoder(clazz: [PageCartaoPayResponse].self) { (source: AnyObject) -> [PageCartaoPayResponse] in
+                return Decoders.decode(clazz: [PageCartaoPayResponse].self, source: source)
+            }
+			// Decoder for PageCartaoPayResponse
+            Decoders.addDecoder(clazz: PageCartaoPayResponse.self) { (source: AnyObject) -> PageCartaoPayResponse in
+                let sourceDictionary = source as! [NSObject:AnyObject]
+                let instance = PageCartaoPayResponse()
                 instance.content = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["content"])
                 instance.first = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["first"])
                 instance.firstPage = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["firstPage"])
@@ -5102,6 +5276,7 @@ class Decoders {
                 instance.grupoDescricaoMCC = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["grupoDescricaoMCC"])
                 instance.idEstabelecimento = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["idEstabelecimento"])
                 instance.nomeEstabelecimento = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["nomeEstabelecimento"])
+                instance.nomeFantasiaEstabelecimento = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["nomeFantasiaEstabelecimento"])
                 instance.localidadeEstabelecimento = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["localidadeEstabelecimento"])
                 instance.planoParcelamento = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["planoParcelamento"])
                 instance.numeroParcela = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["numeroParcela"])
@@ -5173,6 +5348,62 @@ class Decoders {
             }
 			
 
+			// Decoder for [TransacaoPayQueryRequest]
+            Decoders.addDecoder(clazz: [TransacaoPayQueryRequest].self) { (source: AnyObject) -> [TransacaoPayQueryRequest] in
+                return Decoders.decode(clazz: [TransacaoPayQueryRequest].self, source: source)
+            }
+			// Decoder for TransacaoPayQueryRequest
+            Decoders.addDecoder(clazz: TransacaoPayQueryRequest.self) { (source: AnyObject) -> TransacaoPayQueryRequest in
+                let sourceDictionary = source as! [NSObject:AnyObject]
+                let instance = TransacaoPayQueryRequest()
+                instance.numeroCartao = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["numeroCartao"])
+                instance.idCartao = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["idCartao"])
+                instance.origem = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["origem"])
+                instance.sort = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["sort"])
+                return instance
+            }
+			
+
+			// Decoder for [TransacaoPayQueryResponse]
+            Decoders.addDecoder(clazz: [TransacaoPayQueryResponse].self) { (source: AnyObject) -> [TransacaoPayQueryResponse] in
+                return Decoders.decode(clazz: [TransacaoPayQueryResponse].self, source: source)
+            }
+			// Decoder for TransacaoPayQueryResponse
+            Decoders.addDecoder(clazz: TransacaoPayQueryResponse.self) { (source: AnyObject) -> TransacaoPayQueryResponse in
+                let sourceDictionary = source as! [NSObject:AnyObject]
+                let instance = TransacaoPayQueryResponse()
+                instance.codigo = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["codigo"])
+                instance.descricao = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["descricao"])
+                return instance
+            }
+			
+
+			// Decoder for [TransacaoPaySecureRequest]
+            Decoders.addDecoder(clazz: [TransacaoPaySecureRequest].self) { (source: AnyObject) -> [TransacaoPaySecureRequest] in
+                return Decoders.decode(clazz: [TransacaoPaySecureRequest].self, source: source)
+            }
+			// Decoder for TransacaoPaySecureRequest
+            Decoders.addDecoder(clazz: TransacaoPaySecureRequest.self) { (source: AnyObject) -> TransacaoPaySecureRequest in
+                let sourceDictionary = source as! [NSObject:AnyObject]
+                let instance = TransacaoPaySecureRequest()
+                instance.dataHoraTransacao = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["dataHoraTransacao"])
+                instance.numeroCartao = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["numeroCartao"])
+                instance.idCartao = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["idCartao"])
+                instance.valor = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["valor"])
+                instance.nsuOrigem = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["nsuOrigem"])
+                instance.nomePortadorCartao = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["nomePortadorCartao"])
+                instance.origem = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["origem"])
+                instance.terminalRequisitante = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["terminalRequisitante"])
+                instance.codigoProcessamento = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["codigoProcessamento"])
+                instance.dataValidadeCartao = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["dataValidadeCartao"])
+                instance.numeroEstabelecimento = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["numeroEstabelecimento"])
+                instance.numeroParcelas = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["numeroParcelas"])
+                instance.codigoSegurancaCartao = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["codigoSegurancaCartao"])
+                instance.sort = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["sort"])
+                return instance
+            }
+			
+
 			// Decoder for [TransacoesCorrentesResponse]
             Decoders.addDecoder(clazz: [TransacoesCorrentesResponse].self) { (source: AnyObject) -> [TransacoesCorrentesResponse] in
                 return Decoders.decode(clazz: [TransacoesCorrentesResponse].self, source: source)
@@ -5210,6 +5441,7 @@ class Decoders {
                 instance.grupoDescricaoMCC = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["grupoDescricaoMCC"])
                 instance.idEstabelecimento = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["idEstabelecimento"])
                 instance.nomeEstabelecimento = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["nomeEstabelecimento"])
+                instance.nomeFantasiaEstabelecimento = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["nomeFantasiaEstabelecimento"])
                 instance.localidadeEstabelecimento = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["localidadeEstabelecimento"])
                 instance.planoParcelamento = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["planoParcelamento"])
                 instance.numeroParcela = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["numeroParcela"])

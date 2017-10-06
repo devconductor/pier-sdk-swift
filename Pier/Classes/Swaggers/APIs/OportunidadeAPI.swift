@@ -213,8 +213,8 @@ public class OportunidadeAPI: APIBase {
      - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da oportunidade (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET12(id id: Int, completion: ((data: OportunidadeResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET12WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET13(id id: Int, completion: ((data: OportunidadeResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET13WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -247,7 +247,7 @@ public class OportunidadeAPI: APIBase {
 
      - returns: RequestBuilder<OportunidadeResponse> 
      */
-    public class func consultarUsingGET12WithRequestBuilder(id id: Int) -> RequestBuilder<OportunidadeResponse> {
+    public class func consultarUsingGET13WithRequestBuilder(id id: Int) -> RequestBuilder<OportunidadeResponse> {
         var path = "/api/oportunidades/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -267,8 +267,8 @@ public class OportunidadeAPI: APIBase {
      - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do tipo oportunidade (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET25(id id: Int, completion: ((data: TipoOportunidadeResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET25WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET26(id id: Int, completion: ((data: TipoOportunidadeResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET26WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -290,7 +290,7 @@ public class OportunidadeAPI: APIBase {
 
      - returns: RequestBuilder<TipoOportunidadeResponse> 
      */
-    public class func consultarUsingGET25WithRequestBuilder(id id: Int) -> RequestBuilder<TipoOportunidadeResponse> {
+    public class func consultarUsingGET26WithRequestBuilder(id id: Int) -> RequestBuilder<TipoOportunidadeResponse> {
         var path = "/api/tipos-oportunidades/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -693,8 +693,8 @@ public class OportunidadeAPI: APIBase {
      - parameter flagAtivo: (query) Flag de verifica\u00C3\u00A7\u00C3\u00A3o se a oportunidade est\u00C3\u00A1 ativa (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET16(sort sort: [String]?, page: Int?, limit: Int?, idStatusOportunidade: Int?, dataCadastro: String?, dataAtualizacao: String?, numeroReceitaFederal: String?, dataInicioVigencia: String?, dataFimVigencia: String?, flagAtivo: Bool?, completion: ((data: PageOportunidadeResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET16WithRequestBuilder(sort: sort, page: page, limit: limit, idStatusOportunidade: idStatusOportunidade, dataCadastro: dataCadastro, dataAtualizacao: dataAtualizacao, numeroReceitaFederal: numeroReceitaFederal, dataInicioVigencia: dataInicioVigencia, dataFimVigencia: dataFimVigencia, flagAtivo: flagAtivo).execute { (response, error) -> Void in
+    public class func listarUsingGET17(sort sort: [String]?, page: Int?, limit: Int?, idStatusOportunidade: Int?, dataCadastro: String?, dataAtualizacao: String?, numeroReceitaFederal: String?, dataInicioVigencia: String?, dataFimVigencia: String?, flagAtivo: Bool?, completion: ((data: PageOportunidadeResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET17WithRequestBuilder(sort: sort, page: page, limit: limit, idStatusOportunidade: idStatusOportunidade, dataCadastro: dataCadastro, dataAtualizacao: dataAtualizacao, numeroReceitaFederal: numeroReceitaFederal, dataInicioVigencia: dataInicioVigencia, dataFimVigencia: dataFimVigencia, flagAtivo: flagAtivo).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -751,7 +751,7 @@ public class OportunidadeAPI: APIBase {
 
      - returns: RequestBuilder<PageOportunidadeResponse> 
      */
-    public class func listarUsingGET16WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, idStatusOportunidade: Int?, dataCadastro: String?, dataAtualizacao: String?, numeroReceitaFederal: String?, dataInicioVigencia: String?, dataFimVigencia: String?, flagAtivo: Bool?) -> RequestBuilder<PageOportunidadeResponse> {
+    public class func listarUsingGET17WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, idStatusOportunidade: Int?, dataCadastro: String?, dataAtualizacao: String?, numeroReceitaFederal: String?, dataInicioVigencia: String?, dataFimVigencia: String?, flagAtivo: Bool?) -> RequestBuilder<PageOportunidadeResponse> {
         let path = "/api/oportunidades"
         let URLString = PierAPI.basePath + path
         
@@ -785,8 +785,8 @@ public class OportunidadeAPI: APIBase {
      - parameter flagAtivo: (query) Flag de verifica\u00C3\u00A7\u00C3\u00A3o se o tipo oportunidade est\u00C3\u00A1 ativo (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET29(sort sort: [String]?, page: Int?, limit: Int?, descricao: String?, flagAtivo: Bool?, completion: ((data: PageTipoOportunidadeResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET29WithRequestBuilder(sort: sort, page: page, limit: limit, descricao: descricao, flagAtivo: flagAtivo).execute { (response, error) -> Void in
+    public class func listarUsingGET30(sort sort: [String]?, page: Int?, limit: Int?, descricao: String?, flagAtivo: Bool?, completion: ((data: PageTipoOportunidadeResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET30WithRequestBuilder(sort: sort, page: page, limit: limit, descricao: descricao, flagAtivo: flagAtivo).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -827,7 +827,7 @@ public class OportunidadeAPI: APIBase {
 
      - returns: RequestBuilder<PageTipoOportunidadeResponse> 
      */
-    public class func listarUsingGET29WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, descricao: String?, flagAtivo: Bool?) -> RequestBuilder<PageTipoOportunidadeResponse> {
+    public class func listarUsingGET30WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, descricao: String?, flagAtivo: Bool?) -> RequestBuilder<PageTipoOportunidadeResponse> {
         let path = "/api/tipos-oportunidades"
         let URLString = PierAPI.basePath + path
         
@@ -898,8 +898,8 @@ public class OportunidadeAPI: APIBase {
      - parameter persist: (body) persist 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func salvarUsingPOST11(persist persist: OportunidadePersist, completion: ((data: OportunidadeResponse?, error: ErrorType?) -> Void)) {
-        salvarUsingPOST11WithRequestBuilder(persist: persist).execute { (response, error) -> Void in
+    public class func salvarUsingPOST12(persist persist: OportunidadePersist, completion: ((data: OportunidadeResponse?, error: ErrorType?) -> Void)) {
+        salvarUsingPOST12WithRequestBuilder(persist: persist).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -932,7 +932,7 @@ public class OportunidadeAPI: APIBase {
 
      - returns: RequestBuilder<OportunidadeResponse> 
      */
-    public class func salvarUsingPOST11WithRequestBuilder(persist persist: OportunidadePersist) -> RequestBuilder<OportunidadeResponse> {
+    public class func salvarUsingPOST12WithRequestBuilder(persist persist: OportunidadePersist) -> RequestBuilder<OportunidadeResponse> {
         let path = "/api/oportunidades"
         let URLString = PierAPI.basePath + path
         
@@ -950,8 +950,8 @@ public class OportunidadeAPI: APIBase {
      - parameter persist: (body) persist 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func salvarUsingPOST16(persist persist: TipoOportunidade, completion: ((data: TipoOportunidadeResponse?, error: ErrorType?) -> Void)) {
-        salvarUsingPOST16WithRequestBuilder(persist: persist).execute { (response, error) -> Void in
+    public class func salvarUsingPOST17(persist persist: TipoOportunidade, completion: ((data: TipoOportunidadeResponse?, error: ErrorType?) -> Void)) {
+        salvarUsingPOST17WithRequestBuilder(persist: persist).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -973,7 +973,7 @@ public class OportunidadeAPI: APIBase {
 
      - returns: RequestBuilder<TipoOportunidadeResponse> 
      */
-    public class func salvarUsingPOST16WithRequestBuilder(persist persist: TipoOportunidade) -> RequestBuilder<TipoOportunidadeResponse> {
+    public class func salvarUsingPOST17WithRequestBuilder(persist persist: TipoOportunidade) -> RequestBuilder<TipoOportunidadeResponse> {
         let path = "/api/tipos-oportunidades"
         let URLString = PierAPI.basePath + path
         

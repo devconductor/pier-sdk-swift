@@ -210,8 +210,8 @@ public class CadastroGeralAPI: APIBase {
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Produto (id) 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET15(id id: Int, completion: ((data: ProdutoDetalhesResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET15WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET16(id id: Int, completion: ((data: ProdutoDetalhesResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET16WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -236,7 +236,7 @@ public class CadastroGeralAPI: APIBase {
 
      - returns: RequestBuilder<ProdutoDetalhesResponse> 
      */
-    public class func consultarUsingGET15WithRequestBuilder(id id: Int) -> RequestBuilder<ProdutoDetalhesResponse> {
+    public class func consultarUsingGET16WithRequestBuilder(id id: Int) -> RequestBuilder<ProdutoDetalhesResponse> {
         var path = "/api/produtos/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -314,8 +314,8 @@ public class CadastroGeralAPI: APIBase {
      - parameter descricao: (query) Descri\u00C3\u00A7\u00C3\u00A3o do tipo de ajuste. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET21(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, descricao: String?, completion: ((data: PageTipoAjusteResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET21WithRequestBuilder(sort: sort, page: page, limit: limit, id: id, descricao: descricao).execute { (response, error) -> Void in
+    public class func consultarUsingGET22(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, descricao: String?, completion: ((data: PageTipoAjusteResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET22WithRequestBuilder(sort: sort, page: page, limit: limit, id: id, descricao: descricao).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -355,7 +355,7 @@ public class CadastroGeralAPI: APIBase {
 
      - returns: RequestBuilder<PageTipoAjusteResponse> 
      */
-    public class func consultarUsingGET21WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, descricao: String?) -> RequestBuilder<PageTipoAjusteResponse> {
+    public class func consultarUsingGET22WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, descricao: String?) -> RequestBuilder<PageTipoAjusteResponse> {
         let path = "/api/tipos-ajustes"
         let URLString = PierAPI.basePath + path
         
@@ -385,8 +385,8 @@ public class CadastroGeralAPI: APIBase {
      - parameter banco: (query) C\u00C3\u00B3digo identificador do banco. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET22(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, descricao: String?, banco: Int?, completion: ((data: PageTipoBoletoResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET22WithRequestBuilder(sort: sort, page: page, limit: limit, id: id, descricao: descricao, banco: banco).execute { (response, error) -> Void in
+    public class func consultarUsingGET23(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, descricao: String?, banco: Int?, completion: ((data: PageTipoBoletoResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET23WithRequestBuilder(sort: sort, page: page, limit: limit, id: id, descricao: descricao, banco: banco).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -433,7 +433,7 @@ public class CadastroGeralAPI: APIBase {
 
      - returns: RequestBuilder<PageTipoBoletoResponse> 
      */
-    public class func consultarUsingGET22WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, descricao: String?, banco: Int?) -> RequestBuilder<PageTipoBoletoResponse> {
+    public class func consultarUsingGET23WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, descricao: String?, banco: Int?) -> RequestBuilder<PageTipoBoletoResponse> {
         let path = "/api/tipos-boletos"
         let URLString = PierAPI.basePath + path
         
@@ -459,8 +459,8 @@ public class CadastroGeralAPI: APIBase {
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Tipo do Endere\u00C3\u00A7o (id) 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET23(id id: Int, completion: ((data: TipoEnderecoResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET23WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET24(id id: Int, completion: ((data: TipoEnderecoResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET24WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -481,7 +481,7 @@ public class CadastroGeralAPI: APIBase {
 
      - returns: RequestBuilder<TipoEnderecoResponse> 
      */
-    public class func consultarUsingGET23WithRequestBuilder(id id: Int) -> RequestBuilder<TipoEnderecoResponse> {
+    public class func consultarUsingGET24WithRequestBuilder(id id: Int) -> RequestBuilder<TipoEnderecoResponse> {
         var path = "/api/tipos-enderecos/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -503,8 +503,8 @@ public class CadastroGeralAPI: APIBase {
      - parameter codigoProcessamento: (query) C\u00C3\u00B3digo de processamento da opera\u00C3\u00A7\u00C3\u00A3o. 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET24(idCartao idCartao: Int, idEstabelecimento: Int, codigoProcessamento: String, completion: ((data: TipoOperacaoResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET24WithRequestBuilder(idCartao: idCartao, idEstabelecimento: idEstabelecimento, codigoProcessamento: codigoProcessamento).execute { (response, error) -> Void in
+    public class func consultarUsingGET25(idCartao idCartao: Int, idEstabelecimento: Int, codigoProcessamento: String, completion: ((data: TipoOperacaoResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET25WithRequestBuilder(idCartao: idCartao, idEstabelecimento: idEstabelecimento, codigoProcessamento: codigoProcessamento).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -541,7 +541,7 @@ public class CadastroGeralAPI: APIBase {
 
      - returns: RequestBuilder<TipoOperacaoResponse> 
      */
-    public class func consultarUsingGET24WithRequestBuilder(idCartao idCartao: Int, idEstabelecimento: Int, codigoProcessamento: String) -> RequestBuilder<TipoOperacaoResponse> {
+    public class func consultarUsingGET25WithRequestBuilder(idCartao idCartao: Int, idEstabelecimento: Int, codigoProcessamento: String) -> RequestBuilder<TipoOperacaoResponse> {
         let path = "/api/tipos-operacoes"
         let URLString = PierAPI.basePath + path
         
@@ -564,8 +564,8 @@ public class CadastroGeralAPI: APIBase {
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Tipo do Telefone (id) 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET26(id id: Int, completion: ((data: TipoTelefoneResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET26WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET27(id id: Int, completion: ((data: TipoTelefoneResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET27WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -586,7 +586,7 @@ public class CadastroGeralAPI: APIBase {
 
      - returns: RequestBuilder<TipoTelefoneResponse> 
      */
-    public class func consultarUsingGET26WithRequestBuilder(id id: Int) -> RequestBuilder<TipoTelefoneResponse> {
+    public class func consultarUsingGET27WithRequestBuilder(id id: Int) -> RequestBuilder<TipoTelefoneResponse> {
         var path = "/api/tipos-telefones/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -1406,8 +1406,8 @@ public class CadastroGeralAPI: APIBase {
      - parameter dataCancelamentoPortador: (query) Apresenta a data em que o Portador fora cancelado, quando possuir esta informa\u00C3\u00A7\u00C3\u00A3o. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET20(sort sort: [String]?, page: Int?, limit: Int?, idConta: Int?, idProduto: Int?, idPessoa: Int?, idParentesco: Int?, tipoPortador: String?, nomeImpresso: String?, idTipoCartao: Int?, flagAtivo: Int?, dataCadastroPortador: String?, dataCancelamentoPortador: String?, completion: ((data: PagePortadorResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET20WithRequestBuilder(sort: sort, page: page, limit: limit, idConta: idConta, idProduto: idProduto, idPessoa: idPessoa, idParentesco: idParentesco, tipoPortador: tipoPortador, nomeImpresso: nomeImpresso, idTipoCartao: idTipoCartao, flagAtivo: flagAtivo, dataCadastroPortador: dataCadastroPortador, dataCancelamentoPortador: dataCancelamentoPortador).execute { (response, error) -> Void in
+    public class func listarUsingGET21(sort sort: [String]?, page: Int?, limit: Int?, idConta: Int?, idProduto: Int?, idPessoa: Int?, idParentesco: Int?, tipoPortador: String?, nomeImpresso: String?, idTipoCartao: Int?, flagAtivo: Int?, dataCadastroPortador: String?, dataCancelamentoPortador: String?, completion: ((data: PagePortadorResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET21WithRequestBuilder(sort: sort, page: page, limit: limit, idConta: idConta, idProduto: idProduto, idPessoa: idPessoa, idParentesco: idParentesco, tipoPortador: tipoPortador, nomeImpresso: nomeImpresso, idTipoCartao: idTipoCartao, flagAtivo: flagAtivo, dataCadastroPortador: dataCadastroPortador, dataCancelamentoPortador: dataCancelamentoPortador).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -1463,7 +1463,7 @@ public class CadastroGeralAPI: APIBase {
 
      - returns: RequestBuilder<PagePortadorResponse> 
      */
-    public class func listarUsingGET20WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, idConta: Int?, idProduto: Int?, idPessoa: Int?, idParentesco: Int?, tipoPortador: String?, nomeImpresso: String?, idTipoCartao: Int?, flagAtivo: Int?, dataCadastroPortador: String?, dataCancelamentoPortador: String?) -> RequestBuilder<PagePortadorResponse> {
+    public class func listarUsingGET21WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, idConta: Int?, idProduto: Int?, idPessoa: Int?, idParentesco: Int?, tipoPortador: String?, nomeImpresso: String?, idTipoCartao: Int?, flagAtivo: Int?, dataCadastroPortador: String?, dataCancelamentoPortador: String?) -> RequestBuilder<PagePortadorResponse> {
         let path = "/api/portadores"
         let URLString = PierAPI.basePath + path
         
@@ -1501,8 +1501,8 @@ public class CadastroGeralAPI: APIBase {
      - parameter idFantasiaBasica: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Fantasia B\u00C3\u00A1sica (id) a qual o produto pertence. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET21(sort sort: [String]?, page: Int?, limit: Int?, nome: String?, status: Int?, idFantasiaBasica: Int?, completion: ((data: PageProdutoResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET21WithRequestBuilder(sort: sort, page: page, limit: limit, nome: nome, status: status, idFantasiaBasica: idFantasiaBasica).execute { (response, error) -> Void in
+    public class func listarUsingGET22(sort sort: [String]?, page: Int?, limit: Int?, nome: String?, status: Int?, idFantasiaBasica: Int?, completion: ((data: PageProdutoResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET22WithRequestBuilder(sort: sort, page: page, limit: limit, nome: nome, status: status, idFantasiaBasica: idFantasiaBasica).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -1545,7 +1545,7 @@ public class CadastroGeralAPI: APIBase {
 
      - returns: RequestBuilder<PageProdutoResponse> 
      */
-    public class func listarUsingGET21WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, nome: String?, status: Int?, idFantasiaBasica: Int?) -> RequestBuilder<PageProdutoResponse> {
+    public class func listarUsingGET22WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, nome: String?, status: Int?, idFantasiaBasica: Int?) -> RequestBuilder<PageProdutoResponse> {
         let path = "/api/produtos"
         let URLString = PierAPI.basePath + path
         
@@ -1578,8 +1578,8 @@ public class CadastroGeralAPI: APIBase {
      - parameter idUsuario: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do usu\u00C3\u00A1rio (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET22(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, nome: String?, dataCadastro: String?, idEstabelecimento: Int?, idUsuario: Int?, completion: ((data: PagePromotorResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET22WithRequestBuilder(sort: sort, page: page, limit: limit, id: id, nome: nome, dataCadastro: dataCadastro, idEstabelecimento: idEstabelecimento, idUsuario: idUsuario).execute { (response, error) -> Void in
+    public class func listarUsingGET23(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, nome: String?, dataCadastro: String?, idEstabelecimento: Int?, idUsuario: Int?, completion: ((data: PagePromotorResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET23WithRequestBuilder(sort: sort, page: page, limit: limit, id: id, nome: nome, dataCadastro: dataCadastro, idEstabelecimento: idEstabelecimento, idUsuario: idUsuario).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -1625,7 +1625,7 @@ public class CadastroGeralAPI: APIBase {
 
      - returns: RequestBuilder<PagePromotorResponse> 
      */
-    public class func listarUsingGET22WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, nome: String?, dataCadastro: String?, idEstabelecimento: Int?, idUsuario: Int?) -> RequestBuilder<PagePromotorResponse> {
+    public class func listarUsingGET23WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, nome: String?, dataCadastro: String?, idEstabelecimento: Int?, idUsuario: Int?) -> RequestBuilder<PagePromotorResponse> {
         let path = "/api/promotores"
         let URLString = PierAPI.basePath + path
         
@@ -1657,8 +1657,8 @@ public class CadastroGeralAPI: APIBase {
      - parameter nome: (query) Nome do Tipo do Endere\u00C3\u00A7o (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET28(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, nome: String?, completion: ((data: PageTipoEnderecoResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET28WithRequestBuilder(sort: sort, page: page, limit: limit, id: id, nome: nome).execute { (response, error) -> Void in
+    public class func listarUsingGET29(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, nome: String?, completion: ((data: PageTipoEnderecoResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET29WithRequestBuilder(sort: sort, page: page, limit: limit, id: id, nome: nome).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -1698,7 +1698,7 @@ public class CadastroGeralAPI: APIBase {
 
      - returns: RequestBuilder<PageTipoEnderecoResponse> 
      */
-    public class func listarUsingGET28WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, nome: String?) -> RequestBuilder<PageTipoEnderecoResponse> {
+    public class func listarUsingGET29WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, nome: String?) -> RequestBuilder<PageTipoEnderecoResponse> {
         let path = "/api/tipos-enderecos"
         let URLString = PierAPI.basePath + path
         
@@ -1793,8 +1793,8 @@ public class CadastroGeralAPI: APIBase {
      - parameter nome: (query) Nome do Tipo do Telefone (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET30(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, nome: String?, completion: ((data: PageTipoTelefoneResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET30WithRequestBuilder(sort: sort, page: page, limit: limit, id: id, nome: nome).execute { (response, error) -> Void in
+    public class func listarUsingGET31(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, nome: String?, completion: ((data: PageTipoTelefoneResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET31WithRequestBuilder(sort: sort, page: page, limit: limit, id: id, nome: nome).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -1834,7 +1834,7 @@ public class CadastroGeralAPI: APIBase {
 
      - returns: RequestBuilder<PageTipoTelefoneResponse> 
      */
-    public class func listarUsingGET30WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, nome: String?) -> RequestBuilder<PageTipoTelefoneResponse> {
+    public class func listarUsingGET31WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, nome: String?) -> RequestBuilder<PageTipoTelefoneResponse> {
         let path = "/api/tipos-telefones"
         let URLString = PierAPI.basePath + path
         
@@ -1862,8 +1862,8 @@ public class CadastroGeralAPI: APIBase {
      - parameter dataVencimento: (query) Indica a data de vencimento das faturas (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET36(sort sort: [String]?, page: Int?, limit: Int?, dataVencimento: String?, completion: ((data: PageControleVencimentoResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET36WithRequestBuilder(sort: sort, page: page, limit: limit, dataVencimento: dataVencimento).execute { (response, error) -> Void in
+    public class func listarUsingGET37(sort sort: [String]?, page: Int?, limit: Int?, dataVencimento: String?, completion: ((data: PageControleVencimentoResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET37WithRequestBuilder(sort: sort, page: page, limit: limit, dataVencimento: dataVencimento).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -1906,7 +1906,7 @@ public class CadastroGeralAPI: APIBase {
 
      - returns: RequestBuilder<PageControleVencimentoResponse> 
      */
-    public class func listarUsingGET36WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, dataVencimento: String?) -> RequestBuilder<PageControleVencimentoResponse> {
+    public class func listarUsingGET37WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, dataVencimento: String?) -> RequestBuilder<PageControleVencimentoResponse> {
         let path = "/api/vencimentos"
         let URLString = PierAPI.basePath + path
         

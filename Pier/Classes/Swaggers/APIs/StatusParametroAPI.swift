@@ -105,8 +105,8 @@ public class StatusParametroAPI: APIBase {
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Status da Conta (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET17(id id: Int, completion: ((data: StatusContaResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET17WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET18(id id: Int, completion: ((data: StatusContaResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET18WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -136,7 +136,7 @@ public class StatusParametroAPI: APIBase {
 
      - returns: RequestBuilder<StatusContaResponse> 
      */
-    public class func consultarUsingGET17WithRequestBuilder(id id: Int) -> RequestBuilder<StatusContaResponse> {
+    public class func consultarUsingGET18WithRequestBuilder(id id: Int) -> RequestBuilder<StatusContaResponse> {
         var path = "/api/status-contas/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -156,8 +156,8 @@ public class StatusParametroAPI: APIBase {
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Status de Impress\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET18(id id: Int, completion: ((data: StatusImpressaoResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET18WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET19(id id: Int, completion: ((data: StatusImpressaoResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET19WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -178,7 +178,7 @@ public class StatusParametroAPI: APIBase {
 
      - returns: RequestBuilder<StatusImpressaoResponse> 
      */
-    public class func consultarUsingGET18WithRequestBuilder(id id: Int) -> RequestBuilder<StatusImpressaoResponse> {
+    public class func consultarUsingGET19WithRequestBuilder(id id: Int) -> RequestBuilder<StatusImpressaoResponse> {
         var path = "/api/status-impressoes/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -367,8 +367,8 @@ public class StatusParametroAPI: APIBase {
      - parameter permiteAtribuirComoCancelamento: (query) Par\u00C3\u00A2metro que define se o Status da conta permite ser atribu\u00C3\u00ADdo para realizar o cancelamento definitivo de uma conta, sendo: 0: Inativo e 1: Ativo. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET24(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, nome: String?, permiteAlterarVencimento: Int?, permiteAlterarLimite: Int?, permiteEmitirNovaViaCartao: Int?, permiteFazerTransferencia: Int?, permiteReceberTransferencia: Int?, permiteCriarAcordoCobranca: Int?, permiteAtribuirComoBloqueio: Int?, permiteDesbloquear: Int?, permiteAtribuirComoCancelamento: Int?, completion: ((data: PageStatusContaResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET24WithRequestBuilder(sort: sort, page: page, limit: limit, id: id, nome: nome, permiteAlterarVencimento: permiteAlterarVencimento, permiteAlterarLimite: permiteAlterarLimite, permiteEmitirNovaViaCartao: permiteEmitirNovaViaCartao, permiteFazerTransferencia: permiteFazerTransferencia, permiteReceberTransferencia: permiteReceberTransferencia, permiteCriarAcordoCobranca: permiteCriarAcordoCobranca, permiteAtribuirComoBloqueio: permiteAtribuirComoBloqueio, permiteDesbloquear: permiteDesbloquear, permiteAtribuirComoCancelamento: permiteAtribuirComoCancelamento).execute { (response, error) -> Void in
+    public class func listarUsingGET25(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, nome: String?, permiteAlterarVencimento: Int?, permiteAlterarLimite: Int?, permiteEmitirNovaViaCartao: Int?, permiteFazerTransferencia: Int?, permiteReceberTransferencia: Int?, permiteCriarAcordoCobranca: Int?, permiteAtribuirComoBloqueio: Int?, permiteDesbloquear: Int?, permiteAtribuirComoCancelamento: Int?, completion: ((data: PageStatusContaResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET25WithRequestBuilder(sort: sort, page: page, limit: limit, id: id, nome: nome, permiteAlterarVencimento: permiteAlterarVencimento, permiteAlterarLimite: permiteAlterarLimite, permiteEmitirNovaViaCartao: permiteEmitirNovaViaCartao, permiteFazerTransferencia: permiteFazerTransferencia, permiteReceberTransferencia: permiteReceberTransferencia, permiteCriarAcordoCobranca: permiteCriarAcordoCobranca, permiteAtribuirComoBloqueio: permiteAtribuirComoBloqueio, permiteDesbloquear: permiteDesbloquear, permiteAtribuirComoCancelamento: permiteAtribuirComoCancelamento).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -426,7 +426,7 @@ public class StatusParametroAPI: APIBase {
 
      - returns: RequestBuilder<PageStatusContaResponse> 
      */
-    public class func listarUsingGET24WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, nome: String?, permiteAlterarVencimento: Int?, permiteAlterarLimite: Int?, permiteEmitirNovaViaCartao: Int?, permiteFazerTransferencia: Int?, permiteReceberTransferencia: Int?, permiteCriarAcordoCobranca: Int?, permiteAtribuirComoBloqueio: Int?, permiteDesbloquear: Int?, permiteAtribuirComoCancelamento: Int?) -> RequestBuilder<PageStatusContaResponse> {
+    public class func listarUsingGET25WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, nome: String?, permiteAlterarVencimento: Int?, permiteAlterarLimite: Int?, permiteEmitirNovaViaCartao: Int?, permiteFazerTransferencia: Int?, permiteReceberTransferencia: Int?, permiteCriarAcordoCobranca: Int?, permiteAtribuirComoBloqueio: Int?, permiteDesbloquear: Int?, permiteAtribuirComoCancelamento: Int?) -> RequestBuilder<PageStatusContaResponse> {
         let path = "/api/status-contas"
         let URLString = PierAPI.basePath + path
         
@@ -464,8 +464,8 @@ public class StatusParametroAPI: APIBase {
      - parameter nome: (query) Nome do status impress\u00C3\u00A3o (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET25(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, nome: String?, completion: ((data: PageStatusImpressaoResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET25WithRequestBuilder(sort: sort, page: page, limit: limit, id: id, nome: nome).execute { (response, error) -> Void in
+    public class func listarUsingGET26(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, nome: String?, completion: ((data: PageStatusImpressaoResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET26WithRequestBuilder(sort: sort, page: page, limit: limit, id: id, nome: nome).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -505,7 +505,7 @@ public class StatusParametroAPI: APIBase {
 
      - returns: RequestBuilder<PageStatusImpressaoResponse> 
      */
-    public class func listarUsingGET25WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, nome: String?) -> RequestBuilder<PageStatusImpressaoResponse> {
+    public class func listarUsingGET26WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, nome: String?) -> RequestBuilder<PageStatusImpressaoResponse> {
         let path = "/api/status-impressoes"
         let URLString = PierAPI.basePath + path
         
