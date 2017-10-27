@@ -12,7 +12,7 @@ import Foundation
 public class DetalhesFaturaResponse: JSONEncodable {
 
     /** Apresenta os detalhes da fatura */
-    public var fatura: FaturaResponse?
+    public var fatura: FaturaFechadaResponse?
     /** Apresenta as transa\u00C3\u00A7\u00C3\u00B5es relacionadas a fatura. */
     public var transacoes: [TransacoesCorrentesResponse]?
     

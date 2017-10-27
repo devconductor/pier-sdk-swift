@@ -432,6 +432,53 @@ public class CadastroClienteAPI: APIBase {
 
     /**
      
+     Atualiza conta integrada com o emissor
+     
+     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
+     - parameter body: (body) Descri\u00C3\u00A7\u00C3\u00A3o do canal de entrada (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func atualizarUsingPOST(id id: Int, body: IntegracaoEmissorPersist?, completion: ((data: IntegracaoEmissorResponse?, error: ErrorType?) -> Void)) {
+        atualizarUsingPOSTWithRequestBuilder(id: id, body: body).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Atualiza conta integrada com o emissor
+     
+     - POST /api/contas/{id}/atualizar-registro-integracao
+     - Este recurso permite a atualiza\u00C3\u00A7\u00C3\u00A3o de uma conta integrada com o emissor.
+     - examples: [{contentType=application/json, example={
+  "idArquivo" : 123456789,
+  "idConta" : 123456789,
+  "dataInclusao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "id" : 123456789,
+  "dataAlteracao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "status" : "aeiou"
+}}]
+     
+     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
+     - parameter body: (body) Descri\u00C3\u00A7\u00C3\u00A3o do canal de entrada (optional)
+
+     - returns: RequestBuilder<IntegracaoEmissorResponse> 
+     */
+    public class func atualizarUsingPOSTWithRequestBuilder(id id: Int, body: IntegracaoEmissorPersist?) -> RequestBuilder<IntegracaoEmissorResponse> {
+        var path = "/api/contas/{id}/atualizar-registro-integracao"
+        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
+        let URLString = PierAPI.basePath + path
+        
+        let parameters = body?.encodeToJSON() as? [String:AnyObject]
+
+        let requestBuilder: RequestBuilder<IntegracaoEmissorResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
      Realiza o cadastro de Adicionais para uma Conta
      
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
@@ -1484,6 +1531,13 @@ public class CadastroClienteAPI: APIBase {
   "idConta" : 123456789,
   "dataAberturaEmpresa" : "aeiou",
   "idProposta" : 123456789,
+  "referencias" : [ {
+    "telefone" : "aeiou",
+    "ddd" : "aeiou",
+    "nomeContrato" : "aeiou",
+    "razaoSocial" : "aeiou",
+    "email" : "aeiou"
+  } ],
   "limiteParcelas" : 1.3579000000000001069366817318950779736042022705078125,
   "cnpj" : "aeiou",
   "limiteGlobal" : 1.3579000000000001069366817318950779736042022705078125,

@@ -112,10 +112,11 @@ public class AntecipacaoAPI: APIBase {
      - parameter idConta: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Conta. 
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do evento. 
      - parameter quantidadeParcelas: (query) Quantidade de parcelas para serem antecipadas. 
+     - parameter complemento: (query) Dados complementares sobre a realiza\u00C3\u00A7\u00C3\u00A3o da transa\u00C3\u00A7\u00C3\u00A3o. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func efetivarAntecipacaoUsingPOST(idConta idConta: Int, id: Int, quantidadeParcelas: Int, completion: ((data: AntecipacaoResponse?, error: ErrorType?) -> Void)) {
-        efetivarAntecipacaoUsingPOSTWithRequestBuilder(idConta: idConta, id: id, quantidadeParcelas: quantidadeParcelas).execute { (response, error) -> Void in
+    public class func efetivarAntecipacaoUsingPOST(idConta idConta: Int, id: Int, quantidadeParcelas: Int, complemento: String?, completion: ((data: AntecipacaoResponse?, error: ErrorType?) -> Void)) {
+        efetivarAntecipacaoUsingPOSTWithRequestBuilder(idConta: idConta, id: id, quantidadeParcelas: quantidadeParcelas, complemento: complemento).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -142,21 +143,90 @@ public class AntecipacaoAPI: APIBase {
      - parameter idConta: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Conta. 
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do evento. 
      - parameter quantidadeParcelas: (query) Quantidade de parcelas para serem antecipadas. 
+     - parameter complemento: (query) Dados complementares sobre a realiza\u00C3\u00A7\u00C3\u00A3o da transa\u00C3\u00A7\u00C3\u00A3o. (optional)
 
      - returns: RequestBuilder<AntecipacaoResponse> 
      */
-    public class func efetivarAntecipacaoUsingPOSTWithRequestBuilder(idConta idConta: Int, id: Int, quantidadeParcelas: Int) -> RequestBuilder<AntecipacaoResponse> {
+    public class func efetivarAntecipacaoUsingPOSTWithRequestBuilder(idConta idConta: Int, id: Int, quantidadeParcelas: Int, complemento: String?) -> RequestBuilder<AntecipacaoResponse> {
         var path = "/api/compras-antecipaveis/{id}/efetivar-antecipacao"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
             "idConta": idConta,
-            "quantidadeParcelas": quantidadeParcelas
+            "quantidadeParcelas": quantidadeParcelas,
+            "complemento": complemento
         ]
         let parameters = APIHelper.rejectNil(nillableParameters)
 
         let requestBuilder: RequestBuilder<AntecipacaoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: false)
+    }
+
+    /**
+     
+     Faz a efetiva\u00C3\u00A7\u00C3\u00A3o da antecipa\u00C3\u00A7\u00C3\u00A3o
+     
+     - parameter idConta: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Conta. 
+     - parameter complemento: (query) Dados complementares sobre a realiza\u00C3\u00A7\u00C3\u00A3o da transa\u00C3\u00A7\u00C3\u00A3o. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func efetivarAntecipacoesUsingPOST(idConta idConta: Int, complemento: String?, completion: ((data: AntecipacaoMockResponse?, error: ErrorType?) -> Void)) {
+        efetivarAntecipacoesUsingPOSTWithRequestBuilder(idConta: idConta, complemento: complemento).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Faz a efetiva\u00C3\u00A7\u00C3\u00A3o da antecipa\u00C3\u00A7\u00C3\u00A3o
+     
+     - POST /api/compras-antecipaveis/efetivar-antecipacao
+     - M\u00C3\u00A9todo responsavel pela efetiva\u00C3\u00A7\u00C3\u00A3o de todas as compras antecip\u00C3\u00A1veis com todas as parcelas de uma conta.
+     - examples: [{contentType=application/json, example={
+  "cidade" : "aeiou",
+  "idConta" : 123456789,
+  "tipoOrigemTransacao" : "aeiou",
+  "valorDescontoTotal" : 1.3579000000000001069366817318950779736042022705078125,
+  "idGrupoMCC" : 123456789,
+  "latitude" : "aeiou",
+  "taxaDesconto" : 1.3579000000000001069366817318950779736042022705078125,
+  "quantidadeParcelasTotal" : 123456789,
+  "mcc" : 123456789,
+  "dataCompra" : "aeiou",
+  "pais" : "aeiou",
+  "descricaoGrupoMCC" : "aeiou",
+  "descricaoProduto" : "aeiou",
+  "nomeEstabelecimento" : "aeiou",
+  "uf" : "aeiou",
+  "valorParcela" : 1.3579000000000001069366817318950779736042022705078125,
+  "idProduto" : 123456789,
+  "idCompra" : 123456789,
+  "id" : 123456789,
+  "valorTotalComDesconto" : 1.3579000000000001069366817318950779736042022705078125,
+  "quantidadeParcelasAntecipadas" : 123456789,
+  "status" : "aeiou",
+  "longitude" : "aeiou"
+}}]
+     
+     - parameter idConta: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Conta. 
+     - parameter complemento: (query) Dados complementares sobre a realiza\u00C3\u00A7\u00C3\u00A3o da transa\u00C3\u00A7\u00C3\u00A3o. (optional)
+
+     - returns: RequestBuilder<AntecipacaoMockResponse> 
+     */
+    public class func efetivarAntecipacoesUsingPOSTWithRequestBuilder(idConta idConta: Int, complemento: String?) -> RequestBuilder<AntecipacaoMockResponse> {
+        let path = "/api/compras-antecipaveis/efetivar-antecipacao"
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [
+            "idConta": idConta,
+            "complemento": complemento
+        ]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<AntecipacaoMockResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: false)
     }
@@ -267,10 +337,11 @@ public class AntecipacaoAPI: APIBase {
      
      - parameter idConta: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta. 
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do evento. 
+     - parameter complemento: (query) Dados complementares sobre a realiza\u00C3\u00A7\u00C3\u00A3o da transa\u00C3\u00A7\u00C3\u00A3o. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func simularAntecipacaoUsingGET(idConta idConta: Int, id: Int, completion: ((data: AntecipacaoSimuladaResponse?, error: ErrorType?) -> Void)) {
-        simularAntecipacaoUsingGETWithRequestBuilder(idConta: idConta, id: id).execute { (response, error) -> Void in
+    public class func simularAntecipacaoUsingGET(idConta idConta: Int, id: Int, complemento: String?, completion: ((data: AntecipacaoSimuladaResponse?, error: ErrorType?) -> Void)) {
+        simularAntecipacaoUsingGETWithRequestBuilder(idConta: idConta, id: id, complemento: complemento).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -301,20 +372,99 @@ public class AntecipacaoAPI: APIBase {
      
      - parameter idConta: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta. 
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do evento. 
+     - parameter complemento: (query) Dados complementares sobre a realiza\u00C3\u00A7\u00C3\u00A3o da transa\u00C3\u00A7\u00C3\u00A3o. (optional)
 
      - returns: RequestBuilder<AntecipacaoSimuladaResponse> 
      */
-    public class func simularAntecipacaoUsingGETWithRequestBuilder(idConta idConta: Int, id: Int) -> RequestBuilder<AntecipacaoSimuladaResponse> {
+    public class func simularAntecipacaoUsingGETWithRequestBuilder(idConta idConta: Int, id: Int, complemento: String?) -> RequestBuilder<AntecipacaoSimuladaResponse> {
         var path = "/api/compras-antecipaveis/{id}/simular-antecipacao"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
-            "idConta": idConta
+            "idConta": idConta,
+            "complemento": complemento
         ]
         let parameters = APIHelper.rejectNil(nillableParameters)
 
         let requestBuilder: RequestBuilder<AntecipacaoSimuladaResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
+    }
+
+    /**
+     
+     Simular antecipa\u00C3\u00A7\u00C3\u00A3o de todas as parcelas antecip\u00C3\u00A1veis
+     
+     - parameter idConta: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta. 
+     - parameter complemento: (query) Dados complementares sobre a realiza\u00C3\u00A7\u00C3\u00A3o da transa\u00C3\u00A7\u00C3\u00A3o. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func simularAntecipacoesUsingGET(idConta idConta: Int, complemento: String?, completion: ((data: AntecipacaoSimuladaLoteResponse?, error: ErrorType?) -> Void)) {
+        simularAntecipacoesUsingGETWithRequestBuilder(idConta: idConta, complemento: complemento).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Simular antecipa\u00C3\u00A7\u00C3\u00A3o de todas as parcelas antecip\u00C3\u00A1veis
+     
+     - GET /api/compras-antecipaveis/simular-antecipacao
+     - O recurso permite realizar a simula\u00C3\u00A7\u00C3\u00A3o da antecipa\u00C3\u00A7\u00C3\u00A3o de todas as compras antecip\u00C3\u00A1veis de todas as parcelas de uma determinada conta.
+     - examples: [{contentType=application/json, example={
+  "valorTotalDesconto" : 1.3579000000000001069366817318950779736042022705078125,
+  "antecipacoesSimuladas" : [ {
+    "quantidadeParcelasAntecipaveis" : 123,
+    "cidade" : "aeiou",
+    "idConta" : 123456789,
+    "tipoOrigemTransacao" : "aeiou",
+    "dataHoraSimulacao" : "aeiou",
+    "idGrupoMCC" : 123456789,
+    "latitude" : "aeiou",
+    "mcc" : 123456789,
+    "dataCompra" : "aeiou",
+    "pais" : "aeiou",
+    "descricaoGrupoMCC" : "aeiou",
+    "descricaoProduto" : "aeiou",
+    "nomeEstabelecimento" : "aeiou",
+    "uf" : "aeiou",
+    "valorParcela" : 1.3579000000000001069366817318950779736042022705078125,
+    "idProduto" : 123456789,
+    "idAntecipacaoSimulada" : 123456789,
+    "idCompra" : 123456789,
+    "idTipoTransacao" : 123456789,
+    "detalhes" : [ {
+      "valorDesconto" : 1.3579000000000001069366817318950779736042022705078125,
+      "valorParcelasDesconto" : 1.3579000000000001069366817318950779736042022705078125,
+      "valorParcelas" : 1.3579000000000001069366817318950779736042022705078125,
+      "quantidadeParcelas" : 123
+    } ],
+    "taxaAntecipacaoAno" : 1.3579000000000001069366817318950779736042022705078125,
+    "status" : "aeiou",
+    "longitude" : "aeiou"
+  } ],
+  "valorTotalAntecipado" : 1.3579000000000001069366817318950779736042022705078125,
+  "valorTotalComDesconto" : 1.3579000000000001069366817318950779736042022705078125
+}}]
+     
+     - parameter idConta: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta. 
+     - parameter complemento: (query) Dados complementares sobre a realiza\u00C3\u00A7\u00C3\u00A3o da transa\u00C3\u00A7\u00C3\u00A3o. (optional)
+
+     - returns: RequestBuilder<AntecipacaoSimuladaLoteResponse> 
+     */
+    public class func simularAntecipacoesUsingGETWithRequestBuilder(idConta idConta: Int, complemento: String?) -> RequestBuilder<AntecipacaoSimuladaLoteResponse> {
+        let path = "/api/compras-antecipaveis/simular-antecipacao"
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [
+            "idConta": idConta,
+            "complemento": complemento
+        ]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<AntecipacaoSimuladaLoteResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
     }

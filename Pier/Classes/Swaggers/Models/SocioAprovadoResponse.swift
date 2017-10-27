@@ -11,7 +11,7 @@ import Foundation
 /** PessoaPersist */
 public class SocioAprovadoResponse: JSONEncodable {
 
-    /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Endere\u00C3\u00A7o (id) */
+    /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do S\u00C3\u00B3cio (id) */
     public var id: Int?
     /** Apresenta o Nome do Socio */
     public var nome: String?

@@ -51,6 +51,8 @@ public class PessoaJuridicaAprovadaResponse: JSONEncodable {
     public var enderecos: [EnderecoAprovadoResponse]?
     /** Apresenta os dados dos s\u00C3\u00B3cios da empresa, caso exista */
     public var socios: [SocioAprovadoResponse]?
+    /** Apresenta os dados dos s\u00C3\u00B3cios da empresa, caso exista */
+    public var referencias: [ReferenciaComercialAprovadoResponse]?
     /** Valor do Limite Global */
     public var limiteGlobal: Double?
     /** Valor m\u00C3\u00A1ximo do limite de cr\u00C3\u00A9dito para realizar transa\u00C3\u00A7\u00C3\u00B5es */
@@ -84,6 +86,7 @@ public class PessoaJuridicaAprovadaResponse: JSONEncodable {
         nillableDictionary["telefones"] = self.telefones?.encodeToJSON()
         nillableDictionary["enderecos"] = self.enderecos?.encodeToJSON()
         nillableDictionary["socios"] = self.socios?.encodeToJSON()
+        nillableDictionary["referencias"] = self.referencias?.encodeToJSON()
         nillableDictionary["limiteGlobal"] = self.limiteGlobal
         nillableDictionary["limiteMaximo"] = self.limiteMaximo
         nillableDictionary["limiteParcelas"] = self.limiteParcelas

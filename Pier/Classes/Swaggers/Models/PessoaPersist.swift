@@ -11,32 +11,32 @@ import Foundation
 /** PessoaPersist */
 public class PessoaPersist: JSONEncodable {
 
-    /** N\u00C3\u00BAmero do CPF, quando PF. */
-    public var cpf: String?
-    /** Data emiss\u00C3\u00A3o da Identidade */
-    public var dataEmissaoIdentidade: String?
-    /** Data de Nascimento da Pessoa, quando PF, ou a Data de Abertura da Empresa, quando PJ. Essa data deve ser informada no formato aaaa-MM-dd. */
-    public var dataNascimento: String?
-    /** Email do s\u00C3\u00B3cio */
-    public var email: String?
-    /** Estado civil do s\u00C3\u00B3cio */
-    public var estadoCivil: String?
-    /** Nacionalidade do s\u00C3\u00B3cio */
-    public var nacionalidade: String?
     /** Apresenta o Nome do Socio */
     public var nome: String?
+    /** N\u00C3\u00BAmero do CPF, quando PF. */
+    public var cpf: String?
+    /** Data de Nascimento da Pessoa, quando PF, ou a Data de Abertura da Empresa, quando PJ. Essa data deve ser informada no formato aaaa-MM-dd. */
+    public var dataNascimento: String?
+    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do sexo da Pessoa, quando PF, sendo: (\&quot;M\&quot;: Masculino), (\&quot;F\&quot;: Feminino). */
+    public var sexo: String?
     /** N\u00C3\u00BAmero da Identidade. */
     public var numeroIdentidade: String?
     /** Org\u00C3\u00A3o expedidor da Identidade. */
     public var orgaoExpedidorIdentidade: String?
-    /** Profiss\u00C3\u00A3o do s\u00C3\u00B3cio */
-    public var profissao: String?
-    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do sexo da Pessoa, quando PF, sendo: (\&quot;M\&quot;: Masculino), (\&quot;F\&quot;: Feminino). */
-    public var sexo: String?
-    /** Informa os telefones do s\u00C3\u00B3cio */
-    public var telefones: [TelefonePessoaAprovadaPersist]?
     /** Sigla da Unidade Federativa de onde foi expedido a Identidade */
     public var unidadeFederativaIdentidade: String?
+    /** Data emiss\u00C3\u00A3o da Identidade */
+    public var dataEmissaoIdentidade: String?
+    /** Estado civil do s\u00C3\u00B3cio */
+    public var estadoCivil: String?
+    /** Profiss\u00C3\u00A3o do s\u00C3\u00B3cio */
+    public var profissao: String?
+    /** Nacionalidade do s\u00C3\u00B3cio */
+    public var nacionalidade: String?
+    /** Email do s\u00C3\u00B3cio */
+    public var email: String?
+    /** Informa os telefones do s\u00C3\u00B3cio */
+    public var telefones: [TelefonePessoaAprovadaPersist]?
     
 
     public init() {}
@@ -44,19 +44,19 @@ public class PessoaPersist: JSONEncodable {
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
-        nillableDictionary["cpf"] = self.cpf
-        nillableDictionary["dataEmissaoIdentidade"] = self.dataEmissaoIdentidade
-        nillableDictionary["dataNascimento"] = self.dataNascimento
-        nillableDictionary["email"] = self.email
-        nillableDictionary["estadoCivil"] = self.estadoCivil
-        nillableDictionary["nacionalidade"] = self.nacionalidade
         nillableDictionary["nome"] = self.nome
+        nillableDictionary["cpf"] = self.cpf
+        nillableDictionary["dataNascimento"] = self.dataNascimento
+        nillableDictionary["sexo"] = self.sexo
         nillableDictionary["numeroIdentidade"] = self.numeroIdentidade
         nillableDictionary["orgaoExpedidorIdentidade"] = self.orgaoExpedidorIdentidade
-        nillableDictionary["profissao"] = self.profissao
-        nillableDictionary["sexo"] = self.sexo
-        nillableDictionary["telefones"] = self.telefones?.encodeToJSON()
         nillableDictionary["unidadeFederativaIdentidade"] = self.unidadeFederativaIdentidade
+        nillableDictionary["dataEmissaoIdentidade"] = self.dataEmissaoIdentidade
+        nillableDictionary["estadoCivil"] = self.estadoCivil
+        nillableDictionary["profissao"] = self.profissao
+        nillableDictionary["nacionalidade"] = self.nacionalidade
+        nillableDictionary["email"] = self.email
+        nillableDictionary["telefones"] = self.telefones?.encodeToJSON()
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

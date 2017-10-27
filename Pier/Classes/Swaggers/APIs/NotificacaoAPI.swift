@@ -975,7 +975,7 @@ public class NotificacaoAPI: APIBase {
      - parameter request: (body) request 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func notificacaoEmailUsingPOST(request request: NotificacaoEmailRequest, completion: ((data: NotificacaoEmailResponse?, error: ErrorType?) -> Void)) {
+    public class func notificacaoEmailUsingPOST(request request: NotificacaoEmailRequest, completion: ((data: AnyObject?, error: ErrorType?) -> Void)) {
         notificacaoEmailUsingPOSTWithRequestBuilder(request: request).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -988,25 +988,19 @@ public class NotificacaoAPI: APIBase {
      
      - POST /api/notificacoes-email
      - Esse recurso permite enviar uma mensagem de notifica\u00C3\u00A7\u00C3\u00A3o por email
-     - examples: [{contentType=application/json, example={
-  "remetente" : "aeiou",
-  "idDocumento" : 123456789,
-  "idTemplateNotificacao" : 123456789,
-  "id" : 123456789,
-  "destinatario" : "aeiou"
-}}]
+     - examples: [{contentType=application/json, example="{}"}]
      
      - parameter request: (body) request 
 
-     - returns: RequestBuilder<NotificacaoEmailResponse> 
+     - returns: RequestBuilder<AnyObject> 
      */
-    public class func notificacaoEmailUsingPOSTWithRequestBuilder(request request: NotificacaoEmailRequest) -> RequestBuilder<NotificacaoEmailResponse> {
+    public class func notificacaoEmailUsingPOSTWithRequestBuilder(request request: NotificacaoEmailRequest) -> RequestBuilder<AnyObject> {
         let path = "/api/notificacoes-email"
         let URLString = PierAPI.basePath + path
         
         let parameters = request.encodeToJSON() as? [String:AnyObject]
 
-        let requestBuilder: RequestBuilder<NotificacaoEmailResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<AnyObject>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
     }
@@ -1020,8 +1014,8 @@ public class NotificacaoAPI: APIBase {
      - parameter resposta: (query) TextoStatus (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func responderSMSUsingPOST(nsu nsu: String?, data: String?, resposta: String?, completion: ((data: NotificacaoSMSResponse?, error: ErrorType?) -> Void)) {
-        responderSMSUsingPOSTWithRequestBuilder(nsu: nsu, data: data, resposta: resposta).execute { (response, error) -> Void in
+    public class func responderSMSGetUsingGET(nsu nsu: String?, data: String?, resposta: String?, completion: ((data: NotificacaoSMSResponse?, error: ErrorType?) -> Void)) {
+        responderSMSGetUsingGETWithRequestBuilder(nsu: nsu, data: data, resposta: resposta).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -1031,7 +1025,7 @@ public class NotificacaoAPI: APIBase {
      
      Responder SMS
      
-     - POST /api/notificacoes/sms/responder
+     - GET /api/notificacoes/sms/responder
      - Esse recurso permite atualizar a resposta do SMS, fornecida pedo usu\u00C3\u00A1rio
      - examples: [{contentType=application/json, example={
   "quantidadeTentativasEnvio" : 123,
@@ -1059,7 +1053,7 @@ public class NotificacaoAPI: APIBase {
 
      - returns: RequestBuilder<NotificacaoSMSResponse> 
      */
-    public class func responderSMSUsingPOSTWithRequestBuilder(nsu nsu: String?, data: String?, resposta: String?) -> RequestBuilder<NotificacaoSMSResponse> {
+    public class func responderSMSGetUsingGETWithRequestBuilder(nsu nsu: String?, data: String?, resposta: String?) -> RequestBuilder<NotificacaoSMSResponse> {
         let path = "/api/notificacoes/sms/responder"
         let URLString = PierAPI.basePath + path
         
@@ -1072,7 +1066,7 @@ public class NotificacaoAPI: APIBase {
 
         let requestBuilder: RequestBuilder<NotificacaoSMSResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
     }
 
     /**

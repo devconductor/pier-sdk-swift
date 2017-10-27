@@ -241,7 +241,7 @@ public class DocumentoAPI: APIBase {
      - parameter integrarDocumentoRequest: (body) integrarDocumentoRequest 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func integrarUsingPOST(integrarDocumentoRequest integrarDocumentoRequest: IntegrarDocumentoRequest, completion: ((data: String?, error: ErrorType?) -> Void)) {
+    public class func integrarUsingPOST(integrarDocumentoRequest integrarDocumentoRequest: IntegrarDocumentoRequest, completion: ((data: DocumentoIntegracaoResponse?, error: ErrorType?) -> Void)) {
         integrarUsingPOSTWithRequestBuilder(integrarDocumentoRequest: integrarDocumentoRequest).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -254,19 +254,23 @@ public class DocumentoAPI: APIBase {
      
      - POST /api/documentos/integrar
      - Este recurso permite integrar um documento ao reposit\u00C3\u00B3rio pre-configurado.
-     - examples: [{contentType=application/json, example="aeiou"}]
+     - examples: [{contentType=application/json, example={
+  "idTemplate" : 123456789,
+  "nome" : "aeiou",
+  "id" : 123456789
+}}]
      
      - parameter integrarDocumentoRequest: (body) integrarDocumentoRequest 
 
-     - returns: RequestBuilder<String> 
+     - returns: RequestBuilder<DocumentoIntegracaoResponse> 
      */
-    public class func integrarUsingPOSTWithRequestBuilder(integrarDocumentoRequest integrarDocumentoRequest: IntegrarDocumentoRequest) -> RequestBuilder<String> {
+    public class func integrarUsingPOSTWithRequestBuilder(integrarDocumentoRequest integrarDocumentoRequest: IntegrarDocumentoRequest) -> RequestBuilder<DocumentoIntegracaoResponse> {
         let path = "/api/documentos/integrar"
         let URLString = PierAPI.basePath + path
         
         let parameters = integrarDocumentoRequest.encodeToJSON() as? [String:AnyObject]
 
-        let requestBuilder: RequestBuilder<String>.Type = PierAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<DocumentoIntegracaoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
     }

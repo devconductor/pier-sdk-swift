@@ -349,6 +349,41 @@ public class StatusParametroAPI: APIBase {
 
     /**
      
+     Lista os tipos de transa\u00C3\u00A7\u00C3\u00B5es
+     
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func listarTiposEventosTransacoesUsingGET(completion: ((data: [AnyObject]?, error: ErrorType?) -> Void)) {
+        listarTiposEventosTransacoesUsingGETWithRequestBuilder().execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Lista os tipos de transa\u00C3\u00A7\u00C3\u00B5es
+     
+     - GET /api/tipos-eventos-transacoes
+     - Esse recurso permite listar os tipos de transa\u00C3\u00A7\u00C3\u00B5es dispon\u00C3\u00ADveis.
+     - examples: [{contentType=application/json, example=[ "{}" ]}]
+
+     - returns: RequestBuilder<[AnyObject]> 
+     */
+    public class func listarTiposEventosTransacoesUsingGETWithRequestBuilder() -> RequestBuilder<[AnyObject]> {
+        let path = "/api/tipos-eventos-transacoes"
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<[AnyObject]>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
      Lista os Status Contas cadastrados para o Emissor
      
      - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)

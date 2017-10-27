@@ -45,10 +45,12 @@ public class PessoaJuridicaAprovadaPersist: JSONEncodable {
     public var telefones: [TelefonePessoaAprovadaPersist]?
     /** Pode ser informado os seguintes tipos de endere\u00C3\u00A7o: Residencial, Comercial, e Outros */
     public var enderecos: [EnderecoAprovadoPersist]?
-    /** Valor do Limite Global */
-    public var limiteGlobal: Double?
     /** Apresenta os dados dos s\u00C3\u00B3cios da empresa, caso exista */
     public var socios: [PessoaPersist]?
+    /** Apresenta os dados das refer\u00C3\u00AAncias comerciais */
+    public var referenciasComerciais: [RefenciaComercialAprovadoPersist]?
+    /** Valor do Limite Global */
+    public var limiteGlobal: Double?
     /** Valor m\u00C3\u00A1ximo do limite de cr\u00C3\u00A9dito para realizar transa\u00C3\u00A7\u00C3\u00B5es */
     public var limiteMaximo: Double?
     /** Valor do limite de cr\u00C3\u00A9dito acumulado da soma das parcelas das compras */
@@ -77,8 +79,9 @@ public class PessoaJuridicaAprovadaPersist: JSONEncodable {
         nillableDictionary["valorPontuacao"] = self.valorPontuacao
         nillableDictionary["telefones"] = self.telefones?.encodeToJSON()
         nillableDictionary["enderecos"] = self.enderecos?.encodeToJSON()
-        nillableDictionary["limiteGlobal"] = self.limiteGlobal
         nillableDictionary["socios"] = self.socios?.encodeToJSON()
+        nillableDictionary["referenciasComerciais"] = self.referenciasComerciais?.encodeToJSON()
+        nillableDictionary["limiteGlobal"] = self.limiteGlobal
         nillableDictionary["limiteMaximo"] = self.limiteMaximo
         nillableDictionary["limiteParcelas"] = self.limiteParcelas
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]

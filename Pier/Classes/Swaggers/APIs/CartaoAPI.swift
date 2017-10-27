@@ -343,6 +343,45 @@ public class CartaoAPI: APIBase {
 
     /**
      
+     Consultar os dados de impress\u00C3\u00A3o de um Cart\u00C3\u00A3o
+     
+     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do cart\u00C3\u00A3o (id). 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func consultarCartaoImpressaoUsingGET(id id: Int, completion: ((data: AnyObject?, error: ErrorType?) -> Void)) {
+        consultarCartaoImpressaoUsingGETWithRequestBuilder(id: id).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Consultar os dados de impress\u00C3\u00A3o de um Cart\u00C3\u00A3o
+     
+     - GET /api/cartoes/{id}/consultar-dados-impressao
+     - Esse recurso permite consultar os dados de impress\u00C3\u00A3o de um cart\u00C3\u00A3o
+     - examples: [{contentType=application/json, example="{}"}]
+     
+     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do cart\u00C3\u00A3o (id). 
+
+     - returns: RequestBuilder<AnyObject> 
+     */
+    public class func consultarCartaoImpressaoUsingGETWithRequestBuilder(id id: Int) -> RequestBuilder<AnyObject> {
+        var path = "/api/cartoes/{id}/consultar-dados-impressao"
+        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<AnyObject>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
      Consultar Detalhes do Cart\u00C3\u00A3o
      
      - parameter id: (path) id 

@@ -389,10 +389,11 @@ public class ConductorPayAPI: APIBase {
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter status: (query) Status do cart\u00C3\u00A3o tokenizado (optional)
+     - parameter numeroCartao: (query) Numero do cart\u00C3\u00A3o tokenizado (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET6(sort sort: [String]?, page: Int?, limit: Int?, status: String?, completion: ((data: PageCartaoPayResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET6WithRequestBuilder(sort: sort, page: page, limit: limit, status: status).execute { (response, error) -> Void in
+    public class func listarUsingGET6(sort sort: [String]?, page: Int?, limit: Int?, status: String?, numeroCartao: String?, completion: ((data: PageCartaoPayResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET6WithRequestBuilder(sort: sort, page: page, limit: limit, status: status, numeroCartao: numeroCartao).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -434,10 +435,11 @@ public class ConductorPayAPI: APIBase {
      - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter status: (query) Status do cart\u00C3\u00A3o tokenizado (optional)
+     - parameter numeroCartao: (query) Numero do cart\u00C3\u00A3o tokenizado (optional)
 
      - returns: RequestBuilder<PageCartaoPayResponse> 
      */
-    public class func listarUsingGET6WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, status: String?) -> RequestBuilder<PageCartaoPayResponse> {
+    public class func listarUsingGET6WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, status: String?, numeroCartao: String?) -> RequestBuilder<PageCartaoPayResponse> {
         let path = "/api/cartoes-tokenizados"
         let URLString = PierAPI.basePath + path
         
@@ -445,7 +447,8 @@ public class ConductorPayAPI: APIBase {
             "sort": sort,
             "page": page,
             "limit": limit,
-            "status": status
+            "status": status,
+            "numeroCartao": numeroCartao
         ]
         let parameters = APIHelper.rejectNil(nillableParameters)
 

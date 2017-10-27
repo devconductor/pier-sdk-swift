@@ -15,8 +15,6 @@ public class AlterarProdutoRequest: JSONEncodable {
     public var idProduto: Int?
     /** C\u00C3\u00B3digo identificador da origem comercial. */
     public var idOrigemComercial: Int?
-    /** Valor do novo limite Global. */
-    public var limiteGlobal: Double?
     
 
     public init() {}
@@ -26,7 +24,6 @@ public class AlterarProdutoRequest: JSONEncodable {
         var nillableDictionary = [String:AnyObject?]()
         nillableDictionary["idProduto"] = self.idProduto
         nillableDictionary["idOrigemComercial"] = self.idOrigemComercial
-        nillableDictionary["limiteGlobal"] = self.limiteGlobal
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

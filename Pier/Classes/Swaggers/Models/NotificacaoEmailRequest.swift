@@ -11,21 +11,12 @@ import Foundation
 /** Representa\u00C3\u00A7\u00C3\u00A3o do recurso para envio de uma notifica\u00C3\u00A7\u00C3\u00A3o por email. */
 public class NotificacaoEmailRequest: JSONEncodable {
 
-    public enum TipoLayout: String { 
-        case RecuperarSenha = "RECUPERAR_SENHA"
-        case FaturaPorEmail = "FATURA_POR_EMAIL"
-        case ValidarDispositivo = "VALIDAR_DISPOSITIVO"
-        case NotificacaoEmail = "NOTIFICACAO_EMAIL"
-    }
-    
-    /** ID para o documento a ser enviado. */
-    public var idDocumento: Int?
     /** ID para o template da notifica\u00C3\u00A7\u00C3\u00A3o. */
     public var idTemplateNotificacao: Int?
-    /** Email do destinat\u00C3\u00A1rio. */
-    public var destinatario: String?
-    /** Tipo de layout para o template da notifica\u00C3\u00A7\u00C3\u00A3o. */
-    public var tipoLayout: TipoLayout?
+    /** Lista de email(s) do(s) destinat\u00C3\u00A1rio(s). */
+    public var destinatarios: [String]?
+    /** Lista de ids dos anexos a serem enviados. */
+    public var anexos: [AnexoNotificacaoEmailRequest]?
     /** Mapa de par\u00C3\u00A2metros para montagem da notifica\u00C3\u00A7\u00C3\u00A3o. */
     public var parametrosConteudo: [String:AnyObject]?
     
@@ -35,10 +26,9 @@ public class NotificacaoEmailRequest: JSONEncodable {
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
-        nillableDictionary["idDocumento"] = self.idDocumento
         nillableDictionary["idTemplateNotificacao"] = self.idTemplateNotificacao
-        nillableDictionary["destinatario"] = self.destinatario
-        nillableDictionary["tipoLayout"] = self.tipoLayout?.rawValue
+        nillableDictionary["destinatarios"] = self.destinatarios?.encodeToJSON()
+        nillableDictionary["anexos"] = self.anexos?.encodeToJSON()
         nillableDictionary["parametrosConteudo"] = self.parametrosConteudo?.encodeToJSON()
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary

@@ -12,6 +12,84 @@ import Alamofire
 public class FaturaAPI: APIBase {
     /**
      
+     Consulta fatura de um cliente
+     
+     - parameter dataVencimento: (path) Data Vencimento 
+     - parameter idConta: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func consultarFaturaUsingGET1(dataVencimento dataVencimento: String, idConta: Int, completion: ((data: FaturaDetalheResponse?, error: ErrorType?) -> Void)) {
+        consultarFaturaUsingGET1WithRequestBuilder(dataVencimento: dataVencimento, idConta: idConta).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Consulta fatura de um cliente
+     
+     - GET /api/faturas/{dataVencimento}
+     - Consulta fatura de um cliente pela data de vencimento.
+     - examples: [{contentType=application/json, example={
+  "pagamentoEfetuado" : false,
+  "idConta" : 123456789,
+  "dataVencimentoFatura" : "yyyy-MM-dd",
+  "valorPagamentoMinimo" : 1.3579000000000001069366817318950779736042022705078125,
+  "valorTotal" : 1.3579000000000001069366817318950779736042022705078125,
+  "lancamentosFaturaResponse" : [ {
+    "flagCredito" : false,
+    "valorUSD" : 1.3579000000000001069366817318950779736042022705078125,
+    "numeroCartaoMascarado" : "aeiou",
+    "valorTaxaEmbarque" : 1.3579000000000001069366817318950779736042022705078125,
+    "idConta" : 123456789,
+    "idMCC" : 123456789,
+    "idTipoEvento" : 123456789,
+    "descricaoTipoEvento" : "aeiou",
+    "idGrupoMCC" : 123456789,
+    "idEvento" : 123456789,
+    "flagSolicitouContestacao" : false,
+    "quantidadeParcelas" : 123,
+    "nomePortador" : "aeiou",
+    "descricaoTipoTransacao" : "aeiou",
+    "descricaoGrupoMCC" : "aeiou",
+    "nomeEstabelecimento" : "aeiou",
+    "complemento" : "aeiou",
+    "idTransacao" : 123456789,
+    "nomeFantasiaEstabelecimento" : "aeiou",
+    "dataHoraTransacao" : "aeiou",
+    "valorBRL" : 1.3579000000000001069366817318950779736042022705078125,
+    "numeroParcela" : 123,
+    "descricaoEstabelecimento" : "aeiou",
+    "titular" : false
+  } ],
+  "situacaoProcessamento" : "aeiou",
+  "dataFechamento" : "yyyy-MM-dd",
+  "dataVencimentoReal" : "yyyy-MM-dd"
+}}]
+     
+     - parameter dataVencimento: (path) Data Vencimento 
+     - parameter idConta: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
+
+     - returns: RequestBuilder<FaturaDetalheResponse> 
+     */
+    public class func consultarFaturaUsingGET1WithRequestBuilder(dataVencimento dataVencimento: String, idConta: Int) -> RequestBuilder<FaturaDetalheResponse> {
+        var path = "/api/faturas/{dataVencimento}"
+        path = path.stringByReplacingOccurrencesOfString("{dataVencimento}", withString: "\(dataVencimento)", options: .LiteralSearch, range: nil)
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [
+            "idConta": idConta
+        ]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<FaturaDetalheResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
+    }
+
+    /**
+     
      Listar planos de parcelamento
      
      - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
@@ -46,7 +124,7 @@ public class FaturaAPI: APIBase {
     "nomeCampanha" : "aeiou",
     "statusAdesao" : 123,
     "quantidadeParcelas" : 123,
-    "dataVencimentoPadrao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+    "dataVencimentoPadrao" : "yyyy-MM-dd",
     "valorParcela" : 1.3579000000000001069366817318950779736042022705078125,
     "valorTAC" : 1.3579000000000001069366817318950779736042022705078125,
     "valorTotalRefinanciamento" : 1.3579000000000001069366817318950779736042022705078125,
@@ -141,6 +219,82 @@ public class FaturaAPI: APIBase {
         let requestBuilder: RequestBuilder<AnyObject>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: false)
+    }
+
+    /**
+     
+     Listar faturas de um cliente.
+     
+     - parameter idConta: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
+     - parameter situacaoProcessamento: (query) Status do processamento das faturas. Valores possiveis [ABERTA, FECHADA, TODAS]. (optional, default to TODAS)
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
+     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func listarFaturasUsingGET1(idConta idConta: Int, situacaoProcessamento: String?, sort: [String]?, page: Int?, limit: Int?, completion: ((data: PageFaturaResponse?, error: ErrorType?) -> Void)) {
+        listarFaturasUsingGET1WithRequestBuilder(idConta: idConta, situacaoProcessamento: situacaoProcessamento, sort: sort, page: page, limit: limit).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Listar faturas de um cliente.
+     
+     - GET /api/faturas
+     - Lista faturas de um cliente.
+     - examples: [{contentType=application/json, example={
+  "previousPage" : 123,
+  "last" : true,
+  "hasContent" : true,
+  "hasNextPage" : true,
+  "nextPage" : 123,
+  "content" : [ {
+    "pagamentoEfetuado" : false,
+    "idConta" : 123456789,
+    "dataVencimentoFatura" : "yyyy-MM-dd",
+    "valorPagamentoMinimo" : 1.3579000000000001069366817318950779736042022705078125,
+    "valorTotal" : 1.3579000000000001069366817318950779736042022705078125,
+    "situacaoProcessamento" : "aeiou",
+    "dataFechamento" : "yyyy-MM-dd",
+    "dataVencimentoReal" : "yyyy-MM-dd"
+  } ],
+  "totalElements" : 123456789,
+  "number" : 123,
+  "firstPage" : true,
+  "numberOfElements" : 123,
+  "size" : 123,
+  "totalPages" : 123,
+  "hasPreviousPage" : true,
+  "first" : true
+}}]
+     
+     - parameter idConta: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
+     - parameter situacaoProcessamento: (query) Status do processamento das faturas. Valores possiveis [ABERTA, FECHADA, TODAS]. (optional, default to TODAS)
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
+     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+
+     - returns: RequestBuilder<PageFaturaResponse> 
+     */
+    public class func listarFaturasUsingGET1WithRequestBuilder(idConta idConta: Int, situacaoProcessamento: String?, sort: [String]?, page: Int?, limit: Int?) -> RequestBuilder<PageFaturaResponse> {
+        let path = "/api/faturas"
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [
+            "idConta": idConta,
+            "situacaoProcessamento": situacaoProcessamento,
+            "sort": sort,
+            "page": page,
+            "limit": limit
+        ]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<PageFaturaResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
     }
 
     /**
