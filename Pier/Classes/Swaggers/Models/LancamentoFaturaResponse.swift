@@ -59,6 +59,8 @@ public class LancamentoFaturaResponse: JSONEncodable {
     public var flagSolicitouContestacao: Bool?
     /** Valor da taxa de embarque */
     public var valorTaxaEmbarque: Double?
+    /** Descri\u00C3\u00A7\u00C3\u00A3o abreviada da transa\u00C3\u00A7\u00C3\u00A3o */
+    public var descricaoAbreviada: String?
     
 
     public init() {}
@@ -90,6 +92,7 @@ public class LancamentoFaturaResponse: JSONEncodable {
         nillableDictionary["numeroCartaoMascarado"] = self.numeroCartaoMascarado
         nillableDictionary["flagSolicitouContestacao"] = self.flagSolicitouContestacao
         nillableDictionary["valorTaxaEmbarque"] = self.valorTaxaEmbarque
+        nillableDictionary["descricaoAbreviada"] = self.descricaoAbreviada
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

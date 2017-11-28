@@ -10,6 +10,8 @@ import Foundation
 
 public class AntecipacaoResponse: JSONEncodable {
 
+    public var mcc: Int?
+    public var uf: String?
     /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da antecipa\u00C3\u00A7\u00C3\u00A3o */
     public var id: Int?
     /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta */
@@ -28,6 +30,34 @@ public class AntecipacaoResponse: JSONEncodable {
     public var valorTotalComDesconto: Double?
     /** Apresenta a taxa de desconto */
     public var taxaDesconto: Double?
+    /** Data da compra. */
+    public var dataCompra: String?
+    /** Descri\u00C3\u00A7\u00C3\u00A3o do status da autoriza\u00C3\u00A7\u00C3\u00A3o da compra. */
+    public var status: String?
+    /** Nome do estabelecimento da compra. */
+    public var nomeEstabelecimento: String?
+    /** Tipo de transa\u00C3\u00A7\u00C3\u00A3o da compra. */
+    public var tipoOrigemTransacao: String?
+    /** Cidade onde a compra foi realizada. */
+    public var cidade: String?
+    /** Pa\u00C3\u00ADs onde a compra foi realizada. */
+    public var pais: String?
+    /** Coordenada latitudinal da localiza\u00C3\u00A7\u00C3\u00A3o da compra. */
+    public var latitude: String?
+    /** Coordenada longitudinal da localiza\u00C3\u00A7\u00C3\u00A3o da compra. */
+    public var longitude: String?
+    /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Grupo MCC da compra. */
+    public var idGrupoMCC: Int?
+    /** Descri\u00C3\u00A7\u00C3\u00A3o do Grupo MCC da compra. */
+    public var descricaoGrupoMCC: String?
+    /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do produto da compra. */
+    public var idProduto: Int?
+    /** Descri\u00C3\u00A7\u00C3\u00A3o do produto da compra. */
+    public var descricaoProduto: String?
+    /** Descri\u00C3\u00A7\u00C3\u00A3o do estabelecimento da compra. */
+    public var descricaoEstabelecimento: String?
+    /** Nome fantasia do estabelecimento da compra. */
+    public var nomeFantasiaEstabelecimento: String?
     
 
     public init() {}
@@ -35,6 +65,8 @@ public class AntecipacaoResponse: JSONEncodable {
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
+        nillableDictionary["mcc"] = self.mcc
+        nillableDictionary["uf"] = self.uf
         nillableDictionary["id"] = self.id
         nillableDictionary["idConta"] = self.idConta
         nillableDictionary["idCompra"] = self.idCompra
@@ -44,6 +76,20 @@ public class AntecipacaoResponse: JSONEncodable {
         nillableDictionary["valorDescontoTotal"] = self.valorDescontoTotal
         nillableDictionary["valorTotalComDesconto"] = self.valorTotalComDesconto
         nillableDictionary["taxaDesconto"] = self.taxaDesconto
+        nillableDictionary["dataCompra"] = self.dataCompra
+        nillableDictionary["status"] = self.status
+        nillableDictionary["nomeEstabelecimento"] = self.nomeEstabelecimento
+        nillableDictionary["tipoOrigemTransacao"] = self.tipoOrigemTransacao
+        nillableDictionary["cidade"] = self.cidade
+        nillableDictionary["pais"] = self.pais
+        nillableDictionary["latitude"] = self.latitude
+        nillableDictionary["longitude"] = self.longitude
+        nillableDictionary["idGrupoMCC"] = self.idGrupoMCC
+        nillableDictionary["descricaoGrupoMCC"] = self.descricaoGrupoMCC
+        nillableDictionary["idProduto"] = self.idProduto
+        nillableDictionary["descricaoProduto"] = self.descricaoProduto
+        nillableDictionary["descricaoEstabelecimento"] = self.descricaoEstabelecimento
+        nillableDictionary["nomeFantasiaEstabelecimento"] = self.nomeFantasiaEstabelecimento
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

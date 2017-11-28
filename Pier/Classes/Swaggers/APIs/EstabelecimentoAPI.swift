@@ -12,13 +12,212 @@ import Alamofire
 public class EstabelecimentoAPI: APIBase {
     /**
      
+     Alterar Pessoa Jur\u00C3\u00ADdica
+     
+     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da pessoa jur\u00C3\u00ADdica 
+     - parameter razaoSocial: (query) Raz\u00C3\u00A3o social da pessoa jur\u00C3\u00ADdica 
+     - parameter inscricaoEstadual: (query) N\u00C3\u00BAmero da inscri\u00C3\u00A7\u00C3\u00A3o estadual (optional)
+     - parameter contato: (query) Nome da pessoa para entrar em contato (optional)
+     - parameter banco: (query) C\u00C3\u00B3digo do banco (optional)
+     - parameter agencia: (query) Raz\u00C3\u00A3o social da pessoa jur\u00C3\u00ADdica (optional)
+     - parameter digitoVerificadorAgencia: (query) D\u00C3\u00ADgito Verificador da ag\u00C3\u00AAncia (optional)
+     - parameter contaCorrente: (query) C\u00C3\u00B3digo da Conta Corrente (optional)
+     - parameter digitoVerificadorContaCorrente: (query) D\u00C3\u00ADgito Verificador da Conta Corrente (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func alterarUsingPUT10(id id: Int, razaoSocial: String, inscricaoEstadual: String?, contato: String?, banco: Int?, agencia: Int?, digitoVerificadorAgencia: String?, contaCorrente: String?, digitoVerificadorContaCorrente: String?, completion: ((data: PessoaJuridicaResponse?, error: ErrorType?) -> Void)) {
+        alterarUsingPUT10WithRequestBuilder(id: id, razaoSocial: razaoSocial, inscricaoEstadual: inscricaoEstadual, contato: contato, banco: banco, agencia: agencia, digitoVerificadorAgencia: digitoVerificadorAgencia, contaCorrente: contaCorrente, digitoVerificadorContaCorrente: digitoVerificadorContaCorrente).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Alterar Pessoa Jur\u00C3\u00ADdica
+     
+     - PUT /api/pessoas-juridicas/{id}
+     - Altera uma pessoa jur\u00C3\u00ADdica.
+     - examples: [{contentType=application/json, example={
+  "inscricaoEstadual" : "aeiou",
+  "digitoVerificadorContaCorrente" : "aeiou",
+  "contaCorrente" : "aeiou",
+  "banco" : 123,
+  "usuario" : "aeiou",
+  "id" : 123456789,
+  "cnpj" : "aeiou",
+  "razaoSocial" : "aeiou",
+  "contato" : "aeiou",
+  "agencia" : 123,
+  "digitoVerificadorAgencia" : "aeiou"
+}}]
+     
+     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da pessoa jur\u00C3\u00ADdica 
+     - parameter razaoSocial: (query) Raz\u00C3\u00A3o social da pessoa jur\u00C3\u00ADdica 
+     - parameter inscricaoEstadual: (query) N\u00C3\u00BAmero da inscri\u00C3\u00A7\u00C3\u00A3o estadual (optional)
+     - parameter contato: (query) Nome da pessoa para entrar em contato (optional)
+     - parameter banco: (query) C\u00C3\u00B3digo do banco (optional)
+     - parameter agencia: (query) Raz\u00C3\u00A3o social da pessoa jur\u00C3\u00ADdica (optional)
+     - parameter digitoVerificadorAgencia: (query) D\u00C3\u00ADgito Verificador da ag\u00C3\u00AAncia (optional)
+     - parameter contaCorrente: (query) C\u00C3\u00B3digo da Conta Corrente (optional)
+     - parameter digitoVerificadorContaCorrente: (query) D\u00C3\u00ADgito Verificador da Conta Corrente (optional)
+
+     - returns: RequestBuilder<PessoaJuridicaResponse> 
+     */
+    public class func alterarUsingPUT10WithRequestBuilder(id id: Int, razaoSocial: String, inscricaoEstadual: String?, contato: String?, banco: Int?, agencia: Int?, digitoVerificadorAgencia: String?, contaCorrente: String?, digitoVerificadorContaCorrente: String?) -> RequestBuilder<PessoaJuridicaResponse> {
+        var path = "/api/pessoas-juridicas/{id}"
+        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [
+            "razaoSocial": razaoSocial,
+            "inscricaoEstadual": inscricaoEstadual,
+            "contato": contato,
+            "banco": banco,
+            "agencia": agencia,
+            "digitoVerificadorAgencia": digitoVerificadorAgencia,
+            "contaCorrente": contaCorrente,
+            "digitoVerificadorContaCorrente": digitoVerificadorContaCorrente
+        ]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<PessoaJuridicaResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: false)
+    }
+
+    /**
+     
+     Altera um Terminal
+     
+     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do terminal (id). 
+     - parameter terminalUpdate: (body) terminalUpdate 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func alterarUsingPUT13(id id: Int, terminalUpdate: TerminalUpdate, completion: ((data: TerminalResponse?, error: ErrorType?) -> Void)) {
+        alterarUsingPUT13WithRequestBuilder(id: id, terminalUpdate: terminalUpdate).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Altera um Terminal
+     
+     - PUT /api/terminais/{id}
+     - Este m\u00C3\u00A9todo realiza a altera\u00C3\u00A7\u00C3\u00A3o dos Terminais.
+     - examples: [{contentType=application/json, example={
+  "flagTerminalVirtual" : false,
+  "idEstabelecimento" : 123456789,
+  "flagConsultaExtrato" : false,
+  "id" : 123456789,
+  "terminal" : "aeiou",
+  "numeroEstabelecimento" : 123456789
+}}]
+     
+     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do terminal (id). 
+     - parameter terminalUpdate: (body) terminalUpdate 
+
+     - returns: RequestBuilder<TerminalResponse> 
+     */
+    public class func alterarUsingPUT13WithRequestBuilder(id id: Int, terminalUpdate: TerminalUpdate) -> RequestBuilder<TerminalResponse> {
+        var path = "/api/terminais/{id}"
+        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
+        let URLString = PierAPI.basePath + path
+        
+        let parameters = terminalUpdate.encodeToJSON() as? [String:AnyObject]
+
+        let requestBuilder: RequestBuilder<TerminalResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Cadastrar Pessoa Jur\u00C3\u00ADdica
+     
+     - parameter razaoSocial: (query) Raz\u00C3\u00A3o social da pessoa jur\u00C3\u00ADdica 
+     - parameter cnpj: (query) C\u00C3\u00B3digo do Cadastro Nacional de Pessoas Jur\u00C3\u00ADdicas 
+     - parameter inscricaoEstadual: (query) N\u00C3\u00BAmero da inscri\u00C3\u00A7\u00C3\u00A3o estadual (optional)
+     - parameter contato: (query) Nome da pessoa para entrar em contato (optional)
+     - parameter banco: (query) C\u00C3\u00B3digo do banco (optional)
+     - parameter agencia: (query) Raz\u00C3\u00A3o social da pessoa jur\u00C3\u00ADdica (optional)
+     - parameter digitoVerificadorAgencia: (query) D\u00C3\u00ADgito Verificador da ag\u00C3\u00AAncia (optional)
+     - parameter contaCorrente: (query) C\u00C3\u00B3digo da Conta Corrente (optional)
+     - parameter digitoVerificadorContaCorrente: (query) D\u00C3\u00ADgito Verificador da Conta Corrente (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func cadastrarUsingPOST2(razaoSocial razaoSocial: String, cnpj: String, inscricaoEstadual: String?, contato: String?, banco: Int?, agencia: Int?, digitoVerificadorAgencia: String?, contaCorrente: String?, digitoVerificadorContaCorrente: String?, completion: ((data: PessoaJuridicaResponse?, error: ErrorType?) -> Void)) {
+        cadastrarUsingPOST2WithRequestBuilder(razaoSocial: razaoSocial, cnpj: cnpj, inscricaoEstadual: inscricaoEstadual, contato: contato, banco: banco, agencia: agencia, digitoVerificadorAgencia: digitoVerificadorAgencia, contaCorrente: contaCorrente, digitoVerificadorContaCorrente: digitoVerificadorContaCorrente).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Cadastrar Pessoa Jur\u00C3\u00ADdica
+     
+     - POST /api/pessoas-juridicas
+     - Cadastra uma pessoa jur\u00C3\u00ADdica.
+     - examples: [{contentType=application/json, example={
+  "inscricaoEstadual" : "aeiou",
+  "digitoVerificadorContaCorrente" : "aeiou",
+  "contaCorrente" : "aeiou",
+  "banco" : 123,
+  "usuario" : "aeiou",
+  "id" : 123456789,
+  "cnpj" : "aeiou",
+  "razaoSocial" : "aeiou",
+  "contato" : "aeiou",
+  "agencia" : 123,
+  "digitoVerificadorAgencia" : "aeiou"
+}}]
+     
+     - parameter razaoSocial: (query) Raz\u00C3\u00A3o social da pessoa jur\u00C3\u00ADdica 
+     - parameter cnpj: (query) C\u00C3\u00B3digo do Cadastro Nacional de Pessoas Jur\u00C3\u00ADdicas 
+     - parameter inscricaoEstadual: (query) N\u00C3\u00BAmero da inscri\u00C3\u00A7\u00C3\u00A3o estadual (optional)
+     - parameter contato: (query) Nome da pessoa para entrar em contato (optional)
+     - parameter banco: (query) C\u00C3\u00B3digo do banco (optional)
+     - parameter agencia: (query) Raz\u00C3\u00A3o social da pessoa jur\u00C3\u00ADdica (optional)
+     - parameter digitoVerificadorAgencia: (query) D\u00C3\u00ADgito Verificador da ag\u00C3\u00AAncia (optional)
+     - parameter contaCorrente: (query) C\u00C3\u00B3digo da Conta Corrente (optional)
+     - parameter digitoVerificadorContaCorrente: (query) D\u00C3\u00ADgito Verificador da Conta Corrente (optional)
+
+     - returns: RequestBuilder<PessoaJuridicaResponse> 
+     */
+    public class func cadastrarUsingPOST2WithRequestBuilder(razaoSocial razaoSocial: String, cnpj: String, inscricaoEstadual: String?, contato: String?, banco: Int?, agencia: Int?, digitoVerificadorAgencia: String?, contaCorrente: String?, digitoVerificadorContaCorrente: String?) -> RequestBuilder<PessoaJuridicaResponse> {
+        let path = "/api/pessoas-juridicas"
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [
+            "razaoSocial": razaoSocial,
+            "cnpj": cnpj,
+            "inscricaoEstadual": inscricaoEstadual,
+            "contato": contato,
+            "banco": banco,
+            "agencia": agencia,
+            "digitoVerificadorAgencia": digitoVerificadorAgencia,
+            "contaCorrente": contaCorrente,
+            "digitoVerificadorContaCorrente": digitoVerificadorContaCorrente
+        ]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<PessoaJuridicaResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: false)
+    }
+
+    /**
+     
      Consultar estabelecimento por id
      
      - parameter id: (path) Id 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET11(id id: Int, completion: ((data: EstabelecimentoResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET11WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET14(id id: Int, completion: ((data: EstabelecimentoResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET14WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -58,7 +257,7 @@ public class EstabelecimentoAPI: APIBase {
 
      - returns: RequestBuilder<EstabelecimentoResponse> 
      */
-    public class func consultarUsingGET11WithRequestBuilder(id id: Int) -> RequestBuilder<EstabelecimentoResponse> {
+    public class func consultarUsingGET14WithRequestBuilder(id id: Int) -> RequestBuilder<EstabelecimentoResponse> {
         var path = "/api/estabelecimentos/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -73,13 +272,64 @@ public class EstabelecimentoAPI: APIBase {
 
     /**
      
+     Consultar pessoa jur\u00C3\u00ADdica
+     
+     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da pessoa jur\u00C3\u00ADdica 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func consultarUsingGET19(id id: Int, completion: ((data: PessoaJuridicaResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET19WithRequestBuilder(id: id).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Consultar pessoa jur\u00C3\u00ADdica
+     
+     - GET /api/pessoas-juridicas/{id}
+     - Consulta uma pessoa jur\u00C3\u00ADdica atrav\u00C3\u00A9s do seu identificador.
+     - examples: [{contentType=application/json, example={
+  "inscricaoEstadual" : "aeiou",
+  "digitoVerificadorContaCorrente" : "aeiou",
+  "contaCorrente" : "aeiou",
+  "banco" : 123,
+  "usuario" : "aeiou",
+  "id" : 123456789,
+  "cnpj" : "aeiou",
+  "razaoSocial" : "aeiou",
+  "contato" : "aeiou",
+  "agencia" : 123,
+  "digitoVerificadorAgencia" : "aeiou"
+}}]
+     
+     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da pessoa jur\u00C3\u00ADdica 
+
+     - returns: RequestBuilder<PessoaJuridicaResponse> 
+     */
+    public class func consultarUsingGET19WithRequestBuilder(id id: Int) -> RequestBuilder<PessoaJuridicaResponse> {
+        var path = "/api/pessoas-juridicas/{id}"
+        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<PessoaJuridicaResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
      Apresenta os dados de um determinado Terminal
      
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Terminal (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET21(id id: Int, completion: ((data: TerminalResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET21WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET26(id id: Int, completion: ((data: TerminalResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET26WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -92,7 +342,9 @@ public class EstabelecimentoAPI: APIBase {
      - GET /api/terminais/{id}
      - Este m\u00C3\u00A9todo permite consultar um determinado Terminal a partir do seu c\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o (id).
      - examples: [{contentType=application/json, example={
+  "flagTerminalVirtual" : false,
   "idEstabelecimento" : 123456789,
+  "flagConsultaExtrato" : false,
   "id" : 123456789,
   "terminal" : "aeiou",
   "numeroEstabelecimento" : 123456789
@@ -102,7 +354,7 @@ public class EstabelecimentoAPI: APIBase {
 
      - returns: RequestBuilder<TerminalResponse> 
      */
-    public class func consultarUsingGET21WithRequestBuilder(id id: Int) -> RequestBuilder<TerminalResponse> {
+    public class func consultarUsingGET26WithRequestBuilder(id id: Int) -> RequestBuilder<TerminalResponse> {
         var path = "/api/terminais/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -143,8 +395,8 @@ public class EstabelecimentoAPI: APIBase {
      - parameter inativo: (query) Indica se o estabelecimento est\u00C3\u00A1 inativo. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET14(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, numeroReceitaFederal: Int?, nome: String?, descricao: String?, nomeFantasia: String?, cep: String?, nomeLogradouro: String?, numeroEndereco: Int?, complemento: String?, bairro: String?, cidade: String?, uf: String?, pais: String?, dataCadastramento: String?, contato: String?, email: String?, flagArquivoSecrFazenda: Int?, flagCartaoDigitado: Int?, inativo: Int?, completion: ((data: PageEstabelecimentoResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET14WithRequestBuilder(sort: sort, page: page, limit: limit, id: id, numeroReceitaFederal: numeroReceitaFederal, nome: nome, descricao: descricao, nomeFantasia: nomeFantasia, cep: cep, nomeLogradouro: nomeLogradouro, numeroEndereco: numeroEndereco, complemento: complemento, bairro: bairro, cidade: cidade, uf: uf, pais: pais, dataCadastramento: dataCadastramento, contato: contato, email: email, flagArquivoSecrFazenda: flagArquivoSecrFazenda, flagCartaoDigitado: flagCartaoDigitado, inativo: inativo).execute { (response, error) -> Void in
+    public class func listarUsingGET18(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, numeroReceitaFederal: Int?, nome: String?, descricao: String?, nomeFantasia: String?, cep: String?, nomeLogradouro: String?, numeroEndereco: Int?, complemento: String?, bairro: String?, cidade: String?, uf: String?, pais: String?, dataCadastramento: String?, contato: String?, email: String?, flagArquivoSecrFazenda: Int?, flagCartaoDigitado: Int?, inativo: Int?, completion: ((data: PageEstabelecimentoResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET18WithRequestBuilder(sort: sort, page: page, limit: limit, id: id, numeroReceitaFederal: numeroReceitaFederal, nome: nome, descricao: descricao, nomeFantasia: nomeFantasia, cep: cep, nomeLogradouro: nomeLogradouro, numeroEndereco: numeroEndereco, complemento: complemento, bairro: bairro, cidade: cidade, uf: uf, pais: pais, dataCadastramento: dataCadastramento, contato: contato, email: email, flagArquivoSecrFazenda: flagArquivoSecrFazenda, flagCartaoDigitado: flagCartaoDigitado, inativo: inativo).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -220,7 +472,7 @@ public class EstabelecimentoAPI: APIBase {
 
      - returns: RequestBuilder<PageEstabelecimentoResponse> 
      */
-    public class func listarUsingGET14WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, numeroReceitaFederal: Int?, nome: String?, descricao: String?, nomeFantasia: String?, cep: String?, nomeLogradouro: String?, numeroEndereco: Int?, complemento: String?, bairro: String?, cidade: String?, uf: String?, pais: String?, dataCadastramento: String?, contato: String?, email: String?, flagArquivoSecrFazenda: Int?, flagCartaoDigitado: Int?, inativo: Int?) -> RequestBuilder<PageEstabelecimentoResponse> {
+    public class func listarUsingGET18WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, numeroReceitaFederal: Int?, nome: String?, descricao: String?, nomeFantasia: String?, cep: String?, nomeLogradouro: String?, numeroEndereco: Int?, complemento: String?, bairro: String?, cidade: String?, uf: String?, pais: String?, dataCadastramento: String?, contato: String?, email: String?, flagArquivoSecrFazenda: Int?, flagCartaoDigitado: Int?, inativo: Int?) -> RequestBuilder<PageEstabelecimentoResponse> {
         let path = "/api/estabelecimentos"
         let URLString = PierAPI.basePath + path
         
@@ -257,6 +509,106 @@ public class EstabelecimentoAPI: APIBase {
 
     /**
      
+     Listar pessoas jur\u00C3\u00ADdicas
+     
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
+     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+     - parameter razaoSocial: (query) Raz\u00C3\u00A3o social da pessoa jur\u00C3\u00ADdica (optional)
+     - parameter cnpj: (query) C\u00C3\u00B3digo do Cadastro Nacional de Pessoas Jur\u00C3\u00ADdicas (optional)
+     - parameter inscricaoEstadual: (query) N\u00C3\u00BAmero da inscri\u00C3\u00A7\u00C3\u00A3o estadual (optional)
+     - parameter contato: (query) Nome da pessoa para entrar em contato (optional)
+     - parameter banco: (query) C\u00C3\u00B3digo do banco (optional)
+     - parameter agencia: (query) Raz\u00C3\u00A3o social da pessoa jur\u00C3\u00ADdica (optional)
+     - parameter digitoVerificadorAgencia: (query) D\u00C3\u00ADgito Verificador da ag\u00C3\u00AAncia (optional)
+     - parameter contaCorrente: (query) C\u00C3\u00B3digo da Conta Corrente (optional)
+     - parameter digitoVerificadorContaCorrente: (query) D\u00C3\u00ADgito Verificador da Conta Corrente (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func listarUsingGET23(sort sort: [String]?, page: Int?, limit: Int?, razaoSocial: String?, cnpj: String?, inscricaoEstadual: String?, contato: String?, banco: Int?, agencia: Int?, digitoVerificadorAgencia: String?, contaCorrente: String?, digitoVerificadorContaCorrente: String?, completion: ((data: PagePessoaJuridicaResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET23WithRequestBuilder(sort: sort, page: page, limit: limit, razaoSocial: razaoSocial, cnpj: cnpj, inscricaoEstadual: inscricaoEstadual, contato: contato, banco: banco, agencia: agencia, digitoVerificadorAgencia: digitoVerificadorAgencia, contaCorrente: contaCorrente, digitoVerificadorContaCorrente: digitoVerificadorContaCorrente).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Listar pessoas jur\u00C3\u00ADdicas
+     
+     - GET /api/pessoas-juridicas
+     - Lista pessoas jur\u00C3\u00ADdicas cadastradas. 
+     - examples: [{contentType=application/json, example={
+  "previousPage" : 123,
+  "last" : true,
+  "hasContent" : true,
+  "hasNextPage" : true,
+  "nextPage" : 123,
+  "content" : [ {
+    "inscricaoEstadual" : "aeiou",
+    "digitoVerificadorContaCorrente" : "aeiou",
+    "contaCorrente" : "aeiou",
+    "banco" : 123,
+    "usuario" : "aeiou",
+    "id" : 123456789,
+    "cnpj" : "aeiou",
+    "razaoSocial" : "aeiou",
+    "contato" : "aeiou",
+    "agencia" : 123,
+    "digitoVerificadorAgencia" : "aeiou"
+  } ],
+  "totalElements" : 123456789,
+  "number" : 123,
+  "firstPage" : true,
+  "numberOfElements" : 123,
+  "size" : 123,
+  "totalPages" : 123,
+  "hasPreviousPage" : true,
+  "first" : true
+}}]
+     
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
+     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+     - parameter razaoSocial: (query) Raz\u00C3\u00A3o social da pessoa jur\u00C3\u00ADdica (optional)
+     - parameter cnpj: (query) C\u00C3\u00B3digo do Cadastro Nacional de Pessoas Jur\u00C3\u00ADdicas (optional)
+     - parameter inscricaoEstadual: (query) N\u00C3\u00BAmero da inscri\u00C3\u00A7\u00C3\u00A3o estadual (optional)
+     - parameter contato: (query) Nome da pessoa para entrar em contato (optional)
+     - parameter banco: (query) C\u00C3\u00B3digo do banco (optional)
+     - parameter agencia: (query) Raz\u00C3\u00A3o social da pessoa jur\u00C3\u00ADdica (optional)
+     - parameter digitoVerificadorAgencia: (query) D\u00C3\u00ADgito Verificador da ag\u00C3\u00AAncia (optional)
+     - parameter contaCorrente: (query) C\u00C3\u00B3digo da Conta Corrente (optional)
+     - parameter digitoVerificadorContaCorrente: (query) D\u00C3\u00ADgito Verificador da Conta Corrente (optional)
+
+     - returns: RequestBuilder<PagePessoaJuridicaResponse> 
+     */
+    public class func listarUsingGET23WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, razaoSocial: String?, cnpj: String?, inscricaoEstadual: String?, contato: String?, banco: Int?, agencia: Int?, digitoVerificadorAgencia: String?, contaCorrente: String?, digitoVerificadorContaCorrente: String?) -> RequestBuilder<PagePessoaJuridicaResponse> {
+        let path = "/api/pessoas-juridicas"
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [
+            "sort": sort,
+            "page": page,
+            "limit": limit,
+            "razaoSocial": razaoSocial,
+            "cnpj": cnpj,
+            "inscricaoEstadual": inscricaoEstadual,
+            "contato": contato,
+            "banco": banco,
+            "agencia": agencia,
+            "digitoVerificadorAgencia": digitoVerificadorAgencia,
+            "contaCorrente": contaCorrente,
+            "digitoVerificadorContaCorrente": digitoVerificadorContaCorrente
+        ]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<PagePessoaJuridicaResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
+    }
+
+    /**
+     
      Lista os Terminais cadastrados no Emissor
      
      - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
@@ -268,8 +620,8 @@ public class EstabelecimentoAPI: APIBase {
      - parameter idEstabelecimento: (query) N\u00C3\u00BAmero de identifica\u00C3\u00A7\u00C3\u00A3o do estabelecimento a qual o terminal pertence. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET28(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, terminal: String?, numeroEstabelecimento: Int?, idEstabelecimento: Int?, completion: ((data: PageTerminalResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET28WithRequestBuilder(sort: sort, page: page, limit: limit, id: id, terminal: terminal, numeroEstabelecimento: numeroEstabelecimento, idEstabelecimento: idEstabelecimento).execute { (response, error) -> Void in
+    public class func listarUsingGET33(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, terminal: String?, numeroEstabelecimento: Int?, idEstabelecimento: Int?, completion: ((data: PageTerminalResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET33WithRequestBuilder(sort: sort, page: page, limit: limit, id: id, terminal: terminal, numeroEstabelecimento: numeroEstabelecimento, idEstabelecimento: idEstabelecimento).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -288,7 +640,9 @@ public class EstabelecimentoAPI: APIBase {
   "hasNextPage" : true,
   "nextPage" : 123,
   "content" : [ {
+    "flagTerminalVirtual" : false,
     "idEstabelecimento" : 123456789,
+    "flagConsultaExtrato" : false,
     "id" : 123456789,
     "terminal" : "aeiou",
     "numeroEstabelecimento" : 123456789
@@ -313,7 +667,7 @@ public class EstabelecimentoAPI: APIBase {
 
      - returns: RequestBuilder<PageTerminalResponse> 
      */
-    public class func listarUsingGET28WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, terminal: String?, numeroEstabelecimento: Int?, idEstabelecimento: Int?) -> RequestBuilder<PageTerminalResponse> {
+    public class func listarUsingGET33WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, terminal: String?, numeroEstabelecimento: Int?, idEstabelecimento: Int?) -> RequestBuilder<PageTerminalResponse> {
         let path = "/api/terminais"
         let URLString = PierAPI.basePath + path
         
@@ -331,6 +685,59 @@ public class EstabelecimentoAPI: APIBase {
         let requestBuilder: RequestBuilder<PageTerminalResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
+    }
+
+    /**
+     
+     Realiza o cadastro de um novo Terminal
+     
+     - parameter idEstabelecimento: (query) Apresenta o id do estabelecimento. 
+     - parameter flagConsultaExtrato: (query) Flag indicando se o terminal \u00C3\u00A9 f\u00C3\u00ADsico ou virtual, sendo: (true: Sim), (false: N\u00C3\u00A3o)). 
+     - parameter flagTerminalVirtual: (query) Flag indicando se o terminal permite consultar extrato, sendo: (true: Sim), (false: N\u00C3\u00A3o)). 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func salvarUsingPOST20(idEstabelecimento idEstabelecimento: Int, flagConsultaExtrato: Bool, flagTerminalVirtual: Bool, completion: ((data: TerminalResponse?, error: ErrorType?) -> Void)) {
+        salvarUsingPOST20WithRequestBuilder(idEstabelecimento: idEstabelecimento, flagConsultaExtrato: flagConsultaExtrato, flagTerminalVirtual: flagTerminalVirtual).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Realiza o cadastro de um novo Terminal
+     
+     - POST /api/terminais
+     - Este m\u00C3\u00A9todo permite que seja cadastrado um novo Terminal.
+     - examples: [{contentType=application/json, example={
+  "flagTerminalVirtual" : false,
+  "idEstabelecimento" : 123456789,
+  "flagConsultaExtrato" : false,
+  "id" : 123456789,
+  "terminal" : "aeiou",
+  "numeroEstabelecimento" : 123456789
+}}]
+     
+     - parameter idEstabelecimento: (query) Apresenta o id do estabelecimento. 
+     - parameter flagConsultaExtrato: (query) Flag indicando se o terminal \u00C3\u00A9 f\u00C3\u00ADsico ou virtual, sendo: (true: Sim), (false: N\u00C3\u00A3o)). 
+     - parameter flagTerminalVirtual: (query) Flag indicando se o terminal permite consultar extrato, sendo: (true: Sim), (false: N\u00C3\u00A3o)). 
+
+     - returns: RequestBuilder<TerminalResponse> 
+     */
+    public class func salvarUsingPOST20WithRequestBuilder(idEstabelecimento idEstabelecimento: Int, flagConsultaExtrato: Bool, flagTerminalVirtual: Bool) -> RequestBuilder<TerminalResponse> {
+        let path = "/api/terminais"
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [
+            "idEstabelecimento": idEstabelecimento,
+            "flagConsultaExtrato": flagConsultaExtrato,
+            "flagTerminalVirtual": flagTerminalVirtual
+        ]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<TerminalResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: false)
     }
 
 }

@@ -65,8 +65,8 @@ public class JobAPI: APIBase {
      - parameter groovy: (body) groovy 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func atualizarUsingPUT2(id id: Int, descricao: String, cron: String, groovy: String, completion: ((data: JobResponse?, error: ErrorType?) -> Void)) {
-        atualizarUsingPUT2WithRequestBuilder(id: id, descricao: descricao, cron: cron, groovy: groovy).execute { (response, error) -> Void in
+    public class func atualizarUsingPUT3(id id: Int, descricao: String, cron: String, groovy: String, completion: ((data: JobResponse?, error: ErrorType?) -> Void)) {
+        atualizarUsingPUT3WithRequestBuilder(id: id, descricao: descricao, cron: cron, groovy: groovy).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -93,7 +93,7 @@ public class JobAPI: APIBase {
 
      - returns: RequestBuilder<JobResponse> 
      */
-    public class func atualizarUsingPUT2WithRequestBuilder(id id: Int, descricao: String, cron: String, groovy: String) -> RequestBuilder<JobResponse> {
+    public class func atualizarUsingPUT3WithRequestBuilder(id id: Int, descricao: String, cron: String, groovy: String) -> RequestBuilder<JobResponse> {
         var path = "/api/jobs/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -162,8 +162,8 @@ public class JobAPI: APIBase {
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET16(groovy groovy: String?, descricao: String?, cron: String?, status: String?, page: Int?, limit: Int?, completion: ((data: PageJobResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET16WithRequestBuilder(groovy: groovy, descricao: descricao, cron: cron, status: status, page: page, limit: limit).execute { (response, error) -> Void in
+    public class func listarUsingGET20(groovy groovy: String?, descricao: String?, cron: String?, status: String?, page: Int?, limit: Int?, completion: ((data: PageJobResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET20WithRequestBuilder(groovy: groovy, descricao: descricao, cron: cron, status: status, page: page, limit: limit).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -207,7 +207,7 @@ public class JobAPI: APIBase {
 
      - returns: RequestBuilder<PageJobResponse> 
      */
-    public class func listarUsingGET16WithRequestBuilder(groovy groovy: String?, descricao: String?, cron: String?, status: String?, page: Int?, limit: Int?) -> RequestBuilder<PageJobResponse> {
+    public class func listarUsingGET20WithRequestBuilder(groovy groovy: String?, descricao: String?, cron: String?, status: String?, page: Int?, limit: Int?) -> RequestBuilder<PageJobResponse> {
         let path = "/api/jobs"
         let URLString = PierAPI.basePath + path
         
@@ -235,8 +235,8 @@ public class JobAPI: APIBase {
      - parameter groovy: (body) groovy 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func salvarUsingPOST11(descricao descricao: String, cron: String, groovy: String, completion: ((data: JobResponse?, error: ErrorType?) -> Void)) {
-        salvarUsingPOST11WithRequestBuilder(descricao: descricao, cron: cron, groovy: groovy).execute { (response, error) -> Void in
+    public class func salvarUsingPOST14(descricao descricao: String, cron: String, groovy: String, completion: ((data: JobResponse?, error: ErrorType?) -> Void)) {
+        salvarUsingPOST14WithRequestBuilder(descricao: descricao, cron: cron, groovy: groovy).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -262,7 +262,7 @@ public class JobAPI: APIBase {
 
      - returns: RequestBuilder<JobResponse> 
      */
-    public class func salvarUsingPOST11WithRequestBuilder(descricao descricao: String, cron: String, groovy: String) -> RequestBuilder<JobResponse> {
+    public class func salvarUsingPOST14WithRequestBuilder(descricao descricao: String, cron: String, groovy: String) -> RequestBuilder<JobResponse> {
         let path = "/api/jobs"
         let URLString = PierAPI.basePath + path
         

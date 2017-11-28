@@ -12,6 +12,168 @@ import Alamofire
 public class CadastroGeralAPI: APIBase {
     /**
      
+     Alterar campanha
+     
+     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da campanha (id). 
+     - parameter update: (body) update 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func alterarUsingPUT2(id id: Int, update: CampanhaUpdate, completion: ((data: CampanhaResponse?, error: ErrorType?) -> Void)) {
+        alterarUsingPUT2WithRequestBuilder(id: id, update: update).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Alterar campanha
+     
+     - PUT /api/campanhas/{id}
+     - Este m\u00C3\u00A9todo permite que sejam alterados os dados de uma campanha.
+     - examples: [{contentType=application/json, example={
+  "planosCampanhas" : [ {
+    "parcelas" : 123,
+    "taxa" : 1.3579000000000001069366817318950779736042022705078125,
+    "id" : 123456789
+  } ],
+  "idTipoCampanha" : 123456789,
+  "nome" : "aeiou",
+  "id" : 123456789
+}}]
+     
+     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da campanha (id). 
+     - parameter update: (body) update 
+
+     - returns: RequestBuilder<CampanhaResponse> 
+     */
+    public class func alterarUsingPUT2WithRequestBuilder(id id: Int, update: CampanhaUpdate) -> RequestBuilder<CampanhaResponse> {
+        var path = "/api/campanhas/{id}"
+        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
+        let URLString = PierAPI.basePath + path
+        
+        let parameters = update.encodeToJSON() as? [String:AnyObject]
+
+        let requestBuilder: RequestBuilder<CampanhaResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Atualizar configura\u00C3\u00A7\u00C3\u00A3o para registro de cobran\u00C3\u00A7a
+     
+     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da configura\u00C3\u00A7\u00C3\u00A3o (id). 
+     - parameter configuracaoPersist: (body) configuracaoPersist 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func alterarUsingPUT3(id id: Int, configuracaoPersist: ConfiguracaoRegistroCobrancaPersist, completion: ((data: ConfiguracaoRegistroCobrancaResponse?, error: ErrorType?) -> Void)) {
+        alterarUsingPUT3WithRequestBuilder(id: id, configuracaoPersist: configuracaoPersist).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Atualizar configura\u00C3\u00A7\u00C3\u00A3o para registro de cobran\u00C3\u00A7a
+     
+     - PUT /api/configuracoes-registro-cobranca/{id}
+     - Este m\u00C3\u00A9todo permite atualizar uma configura\u00C3\u00A7\u00C3\u00A3o, para registro de cobran\u00C3\u00A7a.
+     - examples: [{contentType=application/json, example={
+  "trustStoreName" : "aeiou",
+  "keyStorePassword" : "aeiou",
+  "typeTruststore" : "aeiou",
+  "keyStorePrivateKeyPassword" : "aeiou",
+  "uri" : "aeiou",
+  "truststoreAlias" : "aeiou",
+  "trustStorePassword" : "aeiou",
+  "keyStoreName" : "aeiou",
+  "keystoreAlias" : "aeiou",
+  "typeKeystore" : "aeiou",
+  "codigoBanco" : 123456789,
+  "id" : 123456789,
+  "idEmissor" : 123456789,
+  "uriAdicional" : "aeiou",
+  "status" : "aeiou"
+}}]
+     
+     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da configura\u00C3\u00A7\u00C3\u00A3o (id). 
+     - parameter configuracaoPersist: (body) configuracaoPersist 
+
+     - returns: RequestBuilder<ConfiguracaoRegistroCobrancaResponse> 
+     */
+    public class func alterarUsingPUT3WithRequestBuilder(id id: Int, configuracaoPersist: ConfiguracaoRegistroCobrancaPersist) -> RequestBuilder<ConfiguracaoRegistroCobrancaResponse> {
+        var path = "/api/configuracoes-registro-cobranca/{id}"
+        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
+        let URLString = PierAPI.basePath + path
+        
+        let parameters = configuracaoPersist.encodeToJSON() as? [String:AnyObject]
+
+        let requestBuilder: RequestBuilder<ConfiguracaoRegistroCobrancaResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Alterar os dados de configura\u00C3\u00A7\u00C3\u00A3o do rotativo de um produto
+     
+     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da configura\u00C3\u00A7\u00C3\u00A3o (id). 
+     - parameter configuracaoRotativoPersist: (body) configuracaoRotativoPersist 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func alterarUsingPUT4(id id: Int, configuracaoRotativoPersist: ConfiguracaoRotativoPersist, completion: ((data: ConfiguracaoRotativoDetalheResponse?, error: ErrorType?) -> Void)) {
+        alterarUsingPUT4WithRequestBuilder(id: id, configuracaoRotativoPersist: configuracaoRotativoPersist).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Alterar os dados de configura\u00C3\u00A7\u00C3\u00A3o do rotativo de um produto
+     
+     - PUT /api/configuracoes-rotativos/{id}
+     - Este m\u00C3\u00A9todo permite que seja alterada uma configura\u00C3\u00A7\u00C3\u00A3o do rotativo para um determinado produto.
+     - examples: [{contentType=application/json, example={
+  "aceitaPagamentoMaiorQueEntrada" : false,
+  "recalculaParcelamentoParaEntradaMaior" : false,
+  "recalculaParcelamento" : false,
+  "percentualLimitarValorMinimoParcela" : 1.3579000000000001069366817318950779736042022705078125,
+  "compoeOfertaValorNaoFinanciavel" : false,
+  "parcelarApenasMinimo" : false,
+  "valorMinimoParcela" : 1.3579000000000001069366817318950779736042022705078125,
+  "idProduto" : 123456789,
+  "compoeOfertaValorNovosLancamentos" : false,
+  "idRegraCampanha" : 123456789,
+  "compoeOfertaValorRotativo" : false,
+  "minimoParcelasRecalculoParcelamento" : false,
+  "usuario" : "aeiou",
+  "id" : 123456789,
+  "antecipaParcelamentosAbertos" : false,
+  "numeroMinimoOfertas" : false
+}}]
+     
+     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da configura\u00C3\u00A7\u00C3\u00A3o (id). 
+     - parameter configuracaoRotativoPersist: (body) configuracaoRotativoPersist 
+
+     - returns: RequestBuilder<ConfiguracaoRotativoDetalheResponse> 
+     */
+    public class func alterarUsingPUT4WithRequestBuilder(id id: Int, configuracaoRotativoPersist: ConfiguracaoRotativoPersist) -> RequestBuilder<ConfiguracaoRotativoDetalheResponse> {
+        var path = "/api/configuracoes-rotativos/{id}"
+        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
+        let URLString = PierAPI.basePath + path
+        
+        let parameters = configuracaoRotativoPersist.encodeToJSON() as? [String:AnyObject]
+
+        let requestBuilder: RequestBuilder<ConfiguracaoRotativoDetalheResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
      Ativa o par\u00C3\u00A2metro uso exterior para o produto
      
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Produto (id) 
@@ -52,6 +214,59 @@ public class CadastroGeralAPI: APIBase {
         let parameters = APIHelper.rejectNil(nillableParameters)
 
         let requestBuilder: RequestBuilder<ProdutoDetalhesResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Inserir configura\u00C3\u00A7\u00C3\u00A3o para registro de cobran\u00C3\u00A7a
+     
+     - parameter configuracaoPersist: (body) configuracaoPersist 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func cadastrarUsingPOST1(configuracaoPersist configuracaoPersist: ConfiguracaoRegistroCobrancaPersist, completion: ((data: ConfiguracaoRegistroCobrancaResponse?, error: ErrorType?) -> Void)) {
+        cadastrarUsingPOST1WithRequestBuilder(configuracaoPersist: configuracaoPersist).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Inserir configura\u00C3\u00A7\u00C3\u00A3o para registro de cobran\u00C3\u00A7a
+     
+     - POST /api/configuracoes-registro-cobranca
+     - Este m\u00C3\u00A9todo permite que seja cadastrado uma nova configura\u00C3\u00A7\u00C3\u00A3o, para registro de cobran\u00C3\u00A7a.
+     - examples: [{contentType=application/json, example={
+  "trustStoreName" : "aeiou",
+  "keyStorePassword" : "aeiou",
+  "typeTruststore" : "aeiou",
+  "keyStorePrivateKeyPassword" : "aeiou",
+  "uri" : "aeiou",
+  "truststoreAlias" : "aeiou",
+  "trustStorePassword" : "aeiou",
+  "keyStoreName" : "aeiou",
+  "keystoreAlias" : "aeiou",
+  "typeKeystore" : "aeiou",
+  "codigoBanco" : 123456789,
+  "id" : 123456789,
+  "idEmissor" : 123456789,
+  "uriAdicional" : "aeiou",
+  "status" : "aeiou"
+}}]
+     
+     - parameter configuracaoPersist: (body) configuracaoPersist 
+
+     - returns: RequestBuilder<ConfiguracaoRegistroCobrancaResponse> 
+     */
+    public class func cadastrarUsingPOST1WithRequestBuilder(configuracaoPersist configuracaoPersist: ConfiguracaoRegistroCobrancaPersist) -> RequestBuilder<ConfiguracaoRegistroCobrancaResponse> {
+        let path = "/api/configuracoes-registro-cobranca"
+        let URLString = PierAPI.basePath + path
+        
+        let parameters = configuracaoPersist.encodeToJSON() as? [String:AnyObject]
+
+        let requestBuilder: RequestBuilder<ConfiguracaoRegistroCobrancaResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
     }
@@ -100,6 +315,54 @@ public class CadastroGeralAPI: APIBase {
         let requestBuilder: RequestBuilder<ParametroProdutoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Consultar campanha
+     
+     - parameter id: (path) ID da Campanha 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func consultarCampanhaUsingGET(id id: Int, completion: ((data: CampanhaResponse?, error: ErrorType?) -> Void)) {
+        consultarCampanhaUsingGETWithRequestBuilder(id: id).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Consultar campanha
+     
+     - GET /api/campanhas/{id}
+     - Este m\u00C3\u00A9todo permite que sejam listados os dados de uma determinada campanha existente na base do emissor. Para isso, \u00C3\u00A9 preciso informar o seu respectivo c\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o (id).
+     - examples: [{contentType=application/json, example={
+  "planosCampanhas" : [ {
+    "parcelas" : 123,
+    "taxa" : 1.3579000000000001069366817318950779736042022705078125,
+    "id" : 123456789
+  } ],
+  "idTipoCampanha" : 123456789,
+  "nome" : "aeiou",
+  "id" : 123456789
+}}]
+     
+     - parameter id: (path) ID da Campanha 
+
+     - returns: RequestBuilder<CampanhaResponse> 
+     */
+    public class func consultarCampanhaUsingGETWithRequestBuilder(id id: Int) -> RequestBuilder<CampanhaResponse> {
+        var path = "/api/campanhas/{id}"
+        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<CampanhaResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
     }
 
     /**
@@ -205,52 +468,6 @@ public class CadastroGeralAPI: APIBase {
 
     /**
      
-     Apresenta os dados de um determinado Produto
-     
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Produto (id) 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func consultarUsingGET16(id id: Int, completion: ((data: ProdutoDetalhesResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET16WithRequestBuilder(id: id).execute { (response, error) -> Void in
-            completion(data: response?.body, error: error);
-        }
-    }
-
-
-    /**
-     
-     Apresenta os dados de um determinado Produto
-     
-     - GET /api/produtos/{id}
-     - Este m\u00C3\u00A9todo permite consultar um determinado Produto a partir do seu c\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o (id).
-     - examples: [{contentType=application/json, example={
-  "idFantasiaBasica" : 123456789,
-  "nome" : "aeiou",
-  "id" : 123456789,
-  "usoExterior" : false,
-  "fantasiaBasica" : "aeiou",
-  "status" : 123
-}}]
-     
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Produto (id) 
-
-     - returns: RequestBuilder<ProdutoDetalhesResponse> 
-     */
-    public class func consultarUsingGET16WithRequestBuilder(id id: Int) -> RequestBuilder<ProdutoDetalhesResponse> {
-        var path = "/api/produtos/{id}"
-        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
-        let URLString = PierAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<ProdutoDetalhesResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
      Apresenta os dados de um determinado Atendimento
      
      - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do atendimento cliente (id). 
@@ -305,6 +522,52 @@ public class CadastroGeralAPI: APIBase {
 
     /**
      
+     Apresenta os dados de um determinado Produto
+     
+     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Produto (id) 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func consultarUsingGET21(id id: Int, completion: ((data: ProdutoDetalhesResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET21WithRequestBuilder(id: id).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Apresenta os dados de um determinado Produto
+     
+     - GET /api/produtos/{id}
+     - Este m\u00C3\u00A9todo permite consultar um determinado Produto a partir do seu c\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o (id).
+     - examples: [{contentType=application/json, example={
+  "idFantasiaBasica" : 123456789,
+  "nome" : "aeiou",
+  "id" : 123456789,
+  "usoExterior" : false,
+  "fantasiaBasica" : "aeiou",
+  "status" : 123
+}}]
+     
+     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Produto (id) 
+
+     - returns: RequestBuilder<ProdutoDetalhesResponse> 
+     */
+    public class func consultarUsingGET21WithRequestBuilder(id id: Int) -> RequestBuilder<ProdutoDetalhesResponse> {
+        var path = "/api/produtos/{id}"
+        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<ProdutoDetalhesResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
      Lista os tipos de ajustes do emissor 
      
      - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
@@ -314,8 +577,8 @@ public class CadastroGeralAPI: APIBase {
      - parameter descricao: (query) Descri\u00C3\u00A7\u00C3\u00A3o do tipo de ajuste. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET22(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, descricao: String?, completion: ((data: PageTipoAjusteResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET22WithRequestBuilder(sort: sort, page: page, limit: limit, id: id, descricao: descricao).execute { (response, error) -> Void in
+    public class func consultarUsingGET27(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, descricao: String?, completion: ((data: PageTipoAjusteResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET27WithRequestBuilder(sort: sort, page: page, limit: limit, id: id, descricao: descricao).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -355,7 +618,7 @@ public class CadastroGeralAPI: APIBase {
 
      - returns: RequestBuilder<PageTipoAjusteResponse> 
      */
-    public class func consultarUsingGET22WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, descricao: String?) -> RequestBuilder<PageTipoAjusteResponse> {
+    public class func consultarUsingGET27WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, descricao: String?) -> RequestBuilder<PageTipoAjusteResponse> {
         let path = "/api/tipos-ajustes"
         let URLString = PierAPI.basePath + path
         
@@ -385,8 +648,8 @@ public class CadastroGeralAPI: APIBase {
      - parameter banco: (query) C\u00C3\u00B3digo identificador do banco. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET23(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, descricao: String?, banco: Int?, completion: ((data: PageTipoBoletoResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET23WithRequestBuilder(sort: sort, page: page, limit: limit, id: id, descricao: descricao, banco: banco).execute { (response, error) -> Void in
+    public class func consultarUsingGET28(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, descricao: String?, banco: Int?, completion: ((data: PageTipoBoletoResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET28WithRequestBuilder(sort: sort, page: page, limit: limit, id: id, descricao: descricao, banco: banco).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -433,7 +696,7 @@ public class CadastroGeralAPI: APIBase {
 
      - returns: RequestBuilder<PageTipoBoletoResponse> 
      */
-    public class func consultarUsingGET23WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, descricao: String?, banco: Int?) -> RequestBuilder<PageTipoBoletoResponse> {
+    public class func consultarUsingGET28WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, descricao: String?, banco: Int?) -> RequestBuilder<PageTipoBoletoResponse> {
         let path = "/api/tipos-boletos"
         let URLString = PierAPI.basePath + path
         
@@ -459,8 +722,8 @@ public class CadastroGeralAPI: APIBase {
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Tipo do Endere\u00C3\u00A7o (id) 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET24(id id: Int, completion: ((data: TipoEnderecoResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET24WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET29(id id: Int, completion: ((data: TipoEnderecoResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET29WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -481,7 +744,7 @@ public class CadastroGeralAPI: APIBase {
 
      - returns: RequestBuilder<TipoEnderecoResponse> 
      */
-    public class func consultarUsingGET24WithRequestBuilder(id id: Int) -> RequestBuilder<TipoEnderecoResponse> {
+    public class func consultarUsingGET29WithRequestBuilder(id id: Int) -> RequestBuilder<TipoEnderecoResponse> {
         var path = "/api/tipos-enderecos/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -490,111 +753,6 @@ public class CadastroGeralAPI: APIBase {
         let parameters = APIHelper.rejectNil(nillableParameters)
 
         let requestBuilder: RequestBuilder<TipoEnderecoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Apresenta dados de um determinado tipo de opera\u00C3\u00A7\u00C3\u00A3o
-     
-     - parameter idCartao: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do cartao (idCartao). 
-     - parameter idEstabelecimento: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do estabelecimento (idEstabelecimento). 
-     - parameter codigoProcessamento: (query) C\u00C3\u00B3digo de processamento da opera\u00C3\u00A7\u00C3\u00A3o. 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func consultarUsingGET25(idCartao idCartao: Int, idEstabelecimento: Int, codigoProcessamento: String, completion: ((data: TipoOperacaoResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET25WithRequestBuilder(idCartao: idCartao, idEstabelecimento: idEstabelecimento, codigoProcessamento: codigoProcessamento).execute { (response, error) -> Void in
-            completion(data: response?.body, error: error);
-        }
-    }
-
-
-    /**
-     
-     Apresenta dados de um determinado tipo de opera\u00C3\u00A7\u00C3\u00A3o
-     
-     - GET /api/tipos-operacoes
-     - Este recurso permite consultar dados de um determinado tipo opera\u00C3\u00A7\u00C3\u00A3o a partir do idCartao, idEstabelecimento e codigoProcessamento.
-     - examples: [{contentType=application/json, example={
-  "tarifa" : 1.3579000000000001069366817318950779736042022705078125,
-  "idEstabelecimento" : 123456789,
-  "flagTiraTac" : 123,
-  "nome" : "aeiou",
-  "tipoOperacao" : "aeiou",
-  "planoMaximo" : 123,
-  "descricao" : "aeiou",
-  "valorMaximo" : 1.3579000000000001069366817318950779736042022705078125,
-  "valorTAC" : 1.3579000000000001069366817318950779736042022705078125,
-  "planoMinimo" : 123,
-  "idProduto" : 123456789,
-  "tipoExcedentePermitido" : "aeiou",
-  "remuneracaoEmissor" : 1.3579000000000001069366817318950779736042022705078125,
-  "excedentePermitido" : 1.3579000000000001069366817318950779736042022705078125,
-  "id" : 123456789,
-  "valorMinimo" : 1.3579000000000001069366817318950779736042022705078125
-}}]
-     
-     - parameter idCartao: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do cartao (idCartao). 
-     - parameter idEstabelecimento: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do estabelecimento (idEstabelecimento). 
-     - parameter codigoProcessamento: (query) C\u00C3\u00B3digo de processamento da opera\u00C3\u00A7\u00C3\u00A3o. 
-
-     - returns: RequestBuilder<TipoOperacaoResponse> 
-     */
-    public class func consultarUsingGET25WithRequestBuilder(idCartao idCartao: Int, idEstabelecimento: Int, codigoProcessamento: String) -> RequestBuilder<TipoOperacaoResponse> {
-        let path = "/api/tipos-operacoes"
-        let URLString = PierAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [
-            "idCartao": idCartao,
-            "idEstabelecimento": idEstabelecimento,
-            "codigoProcessamento": codigoProcessamento
-        ]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<TipoOperacaoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
-    }
-
-    /**
-     
-     Apresenta os dados de um determinado Tipo de Telefone
-     
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Tipo do Telefone (id) 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func consultarUsingGET27(id id: Int, completion: ((data: TipoTelefoneResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET27WithRequestBuilder(id: id).execute { (response, error) -> Void in
-            completion(data: response?.body, error: error);
-        }
-    }
-
-
-    /**
-     
-     Apresenta os dados de um determinado Tipo de Telefone
-     
-     - GET /api/tipos-telefones/{id}
-     - Este m\u00C3\u00A9todo permite consultar um determinado Tipo de Telefone a partir do seu c\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o (id).
-     - examples: [{contentType=application/json, example={
-  "nome" : "aeiou",
-  "id" : 123456789
-}}]
-     
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Tipo do Telefone (id) 
-
-     - returns: RequestBuilder<TipoTelefoneResponse> 
-     */
-    public class func consultarUsingGET27WithRequestBuilder(id id: Int) -> RequestBuilder<TipoTelefoneResponse> {
-        var path = "/api/tipos-telefones/{id}"
-        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
-        let URLString = PierAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<TipoTelefoneResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
     }
@@ -645,6 +803,222 @@ public class CadastroGeralAPI: APIBase {
 
     /**
      
+     Apresenta dados de um determinado tipo de opera\u00C3\u00A7\u00C3\u00A3o
+     
+     - parameter idCartao: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do cartao (idCartao). 
+     - parameter idEstabelecimento: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do estabelecimento (idEstabelecimento). 
+     - parameter codigoProcessamento: (query) C\u00C3\u00B3digo de processamento da opera\u00C3\u00A7\u00C3\u00A3o. 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func consultarUsingGET30(idCartao idCartao: Int, idEstabelecimento: Int, codigoProcessamento: String, completion: ((data: TipoOperacaoResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET30WithRequestBuilder(idCartao: idCartao, idEstabelecimento: idEstabelecimento, codigoProcessamento: codigoProcessamento).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Apresenta dados de um determinado tipo de opera\u00C3\u00A7\u00C3\u00A3o
+     
+     - GET /api/tipos-operacoes
+     - Este recurso permite consultar dados de um determinado tipo opera\u00C3\u00A7\u00C3\u00A3o a partir do idCartao, idEstabelecimento e codigoProcessamento.
+     - examples: [{contentType=application/json, example={
+  "tarifa" : 1.3579000000000001069366817318950779736042022705078125,
+  "idEstabelecimento" : 123456789,
+  "flagTiraTac" : 123,
+  "nome" : "aeiou",
+  "tipoOperacao" : "aeiou",
+  "planoMaximo" : 123,
+  "descricao" : "aeiou",
+  "valorMaximo" : 1.3579000000000001069366817318950779736042022705078125,
+  "valorTAC" : 1.3579000000000001069366817318950779736042022705078125,
+  "planoMinimo" : 123,
+  "idProduto" : 123456789,
+  "tipoExcedentePermitido" : "aeiou",
+  "remuneracaoEmissor" : 1.3579000000000001069366817318950779736042022705078125,
+  "excedentePermitido" : 1.3579000000000001069366817318950779736042022705078125,
+  "id" : 123456789,
+  "valorMinimo" : 1.3579000000000001069366817318950779736042022705078125
+}}]
+     
+     - parameter idCartao: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do cartao (idCartao). 
+     - parameter idEstabelecimento: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do estabelecimento (idEstabelecimento). 
+     - parameter codigoProcessamento: (query) C\u00C3\u00B3digo de processamento da opera\u00C3\u00A7\u00C3\u00A3o. 
+
+     - returns: RequestBuilder<TipoOperacaoResponse> 
+     */
+    public class func consultarUsingGET30WithRequestBuilder(idCartao idCartao: Int, idEstabelecimento: Int, codigoProcessamento: String) -> RequestBuilder<TipoOperacaoResponse> {
+        let path = "/api/tipos-operacoes"
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [
+            "idCartao": idCartao,
+            "idEstabelecimento": idEstabelecimento,
+            "codigoProcessamento": codigoProcessamento
+        ]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<TipoOperacaoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
+    }
+
+    /**
+     
+     Apresenta os dados de um determinado Tipo de Telefone
+     
+     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Tipo do Telefone (id) 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func consultarUsingGET32(id id: Int, completion: ((data: TipoTelefoneResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET32WithRequestBuilder(id: id).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Apresenta os dados de um determinado Tipo de Telefone
+     
+     - GET /api/tipos-telefones/{id}
+     - Este m\u00C3\u00A9todo permite consultar um determinado Tipo de Telefone a partir do seu c\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o (id).
+     - examples: [{contentType=application/json, example={
+  "nome" : "aeiou",
+  "id" : 123456789
+}}]
+     
+     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Tipo do Telefone (id) 
+
+     - returns: RequestBuilder<TipoTelefoneResponse> 
+     */
+    public class func consultarUsingGET32WithRequestBuilder(id id: Int) -> RequestBuilder<TipoTelefoneResponse> {
+        var path = "/api/tipos-telefones/{id}"
+        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<TipoTelefoneResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Consultar configura\u00C3\u00A7\u00C3\u00A3o para registro de cobran\u00C3\u00A7a
+     
+     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da configura\u00C3\u00A7\u00C3\u00A3o (id). 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func consultarUsingGET7(id id: Int, completion: ((data: ConfiguracaoRegistroCobrancaResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET7WithRequestBuilder(id: id).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Consultar configura\u00C3\u00A7\u00C3\u00A3o para registro de cobran\u00C3\u00A7a
+     
+     - GET /api/configuracoes-registro-cobranca/{id}
+     - Este m\u00C3\u00A9todo permite buscar uma configura\u00C3\u00A7\u00C3\u00A3o, para registro de cobran\u00C3\u00A7a.
+     - examples: [{contentType=application/json, example={
+  "trustStoreName" : "aeiou",
+  "keyStorePassword" : "aeiou",
+  "typeTruststore" : "aeiou",
+  "keyStorePrivateKeyPassword" : "aeiou",
+  "uri" : "aeiou",
+  "truststoreAlias" : "aeiou",
+  "trustStorePassword" : "aeiou",
+  "keyStoreName" : "aeiou",
+  "keystoreAlias" : "aeiou",
+  "typeKeystore" : "aeiou",
+  "codigoBanco" : 123456789,
+  "id" : 123456789,
+  "idEmissor" : 123456789,
+  "uriAdicional" : "aeiou",
+  "status" : "aeiou"
+}}]
+     
+     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da configura\u00C3\u00A7\u00C3\u00A3o (id). 
+
+     - returns: RequestBuilder<ConfiguracaoRegistroCobrancaResponse> 
+     */
+    public class func consultarUsingGET7WithRequestBuilder(id id: Int) -> RequestBuilder<ConfiguracaoRegistroCobrancaResponse> {
+        var path = "/api/configuracoes-registro-cobranca/{id}"
+        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<ConfiguracaoRegistroCobrancaResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Apresenta dados de configura\u00C3\u00A7\u00C3\u00A3o do rotativo espec\u00C3\u00ADfico.
+     
+     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o de configura\u00C3\u00A7\u00C3\u00A3o rotativo (id). 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func consultarUsingGET8(id id: Int, completion: ((data: ConfiguracaoRotativoDetalheResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET8WithRequestBuilder(id: id).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Apresenta dados de configura\u00C3\u00A7\u00C3\u00A3o do rotativo espec\u00C3\u00ADfico.
+     
+     - GET /api/configuracoes-rotativos/{id}
+     - Este recurso permite consultar dados de configura\u00C3\u00A7\u00C3\u00A3o do parcelamento rotativo a partir de seu codigo de identifica\u00C3\u00A7\u00C3\u00A3o (id).
+     - examples: [{contentType=application/json, example={
+  "aceitaPagamentoMaiorQueEntrada" : false,
+  "recalculaParcelamentoParaEntradaMaior" : false,
+  "recalculaParcelamento" : false,
+  "percentualLimitarValorMinimoParcela" : 1.3579000000000001069366817318950779736042022705078125,
+  "compoeOfertaValorNaoFinanciavel" : false,
+  "parcelarApenasMinimo" : false,
+  "valorMinimoParcela" : 1.3579000000000001069366817318950779736042022705078125,
+  "idProduto" : 123456789,
+  "compoeOfertaValorNovosLancamentos" : false,
+  "idRegraCampanha" : 123456789,
+  "compoeOfertaValorRotativo" : false,
+  "minimoParcelasRecalculoParcelamento" : false,
+  "usuario" : "aeiou",
+  "id" : 123456789,
+  "antecipaParcelamentosAbertos" : false,
+  "numeroMinimoOfertas" : false
+}}]
+     
+     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o de configura\u00C3\u00A7\u00C3\u00A3o rotativo (id). 
+
+     - returns: RequestBuilder<ConfiguracaoRotativoDetalheResponse> 
+     */
+    public class func consultarUsingGET8WithRequestBuilder(id id: Int) -> RequestBuilder<ConfiguracaoRotativoDetalheResponse> {
+        var path = "/api/configuracoes-rotativos/{id}"
+        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<ConfiguracaoRotativoDetalheResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
      Desativa o par\u00C3\u00A2metro uso exterior para o produto
      
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Produto (id) 
@@ -687,6 +1061,79 @@ public class CadastroGeralAPI: APIBase {
         let requestBuilder: RequestBuilder<ProdutoDetalhesResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Listar Campanhas
+     
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
+     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+     - parameter idTipoCampanha: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do tipo de campanha (id). (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func listarCampanhasUsingGET(sort sort: [String]?, page: Int?, limit: Int?, idTipoCampanha: Int?, completion: ((data: PageCampanhaResponse?, error: ErrorType?) -> Void)) {
+        listarCampanhasUsingGETWithRequestBuilder(sort: sort, page: page, limit: limit, idTipoCampanha: idTipoCampanha).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Listar Campanhas
+     
+     - GET /api/campanhas
+     - Lista as campanhas.
+     - examples: [{contentType=application/json, example={
+  "previousPage" : 123,
+  "last" : true,
+  "hasContent" : true,
+  "hasNextPage" : true,
+  "nextPage" : 123,
+  "content" : [ {
+    "planosCampanhas" : [ {
+      "parcelas" : 123,
+      "taxa" : 1.3579000000000001069366817318950779736042022705078125,
+      "id" : 123456789
+    } ],
+    "idTipoCampanha" : 123456789,
+    "nome" : "aeiou",
+    "id" : 123456789
+  } ],
+  "totalElements" : 123456789,
+  "number" : 123,
+  "firstPage" : true,
+  "numberOfElements" : 123,
+  "size" : 123,
+  "totalPages" : 123,
+  "hasPreviousPage" : true,
+  "first" : true
+}}]
+     
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
+     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+     - parameter idTipoCampanha: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do tipo de campanha (id). (optional)
+
+     - returns: RequestBuilder<PageCampanhaResponse> 
+     */
+    public class func listarCampanhasUsingGETWithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, idTipoCampanha: Int?) -> RequestBuilder<PageCampanhaResponse> {
+        let path = "/api/campanhas"
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [
+            "sort": sort,
+            "page": page,
+            "limit": limit,
+            "idTipoCampanha": idTipoCampanha
+        ]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<PageCampanhaResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
     }
 
     /**
@@ -1301,6 +1748,151 @@ public class CadastroGeralAPI: APIBase {
 
     /**
      
+     Listar Tipos de Campanhas
+     
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
+     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func listarTiposCampanhasUsingGET(sort sort: [String]?, page: Int?, limit: Int?, completion: ((data: PageTipoCampanhaResponse?, error: ErrorType?) -> Void)) {
+        listarTiposCampanhasUsingGETWithRequestBuilder(sort: sort, page: page, limit: limit).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Listar Tipos de Campanhas
+     
+     - GET /api/tipos-campanhas
+     - Lista os tipos de campanhas.
+     - examples: [{contentType=application/json, example={
+  "previousPage" : 123,
+  "last" : true,
+  "hasContent" : true,
+  "hasNextPage" : true,
+  "nextPage" : 123,
+  "content" : [ {
+    "id" : 123456789,
+    "descricao" : "aeiou"
+  } ],
+  "totalElements" : 123456789,
+  "number" : 123,
+  "firstPage" : true,
+  "numberOfElements" : 123,
+  "size" : 123,
+  "totalPages" : 123,
+  "hasPreviousPage" : true,
+  "first" : true
+}}]
+     
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
+     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+
+     - returns: RequestBuilder<PageTipoCampanhaResponse> 
+     */
+    public class func listarTiposCampanhasUsingGETWithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?) -> RequestBuilder<PageTipoCampanhaResponse> {
+        let path = "/api/tipos-campanhas"
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [
+            "sort": sort,
+            "page": page,
+            "limit": limit
+        ]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<PageTipoCampanhaResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
+    }
+
+    /**
+     
+     Listar as configura\u00C3\u00A7\u00C3\u00B5es rotativo.
+     
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
+     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+     - parameter idProduto: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do Produto. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func listarUsingGET10(sort sort: [String]?, page: Int?, limit: Int?, idProduto: Int?, completion: ((data: PageConfiguracaoRotativoResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET10WithRequestBuilder(sort: sort, page: page, limit: limit, idProduto: idProduto).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Listar as configura\u00C3\u00A7\u00C3\u00B5es rotativo.
+     
+     - GET /api/configuracoes-rotativos
+     - Este recurso permite listar as configura\u00C3\u00A7\u00C3\u00B5es rotativo.
+     - examples: [{contentType=application/json, example={
+  "previousPage" : 123,
+  "last" : true,
+  "hasContent" : true,
+  "hasNextPage" : true,
+  "nextPage" : 123,
+  "content" : [ {
+    "aceitaPagamentoMaiorQueEntrada" : false,
+    "recalculaParcelamentoParaEntradaMaior" : false,
+    "recalculaParcelamento" : false,
+    "percentualLimitarValorMinimoParcela" : 1.3579000000000001069366817318950779736042022705078125,
+    "compoeOfertaValorNaoFinanciavel" : false,
+    "parcelarApenasMinimo" : false,
+    "valorMinimoParcela" : 1.3579000000000001069366817318950779736042022705078125,
+    "idProduto" : 123456789,
+    "compoeOfertaValorNovosLancamentos" : false,
+    "idRegraCampanha" : 123456789,
+    "compoeOfertaValorRotativo" : false,
+    "minimoParcelasRecalculoParcelamento" : false,
+    "usuario" : "aeiou",
+    "id" : 123456789,
+    "antecipaParcelamentosAbertos" : false,
+    "numeroMinimoOfertas" : false
+  } ],
+  "totalElements" : 123456789,
+  "number" : 123,
+  "firstPage" : true,
+  "numberOfElements" : 123,
+  "size" : 123,
+  "totalPages" : 123,
+  "hasPreviousPage" : true,
+  "first" : true
+}}]
+     
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
+     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+     - parameter idProduto: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do Produto. (optional)
+
+     - returns: RequestBuilder<PageConfiguracaoRotativoResponse> 
+     */
+    public class func listarUsingGET10WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, idProduto: Int?) -> RequestBuilder<PageConfiguracaoRotativoResponse> {
+        let path = "/api/configuracoes-rotativos"
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [
+            "sort": sort,
+            "page": page,
+            "limit": limit,
+            "idProduto": idProduto
+        ]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<PageConfiguracaoRotativoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
+    }
+
+    /**
+     
      Lista todos os atendimentos
      
      - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
@@ -1406,8 +1998,8 @@ public class CadastroGeralAPI: APIBase {
      - parameter dataCancelamentoPortador: (query) Apresenta a data em que o Portador fora cancelado, quando possuir esta informa\u00C3\u00A7\u00C3\u00A3o. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET21(sort sort: [String]?, page: Int?, limit: Int?, idConta: Int?, idProduto: Int?, idPessoa: Int?, idParentesco: Int?, tipoPortador: String?, nomeImpresso: String?, idTipoCartao: Int?, flagAtivo: Int?, dataCadastroPortador: String?, dataCancelamentoPortador: String?, completion: ((data: PagePortadorResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET21WithRequestBuilder(sort: sort, page: page, limit: limit, idConta: idConta, idProduto: idProduto, idPessoa: idPessoa, idParentesco: idParentesco, tipoPortador: tipoPortador, nomeImpresso: nomeImpresso, idTipoCartao: idTipoCartao, flagAtivo: flagAtivo, dataCadastroPortador: dataCadastroPortador, dataCancelamentoPortador: dataCancelamentoPortador).execute { (response, error) -> Void in
+    public class func listarUsingGET26(sort sort: [String]?, page: Int?, limit: Int?, idConta: Int?, idProduto: Int?, idPessoa: Int?, idParentesco: Int?, tipoPortador: String?, nomeImpresso: String?, idTipoCartao: Int?, flagAtivo: Int?, dataCadastroPortador: String?, dataCancelamentoPortador: String?, completion: ((data: PagePortadorResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET26WithRequestBuilder(sort: sort, page: page, limit: limit, idConta: idConta, idProduto: idProduto, idPessoa: idPessoa, idParentesco: idParentesco, tipoPortador: tipoPortador, nomeImpresso: nomeImpresso, idTipoCartao: idTipoCartao, flagAtivo: flagAtivo, dataCadastroPortador: dataCadastroPortador, dataCancelamentoPortador: dataCancelamentoPortador).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -1463,7 +2055,7 @@ public class CadastroGeralAPI: APIBase {
 
      - returns: RequestBuilder<PagePortadorResponse> 
      */
-    public class func listarUsingGET21WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, idConta: Int?, idProduto: Int?, idPessoa: Int?, idParentesco: Int?, tipoPortador: String?, nomeImpresso: String?, idTipoCartao: Int?, flagAtivo: Int?, dataCadastroPortador: String?, dataCancelamentoPortador: String?) -> RequestBuilder<PagePortadorResponse> {
+    public class func listarUsingGET26WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, idConta: Int?, idProduto: Int?, idPessoa: Int?, idParentesco: Int?, tipoPortador: String?, nomeImpresso: String?, idTipoCartao: Int?, flagAtivo: Int?, dataCadastroPortador: String?, dataCancelamentoPortador: String?) -> RequestBuilder<PagePortadorResponse> {
         let path = "/api/portadores"
         let URLString = PierAPI.basePath + path
         
@@ -1501,8 +2093,8 @@ public class CadastroGeralAPI: APIBase {
      - parameter idFantasiaBasica: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Fantasia B\u00C3\u00A1sica (id) a qual o produto pertence. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET22(sort sort: [String]?, page: Int?, limit: Int?, nome: String?, status: Int?, idFantasiaBasica: Int?, completion: ((data: PageProdutoResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET22WithRequestBuilder(sort: sort, page: page, limit: limit, nome: nome, status: status, idFantasiaBasica: idFantasiaBasica).execute { (response, error) -> Void in
+    public class func listarUsingGET27(sort sort: [String]?, page: Int?, limit: Int?, nome: String?, status: Int?, idFantasiaBasica: Int?, completion: ((data: PageProdutoResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET27WithRequestBuilder(sort: sort, page: page, limit: limit, nome: nome, status: status, idFantasiaBasica: idFantasiaBasica).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -1545,7 +2137,7 @@ public class CadastroGeralAPI: APIBase {
 
      - returns: RequestBuilder<PageProdutoResponse> 
      */
-    public class func listarUsingGET22WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, nome: String?, status: Int?, idFantasiaBasica: Int?) -> RequestBuilder<PageProdutoResponse> {
+    public class func listarUsingGET27WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, nome: String?, status: Int?, idFantasiaBasica: Int?) -> RequestBuilder<PageProdutoResponse> {
         let path = "/api/produtos"
         let URLString = PierAPI.basePath + path
         
@@ -1578,8 +2170,8 @@ public class CadastroGeralAPI: APIBase {
      - parameter idUsuario: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do usu\u00C3\u00A1rio (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET23(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, nome: String?, dataCadastro: String?, idEstabelecimento: Int?, idUsuario: Int?, completion: ((data: PagePromotorResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET23WithRequestBuilder(sort: sort, page: page, limit: limit, id: id, nome: nome, dataCadastro: dataCadastro, idEstabelecimento: idEstabelecimento, idUsuario: idUsuario).execute { (response, error) -> Void in
+    public class func listarUsingGET28(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, nome: String?, dataCadastro: String?, idEstabelecimento: Int?, idUsuario: Int?, completion: ((data: PagePromotorResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET28WithRequestBuilder(sort: sort, page: page, limit: limit, id: id, nome: nome, dataCadastro: dataCadastro, idEstabelecimento: idEstabelecimento, idUsuario: idUsuario).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -1625,7 +2217,7 @@ public class CadastroGeralAPI: APIBase {
 
      - returns: RequestBuilder<PagePromotorResponse> 
      */
-    public class func listarUsingGET23WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, nome: String?, dataCadastro: String?, idEstabelecimento: Int?, idUsuario: Int?) -> RequestBuilder<PagePromotorResponse> {
+    public class func listarUsingGET28WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, nome: String?, dataCadastro: String?, idEstabelecimento: Int?, idUsuario: Int?) -> RequestBuilder<PagePromotorResponse> {
         let path = "/api/promotores"
         let URLString = PierAPI.basePath + path
         
@@ -1642,76 +2234,6 @@ public class CadastroGeralAPI: APIBase {
         let parameters = APIHelper.rejectNil(nillableParameters)
 
         let requestBuilder: RequestBuilder<PagePromotorResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
-    }
-
-    /**
-     
-     Lista as op\u00C3\u00B5es de Tipos de Endere\u00C3\u00A7os do Emissor 
-     
-     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
-     - parameter id: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Tipo do Endere\u00C3\u00A7o (id) (optional)
-     - parameter nome: (query) Nome do Tipo do Endere\u00C3\u00A7o (optional)
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func listarUsingGET29(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, nome: String?, completion: ((data: PageTipoEnderecoResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET29WithRequestBuilder(sort: sort, page: page, limit: limit, id: id, nome: nome).execute { (response, error) -> Void in
-            completion(data: response?.body, error: error);
-        }
-    }
-
-
-    /**
-     
-     Lista as op\u00C3\u00B5es de Tipos de Endere\u00C3\u00A7os do Emissor 
-     
-     - GET /api/tipos-enderecos
-     - Este m\u00C3\u00A9todo permite que sejam listados os Tipos de Endere\u00C3\u00A7os existentes na base de dados do Emissor.
-     - examples: [{contentType=application/json, example={
-  "previousPage" : 123,
-  "last" : true,
-  "hasContent" : true,
-  "hasNextPage" : true,
-  "nextPage" : 123,
-  "content" : [ {
-    "nome" : "aeiou",
-    "id" : 123456789
-  } ],
-  "totalElements" : 123456789,
-  "number" : 123,
-  "firstPage" : true,
-  "numberOfElements" : 123,
-  "size" : 123,
-  "totalPages" : 123,
-  "hasPreviousPage" : true,
-  "first" : true
-}}]
-     
-     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
-     - parameter id: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Tipo do Endere\u00C3\u00A7o (id) (optional)
-     - parameter nome: (query) Nome do Tipo do Endere\u00C3\u00A7o (optional)
-
-     - returns: RequestBuilder<PageTipoEnderecoResponse> 
-     */
-    public class func listarUsingGET29WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, nome: String?) -> RequestBuilder<PageTipoEnderecoResponse> {
-        let path = "/api/tipos-enderecos"
-        let URLString = PierAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [
-            "sort": sort,
-            "page": page,
-            "limit": limit,
-            "id": id,
-            "nome": nome
-        ]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<PageTipoEnderecoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
     }
@@ -1784,6 +2306,76 @@ public class CadastroGeralAPI: APIBase {
 
     /**
      
+     Lista as op\u00C3\u00B5es de Tipos de Endere\u00C3\u00A7os do Emissor 
+     
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
+     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+     - parameter id: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Tipo do Endere\u00C3\u00A7o (id) (optional)
+     - parameter nome: (query) Nome do Tipo do Endere\u00C3\u00A7o (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func listarUsingGET35(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, nome: String?, completion: ((data: PageTipoEnderecoResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET35WithRequestBuilder(sort: sort, page: page, limit: limit, id: id, nome: nome).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Lista as op\u00C3\u00B5es de Tipos de Endere\u00C3\u00A7os do Emissor 
+     
+     - GET /api/tipos-enderecos
+     - Este m\u00C3\u00A9todo permite que sejam listados os Tipos de Endere\u00C3\u00A7os existentes na base de dados do Emissor.
+     - examples: [{contentType=application/json, example={
+  "previousPage" : 123,
+  "last" : true,
+  "hasContent" : true,
+  "hasNextPage" : true,
+  "nextPage" : 123,
+  "content" : [ {
+    "nome" : "aeiou",
+    "id" : 123456789
+  } ],
+  "totalElements" : 123456789,
+  "number" : 123,
+  "firstPage" : true,
+  "numberOfElements" : 123,
+  "size" : 123,
+  "totalPages" : 123,
+  "hasPreviousPage" : true,
+  "first" : true
+}}]
+     
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
+     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+     - parameter id: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Tipo do Endere\u00C3\u00A7o (id) (optional)
+     - parameter nome: (query) Nome do Tipo do Endere\u00C3\u00A7o (optional)
+
+     - returns: RequestBuilder<PageTipoEnderecoResponse> 
+     */
+    public class func listarUsingGET35WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, nome: String?) -> RequestBuilder<PageTipoEnderecoResponse> {
+        let path = "/api/tipos-enderecos"
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [
+            "sort": sort,
+            "page": page,
+            "limit": limit,
+            "id": id,
+            "nome": nome
+        ]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<PageTipoEnderecoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
+    }
+
+    /**
+     
      Lista os Tipos de Telefones
      
      - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
@@ -1793,8 +2385,8 @@ public class CadastroGeralAPI: APIBase {
      - parameter nome: (query) Nome do Tipo do Telefone (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET31(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, nome: String?, completion: ((data: PageTipoTelefoneResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET31WithRequestBuilder(sort: sort, page: page, limit: limit, id: id, nome: nome).execute { (response, error) -> Void in
+    public class func listarUsingGET37(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, nome: String?, completion: ((data: PageTipoTelefoneResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET37WithRequestBuilder(sort: sort, page: page, limit: limit, id: id, nome: nome).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -1834,7 +2426,7 @@ public class CadastroGeralAPI: APIBase {
 
      - returns: RequestBuilder<PageTipoTelefoneResponse> 
      */
-    public class func listarUsingGET31WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, nome: String?) -> RequestBuilder<PageTipoTelefoneResponse> {
+    public class func listarUsingGET37WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, nome: String?) -> RequestBuilder<PageTipoTelefoneResponse> {
         let path = "/api/tipos-telefones"
         let URLString = PierAPI.basePath + path
         
@@ -1862,8 +2454,8 @@ public class CadastroGeralAPI: APIBase {
      - parameter dataVencimento: (query) Indica a data de vencimento das faturas (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET37(sort sort: [String]?, page: Int?, limit: Int?, dataVencimento: String?, completion: ((data: PageControleVencimentoResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET37WithRequestBuilder(sort: sort, page: page, limit: limit, dataVencimento: dataVencimento).execute { (response, error) -> Void in
+    public class func listarUsingGET43(sort sort: [String]?, page: Int?, limit: Int?, dataVencimento: String?, completion: ((data: PageControleVencimentoResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET43WithRequestBuilder(sort: sort, page: page, limit: limit, dataVencimento: dataVencimento).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -1906,7 +2498,7 @@ public class CadastroGeralAPI: APIBase {
 
      - returns: RequestBuilder<PageControleVencimentoResponse> 
      */
-    public class func listarUsingGET37WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, dataVencimento: String?) -> RequestBuilder<PageControleVencimentoResponse> {
+    public class func listarUsingGET43WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, dataVencimento: String?) -> RequestBuilder<PageControleVencimentoResponse> {
         let path = "/api/vencimentos"
         let URLString = PierAPI.basePath + path
         
@@ -1919,6 +2511,68 @@ public class CadastroGeralAPI: APIBase {
         let parameters = APIHelper.rejectNil(nillableParameters)
 
         let requestBuilder: RequestBuilder<PageControleVencimentoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
+    }
+
+    /**
+     
+     Listar configura\u00C3\u00A7\u00C3\u00B5es para registro de cobran\u00C3\u00A7a
+     
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
+     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func listarUsingGET9(sort sort: [String]?, page: Int?, limit: Int?, completion: ((data: ConfiguracaoRegistroCobrancaResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET9WithRequestBuilder(sort: sort, page: page, limit: limit).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Listar configura\u00C3\u00A7\u00C3\u00B5es para registro de cobran\u00C3\u00A7a
+     
+     - GET /api/configuracoes-registro-cobranca
+     - Este m\u00C3\u00A9todo permite listar as configura\u00C3\u00A7\u00C3\u00B5es de registro de cobran\u00C3\u00A7a.
+     - examples: [{contentType=application/json, example={
+  "trustStoreName" : "aeiou",
+  "keyStorePassword" : "aeiou",
+  "typeTruststore" : "aeiou",
+  "keyStorePrivateKeyPassword" : "aeiou",
+  "uri" : "aeiou",
+  "truststoreAlias" : "aeiou",
+  "trustStorePassword" : "aeiou",
+  "keyStoreName" : "aeiou",
+  "keystoreAlias" : "aeiou",
+  "typeKeystore" : "aeiou",
+  "codigoBanco" : 123456789,
+  "id" : 123456789,
+  "idEmissor" : 123456789,
+  "uriAdicional" : "aeiou",
+  "status" : "aeiou"
+}}]
+     
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
+     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+
+     - returns: RequestBuilder<ConfiguracaoRegistroCobrancaResponse> 
+     */
+    public class func listarUsingGET9WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?) -> RequestBuilder<ConfiguracaoRegistroCobrancaResponse> {
+        let path = "/api/configuracoes-registro-cobranca"
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [
+            "sort": sort,
+            "page": page,
+            "limit": limit
+        ]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<ConfiguracaoRegistroCobrancaResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
     }
@@ -1999,6 +2653,106 @@ public class CadastroGeralAPI: APIBase {
         let requestBuilder: RequestBuilder<AtendimentoClienteResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: false)
+    }
+
+    /**
+     
+     Inserir campanha
+     
+     - parameter campanhaPersist: (body) campanhaPersist 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func salvarUsingPOST4(campanhaPersist campanhaPersist: CampanhaPersist, completion: ((data: CampanhaResponse?, error: ErrorType?) -> Void)) {
+        salvarUsingPOST4WithRequestBuilder(campanhaPersist: campanhaPersist).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Inserir campanha
+     
+     - POST /api/campanhas
+     - Este m\u00C3\u00A9todo permite que seja cadastrado uma nova campanha.
+     - examples: [{contentType=application/json, example={
+  "planosCampanhas" : [ {
+    "parcelas" : 123,
+    "taxa" : 1.3579000000000001069366817318950779736042022705078125,
+    "id" : 123456789
+  } ],
+  "idTipoCampanha" : 123456789,
+  "nome" : "aeiou",
+  "id" : 123456789
+}}]
+     
+     - parameter campanhaPersist: (body) campanhaPersist 
+
+     - returns: RequestBuilder<CampanhaResponse> 
+     */
+    public class func salvarUsingPOST4WithRequestBuilder(campanhaPersist campanhaPersist: CampanhaPersist) -> RequestBuilder<CampanhaResponse> {
+        let path = "/api/campanhas"
+        let URLString = PierAPI.basePath + path
+        
+        let parameters = campanhaPersist.encodeToJSON() as? [String:AnyObject]
+
+        let requestBuilder: RequestBuilder<CampanhaResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Inserir os dados de configura\u00C3\u00A7\u00C3\u00A3o do rotativo de um produto
+     
+     - parameter configuracaoRotativoPersist: (body) configuracaoRotativoPersist 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func salvarUsingPOST6(configuracaoRotativoPersist configuracaoRotativoPersist: ConfiguracaoRotativoPersist, completion: ((data: ConfiguracaoRotativoDetalheResponse?, error: ErrorType?) -> Void)) {
+        salvarUsingPOST6WithRequestBuilder(configuracaoRotativoPersist: configuracaoRotativoPersist).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Inserir os dados de configura\u00C3\u00A7\u00C3\u00A3o do rotativo de um produto
+     
+     - POST /api/configuracoes-rotativos
+     - Este m\u00C3\u00A9todo permite que seja cadastrado uma nova configura\u00C3\u00A7\u00C3\u00A3o do rotativo para um determinado produto.
+     - examples: [{contentType=application/json, example={
+  "aceitaPagamentoMaiorQueEntrada" : false,
+  "recalculaParcelamentoParaEntradaMaior" : false,
+  "recalculaParcelamento" : false,
+  "percentualLimitarValorMinimoParcela" : 1.3579000000000001069366817318950779736042022705078125,
+  "compoeOfertaValorNaoFinanciavel" : false,
+  "parcelarApenasMinimo" : false,
+  "valorMinimoParcela" : 1.3579000000000001069366817318950779736042022705078125,
+  "idProduto" : 123456789,
+  "compoeOfertaValorNovosLancamentos" : false,
+  "idRegraCampanha" : 123456789,
+  "compoeOfertaValorRotativo" : false,
+  "minimoParcelasRecalculoParcelamento" : false,
+  "usuario" : "aeiou",
+  "id" : 123456789,
+  "antecipaParcelamentosAbertos" : false,
+  "numeroMinimoOfertas" : false
+}}]
+     
+     - parameter configuracaoRotativoPersist: (body) configuracaoRotativoPersist 
+
+     - returns: RequestBuilder<ConfiguracaoRotativoDetalheResponse> 
+     */
+    public class func salvarUsingPOST6WithRequestBuilder(configuracaoRotativoPersist configuracaoRotativoPersist: ConfiguracaoRotativoPersist) -> RequestBuilder<ConfiguracaoRotativoDetalheResponse> {
+        let path = "/api/configuracoes-rotativos"
+        let URLString = PierAPI.basePath + path
+        
+        let parameters = configuracaoRotativoPersist.encodeToJSON() as? [String:AnyObject]
+
+        let requestBuilder: RequestBuilder<ConfiguracaoRotativoDetalheResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
     }
 
 }

@@ -33,6 +33,8 @@ public class FaturaResponse: JSONEncodable {
     public var valorTotal: Double?
     /** Valor do pagamento m\u00C3\u00ADnimo. */
     public var valorPagamentoMinimo: Double?
+    /** Valor do saldo anterior. */
+    public var saldoAnterior: Double?
     
 
     public init() {}
@@ -48,6 +50,7 @@ public class FaturaResponse: JSONEncodable {
         nillableDictionary["dataFechamento"] = self.dataFechamento
         nillableDictionary["valorTotal"] = self.valorTotal
         nillableDictionary["valorPagamentoMinimo"] = self.valorPagamentoMinimo
+        nillableDictionary["saldoAnterior"] = self.saldoAnterior
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

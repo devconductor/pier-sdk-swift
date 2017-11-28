@@ -69,6 +69,8 @@ public class PessoaFisicaAprovadaPersist: JSONEncodable {
     public var limiteMaximo: Double?
     /** Valor do limite de cr\u00C3\u00A9dito acumulado da soma das parcelas das compras */
     public var limiteParcelas: Double?
+    /** Valor do limite de margem consignado */
+    public var limiteConsignado: Double?
     
 
     public init() {}
@@ -105,6 +107,7 @@ public class PessoaFisicaAprovadaPersist: JSONEncodable {
         nillableDictionary["limiteGlobal"] = self.limiteGlobal
         nillableDictionary["limiteMaximo"] = self.limiteMaximo
         nillableDictionary["limiteParcelas"] = self.limiteParcelas
+        nillableDictionary["limiteConsignado"] = self.limiteConsignado
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

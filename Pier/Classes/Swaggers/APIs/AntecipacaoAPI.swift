@@ -129,15 +129,31 @@ public class AntecipacaoAPI: APIBase {
      - POST /api/compras-antecipaveis/{id}/efetivar-antecipacao
      - M\u00C3\u00A9todo responsavel pela efetiva\u00C3\u00A7\u00C3\u00A3o da antecipa\u00C3\u00A7\u00C3\u00A3o, cujo desconto \u00C3\u00A9 calculado baseado na data da \u00C3\u00BAltima parcela em aberto.
      - examples: [{contentType=application/json, example={
-  "valorParcela" : 1.3579000000000001069366817318950779736042022705078125,
+  "cidade" : "aeiou",
+  "tipoOrigemTransacao" : "aeiou",
+  "idGrupoMCC" : 123456789,
+  "latitude" : "aeiou",
+  "quantidadeParcelasTotal" : 123456789,
+  "mcc" : 123456789,
+  "dataCompra" : "aeiou",
+  "descricaoProduto" : "aeiou",
+  "uf" : "aeiou",
+  "idProduto" : 123456789,
+  "idCompra" : 123456789,
+  "id" : 123456789,
+  "valorTotalComDesconto" : 1.3579000000000001069366817318950779736042022705078125,
+  "quantidadeParcelasAntecipadas" : 123456789,
+  "descricaoEstabelecimento" : "aeiou",
+  "longitude" : "aeiou",
   "idConta" : 123456789,
   "valorDescontoTotal" : 1.3579000000000001069366817318950779736042022705078125,
-  "idCompra" : 123456789,
   "taxaDesconto" : 1.3579000000000001069366817318950779736042022705078125,
-  "id" : 123456789,
-  "quantidadeParcelasTotal" : 123456789,
-  "valorTotalComDesconto" : 1.3579000000000001069366817318950779736042022705078125,
-  "quantidadeParcelasAntecipadas" : 123456789
+  "pais" : "aeiou",
+  "descricaoGrupoMCC" : "aeiou",
+  "nomeEstabelecimento" : "aeiou",
+  "valorParcela" : 1.3579000000000001069366817318950779736042022705078125,
+  "nomeFantasiaEstabelecimento" : "aeiou",
+  "status" : "aeiou"
 }}]
      
      - parameter idConta: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Conta. 
@@ -172,7 +188,7 @@ public class AntecipacaoAPI: APIBase {
      - parameter complemento: (query) Dados complementares sobre a realiza\u00C3\u00A7\u00C3\u00A3o da transa\u00C3\u00A7\u00C3\u00A3o. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func efetivarAntecipacoesUsingPOST(idConta idConta: Int, complemento: String?, completion: ((data: AntecipacaoMockResponse?, error: ErrorType?) -> Void)) {
+    public class func efetivarAntecipacoesUsingPOST(idConta idConta: Int, complemento: String?, completion: ((data: AntecipacaoResponse?, error: ErrorType?) -> Void)) {
         efetivarAntecipacoesUsingPOSTWithRequestBuilder(idConta: idConta, complemento: complemento).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -187,36 +203,38 @@ public class AntecipacaoAPI: APIBase {
      - M\u00C3\u00A9todo responsavel pela efetiva\u00C3\u00A7\u00C3\u00A3o de todas as compras antecip\u00C3\u00A1veis com todas as parcelas de uma conta.
      - examples: [{contentType=application/json, example={
   "cidade" : "aeiou",
-  "idConta" : 123456789,
   "tipoOrigemTransacao" : "aeiou",
-  "valorDescontoTotal" : 1.3579000000000001069366817318950779736042022705078125,
   "idGrupoMCC" : 123456789,
   "latitude" : "aeiou",
-  "taxaDesconto" : 1.3579000000000001069366817318950779736042022705078125,
   "quantidadeParcelasTotal" : 123456789,
   "mcc" : 123456789,
   "dataCompra" : "aeiou",
-  "pais" : "aeiou",
-  "descricaoGrupoMCC" : "aeiou",
   "descricaoProduto" : "aeiou",
-  "nomeEstabelecimento" : "aeiou",
   "uf" : "aeiou",
-  "valorParcela" : 1.3579000000000001069366817318950779736042022705078125,
   "idProduto" : 123456789,
   "idCompra" : 123456789,
   "id" : 123456789,
   "valorTotalComDesconto" : 1.3579000000000001069366817318950779736042022705078125,
   "quantidadeParcelasAntecipadas" : 123456789,
-  "status" : "aeiou",
-  "longitude" : "aeiou"
+  "descricaoEstabelecimento" : "aeiou",
+  "longitude" : "aeiou",
+  "idConta" : 123456789,
+  "valorDescontoTotal" : 1.3579000000000001069366817318950779736042022705078125,
+  "taxaDesconto" : 1.3579000000000001069366817318950779736042022705078125,
+  "pais" : "aeiou",
+  "descricaoGrupoMCC" : "aeiou",
+  "nomeEstabelecimento" : "aeiou",
+  "valorParcela" : 1.3579000000000001069366817318950779736042022705078125,
+  "nomeFantasiaEstabelecimento" : "aeiou",
+  "status" : "aeiou"
 }}]
      
      - parameter idConta: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Conta. 
      - parameter complemento: (query) Dados complementares sobre a realiza\u00C3\u00A7\u00C3\u00A3o da transa\u00C3\u00A7\u00C3\u00A3o. (optional)
 
-     - returns: RequestBuilder<AntecipacaoMockResponse> 
+     - returns: RequestBuilder<AntecipacaoResponse> 
      */
-    public class func efetivarAntecipacoesUsingPOSTWithRequestBuilder(idConta idConta: Int, complemento: String?) -> RequestBuilder<AntecipacaoMockResponse> {
+    public class func efetivarAntecipacoesUsingPOSTWithRequestBuilder(idConta idConta: Int, complemento: String?) -> RequestBuilder<AntecipacaoResponse> {
         let path = "/api/compras-antecipaveis/efetivar-antecipacao"
         let URLString = PierAPI.basePath + path
         
@@ -226,7 +244,7 @@ public class AntecipacaoAPI: APIBase {
         ]
         let parameters = APIHelper.rejectNil(nillableParameters)
 
-        let requestBuilder: RequestBuilder<AntecipacaoMockResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<AntecipacaoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: false)
     }
@@ -354,20 +372,36 @@ public class AntecipacaoAPI: APIBase {
      - GET /api/compras-antecipaveis/{id}/simular-antecipacao
      - Simula a antecipa\u00C3\u00A7\u00C3\u00A3o de parcelas de um evento, listando todos os planos de parcelamento dispon\u00C3\u00ADveis, cujo desconto \u00C3\u00A9 calculado baseado na data da \u00C3\u00BAltima parcela em aberto.
      - examples: [{contentType=application/json, example={
-  "quantidadeParcelasAntecipaveis" : 123,
-  "valorParcela" : 1.3579000000000001069366817318950779736042022705078125,
-  "idConta" : 123456789,
-  "dataHoraSimulacao" : "aeiou",
+  "cidade" : "aeiou",
+  "tipoOrigemTransacao" : "aeiou",
+  "idGrupoMCC" : 123456789,
+  "latitude" : "aeiou",
+  "mcc" : 123456789,
+  "dataCompra" : "aeiou",
+  "descricaoProduto" : "aeiou",
+  "uf" : "aeiou",
+  "idProduto" : 123456789,
   "idAntecipacaoSimulada" : 123456789,
   "idCompra" : 123456789,
   "idTipoTransacao" : 123456789,
+  "descricaoEstabelecimento" : "aeiou",
   "detalhes" : [ {
     "valorDesconto" : 1.3579000000000001069366817318950779736042022705078125,
     "valorParcelasDesconto" : 1.3579000000000001069366817318950779736042022705078125,
     "valorParcelas" : 1.3579000000000001069366817318950779736042022705078125,
     "quantidadeParcelas" : 123
   } ],
-  "taxaAntecipacaoAno" : 1.3579000000000001069366817318950779736042022705078125
+  "longitude" : "aeiou",
+  "quantidadeParcelasAntecipaveis" : 123,
+  "idConta" : 123456789,
+  "dataHoraSimulacao" : "aeiou",
+  "pais" : "aeiou",
+  "descricaoGrupoMCC" : "aeiou",
+  "nomeEstabelecimento" : "aeiou",
+  "valorParcela" : 1.3579000000000001069366817318950779736042022705078125,
+  "nomeFantasiaEstabelecimento" : "aeiou",
+  "taxaAntecipacaoAno" : 1.3579000000000001069366817318950779736042022705078125,
+  "status" : "aeiou"
 }}]
      
      - parameter idConta: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta. 
@@ -416,34 +450,36 @@ public class AntecipacaoAPI: APIBase {
      - examples: [{contentType=application/json, example={
   "valorTotalDesconto" : 1.3579000000000001069366817318950779736042022705078125,
   "antecipacoesSimuladas" : [ {
-    "quantidadeParcelasAntecipaveis" : 123,
     "cidade" : "aeiou",
-    "idConta" : 123456789,
     "tipoOrigemTransacao" : "aeiou",
-    "dataHoraSimulacao" : "aeiou",
     "idGrupoMCC" : 123456789,
     "latitude" : "aeiou",
     "mcc" : 123456789,
     "dataCompra" : "aeiou",
-    "pais" : "aeiou",
-    "descricaoGrupoMCC" : "aeiou",
     "descricaoProduto" : "aeiou",
-    "nomeEstabelecimento" : "aeiou",
     "uf" : "aeiou",
-    "valorParcela" : 1.3579000000000001069366817318950779736042022705078125,
     "idProduto" : 123456789,
     "idAntecipacaoSimulada" : 123456789,
     "idCompra" : 123456789,
     "idTipoTransacao" : 123456789,
+    "descricaoEstabelecimento" : "aeiou",
     "detalhes" : [ {
       "valorDesconto" : 1.3579000000000001069366817318950779736042022705078125,
       "valorParcelasDesconto" : 1.3579000000000001069366817318950779736042022705078125,
       "valorParcelas" : 1.3579000000000001069366817318950779736042022705078125,
       "quantidadeParcelas" : 123
     } ],
+    "longitude" : "aeiou",
+    "quantidadeParcelasAntecipaveis" : 123,
+    "idConta" : 123456789,
+    "dataHoraSimulacao" : "aeiou",
+    "pais" : "aeiou",
+    "descricaoGrupoMCC" : "aeiou",
+    "nomeEstabelecimento" : "aeiou",
+    "valorParcela" : 1.3579000000000001069366817318950779736042022705078125,
+    "nomeFantasiaEstabelecimento" : "aeiou",
     "taxaAntecipacaoAno" : 1.3579000000000001069366817318950779736042022705078125,
-    "status" : "aeiou",
-    "longitude" : "aeiou"
+    "status" : "aeiou"
   } ],
   "valorTotalAntecipado" : 1.3579000000000001069366817318950779736042022705078125,
   "valorTotalComDesconto" : 1.3579000000000001069366817318950779736042022705078125

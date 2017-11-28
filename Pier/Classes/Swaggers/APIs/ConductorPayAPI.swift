@@ -464,8 +464,8 @@ public class ConductorPayAPI: APIBase {
      - parameter persist: (body) persist 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func salvarUsingPOST4(persist persist: CartaoPayPersist, completion: ((data: CartaoPayCadastroResponse?, error: ErrorType?) -> Void)) {
-        salvarUsingPOST4WithRequestBuilder(persist: persist).execute { (response, error) -> Void in
+    public class func salvarUsingPOST5(persist persist: CartaoPayPersist, completion: ((data: CartaoPayCadastroResponse?, error: ErrorType?) -> Void)) {
+        salvarUsingPOST5WithRequestBuilder(persist: persist).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -494,7 +494,7 @@ public class ConductorPayAPI: APIBase {
 
      - returns: RequestBuilder<CartaoPayCadastroResponse> 
      */
-    public class func salvarUsingPOST4WithRequestBuilder(persist persist: CartaoPayPersist) -> RequestBuilder<CartaoPayCadastroResponse> {
+    public class func salvarUsingPOST5WithRequestBuilder(persist persist: CartaoPayPersist) -> RequestBuilder<CartaoPayCadastroResponse> {
         let path = "/api/cartoes-tokenizados"
         let URLString = PierAPI.basePath + path
         

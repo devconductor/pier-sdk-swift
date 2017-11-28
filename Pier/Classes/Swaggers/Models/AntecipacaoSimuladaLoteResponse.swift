@@ -18,7 +18,7 @@ public class AntecipacaoSimuladaLoteResponse: JSONEncodable {
     /** Valor total antecipado com o desconto. */
     public var valorTotalComDesconto: Double?
     /** Antecipa\u00C3\u00A7\u00C3\u00B5es Simuladas. */
-    public var antecipacoesSimuladas: [AntecipacaoSimuladaMockResponse]?
+    public var antecipacoesSimuladas: [AntecipacaoSimuladaResponse]?
     
 
     public init() {}
