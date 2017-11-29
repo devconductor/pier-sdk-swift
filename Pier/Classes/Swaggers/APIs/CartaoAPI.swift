@@ -348,7 +348,7 @@ public class CartaoAPI: APIBase {
      - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do cart\u00C3\u00A3o (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarCartaoImpressaoUsingGET(id id: Int, completion: ((data: AnyObject?, error: ErrorType?) -> Void)) {
+    public class func consultarCartaoImpressaoUsingGET(id id: Int, completion: ((data: DadosCartaoImpressaoResponse?, error: ErrorType?) -> Void)) {
         consultarCartaoImpressaoUsingGETWithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -361,13 +361,61 @@ public class CartaoAPI: APIBase {
      
      - GET /api/cartoes/{id}/consultar-dados-impressao
      - Esse recurso permite consultar os dados de impress\u00C3\u00A3o de um cart\u00C3\u00A3o
-     - examples: [{contentType=application/json, example="{}"}]
+     - examples: [{contentType=application/json, example={
+  "cvv2" : "aeiou",
+  "trilha1" : "aeiou",
+  "trilhaCVV2" : "aeiou",
+  "tipoPessoa" : "aeiou",
+  "cidade" : "aeiou",
+  "trilhaCVV1" : "aeiou",
+  "idTipoCartao" : 123456789,
+  "descricaoStatusCartao" : "aeiou",
+  "complementoEndereco" : "aeiou",
+  "idBandeira" : 123456789,
+  "idTipoEndereco" : 123456789,
+  "trilha2" : "aeiou",
+  "descricaoProduto" : "aeiou",
+  "cep" : "aeiou",
+  "numeroCartao" : "aeiou",
+  "idStatus" : 123456789,
+  "dataEstagio" : "aeiou",
+  "uf" : "aeiou",
+  "idProduto" : 123456789,
+  "dataValidade" : "aeiou",
+  "idEstagio" : 123456789,
+  "cpf" : "aeiou",
+  "descricaoStatusConta" : 123456789,
+  "sequencialCartao" : 123,
+  "nomePessoa" : "aeiou",
+  "nomePlastico" : "aeiou",
+  "flagVirtual" : 123,
+  "dataNascimento" : "aeiou",
+  "descricaoEstagio" : "aeiou",
+  "numeroBin" : "aeiou",
+  "descricaoTipoEndereco" : "aeiou",
+  "idCartao" : 123456789,
+  "idStatusConta" : 123456789,
+  "idConta" : 123456789,
+  "codigoDesbloqueio" : "aeiou",
+  "idEndereco" : 123456789,
+  "bairro" : "aeiou",
+  "flagTitular" : 123,
+  "dataStatus" : "aeiou",
+  "pais" : "aeiou",
+  "idPessoa" : 123456789,
+  "numeroEndereco" : "aeiou",
+  "nomeBandeira" : "aeiou",
+  "logradouro" : "aeiou",
+  "dataGeracao" : "aeiou",
+  "tipoPortador" : "aeiou",
+  "dataEmbossing" : "aeiou"
+}}]
      
      - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do cart\u00C3\u00A3o (id). 
 
-     - returns: RequestBuilder<AnyObject> 
+     - returns: RequestBuilder<DadosCartaoImpressaoResponse> 
      */
-    public class func consultarCartaoImpressaoUsingGETWithRequestBuilder(id id: Int) -> RequestBuilder<AnyObject> {
+    public class func consultarCartaoImpressaoUsingGETWithRequestBuilder(id id: Int) -> RequestBuilder<DadosCartaoImpressaoResponse> {
         var path = "/api/cartoes/{id}/consultar-dados-impressao"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -375,7 +423,7 @@ public class CartaoAPI: APIBase {
         let nillableParameters: [String:AnyObject?] = [:]
         let parameters = APIHelper.rejectNil(nillableParameters)
 
-        let requestBuilder: RequestBuilder<AnyObject>.Type = PierAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<DadosCartaoImpressaoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
     }

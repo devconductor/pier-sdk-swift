@@ -15,6 +15,10 @@ public class AlterarProdutoRequest: JSONEncodable {
     public var idProduto: Int?
     /** C\u00C3\u00B3digo identificador da origem comercial. */
     public var idOrigemComercial: Int?
+    /** Identificador do estabelecimento. */
+    public var idEstabelecimento: Int?
+    /** Identificador do promotor que realizou a solicita\u00C3\u00A7\u00C3\u00A3o do grade no estabelecimento. */
+    public var idPromotor: Int?
     
 
     public init() {}
@@ -24,6 +28,8 @@ public class AlterarProdutoRequest: JSONEncodable {
         var nillableDictionary = [String:AnyObject?]()
         nillableDictionary["idProduto"] = self.idProduto
         nillableDictionary["idOrigemComercial"] = self.idOrigemComercial
+        nillableDictionary["idEstabelecimento"] = self.idEstabelecimento
+        nillableDictionary["idPromotor"] = self.idPromotor
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }
