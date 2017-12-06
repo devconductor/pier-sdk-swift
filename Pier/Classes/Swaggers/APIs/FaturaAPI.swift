@@ -38,6 +38,7 @@ public class FaturaAPI: APIBase {
   "valorPagamentoMinimo" : 1.3579000000000001069366817318950779736042022705078125,
   "saldoAnterior" : 1.3579000000000001069366817318950779736042022705078125,
   "valorTotal" : 1.3579000000000001069366817318950779736042022705078125,
+  "situacaoProcessamento" : "aeiou",
   "lancamentosFaturaResponse" : [ {
     "valorUSD" : 1.3579000000000001069366817318950779736042022705078125,
     "numeroCartaoMascarado" : "aeiou",
@@ -65,7 +66,6 @@ public class FaturaAPI: APIBase {
     "nomeFantasiaEstabelecimento" : "aeiou",
     "titular" : false
   } ],
-  "situacaoProcessamento" : "aeiou",
   "dataFechamento" : "yyyy-MM-dd",
   "dataVencimentoReal" : "yyyy-MM-dd"
 }}]

@@ -30,8 +30,8 @@ public class LimiteDisponibilidadeAPI: APIBase {
      - parameter limiteMaximo: (query) Valor m\u00C3\u00A1ximo do limite de cr\u00C3\u00A9dito para realizar transa\u00C3\u00A7\u00C3\u00B5es. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func alterarUsingPUT7(idConta idConta: Int, limiteGlobal: Double?, limiteCompra: Double?, limiteParcelado: Double?, limiteParcelas: Double?, limiteSaqueGlobal: Double?, limiteSaquePeriodo: Double?, limiteConsignado: Double?, limiteInternacionalCompra: Double?, limiteInternacionalParcelado: Double?, limiteInternacionalParcelas: Double?, limiteInternacionalSaqueGlobal: Double?, limiteInternacionalSaquePeriodo: Double?, limiteMaximo: Double?, completion: ((data: LimiteDisponibilidadeResponse?, error: ErrorType?) -> Void)) {
-        alterarUsingPUT7WithRequestBuilder(idConta: idConta, limiteGlobal: limiteGlobal, limiteCompra: limiteCompra, limiteParcelado: limiteParcelado, limiteParcelas: limiteParcelas, limiteSaqueGlobal: limiteSaqueGlobal, limiteSaquePeriodo: limiteSaquePeriodo, limiteConsignado: limiteConsignado, limiteInternacionalCompra: limiteInternacionalCompra, limiteInternacionalParcelado: limiteInternacionalParcelado, limiteInternacionalParcelas: limiteInternacionalParcelas, limiteInternacionalSaqueGlobal: limiteInternacionalSaqueGlobal, limiteInternacionalSaquePeriodo: limiteInternacionalSaquePeriodo, limiteMaximo: limiteMaximo).execute { (response, error) -> Void in
+    public class func alterarUsingPUT8(idConta idConta: Int, limiteGlobal: Double?, limiteCompra: Double?, limiteParcelado: Double?, limiteParcelas: Double?, limiteSaqueGlobal: Double?, limiteSaquePeriodo: Double?, limiteConsignado: Double?, limiteInternacionalCompra: Double?, limiteInternacionalParcelado: Double?, limiteInternacionalParcelas: Double?, limiteInternacionalSaqueGlobal: Double?, limiteInternacionalSaquePeriodo: Double?, limiteMaximo: Double?, completion: ((data: LimiteDisponibilidadeResponse?, error: ErrorType?) -> Void)) {
+        alterarUsingPUT8WithRequestBuilder(idConta: idConta, limiteGlobal: limiteGlobal, limiteCompra: limiteCompra, limiteParcelado: limiteParcelado, limiteParcelas: limiteParcelas, limiteSaqueGlobal: limiteSaqueGlobal, limiteSaquePeriodo: limiteSaquePeriodo, limiteConsignado: limiteConsignado, limiteInternacionalCompra: limiteInternacionalCompra, limiteInternacionalParcelado: limiteInternacionalParcelado, limiteInternacionalParcelas: limiteInternacionalParcelas, limiteInternacionalSaqueGlobal: limiteInternacionalSaqueGlobal, limiteInternacionalSaquePeriodo: limiteInternacionalSaquePeriodo, limiteMaximo: limiteMaximo).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -85,7 +85,7 @@ public class LimiteDisponibilidadeAPI: APIBase {
 
      - returns: RequestBuilder<LimiteDisponibilidadeResponse> 
      */
-    public class func alterarUsingPUT7WithRequestBuilder(idConta idConta: Int, limiteGlobal: Double?, limiteCompra: Double?, limiteParcelado: Double?, limiteParcelas: Double?, limiteSaqueGlobal: Double?, limiteSaquePeriodo: Double?, limiteConsignado: Double?, limiteInternacionalCompra: Double?, limiteInternacionalParcelado: Double?, limiteInternacionalParcelas: Double?, limiteInternacionalSaqueGlobal: Double?, limiteInternacionalSaquePeriodo: Double?, limiteMaximo: Double?) -> RequestBuilder<LimiteDisponibilidadeResponse> {
+    public class func alterarUsingPUT8WithRequestBuilder(idConta idConta: Int, limiteGlobal: Double?, limiteCompra: Double?, limiteParcelado: Double?, limiteParcelas: Double?, limiteSaqueGlobal: Double?, limiteSaquePeriodo: Double?, limiteConsignado: Double?, limiteInternacionalCompra: Double?, limiteInternacionalParcelado: Double?, limiteInternacionalParcelas: Double?, limiteInternacionalSaqueGlobal: Double?, limiteInternacionalSaquePeriodo: Double?, limiteMaximo: Double?) -> RequestBuilder<LimiteDisponibilidadeResponse> {
         let path = "/api/limites-disponibilidades"
         let URLString = PierAPI.basePath + path
         
@@ -119,8 +119,8 @@ public class LimiteDisponibilidadeAPI: APIBase {
      - parameter idConta: (query) Id Conta 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET16(idConta idConta: Int, completion: ((data: LimiteDisponibilidadeResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET16WithRequestBuilder(idConta: idConta).execute { (response, error) -> Void in
+    public class func consultarUsingGET17(idConta idConta: Int, completion: ((data: LimiteDisponibilidadeResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET17WithRequestBuilder(idConta: idConta).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -161,7 +161,7 @@ public class LimiteDisponibilidadeAPI: APIBase {
 
      - returns: RequestBuilder<LimiteDisponibilidadeResponse> 
      */
-    public class func consultarUsingGET16WithRequestBuilder(idConta idConta: Int) -> RequestBuilder<LimiteDisponibilidadeResponse> {
+    public class func consultarUsingGET17WithRequestBuilder(idConta idConta: Int) -> RequestBuilder<LimiteDisponibilidadeResponse> {
         let path = "/api/limites-disponibilidades"
         let URLString = PierAPI.basePath + path
         

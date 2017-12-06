@@ -25,8 +25,8 @@ public class EstabelecimentoAPI: APIBase {
      - parameter digitoVerificadorContaCorrente: (query) D\u00C3\u00ADgito Verificador da Conta Corrente (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func alterarUsingPUT10(id id: Int, razaoSocial: String, inscricaoEstadual: String?, contato: String?, banco: Int?, agencia: Int?, digitoVerificadorAgencia: String?, contaCorrente: String?, digitoVerificadorContaCorrente: String?, completion: ((data: PessoaJuridicaResponse?, error: ErrorType?) -> Void)) {
-        alterarUsingPUT10WithRequestBuilder(id: id, razaoSocial: razaoSocial, inscricaoEstadual: inscricaoEstadual, contato: contato, banco: banco, agencia: agencia, digitoVerificadorAgencia: digitoVerificadorAgencia, contaCorrente: contaCorrente, digitoVerificadorContaCorrente: digitoVerificadorContaCorrente).execute { (response, error) -> Void in
+    public class func alterarUsingPUT11(id id: Int, razaoSocial: String, inscricaoEstadual: String?, contato: String?, banco: Int?, agencia: Int?, digitoVerificadorAgencia: String?, contaCorrente: String?, digitoVerificadorContaCorrente: String?, completion: ((data: PessoaJuridicaResponse?, error: ErrorType?) -> Void)) {
+        alterarUsingPUT11WithRequestBuilder(id: id, razaoSocial: razaoSocial, inscricaoEstadual: inscricaoEstadual, contato: contato, banco: banco, agencia: agencia, digitoVerificadorAgencia: digitoVerificadorAgencia, contaCorrente: contaCorrente, digitoVerificadorContaCorrente: digitoVerificadorContaCorrente).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -64,7 +64,7 @@ public class EstabelecimentoAPI: APIBase {
 
      - returns: RequestBuilder<PessoaJuridicaResponse> 
      */
-    public class func alterarUsingPUT10WithRequestBuilder(id id: Int, razaoSocial: String, inscricaoEstadual: String?, contato: String?, banco: Int?, agencia: Int?, digitoVerificadorAgencia: String?, contaCorrente: String?, digitoVerificadorContaCorrente: String?) -> RequestBuilder<PessoaJuridicaResponse> {
+    public class func alterarUsingPUT11WithRequestBuilder(id id: Int, razaoSocial: String, inscricaoEstadual: String?, contato: String?, banco: Int?, agencia: Int?, digitoVerificadorAgencia: String?, contaCorrente: String?, digitoVerificadorContaCorrente: String?) -> RequestBuilder<PessoaJuridicaResponse> {
         var path = "/api/pessoas-juridicas/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -88,14 +88,69 @@ public class EstabelecimentoAPI: APIBase {
 
     /**
      
+     Altera um Telefone do estabelecimento
+     
+     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Telefone Estabelecimento (id). 
+     - parameter ddd: (query) C\u00C3\u00B3digo DDD do telefone (id). 
+     - parameter telefone: (query) N\u00C3\u00BAmero do telefone. 
+     - parameter ramal: (query) N\u00C3\u00BAmero do ramal. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func alterarUsingPUT13(id id: Int, ddd: String, telefone: String, ramal: String?, completion: ((data: TelefoneEstabelecimentoResponse?, error: ErrorType?) -> Void)) {
+        alterarUsingPUT13WithRequestBuilder(id: id, ddd: ddd, telefone: telefone, ramal: ramal).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Altera um Telefone do estabelecimento
+     
+     - PUT /api/telefones-estabelecimentos/{id}
+     - Este m\u00C3\u00A9todo realiza a altera\u00C3\u00A7\u00C3\u00A3o dos telefones dos estabelecimentos.
+     - examples: [{contentType=application/json, example={
+  "idEstabelecimento" : 123456789,
+  "telefone" : "aeiou",
+  "ddd" : "aeiou",
+  "id" : 123456789,
+  "ramal" : "aeiou"
+}}]
+     
+     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Telefone Estabelecimento (id). 
+     - parameter ddd: (query) C\u00C3\u00B3digo DDD do telefone (id). 
+     - parameter telefone: (query) N\u00C3\u00BAmero do telefone. 
+     - parameter ramal: (query) N\u00C3\u00BAmero do ramal. (optional)
+
+     - returns: RequestBuilder<TelefoneEstabelecimentoResponse> 
+     */
+    public class func alterarUsingPUT13WithRequestBuilder(id id: Int, ddd: String, telefone: String, ramal: String?) -> RequestBuilder<TelefoneEstabelecimentoResponse> {
+        var path = "/api/telefones-estabelecimentos/{id}"
+        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [
+            "ddd": ddd,
+            "telefone": telefone,
+            "ramal": ramal
+        ]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<TelefoneEstabelecimentoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: false)
+    }
+
+    /**
+     
      Altera um Terminal
      
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do terminal (id). 
      - parameter terminalUpdate: (body) terminalUpdate 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func alterarUsingPUT13(id id: Int, terminalUpdate: TerminalUpdate, completion: ((data: TerminalResponse?, error: ErrorType?) -> Void)) {
-        alterarUsingPUT13WithRequestBuilder(id: id, terminalUpdate: terminalUpdate).execute { (response, error) -> Void in
+    public class func alterarUsingPUT15(id id: Int, terminalUpdate: TerminalUpdate, completion: ((data: TerminalResponse?, error: ErrorType?) -> Void)) {
+        alterarUsingPUT15WithRequestBuilder(id: id, terminalUpdate: terminalUpdate).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -121,7 +176,7 @@ public class EstabelecimentoAPI: APIBase {
 
      - returns: RequestBuilder<TerminalResponse> 
      */
-    public class func alterarUsingPUT13WithRequestBuilder(id id: Int, terminalUpdate: TerminalUpdate) -> RequestBuilder<TerminalResponse> {
+    public class func alterarUsingPUT15WithRequestBuilder(id id: Int, terminalUpdate: TerminalUpdate) -> RequestBuilder<TerminalResponse> {
         var path = "/api/terminais/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -131,6 +186,135 @@ public class EstabelecimentoAPI: APIBase {
         let requestBuilder: RequestBuilder<TerminalResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Alterar Credor
+     
+     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da credor 
+     - parameter credorUpdate: (body) credorUpdate 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func alterarUsingPUT5(id id: Int, credorUpdate: CredorDTO, completion: ((data: CredorResponse?, error: ErrorType?) -> Void)) {
+        alterarUsingPUT5WithRequestBuilder(id: id, credorUpdate: credorUpdate).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Alterar Credor
+     
+     - PUT /api/credores/{id}
+     - Altera um credor.
+     - examples: [{contentType=application/json, example={
+  "percentualRAV" : 0.015,
+  "pagamentoDecendialTerceiro" : 25,
+  "pagamentoQuinzenalPrimeiro" : 5,
+  "credorBanco" : true,
+  "pagamentoDecendialSegundo" : 15,
+  "agencia" : 4571,
+  "idPessoaJuridica" : 10,
+  "digitoVerificadorAgencia" : "X",
+  "taxaBanco" : 0.1,
+  "taxaAdm" : 0.1,
+  "pagamentoMensal" : 10,
+  "id" : 123456789,
+  "pagamentoQuinzenalSegundo" : 20,
+  "digitoVerificadorContaCorrente" : "1",
+  "recebeRAV" : "NAO_TEM_PERMISSAO_RAV",
+  "banco" : 1,
+  "nome" : "Exemplo",
+  "percentualMultiplica" : 0.1,
+  "idCredorRAV" : 10,
+  "pagamentoDecendialPrimeiro" : 5,
+  "contaCorrente" : "100887",
+  "periodicidade" : "DIARIO",
+  "usuario" : "aeiou",
+  "limiteRAV" : 0.015,
+  "pagamentoSemanal" : "SEGUNDA"
+}}]
+     
+     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da credor 
+     - parameter credorUpdate: (body) credorUpdate 
+
+     - returns: RequestBuilder<CredorResponse> 
+     */
+    public class func alterarUsingPUT5WithRequestBuilder(id id: Int, credorUpdate: CredorDTO) -> RequestBuilder<CredorResponse> {
+        var path = "/api/credores/{id}"
+        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
+        let URLString = PierAPI.basePath + path
+        
+        let parameters = credorUpdate.encodeToJSON() as? [String:AnyObject]
+
+        let requestBuilder: RequestBuilder<CredorResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Cadastrar Credor
+     
+     - parameter credorPersist: (body) credorPersist 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func cadastrarUsingPOST2(credorPersist credorPersist: CredorDTO, completion: ((data: CredorResponse?, error: ErrorType?) -> Void)) {
+        cadastrarUsingPOST2WithRequestBuilder(credorPersist: credorPersist).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Cadastrar Credor
+     
+     - POST /api/credores
+     - Cadastra um credor.
+     - examples: [{contentType=application/json, example={
+  "percentualRAV" : 0.015,
+  "pagamentoDecendialTerceiro" : 25,
+  "pagamentoQuinzenalPrimeiro" : 5,
+  "credorBanco" : true,
+  "pagamentoDecendialSegundo" : 15,
+  "agencia" : 4571,
+  "idPessoaJuridica" : 10,
+  "digitoVerificadorAgencia" : "X",
+  "taxaBanco" : 0.1,
+  "taxaAdm" : 0.1,
+  "pagamentoMensal" : 10,
+  "id" : 123456789,
+  "pagamentoQuinzenalSegundo" : 20,
+  "digitoVerificadorContaCorrente" : "1",
+  "recebeRAV" : "NAO_TEM_PERMISSAO_RAV",
+  "banco" : 1,
+  "nome" : "Exemplo",
+  "percentualMultiplica" : 0.1,
+  "idCredorRAV" : 10,
+  "pagamentoDecendialPrimeiro" : 5,
+  "contaCorrente" : "100887",
+  "periodicidade" : "DIARIO",
+  "usuario" : "aeiou",
+  "limiteRAV" : 0.015,
+  "pagamentoSemanal" : "SEGUNDA"
+}}]
+     
+     - parameter credorPersist: (body) credorPersist 
+
+     - returns: RequestBuilder<CredorResponse> 
+     */
+    public class func cadastrarUsingPOST2WithRequestBuilder(credorPersist credorPersist: CredorDTO) -> RequestBuilder<CredorResponse> {
+        let path = "/api/credores"
+        let URLString = PierAPI.basePath + path
+        
+        let parameters = credorPersist.encodeToJSON() as? [String:AnyObject]
+
+        let requestBuilder: RequestBuilder<CredorResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
     }
 
     /**
@@ -148,8 +332,8 @@ public class EstabelecimentoAPI: APIBase {
      - parameter digitoVerificadorContaCorrente: (query) D\u00C3\u00ADgito Verificador da Conta Corrente (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func cadastrarUsingPOST2(razaoSocial razaoSocial: String, cnpj: String, inscricaoEstadual: String?, contato: String?, banco: Int?, agencia: Int?, digitoVerificadorAgencia: String?, contaCorrente: String?, digitoVerificadorContaCorrente: String?, completion: ((data: PessoaJuridicaResponse?, error: ErrorType?) -> Void)) {
-        cadastrarUsingPOST2WithRequestBuilder(razaoSocial: razaoSocial, cnpj: cnpj, inscricaoEstadual: inscricaoEstadual, contato: contato, banco: banco, agencia: agencia, digitoVerificadorAgencia: digitoVerificadorAgencia, contaCorrente: contaCorrente, digitoVerificadorContaCorrente: digitoVerificadorContaCorrente).execute { (response, error) -> Void in
+    public class func cadastrarUsingPOST3(razaoSocial razaoSocial: String, cnpj: String, inscricaoEstadual: String?, contato: String?, banco: Int?, agencia: Int?, digitoVerificadorAgencia: String?, contaCorrente: String?, digitoVerificadorContaCorrente: String?, completion: ((data: PessoaJuridicaResponse?, error: ErrorType?) -> Void)) {
+        cadastrarUsingPOST3WithRequestBuilder(razaoSocial: razaoSocial, cnpj: cnpj, inscricaoEstadual: inscricaoEstadual, contato: contato, banco: banco, agencia: agencia, digitoVerificadorAgencia: digitoVerificadorAgencia, contaCorrente: contaCorrente, digitoVerificadorContaCorrente: digitoVerificadorContaCorrente).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -187,7 +371,7 @@ public class EstabelecimentoAPI: APIBase {
 
      - returns: RequestBuilder<PessoaJuridicaResponse> 
      */
-    public class func cadastrarUsingPOST2WithRequestBuilder(razaoSocial razaoSocial: String, cnpj: String, inscricaoEstadual: String?, contato: String?, banco: Int?, agencia: Int?, digitoVerificadorAgencia: String?, contaCorrente: String?, digitoVerificadorContaCorrente: String?) -> RequestBuilder<PessoaJuridicaResponse> {
+    public class func cadastrarUsingPOST3WithRequestBuilder(razaoSocial razaoSocial: String, cnpj: String, inscricaoEstadual: String?, contato: String?, banco: Int?, agencia: Int?, digitoVerificadorAgencia: String?, contaCorrente: String?, digitoVerificadorContaCorrente: String?) -> RequestBuilder<PessoaJuridicaResponse> {
         let path = "/api/pessoas-juridicas"
         let URLString = PierAPI.basePath + path
         
@@ -211,13 +395,78 @@ public class EstabelecimentoAPI: APIBase {
 
     /**
      
+     Consultar credor
+     
+     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da credor 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func consultarUsingGET11(id id: Int, completion: ((data: CredorResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET11WithRequestBuilder(id: id).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Consultar credor
+     
+     - GET /api/credores/{id}
+     - Consulta um credor atrav\u00C3\u00A9s do seu identificador.
+     - examples: [{contentType=application/json, example={
+  "percentualRAV" : 0.015,
+  "pagamentoDecendialTerceiro" : 25,
+  "pagamentoQuinzenalPrimeiro" : 5,
+  "credorBanco" : true,
+  "pagamentoDecendialSegundo" : 15,
+  "agencia" : 4571,
+  "idPessoaJuridica" : 10,
+  "digitoVerificadorAgencia" : "X",
+  "taxaBanco" : 0.1,
+  "taxaAdm" : 0.1,
+  "pagamentoMensal" : 10,
+  "id" : 123456789,
+  "pagamentoQuinzenalSegundo" : 20,
+  "digitoVerificadorContaCorrente" : "1",
+  "recebeRAV" : "NAO_TEM_PERMISSAO_RAV",
+  "banco" : 1,
+  "nome" : "Exemplo",
+  "percentualMultiplica" : 0.1,
+  "idCredorRAV" : 10,
+  "pagamentoDecendialPrimeiro" : 5,
+  "contaCorrente" : "100887",
+  "periodicidade" : "DIARIO",
+  "usuario" : "aeiou",
+  "limiteRAV" : 0.015,
+  "pagamentoSemanal" : "SEGUNDA"
+}}]
+     
+     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da credor 
+
+     - returns: RequestBuilder<CredorResponse> 
+     */
+    public class func consultarUsingGET11WithRequestBuilder(id id: Int) -> RequestBuilder<CredorResponse> {
+        var path = "/api/credores/{id}"
+        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<CredorResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
      Consultar estabelecimento por id
      
      - parameter id: (path) Id 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET14(id id: Int, completion: ((data: EstabelecimentoResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET14WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET15(id id: Int, completion: ((data: EstabelecimentoResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET15WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -257,7 +506,7 @@ public class EstabelecimentoAPI: APIBase {
 
      - returns: RequestBuilder<EstabelecimentoResponse> 
      */
-    public class func consultarUsingGET14WithRequestBuilder(id id: Int) -> RequestBuilder<EstabelecimentoResponse> {
+    public class func consultarUsingGET15WithRequestBuilder(id id: Int) -> RequestBuilder<EstabelecimentoResponse> {
         var path = "/api/estabelecimentos/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -277,8 +526,8 @@ public class EstabelecimentoAPI: APIBase {
      - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da pessoa jur\u00C3\u00ADdica 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET19(id id: Int, completion: ((data: PessoaJuridicaResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET19WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET20(id id: Int, completion: ((data: PessoaJuridicaResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET20WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -308,7 +557,7 @@ public class EstabelecimentoAPI: APIBase {
 
      - returns: RequestBuilder<PessoaJuridicaResponse> 
      */
-    public class func consultarUsingGET19WithRequestBuilder(id id: Int) -> RequestBuilder<PessoaJuridicaResponse> {
+    public class func consultarUsingGET20WithRequestBuilder(id id: Int) -> RequestBuilder<PessoaJuridicaResponse> {
         var path = "/api/pessoas-juridicas/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -323,13 +572,58 @@ public class EstabelecimentoAPI: APIBase {
 
     /**
      
+     Apresenta os dados de um determinado telefone de um estabelecimento
+     
+     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Telefone Estabelecimento (id). 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func consultarUsingGET26(id id: Int, completion: ((data: TelefoneEstabelecimentoResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET26WithRequestBuilder(id: id).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Apresenta os dados de um determinado telefone de um estabelecimento
+     
+     - GET /api/telefones-estabelecimentos/{id}
+     - Este m\u00C3\u00A9todo permite consultar um determinado telefone de um estabelecimento a partir do seu c\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o (id).
+     - examples: [{contentType=application/json, example={
+  "idEstabelecimento" : 123456789,
+  "telefone" : "aeiou",
+  "ddd" : "aeiou",
+  "id" : 123456789,
+  "ramal" : "aeiou"
+}}]
+     
+     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Telefone Estabelecimento (id). 
+
+     - returns: RequestBuilder<TelefoneEstabelecimentoResponse> 
+     */
+    public class func consultarUsingGET26WithRequestBuilder(id id: Int) -> RequestBuilder<TelefoneEstabelecimentoResponse> {
+        var path = "/api/telefones-estabelecimentos/{id}"
+        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<TelefoneEstabelecimentoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
      Apresenta os dados de um determinado Terminal
      
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Terminal (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET26(id id: Int, completion: ((data: TerminalResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET26WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET28(id id: Int, completion: ((data: TerminalResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET28WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -354,7 +648,7 @@ public class EstabelecimentoAPI: APIBase {
 
      - returns: RequestBuilder<TerminalResponse> 
      */
-    public class func consultarUsingGET26WithRequestBuilder(id id: Int) -> RequestBuilder<TerminalResponse> {
+    public class func consultarUsingGET28WithRequestBuilder(id id: Int) -> RequestBuilder<TerminalResponse> {
         var path = "/api/terminais/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -365,6 +659,162 @@ public class EstabelecimentoAPI: APIBase {
         let requestBuilder: RequestBuilder<TerminalResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Listar credores
+     
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
+     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+     - parameter idPessoaJuridica: (query) Identificador da pessoa jur\u00C3\u00ADdica do credor (optional)
+     - parameter nome: (query) Nome do credor (optional)
+     - parameter periodicidade: (query) Periodicidade do pagamento (optional)
+     - parameter pagamentoSemanal: (query) Dia para pagamento semanal (optional)
+     - parameter pagamentoMensal: (query) Dia da data para o pagamento mensal (optional)
+     - parameter pagamentoDecendialPrimeiro: (query) Dia da data para o primeiro pagamento decendial (optional)
+     - parameter pagamentoDecendialSegundo: (query) Dia da data para o segundo pagamento decendial (optional)
+     - parameter pagamentoDecendialTerceiro: (query) Dia da data para o terceiro pagamento decendial (optional)
+     - parameter pagamentoQuinzenalPrimeiro: (query) Dia da data para o primeiro pagamento quinzenal (optional)
+     - parameter pagamentoQuinzenalSegundo: (query) Dia da data para o segundo pagamento quinzenal (optional)
+     - parameter credorBanco: (query) Indica se este credor pode ser um Credor RAV de outros credores (optional)
+     - parameter percentualRAV: (query) Valor percentual do RAV do credor (optional)
+     - parameter recebeRAV: (query) Indica se o credor recebe RAV e o tipo (optional)
+     - parameter percentualMultiplica: (query) Percentual Multiplica (optional)
+     - parameter taxaAdm: (query) Taxa Administrativa (optional)
+     - parameter taxaBanco: (query) Taxa do Banco (optional)
+     - parameter limiteRAV: (query) Valor limite do RAV (optional)
+     - parameter idCredorRAV: (query) C\u00C3\u00B3digo identificador do credor RAV (optional)
+     - parameter banco: (query) C\u00C3\u00B3digo do banco (optional)
+     - parameter agencia: (query) Raz\u00C3\u00A3o social da pessoa jur\u00C3\u00ADdica (optional)
+     - parameter digitoVerificadorAgencia: (query) D\u00C3\u00ADgito Verificador da ag\u00C3\u00AAncia (optional)
+     - parameter contaCorrente: (query) C\u00C3\u00B3digo da Conta Corrente (optional)
+     - parameter digitoVerificadorContaCorrente: (query) D\u00C3\u00ADgito Verificador da Conta Corrente (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func listarUsingGET14(sort sort: [String]?, page: Int?, limit: Int?, idPessoaJuridica: Int?, nome: String?, periodicidade: String?, pagamentoSemanal: String?, pagamentoMensal: Int?, pagamentoDecendialPrimeiro: Int?, pagamentoDecendialSegundo: Int?, pagamentoDecendialTerceiro: Int?, pagamentoQuinzenalPrimeiro: Int?, pagamentoQuinzenalSegundo: Int?, credorBanco: Bool?, percentualRAV: Double?, recebeRAV: String?, percentualMultiplica: Double?, taxaAdm: Double?, taxaBanco: Double?, limiteRAV: Double?, idCredorRAV: Int?, banco: Int?, agencia: Int?, digitoVerificadorAgencia: String?, contaCorrente: String?, digitoVerificadorContaCorrente: String?, completion: ((data: PageCredorResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET14WithRequestBuilder(sort: sort, page: page, limit: limit, idPessoaJuridica: idPessoaJuridica, nome: nome, periodicidade: periodicidade, pagamentoSemanal: pagamentoSemanal, pagamentoMensal: pagamentoMensal, pagamentoDecendialPrimeiro: pagamentoDecendialPrimeiro, pagamentoDecendialSegundo: pagamentoDecendialSegundo, pagamentoDecendialTerceiro: pagamentoDecendialTerceiro, pagamentoQuinzenalPrimeiro: pagamentoQuinzenalPrimeiro, pagamentoQuinzenalSegundo: pagamentoQuinzenalSegundo, credorBanco: credorBanco, percentualRAV: percentualRAV, recebeRAV: recebeRAV, percentualMultiplica: percentualMultiplica, taxaAdm: taxaAdm, taxaBanco: taxaBanco, limiteRAV: limiteRAV, idCredorRAV: idCredorRAV, banco: banco, agencia: agencia, digitoVerificadorAgencia: digitoVerificadorAgencia, contaCorrente: contaCorrente, digitoVerificadorContaCorrente: digitoVerificadorContaCorrente).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Listar credores
+     
+     - GET /api/credores
+     - Lista credores cadastrados. 
+     - examples: [{contentType=application/json, example={
+  "previousPage" : 123,
+  "last" : true,
+  "hasContent" : true,
+  "hasNextPage" : true,
+  "nextPage" : 123,
+  "content" : [ {
+    "percentualRAV" : 0.015,
+    "pagamentoDecendialTerceiro" : 25,
+    "pagamentoQuinzenalPrimeiro" : 5,
+    "credorBanco" : true,
+    "pagamentoDecendialSegundo" : 15,
+    "agencia" : 4571,
+    "idPessoaJuridica" : 10,
+    "digitoVerificadorAgencia" : "X",
+    "taxaBanco" : 0.1,
+    "taxaAdm" : 0.1,
+    "pagamentoMensal" : 10,
+    "id" : 123456789,
+    "pagamentoQuinzenalSegundo" : 20,
+    "digitoVerificadorContaCorrente" : "1",
+    "recebeRAV" : "NAO_TEM_PERMISSAO_RAV",
+    "banco" : 1,
+    "nome" : "Exemplo",
+    "percentualMultiplica" : 0.1,
+    "idCredorRAV" : 10,
+    "pagamentoDecendialPrimeiro" : 5,
+    "contaCorrente" : "100887",
+    "periodicidade" : "DIARIO",
+    "usuario" : "aeiou",
+    "limiteRAV" : 0.015,
+    "pagamentoSemanal" : "SEGUNDA"
+  } ],
+  "totalElements" : 123456789,
+  "number" : 123,
+  "firstPage" : true,
+  "numberOfElements" : 123,
+  "size" : 123,
+  "totalPages" : 123,
+  "hasPreviousPage" : true,
+  "first" : true
+}}]
+     
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
+     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+     - parameter idPessoaJuridica: (query) Identificador da pessoa jur\u00C3\u00ADdica do credor (optional)
+     - parameter nome: (query) Nome do credor (optional)
+     - parameter periodicidade: (query) Periodicidade do pagamento (optional)
+     - parameter pagamentoSemanal: (query) Dia para pagamento semanal (optional)
+     - parameter pagamentoMensal: (query) Dia da data para o pagamento mensal (optional)
+     - parameter pagamentoDecendialPrimeiro: (query) Dia da data para o primeiro pagamento decendial (optional)
+     - parameter pagamentoDecendialSegundo: (query) Dia da data para o segundo pagamento decendial (optional)
+     - parameter pagamentoDecendialTerceiro: (query) Dia da data para o terceiro pagamento decendial (optional)
+     - parameter pagamentoQuinzenalPrimeiro: (query) Dia da data para o primeiro pagamento quinzenal (optional)
+     - parameter pagamentoQuinzenalSegundo: (query) Dia da data para o segundo pagamento quinzenal (optional)
+     - parameter credorBanco: (query) Indica se este credor pode ser um Credor RAV de outros credores (optional)
+     - parameter percentualRAV: (query) Valor percentual do RAV do credor (optional)
+     - parameter recebeRAV: (query) Indica se o credor recebe RAV e o tipo (optional)
+     - parameter percentualMultiplica: (query) Percentual Multiplica (optional)
+     - parameter taxaAdm: (query) Taxa Administrativa (optional)
+     - parameter taxaBanco: (query) Taxa do Banco (optional)
+     - parameter limiteRAV: (query) Valor limite do RAV (optional)
+     - parameter idCredorRAV: (query) C\u00C3\u00B3digo identificador do credor RAV (optional)
+     - parameter banco: (query) C\u00C3\u00B3digo do banco (optional)
+     - parameter agencia: (query) Raz\u00C3\u00A3o social da pessoa jur\u00C3\u00ADdica (optional)
+     - parameter digitoVerificadorAgencia: (query) D\u00C3\u00ADgito Verificador da ag\u00C3\u00AAncia (optional)
+     - parameter contaCorrente: (query) C\u00C3\u00B3digo da Conta Corrente (optional)
+     - parameter digitoVerificadorContaCorrente: (query) D\u00C3\u00ADgito Verificador da Conta Corrente (optional)
+
+     - returns: RequestBuilder<PageCredorResponse> 
+     */
+    public class func listarUsingGET14WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, idPessoaJuridica: Int?, nome: String?, periodicidade: String?, pagamentoSemanal: String?, pagamentoMensal: Int?, pagamentoDecendialPrimeiro: Int?, pagamentoDecendialSegundo: Int?, pagamentoDecendialTerceiro: Int?, pagamentoQuinzenalPrimeiro: Int?, pagamentoQuinzenalSegundo: Int?, credorBanco: Bool?, percentualRAV: Double?, recebeRAV: String?, percentualMultiplica: Double?, taxaAdm: Double?, taxaBanco: Double?, limiteRAV: Double?, idCredorRAV: Int?, banco: Int?, agencia: Int?, digitoVerificadorAgencia: String?, contaCorrente: String?, digitoVerificadorContaCorrente: String?) -> RequestBuilder<PageCredorResponse> {
+        let path = "/api/credores"
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [
+            "sort": sort,
+            "page": page,
+            "limit": limit,
+            "idPessoaJuridica": idPessoaJuridica,
+            "nome": nome,
+            "periodicidade": periodicidade,
+            "pagamentoSemanal": pagamentoSemanal,
+            "pagamentoMensal": pagamentoMensal,
+            "pagamentoDecendialPrimeiro": pagamentoDecendialPrimeiro,
+            "pagamentoDecendialSegundo": pagamentoDecendialSegundo,
+            "pagamentoDecendialTerceiro": pagamentoDecendialTerceiro,
+            "pagamentoQuinzenalPrimeiro": pagamentoQuinzenalPrimeiro,
+            "pagamentoQuinzenalSegundo": pagamentoQuinzenalSegundo,
+            "credorBanco": credorBanco,
+            "percentualRAV": percentualRAV,
+            "recebeRAV": recebeRAV,
+            "percentualMultiplica": percentualMultiplica,
+            "taxaAdm": taxaAdm,
+            "taxaBanco": taxaBanco,
+            "limiteRAV": limiteRAV,
+            "idCredorRAV": idCredorRAV,
+            "banco": banco,
+            "agencia": agencia,
+            "digitoVerificadorAgencia": digitoVerificadorAgencia,
+            "contaCorrente": contaCorrente,
+            "digitoVerificadorContaCorrente": digitoVerificadorContaCorrente
+        ]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<PageCredorResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
     }
 
     /**
@@ -395,8 +845,8 @@ public class EstabelecimentoAPI: APIBase {
      - parameter inativo: (query) Indica se o estabelecimento est\u00C3\u00A1 inativo. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET18(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, numeroReceitaFederal: Int?, nome: String?, descricao: String?, nomeFantasia: String?, cep: String?, nomeLogradouro: String?, numeroEndereco: Int?, complemento: String?, bairro: String?, cidade: String?, uf: String?, pais: String?, dataCadastramento: String?, contato: String?, email: String?, flagArquivoSecrFazenda: Int?, flagCartaoDigitado: Int?, inativo: Int?, completion: ((data: PageEstabelecimentoResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET18WithRequestBuilder(sort: sort, page: page, limit: limit, id: id, numeroReceitaFederal: numeroReceitaFederal, nome: nome, descricao: descricao, nomeFantasia: nomeFantasia, cep: cep, nomeLogradouro: nomeLogradouro, numeroEndereco: numeroEndereco, complemento: complemento, bairro: bairro, cidade: cidade, uf: uf, pais: pais, dataCadastramento: dataCadastramento, contato: contato, email: email, flagArquivoSecrFazenda: flagArquivoSecrFazenda, flagCartaoDigitado: flagCartaoDigitado, inativo: inativo).execute { (response, error) -> Void in
+    public class func listarUsingGET19(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, numeroReceitaFederal: Int?, nome: String?, descricao: String?, nomeFantasia: String?, cep: String?, nomeLogradouro: String?, numeroEndereco: Int?, complemento: String?, bairro: String?, cidade: String?, uf: String?, pais: String?, dataCadastramento: String?, contato: String?, email: String?, flagArquivoSecrFazenda: Int?, flagCartaoDigitado: Int?, inativo: Int?, completion: ((data: PageEstabelecimentoResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET19WithRequestBuilder(sort: sort, page: page, limit: limit, id: id, numeroReceitaFederal: numeroReceitaFederal, nome: nome, descricao: descricao, nomeFantasia: nomeFantasia, cep: cep, nomeLogradouro: nomeLogradouro, numeroEndereco: numeroEndereco, complemento: complemento, bairro: bairro, cidade: cidade, uf: uf, pais: pais, dataCadastramento: dataCadastramento, contato: contato, email: email, flagArquivoSecrFazenda: flagArquivoSecrFazenda, flagCartaoDigitado: flagCartaoDigitado, inativo: inativo).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -472,7 +922,7 @@ public class EstabelecimentoAPI: APIBase {
 
      - returns: RequestBuilder<PageEstabelecimentoResponse> 
      */
-    public class func listarUsingGET18WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, numeroReceitaFederal: Int?, nome: String?, descricao: String?, nomeFantasia: String?, cep: String?, nomeLogradouro: String?, numeroEndereco: Int?, complemento: String?, bairro: String?, cidade: String?, uf: String?, pais: String?, dataCadastramento: String?, contato: String?, email: String?, flagArquivoSecrFazenda: Int?, flagCartaoDigitado: Int?, inativo: Int?) -> RequestBuilder<PageEstabelecimentoResponse> {
+    public class func listarUsingGET19WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, numeroReceitaFederal: Int?, nome: String?, descricao: String?, nomeFantasia: String?, cep: String?, nomeLogradouro: String?, numeroEndereco: Int?, complemento: String?, bairro: String?, cidade: String?, uf: String?, pais: String?, dataCadastramento: String?, contato: String?, email: String?, flagArquivoSecrFazenda: Int?, flagCartaoDigitado: Int?, inativo: Int?) -> RequestBuilder<PageEstabelecimentoResponse> {
         let path = "/api/estabelecimentos"
         let URLString = PierAPI.basePath + path
         
@@ -525,8 +975,8 @@ public class EstabelecimentoAPI: APIBase {
      - parameter digitoVerificadorContaCorrente: (query) D\u00C3\u00ADgito Verificador da Conta Corrente (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET23(sort sort: [String]?, page: Int?, limit: Int?, razaoSocial: String?, cnpj: String?, inscricaoEstadual: String?, contato: String?, banco: Int?, agencia: Int?, digitoVerificadorAgencia: String?, contaCorrente: String?, digitoVerificadorContaCorrente: String?, completion: ((data: PagePessoaJuridicaResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET23WithRequestBuilder(sort: sort, page: page, limit: limit, razaoSocial: razaoSocial, cnpj: cnpj, inscricaoEstadual: inscricaoEstadual, contato: contato, banco: banco, agencia: agencia, digitoVerificadorAgencia: digitoVerificadorAgencia, contaCorrente: contaCorrente, digitoVerificadorContaCorrente: digitoVerificadorContaCorrente).execute { (response, error) -> Void in
+    public class func listarUsingGET24(sort sort: [String]?, page: Int?, limit: Int?, razaoSocial: String?, cnpj: String?, inscricaoEstadual: String?, contato: String?, banco: Int?, agencia: Int?, digitoVerificadorAgencia: String?, contaCorrente: String?, digitoVerificadorContaCorrente: String?, completion: ((data: PagePessoaJuridicaResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET24WithRequestBuilder(sort: sort, page: page, limit: limit, razaoSocial: razaoSocial, cnpj: cnpj, inscricaoEstadual: inscricaoEstadual, contato: contato, banco: banco, agencia: agencia, digitoVerificadorAgencia: digitoVerificadorAgencia, contaCorrente: contaCorrente, digitoVerificadorContaCorrente: digitoVerificadorContaCorrente).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -582,7 +1032,7 @@ public class EstabelecimentoAPI: APIBase {
 
      - returns: RequestBuilder<PagePessoaJuridicaResponse> 
      */
-    public class func listarUsingGET23WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, razaoSocial: String?, cnpj: String?, inscricaoEstadual: String?, contato: String?, banco: Int?, agencia: Int?, digitoVerificadorAgencia: String?, contaCorrente: String?, digitoVerificadorContaCorrente: String?) -> RequestBuilder<PagePessoaJuridicaResponse> {
+    public class func listarUsingGET24WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, razaoSocial: String?, cnpj: String?, inscricaoEstadual: String?, contato: String?, banco: Int?, agencia: Int?, digitoVerificadorAgencia: String?, contaCorrente: String?, digitoVerificadorContaCorrente: String?) -> RequestBuilder<PagePessoaJuridicaResponse> {
         let path = "/api/pessoas-juridicas"
         let URLString = PierAPI.basePath + path
         
@@ -609,6 +1059,76 @@ public class EstabelecimentoAPI: APIBase {
 
     /**
      
+     Lista os Telefones Estabelecimentos
+     
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
+     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+     - parameter idEstabelecimento: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Tipo do Estabelecimento (id). (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func listarUsingGET33(sort sort: [String]?, page: Int?, limit: Int?, idEstabelecimento: Int?, completion: ((data: PageTelefoneEstabelecimentoResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET33WithRequestBuilder(sort: sort, page: page, limit: limit, idEstabelecimento: idEstabelecimento).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Lista os Telefones Estabelecimentos
+     
+     - GET /api/telefones-estabelecimentos
+     - Este m\u00C3\u00A9todo permite que sejam listados os telefones dos estabelecimentos existentes na base de dados do Emissor.
+     - examples: [{contentType=application/json, example={
+  "previousPage" : 123,
+  "last" : true,
+  "hasContent" : true,
+  "hasNextPage" : true,
+  "nextPage" : 123,
+  "content" : [ {
+    "idEstabelecimento" : 123456789,
+    "telefone" : "aeiou",
+    "ddd" : "aeiou",
+    "id" : 123456789,
+    "ramal" : "aeiou"
+  } ],
+  "totalElements" : 123456789,
+  "number" : 123,
+  "firstPage" : true,
+  "numberOfElements" : 123,
+  "size" : 123,
+  "totalPages" : 123,
+  "hasPreviousPage" : true,
+  "first" : true
+}}]
+     
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
+     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+     - parameter idEstabelecimento: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Tipo do Estabelecimento (id). (optional)
+
+     - returns: RequestBuilder<PageTelefoneEstabelecimentoResponse> 
+     */
+    public class func listarUsingGET33WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, idEstabelecimento: Int?) -> RequestBuilder<PageTelefoneEstabelecimentoResponse> {
+        let path = "/api/telefones-estabelecimentos"
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [
+            "sort": sort,
+            "page": page,
+            "limit": limit,
+            "idEstabelecimento": idEstabelecimento
+        ]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<PageTelefoneEstabelecimentoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
+    }
+
+    /**
+     
      Lista os Terminais cadastrados no Emissor
      
      - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
@@ -620,8 +1140,8 @@ public class EstabelecimentoAPI: APIBase {
      - parameter idEstabelecimento: (query) N\u00C3\u00BAmero de identifica\u00C3\u00A7\u00C3\u00A3o do estabelecimento a qual o terminal pertence. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET33(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, terminal: String?, numeroEstabelecimento: Int?, idEstabelecimento: Int?, completion: ((data: PageTerminalResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET33WithRequestBuilder(sort: sort, page: page, limit: limit, id: id, terminal: terminal, numeroEstabelecimento: numeroEstabelecimento, idEstabelecimento: idEstabelecimento).execute { (response, error) -> Void in
+    public class func listarUsingGET35(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, terminal: String?, numeroEstabelecimento: Int?, idEstabelecimento: Int?, completion: ((data: PageTerminalResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET35WithRequestBuilder(sort: sort, page: page, limit: limit, id: id, terminal: terminal, numeroEstabelecimento: numeroEstabelecimento, idEstabelecimento: idEstabelecimento).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -667,7 +1187,7 @@ public class EstabelecimentoAPI: APIBase {
 
      - returns: RequestBuilder<PageTerminalResponse> 
      */
-    public class func listarUsingGET33WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, terminal: String?, numeroEstabelecimento: Int?, idEstabelecimento: Int?) -> RequestBuilder<PageTerminalResponse> {
+    public class func listarUsingGET35WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, terminal: String?, numeroEstabelecimento: Int?, idEstabelecimento: Int?) -> RequestBuilder<PageTerminalResponse> {
         let path = "/api/terminais"
         let URLString = PierAPI.basePath + path
         
@@ -689,6 +1209,61 @@ public class EstabelecimentoAPI: APIBase {
 
     /**
      
+     Realiza o cadastro de um novo telefone para um estabelecimento 
+     
+     - parameter idEstabelecimento: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Estabelecimento (id). 
+     - parameter ddd: (query) C\u00C3\u00B3digo DDD do telefone (id). 
+     - parameter telefone: (query) N\u00C3\u00BAmero do telefone. 
+     - parameter ramal: (query) N\u00C3\u00BAmero do ramal. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func salvarUsingPOST19(idEstabelecimento idEstabelecimento: Int, ddd: String, telefone: String, ramal: String?, completion: ((data: TelefoneEstabelecimentoResponse?, error: ErrorType?) -> Void)) {
+        salvarUsingPOST19WithRequestBuilder(idEstabelecimento: idEstabelecimento, ddd: ddd, telefone: telefone, ramal: ramal).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Realiza o cadastro de um novo telefone para um estabelecimento 
+     
+     - POST /api/telefones-estabelecimentos
+     - Este m\u00C3\u00A9todo permite que seja cadastrado um novo telefone para um estabelecimento.
+     - examples: [{contentType=application/json, example={
+  "idEstabelecimento" : 123456789,
+  "telefone" : "aeiou",
+  "ddd" : "aeiou",
+  "id" : 123456789,
+  "ramal" : "aeiou"
+}}]
+     
+     - parameter idEstabelecimento: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Estabelecimento (id). 
+     - parameter ddd: (query) C\u00C3\u00B3digo DDD do telefone (id). 
+     - parameter telefone: (query) N\u00C3\u00BAmero do telefone. 
+     - parameter ramal: (query) N\u00C3\u00BAmero do ramal. (optional)
+
+     - returns: RequestBuilder<TelefoneEstabelecimentoResponse> 
+     */
+    public class func salvarUsingPOST19WithRequestBuilder(idEstabelecimento idEstabelecimento: Int, ddd: String, telefone: String, ramal: String?) -> RequestBuilder<TelefoneEstabelecimentoResponse> {
+        let path = "/api/telefones-estabelecimentos"
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [
+            "idEstabelecimento": idEstabelecimento,
+            "ddd": ddd,
+            "telefone": telefone,
+            "ramal": ramal
+        ]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<TelefoneEstabelecimentoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: false)
+    }
+
+    /**
+     
      Realiza o cadastro de um novo Terminal
      
      - parameter idEstabelecimento: (query) Apresenta o id do estabelecimento. 
@@ -696,8 +1271,8 @@ public class EstabelecimentoAPI: APIBase {
      - parameter flagTerminalVirtual: (query) Flag indicando se o terminal permite consultar extrato, sendo: (true: Sim), (false: N\u00C3\u00A3o)). 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func salvarUsingPOST20(idEstabelecimento idEstabelecimento: Int, flagConsultaExtrato: Bool, flagTerminalVirtual: Bool, completion: ((data: TerminalResponse?, error: ErrorType?) -> Void)) {
-        salvarUsingPOST20WithRequestBuilder(idEstabelecimento: idEstabelecimento, flagConsultaExtrato: flagConsultaExtrato, flagTerminalVirtual: flagTerminalVirtual).execute { (response, error) -> Void in
+    public class func salvarUsingPOST21(idEstabelecimento idEstabelecimento: Int, flagConsultaExtrato: Bool, flagTerminalVirtual: Bool, completion: ((data: TerminalResponse?, error: ErrorType?) -> Void)) {
+        salvarUsingPOST21WithRequestBuilder(idEstabelecimento: idEstabelecimento, flagConsultaExtrato: flagConsultaExtrato, flagTerminalVirtual: flagTerminalVirtual).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -724,7 +1299,7 @@ public class EstabelecimentoAPI: APIBase {
 
      - returns: RequestBuilder<TerminalResponse> 
      */
-    public class func salvarUsingPOST20WithRequestBuilder(idEstabelecimento idEstabelecimento: Int, flagConsultaExtrato: Bool, flagTerminalVirtual: Bool) -> RequestBuilder<TerminalResponse> {
+    public class func salvarUsingPOST21WithRequestBuilder(idEstabelecimento idEstabelecimento: Int, flagConsultaExtrato: Bool, flagTerminalVirtual: Bool) -> RequestBuilder<TerminalResponse> {
         let path = "/api/terminais"
         let URLString = PierAPI.basePath + path
         
