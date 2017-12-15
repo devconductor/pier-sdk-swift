@@ -139,6 +139,61 @@ public class TransferenciaBancariaAPI: APIBase {
 
     /**
      
+     Consulta conta banc\u00C3\u00A1ria portador
+     
+     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta banc\u00C3\u00A1ria (id). 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func consultarUsingGET10(id id: Int, completion: ((data: ContaBancariaPortadorResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET10WithRequestBuilder(id: id).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Consulta conta banc\u00C3\u00A1ria portador
+     
+     - GET /api/contas-bancarias-portador/{id}
+     - Esse recurso permite consultar uma conta banc\u00C3\u00A1ria do portador a partir do seu c\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o (id).
+     - examples: [{contentType=application/json, example={
+  "nomeAgencia" : "aeiou",
+  "idConta" : 123456789,
+  "numeroReceiraFederal" : "aeiou",
+  "digitoAgencia" : "aeiou",
+  "banco" : 123456789,
+  "favorecido" : "aeiou",
+  "flagAtivo" : 123,
+  "titularidade" : 123,
+  "idPessoaFisica" : 123456789,
+  "numeroConta" : "aeiou",
+  "digitoConta" : "aeiou",
+  "id" : 123456789,
+  "flagContaPoupanca" : 123,
+  "numeroAgencia" : "aeiou",
+  "flagContaOrigemDoc" : 123
+}}]
+     
+     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta banc\u00C3\u00A1ria (id). 
+
+     - returns: RequestBuilder<ContaBancariaPortadorResponse> 
+     */
+    public class func consultarUsingGET10WithRequestBuilder(id id: Int) -> RequestBuilder<ContaBancariaPortadorResponse> {
+        var path = "/api/contas-bancarias-portador/{id}"
+        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<ContaBancariaPortadorResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
      Consultar uma transfer\u00C3\u00AAncia banc\u00C3\u00A1ria para um banco
      
      - parameter id: (path) Id Conta 
@@ -146,8 +201,8 @@ public class TransferenciaBancariaAPI: APIBase {
      - parameter idContaBancariaDestino: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta banc\u00C3\u00A1ria de destino (id) (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET37(id id: Int, idTransferencia: Int, idContaBancariaDestino: Int?, completion: ((data: TransferenciaBancariaResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET37WithRequestBuilder(id: id, idTransferencia: idTransferencia, idContaBancariaDestino: idContaBancariaDestino).execute { (response, error) -> Void in
+    public class func consultarUsingGET38(id id: Int, idTransferencia: Int, idContaBancariaDestino: Int?, completion: ((data: TransferenciaBancariaResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET38WithRequestBuilder(id: id, idTransferencia: idTransferencia, idContaBancariaDestino: idContaBancariaDestino).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -203,7 +258,7 @@ public class TransferenciaBancariaAPI: APIBase {
 
      - returns: RequestBuilder<TransferenciaBancariaResponse> 
      */
-    public class func consultarUsingGET37WithRequestBuilder(id id: Int, idTransferencia: Int, idContaBancariaDestino: Int?) -> RequestBuilder<TransferenciaBancariaResponse> {
+    public class func consultarUsingGET38WithRequestBuilder(id id: Int, idTransferencia: Int, idContaBancariaDestino: Int?) -> RequestBuilder<TransferenciaBancariaResponse> {
         var path = "/api/contas/{id}/transferencias-creditos-contas-bancarias/{idTransferencia}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{idTransferencia}", withString: "\(idTransferencia)", options: .LiteralSearch, range: nil)
@@ -217,61 +272,6 @@ public class TransferenciaBancariaAPI: APIBase {
         let requestBuilder: RequestBuilder<TransferenciaBancariaResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
-    }
-
-    /**
-     
-     Consulta conta banc\u00C3\u00A1ria portador
-     
-     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta banc\u00C3\u00A1ria (id). 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func consultarUsingGET9(id id: Int, completion: ((data: ContaBancariaPortadorResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET9WithRequestBuilder(id: id).execute { (response, error) -> Void in
-            completion(data: response?.body, error: error);
-        }
-    }
-
-
-    /**
-     
-     Consulta conta banc\u00C3\u00A1ria portador
-     
-     - GET /api/contas-bancarias-portador/{id}
-     - Esse recurso permite consultar uma conta banc\u00C3\u00A1ria do portador a partir do seu c\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o (id).
-     - examples: [{contentType=application/json, example={
-  "nomeAgencia" : "aeiou",
-  "idConta" : 123456789,
-  "numeroReceiraFederal" : "aeiou",
-  "digitoAgencia" : "aeiou",
-  "banco" : 123456789,
-  "favorecido" : "aeiou",
-  "flagAtivo" : 123,
-  "titularidade" : 123,
-  "idPessoaFisica" : 123456789,
-  "numeroConta" : "aeiou",
-  "digitoConta" : "aeiou",
-  "id" : 123456789,
-  "flagContaPoupanca" : 123,
-  "numeroAgencia" : "aeiou",
-  "flagContaOrigemDoc" : 123
-}}]
-     
-     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta banc\u00C3\u00A1ria (id). 
-
-     - returns: RequestBuilder<ContaBancariaPortadorResponse> 
-     */
-    public class func consultarUsingGET9WithRequestBuilder(id id: Int) -> RequestBuilder<ContaBancariaPortadorResponse> {
-        var path = "/api/contas-bancarias-portador/{id}"
-        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
-        let URLString = PierAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<ContaBancariaPortadorResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
     }
 
     /**
@@ -603,6 +603,63 @@ public class TransferenciaBancariaAPI: APIBase {
         let parameters = persist.encodeToJSON() as? [String:AnyObject]
 
         let requestBuilder: RequestBuilder<ContaBancariaPortadorResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Realiza a simula\u00C3\u00A7\u00C3\u00A3o dos planos de parcelamentos para uma transfer\u00C3\u00AAncia banc\u00C3\u00A1ria de cr\u00C3\u00A9dito entre contas banc\u00C3\u00A1rias
+     
+     - parameter request: (body) request 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func simularTransferenciaBancariaUsingPOST(request request: PlanoParcelamentoTransferenciaCreditoContaBancariaRequest, completion: ((data: PlanoParcelamentoTransferenciaCreditoContaBancariaResponse?, error: ErrorType?) -> Void)) {
+        simularTransferenciaBancariaUsingPOSTWithRequestBuilder(request: request).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Realiza a simula\u00C3\u00A7\u00C3\u00A3o dos planos de parcelamentos para uma transfer\u00C3\u00AAncia banc\u00C3\u00A1ria de cr\u00C3\u00A9dito entre contas banc\u00C3\u00A1rias
+     
+     - POST /api/simular-transferencias-creditos-contas-bancarias
+     - Realiza a simula\u00C3\u00A7\u00C3\u00A3o dos planos de parcelamentos para uma transfer\u00C3\u00AAncia banc\u00C3\u00A1ria de cr\u00C3\u00A9dito entre contas banc\u00C3\u00A1rias.
+     - examples: [{contentType=application/json, example={
+  "codigoAutorizacao" : "aeiou",
+  "numeroMascaradoCartao" : "aeiou",
+  "planoParcelamentos" : [ {
+    "numeroMesesCarencia" : 123,
+    "parcelas" : [ {
+      "cetAnual" : 1.3579000000000001069366817318950779736042022705078125,
+      "valorPrimeiraParcela" : 1.3579000000000001069366817318950779736042022705078125,
+      "valorDemaisParcelas" : 1.3579000000000001069366817318950779736042022705078125,
+      "taxaJuros" : 1.3579000000000001069366817318950779736042022705078125,
+      "numeroParcela" : "aeiou"
+    } ],
+    "flagJuros" : 123,
+    "codigoEspecial" : 123456789,
+    "vencimentoPrimeiraParcela" : "aeiou"
+  } ],
+  "nsuOrigem" : "aeiou",
+  "nomePortadorCartao" : "aeiou",
+  "terminalRequisitante" : "aeiou",
+  "nsuAutorizacao" : "aeiou"
+}}]
+     
+     - parameter request: (body) request 
+
+     - returns: RequestBuilder<PlanoParcelamentoTransferenciaCreditoContaBancariaResponse> 
+     */
+    public class func simularTransferenciaBancariaUsingPOSTWithRequestBuilder(request request: PlanoParcelamentoTransferenciaCreditoContaBancariaRequest) -> RequestBuilder<PlanoParcelamentoTransferenciaCreditoContaBancariaResponse> {
+        let path = "/api/simular-transferencias-creditos-contas-bancarias"
+        let URLString = PierAPI.basePath + path
+        
+        let parameters = request.encodeToJSON() as? [String:AnyObject]
+
+        let requestBuilder: RequestBuilder<PlanoParcelamentoTransferenciaCreditoContaBancariaResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
     }

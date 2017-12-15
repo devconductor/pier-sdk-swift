@@ -395,13 +395,72 @@ public class EstabelecimentoAPI: APIBase {
 
     /**
      
+     Apresenta dados de um determinado tipo de opera\u00C3\u00A7\u00C3\u00A3o
+     
+     - parameter id: (path) C\u00C3\u00B3digo de processamento da opera\u00C3\u00A7\u00C3\u00A3o (idOperacao). 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func consultaOperacaoUsingGET(id id: Int, completion: ((data: DetalheOperacaoResponse?, error: ErrorType?) -> Void)) {
+        consultaOperacaoUsingGETWithRequestBuilder(id: id).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Apresenta dados de um determinado tipo de opera\u00C3\u00A7\u00C3\u00A3o
+     
+     - GET /api/tipos-operacoes-estabelecimentos/{id}
+     - Este recurso permite consultar dados de um determinado tipo opera\u00C3\u00A7\u00C3\u00A3o a partir do idoperacao
+     - examples: [{contentType=application/json, example={
+  "carencia" : 123,
+  "flagPermitirParcelamento" : false,
+  "idOperacao" : 123456789,
+  "valorOperacao" : 1.3579000000000001069366817318950779736042022705078125,
+  "codigoProcessamento" : "aeiou",
+  "codigoProcessamentoCancelamento" : "aeiou",
+  "planoMaximo" : 123,
+  "descricaoOperacao" : "aeiou",
+  "nomeOperacao" : "aeiou",
+  "percentualTac" : 1.3579000000000001069366817318950779736042022705078125,
+  "valorMaximo" : 1.3579000000000001069366817318950779736042022705078125,
+  "valorTac" : 1.3579000000000001069366817318950779736042022705078125,
+  "planoMinimo" : 123,
+  "flagCobraJuros" : false,
+  "taxaTarifa" : 1.3579000000000001069366817318950779736042022705078125,
+  "excedentePermitido" : 1.3579000000000001069366817318950779736042022705078125,
+  "taxaJuros" : 1.3579000000000001069366817318950779736042022705078125,
+  "valorMinimo" : 1.3579000000000001069366817318950779736042022705078125,
+  "flagCobraTarifa" : false
+}}]
+     
+     - parameter id: (path) C\u00C3\u00B3digo de processamento da opera\u00C3\u00A7\u00C3\u00A3o (idOperacao). 
+
+     - returns: RequestBuilder<DetalheOperacaoResponse> 
+     */
+    public class func consultaOperacaoUsingGETWithRequestBuilder(id id: Int) -> RequestBuilder<DetalheOperacaoResponse> {
+        var path = "/api/tipos-operacoes-estabelecimentos/{id}"
+        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<DetalheOperacaoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
      Consultar credor
      
      - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da credor 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET11(id id: Int, completion: ((data: CredorResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET11WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET12(id id: Int, completion: ((data: CredorResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET12WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -445,7 +504,7 @@ public class EstabelecimentoAPI: APIBase {
 
      - returns: RequestBuilder<CredorResponse> 
      */
-    public class func consultarUsingGET11WithRequestBuilder(id id: Int) -> RequestBuilder<CredorResponse> {
+    public class func consultarUsingGET12WithRequestBuilder(id id: Int) -> RequestBuilder<CredorResponse> {
         var path = "/api/credores/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -465,8 +524,8 @@ public class EstabelecimentoAPI: APIBase {
      - parameter id: (path) Id 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET15(id id: Int, completion: ((data: EstabelecimentoResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET15WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET16(id id: Int, completion: ((data: EstabelecimentoResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET16WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -506,7 +565,7 @@ public class EstabelecimentoAPI: APIBase {
 
      - returns: RequestBuilder<EstabelecimentoResponse> 
      */
-    public class func consultarUsingGET15WithRequestBuilder(id id: Int) -> RequestBuilder<EstabelecimentoResponse> {
+    public class func consultarUsingGET16WithRequestBuilder(id id: Int) -> RequestBuilder<EstabelecimentoResponse> {
         var path = "/api/estabelecimentos/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -526,8 +585,8 @@ public class EstabelecimentoAPI: APIBase {
      - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da pessoa jur\u00C3\u00ADdica 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET20(id id: Int, completion: ((data: PessoaJuridicaResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET20WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET21(id id: Int, completion: ((data: PessoaJuridicaResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET21WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -557,7 +616,7 @@ public class EstabelecimentoAPI: APIBase {
 
      - returns: RequestBuilder<PessoaJuridicaResponse> 
      */
-    public class func consultarUsingGET20WithRequestBuilder(id id: Int) -> RequestBuilder<PessoaJuridicaResponse> {
+    public class func consultarUsingGET21WithRequestBuilder(id id: Int) -> RequestBuilder<PessoaJuridicaResponse> {
         var path = "/api/pessoas-juridicas/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -577,8 +636,8 @@ public class EstabelecimentoAPI: APIBase {
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Telefone Estabelecimento (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET26(id id: Int, completion: ((data: TelefoneEstabelecimentoResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET26WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET27(id id: Int, completion: ((data: TelefoneEstabelecimentoResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET27WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -602,7 +661,7 @@ public class EstabelecimentoAPI: APIBase {
 
      - returns: RequestBuilder<TelefoneEstabelecimentoResponse> 
      */
-    public class func consultarUsingGET26WithRequestBuilder(id id: Int) -> RequestBuilder<TelefoneEstabelecimentoResponse> {
+    public class func consultarUsingGET27WithRequestBuilder(id id: Int) -> RequestBuilder<TelefoneEstabelecimentoResponse> {
         var path = "/api/telefones-estabelecimentos/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -622,8 +681,8 @@ public class EstabelecimentoAPI: APIBase {
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Terminal (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET28(id id: Int, completion: ((data: TerminalResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET28WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET29(id id: Int, completion: ((data: TerminalResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET29WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -648,7 +707,7 @@ public class EstabelecimentoAPI: APIBase {
 
      - returns: RequestBuilder<TerminalResponse> 
      */
-    public class func consultarUsingGET28WithRequestBuilder(id id: Int) -> RequestBuilder<TerminalResponse> {
+    public class func consultarUsingGET29WithRequestBuilder(id id: Int) -> RequestBuilder<TerminalResponse> {
         var path = "/api/terminais/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -659,6 +718,82 @@ public class EstabelecimentoAPI: APIBase {
         let requestBuilder: RequestBuilder<TerminalResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Apresenta dados de opera\u00C3\u00A7\u00C3\u00B5es em uma lista
+     
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
+     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+     - parameter idOperacao: (query) C\u00C3\u00B3digo que identifica a opera\u00C3\u00A7\u00C3\u00A3o (optional)
+     - parameter codigoProcessamento: (query) C\u00C3\u00B3digo de processamento usado em transa\u00C3\u00A7\u00C3\u00B5es com o autorizador (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func listaOperacaoUsingGET(sort sort: [String]?, page: Int?, limit: Int?, idOperacao: Int?, codigoProcessamento: String?, completion: ((data: PageOperacaoResponse?, error: ErrorType?) -> Void)) {
+        listaOperacaoUsingGETWithRequestBuilder(sort: sort, page: page, limit: limit, idOperacao: idOperacao, codigoProcessamento: codigoProcessamento).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Apresenta dados de opera\u00C3\u00A7\u00C3\u00B5es em uma lista
+     
+     - GET /api/tipos-operacoes-estabelecimentos
+     - Este recurso permite listar as opera\u00C3\u00A7\u00C3\u00A3o
+     - examples: [{contentType=application/json, example={
+  "previousPage" : 123,
+  "last" : true,
+  "hasContent" : true,
+  "hasNextPage" : true,
+  "nextPage" : 123,
+  "content" : [ {
+    "nomeOperacao" : "aeiou",
+    "carencia" : 123,
+    "flagCobraJuros" : false,
+    "flagPermitirParcelamento" : false,
+    "idOperacao" : 123456789,
+    "codigoProcessamento" : "aeiou",
+    "codigoProcessamentoCancelamento" : "aeiou",
+    "flagCobraTarifa" : false
+  } ],
+  "totalElements" : 123456789,
+  "number" : 123,
+  "firstPage" : true,
+  "numberOfElements" : 123,
+  "size" : 123,
+  "totalPages" : 123,
+  "hasPreviousPage" : true,
+  "first" : true
+}}]
+     
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
+     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+     - parameter idOperacao: (query) C\u00C3\u00B3digo que identifica a opera\u00C3\u00A7\u00C3\u00A3o (optional)
+     - parameter codigoProcessamento: (query) C\u00C3\u00B3digo de processamento usado em transa\u00C3\u00A7\u00C3\u00B5es com o autorizador (optional)
+
+     - returns: RequestBuilder<PageOperacaoResponse> 
+     */
+    public class func listaOperacaoUsingGETWithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, idOperacao: Int?, codigoProcessamento: String?) -> RequestBuilder<PageOperacaoResponse> {
+        let path = "/api/tipos-operacoes-estabelecimentos"
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [
+            "sort": sort,
+            "page": page,
+            "limit": limit,
+            "idOperacao": idOperacao,
+            "codigoProcessamento": codigoProcessamento
+        ]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<PageOperacaoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
     }
 
     /**
