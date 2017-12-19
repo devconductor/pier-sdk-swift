@@ -13,14 +13,8 @@ public class PlanoParcelamentoTransferenciaCreditoContaBancariaResponse: JSONEnc
 
     /** N\u00C3\u00BAmero Sequencial \u00C3\u009Anico que identifica a transa\u00C3\u00A7\u00C3\u00A3o no sistema que a originou. */
     public var nsuOrigem: String?
-    /** N\u00C3\u00BAmero Sequencial \u00C3\u009Anico gerado pelo Autorizador a cada Transa\u00C3\u00A7\u00C3\u00A3o. */
-    public var nsuAutorizacao: String?
-    /** C\u00C3\u00B3digo de Autoriza\u00C3\u00A7\u00C3\u00A3o gerado pelo Autorizador. */
-    public var codigoAutorizacao: String?
     /** N\u00C3\u00BAmero do Cart\u00C3\u00A3o que originou a transa\u00C3\u00A7\u00C3\u00A3o em formato mascarado. */
     public var numeroMascaradoCartao: String?
-    /** Nome do Portador do Cart\u00C3\u00A3o que originou a transa\u00C3\u00A7\u00C3\u00A3o. */
-    public var nomePortadorCartao: String?
     /** Apresenta a identifica\u00C3\u00A7\u00C3\u00A3o do terminal requisitante */
     public var terminalRequisitante: String?
     /** Lista os planos de parcelamentos */
@@ -33,10 +27,7 @@ public class PlanoParcelamentoTransferenciaCreditoContaBancariaResponse: JSONEnc
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
         nillableDictionary["nsuOrigem"] = self.nsuOrigem
-        nillableDictionary["nsuAutorizacao"] = self.nsuAutorizacao
-        nillableDictionary["codigoAutorizacao"] = self.codigoAutorizacao
         nillableDictionary["numeroMascaradoCartao"] = self.numeroMascaradoCartao
-        nillableDictionary["nomePortadorCartao"] = self.nomePortadorCartao
         nillableDictionary["terminalRequisitante"] = self.terminalRequisitante
         nillableDictionary["planoParcelamentos"] = self.planoParcelamentos?.encodeToJSON()
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]

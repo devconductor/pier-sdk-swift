@@ -628,25 +628,25 @@ public class TransferenciaBancariaAPI: APIBase {
      - POST /api/simular-transferencias-creditos-contas-bancarias
      - Realiza a simula\u00C3\u00A7\u00C3\u00A3o dos planos de parcelamentos para uma transfer\u00C3\u00AAncia banc\u00C3\u00A1ria de cr\u00C3\u00A9dito entre contas banc\u00C3\u00A1rias.
      - examples: [{contentType=application/json, example={
-  "codigoAutorizacao" : "aeiou",
   "numeroMascaradoCartao" : "aeiou",
   "planoParcelamentos" : [ {
     "numeroMesesCarencia" : 123,
     "parcelas" : [ {
+      "valorTAC" : 1.3579000000000001069366817318950779736042022705078125,
       "cetAnual" : 1.3579000000000001069366817318950779736042022705078125,
       "valorPrimeiraParcela" : 1.3579000000000001069366817318950779736042022705078125,
+      "valorTotal" : 1.3579000000000001069366817318950779736042022705078125,
       "valorDemaisParcelas" : 1.3579000000000001069366817318950779736042022705078125,
       "taxaJuros" : 1.3579000000000001069366817318950779736042022705078125,
-      "numeroParcela" : "aeiou"
+      "numeroParcela" : "aeiou",
+      "valorIOF" : 1.3579000000000001069366817318950779736042022705078125
     } ],
     "flagJuros" : 123,
     "codigoEspecial" : 123456789,
     "vencimentoPrimeiraParcela" : "aeiou"
   } ],
   "nsuOrigem" : "aeiou",
-  "nomePortadorCartao" : "aeiou",
-  "terminalRequisitante" : "aeiou",
-  "nsuAutorizacao" : "aeiou"
+  "terminalRequisitante" : "aeiou"
 }}]
      
      - parameter request: (body) request 

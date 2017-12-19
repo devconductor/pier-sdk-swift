@@ -15,10 +15,8 @@ public class PlanoParcelamentoTransferenciaCreditoContaBancariaRequest: JSONEnco
     public var nsuOrigem: String?
     /** Valor da transa\u00C3\u00A7\u00C3\u00A3o com duas casas decimais para os centavos. */
     public var valorTransacao: Double?
-    /** N\u00C3\u00BAmero Real do Cart\u00C3\u00A3o. */
-    public var numeroRealCartao: String?
-    /** Data de Validade do Cart\u00C3\u00A3o. Ex: AAMM */
-    public var dataValidadeCartao: String?
+    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do cart\u00C3\u00A3o. */
+    public var idCartao: Int?
     /** Representa o N\u00C3\u00BAmero de Meses concedido como car\u00C3\u00AAncia. */
     public var numeroMesesCarencia: Int?
     /** N\u00C3\u00BAmero do Estabelecimento (N\u00C3\u00BAmero+DV). */
@@ -36,8 +34,7 @@ public class PlanoParcelamentoTransferenciaCreditoContaBancariaRequest: JSONEnco
         var nillableDictionary = [String:AnyObject?]()
         nillableDictionary["nsuOrigem"] = self.nsuOrigem
         nillableDictionary["valorTransacao"] = self.valorTransacao
-        nillableDictionary["numeroRealCartao"] = self.numeroRealCartao
-        nillableDictionary["dataValidadeCartao"] = self.dataValidadeCartao
+        nillableDictionary["idCartao"] = self.idCartao
         nillableDictionary["numeroMesesCarencia"] = self.numeroMesesCarencia
         nillableDictionary["numeroEstabelecimento"] = self.numeroEstabelecimento
         nillableDictionary["dataHoraTerminal"] = self.dataHoraTerminal

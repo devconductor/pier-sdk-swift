@@ -17,6 +17,12 @@ public class ParcelamentoTransferenciaResponse: JSONEncodable {
     public var valorPrimeiraParcela: Double?
     /** Valor das demais parcelas. */
     public var valorDemaisParcelas: Double?
+    /** Valor total do financiamento. */
+    public var valorTotal: Double?
+    /** Valor da tarifa de contrata\u00C3\u00A7\u00C3\u00A3o. */
+    public var valorTAC: Double?
+    /** IOF */
+    public var valorIOF: Double?
     /** Valor da taxa de juros. */
     public var taxaJuros: Double?
     /** CET anual. */
@@ -31,6 +37,9 @@ public class ParcelamentoTransferenciaResponse: JSONEncodable {
         nillableDictionary["numeroParcela"] = self.numeroParcela
         nillableDictionary["valorPrimeiraParcela"] = self.valorPrimeiraParcela
         nillableDictionary["valorDemaisParcelas"] = self.valorDemaisParcelas
+        nillableDictionary["valorTotal"] = self.valorTotal
+        nillableDictionary["valorTAC"] = self.valorTAC
+        nillableDictionary["valorIOF"] = self.valorIOF
         nillableDictionary["taxaJuros"] = self.taxaJuros
         nillableDictionary["cetAnual"] = self.cetAnual
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
