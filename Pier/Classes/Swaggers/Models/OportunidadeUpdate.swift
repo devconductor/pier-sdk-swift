@@ -18,9 +18,9 @@ public class OportunidadeUpdate: JSONEncodable {
     /** N\u00C3\u00BAmero receita federal do cliente */
     public var numeroReceitaFederal: String?
     /** In\u00C3\u00ADcio da vig\u00C3\u00AAncia da oportunidade */
-    public var dataInicioVigencia: NSDate?
+    public var dataInicioVigencia: String?
     /** Fim da vig\u00C3\u00AAncia da oportunidade */
-    public var dataFimVigencia: NSDate?
+    public var dataFimVigencia: String?
     /** Atributo que indica se a oportunidade est\u00C3\u00A1 ativa */
     public var flagAtivo: Bool?
     /** Lista de detalhes */
@@ -35,8 +35,8 @@ public class OportunidadeUpdate: JSONEncodable {
         nillableDictionary["idTipoOportunidade"] = self.idTipoOportunidade
         nillableDictionary["idStatusOportunidade"] = self.idStatusOportunidade
         nillableDictionary["numeroReceitaFederal"] = self.numeroReceitaFederal
-        nillableDictionary["dataInicioVigencia"] = self.dataInicioVigencia?.encodeToJSON()
-        nillableDictionary["dataFimVigencia"] = self.dataFimVigencia?.encodeToJSON()
+        nillableDictionary["dataInicioVigencia"] = self.dataInicioVigencia
+        nillableDictionary["dataFimVigencia"] = self.dataFimVigencia
         nillableDictionary["flagAtivo"] = self.flagAtivo
         nillableDictionary["detalhes"] = self.detalhes?.encodeToJSON()
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]

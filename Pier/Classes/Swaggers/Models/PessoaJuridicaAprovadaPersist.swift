@@ -20,7 +20,7 @@ public class PessoaJuridicaAprovadaPersist: JSONEncodable {
     /** N\u00C3\u00BAmero da Inscri\u00C3\u00A7\u00C3\u00A3o Estadual (IE). */
     public var inscricaoEstadual: String?
     /** Data de abertura da empresa, essa data deve ser informada no formato: aaaa-MM-dd. */
-    public var dataAberturaEmpresa: NSDate?
+    public var dataAberturaEmpresa: String?
     /** Id da origem comercial */
     public var idOrigemComercial: Int?
     /** Id do produto */
@@ -35,12 +35,26 @@ public class PessoaJuridicaAprovadaPersist: JSONEncodable {
     public var diaVencimento: Int?
     /** Nome que deve ser impresso no cart\u00C3\u00A3o */
     public var nomeImpresso: String?
+    /** Apresenta o valor da renda compravada */
+    public var valorRenda: Double?
+    /** Indica o canal pelo qual o cadastro do cliente foi realizado */
+    public var canalEntrada: String?
+    /** Indica o valor da pontua\u00C3\u00A7\u00C3\u00A3o atribuido ao cliente (caso n\u00C3\u00A3o informado ser\u00C3\u00A1 atribuido o valor = 0) */
+    public var valorPontuacao: Int?
     /** Apresenta os telefones da empresa */
     public var telefones: [TelefonePessoaAprovadaPersist]?
     /** Pode ser informado os seguintes tipos de endere\u00C3\u00A7o: Residencial, Comercial, e Outros */
     public var enderecos: [EnderecoAprovadoPersist]?
     /** Apresenta os dados dos s\u00C3\u00B3cios da empresa, caso exista */
     public var socios: [PessoaPersist]?
+    /** Apresenta os dados das refer\u00C3\u00AAncias comerciais */
+    public var referenciasComerciais: [RefenciaComercialAprovadoPersist]?
+    /** Valor do Limite Global */
+    public var limiteGlobal: Double?
+    /** Valor m\u00C3\u00A1ximo do limite de cr\u00C3\u00A9dito para realizar transa\u00C3\u00A7\u00C3\u00B5es */
+    public var limiteMaximo: Double?
+    /** Valor do limite de cr\u00C3\u00A9dito acumulado da soma das parcelas das compras */
+    public var limiteParcelas: Double?
     
 
     public init() {}
@@ -52,7 +66,7 @@ public class PessoaJuridicaAprovadaPersist: JSONEncodable {
         nillableDictionary["nomeFantasia"] = self.nomeFantasia
         nillableDictionary["cnpj"] = self.cnpj
         nillableDictionary["inscricaoEstadual"] = self.inscricaoEstadual
-        nillableDictionary["dataAberturaEmpresa"] = self.dataAberturaEmpresa?.encodeToJSON()
+        nillableDictionary["dataAberturaEmpresa"] = self.dataAberturaEmpresa
         nillableDictionary["idOrigemComercial"] = self.idOrigemComercial
         nillableDictionary["idProduto"] = self.idProduto
         nillableDictionary["numeroAgencia"] = self.numeroAgencia
@@ -60,9 +74,16 @@ public class PessoaJuridicaAprovadaPersist: JSONEncodable {
         nillableDictionary["email"] = self.email
         nillableDictionary["diaVencimento"] = self.diaVencimento
         nillableDictionary["nomeImpresso"] = self.nomeImpresso
+        nillableDictionary["valorRenda"] = self.valorRenda
+        nillableDictionary["canalEntrada"] = self.canalEntrada
+        nillableDictionary["valorPontuacao"] = self.valorPontuacao
         nillableDictionary["telefones"] = self.telefones?.encodeToJSON()
         nillableDictionary["enderecos"] = self.enderecos?.encodeToJSON()
         nillableDictionary["socios"] = self.socios?.encodeToJSON()
+        nillableDictionary["referenciasComerciais"] = self.referenciasComerciais?.encodeToJSON()
+        nillableDictionary["limiteGlobal"] = self.limiteGlobal
+        nillableDictionary["limiteMaximo"] = self.limiteMaximo
+        nillableDictionary["limiteParcelas"] = self.limiteParcelas
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

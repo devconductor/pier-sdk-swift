@@ -16,7 +16,7 @@ public class PessoaFisicaAprovadaPersist: JSONEncodable {
     /** Apresenta o nome da m\u00C3\u00A3e da pessoa fisica */
     public var nomeMae: String?
     /** Data de Nascimento da Pessoa. Essa data deve ser informada no formato aaaa-MM-dd. */
-    public var dataNascimento: NSDate?
+    public var dataNascimento: String?
     /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do sexo da Pessoa, quando PF, sendo: (\&quot;M\&quot;: Masculino), (\&quot;F\&quot;: Feminino). */
     public var sexo: String?
     /** N\u00C3\u00BAmero do Cadastro de Pessoa Fisica (CPF) */
@@ -28,11 +28,11 @@ public class PessoaFisicaAprovadaPersist: JSONEncodable {
     /** Sigla da Unidade Federativa de onde foi expedido a Identidade */
     public var unidadeFederativaIdentidade: String?
     /** Data emiss\u00C3\u00A3o da identidade no formato aaaa-MM-dd */
-    public var dataEmissaoIdentidade: NSDate?
+    public var dataEmissaoIdentidade: String?
     /** Id Estado civil da pessoa fisica */
     public var idEstadoCivil: Int?
     /** Profiss\u00C3\u00A3o da pessoa fisica */
-    public var profissao: String?
+    public var idProfissao: String?
     /** Id Natureza Ocupa\u00C3\u00A7\u00C3\u00A3o da pessoa fisica */
     public var idNaturezaOcupacao: Int?
     /** Id Nacionalidade da pessoa fisica */
@@ -53,10 +53,24 @@ public class PessoaFisicaAprovadaPersist: JSONEncodable {
     public var nomeImpresso: String?
     /** Nome que deve ser impresso no cart\u00C3\u00A3o */
     public var nomeEmpresa: String?
+    /** Apresenta o valor da renda compravada */
+    public var valorRenda: Double?
+    /** Indica o canal pelo qual o cadastro do cliente foi realizado */
+    public var canalEntrada: String?
+    /** Indica o valor da pontua\u00C3\u00A7\u00C3\u00A3o atribuido ao cliente (caso n\u00C3\u00A3o informado ser\u00C3\u00A1 atribuido o valor = 0) */
+    public var valorPontuacao: Int?
     /** Apresenta os telefones da empresa */
     public var telefones: [TelefonePessoaAprovadaPersist]?
     /** Pode ser informado os seguintes tipos de endere\u00C3\u00A7o: Residencial, Comercial, e Outros */
     public var enderecos: [EnderecoAprovadoPersist]?
+    /** Valor do Limite Global */
+    public var limiteGlobal: Double?
+    /** Valor m\u00C3\u00A1ximo do limite de cr\u00C3\u00A9dito para realizar transa\u00C3\u00A7\u00C3\u00B5es */
+    public var limiteMaximo: Double?
+    /** Valor do limite de cr\u00C3\u00A9dito acumulado da soma das parcelas das compras */
+    public var limiteParcelas: Double?
+    /** Valor do limite de margem consignado */
+    public var limiteConsignado: Double?
     
 
     public init() {}
@@ -66,15 +80,15 @@ public class PessoaFisicaAprovadaPersist: JSONEncodable {
         var nillableDictionary = [String:AnyObject?]()
         nillableDictionary["nome"] = self.nome
         nillableDictionary["nomeMae"] = self.nomeMae
-        nillableDictionary["dataNascimento"] = self.dataNascimento?.encodeToJSON()
+        nillableDictionary["dataNascimento"] = self.dataNascimento
         nillableDictionary["sexo"] = self.sexo
         nillableDictionary["cpf"] = self.cpf
         nillableDictionary["numeroIdentidade"] = self.numeroIdentidade
         nillableDictionary["orgaoExpedidorIdentidade"] = self.orgaoExpedidorIdentidade
         nillableDictionary["unidadeFederativaIdentidade"] = self.unidadeFederativaIdentidade
-        nillableDictionary["dataEmissaoIdentidade"] = self.dataEmissaoIdentidade?.encodeToJSON()
+        nillableDictionary["dataEmissaoIdentidade"] = self.dataEmissaoIdentidade
         nillableDictionary["idEstadoCivil"] = self.idEstadoCivil
-        nillableDictionary["profissao"] = self.profissao
+        nillableDictionary["idProfissao"] = self.idProfissao
         nillableDictionary["idNaturezaOcupacao"] = self.idNaturezaOcupacao
         nillableDictionary["idNacionalidade"] = self.idNacionalidade
         nillableDictionary["idOrigemComercial"] = self.idOrigemComercial
@@ -85,8 +99,15 @@ public class PessoaFisicaAprovadaPersist: JSONEncodable {
         nillableDictionary["diaVencimento"] = self.diaVencimento
         nillableDictionary["nomeImpresso"] = self.nomeImpresso
         nillableDictionary["nomeEmpresa"] = self.nomeEmpresa
+        nillableDictionary["valorRenda"] = self.valorRenda
+        nillableDictionary["canalEntrada"] = self.canalEntrada
+        nillableDictionary["valorPontuacao"] = self.valorPontuacao
         nillableDictionary["telefones"] = self.telefones?.encodeToJSON()
         nillableDictionary["enderecos"] = self.enderecos?.encodeToJSON()
+        nillableDictionary["limiteGlobal"] = self.limiteGlobal
+        nillableDictionary["limiteMaximo"] = self.limiteMaximo
+        nillableDictionary["limiteParcelas"] = self.limiteParcelas
+        nillableDictionary["limiteConsignado"] = self.limiteConsignado
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

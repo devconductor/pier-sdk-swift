@@ -11,10 +11,16 @@ import Foundation
 /** Objeto de Requisi\u00C3\u00A7\u00C3\u00A3o de Cancelamento de transa\u00C3\u00A7\u00C3\u00A3o */
 public class CancelamentoTransacaoOnUsRequest: JSONEncodable {
 
+    /** N\u00C3\u00BAmero Sequencial \u00C3\u009Anico do HOST que identifica a transa\u00C3\u00A7\u00C3\u00A3o no sistema que autorizou. */
+    public var nsuAutorizacaoTransacaoCancelada: String?
     /** N\u00C3\u00BAmero Sequencial \u00C3\u009Anico que identifica a transa\u00C3\u00A7\u00C3\u00A3o no sistema que a originou. */
     public var nsuOrigem: String?
+    /** N\u00C3\u00BAmero Sequencial \u00C3\u009Anico que identifica a transa\u00C3\u00A7\u00C3\u00A3o no sistema a ser cancelada. */
+    public var nsuOrigemTransacaoCancelada: String?
     /** C\u00C3\u00B3digo de Processamento que identifica o Tipo da Transa\u00C3\u00A7\u00C3\u00A3o. */
     public var codigoProcessamento: String?
+    /** Apresenta a data e hora local da transa\u00C3\u00A7\u00C3\u00A3o a ser cancelada yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZ. Ex: 2000-10-31T01:30:00.000-05:00 */
+    public var dataHoraTransacaoCancelada: String?
     /** Valor da transa\u00C3\u00A7\u00C3\u00A3o com duas casas decimais para os centavos. */
     public var valorTransacao: Double?
     /** N\u00C3\u00BAmero Real do Cart\u00C3\u00A3o. */
@@ -24,17 +30,9 @@ public class CancelamentoTransacaoOnUsRequest: JSONEncodable {
     /** N\u00C3\u00BAmero do Estabelecimento (N\u00C3\u00BAmero+DV). */
     public var numeroEstabelecimento: Int?
     /** Apresenta a data e hora local da consulta yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZ. Ex: 2000-10-31T01:30:00.000-05:00 */
-    public var dataHoraTerminal: NSDate?
+    public var dataHoraTerminal: String?
     /** Apresenta a identifica\u00C3\u00A7\u00C3\u00A3o do terminal requisitante */
     public var terminalRequisitante: String?
-    /** N\u00C3\u00BAmero Sequencial \u00C3\u009Anico que identifica a transa\u00C3\u00A7\u00C3\u00A3o no sistema a ser cancelada. */
-    public var nsuOrigemTransacaoCancelada: String?
-    /** Apresenta a data e hora local da transa\u00C3\u00A7\u00C3\u00A3o a ser cancelada yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZ. Ex: 2000-10-31T01:30:00.000-05:00 */
-    public var dataHoraTransacaoCancelada: NSDate?
-    /** C\u00C3\u00B3digo de Processamento da transa\u00C3\u00A7\u00C3\u00A3o cancelada. */
-    public var codigoTransacaoCancelada: String?
-    /** N\u00C3\u00BAmero Sequencial \u00C3\u009Anico do HOST que identifica a transa\u00C3\u00A7\u00C3\u00A3o no sistema que autorizou. */
-    public var nsuAutorizacaoTransacaoCancelada: String?
     
 
     public init() {}
@@ -42,18 +40,17 @@ public class CancelamentoTransacaoOnUsRequest: JSONEncodable {
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
+        nillableDictionary["nsuAutorizacaoTransacaoCancelada"] = self.nsuAutorizacaoTransacaoCancelada
         nillableDictionary["nsuOrigem"] = self.nsuOrigem
+        nillableDictionary["nsuOrigemTransacaoCancelada"] = self.nsuOrigemTransacaoCancelada
         nillableDictionary["codigoProcessamento"] = self.codigoProcessamento
+        nillableDictionary["dataHoraTransacaoCancelada"] = self.dataHoraTransacaoCancelada
         nillableDictionary["valorTransacao"] = self.valorTransacao
         nillableDictionary["numeroRealCartao"] = self.numeroRealCartao
         nillableDictionary["dataValidadeCartao"] = self.dataValidadeCartao
         nillableDictionary["numeroEstabelecimento"] = self.numeroEstabelecimento
-        nillableDictionary["dataHoraTerminal"] = self.dataHoraTerminal?.encodeToJSON()
+        nillableDictionary["dataHoraTerminal"] = self.dataHoraTerminal
         nillableDictionary["terminalRequisitante"] = self.terminalRequisitante
-        nillableDictionary["nsuOrigemTransacaoCancelada"] = self.nsuOrigemTransacaoCancelada
-        nillableDictionary["dataHoraTransacaoCancelada"] = self.dataHoraTransacaoCancelada?.encodeToJSON()
-        nillableDictionary["codigoTransacaoCancelada"] = self.codigoTransacaoCancelada
-        nillableDictionary["nsuAutorizacaoTransacaoCancelada"] = self.nsuAutorizacaoTransacaoCancelada
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

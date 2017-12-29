@@ -11,16 +11,10 @@ import Foundation
 /** Transfer\u00C3\u00AAncia banc\u00C3\u00A1ria */
 public class TransferenciaBancariaPersist: JSONEncodable {
 
-    /** Data da transfer\u00C3\u00AAncia */
-    public var dataCompra: NSDate?
-    /** Dia do vencimento padr\u00C3\u00A3o da fatura */
-    public var proximoVencimentoPadrao: NSDate?
-    /** Data do vencimento real da fatura */
-    public var proximoVencimentoReal: NSDate?
     /** Valor da transfer\u00C3\u00AAncia */
     public var valorCompra: Double?
-    /** Apresenta o &#39;Nome Completo da PF&#39; ou o &#39;Nome Completo da Raz\u00C3\u00A3o Social (Nome Empresarial)&#39;. */
-    public var nomeFavorecido: String?
+    /** Valor da transfer\u00C3\u00AAncia */
+    public var valor: Double?
     /** N\u00C3\u00BAmero do CPF ou CNPJ. */
     public var documentoFavorecido: String?
     /** C\u00C3\u00B3digo do banco */
@@ -35,6 +29,8 @@ public class TransferenciaBancariaPersist: JSONEncodable {
     public var digitoConta: String?
     /** Sinaliza se conta banc\u00C3\u00A1ria \u00C3\u00A9 poupan\u00C3\u00A7a (1: Poupan\u00C3\u00A7a, 0: Conta corrente) */
     public var flagContaPoupanca: Int?
+    /** Apresenta o &#39;Nome Completo da PF&#39; ou o &#39;Nome Completo da Raz\u00C3\u00A3o Social (Nome Empresarial)&#39;. */
+    public var nomeFavorecido: String?
     
 
     public init() {}
@@ -42,11 +38,8 @@ public class TransferenciaBancariaPersist: JSONEncodable {
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
-        nillableDictionary["dataCompra"] = self.dataCompra?.encodeToJSON()
-        nillableDictionary["proximoVencimentoPadrao"] = self.proximoVencimentoPadrao?.encodeToJSON()
-        nillableDictionary["proximoVencimentoReal"] = self.proximoVencimentoReal?.encodeToJSON()
         nillableDictionary["valorCompra"] = self.valorCompra
-        nillableDictionary["nomeFavorecido"] = self.nomeFavorecido
+        nillableDictionary["valor"] = self.valor
         nillableDictionary["documentoFavorecido"] = self.documentoFavorecido
         nillableDictionary["banco"] = self.banco
         nillableDictionary["numeroAgencia"] = self.numeroAgencia
@@ -54,6 +47,7 @@ public class TransferenciaBancariaPersist: JSONEncodable {
         nillableDictionary["numeroConta"] = self.numeroConta
         nillableDictionary["digitoConta"] = self.digitoConta
         nillableDictionary["flagContaPoupanca"] = self.flagContaPoupanca
+        nillableDictionary["nomeFavorecido"] = self.nomeFavorecido
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

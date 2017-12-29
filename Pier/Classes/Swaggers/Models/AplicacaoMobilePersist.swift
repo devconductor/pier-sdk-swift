@@ -13,8 +13,6 @@ public class AplicacaoMobilePersist: JSONEncodable {
 
     /** Apresenta o identificador da plataforma. */
     public var idPlataformaMobile: Int?
-    /** Apresenta o identificador do emissor. */
-    public var idEmissor: Int?
     /** Apresenta o token da aplicacao. */
     public var token: String?
     /** Apresenta a cor da mensagem da aplicacao. */
@@ -35,7 +33,6 @@ public class AplicacaoMobilePersist: JSONEncodable {
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
         nillableDictionary["idPlataformaMobile"] = self.idPlataformaMobile
-        nillableDictionary["idEmissor"] = self.idEmissor
         nillableDictionary["token"] = self.token
         nillableDictionary["cor"] = self.cor
         nillableDictionary["som"] = self.som
