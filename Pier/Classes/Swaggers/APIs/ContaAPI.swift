@@ -18,10 +18,11 @@ public class ContaAPI: APIBase {
      - parameter idTipoAjuste: (query) C\u00C3\u00B3digo identificador do tipo de ajuste. 
      - parameter dataAjuste: (query) Data do ajuste no formato yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZ. 
      - parameter valorAjuste: (query) Valor do ajuste 
+     - parameter identificadorExterno: (query) Identificador Externo (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func ajustarContaUsingPOST(id id: Int, idTipoAjuste: Int, dataAjuste: String, valorAjuste: Double, completion: ((data: AjusteResponse?, error: ErrorType?) -> Void)) {
-        ajustarContaUsingPOSTWithRequestBuilder(id: id, idTipoAjuste: idTipoAjuste, dataAjuste: dataAjuste, valorAjuste: valorAjuste).execute { (response, error) -> Void in
+    public class func ajustarContaUsingPOST1(id id: Int, idTipoAjuste: Int, dataAjuste: String, valorAjuste: Double, identificadorExterno: String?, completion: ((data: AjusteFinanceiroResponse?, error: ErrorType?) -> Void)) {
+        ajustarContaUsingPOST1WithRequestBuilder(id: id, idTipoAjuste: idTipoAjuste, dataAjuste: dataAjuste, valorAjuste: valorAjuste, identificadorExterno: identificadorExterno).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -34,21 +35,24 @@ public class ContaAPI: APIBase {
      - POST /api/contas/{id}/ajustes-financeiros
      - Este recurso insere um ajuste para a conta do id informado
      - examples: [{contentType=application/json, example={
-  "idAjuste" : 123456789,
+  "identificadorExterno" : "aeiou",
   "idConta" : 123456789,
   "dataAjuste" : "aeiou",
   "valor" : 1.3579000000000001069366817318950779736042022705078125,
-  "idTipoAjuste" : 123456789
+  "id" : 123456789,
+  "idTipoAjuste" : 123456789,
+  "status" : 123456789
 }}]
      
      - parameter id: (path) Id Conta 
      - parameter idTipoAjuste: (query) C\u00C3\u00B3digo identificador do tipo de ajuste. 
      - parameter dataAjuste: (query) Data do ajuste no formato yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZ. 
      - parameter valorAjuste: (query) Valor do ajuste 
+     - parameter identificadorExterno: (query) Identificador Externo (optional)
 
-     - returns: RequestBuilder<AjusteResponse> 
+     - returns: RequestBuilder<AjusteFinanceiroResponse> 
      */
-    public class func ajustarContaUsingPOSTWithRequestBuilder(id id: Int, idTipoAjuste: Int, dataAjuste: String, valorAjuste: Double) -> RequestBuilder<AjusteResponse> {
+    public class func ajustarContaUsingPOST1WithRequestBuilder(id id: Int, idTipoAjuste: Int, dataAjuste: String, valorAjuste: Double, identificadorExterno: String?) -> RequestBuilder<AjusteFinanceiroResponse> {
         var path = "/api/contas/{id}/ajustes-financeiros"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -56,11 +60,12 @@ public class ContaAPI: APIBase {
         let nillableParameters: [String:AnyObject?] = [
             "idTipoAjuste": idTipoAjuste,
             "dataAjuste": dataAjuste,
-            "valorAjuste": valorAjuste
+            "valorAjuste": valorAjuste,
+            "identificadorExterno": identificadorExterno
         ]
         let parameters = APIHelper.rejectNil(nillableParameters)
 
-        let requestBuilder: RequestBuilder<AjusteResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<AjusteFinanceiroResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: false)
     }
@@ -706,8 +711,8 @@ public class ContaAPI: APIBase {
      - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET10(id id: Int, completion: ((data: ContaDetalheResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET10WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET11(id id: Int, completion: ((data: ContaDetalheResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET11WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -752,7 +757,7 @@ public class ContaAPI: APIBase {
 
      - returns: RequestBuilder<ContaDetalheResponse> 
      */
-    public class func consultarUsingGET10WithRequestBuilder(id id: Int) -> RequestBuilder<ContaDetalheResponse> {
+    public class func consultarUsingGET11WithRequestBuilder(id id: Int) -> RequestBuilder<ContaDetalheResponse> {
         var path = "/api/contas/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -773,8 +778,8 @@ public class ContaAPI: APIBase {
      - parameter idTransferencia: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da transfer\u00C3\u00AAncia (id_transferencia). 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET38(id id: Int, idTransferencia: Int, completion: ((data: TransferenciaDetalheResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET38WithRequestBuilder(id: id, idTransferencia: idTransferencia).execute { (response, error) -> Void in
+    public class func consultarUsingGET39(id id: Int, idTransferencia: Int, completion: ((data: TransferenciaDetalheResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET39WithRequestBuilder(id: id, idTransferencia: idTransferencia).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -802,7 +807,7 @@ public class ContaAPI: APIBase {
 
      - returns: RequestBuilder<TransferenciaDetalheResponse> 
      */
-    public class func consultarUsingGET38WithRequestBuilder(id id: Int, idTransferencia: Int) -> RequestBuilder<TransferenciaDetalheResponse> {
+    public class func consultarUsingGET39WithRequestBuilder(id id: Int, idTransferencia: Int) -> RequestBuilder<TransferenciaDetalheResponse> {
         var path = "/api/contas/{id}/transferencias-creditos-cartoes/{idTransferencia}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{idTransferencia}", withString: "\(idTransferencia)", options: .LiteralSearch, range: nil)

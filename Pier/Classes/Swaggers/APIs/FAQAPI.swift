@@ -146,8 +146,8 @@ public class FAQAPI: APIBase {
      - parameter id: (path) Id 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET16(id id: Int, completion: ((data: FaqResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET16WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET17(id id: Int, completion: ((data: FaqResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET17WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -173,7 +173,7 @@ public class FAQAPI: APIBase {
 
      - returns: RequestBuilder<FaqResponse> 
      */
-    public class func consultarUsingGET16WithRequestBuilder(id id: Int) -> RequestBuilder<FaqResponse> {
+    public class func consultarUsingGET17WithRequestBuilder(id id: Int) -> RequestBuilder<FaqResponse> {
         var path = "/api/faqs/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path

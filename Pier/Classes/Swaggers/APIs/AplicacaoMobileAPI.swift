@@ -70,8 +70,8 @@ public class AplicacaoMobileAPI: APIBase {
      - parameter idPlataformaMobile: (query) Identificador da Plataforma Mobile (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET1(sort sort: [String]?, page: Int?, limit: Int?, id: String?, idPlataformaMobile: Int?, completion: ((data: PageAplicacaoMobileResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET1WithRequestBuilder(sort: sort, page: page, limit: limit, id: id, idPlataformaMobile: idPlataformaMobile).execute { (response, error) -> Void in
+    public class func listarUsingGET2(sort sort: [String]?, page: Int?, limit: Int?, id: String?, idPlataformaMobile: Int?, completion: ((data: PageAplicacaoMobileResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET2WithRequestBuilder(sort: sort, page: page, limit: limit, id: id, idPlataformaMobile: idPlataformaMobile).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -117,7 +117,7 @@ public class AplicacaoMobileAPI: APIBase {
 
      - returns: RequestBuilder<PageAplicacaoMobileResponse> 
      */
-    public class func listarUsingGET1WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, id: String?, idPlataformaMobile: Int?) -> RequestBuilder<PageAplicacaoMobileResponse> {
+    public class func listarUsingGET2WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, id: String?, idPlataformaMobile: Int?) -> RequestBuilder<PageAplicacaoMobileResponse> {
         let path = "/api/aplicacoes-mobile"
         let URLString = PierAPI.basePath + path
         

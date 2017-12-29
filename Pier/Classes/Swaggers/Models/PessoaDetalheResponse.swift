@@ -23,6 +23,8 @@ public class PessoaDetalheResponse: JSONEncodable {
     public var idNaturezaOcupacao: Int?
     /** Id Nacionalidade da pessoa fisica */
     public var idNacionalidade: Int?
+    /** N\u00C3\u00BAmero do banco. */
+    public var numeroBanco: Int?
     /** N\u00C3\u00BAmero da ag\u00C3\u00AAncia. */
     public var numeroAgencia: Int?
     /** N\u00C3\u00BAmero da conta corrente. */
@@ -44,6 +46,7 @@ public class PessoaDetalheResponse: JSONEncodable {
         nillableDictionary["idProfissao"] = self.idProfissao
         nillableDictionary["idNaturezaOcupacao"] = self.idNaturezaOcupacao
         nillableDictionary["idNacionalidade"] = self.idNacionalidade
+        nillableDictionary["numeroBanco"] = self.numeroBanco
         nillableDictionary["numeroAgencia"] = self.numeroAgencia
         nillableDictionary["numeroContaCorrente"] = self.numeroContaCorrente
         nillableDictionary["email"] = self.email

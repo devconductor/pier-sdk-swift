@@ -17,8 +17,8 @@ public class ArquivoAPI: APIBase {
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do arquivo 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET1(id id: Int, completion: ((data: ArquivoResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET1WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET2(id id: Int, completion: ((data: ArquivoResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET2WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -52,7 +52,7 @@ public class ArquivoAPI: APIBase {
 
      - returns: RequestBuilder<ArquivoResponse> 
      */
-    public class func consultarUsingGET1WithRequestBuilder(id id: Int) -> RequestBuilder<ArquivoResponse> {
+    public class func consultarUsingGET2WithRequestBuilder(id id: Int) -> RequestBuilder<ArquivoResponse> {
         var path = "/api/arquivos/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path

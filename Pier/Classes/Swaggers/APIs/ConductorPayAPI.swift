@@ -164,8 +164,8 @@ public class ConductorPayAPI: APIBase {
      - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do cart\u00C3\u00A3o (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET5(id id: Int, completion: ((data: CartaoPayDetalheResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET5WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET6(id id: Int, completion: ((data: CartaoPayDetalheResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET6WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -193,7 +193,7 @@ public class ConductorPayAPI: APIBase {
 
      - returns: RequestBuilder<CartaoPayDetalheResponse> 
      */
-    public class func consultarUsingGET5WithRequestBuilder(id id: Int) -> RequestBuilder<CartaoPayDetalheResponse> {
+    public class func consultarUsingGET6WithRequestBuilder(id id: Int) -> RequestBuilder<CartaoPayDetalheResponse> {
         var path = "/api/cartoes-tokenizados/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path

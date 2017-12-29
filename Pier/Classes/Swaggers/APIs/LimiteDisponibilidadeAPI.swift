@@ -119,8 +119,8 @@ public class LimiteDisponibilidadeAPI: APIBase {
      - parameter idConta: (query) Id Conta 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET17(idConta idConta: Int, completion: ((data: LimiteDisponibilidadeResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET17WithRequestBuilder(idConta: idConta).execute { (response, error) -> Void in
+    public class func consultarUsingGET18(idConta idConta: Int, completion: ((data: LimiteDisponibilidadeResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET18WithRequestBuilder(idConta: idConta).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -161,7 +161,7 @@ public class LimiteDisponibilidadeAPI: APIBase {
 
      - returns: RequestBuilder<LimiteDisponibilidadeResponse> 
      */
-    public class func consultarUsingGET17WithRequestBuilder(idConta idConta: Int) -> RequestBuilder<LimiteDisponibilidadeResponse> {
+    public class func consultarUsingGET18WithRequestBuilder(idConta idConta: Int) -> RequestBuilder<LimiteDisponibilidadeResponse> {
         let path = "/api/limites-disponibilidades"
         let URLString = PierAPI.basePath + path
         
