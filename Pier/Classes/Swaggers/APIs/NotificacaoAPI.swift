@@ -1007,6 +1007,43 @@ public class NotificacaoAPI: APIBase {
 
     /**
      
+     Reenviar c\u00C3\u00B3digo de seguran\u00C3\u00A7a por sms
+     
+     - parameter persist: (body) persist 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func reenviarTokenSMSUsingPOST(persist persist: CodigoSegurancaSMSPersist, completion: ((data: String?, error: ErrorType?) -> Void)) {
+        reenviarTokenSMSUsingPOSTWithRequestBuilder(persist: persist).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Reenviar c\u00C3\u00B3digo de seguran\u00C3\u00A7a por sms
+     
+     - POST /api/notificacoes-sms/reenviar-codigo-seguranca
+     - Esse recurso permite que seja reenviado para um determinado n\u00C3\u00BAmero de telefone, atrav\u00C3\u00A9s de SMS, o c\u00C3\u00B3digo de seguran\u00C3\u00A7a gerado previamente para ele. Caso o c\u00C3\u00B3digo de seguran\u00C3\u00A7a j\u00C3\u00A1 n\u00C3\u00A3o esteja mais v\u00C3\u00A1lido, o recurso retornar\u00C3\u00A1 uma mensagem orientando que seja solicitada uma nova gera\u00C3\u00A7\u00C3\u00A3o para o telefone em quest\u00C3\u00A3o.
+     - examples: [{contentType=application/json, example="aeiou"}]
+     
+     - parameter persist: (body) persist 
+
+     - returns: RequestBuilder<String> 
+     */
+    public class func reenviarTokenSMSUsingPOSTWithRequestBuilder(persist persist: CodigoSegurancaSMSPersist) -> RequestBuilder<String> {
+        let path = "/api/notificacoes-sms/reenviar-codigo-seguranca"
+        let URLString = PierAPI.basePath + path
+        
+        let parameters = persist.encodeToJSON() as? [String:AnyObject]
+
+        let requestBuilder: RequestBuilder<String>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
      Responder SMS
      
      - parameter nsu: (query) Seu n\u00C3\u00BAmero (optional)

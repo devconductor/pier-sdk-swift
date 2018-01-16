@@ -17,6 +17,8 @@ public class PlanoCampanhaResponse: JSONEncodable {
     public var parcelas: Int?
     /** Taxa de juros */
     public var taxa: Double?
+    /** Nome do usu\u00C3\u00A1rio */
+    public var usuario: String?
     
 
     public init() {}
@@ -27,6 +29,7 @@ public class PlanoCampanhaResponse: JSONEncodable {
         nillableDictionary["id"] = self.id
         nillableDictionary["parcelas"] = self.parcelas
         nillableDictionary["taxa"] = self.taxa
+        nillableDictionary["usuario"] = self.usuario
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

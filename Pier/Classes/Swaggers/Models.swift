@@ -3985,32 +3985,6 @@ class Decoders {
             }
 			
 
-			// Decoder for [PagePaisResponse]
-            Decoders.addDecoder(clazz: [PagePaisResponse].self) { (source: AnyObject) -> [PagePaisResponse] in
-                return Decoders.decode(clazz: [PagePaisResponse].self, source: source)
-            }
-			// Decoder for PagePaisResponse
-            Decoders.addDecoder(clazz: PagePaisResponse.self) { (source: AnyObject) -> PagePaisResponse in
-                let sourceDictionary = source as! [NSObject:AnyObject]
-                let instance = PagePaisResponse()
-                instance.content = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["content"])
-                instance.first = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["first"])
-                instance.firstPage = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["firstPage"])
-                instance.hasContent = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["hasContent"])
-                instance.hasNextPage = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["hasNextPage"])
-                instance.hasPreviousPage = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["hasPreviousPage"])
-                instance.last = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["last"])
-                instance.nextPage = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["nextPage"])
-                instance.number = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["number"])
-                instance.numberOfElements = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["numberOfElements"])
-                instance.previousPage = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["previousPage"])
-                instance.size = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["size"])
-                instance.totalElements = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["totalElements"])
-                instance.totalPages = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["totalPages"])
-                return instance
-            }
-			
-
 			// Decoder for [PagePessoaDetalheResponse]
             Decoders.addDecoder(clazz: [PagePessoaDetalheResponse].self) { (source: AnyObject) -> [PagePessoaDetalheResponse] in
                 return Decoders.decode(clazz: [PagePessoaDetalheResponse].self, source: source)
@@ -4999,23 +4973,6 @@ class Decoders {
             }
 			
 
-			// Decoder for [PaisResponse]
-            Decoders.addDecoder(clazz: [PaisResponse].self) { (source: AnyObject) -> [PaisResponse] in
-                return Decoders.decode(clazz: [PaisResponse].self, source: source)
-            }
-			// Decoder for PaisResponse
-            Decoders.addDecoder(clazz: PaisResponse.self) { (source: AnyObject) -> PaisResponse in
-                let sourceDictionary = source as! [NSObject:AnyObject]
-                let instance = PaisResponse()
-                instance.id = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["id"])
-                instance.codigo = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["codigo"])
-                instance.sigla = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["sigla"])
-                instance.descricao = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["descricao"])
-                instance.continente = PaisResponse.Continente(rawValue: (sourceDictionary["continente"] as? String) ?? "") 
-                return instance
-            }
-			
-
 			// Decoder for [ParametroProdutoResponse]
             Decoders.addDecoder(clazz: [ParametroProdutoResponse].self) { (source: AnyObject) -> [ParametroProdutoResponse] in
                 return Decoders.decode(clazz: [ParametroProdutoResponse].self, source: source)
@@ -5041,9 +4998,8 @@ class Decoders {
             Decoders.addDecoder(clazz: ParcelamentoTransferenciaResponse.self) { (source: AnyObject) -> ParcelamentoTransferenciaResponse in
                 let sourceDictionary = source as! [NSObject:AnyObject]
                 let instance = ParcelamentoTransferenciaResponse()
-                instance.numeroParcela = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["numeroParcela"])
-                instance.valorPrimeiraParcela = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["valorPrimeiraParcela"])
-                instance.valorDemaisParcelas = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["valorDemaisParcelas"])
+                instance.numeroParcela = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["numeroParcela"])
+                instance.valorParcelas = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["valorParcelas"])
                 instance.valorTotal = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["valorTotal"])
                 instance.valorTAC = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["valorTAC"])
                 instance.valorIOF = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["valorIOF"])
@@ -5067,6 +5023,7 @@ class Decoders {
                 instance.idProfissao = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["idProfissao"])
                 instance.idNaturezaOcupacao = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["idNaturezaOcupacao"])
                 instance.idNacionalidade = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["idNacionalidade"])
+                instance.numeroBanco = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["numeroBanco"])
                 instance.numeroAgencia = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["numeroAgencia"])
                 instance.numeroContaCorrente = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["numeroContaCorrente"])
                 instance.email = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["email"])
@@ -5328,6 +5285,7 @@ class Decoders {
                 instance.id = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["id"])
                 instance.parcelas = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["parcelas"])
                 instance.taxa = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["taxa"])
+                instance.usuario = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["usuario"])
                 return instance
             }
 			
@@ -5404,13 +5362,9 @@ class Decoders {
             Decoders.addDecoder(clazz: PlanoParcelamentoTransferenciaCreditoContaBancariaRequest.self) { (source: AnyObject) -> PlanoParcelamentoTransferenciaCreditoContaBancariaRequest in
                 let sourceDictionary = source as! [NSObject:AnyObject]
                 let instance = PlanoParcelamentoTransferenciaCreditoContaBancariaRequest()
-                instance.nsuOrigem = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["nsuOrigem"])
-                instance.valorTransacao = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["valorTransacao"])
                 instance.idCartao = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["idCartao"])
+                instance.valorTransacao = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["valorTransacao"])
                 instance.numeroMesesCarencia = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["numeroMesesCarencia"])
-                instance.numeroEstabelecimento = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["numeroEstabelecimento"])
-                instance.dataHoraTerminal = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["dataHoraTerminal"])
-                instance.terminalRequisitante = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["terminalRequisitante"])
                 return instance
             }
 			
@@ -5423,25 +5377,9 @@ class Decoders {
             Decoders.addDecoder(clazz: PlanoParcelamentoTransferenciaCreditoContaBancariaResponse.self) { (source: AnyObject) -> PlanoParcelamentoTransferenciaCreditoContaBancariaResponse in
                 let sourceDictionary = source as! [NSObject:AnyObject]
                 let instance = PlanoParcelamentoTransferenciaCreditoContaBancariaResponse()
-                instance.nsuOrigem = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["nsuOrigem"])
                 instance.numeroMascaradoCartao = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["numeroMascaradoCartao"])
-                instance.terminalRequisitante = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["terminalRequisitante"])
-                instance.planoParcelamentos = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["planoParcelamentos"])
-                return instance
-            }
-			
-
-			// Decoder for [PlanoParcelamentoTransferenciaResponse]
-            Decoders.addDecoder(clazz: [PlanoParcelamentoTransferenciaResponse].self) { (source: AnyObject) -> [PlanoParcelamentoTransferenciaResponse] in
-                return Decoders.decode(clazz: [PlanoParcelamentoTransferenciaResponse].self, source: source)
-            }
-			// Decoder for PlanoParcelamentoTransferenciaResponse
-            Decoders.addDecoder(clazz: PlanoParcelamentoTransferenciaResponse.self) { (source: AnyObject) -> PlanoParcelamentoTransferenciaResponse in
-                let sourceDictionary = source as! [NSObject:AnyObject]
-                let instance = PlanoParcelamentoTransferenciaResponse()
-                instance.codigoEspecial = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["codigoEspecial"])
                 instance.vencimentoPrimeiraParcela = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["vencimentoPrimeiraParcela"])
-                instance.flagJuros = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["flagJuros"])
+                instance.valorTransacao = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["valorTransacao"])
                 instance.numeroMesesCarencia = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["numeroMesesCarencia"])
                 instance.parcelas = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["parcelas"])
                 return instance

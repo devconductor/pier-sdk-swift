@@ -12,11 +12,9 @@ import Foundation
 public class ParcelamentoTransferenciaResponse: JSONEncodable {
 
     /** N\u00C3\u00BAmero de parcelas dispon\u00C3\u00ADveis. */
-    public var numeroParcela: String?
-    /** Valor da primeira parcela. */
-    public var valorPrimeiraParcela: Double?
+    public var numeroParcela: Int?
     /** Valor das demais parcelas. */
-    public var valorDemaisParcelas: Double?
+    public var valorParcelas: Double?
     /** Valor total do financiamento. */
     public var valorTotal: Double?
     /** Valor da tarifa de contrata\u00C3\u00A7\u00C3\u00A3o. */
@@ -35,8 +33,7 @@ public class ParcelamentoTransferenciaResponse: JSONEncodable {
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
         nillableDictionary["numeroParcela"] = self.numeroParcela
-        nillableDictionary["valorPrimeiraParcela"] = self.valorPrimeiraParcela
-        nillableDictionary["valorDemaisParcelas"] = self.valorDemaisParcelas
+        nillableDictionary["valorParcelas"] = self.valorParcelas
         nillableDictionary["valorTotal"] = self.valorTotal
         nillableDictionary["valorTAC"] = self.valorTAC
         nillableDictionary["valorIOF"] = self.valorIOF

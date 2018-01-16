@@ -35,6 +35,7 @@ public class CadastroGeralAPI: APIBase {
   "planosCampanhas" : [ {
     "parcelas" : 123,
     "taxa" : 1.3579000000000001069366817318950779736042022705078125,
+    "usuario" : "aeiou",
     "id" : 123456789
   } ],
   "idTipoCampanha" : 123456789,
@@ -174,52 +175,6 @@ public class CadastroGeralAPI: APIBase {
 
     /**
      
-     Ativa o par\u00C3\u00A2metro uso exterior para o produto
-     
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Produto (id) 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func ativarUsoExteriorUsingPOST(id id: Int, completion: ((data: ProdutoDetalhesResponse?, error: ErrorType?) -> Void)) {
-        ativarUsoExteriorUsingPOSTWithRequestBuilder(id: id).execute { (response, error) -> Void in
-            completion(data: response?.body, error: error);
-        }
-    }
-
-
-    /**
-     
-     Ativa o par\u00C3\u00A2metro uso exterior para o produto
-     
-     - POST /api/produtos/{id}/ativar-uso-exterior
-     - Este m\u00C3\u00A9todo permite ativar o uso no exterior para o produto atrav\u00C3\u00A9s do seu c\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o (id).
-     - examples: [{contentType=application/json, example={
-  "idFantasiaBasica" : 123456789,
-  "nome" : "aeiou",
-  "id" : 123456789,
-  "usoExterior" : false,
-  "fantasiaBasica" : "aeiou",
-  "status" : 123
-}}]
-     
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Produto (id) 
-
-     - returns: RequestBuilder<ProdutoDetalhesResponse> 
-     */
-    public class func ativarUsoExteriorUsingPOSTWithRequestBuilder(id id: Int) -> RequestBuilder<ProdutoDetalhesResponse> {
-        var path = "/api/produtos/{id}/ativar-uso-exterior"
-        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
-        let URLString = PierAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<ProdutoDetalhesResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
      Inserir configura\u00C3\u00A7\u00C3\u00A3o para registro de cobran\u00C3\u00A7a
      
      - parameter configuracaoPersist: (body) configuracaoPersist 
@@ -341,6 +296,7 @@ public class CadastroGeralAPI: APIBase {
   "planosCampanhas" : [ {
     "parcelas" : 123,
     "taxa" : 1.3579000000000001069366817318950779736042022705078125,
+    "usuario" : "aeiou",
     "id" : 123456789
   } ],
   "idTipoCampanha" : 123456789,
@@ -1019,52 +975,6 @@ public class CadastroGeralAPI: APIBase {
 
     /**
      
-     Desativa o par\u00C3\u00A2metro uso exterior para o produto
-     
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Produto (id) 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func desativarUsoExteriorUsingPOST(id id: Int, completion: ((data: ProdutoDetalhesResponse?, error: ErrorType?) -> Void)) {
-        desativarUsoExteriorUsingPOSTWithRequestBuilder(id: id).execute { (response, error) -> Void in
-            completion(data: response?.body, error: error);
-        }
-    }
-
-
-    /**
-     
-     Desativa o par\u00C3\u00A2metro uso exterior para o produto
-     
-     - POST /api/produtos/{id}/desativar-uso-exterior
-     - Este m\u00C3\u00A9todo permite desativar o uso no exterior para o produto atrav\u00C3\u00A9s do seu c\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o (id).
-     - examples: [{contentType=application/json, example={
-  "idFantasiaBasica" : 123456789,
-  "nome" : "aeiou",
-  "id" : 123456789,
-  "usoExterior" : false,
-  "fantasiaBasica" : "aeiou",
-  "status" : 123
-}}]
-     
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Produto (id) 
-
-     - returns: RequestBuilder<ProdutoDetalhesResponse> 
-     */
-    public class func desativarUsoExteriorUsingPOSTWithRequestBuilder(id id: Int) -> RequestBuilder<ProdutoDetalhesResponse> {
-        var path = "/api/produtos/{id}/desativar-uso-exterior"
-        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
-        let URLString = PierAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<ProdutoDetalhesResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
      Listar Campanhas
      
      - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
@@ -1096,6 +1006,7 @@ public class CadastroGeralAPI: APIBase {
     "planosCampanhas" : [ {
       "parcelas" : 123,
       "taxa" : 1.3579000000000001069366817318950779736042022705078125,
+      "usuario" : "aeiou",
       "id" : 123456789
     } ],
     "idTipoCampanha" : 123456789,
@@ -2679,6 +2590,7 @@ public class CadastroGeralAPI: APIBase {
   "planosCampanhas" : [ {
     "parcelas" : 123,
     "taxa" : 1.3579000000000001069366817318950779736042022705078125,
+    "usuario" : "aeiou",
     "id" : 123456789
   } ],
   "idTipoCampanha" : 123456789,

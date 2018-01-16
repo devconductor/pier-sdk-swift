@@ -11,14 +11,16 @@ import Foundation
 /** Plano de Parcelamentos para Transfer\u00C3\u00AAncia de cr\u00C3\u00A9dito para contas banc\u00C3\u00A1rias */
 public class PlanoParcelamentoTransferenciaCreditoContaBancariaResponse: JSONEncodable {
 
-    /** N\u00C3\u00BAmero Sequencial \u00C3\u009Anico que identifica a transa\u00C3\u00A7\u00C3\u00A3o no sistema que a originou. */
-    public var nsuOrigem: String?
     /** N\u00C3\u00BAmero do Cart\u00C3\u00A3o que originou a transa\u00C3\u00A7\u00C3\u00A3o em formato mascarado. */
     public var numeroMascaradoCartao: String?
-    /** Apresenta a identifica\u00C3\u00A7\u00C3\u00A3o do terminal requisitante */
-    public var terminalRequisitante: String?
-    /** Lista os planos de parcelamentos */
-    public var planoParcelamentos: [PlanoParcelamentoTransferenciaResponse]?
+    /** Data de vencimento da primeira parcela. */
+    public var vencimentoPrimeiraParcela: String?
+    /** Valor da solicita\u00C3\u00A7\u00C3\u00A3o de saque. */
+    public var valorTransacao: Double?
+    /** N\u00C3\u00BAmero de meses para car\u00C3\u00AAncia. */
+    public var numeroMesesCarencia: Int?
+    /** Lista com os planos de parcelamento. */
+    public var parcelas: [ParcelamentoTransferenciaResponse]?
     
 
     public init() {}
@@ -26,10 +28,11 @@ public class PlanoParcelamentoTransferenciaCreditoContaBancariaResponse: JSONEnc
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
-        nillableDictionary["nsuOrigem"] = self.nsuOrigem
         nillableDictionary["numeroMascaradoCartao"] = self.numeroMascaradoCartao
-        nillableDictionary["terminalRequisitante"] = self.terminalRequisitante
-        nillableDictionary["planoParcelamentos"] = self.planoParcelamentos?.encodeToJSON()
+        nillableDictionary["vencimentoPrimeiraParcela"] = self.vencimentoPrimeiraParcela
+        nillableDictionary["valorTransacao"] = self.valorTransacao
+        nillableDictionary["numeroMesesCarencia"] = self.numeroMesesCarencia
+        nillableDictionary["parcelas"] = self.parcelas?.encodeToJSON()
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }
