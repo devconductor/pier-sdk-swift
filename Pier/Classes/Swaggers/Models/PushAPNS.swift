@@ -13,6 +13,7 @@ public class PushAPNS: JSONEncodable {
 
     public enum TipoEvento: String { 
         case RiscoFraude = "RISCO_FRAUDE"
+        case CodigoSeguranca = "CODIGO_SEGURANCA"
         case Outros = "OUTROS"
     }
     

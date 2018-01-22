@@ -14,11 +14,11 @@ public class DividaClienteResponse: JSONEncodable {
     /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id) */
     public var id: Int?
     /** Data de vencimento da cobran\u00C3\u00A7a */
-    public var dataVencimentoFaturaAtraso: NSDate?
+    public var dataVencimentoFaturaAtraso: String?
     /** Quantidade de dias em atraso at\u00C3\u00A9 a data de vencimento da cobran\u00C3\u00A7a */
     public var quantidadeDiasAtraso: Int?
     /** Data de vencimento do acordo */
-    public var dataVencimentoAcordo: NSDate?
+    public var dataVencimentoAcordo: String?
     /** Quantidade de dias em atraso at\u00C3\u00A9 a data de vencimento do acordo */
     public var quantidadeDiasAtrasoCorrigido: Int?
     /** Valor do saldo devedor at\u00C3\u00A9 a data de vencimento da cobran\u00C3\u00A7a */
@@ -53,9 +53,9 @@ public class DividaClienteResponse: JSONEncodable {
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
         nillableDictionary["id"] = self.id
-        nillableDictionary["dataVencimentoFaturaAtraso"] = self.dataVencimentoFaturaAtraso?.encodeToJSON()
+        nillableDictionary["dataVencimentoFaturaAtraso"] = self.dataVencimentoFaturaAtraso
         nillableDictionary["quantidadeDiasAtraso"] = self.quantidadeDiasAtraso
-        nillableDictionary["dataVencimentoAcordo"] = self.dataVencimentoAcordo?.encodeToJSON()
+        nillableDictionary["dataVencimentoAcordo"] = self.dataVencimentoAcordo
         nillableDictionary["quantidadeDiasAtrasoCorrigido"] = self.quantidadeDiasAtrasoCorrigido
         nillableDictionary["valorSaldoDevedor"] = self.valorSaldoDevedor
         nillableDictionary["taxaCorrecao"] = self.taxaCorrecao

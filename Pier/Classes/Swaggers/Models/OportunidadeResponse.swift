@@ -18,15 +18,15 @@ public class OportunidadeResponse: JSONEncodable {
     /** C\u00C3\u00B3digo identificador do status oportunidade */
     public var idStatusOportunidade: Int?
     /** Data cadastro da oportunidade. */
-    public var dataCadastro: NSDate?
+    public var dataCadastro: String?
     /** Data atualiza\u00C3\u00A7\u00C3\u00A3o da oportunidade. */
-    public var dataAtualizacao: NSDate?
+    public var dataAtualizacao: String?
     /** N\u00C3\u00BAmero receita federal do cliente ao qual ser\u00C3\u00A1 ofertada a oportunidade */
     public var numeroReceitaFederal: String?
     /** In\u00C3\u00ADcio da vig\u00C3\u00AAncia da oportunidade */
-    public var dataInicioVigencia: NSDate?
+    public var dataInicioVigencia: String?
     /** Fim da vig\u00C3\u00AAncia da oportunidade */
-    public var dataFimVigencia: NSDate?
+    public var dataFimVigencia: String?
     /** Flag de verifica\u00C3\u00A7\u00C3\u00A3o se a oportunidade est\u00C3\u00A1 ativa */
     public var flagAtivo: Bool?
     /** Lista de detalhes da oportunidade */
@@ -41,11 +41,11 @@ public class OportunidadeResponse: JSONEncodable {
         nillableDictionary["id"] = self.id
         nillableDictionary["idTipoOportunidade"] = self.idTipoOportunidade
         nillableDictionary["idStatusOportunidade"] = self.idStatusOportunidade
-        nillableDictionary["dataCadastro"] = self.dataCadastro?.encodeToJSON()
-        nillableDictionary["dataAtualizacao"] = self.dataAtualizacao?.encodeToJSON()
+        nillableDictionary["dataCadastro"] = self.dataCadastro
+        nillableDictionary["dataAtualizacao"] = self.dataAtualizacao
         nillableDictionary["numeroReceitaFederal"] = self.numeroReceitaFederal
-        nillableDictionary["dataInicioVigencia"] = self.dataInicioVigencia?.encodeToJSON()
-        nillableDictionary["dataFimVigencia"] = self.dataFimVigencia?.encodeToJSON()
+        nillableDictionary["dataInicioVigencia"] = self.dataInicioVigencia
+        nillableDictionary["dataFimVigencia"] = self.dataFimVigencia
         nillableDictionary["flagAtivo"] = self.flagAtivo
         nillableDictionary["detalhes"] = self.detalhes?.encodeToJSON()
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]

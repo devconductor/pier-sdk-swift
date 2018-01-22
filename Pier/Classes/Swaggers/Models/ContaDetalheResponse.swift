@@ -27,7 +27,7 @@ public class ContaDetalheResponse: JSONEncodable {
     public var idFantasiaBasica: Int?
     /** Nome da Fantasia Basica */
     public var nomeFantasiaBasica: String?
-    /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Produto a qual o cart\u00C3\u00A3o pertence (id). */
+    /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do status atribuido a conta. */
     public var idStatusConta: Int?
     /** Descri\u00C3\u00A7\u00C3\u00A3o do status da conta */
     public var statusConta: String?
@@ -36,15 +36,15 @@ public class ContaDetalheResponse: JSONEncodable {
     /** Apresenta o melhor dia de compra. */
     public var melhorDiaCompra: Int?
     /** Apresenta a data em que o idStatusConta atual fora atribu\u00C3\u00ADdo para ela. */
-    public var dataStatusConta: NSDate?
+    public var dataStatusConta: String?
     /** Valor da renda comprovada. */
     public var valorRenda: Double?
     /** Apresenta a data em que o cart\u00C3\u00A3o foi gerado. */
-    public var dataCadastro: NSDate?
+    public var dataCadastro: String?
     /** Apresenta a data da ultima altera\u00C3\u00A7\u00C3\u00A3o de vencimento. */
-    public var dataUltimaAlteracaoVencimento: NSDate?
+    public var dataUltimaAlteracaoVencimento: String?
     /** Apresenta a data da ultima altera\u00C3\u00A7\u00C3\u00A3o de vencimento. */
-    public var dataHoraUltimaCompra: NSDate?
+    public var dataHoraUltimaCompra: String?
     /** N\u00C3\u00BAmero da ag\u00C3\u00AAncia. */
     public var numeroAgencia: Int?
     /** N\u00C3\u00BAmero da conta corrente. */
@@ -82,11 +82,11 @@ public class ContaDetalheResponse: JSONEncodable {
         nillableDictionary["statusConta"] = self.statusConta
         nillableDictionary["diaVencimento"] = self.diaVencimento
         nillableDictionary["melhorDiaCompra"] = self.melhorDiaCompra
-        nillableDictionary["dataStatusConta"] = self.dataStatusConta?.encodeToJSON()
+        nillableDictionary["dataStatusConta"] = self.dataStatusConta
         nillableDictionary["valorRenda"] = self.valorRenda
-        nillableDictionary["dataCadastro"] = self.dataCadastro?.encodeToJSON()
-        nillableDictionary["dataUltimaAlteracaoVencimento"] = self.dataUltimaAlteracaoVencimento?.encodeToJSON()
-        nillableDictionary["dataHoraUltimaCompra"] = self.dataHoraUltimaCompra?.encodeToJSON()
+        nillableDictionary["dataCadastro"] = self.dataCadastro
+        nillableDictionary["dataUltimaAlteracaoVencimento"] = self.dataUltimaAlteracaoVencimento
+        nillableDictionary["dataHoraUltimaCompra"] = self.dataHoraUltimaCompra
         nillableDictionary["numeroAgencia"] = self.numeroAgencia
         nillableDictionary["numeroContaCorrente"] = self.numeroContaCorrente
         nillableDictionary["formaEnvioFatura"] = self.formaEnvioFatura

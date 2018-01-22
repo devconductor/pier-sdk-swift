@@ -8,65 +8,33 @@
 import Foundation
 
 
-/** Fatura */
+/** Fatura futura */
 public class FaturaResponse: JSONEncodable {
 
-    /** C\u00C3\u00B3digo identificador da fatura. */
-    public var id: Int?
-    /** C\u00C3\u00B3digo identificador da conta. */
+    public enum SituacaoProcessamento: String { 
+        case Aberta = "ABERTA"
+        case Fechada = "FECHADA"
+        case Todas = "TODAS"
+    }
+    
+    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta. */
     public var idConta: Int?
-    /** C\u00C3\u00B3digo identificador da conta a qual a fatura se refere. */
-    public var flagEmiteFatura: Int?
+    /** Situa\u00C3\u00A7\u00C3\u00A3o de Processamento da fatura. */
+    public var situacaoProcessamento: SituacaoProcessamento?
+    /** Status de pagamento efetuado. */
+    public var pagamentoEfetuado: Bool?
     /** Data de vencimento da fatura. */
     public var dataVencimentoFatura: String?
-    /** Valor para pagamento total da fatura. */
-    public var valorTotalFatura: Double?
-    /** Valor total da fatura anterior. */
-    public var valorFaturaAnterior: Double?
-    /** Valor m\u00C3\u00ADnimo para pagamento da fatura. */
+    /** Data de vencimento real da fatura. */
+    public var dataVencimentoReal: String?
+    /** Data de fechamento da fatura. */
+    public var dataFechamento: String?
+    /** Valor total da fatura. */
+    public var valorTotal: Double?
+    /** Valor do pagamento m\u00C3\u00ADnimo. */
     public var valorPagamentoMinimo: Double?
-    /** Valor total das compras nacionais lan\u00C3\u00A7adas na fatura. */
-    public var totalComprasNacionais: Double?
-    /** Valor total das compras internacionais lan\u00C3\u00A7adas na fatura. */
-    public var totalComprasInternacionas: Double?
-    /** Valor total dos saques nacionais lan\u00C3\u00A7ados na fatura. */
-    public var totalSaquesNacionais: Double?
-    /** Valor total dos saques internacionais lan\u00C3\u00A7ados na fatura. */
-    public var totalSaquesInternacionais: Double?
-    /** Valor total dos d\u00C3\u00A9bitos nacionais lan\u00C3\u00A7ados na fatura. */
-    public var totalDebitosNacionais: Double?
-    /** Valor total dos d\u00C3\u00A9bitos recorrentes lan\u00C3\u00A7ados na fatura. */
-    public var totalDebitosRecorrentes: Double?
-    /** Valor total dos d\u00C3\u00A9bitos internacionais lan\u00C3\u00A7ados na fatura. */
-    public var totalDebitosInternacionais: Double?
-    /** Valor total dos d\u00C3\u00A9bitos diversos nacionais lan\u00C3\u00A7ados na fatura. */
-    public var totalDebitosDiversosNacionais: Double?
-    /** Valor total dos d\u00C3\u00A9bitos diversos opcionais lan\u00C3\u00A7ados na fatura. */
-    public var totalDebitosOpcionais: Double?
-    /** Valor total dos pagamentos lan\u00C3\u00A7ados na fatura. */
-    public var totalPagamentos: Double?
-    /** Valor total dos cr\u00C3\u00A9ditos nacionais lan\u00C3\u00A7ados na fatura. */
-    public var totalCreditosNacionais: Double?
-    /** Valor total dos ajustes lan\u00C3\u00A7ados na fatura. */
-    public var totalAjustes: Double?
-    /** Valor total das tarifas lan\u00C3\u00A7adas na fatura. */
-    public var totalTarifas: Double?
-    /** Valor total da multa lan\u00C3\u00A7ada na fatura. */
-    public var totalMulta: Double?
-    /** Valor total dos juros de mora lan\u00C3\u00A7ados na fatura. */
-    public var totalJuros: Double?
-    /** Valor percentual da taxa de juros rotativos. */
-    public var taxaRotativo: Double?
-    /** Valor percentual da taxa de saque. */
-    public var taxaSaque: Double?
-    /** Valor m\u00C3\u00A1ximo percentual da taxa de encargos para o pr\u00C3\u00B3ximo per\u00C3\u00ADodo. */
-    public var taxaMaximaProximoPeriodo: Double?
-    /** Apresenta a soma de todos os seguros cobrados na fatura do cliente. */
-    public var totalServicos: Double?
-    /** Apresenta a soma de todos os valores parcelados + compras nacionais. */
-    public var totalParceladoNacionais: Double?
-    /** Apresenta a soma de todos os valores parcelados + compras internacionais. */
-    public var totalParceladoInternacionais: Double?
+    /** Valor do saldo anterior. */
+    public var saldoAnterior: Double?
     
 
     public init() {}
@@ -74,34 +42,15 @@ public class FaturaResponse: JSONEncodable {
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
-        nillableDictionary["id"] = self.id
         nillableDictionary["idConta"] = self.idConta
-        nillableDictionary["flagEmiteFatura"] = self.flagEmiteFatura
+        nillableDictionary["situacaoProcessamento"] = self.situacaoProcessamento?.rawValue
+        nillableDictionary["pagamentoEfetuado"] = self.pagamentoEfetuado
         nillableDictionary["dataVencimentoFatura"] = self.dataVencimentoFatura
-        nillableDictionary["valorTotalFatura"] = self.valorTotalFatura
-        nillableDictionary["valorFaturaAnterior"] = self.valorFaturaAnterior
+        nillableDictionary["dataVencimentoReal"] = self.dataVencimentoReal
+        nillableDictionary["dataFechamento"] = self.dataFechamento
+        nillableDictionary["valorTotal"] = self.valorTotal
         nillableDictionary["valorPagamentoMinimo"] = self.valorPagamentoMinimo
-        nillableDictionary["totalComprasNacionais"] = self.totalComprasNacionais
-        nillableDictionary["totalComprasInternacionas"] = self.totalComprasInternacionas
-        nillableDictionary["totalSaquesNacionais"] = self.totalSaquesNacionais
-        nillableDictionary["totalSaquesInternacionais"] = self.totalSaquesInternacionais
-        nillableDictionary["totalDebitosNacionais"] = self.totalDebitosNacionais
-        nillableDictionary["totalDebitosRecorrentes"] = self.totalDebitosRecorrentes
-        nillableDictionary["totalDebitosInternacionais"] = self.totalDebitosInternacionais
-        nillableDictionary["totalDebitosDiversosNacionais"] = self.totalDebitosDiversosNacionais
-        nillableDictionary["totalDebitosOpcionais"] = self.totalDebitosOpcionais
-        nillableDictionary["totalPagamentos"] = self.totalPagamentos
-        nillableDictionary["totalCreditosNacionais"] = self.totalCreditosNacionais
-        nillableDictionary["totalAjustes"] = self.totalAjustes
-        nillableDictionary["totalTarifas"] = self.totalTarifas
-        nillableDictionary["totalMulta"] = self.totalMulta
-        nillableDictionary["totalJuros"] = self.totalJuros
-        nillableDictionary["taxaRotativo"] = self.taxaRotativo
-        nillableDictionary["taxaSaque"] = self.taxaSaque
-        nillableDictionary["taxaMaximaProximoPeriodo"] = self.taxaMaximaProximoPeriodo
-        nillableDictionary["totalServicos"] = self.totalServicos
-        nillableDictionary["totalParceladoNacionais"] = self.totalParceladoNacionais
-        nillableDictionary["totalParceladoInternacionais"] = self.totalParceladoInternacionais
+        nillableDictionary["saldoAnterior"] = self.saldoAnterior
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

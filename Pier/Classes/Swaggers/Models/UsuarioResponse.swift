@@ -12,8 +12,8 @@ import Foundation
 public class UsuarioResponse: JSONEncodable {
 
     public enum Status: String { 
-        case Ativo = "ATIVO"
         case Inativo = "INATIVO"
+        case Ativo = "ATIVO"
     }
     
     /** Id do Usu\u00C3\u00A1rio */
@@ -31,9 +31,9 @@ public class UsuarioResponse: JSONEncodable {
     /** Status do Usu\u00C3\u00A1rio */
     public var status: Status?
     /** Data de cria\u00C3\u00A7\u00C3\u00A3o do Usu\u00C3\u00A1rio */
-    public var dataCriacao: NSDate?
+    public var dataCriacao: String?
     /** Data de modifica\u00C3\u00A7\u00C3\u00A3o do Usu\u00C3\u00A1rio */
-    public var dataModificacao: NSDate?
+    public var dataModificacao: String?
     /** N\u00C3\u00BAmero de tentativas de valida\u00C3\u00A7\u00C3\u00A3o incorretas */
     public var tentativasIncorretas: Int?
     
@@ -50,8 +50,8 @@ public class UsuarioResponse: JSONEncodable {
         nillableDictionary["cpf"] = self.cpf
         nillableDictionary["email"] = self.email
         nillableDictionary["status"] = self.status?.rawValue
-        nillableDictionary["dataCriacao"] = self.dataCriacao?.encodeToJSON()
-        nillableDictionary["dataModificacao"] = self.dataModificacao?.encodeToJSON()
+        nillableDictionary["dataCriacao"] = self.dataCriacao
+        nillableDictionary["dataModificacao"] = self.dataModificacao
         nillableDictionary["tentativasIncorretas"] = self.tentativasIncorretas
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary

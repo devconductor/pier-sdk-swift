@@ -21,6 +21,8 @@ public class ProdutoDetalhesResponse: JSONEncodable {
     public var idFantasiaBasica: Int?
     /** Descri\u00C3\u00A7\u00C3\u00A3o da Fantasia B\u00C3\u00A1sica a qual o produto pertence. */
     public var fantasiaBasica: String?
+    /** Par\u00C3\u00A2metro que indica se o produto est\u00C3\u00A1 habilitado para compras no exterior. */
+    public var usoExterior: Bool?
     
 
     public init() {}
@@ -33,6 +35,7 @@ public class ProdutoDetalhesResponse: JSONEncodable {
         nillableDictionary["status"] = self.status
         nillableDictionary["idFantasiaBasica"] = self.idFantasiaBasica
         nillableDictionary["fantasiaBasica"] = self.fantasiaBasica
+        nillableDictionary["usoExterior"] = self.usoExterior
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

@@ -11,14 +11,14 @@ import Foundation
 /** PessoaPersist */
 public class SocioAprovadoResponse: JSONEncodable {
 
-    /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Endere\u00C3\u00A7o (id) */
+    /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do S\u00C3\u00B3cio (id) */
     public var id: Int?
     /** Apresenta o Nome do Socio */
     public var nome: String?
     /** N\u00C3\u00BAmero do CPF, quando PF. */
     public var cpf: String?
     /** Data de Nascimento da Pessoa, quando PF, ou a Data de Abertura da Empresa, quando PJ. Essa data deve ser informada no formato aaaa-MM-dd. */
-    public var dataNascimento: NSDate?
+    public var dataNascimento: String?
     /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do sexo da Pessoa, quando PF, sendo: (\&quot;M\&quot;: Masculino), (\&quot;F\&quot;: Feminino), (\&quot;O\&quot;: Outro), (\&quot;N\&quot;: N\u00C3\u00A3o Especificado). */
     public var sexo: String?
     /** N\u00C3\u00BAmero da Identidade. */
@@ -28,7 +28,7 @@ public class SocioAprovadoResponse: JSONEncodable {
     /** Sigla da Unidade Federativa de onde foi expedido a Identidade */
     public var unidadeFederativaIdentidade: String?
     /** Data emiss\u00C3\u00A3o da Identidade */
-    public var dataEmissaoIdentidade: NSDate?
+    public var dataEmissaoIdentidade: String?
     /** Estado civil do s\u00C3\u00B3cio */
     public var estadoCivil: String?
     /** Profiss\u00C3\u00A3o do s\u00C3\u00B3cio */
@@ -49,12 +49,12 @@ public class SocioAprovadoResponse: JSONEncodable {
         nillableDictionary["id"] = self.id
         nillableDictionary["nome"] = self.nome
         nillableDictionary["cpf"] = self.cpf
-        nillableDictionary["dataNascimento"] = self.dataNascimento?.encodeToJSON()
+        nillableDictionary["dataNascimento"] = self.dataNascimento
         nillableDictionary["sexo"] = self.sexo
         nillableDictionary["numeroIdentidade"] = self.numeroIdentidade
         nillableDictionary["orgaoExpedidorIdentidade"] = self.orgaoExpedidorIdentidade
         nillableDictionary["unidadeFederativaIdentidade"] = self.unidadeFederativaIdentidade
-        nillableDictionary["dataEmissaoIdentidade"] = self.dataEmissaoIdentidade?.encodeToJSON()
+        nillableDictionary["dataEmissaoIdentidade"] = self.dataEmissaoIdentidade
         nillableDictionary["estadoCivil"] = self.estadoCivil
         nillableDictionary["profissao"] = self.profissao
         nillableDictionary["nacionalidade"] = self.nacionalidade

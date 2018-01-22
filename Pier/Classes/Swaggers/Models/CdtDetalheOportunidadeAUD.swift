@@ -15,7 +15,7 @@ public class CdtDetalheOportunidadeAUD: JSONEncodable {
     public var idOportunidade: Int?
     public var nomeCampo: String?
     public var rev: Int?
-    public var revDate: NSDate?
+    public var revDate: String?
     public var revOportunidade: Int?
     public var revType: Int?
     public var revUser: String?
@@ -31,7 +31,7 @@ public class CdtDetalheOportunidadeAUD: JSONEncodable {
         nillableDictionary["idOportunidade"] = self.idOportunidade
         nillableDictionary["nomeCampo"] = self.nomeCampo
         nillableDictionary["rev"] = self.rev
-        nillableDictionary["revDate"] = self.revDate?.encodeToJSON()
+        nillableDictionary["revDate"] = self.revDate
         nillableDictionary["revOportunidade"] = self.revOportunidade
         nillableDictionary["revType"] = self.revType
         nillableDictionary["revUser"] = self.revUser

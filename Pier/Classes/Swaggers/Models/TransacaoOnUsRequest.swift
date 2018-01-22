@@ -24,7 +24,7 @@ public class TransacaoOnUsRequest: JSONEncodable {
     /** N\u00C3\u00BAmero do Estabelecimento (N\u00C3\u00BAmero+DV). */
     public var numeroEstabelecimento: Int?
     /** Apresenta a data e hora local da consulta yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZ. Ex: 2000-10-31T01:30:00.000-05:00 */
-    public var dataHoraTerminal: NSDate?
+    public var dataHoraTerminal: String?
     /** Apresenta a identifica\u00C3\u00A7\u00C3\u00A3o do terminal requisitante */
     public var terminalRequisitante: String?
     
@@ -40,7 +40,7 @@ public class TransacaoOnUsRequest: JSONEncodable {
         nillableDictionary["numeroRealCartao"] = self.numeroRealCartao
         nillableDictionary["dataValidadeCartao"] = self.dataValidadeCartao
         nillableDictionary["numeroEstabelecimento"] = self.numeroEstabelecimento
-        nillableDictionary["dataHoraTerminal"] = self.dataHoraTerminal?.encodeToJSON()
+        nillableDictionary["dataHoraTerminal"] = self.dataHoraTerminal
         nillableDictionary["terminalRequisitante"] = self.terminalRequisitante
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary

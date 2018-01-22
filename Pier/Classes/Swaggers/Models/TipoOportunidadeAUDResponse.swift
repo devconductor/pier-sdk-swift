@@ -16,7 +16,7 @@ public class TipoOportunidadeAUDResponse: JSONEncodable {
     /** C\u00C3\u00B3digo que representa o tipo de a\u00C3\u00A7\u00C3\u00A3o realizada no recurso de tipos oportunidades */
     public var revType: Int?
     /** Data da a\u00C3\u00A7\u00C3\u00A3o realizada no recurso de tipos oportunidades */
-    public var revDate: NSDate?
+    public var revDate: String?
     /** C\u00C3\u00B3digo identificador do tipo oportunidade no qual foi realizado a a\u00C3\u00A7\u00C3\u00A3o */
     public var id: Int?
     /** Descri\u00C3\u00A7\u00C3\u00A3o do tipo oportunidade no qual foi realizado a a\u00C3\u00A7\u00C3\u00A3o */
@@ -32,7 +32,7 @@ public class TipoOportunidadeAUDResponse: JSONEncodable {
         var nillableDictionary = [String:AnyObject?]()
         nillableDictionary["rev"] = self.rev
         nillableDictionary["revType"] = self.revType
-        nillableDictionary["revDate"] = self.revDate?.encodeToJSON()
+        nillableDictionary["revDate"] = self.revDate
         nillableDictionary["id"] = self.id
         nillableDictionary["descricao"] = self.descricao
         nillableDictionary["flagAtivo"] = self.flagAtivo
