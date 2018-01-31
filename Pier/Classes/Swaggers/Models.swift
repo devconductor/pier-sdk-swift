@@ -2661,6 +2661,7 @@ class Decoders {
                 instance.dataCadastro = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["dataCadastro"])
                 instance.usuarioCadastro = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["usuarioCadastro"])
                 instance.statusProcessamento = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["statusProcessamento"])
+                instance.identificadorExterno = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["identificadorExterno"])
                 return instance
             }
 			

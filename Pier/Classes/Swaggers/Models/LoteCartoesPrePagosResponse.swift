@@ -31,6 +31,8 @@ public class LoteCartoesPrePagosResponse: JSONEncodable {
     public var usuarioCadastro: String?
     /** Indica o status de processamento do lote. */
     public var statusProcessamento: Int?
+    /** N\u00C3\u00BAmero de identifica\u00C3\u00A7\u00C3\u00A3o externo (utilizado pelo emissor). */
+    public var identificadorExterno: String?
     
 
     public init() {}
@@ -48,6 +50,7 @@ public class LoteCartoesPrePagosResponse: JSONEncodable {
         nillableDictionary["dataCadastro"] = self.dataCadastro
         nillableDictionary["usuarioCadastro"] = self.usuarioCadastro
         nillableDictionary["statusProcessamento"] = self.statusProcessamento
+        nillableDictionary["identificadorExterno"] = self.identificadorExterno
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }
