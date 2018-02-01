@@ -107,8 +107,8 @@ public class DebitoRecorrenteAPI: APIBase {
      - parameter flagAtivo: (query) Flag que identifica se o tipo d\u00C3\u00A9bito recorrente est\u00C3\u00A1 ativo. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET36(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, descricao: String?, valor: Double?, flagAtivo: Bool?, completion: ((data: PageTipoDebitoRecorrenteResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET36WithRequestBuilder(sort: sort, page: page, limit: limit, id: id, descricao: descricao, valor: valor, flagAtivo: flagAtivo).execute { (response, error) -> Void in
+    public class func listarUsingGET38(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, descricao: String?, valor: Double?, flagAtivo: Bool?, completion: ((data: PageTipoDebitoRecorrenteResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET38WithRequestBuilder(sort: sort, page: page, limit: limit, id: id, descricao: descricao, valor: valor, flagAtivo: flagAtivo).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -152,7 +152,7 @@ public class DebitoRecorrenteAPI: APIBase {
 
      - returns: RequestBuilder<PageTipoDebitoRecorrenteResponse> 
      */
-    public class func listarUsingGET36WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, descricao: String?, valor: Double?, flagAtivo: Bool?) -> RequestBuilder<PageTipoDebitoRecorrenteResponse> {
+    public class func listarUsingGET38WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, descricao: String?, valor: Double?, flagAtivo: Bool?) -> RequestBuilder<PageTipoDebitoRecorrenteResponse> {
         let path = "/api/tipos-debitos-recorrentes"
         let URLString = PierAPI.basePath + path
         

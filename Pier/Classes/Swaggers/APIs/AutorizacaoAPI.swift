@@ -12,6 +12,54 @@ import Alamofire
 public class AutorizacaoAPI: APIBase {
     /**
      
+     Autoriza transa\u00C3\u00A7\u00C3\u00A3o financeira por idConta
+     
+     - parameter id: (path) Id Conta 
+     - parameter transacaoOnUsPorIdCartaoRequest: (body) transacaoOnUsPorIdCartaoRequest 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func autorizarPorContaUsingPOST(id id: Int, transacaoOnUsPorIdCartaoRequest: TransacaoOnUsPorIdCartaoRequest, completion: ((data: TransacaoOnUsResponse?, error: ErrorType?) -> Void)) {
+        autorizarPorContaUsingPOSTWithRequestBuilder(id: id, transacaoOnUsPorIdCartaoRequest: transacaoOnUsPorIdCartaoRequest).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Autoriza transa\u00C3\u00A7\u00C3\u00A3o financeira por idConta
+     
+     - POST /api/contas/{id}/autorizar-transacao
+     - Este m\u00C3\u00A9todo faz uma autoriza\u00C3\u00A7\u00C3\u00A3o de transa\u00C3\u00A7\u00C3\u00A3o financeira com o idConta.
+     - examples: [{contentType=application/json, example={
+  "codigoAutorizacao" : "aeiou",
+  "planoDeParcelamento" : [ { } ],
+  "numeroMascaradoCartao" : "aeiou",
+  "nsuOrigem" : "aeiou",
+  "nomePortadorCartao" : "aeiou",
+  "terminalRequisitante" : "aeiou",
+  "nsuAutorizacao" : "aeiou"
+}}]
+     
+     - parameter id: (path) Id Conta 
+     - parameter transacaoOnUsPorIdCartaoRequest: (body) transacaoOnUsPorIdCartaoRequest 
+
+     - returns: RequestBuilder<TransacaoOnUsResponse> 
+     */
+    public class func autorizarPorContaUsingPOSTWithRequestBuilder(id id: Int, transacaoOnUsPorIdCartaoRequest: TransacaoOnUsPorIdCartaoRequest) -> RequestBuilder<TransacaoOnUsResponse> {
+        var path = "/api/contas/{id}/autorizar-transacao"
+        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
+        let URLString = PierAPI.basePath + path
+        
+        let parameters = transacaoOnUsPorIdCartaoRequest.encodeToJSON() as? [String:AnyObject]
+
+        let requestBuilder: RequestBuilder<TransacaoOnUsResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
      Autoriza transa\u00C3\u00A7\u00C3\u00A3o financeira
      
      - parameter autorizacaoOnUsRequest: (body) autorizacaoOnUsRequest 
@@ -97,6 +145,54 @@ public class AutorizacaoAPI: APIBase {
         let URLString = PierAPI.basePath + path
         
         let parameters = transacaoOnUsPorIdCartaoRequest.encodeToJSON() as? [String:AnyObject]
+
+        let requestBuilder: RequestBuilder<TransacaoOnUsResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Cancela transa\u00C3\u00A7\u00C3\u00A3o financeira por idConta
+     
+     - parameter id: (path) Id Conta 
+     - parameter cancelamentoRequest: (body) cancelamentoRequest 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func cancelarPorIdContaUsingPOST(id id: Int, cancelamentoRequest: CancelamentoTransacaoPorIdCartaoRequest, completion: ((data: TransacaoOnUsResponse?, error: ErrorType?) -> Void)) {
+        cancelarPorIdContaUsingPOSTWithRequestBuilder(id: id, cancelamentoRequest: cancelamentoRequest).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Cancela transa\u00C3\u00A7\u00C3\u00A3o financeira por idConta
+     
+     - POST /api/contas/{id}/cancelar-transacao
+     - Este m\u00C3\u00A9todo permite que seja cancelada uma transa\u00C3\u00A7\u00C3\u00A3o a partir do idConta.
+     - examples: [{contentType=application/json, example={
+  "codigoAutorizacao" : "aeiou",
+  "planoDeParcelamento" : [ { } ],
+  "numeroMascaradoCartao" : "aeiou",
+  "nsuOrigem" : "aeiou",
+  "nomePortadorCartao" : "aeiou",
+  "terminalRequisitante" : "aeiou",
+  "nsuAutorizacao" : "aeiou"
+}}]
+     
+     - parameter id: (path) Id Conta 
+     - parameter cancelamentoRequest: (body) cancelamentoRequest 
+
+     - returns: RequestBuilder<TransacaoOnUsResponse> 
+     */
+    public class func cancelarPorIdContaUsingPOSTWithRequestBuilder(id id: Int, cancelamentoRequest: CancelamentoTransacaoPorIdCartaoRequest) -> RequestBuilder<TransacaoOnUsResponse> {
+        var path = "/api/contas/{id}/cancelar-transacao"
+        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
+        let URLString = PierAPI.basePath + path
+        
+        let parameters = cancelamentoRequest.encodeToJSON() as? [String:AnyObject]
 
         let requestBuilder: RequestBuilder<TransacaoOnUsResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 

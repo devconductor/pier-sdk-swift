@@ -112,8 +112,8 @@ public class DispositivoAPI: APIBase {
      - parameter dataDesativacao: (query) Apresenta a data e em que o registro foi desativado. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET15(sort sort: [String]?, page: Int?, limit: Int?, token: String?, idUsuario: Int?, idAplicacaoMobile: Int?, dataCriacao: String?, dataDesativacao: String?, completion: ((data: PageDispositivoResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET15WithRequestBuilder(sort: sort, page: page, limit: limit, token: token, idUsuario: idUsuario, idAplicacaoMobile: idAplicacaoMobile, dataCriacao: dataCriacao, dataDesativacao: dataDesativacao).execute { (response, error) -> Void in
+    public class func listarUsingGET14(sort sort: [String]?, page: Int?, limit: Int?, token: String?, idUsuario: Int?, idAplicacaoMobile: Int?, dataCriacao: String?, dataDesativacao: String?, completion: ((data: PageDispositivoResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET14WithRequestBuilder(sort: sort, page: page, limit: limit, token: token, idUsuario: idUsuario, idAplicacaoMobile: idAplicacaoMobile, dataCriacao: dataCriacao, dataDesativacao: dataDesativacao).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -158,7 +158,7 @@ public class DispositivoAPI: APIBase {
 
      - returns: RequestBuilder<PageDispositivoResponse> 
      */
-    public class func listarUsingGET15WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, token: String?, idUsuario: Int?, idAplicacaoMobile: Int?, dataCriacao: String?, dataDesativacao: String?) -> RequestBuilder<PageDispositivoResponse> {
+    public class func listarUsingGET14WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, token: String?, idUsuario: Int?, idAplicacaoMobile: Int?, dataCriacao: String?, dataDesativacao: String?) -> RequestBuilder<PageDispositivoResponse> {
         let path = "/api/dispositivos"
         let URLString = PierAPI.basePath + path
         

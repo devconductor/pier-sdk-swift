@@ -778,8 +778,8 @@ public class ContaAPI: APIBase {
      - parameter idTransferencia: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da transfer\u00C3\u00AAncia (id_transferencia). 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET39(id id: Int, idTransferencia: Int, completion: ((data: TransferenciaDetalheResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET39WithRequestBuilder(id: id, idTransferencia: idTransferencia).execute { (response, error) -> Void in
+    public class func consultarUsingGET40(id id: Int, idTransferencia: Int, completion: ((data: TransferenciaDetalheResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET40WithRequestBuilder(id: id, idTransferencia: idTransferencia).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -807,7 +807,7 @@ public class ContaAPI: APIBase {
 
      - returns: RequestBuilder<TransferenciaDetalheResponse> 
      */
-    public class func consultarUsingGET39WithRequestBuilder(id id: Int, idTransferencia: Int) -> RequestBuilder<TransferenciaDetalheResponse> {
+    public class func consultarUsingGET40WithRequestBuilder(id id: Int, idTransferencia: Int) -> RequestBuilder<TransferenciaDetalheResponse> {
         var path = "/api/contas/{id}/transferencias-creditos-cartoes/{idTransferencia}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{idTransferencia}", withString: "\(idTransferencia)", options: .LiteralSearch, range: nil)
@@ -1488,97 +1488,6 @@ public class ContaAPI: APIBase {
 
     /**
      
-     Lista hist\u00C3\u00B3rico de pagamentos da conta
-     
-     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
-     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
-     - parameter idPagamento: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Pagamento (optional)
-     - parameter idEstabelecimento: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Estabelecimento onde o Pagamento foi realizado, quando este for o local de pagamento (optional)
-     - parameter idBanco: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Institui\u00C3\u00A7\u00C3\u00A3o Banc\u00C3\u00A1ria onde o Pagamento foi realizado, quando este for o local de pagamento (optional)
-     - parameter idCartao: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (optional)
-     - parameter dataHoraPagamento: (query) Data e Hora da realiza\u00C3\u00A7\u00C3\u00A3o do Pagamento. Quando feito em Institui\u00C3\u00A7\u00C3\u00A3o Banc\u00C3\u00A1ria, o hor\u00C3\u00A1rio do pagamento \u00C3\u00A9 exibido com valor zero (optional)
-     - parameter status: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Status do Pagamento (optional)
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func listarPagamentosUsingGET(id id: Int, sort: [String]?, page: Int?, limit: Int?, idPagamento: Int?, idEstabelecimento: Int?, idBanco: Int?, idCartao: Int?, dataHoraPagamento: String?, status: Int?, completion: ((data: PageContaHistoricoPagamentoResponse?, error: ErrorType?) -> Void)) {
-        listarPagamentosUsingGETWithRequestBuilder(id: id, sort: sort, page: page, limit: limit, idPagamento: idPagamento, idEstabelecimento: idEstabelecimento, idBanco: idBanco, idCartao: idCartao, dataHoraPagamento: dataHoraPagamento, status: status).execute { (response, error) -> Void in
-            completion(data: response?.body, error: error);
-        }
-    }
-
-
-    /**
-     
-     Lista hist\u00C3\u00B3rico de pagamentos da conta
-     
-     - GET /api/contas/{id}/pagamentos
-     - Este recurso permite listar todos os Pagamentos realizados por uma determinada Conta independente do seu Status de Processamento.
-     - examples: [{contentType=application/json, example={
-  "previousPage" : 123,
-  "last" : true,
-  "hasContent" : true,
-  "hasNextPage" : true,
-  "nextPage" : 123,
-  "content" : [ {
-    "idPagamento" : 123456789,
-    "idEstabelecimento" : 123456789,
-    "idBanco" : 123456789,
-    "idCartao" : 123456789,
-    "dataHoraPagamento" : "aeiou",
-    "dataHoraEntradaPagamento" : "aeiou",
-    "valorPagamento" : 1.3579000000000001069366817318950779736042022705078125,
-    "status" : 123456789
-  } ],
-  "totalElements" : 123456789,
-  "number" : 123,
-  "firstPage" : true,
-  "numberOfElements" : 123,
-  "size" : 123,
-  "totalPages" : 123,
-  "hasPreviousPage" : true,
-  "first" : true
-}}]
-     
-     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
-     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
-     - parameter idPagamento: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Pagamento (optional)
-     - parameter idEstabelecimento: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Estabelecimento onde o Pagamento foi realizado, quando este for o local de pagamento (optional)
-     - parameter idBanco: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Institui\u00C3\u00A7\u00C3\u00A3o Banc\u00C3\u00A1ria onde o Pagamento foi realizado, quando este for o local de pagamento (optional)
-     - parameter idCartao: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (optional)
-     - parameter dataHoraPagamento: (query) Data e Hora da realiza\u00C3\u00A7\u00C3\u00A3o do Pagamento. Quando feito em Institui\u00C3\u00A7\u00C3\u00A3o Banc\u00C3\u00A1ria, o hor\u00C3\u00A1rio do pagamento \u00C3\u00A9 exibido com valor zero (optional)
-     - parameter status: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Status do Pagamento (optional)
-
-     - returns: RequestBuilder<PageContaHistoricoPagamentoResponse> 
-     */
-    public class func listarPagamentosUsingGETWithRequestBuilder(id id: Int, sort: [String]?, page: Int?, limit: Int?, idPagamento: Int?, idEstabelecimento: Int?, idBanco: Int?, idCartao: Int?, dataHoraPagamento: String?, status: Int?) -> RequestBuilder<PageContaHistoricoPagamentoResponse> {
-        var path = "/api/contas/{id}/pagamentos"
-        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
-        let URLString = PierAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [
-            "sort": sort,
-            "page": page,
-            "limit": limit,
-            "idPagamento": idPagamento,
-            "idEstabelecimento": idEstabelecimento,
-            "idBanco": idBanco,
-            "idCartao": idCartao,
-            "dataHoraPagamento": dataHoraPagamento,
-            "status": status
-        ]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<PageContaHistoricoPagamentoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
-    }
-
-    /**
-     
      Lista as transa\u00C3\u00A7\u00C3\u00B5es processadas da conta
      
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
@@ -1804,8 +1713,8 @@ public class ContaAPI: APIBase {
      - parameter dataTransferencia: (query) Data estabelecida para ocorrer a transfer\u00C3\u00AAncia. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET43(id id: Int, sort: [String]?, page: Int?, limit: Int?, idTransferencia: Int?, idContaOrigem: Int?, idContaDestino: Int?, valorTransferencia: Double?, dataTransferencia: String?, completion: ((data: PageTransferenciaResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET43WithRequestBuilder(id: id, sort: sort, page: page, limit: limit, idTransferencia: idTransferencia, idContaOrigem: idContaOrigem, idContaDestino: idContaDestino, valorTransferencia: valorTransferencia, dataTransferencia: dataTransferencia).execute { (response, error) -> Void in
+    public class func listarUsingGET45(id id: Int, sort: [String]?, page: Int?, limit: Int?, idTransferencia: Int?, idContaOrigem: Int?, idContaDestino: Int?, valorTransferencia: Double?, dataTransferencia: String?, completion: ((data: PageTransferenciaResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET45WithRequestBuilder(id: id, sort: sort, page: page, limit: limit, idTransferencia: idTransferencia, idContaOrigem: idContaOrigem, idContaDestino: idContaDestino, valorTransferencia: valorTransferencia, dataTransferencia: dataTransferencia).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -1852,7 +1761,7 @@ public class ContaAPI: APIBase {
 
      - returns: RequestBuilder<PageTransferenciaResponse> 
      */
-    public class func listarUsingGET43WithRequestBuilder(id id: Int, sort: [String]?, page: Int?, limit: Int?, idTransferencia: Int?, idContaOrigem: Int?, idContaDestino: Int?, valorTransferencia: Double?, dataTransferencia: String?) -> RequestBuilder<PageTransferenciaResponse> {
+    public class func listarUsingGET45WithRequestBuilder(id id: Int, sort: [String]?, page: Int?, limit: Int?, idTransferencia: Int?, idContaOrigem: Int?, idContaDestino: Int?, valorTransferencia: Double?, dataTransferencia: String?) -> RequestBuilder<PageTransferenciaResponse> {
         var path = "/api/contas/{id}/transferencias-creditos-cartoes"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path

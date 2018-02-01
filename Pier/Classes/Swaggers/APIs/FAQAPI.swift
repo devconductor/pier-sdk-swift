@@ -146,8 +146,8 @@ public class FAQAPI: APIBase {
      - parameter id: (path) Id 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET17(id id: Int, completion: ((data: FaqResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET17WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET16(id id: Int, completion: ((data: FaqResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET16WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -173,7 +173,7 @@ public class FAQAPI: APIBase {
 
      - returns: RequestBuilder<FaqResponse> 
      */
-    public class func consultarUsingGET17WithRequestBuilder(id id: Int) -> RequestBuilder<FaqResponse> {
+    public class func consultarUsingGET16WithRequestBuilder(id id: Int) -> RequestBuilder<FaqResponse> {
         var path = "/api/faqs/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -202,8 +202,8 @@ public class FAQAPI: APIBase {
      - parameter status: (query) Status descrevendo a situa\u00C3\u00A7\u00C3\u00A3o atual da FAQ. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET20(sort sort: [String]?, page: Int?, limit: Int?, idFaq: Int?, pergunta: String?, resposta: String?, relevancia: Int?, plataforma: String?, categoria: String?, status: String?, completion: ((data: PageFaqResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET20WithRequestBuilder(sort: sort, page: page, limit: limit, idFaq: idFaq, pergunta: pergunta, resposta: resposta, relevancia: relevancia, plataforma: plataforma, categoria: categoria, status: status).execute { (response, error) -> Void in
+    public class func listarUsingGET19(sort sort: [String]?, page: Int?, limit: Int?, idFaq: Int?, pergunta: String?, resposta: String?, relevancia: Int?, plataforma: String?, categoria: String?, status: String?, completion: ((data: PageFaqResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET19WithRequestBuilder(sort: sort, page: page, limit: limit, idFaq: idFaq, pergunta: pergunta, resposta: resposta, relevancia: relevancia, plataforma: plataforma, categoria: categoria, status: status).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -253,7 +253,7 @@ public class FAQAPI: APIBase {
 
      - returns: RequestBuilder<PageFaqResponse> 
      */
-    public class func listarUsingGET20WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, idFaq: Int?, pergunta: String?, resposta: String?, relevancia: Int?, plataforma: String?, categoria: String?, status: String?) -> RequestBuilder<PageFaqResponse> {
+    public class func listarUsingGET19WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, idFaq: Int?, pergunta: String?, resposta: String?, relevancia: Int?, plataforma: String?, categoria: String?, status: String?) -> RequestBuilder<PageFaqResponse> {
         let path = "/api/faqs"
         let URLString = PierAPI.basePath + path
         
