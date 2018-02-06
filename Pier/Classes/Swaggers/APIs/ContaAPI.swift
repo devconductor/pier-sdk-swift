@@ -1616,8 +1616,8 @@ public class ContaAPI: APIBase {
      - parameter dataUltimaAlteracaoVencimento: (query) Apresenta a data da ultima altera\u00C3\u00A7\u00C3\u00A3o de vencimento. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET13(sort sort: [String]?, page: Int?, limit: Int?, idProduto: Int?, idOrigemComercial: Int?, idPessoa: Int?, idStatusConta: Int?, diaVencimento: Int?, melhorDiaCompra: Int?, dataStatusConta: String?, dataCadastro: String?, dataUltimaAlteracaoVencimento: String?, completion: ((data: PageContaResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET13WithRequestBuilder(sort: sort, page: page, limit: limit, idProduto: idProduto, idOrigemComercial: idOrigemComercial, idPessoa: idPessoa, idStatusConta: idStatusConta, diaVencimento: diaVencimento, melhorDiaCompra: melhorDiaCompra, dataStatusConta: dataStatusConta, dataCadastro: dataCadastro, dataUltimaAlteracaoVencimento: dataUltimaAlteracaoVencimento).execute { (response, error) -> Void in
+    public class func listarUsingGET14(sort sort: [String]?, page: Int?, limit: Int?, idProduto: Int?, idOrigemComercial: Int?, idPessoa: Int?, idStatusConta: Int?, diaVencimento: Int?, melhorDiaCompra: Int?, dataStatusConta: String?, dataCadastro: String?, dataUltimaAlteracaoVencimento: String?, completion: ((data: PageContaResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET14WithRequestBuilder(sort: sort, page: page, limit: limit, idProduto: idProduto, idOrigemComercial: idOrigemComercial, idPessoa: idPessoa, idStatusConta: idStatusConta, diaVencimento: diaVencimento, melhorDiaCompra: melhorDiaCompra, dataStatusConta: dataStatusConta, dataCadastro: dataCadastro, dataUltimaAlteracaoVencimento: dataUltimaAlteracaoVencimento).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -1673,7 +1673,7 @@ public class ContaAPI: APIBase {
 
      - returns: RequestBuilder<PageContaResponse> 
      */
-    public class func listarUsingGET13WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, idProduto: Int?, idOrigemComercial: Int?, idPessoa: Int?, idStatusConta: Int?, diaVencimento: Int?, melhorDiaCompra: Int?, dataStatusConta: String?, dataCadastro: String?, dataUltimaAlteracaoVencimento: String?) -> RequestBuilder<PageContaResponse> {
+    public class func listarUsingGET14WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, idProduto: Int?, idOrigemComercial: Int?, idPessoa: Int?, idStatusConta: Int?, diaVencimento: Int?, melhorDiaCompra: Int?, dataStatusConta: String?, dataCadastro: String?, dataUltimaAlteracaoVencimento: String?) -> RequestBuilder<PageContaResponse> {
         let path = "/api/contas"
         let URLString = PierAPI.basePath + path
         
@@ -1713,8 +1713,8 @@ public class ContaAPI: APIBase {
      - parameter dataTransferencia: (query) Data estabelecida para ocorrer a transfer\u00C3\u00AAncia. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET45(id id: Int, sort: [String]?, page: Int?, limit: Int?, idTransferencia: Int?, idContaOrigem: Int?, idContaDestino: Int?, valorTransferencia: Double?, dataTransferencia: String?, completion: ((data: PageTransferenciaResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET45WithRequestBuilder(id: id, sort: sort, page: page, limit: limit, idTransferencia: idTransferencia, idContaOrigem: idContaOrigem, idContaDestino: idContaDestino, valorTransferencia: valorTransferencia, dataTransferencia: dataTransferencia).execute { (response, error) -> Void in
+    public class func listarUsingGET46(id id: Int, sort: [String]?, page: Int?, limit: Int?, idTransferencia: Int?, idContaOrigem: Int?, idContaDestino: Int?, valorTransferencia: Double?, dataTransferencia: String?, completion: ((data: PageTransferenciaResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET46WithRequestBuilder(id: id, sort: sort, page: page, limit: limit, idTransferencia: idTransferencia, idContaOrigem: idContaOrigem, idContaDestino: idContaDestino, valorTransferencia: valorTransferencia, dataTransferencia: dataTransferencia).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -1761,7 +1761,7 @@ public class ContaAPI: APIBase {
 
      - returns: RequestBuilder<PageTransferenciaResponse> 
      */
-    public class func listarUsingGET45WithRequestBuilder(id id: Int, sort: [String]?, page: Int?, limit: Int?, idTransferencia: Int?, idContaOrigem: Int?, idContaDestino: Int?, valorTransferencia: Double?, dataTransferencia: String?) -> RequestBuilder<PageTransferenciaResponse> {
+    public class func listarUsingGET46WithRequestBuilder(id id: Int, sort: [String]?, page: Int?, limit: Int?, idTransferencia: Int?, idContaOrigem: Int?, idContaDestino: Int?, valorTransferencia: Double?, dataTransferencia: String?) -> RequestBuilder<PageTransferenciaResponse> {
         var path = "/api/contas/{id}/transferencias-creditos-cartoes"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path

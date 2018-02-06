@@ -263,8 +263,8 @@ public class AntecipacaoAPI: APIBase {
      - parameter tipoOrigemTransacao: (query) Indica se a compra \u00C3\u00A9 ON-US ou OFF-US (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET8(idConta idConta: Int, sort: [String]?, page: Int?, limit: Int?, idCompra: Int?, parcelada: Bool?, juros: Bool?, tipoOrigemTransacao: String?, completion: ((data: PageCompraResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET8WithRequestBuilder(idConta: idConta, sort: sort, page: page, limit: limit, idCompra: idCompra, parcelada: parcelada, juros: juros, tipoOrigemTransacao: tipoOrigemTransacao).execute { (response, error) -> Void in
+    public class func listarUsingGET9(idConta idConta: Int, sort: [String]?, page: Int?, limit: Int?, idCompra: Int?, parcelada: Bool?, juros: Bool?, tipoOrigemTransacao: String?, completion: ((data: PageCompraResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET9WithRequestBuilder(idConta: idConta, sort: sort, page: page, limit: limit, idCompra: idCompra, parcelada: parcelada, juros: juros, tipoOrigemTransacao: tipoOrigemTransacao).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -328,7 +328,7 @@ public class AntecipacaoAPI: APIBase {
 
      - returns: RequestBuilder<PageCompraResponse> 
      */
-    public class func listarUsingGET8WithRequestBuilder(idConta idConta: Int, sort: [String]?, page: Int?, limit: Int?, idCompra: Int?, parcelada: Bool?, juros: Bool?, tipoOrigemTransacao: String?) -> RequestBuilder<PageCompraResponse> {
+    public class func listarUsingGET9WithRequestBuilder(idConta idConta: Int, sort: [String]?, page: Int?, limit: Int?, idCompra: Int?, parcelada: Bool?, juros: Bool?, tipoOrigemTransacao: String?) -> RequestBuilder<PageCompraResponse> {
         let path = "/api/compras-antecipaveis"
         let URLString = PierAPI.basePath + path
         

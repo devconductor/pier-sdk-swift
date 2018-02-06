@@ -693,8 +693,8 @@ public class OportunidadeAPI: APIBase {
      - parameter flagAtivo: (query) Flag de verifica\u00C3\u00A7\u00C3\u00A3o se a oportunidade est\u00C3\u00A1 ativa (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET25(sort sort: [String]?, page: Int?, limit: Int?, idStatusOportunidade: Int?, dataCadastro: String?, dataAtualizacao: String?, numeroReceitaFederal: String?, dataInicioVigencia: String?, dataFimVigencia: String?, flagAtivo: Bool?, completion: ((data: PageOportunidadeResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET25WithRequestBuilder(sort: sort, page: page, limit: limit, idStatusOportunidade: idStatusOportunidade, dataCadastro: dataCadastro, dataAtualizacao: dataAtualizacao, numeroReceitaFederal: numeroReceitaFederal, dataInicioVigencia: dataInicioVigencia, dataFimVigencia: dataFimVigencia, flagAtivo: flagAtivo).execute { (response, error) -> Void in
+    public class func listarUsingGET26(sort sort: [String]?, page: Int?, limit: Int?, idStatusOportunidade: Int?, dataCadastro: String?, dataAtualizacao: String?, numeroReceitaFederal: String?, dataInicioVigencia: String?, dataFimVigencia: String?, flagAtivo: Bool?, completion: ((data: PageOportunidadeResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET26WithRequestBuilder(sort: sort, page: page, limit: limit, idStatusOportunidade: idStatusOportunidade, dataCadastro: dataCadastro, dataAtualizacao: dataAtualizacao, numeroReceitaFederal: numeroReceitaFederal, dataInicioVigencia: dataInicioVigencia, dataFimVigencia: dataFimVigencia, flagAtivo: flagAtivo).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -751,7 +751,7 @@ public class OportunidadeAPI: APIBase {
 
      - returns: RequestBuilder<PageOportunidadeResponse> 
      */
-    public class func listarUsingGET25WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, idStatusOportunidade: Int?, dataCadastro: String?, dataAtualizacao: String?, numeroReceitaFederal: String?, dataInicioVigencia: String?, dataFimVigencia: String?, flagAtivo: Bool?) -> RequestBuilder<PageOportunidadeResponse> {
+    public class func listarUsingGET26WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, idStatusOportunidade: Int?, dataCadastro: String?, dataAtualizacao: String?, numeroReceitaFederal: String?, dataInicioVigencia: String?, dataFimVigencia: String?, flagAtivo: Bool?) -> RequestBuilder<PageOportunidadeResponse> {
         let path = "/api/oportunidades"
         let URLString = PierAPI.basePath + path
         
@@ -785,8 +785,8 @@ public class OportunidadeAPI: APIBase {
      - parameter flagAtivo: (query) Flag de verifica\u00C3\u00A7\u00C3\u00A3o se o tipo oportunidade est\u00C3\u00A1 ativo (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET40(sort sort: [String]?, page: Int?, limit: Int?, descricao: String?, flagAtivo: Bool?, completion: ((data: PageTipoOportunidadeResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET40WithRequestBuilder(sort: sort, page: page, limit: limit, descricao: descricao, flagAtivo: flagAtivo).execute { (response, error) -> Void in
+    public class func listarUsingGET41(sort sort: [String]?, page: Int?, limit: Int?, descricao: String?, flagAtivo: Bool?, completion: ((data: PageTipoOportunidadeResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET41WithRequestBuilder(sort: sort, page: page, limit: limit, descricao: descricao, flagAtivo: flagAtivo).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -827,7 +827,7 @@ public class OportunidadeAPI: APIBase {
 
      - returns: RequestBuilder<PageTipoOportunidadeResponse> 
      */
-    public class func listarUsingGET40WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, descricao: String?, flagAtivo: Bool?) -> RequestBuilder<PageTipoOportunidadeResponse> {
+    public class func listarUsingGET41WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, descricao: String?, flagAtivo: Bool?) -> RequestBuilder<PageTipoOportunidadeResponse> {
         let path = "/api/tipos-oportunidades"
         let URLString = PierAPI.basePath + path
         

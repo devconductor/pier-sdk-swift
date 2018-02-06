@@ -392,8 +392,8 @@ public class ConductorPayAPI: APIBase {
      - parameter numeroCartao: (query) Numero do cart\u00C3\u00A3o tokenizado (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET6(sort sort: [String]?, page: Int?, limit: Int?, status: String?, numeroCartao: String?, completion: ((data: PageCartaoPayResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET6WithRequestBuilder(sort: sort, page: page, limit: limit, status: status, numeroCartao: numeroCartao).execute { (response, error) -> Void in
+    public class func listarUsingGET7(sort sort: [String]?, page: Int?, limit: Int?, status: String?, numeroCartao: String?, completion: ((data: PageCartaoPayResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET7WithRequestBuilder(sort: sort, page: page, limit: limit, status: status, numeroCartao: numeroCartao).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -439,7 +439,7 @@ public class ConductorPayAPI: APIBase {
 
      - returns: RequestBuilder<PageCartaoPayResponse> 
      */
-    public class func listarUsingGET6WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, status: String?, numeroCartao: String?) -> RequestBuilder<PageCartaoPayResponse> {
+    public class func listarUsingGET7WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, status: String?, numeroCartao: String?) -> RequestBuilder<PageCartaoPayResponse> {
         let path = "/api/cartoes-tokenizados"
         let URLString = PierAPI.basePath + path
         

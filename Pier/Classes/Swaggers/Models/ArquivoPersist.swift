@@ -11,6 +11,11 @@ import Foundation
 /** Objeto Arquivo para persist\u00C3\u00AAncia de dados. */
 public class ArquivoPersist: JSONEncodable {
 
+    public enum TipoComunicacao: String { 
+        case Soap = "SOAP"
+        case Rest = "REST"
+    }
+    
     /** Tipo do arquivo */
     public var idTipoArquivo: Int?
     /** Conte\u00C3\u00BAdo do arquivo convertido em Base 64 */
@@ -19,6 +24,8 @@ public class ArquivoPersist: JSONEncodable {
     public var nome: String?
     /** Formato/extens\u00C3\u00A3o do arquivo. */
     public var extensao: String?
+    /** Tipo de comunica\u00C3\u00A7\u00C3\u00A3o. */
+    public var tipoComunicacao: TipoComunicacao?
     /** Detalhes contendo informa\u00C3\u00A7\u00C3\u00B5es adicionais, relacionadas ao arquivo */
     public var detalhes: [ArquivoDetalhesPersist]?
     
@@ -32,6 +39,7 @@ public class ArquivoPersist: JSONEncodable {
         nillableDictionary["arquivo"] = self.arquivo
         nillableDictionary["nome"] = self.nome
         nillableDictionary["extensao"] = self.extensao
+        nillableDictionary["tipoComunicacao"] = self.tipoComunicacao?.rawValue
         nillableDictionary["detalhes"] = self.detalhes?.encodeToJSON()
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary

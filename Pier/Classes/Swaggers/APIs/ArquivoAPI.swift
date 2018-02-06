@@ -17,7 +17,7 @@ public class ArquivoAPI: APIBase {
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do arquivo 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET2(id id: Int, completion: ((data: ArquivoResponse?, error: ErrorType?) -> Void)) {
+    public class func consultarUsingGET2(id id: Int, completion: ((data: ArquivoDetalheResponse?, error: ErrorType?) -> Void)) {
         consultarUsingGET2WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -50,9 +50,9 @@ public class ArquivoAPI: APIBase {
      
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do arquivo 
 
-     - returns: RequestBuilder<ArquivoResponse> 
+     - returns: RequestBuilder<ArquivoDetalheResponse> 
      */
-    public class func consultarUsingGET2WithRequestBuilder(id id: Int) -> RequestBuilder<ArquivoResponse> {
+    public class func consultarUsingGET2WithRequestBuilder(id id: Int) -> RequestBuilder<ArquivoDetalheResponse> {
         var path = "/api/arquivos/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -60,9 +60,134 @@ public class ArquivoAPI: APIBase {
         let nillableParameters: [String:AnyObject?] = [:]
         let parameters = APIHelper.rejectNil(nillableParameters)
 
-        let requestBuilder: RequestBuilder<ArquivoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<ArquivoDetalheResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Integrar Arquivos
+     
+     - parameter integrarArquivoRequest: (body) integrarArquivoRequest 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func integrarUsingPOST(integrarArquivoRequest integrarArquivoRequest: IntegrarArquivoRequest, completion: ((data: AnyObject?, error: ErrorType?) -> Void)) {
+        integrarUsingPOSTWithRequestBuilder(integrarArquivoRequest: integrarArquivoRequest).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Integrar Arquivos
+     
+     - POST /api/arquivos/integrar
+     - Este recurso foi desenvolvido para realizar a integra\u00C3\u00A7\u00C3\u00A3o de arquivos do PIER Cloud junto a reposit\u00C3\u00B3rios externos pr\u00C3\u00A9-configurado.
+     - examples: [{contentType=application/json, example="{}"}]
+     
+     - parameter integrarArquivoRequest: (body) integrarArquivoRequest 
+
+     - returns: RequestBuilder<AnyObject> 
+     */
+    public class func integrarUsingPOSTWithRequestBuilder(integrarArquivoRequest integrarArquivoRequest: IntegrarArquivoRequest) -> RequestBuilder<AnyObject> {
+        let path = "/api/arquivos/integrar"
+        let URLString = PierAPI.basePath + path
+        
+        let parameters = integrarArquivoRequest.encodeToJSON() as? [String:AnyObject]
+
+        let requestBuilder: RequestBuilder<AnyObject>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Listar arquivos do Pier Cloud
+     
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
+     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+     - parameter nome: (query) Nome do arquivo (optional)
+     - parameter idTipoArquivo: (query) Tipo do arquivo (optional)
+     - parameter idStatusArquivo: (query) Identificador do status do arquivo (optional)
+     - parameter extensao: (query) Extens\u00C3\u00A3o do arquivo (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func listarUsingGET3(sort sort: [String]?, page: Int?, limit: Int?, nome: String?, idTipoArquivo: Int?, idStatusArquivo: Int?, extensao: String?, completion: ((data: PageArquivoResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET3WithRequestBuilder(sort: sort, page: page, limit: limit, nome: nome, idTipoArquivo: idTipoArquivo, idStatusArquivo: idStatusArquivo, extensao: extensao).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Listar arquivos do Pier Cloud
+     
+     - GET /api/arquivos
+     - Este recurso permite a listagem de todos os arquivos dispon\u00C3\u00ADveis no Pier Cloud.
+     - examples: [{contentType=application/json, example={
+  "previousPage" : 123,
+  "last" : true,
+  "hasContent" : true,
+  "hasNextPage" : true,
+  "nextPage" : 123,
+  "content" : [ {
+    "extensao" : "aeiou",
+    "idTipoArquivo" : 123456789,
+    "idStatusArquivo" : 123456789,
+    "dataInclusao" : "aeiou",
+    "nome" : "aeiou",
+    "id" : 123456789,
+    "nomeTipoArquivo" : "aeiou",
+    "nomeStatusArquivo" : "aeiou",
+    "dataAlteracao" : "aeiou",
+    "detalhes" : [ {
+      "conteudo" : "aeiou",
+      "id" : 123456789,
+      "nomeCampo" : "aeiou"
+    } ]
+  } ],
+  "totalElements" : 123456789,
+  "number" : 123,
+  "firstPage" : true,
+  "numberOfElements" : 123,
+  "size" : 123,
+  "totalPages" : 123,
+  "hasPreviousPage" : true,
+  "first" : true
+}}]
+     
+     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
+     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+     - parameter nome: (query) Nome do arquivo (optional)
+     - parameter idTipoArquivo: (query) Tipo do arquivo (optional)
+     - parameter idStatusArquivo: (query) Identificador do status do arquivo (optional)
+     - parameter extensao: (query) Extens\u00C3\u00A3o do arquivo (optional)
+
+     - returns: RequestBuilder<PageArquivoResponse> 
+     */
+    public class func listarUsingGET3WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, nome: String?, idTipoArquivo: Int?, idStatusArquivo: Int?, extensao: String?) -> RequestBuilder<PageArquivoResponse> {
+        let path = "/api/arquivos"
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [
+            "sort": sort,
+            "page": page,
+            "limit": limit,
+            "nome": nome,
+            "idTipoArquivo": idTipoArquivo,
+            "idStatusArquivo": idStatusArquivo,
+            "extensao": extensao
+        ]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<PageArquivoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
     }
 
     /**
@@ -72,7 +197,7 @@ public class ArquivoAPI: APIBase {
      - parameter arquivoPersist: (body) arquivoPersist 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func salvarUsingPOST1(arquivoPersist arquivoPersist: ArquivoPersist, completion: ((data: ArquivoResponse?, error: ErrorType?) -> Void)) {
+    public class func salvarUsingPOST1(arquivoPersist arquivoPersist: ArquivoPersist, completion: ((data: ArquivoDetalheResponse?, error: ErrorType?) -> Void)) {
         salvarUsingPOST1WithRequestBuilder(arquivoPersist: arquivoPersist).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -105,15 +230,15 @@ public class ArquivoAPI: APIBase {
      
      - parameter arquivoPersist: (body) arquivoPersist 
 
-     - returns: RequestBuilder<ArquivoResponse> 
+     - returns: RequestBuilder<ArquivoDetalheResponse> 
      */
-    public class func salvarUsingPOST1WithRequestBuilder(arquivoPersist arquivoPersist: ArquivoPersist) -> RequestBuilder<ArquivoResponse> {
+    public class func salvarUsingPOST1WithRequestBuilder(arquivoPersist arquivoPersist: ArquivoPersist) -> RequestBuilder<ArquivoDetalheResponse> {
         let path = "/api/arquivos"
         let URLString = PierAPI.basePath + path
         
         let parameters = arquivoPersist.encodeToJSON() as? [String:AnyObject]
 
-        let requestBuilder: RequestBuilder<ArquivoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<ArquivoDetalheResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
     }

@@ -241,8 +241,8 @@ public class DocumentoAPI: APIBase {
      - parameter integrarDocumentoRequest: (body) integrarDocumentoRequest 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func integrarUsingPOST(integrarDocumentoRequest integrarDocumentoRequest: IntegrarDocumentoRequest, completion: ((data: DocumentoIntegracaoResponse?, error: ErrorType?) -> Void)) {
-        integrarUsingPOSTWithRequestBuilder(integrarDocumentoRequest: integrarDocumentoRequest).execute { (response, error) -> Void in
+    public class func integrarUsingPOST1(integrarDocumentoRequest integrarDocumentoRequest: IntegrarDocumentoRequest, completion: ((data: DocumentoIntegracaoResponse?, error: ErrorType?) -> Void)) {
+        integrarUsingPOST1WithRequestBuilder(integrarDocumentoRequest: integrarDocumentoRequest).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -264,7 +264,7 @@ public class DocumentoAPI: APIBase {
 
      - returns: RequestBuilder<DocumentoIntegracaoResponse> 
      */
-    public class func integrarUsingPOSTWithRequestBuilder(integrarDocumentoRequest integrarDocumentoRequest: IntegrarDocumentoRequest) -> RequestBuilder<DocumentoIntegracaoResponse> {
+    public class func integrarUsingPOST1WithRequestBuilder(integrarDocumentoRequest integrarDocumentoRequest: IntegrarDocumentoRequest) -> RequestBuilder<DocumentoIntegracaoResponse> {
         let path = "/api/documentos/integrar"
         let URLString = PierAPI.basePath + path
         
@@ -287,8 +287,8 @@ public class DocumentoAPI: APIBase {
      - parameter extensao: (query) Extensao do documento. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET15(sort sort: [String]?, page: Int?, limit: Int?, idTemplateDocumento: Int?, nome: String?, extensao: String?, completion: ((data: PageDocumentoResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET15WithRequestBuilder(sort: sort, page: page, limit: limit, idTemplateDocumento: idTemplateDocumento, nome: nome, extensao: extensao).execute { (response, error) -> Void in
+    public class func listarUsingGET16(sort sort: [String]?, page: Int?, limit: Int?, idTemplateDocumento: Int?, nome: String?, extensao: String?, completion: ((data: PageDocumentoResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET16WithRequestBuilder(sort: sort, page: page, limit: limit, idTemplateDocumento: idTemplateDocumento, nome: nome, extensao: extensao).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -331,7 +331,7 @@ public class DocumentoAPI: APIBase {
 
      - returns: RequestBuilder<PageDocumentoResponse> 
      */
-    public class func listarUsingGET15WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, idTemplateDocumento: Int?, nome: String?, extensao: String?) -> RequestBuilder<PageDocumentoResponse> {
+    public class func listarUsingGET16WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, idTemplateDocumento: Int?, nome: String?, extensao: String?) -> RequestBuilder<PageDocumentoResponse> {
         let path = "/api/documentos"
         let URLString = PierAPI.basePath + path
         
@@ -360,8 +360,8 @@ public class DocumentoAPI: APIBase {
      - parameter idTipoTemplate: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do tipo do template. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET16(sort sort: [String]?, page: Int?, limit: Int?, idTipoTemplate: Int?, completion: ((data: PageDocumentoTemplateResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET16WithRequestBuilder(sort: sort, page: page, limit: limit, idTipoTemplate: idTipoTemplate).execute { (response, error) -> Void in
+    public class func listarUsingGET17(sort sort: [String]?, page: Int?, limit: Int?, idTipoTemplate: Int?, completion: ((data: PageDocumentoTemplateResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET17WithRequestBuilder(sort: sort, page: page, limit: limit, idTipoTemplate: idTipoTemplate).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -400,7 +400,7 @@ public class DocumentoAPI: APIBase {
 
      - returns: RequestBuilder<PageDocumentoTemplateResponse> 
      */
-    public class func listarUsingGET16WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, idTipoTemplate: Int?) -> RequestBuilder<PageDocumentoTemplateResponse> {
+    public class func listarUsingGET17WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, idTipoTemplate: Int?) -> RequestBuilder<PageDocumentoTemplateResponse> {
         let path = "/api/templates-documentos"
         let URLString = PierAPI.basePath + path
         
@@ -426,8 +426,8 @@ public class DocumentoAPI: APIBase {
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET42(sort sort: [String]?, page: Int?, limit: Int?, completion: ((data: PageTipoTemplateResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET42WithRequestBuilder(sort: sort, page: page, limit: limit).execute { (response, error) -> Void in
+    public class func listarUsingGET43(sort sort: [String]?, page: Int?, limit: Int?, completion: ((data: PageTipoTemplateResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET43WithRequestBuilder(sort: sort, page: page, limit: limit).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -467,7 +467,7 @@ public class DocumentoAPI: APIBase {
 
      - returns: RequestBuilder<PageTipoTemplateResponse> 
      */
-    public class func listarUsingGET42WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?) -> RequestBuilder<PageTipoTemplateResponse> {
+    public class func listarUsingGET43WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?) -> RequestBuilder<PageTipoTemplateResponse> {
         let path = "/api/tipos-templates"
         let URLString = PierAPI.basePath + path
         

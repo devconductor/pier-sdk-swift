@@ -302,8 +302,8 @@ public class UsuarioAPI: APIBase {
      - parameter status: (query) Status do Usuario (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET46(sort sort: [String]?, page: Int?, limit: Int?, nome: String?, cpf: String?, email: String?, status: String?, completion: ((data: PageUsuarioResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET46WithRequestBuilder(sort: sort, page: page, limit: limit, nome: nome, cpf: cpf, email: email, status: status).execute { (response, error) -> Void in
+    public class func listarUsingGET47(sort sort: [String]?, page: Int?, limit: Int?, nome: String?, cpf: String?, email: String?, status: String?, completion: ((data: PageUsuarioResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET47WithRequestBuilder(sort: sort, page: page, limit: limit, nome: nome, cpf: cpf, email: email, status: status).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -353,7 +353,7 @@ public class UsuarioAPI: APIBase {
 
      - returns: RequestBuilder<PageUsuarioResponse> 
      */
-    public class func listarUsingGET46WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, nome: String?, cpf: String?, email: String?, status: String?) -> RequestBuilder<PageUsuarioResponse> {
+    public class func listarUsingGET47WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, nome: String?, cpf: String?, email: String?, status: String?) -> RequestBuilder<PageUsuarioResponse> {
         let path = "/api/usuarios"
         let URLString = PierAPI.basePath + path
         

@@ -367,8 +367,8 @@ public class TransferenciaBancariaAPI: APIBase {
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET11(idConta idConta: Int?, nomeAgencia: String?, numeroAgencia: String?, numeroConta: String?, flagContaOrigemDoc: Int?, idPessoaFisica: Int?, favorecido: String?, numeroReceiraFederal: String?, sort: [String]?, page: Int?, limit: Int?, completion: ((data: PageContaBancariaPortadorResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET11WithRequestBuilder(idConta: idConta, nomeAgencia: nomeAgencia, numeroAgencia: numeroAgencia, numeroConta: numeroConta, flagContaOrigemDoc: flagContaOrigemDoc, idPessoaFisica: idPessoaFisica, favorecido: favorecido, numeroReceiraFederal: numeroReceiraFederal, sort: sort, page: page, limit: limit).execute { (response, error) -> Void in
+    public class func listarUsingGET12(idConta idConta: Int?, nomeAgencia: String?, numeroAgencia: String?, numeroConta: String?, flagContaOrigemDoc: Int?, idPessoaFisica: Int?, favorecido: String?, numeroReceiraFederal: String?, sort: [String]?, page: Int?, limit: Int?, completion: ((data: PageContaBancariaPortadorResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET12WithRequestBuilder(idConta: idConta, nomeAgencia: nomeAgencia, numeroAgencia: numeroAgencia, numeroConta: numeroConta, flagContaOrigemDoc: flagContaOrigemDoc, idPessoaFisica: idPessoaFisica, favorecido: favorecido, numeroReceiraFederal: numeroReceiraFederal, sort: sort, page: page, limit: limit).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -427,7 +427,7 @@ public class TransferenciaBancariaAPI: APIBase {
 
      - returns: RequestBuilder<PageContaBancariaPortadorResponse> 
      */
-    public class func listarUsingGET11WithRequestBuilder(idConta idConta: Int?, nomeAgencia: String?, numeroAgencia: String?, numeroConta: String?, flagContaOrigemDoc: Int?, idPessoaFisica: Int?, favorecido: String?, numeroReceiraFederal: String?, sort: [String]?, page: Int?, limit: Int?) -> RequestBuilder<PageContaBancariaPortadorResponse> {
+    public class func listarUsingGET12WithRequestBuilder(idConta idConta: Int?, nomeAgencia: String?, numeroAgencia: String?, numeroConta: String?, flagContaOrigemDoc: Int?, idPessoaFisica: Int?, favorecido: String?, numeroReceiraFederal: String?, sort: [String]?, page: Int?, limit: Int?) -> RequestBuilder<PageContaBancariaPortadorResponse> {
         let path = "/api/contas-bancarias-portador"
         let URLString = PierAPI.basePath + path
         
@@ -462,8 +462,8 @@ public class TransferenciaBancariaAPI: APIBase {
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET44(id id: Int, idContaBancariaDestino: Int?, sort: [String]?, page: Int?, limit: Int?, completion: ((data: PageTransferenciaBancariaResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET44WithRequestBuilder(id: id, idContaBancariaDestino: idContaBancariaDestino, sort: sort, page: page, limit: limit).execute { (response, error) -> Void in
+    public class func listarUsingGET45(id id: Int, idContaBancariaDestino: Int?, sort: [String]?, page: Int?, limit: Int?, completion: ((data: PageTransferenciaBancariaResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET45WithRequestBuilder(id: id, idContaBancariaDestino: idContaBancariaDestino, sort: sort, page: page, limit: limit).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -536,7 +536,7 @@ public class TransferenciaBancariaAPI: APIBase {
 
      - returns: RequestBuilder<PageTransferenciaBancariaResponse> 
      */
-    public class func listarUsingGET44WithRequestBuilder(id id: Int, idContaBancariaDestino: Int?, sort: [String]?, page: Int?, limit: Int?) -> RequestBuilder<PageTransferenciaBancariaResponse> {
+    public class func listarUsingGET45WithRequestBuilder(id id: Int, idContaBancariaDestino: Int?, sort: [String]?, page: Int?, limit: Int?) -> RequestBuilder<PageTransferenciaBancariaResponse> {
         var path = "/api/contas/{id}/transferencias-creditos-contas-bancarias"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path

@@ -162,8 +162,8 @@ public class JobAPI: APIBase {
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET21(groovy groovy: String?, descricao: String?, cron: String?, status: String?, page: Int?, limit: Int?, completion: ((data: PageJobResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET21WithRequestBuilder(groovy: groovy, descricao: descricao, cron: cron, status: status, page: page, limit: limit).execute { (response, error) -> Void in
+    public class func listarUsingGET22(groovy groovy: String?, descricao: String?, cron: String?, status: String?, page: Int?, limit: Int?, completion: ((data: PageJobResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET22WithRequestBuilder(groovy: groovy, descricao: descricao, cron: cron, status: status, page: page, limit: limit).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -207,7 +207,7 @@ public class JobAPI: APIBase {
 
      - returns: RequestBuilder<PageJobResponse> 
      */
-    public class func listarUsingGET21WithRequestBuilder(groovy groovy: String?, descricao: String?, cron: String?, status: String?, page: Int?, limit: Int?) -> RequestBuilder<PageJobResponse> {
+    public class func listarUsingGET22WithRequestBuilder(groovy groovy: String?, descricao: String?, cron: String?, status: String?, page: Int?, limit: Int?) -> RequestBuilder<PageJobResponse> {
         let path = "/api/jobs"
         let URLString = PierAPI.basePath + path
         
