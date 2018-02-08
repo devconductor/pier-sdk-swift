@@ -196,8 +196,8 @@ public class UsuarioAPI: APIBase {
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Usu\u00C3\u00A1rio (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET41(id id: Int, completion: ((data: UsuarioResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET41WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET42(id id: Int, completion: ((data: UsuarioResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET42WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -226,7 +226,7 @@ public class UsuarioAPI: APIBase {
 
      - returns: RequestBuilder<UsuarioResponse> 
      */
-    public class func consultarUsingGET41WithRequestBuilder(id id: Int) -> RequestBuilder<UsuarioResponse> {
+    public class func consultarUsingGET42WithRequestBuilder(id id: Int) -> RequestBuilder<UsuarioResponse> {
         var path = "/api/usuarios/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -302,8 +302,8 @@ public class UsuarioAPI: APIBase {
      - parameter status: (query) Status do Usuario (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET47(sort sort: [String]?, page: Int?, limit: Int?, nome: String?, cpf: String?, email: String?, status: String?, completion: ((data: PageUsuarioResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET47WithRequestBuilder(sort: sort, page: page, limit: limit, nome: nome, cpf: cpf, email: email, status: status).execute { (response, error) -> Void in
+    public class func listarUsingGET49(sort sort: [String]?, page: Int?, limit: Int?, nome: String?, cpf: String?, email: String?, status: String?, completion: ((data: PageUsuarioResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET49WithRequestBuilder(sort: sort, page: page, limit: limit, nome: nome, cpf: cpf, email: email, status: status).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -353,7 +353,7 @@ public class UsuarioAPI: APIBase {
 
      - returns: RequestBuilder<PageUsuarioResponse> 
      */
-    public class func listarUsingGET47WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, nome: String?, cpf: String?, email: String?, status: String?) -> RequestBuilder<PageUsuarioResponse> {
+    public class func listarUsingGET49WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, nome: String?, cpf: String?, email: String?, status: String?) -> RequestBuilder<PageUsuarioResponse> {
         let path = "/api/usuarios"
         let URLString = PierAPI.basePath + path
         
@@ -419,8 +419,8 @@ public class UsuarioAPI: APIBase {
      - parameter persist: (body) persist 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func salvarUsingPOST27(persist persist: UsuarioPersist, completion: ((data: UsuarioResponse?, error: ErrorType?) -> Void)) {
-        salvarUsingPOST27WithRequestBuilder(persist: persist).execute { (response, error) -> Void in
+    public class func salvarUsingPOST28(persist persist: UsuarioPersist, completion: ((data: UsuarioResponse?, error: ErrorType?) -> Void)) {
+        salvarUsingPOST28WithRequestBuilder(persist: persist).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -449,7 +449,7 @@ public class UsuarioAPI: APIBase {
 
      - returns: RequestBuilder<UsuarioResponse> 
      */
-    public class func salvarUsingPOST27WithRequestBuilder(persist persist: UsuarioPersist) -> RequestBuilder<UsuarioResponse> {
+    public class func salvarUsingPOST28WithRequestBuilder(persist persist: UsuarioPersist) -> RequestBuilder<UsuarioResponse> {
         let path = "/api/usuarios"
         let URLString = PierAPI.basePath + path
         

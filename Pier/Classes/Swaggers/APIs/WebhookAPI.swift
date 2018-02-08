@@ -72,8 +72,8 @@ public class WebhookAPI: APIBase {
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Webhook (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET43(id id: Int, completion: ((data: WebHookResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET43WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET44(id id: Int, completion: ((data: WebHookResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET44WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -97,7 +97,7 @@ public class WebhookAPI: APIBase {
 
      - returns: RequestBuilder<WebHookResponse> 
      */
-    public class func consultarUsingGET43WithRequestBuilder(id id: Int) -> RequestBuilder<WebHookResponse> {
+    public class func consultarUsingGET44WithRequestBuilder(id id: Int) -> RequestBuilder<WebHookResponse> {
         var path = "/api/webhooks/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -123,8 +123,8 @@ public class WebhookAPI: APIBase {
      - parameter url: (query) URL que a ser consumida pelo WebHook (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET51(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, tipoEvento: String?, metodo: String?, url: String?, completion: ((data: PageWebHookResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET51WithRequestBuilder(sort: sort, page: page, limit: limit, id: id, tipoEvento: tipoEvento, metodo: metodo, url: url).execute { (response, error) -> Void in
+    public class func listarUsingGET53(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, tipoEvento: String?, metodo: String?, url: String?, completion: ((data: PageWebHookResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET53WithRequestBuilder(sort: sort, page: page, limit: limit, id: id, tipoEvento: tipoEvento, metodo: metodo, url: url).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -169,7 +169,7 @@ public class WebhookAPI: APIBase {
 
      - returns: RequestBuilder<PageWebHookResponse> 
      */
-    public class func listarUsingGET51WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, tipoEvento: String?, metodo: String?, url: String?) -> RequestBuilder<PageWebHookResponse> {
+    public class func listarUsingGET53WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, tipoEvento: String?, metodo: String?, url: String?) -> RequestBuilder<PageWebHookResponse> {
         let path = "/api/webhooks"
         let URLString = PierAPI.basePath + path
         
@@ -197,8 +197,8 @@ public class WebhookAPI: APIBase {
      - parameter url: (query) URL que a ser consumida pelo WebHook 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func salvarUsingPOST29(tipoEvento tipoEvento: String, url: String, completion: ((data: WebHookResponse?, error: ErrorType?) -> Void)) {
-        salvarUsingPOST29WithRequestBuilder(tipoEvento: tipoEvento, url: url).execute { (response, error) -> Void in
+    public class func salvarUsingPOST30(tipoEvento tipoEvento: String, url: String, completion: ((data: WebHookResponse?, error: ErrorType?) -> Void)) {
+        salvarUsingPOST30WithRequestBuilder(tipoEvento: tipoEvento, url: url).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -223,7 +223,7 @@ public class WebhookAPI: APIBase {
 
      - returns: RequestBuilder<WebHookResponse> 
      */
-    public class func salvarUsingPOST29WithRequestBuilder(tipoEvento tipoEvento: String, url: String) -> RequestBuilder<WebHookResponse> {
+    public class func salvarUsingPOST30WithRequestBuilder(tipoEvento tipoEvento: String, url: String) -> RequestBuilder<WebHookResponse> {
         let path = "/api/webhooks"
         let URLString = PierAPI.basePath + path
         

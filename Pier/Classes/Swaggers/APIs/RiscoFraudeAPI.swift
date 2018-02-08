@@ -17,8 +17,8 @@ public class RiscoFraudeAPI: APIBase {
      - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do risco de fraude 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET25(id id: Int, completion: ((data: RiscoFraudeDetalhadoResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET25WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET26(id id: Int, completion: ((data: RiscoFraudeDetalhadoResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET26WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -51,11 +51,7 @@ public class RiscoFraudeAPI: APIBase {
   "codigoModoEntradaTerminal" : "aeiou",
   "valorDestino" : 1.3579000000000001069366817318950779736042022705078125,
   "idTipoResolucao" : 123456789,
-  "nomeEstabelecimento" : "aeiou",
-  "codigoRespostaFraude" : "aeiou",
-  "descricaoModoEntradaTerminal" : "aeiou",
-  "idTransacao" : 123456789,
-  "tefefones" : [ {
+  "telefones" : [ {
     "idPessoa" : 123456789,
     "telefone" : "aeiou",
     "ddd" : "aeiou",
@@ -64,6 +60,10 @@ public class RiscoFraudeAPI: APIBase {
     "ramal" : "aeiou",
     "status" : 123
   } ],
+  "nomeEstabelecimento" : "aeiou",
+  "codigoRespostaFraude" : "aeiou",
+  "descricaoModoEntradaTerminal" : "aeiou",
+  "idTransacao" : 123456789,
   "descricaoRespostaFraude" : "aeiou",
   "codigoRespostaAutorizador" : "aeiou"
 }}]
@@ -72,7 +72,7 @@ public class RiscoFraudeAPI: APIBase {
 
      - returns: RequestBuilder<RiscoFraudeDetalhadoResponse> 
      */
-    public class func consultarUsingGET25WithRequestBuilder(id id: Int) -> RequestBuilder<RiscoFraudeDetalhadoResponse> {
+    public class func consultarUsingGET26WithRequestBuilder(id id: Int) -> RequestBuilder<RiscoFraudeDetalhadoResponse> {
         var path = "/api/riscos-fraudes/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path

@@ -105,8 +105,8 @@ public class DocumentoAPI: APIBase {
      - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do documento (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET12(id id: Int, completion: ((data: DocumentoDetalhadoResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET12WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET13(id id: Int, completion: ((data: DocumentoDetalhadoResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET13WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -135,7 +135,7 @@ public class DocumentoAPI: APIBase {
 
      - returns: RequestBuilder<DocumentoDetalhadoResponse> 
      */
-    public class func consultarUsingGET12WithRequestBuilder(id id: Int) -> RequestBuilder<DocumentoDetalhadoResponse> {
+    public class func consultarUsingGET13WithRequestBuilder(id id: Int) -> RequestBuilder<DocumentoDetalhadoResponse> {
         var path = "/api/documentos/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -155,8 +155,8 @@ public class DocumentoAPI: APIBase {
      - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do documento template (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET13(id id: Int, completion: ((data: DocumentoTemplateResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET13WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET14(id id: Int, completion: ((data: DocumentoTemplateResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET14WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -177,7 +177,7 @@ public class DocumentoAPI: APIBase {
 
      - returns: RequestBuilder<DocumentoTemplateResponse> 
      */
-    public class func consultarUsingGET13WithRequestBuilder(id id: Int) -> RequestBuilder<DocumentoTemplateResponse> {
+    public class func consultarUsingGET14WithRequestBuilder(id id: Int) -> RequestBuilder<DocumentoTemplateResponse> {
         var path = "/api/templates-documentos/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -197,8 +197,8 @@ public class DocumentoAPI: APIBase {
      - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do tipo de template (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET37(id id: Int, completion: ((data: TipoTemplateResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET37WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET38(id id: Int, completion: ((data: TipoTemplateResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET38WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -221,7 +221,7 @@ public class DocumentoAPI: APIBase {
 
      - returns: RequestBuilder<TipoTemplateResponse> 
      */
-    public class func consultarUsingGET37WithRequestBuilder(id id: Int) -> RequestBuilder<TipoTemplateResponse> {
+    public class func consultarUsingGET38WithRequestBuilder(id id: Int) -> RequestBuilder<TipoTemplateResponse> {
         var path = "/api/tipos-templates/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -287,8 +287,8 @@ public class DocumentoAPI: APIBase {
      - parameter extensao: (query) Extensao do documento. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET16(sort sort: [String]?, page: Int?, limit: Int?, idTemplateDocumento: Int?, nome: String?, extensao: String?, completion: ((data: PageDocumentoResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET16WithRequestBuilder(sort: sort, page: page, limit: limit, idTemplateDocumento: idTemplateDocumento, nome: nome, extensao: extensao).execute { (response, error) -> Void in
+    public class func listarUsingGET18(sort sort: [String]?, page: Int?, limit: Int?, idTemplateDocumento: Int?, nome: String?, extensao: String?, completion: ((data: PageDocumentoResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET18WithRequestBuilder(sort: sort, page: page, limit: limit, idTemplateDocumento: idTemplateDocumento, nome: nome, extensao: extensao).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -331,7 +331,7 @@ public class DocumentoAPI: APIBase {
 
      - returns: RequestBuilder<PageDocumentoResponse> 
      */
-    public class func listarUsingGET16WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, idTemplateDocumento: Int?, nome: String?, extensao: String?) -> RequestBuilder<PageDocumentoResponse> {
+    public class func listarUsingGET18WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, idTemplateDocumento: Int?, nome: String?, extensao: String?) -> RequestBuilder<PageDocumentoResponse> {
         let path = "/api/documentos"
         let URLString = PierAPI.basePath + path
         
@@ -360,8 +360,8 @@ public class DocumentoAPI: APIBase {
      - parameter idTipoTemplate: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do tipo do template. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET17(sort sort: [String]?, page: Int?, limit: Int?, idTipoTemplate: Int?, completion: ((data: PageDocumentoTemplateResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET17WithRequestBuilder(sort: sort, page: page, limit: limit, idTipoTemplate: idTipoTemplate).execute { (response, error) -> Void in
+    public class func listarUsingGET19(sort sort: [String]?, page: Int?, limit: Int?, idTipoTemplate: Int?, completion: ((data: PageDocumentoTemplateResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET19WithRequestBuilder(sort: sort, page: page, limit: limit, idTipoTemplate: idTipoTemplate).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -400,7 +400,7 @@ public class DocumentoAPI: APIBase {
 
      - returns: RequestBuilder<PageDocumentoTemplateResponse> 
      */
-    public class func listarUsingGET17WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, idTipoTemplate: Int?) -> RequestBuilder<PageDocumentoTemplateResponse> {
+    public class func listarUsingGET19WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, idTipoTemplate: Int?) -> RequestBuilder<PageDocumentoTemplateResponse> {
         let path = "/api/templates-documentos"
         let URLString = PierAPI.basePath + path
         
@@ -426,8 +426,8 @@ public class DocumentoAPI: APIBase {
      - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET43(sort sort: [String]?, page: Int?, limit: Int?, completion: ((data: PageTipoTemplateResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET43WithRequestBuilder(sort: sort, page: page, limit: limit).execute { (response, error) -> Void in
+    public class func listarUsingGET45(sort sort: [String]?, page: Int?, limit: Int?, completion: ((data: PageTipoTemplateResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET45WithRequestBuilder(sort: sort, page: page, limit: limit).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -467,7 +467,7 @@ public class DocumentoAPI: APIBase {
 
      - returns: RequestBuilder<PageTipoTemplateResponse> 
      */
-    public class func listarUsingGET43WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?) -> RequestBuilder<PageTipoTemplateResponse> {
+    public class func listarUsingGET45WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?) -> RequestBuilder<PageTipoTemplateResponse> {
         let path = "/api/tipos-templates"
         let URLString = PierAPI.basePath + path
         
@@ -485,95 +485,13 @@ public class DocumentoAPI: APIBase {
 
     /**
      
-     Cadastra os templates dos documentos
-     
-     - parameter persist: (body) persist 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func salvarUsingPOST10(persist persist: DocumentoTemplatePersist, completion: ((data: DocumentoTemplateResponse?, error: ErrorType?) -> Void)) {
-        salvarUsingPOST10WithRequestBuilder(persist: persist).execute { (response, error) -> Void in
-            completion(data: response?.body, error: error);
-        }
-    }
-
-
-    /**
-     
-     Cadastra os templates dos documentos
-     
-     - POST /api/templates-documentos
-     - Esse recurso permite cadastrar templates dos documentos.
-     - examples: [{contentType=application/json, example={
-  "idTipoTemplate" : 123456789,
-  "id" : 123456789
-}}]
-     
-     - parameter persist: (body) persist 
-
-     - returns: RequestBuilder<DocumentoTemplateResponse> 
-     */
-    public class func salvarUsingPOST10WithRequestBuilder(persist persist: DocumentoTemplatePersist) -> RequestBuilder<DocumentoTemplateResponse> {
-        let path = "/api/templates-documentos"
-        let URLString = PierAPI.basePath + path
-        
-        let parameters = persist.encodeToJSON() as? [String:AnyObject]
-
-        let requestBuilder: RequestBuilder<DocumentoTemplateResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     Cadastra os tipos de templates
-     
-     - parameter persist: (body) persist 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func salvarUsingPOST25(persist persist: TipoTemplateRequest, completion: ((data: TipoTemplateResponse?, error: ErrorType?) -> Void)) {
-        salvarUsingPOST25WithRequestBuilder(persist: persist).execute { (response, error) -> Void in
-            completion(data: response?.body, error: error);
-        }
-    }
-
-
-    /**
-     
-     Cadastra os tipos de templates
-     
-     - POST /api/tipos-templates
-     - Esse recurso permite cadastrar tipos de templates.
-     - examples: [{contentType=application/json, example={
-  "sigla" : "aeiou",
-  "nome" : "aeiou",
-  "id" : 123456789,
-  "descricao" : "aeiou"
-}}]
-     
-     - parameter persist: (body) persist 
-
-     - returns: RequestBuilder<TipoTemplateResponse> 
-     */
-    public class func salvarUsingPOST25WithRequestBuilder(persist persist: TipoTemplateRequest) -> RequestBuilder<TipoTemplateResponse> {
-        let path = "/api/tipos-templates"
-        let URLString = PierAPI.basePath + path
-        
-        let parameters = persist.encodeToJSON() as? [String:AnyObject]
-
-        let requestBuilder: RequestBuilder<TipoTemplateResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
      Cadastra documentos
      
      - parameter persist: (body) persist 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func salvarUsingPOST9(persist persist: DocumentoParametrosRequest, completion: ((data: DocumentoDetalhadoResponse?, error: ErrorType?) -> Void)) {
-        salvarUsingPOST9WithRequestBuilder(persist: persist).execute { (response, error) -> Void in
+    public class func salvarUsingPOST10(persist persist: DocumentoParametrosRequest, completion: ((data: DocumentoDetalhadoResponse?, error: ErrorType?) -> Void)) {
+        salvarUsingPOST10WithRequestBuilder(persist: persist).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -602,13 +520,95 @@ public class DocumentoAPI: APIBase {
 
      - returns: RequestBuilder<DocumentoDetalhadoResponse> 
      */
-    public class func salvarUsingPOST9WithRequestBuilder(persist persist: DocumentoParametrosRequest) -> RequestBuilder<DocumentoDetalhadoResponse> {
+    public class func salvarUsingPOST10WithRequestBuilder(persist persist: DocumentoParametrosRequest) -> RequestBuilder<DocumentoDetalhadoResponse> {
         let path = "/api/documentos"
         let URLString = PierAPI.basePath + path
         
         let parameters = persist.encodeToJSON() as? [String:AnyObject]
 
         let requestBuilder: RequestBuilder<DocumentoDetalhadoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Cadastra os templates dos documentos
+     
+     - parameter persist: (body) persist 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func salvarUsingPOST11(persist persist: DocumentoTemplatePersist, completion: ((data: DocumentoTemplateResponse?, error: ErrorType?) -> Void)) {
+        salvarUsingPOST11WithRequestBuilder(persist: persist).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Cadastra os templates dos documentos
+     
+     - POST /api/templates-documentos
+     - Esse recurso permite cadastrar templates dos documentos.
+     - examples: [{contentType=application/json, example={
+  "idTipoTemplate" : 123456789,
+  "id" : 123456789
+}}]
+     
+     - parameter persist: (body) persist 
+
+     - returns: RequestBuilder<DocumentoTemplateResponse> 
+     */
+    public class func salvarUsingPOST11WithRequestBuilder(persist persist: DocumentoTemplatePersist) -> RequestBuilder<DocumentoTemplateResponse> {
+        let path = "/api/templates-documentos"
+        let URLString = PierAPI.basePath + path
+        
+        let parameters = persist.encodeToJSON() as? [String:AnyObject]
+
+        let requestBuilder: RequestBuilder<DocumentoTemplateResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Cadastra os tipos de templates
+     
+     - parameter persist: (body) persist 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func salvarUsingPOST26(persist persist: TipoTemplateRequest, completion: ((data: TipoTemplateResponse?, error: ErrorType?) -> Void)) {
+        salvarUsingPOST26WithRequestBuilder(persist: persist).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Cadastra os tipos de templates
+     
+     - POST /api/tipos-templates
+     - Esse recurso permite cadastrar tipos de templates.
+     - examples: [{contentType=application/json, example={
+  "sigla" : "aeiou",
+  "nome" : "aeiou",
+  "id" : 123456789,
+  "descricao" : "aeiou"
+}}]
+     
+     - parameter persist: (body) persist 
+
+     - returns: RequestBuilder<TipoTemplateResponse> 
+     */
+    public class func salvarUsingPOST26WithRequestBuilder(persist persist: TipoTemplateRequest) -> RequestBuilder<TipoTemplateResponse> {
+        let path = "/api/tipos-templates"
+        let URLString = PierAPI.basePath + path
+        
+        let parameters = persist.encodeToJSON() as? [String:AnyObject]
+
+        let requestBuilder: RequestBuilder<TipoTemplateResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
     }

@@ -104,6 +104,89 @@ public class ArquivoAPI: APIBase {
 
     /**
      
+     Lista as auditorias do arquivo
+     
+     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do arquivo 
+     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func listarUsingGET3(id id: Int, page: Int?, limit: Int?, completion: ((data: PageArquivoAUDResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET3WithRequestBuilder(id: id, page: page, limit: limit).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Lista as auditorias do arquivo
+     
+     - GET /api/arquivos/{id}/auditorias
+     - Este recurso permite listar as auditorias de um determinado arquivo a partir do seu c\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o (id).
+     - examples: [{contentType=application/json, example={
+  "previousPage" : 123,
+  "last" : true,
+  "hasContent" : true,
+  "hasNextPage" : true,
+  "nextPage" : 123,
+  "content" : [ {
+    "extensao" : "aeiou",
+    "rev" : 123456789,
+    "dataHoraRespostaNeurotech" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+    "dataHoraAlteracao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+    "nome" : "aeiou",
+    "uri" : "aeiou",
+    "parametros" : [ {
+      "rev" : 123456789,
+      "conteudo" : "aeiou",
+      "dataHoraAlteracao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+      "parametro" : "aeiou",
+      "revType" : 123,
+      "id" : "aeiou",
+      "dataHoraInclusao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+    } ],
+    "idRespostaNeurotech" : "aeiou",
+    "dataHoraRespostaAcessoDigital" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+    "revType" : 123,
+    "id" : 123456789,
+    "dataHoraInclusao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+    "idRespostaAcessoDigital" : "aeiou"
+  } ],
+  "totalElements" : 123456789,
+  "number" : 123,
+  "firstPage" : true,
+  "numberOfElements" : 123,
+  "size" : 123,
+  "totalPages" : 123,
+  "hasPreviousPage" : true,
+  "first" : true
+}}]
+     
+     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do arquivo 
+     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+
+     - returns: RequestBuilder<PageArquivoAUDResponse> 
+     */
+    public class func listarUsingGET3WithRequestBuilder(id id: Int, page: Int?, limit: Int?) -> RequestBuilder<PageArquivoAUDResponse> {
+        var path = "/api/arquivos/{id}/auditorias"
+        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [
+            "page": page,
+            "limit": limit
+        ]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<PageArquivoAUDResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
+    }
+
+    /**
+     
      Listar arquivos do Pier Cloud
      
      - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
@@ -115,8 +198,8 @@ public class ArquivoAPI: APIBase {
      - parameter extensao: (query) Extens\u00C3\u00A3o do arquivo (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET3(sort sort: [String]?, page: Int?, limit: Int?, nome: String?, idTipoArquivo: Int?, idStatusArquivo: Int?, extensao: String?, completion: ((data: PageArquivoResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET3WithRequestBuilder(sort: sort, page: page, limit: limit, nome: nome, idTipoArquivo: idTipoArquivo, idStatusArquivo: idStatusArquivo, extensao: extensao).execute { (response, error) -> Void in
+    public class func listarUsingGET4(sort sort: [String]?, page: Int?, limit: Int?, nome: String?, idTipoArquivo: Int?, idStatusArquivo: Int?, extensao: String?, completion: ((data: PageArquivoResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET4WithRequestBuilder(sort: sort, page: page, limit: limit, nome: nome, idTipoArquivo: idTipoArquivo, idStatusArquivo: idStatusArquivo, extensao: extensao).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -170,7 +253,7 @@ public class ArquivoAPI: APIBase {
 
      - returns: RequestBuilder<PageArquivoResponse> 
      */
-    public class func listarUsingGET3WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, nome: String?, idTipoArquivo: Int?, idStatusArquivo: Int?, extensao: String?) -> RequestBuilder<PageArquivoResponse> {
+    public class func listarUsingGET4WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, nome: String?, idTipoArquivo: Int?, idStatusArquivo: Int?, extensao: String?) -> RequestBuilder<PageArquivoResponse> {
         let path = "/api/arquivos"
         let URLString = PierAPI.basePath + path
         

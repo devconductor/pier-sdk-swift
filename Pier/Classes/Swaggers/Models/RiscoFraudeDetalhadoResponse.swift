@@ -64,7 +64,7 @@ public class RiscoFraudeDetalhadoResponse: JSONEncodable {
     /** Endere\u00C3\u00A7o de email da Pessoa portadora do Cart\u00C3\u00A3o */
     public var email: String?
     /** Lista de telefones associados ao portador do Cart\u00C3\u00A3o */
-    public var tefefones: [TelefoneResponse]?
+    public var telefones: [TelefoneResponse]?
     
 
     public init() {}
@@ -98,7 +98,7 @@ public class RiscoFraudeDetalhadoResponse: JSONEncodable {
         nillableDictionary["cpf"] = self.cpf
         nillableDictionary["cnpj"] = self.cnpj
         nillableDictionary["email"] = self.email
-        nillableDictionary["tefefones"] = self.tefefones?.encodeToJSON()
+        nillableDictionary["telefones"] = self.telefones?.encodeToJSON()
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

@@ -164,8 +164,8 @@ public class ConductorPayAPI: APIBase {
      - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do cart\u00C3\u00A3o (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET6(id id: Int, completion: ((data: CartaoPayDetalheResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET6WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET7(id id: Int, completion: ((data: CartaoPayDetalheResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET7WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -193,7 +193,7 @@ public class ConductorPayAPI: APIBase {
 
      - returns: RequestBuilder<CartaoPayDetalheResponse> 
      */
-    public class func consultarUsingGET6WithRequestBuilder(id id: Int) -> RequestBuilder<CartaoPayDetalheResponse> {
+    public class func consultarUsingGET7WithRequestBuilder(id id: Int) -> RequestBuilder<CartaoPayDetalheResponse> {
         var path = "/api/cartoes-tokenizados/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -392,8 +392,8 @@ public class ConductorPayAPI: APIBase {
      - parameter numeroCartao: (query) Numero do cart\u00C3\u00A3o tokenizado (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET7(sort sort: [String]?, page: Int?, limit: Int?, status: String?, numeroCartao: String?, completion: ((data: PageCartaoPayResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET7WithRequestBuilder(sort: sort, page: page, limit: limit, status: status, numeroCartao: numeroCartao).execute { (response, error) -> Void in
+    public class func listarUsingGET9(sort sort: [String]?, page: Int?, limit: Int?, status: String?, numeroCartao: String?, completion: ((data: PageCartaoPayResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET9WithRequestBuilder(sort: sort, page: page, limit: limit, status: status, numeroCartao: numeroCartao).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -439,7 +439,7 @@ public class ConductorPayAPI: APIBase {
 
      - returns: RequestBuilder<PageCartaoPayResponse> 
      */
-    public class func listarUsingGET7WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, status: String?, numeroCartao: String?) -> RequestBuilder<PageCartaoPayResponse> {
+    public class func listarUsingGET9WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, status: String?, numeroCartao: String?) -> RequestBuilder<PageCartaoPayResponse> {
         let path = "/api/cartoes-tokenizados"
         let URLString = PierAPI.basePath + path
         
@@ -464,8 +464,8 @@ public class ConductorPayAPI: APIBase {
      - parameter persist: (body) persist 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func salvarUsingPOST5(persist persist: CartaoPayPersist, completion: ((data: CartaoPayCadastroResponse?, error: ErrorType?) -> Void)) {
-        salvarUsingPOST5WithRequestBuilder(persist: persist).execute { (response, error) -> Void in
+    public class func salvarUsingPOST6(persist persist: CartaoPayPersist, completion: ((data: CartaoPayCadastroResponse?, error: ErrorType?) -> Void)) {
+        salvarUsingPOST6WithRequestBuilder(persist: persist).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -494,7 +494,7 @@ public class ConductorPayAPI: APIBase {
 
      - returns: RequestBuilder<CartaoPayCadastroResponse> 
      */
-    public class func salvarUsingPOST5WithRequestBuilder(persist persist: CartaoPayPersist) -> RequestBuilder<CartaoPayCadastroResponse> {
+    public class func salvarUsingPOST6WithRequestBuilder(persist persist: CartaoPayPersist) -> RequestBuilder<CartaoPayCadastroResponse> {
         let path = "/api/cartoes-tokenizados"
         let URLString = PierAPI.basePath + path
         
