@@ -11,11 +11,6 @@ import Foundation
 /** Par\u00C3\u00A2metros de requisi\u00C3\u00A7\u00C3\u00A3o de um estabelecimento */
 public class EstabelecimentoUpdate: JSONEncodable {
 
-    public enum TipoCorrespondencia: String { 
-        case Origem = "ORIGEM"
-        case Correspondencia = "CORRESPONDENCIA"
-    }
-    
     public enum TipoPagamento: String { 
         case Centralizado = "CENTRALIZADO"
         case Pv = "PV"
@@ -79,8 +74,8 @@ public class EstabelecimentoUpdate: JSONEncodable {
     public var mcc: Int?
     /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do Estabelecimento. */
     public var idTipoEstabelecimento: Int?
-    /** Tipo da Correspond\u00C3\u00AAncia (ORIGEM, CORRESPONDENCIA). */
-    public var tipoCorrespondencia: TipoCorrespondencia?
+    /** Indicador para qual endere\u00C3\u00A7o as correspond\u00C3\u00AAncias ser\u00C3\u00A3o enviadas, onde 1 \u00C3\u00A9 ORIGEM e 2 ENDERE\u00C3\u0087O DE CORRESPOND\u00C3\u008ANCIA. */
+    public var correspondencia: Int?
     /** Cargo do contato do estabelecimento. */
     public var cargoContato: String?
     /** Tipo do regime de pagamento do estabelecimento. */
@@ -129,7 +124,7 @@ public class EstabelecimentoUpdate: JSONEncodable {
         nillableDictionary["associadoSPCBrasil"] = self.associadoSPCBrasil
         nillableDictionary["mcc"] = self.mcc
         nillableDictionary["idTipoEstabelecimento"] = self.idTipoEstabelecimento
-        nillableDictionary["tipoCorrespondencia"] = self.tipoCorrespondencia?.rawValue
+        nillableDictionary["correspondencia"] = self.correspondencia
         nillableDictionary["cargoContato"] = self.cargoContato
         nillableDictionary["tipoPagamento"] = self.tipoPagamento?.rawValue
         nillableDictionary["consulta"] = self.consulta?.encodeToJSON()

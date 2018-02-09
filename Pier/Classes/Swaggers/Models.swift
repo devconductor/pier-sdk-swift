@@ -2219,7 +2219,7 @@ class Decoders {
                 instance.associadoSPCBrasil = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["associadoSPCBrasil"])
                 instance.mcc = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["mcc"])
                 instance.idTipoEstabelecimento = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["idTipoEstabelecimento"])
-                instance.tipoCorrespondencia = EstabelecimentoPersist.TipoCorrespondencia(rawValue: (sourceDictionary["tipoCorrespondencia"] as? String) ?? "") 
+                instance.correspondencia = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["correspondencia"])
                 instance.cargoContato = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["cargoContato"])
                 instance.tipoPagamento = EstabelecimentoPersist.TipoPagamento(rawValue: (sourceDictionary["tipoPagamento"] as? String) ?? "") 
                 instance.consulta = Decoders.decodeOptional(clazz: ConsultaCadastroEstabelecimentoDTO.self, source: sourceDictionary["consulta"])
@@ -2272,7 +2272,7 @@ class Decoders {
                 instance.associadoSPCBrasil = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["associadoSPCBrasil"])
                 instance.mcc = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["mcc"])
                 instance.idTipoEstabelecimento = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["idTipoEstabelecimento"])
-                instance.tipoCorrespondencia = EstabelecimentoResponse.TipoCorrespondencia(rawValue: (sourceDictionary["tipoCorrespondencia"] as? String) ?? "") 
+                instance.correspondencia = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["correspondencia"])
                 instance.cargoContato = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["cargoContato"])
                 instance.tipoPagamento = EstabelecimentoResponse.TipoPagamento(rawValue: (sourceDictionary["tipoPagamento"] as? String) ?? "") 
                 instance.consulta = Decoders.decodeOptional(clazz: ConsultaCadastroEstabelecimentoDTO.self, source: sourceDictionary["consulta"])
@@ -2322,7 +2322,7 @@ class Decoders {
                 instance.associadoSPCBrasil = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["associadoSPCBrasil"])
                 instance.mcc = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["mcc"])
                 instance.idTipoEstabelecimento = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["idTipoEstabelecimento"])
-                instance.tipoCorrespondencia = EstabelecimentoUpdate.TipoCorrespondencia(rawValue: (sourceDictionary["tipoCorrespondencia"] as? String) ?? "") 
+                instance.correspondencia = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["correspondencia"])
                 instance.cargoContato = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["cargoContato"])
                 instance.tipoPagamento = EstabelecimentoUpdate.TipoPagamento(rawValue: (sourceDictionary["tipoPagamento"] as? String) ?? "") 
                 instance.consulta = Decoders.decodeOptional(clazz: ConsultaCadastroEstabelecimentoDTO.self, source: sourceDictionary["consulta"])
@@ -7584,7 +7584,7 @@ class Decoders {
                 instance.numeroMesesCarencia = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["numeroMesesCarencia"])
                 instance.dataHoraTerminal = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["dataHoraTerminal"])
                 instance.terminalRequisitante = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["terminalRequisitante"])
-                instance.numeroEstabelecimento = Decoders.decodeOptional(clazz: Int.self, source: sourceDictionary["numeroEstabelecimento"])
+                instance.numeroEstabelecimento = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["numeroEstabelecimento"])
                 return instance
             }
 			

@@ -11,11 +11,6 @@ import Foundation
 /** Objeto Estabelecimento */
 public class EstabelecimentoResponse: JSONEncodable {
 
-    public enum TipoCorrespondencia: String { 
-        case Origem = "ORIGEM"
-        case Correspondencia = "CORRESPONDENCIA"
-    }
-    
     public enum TipoPagamento: String { 
         case Centralizado = "CENTRALIZADO"
         case Pv = "PV"
@@ -88,7 +83,7 @@ public class EstabelecimentoResponse: JSONEncodable {
     /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do Estabelecimento. */
     public var idTipoEstabelecimento: Int?
     /** Tipo da Correspond\u00C3\u00AAncia (ORIGEM, CORRESPONDENCIA). */
-    public var tipoCorrespondencia: TipoCorrespondencia?
+    public var correspondencia: Int?
     /** Cargo do contato do estabelecimento. */
     public var cargoContato: String?
     /** Tipo do regime de pagamento do estabelecimento. */
@@ -145,7 +140,7 @@ public class EstabelecimentoResponse: JSONEncodable {
         nillableDictionary["associadoSPCBrasil"] = self.associadoSPCBrasil
         nillableDictionary["mcc"] = self.mcc
         nillableDictionary["idTipoEstabelecimento"] = self.idTipoEstabelecimento
-        nillableDictionary["tipoCorrespondencia"] = self.tipoCorrespondencia?.rawValue
+        nillableDictionary["correspondencia"] = self.correspondencia
         nillableDictionary["cargoContato"] = self.cargoContato
         nillableDictionary["tipoPagamento"] = self.tipoPagamento?.rawValue
         nillableDictionary["consulta"] = self.consulta?.encodeToJSON()

@@ -322,6 +322,7 @@ public class EstabelecimentoAPI: APIBase {
   "nomeFantasia" : "aeiou",
   "complemento" : "aeiou",
   "flagCartaoDigitado" : 123,
+  "correspondencia" : 123,
   "id" : 123456789,
   "contato" : "aeiou",
   "consulta" : {
@@ -336,7 +337,6 @@ public class EstabelecimentoAPI: APIBase {
   "idMoeda" : 123456789,
   "cargoContato" : "aeiou",
   "dataCadastramento" : "aeiou",
-  "tipoCorrespondencia" : "aeiou",
   "nome" : "aeiou",
   "cidade2" : "aeiou",
   "numeroEndereco2" : "aeiou",
@@ -541,6 +541,7 @@ public class EstabelecimentoAPI: APIBase {
   "nomeFantasia" : "aeiou",
   "complemento" : "aeiou",
   "flagCartaoDigitado" : 123,
+  "correspondencia" : 123,
   "id" : 123456789,
   "contato" : "aeiou",
   "consulta" : {
@@ -555,7 +556,6 @@ public class EstabelecimentoAPI: APIBase {
   "idMoeda" : 123456789,
   "cargoContato" : "aeiou",
   "dataCadastramento" : "aeiou",
-  "tipoCorrespondencia" : "aeiou",
   "nome" : "aeiou",
   "cidade2" : "aeiou",
   "numeroEndereco2" : "aeiou",
@@ -816,6 +816,7 @@ public class EstabelecimentoAPI: APIBase {
   "nomeFantasia" : "aeiou",
   "complemento" : "aeiou",
   "flagCartaoDigitado" : 123,
+  "correspondencia" : 123,
   "id" : 123456789,
   "contato" : "aeiou",
   "consulta" : {
@@ -830,7 +831,6 @@ public class EstabelecimentoAPI: APIBase {
   "idMoeda" : 123456789,
   "cargoContato" : "aeiou",
   "dataCadastramento" : "aeiou",
-  "tipoCorrespondencia" : "aeiou",
   "nome" : "aeiou",
   "cidade2" : "aeiou",
   "numeroEndereco2" : "aeiou",
@@ -1853,6 +1853,7 @@ public class EstabelecimentoAPI: APIBase {
      - parameter idPais: (query) Identificador de Pa\u00C3\u00ADs. (optional)
      - parameter mcc: (query) C\u00C3\u00B3digo de Categoria de Mercado (optional)
      - parameter idTipoEstabelecimento: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do Estabelecimento. (optional)
+     - parameter correspondencia: (query) Indicador para qual endere\u00C3\u00A7o as correspond\u00C3\u00AAncias ser\u00C3\u00A3o enviadas, onde 1 \u00C3\u00A9 ORIGEM e 2 ENDERE\u00C3\u0087O DE CORRESPOND\u00C3\u008ANCIA. (optional)
      - parameter idMoeda: (query) C\u00C3\u00B3digo identificador da moeda. (optional)
      - parameter tipoPagamento: (query) Tipo do regime de pagamento do estabelecimento. (optional)
      - parameter numeroEstabelecimento: (query) N\u00C3\u00BAmero de identifica\u00C3\u00A7\u00C3\u00A3o do Estabelecimento na Conductor. (optional)
@@ -1866,8 +1867,8 @@ public class EstabelecimentoAPI: APIBase {
      - parameter flagMatriz: (query) Indica se \u00C3\u00A9 matriz ou filial. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET21(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, idCredor: Int?, numeroReceitaFederal: String?, nome: String?, descricao: String?, nomeFantasia: String?, cep: String?, nomeLogradouro: String?, numeroEndereco: Int?, complemento: String?, bairro: String?, cidade: String?, uf: String?, pais: String?, dataCadastramento: String?, contato: String?, email: String?, flagArquivoSecrFazenda: Int?, flagCartaoDigitado: Int?, inativo: Int?, idPais: Int?, mcc: Int?, idTipoEstabelecimento: Int?, idMoeda: Int?, tipoPagamento: String?, numeroEstabelecimento: String?, cep2: String?, nomeLogradouro2: String?, numeroEndereco2: Int?, complemento2: String?, bairro2: String?, cidade2: String?, uf2: String?, flagMatriz: Int?, completion: ((data: PageEstabelecimentoResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET21WithRequestBuilder(sort: sort, page: page, limit: limit, id: id, idCredor: idCredor, numeroReceitaFederal: numeroReceitaFederal, nome: nome, descricao: descricao, nomeFantasia: nomeFantasia, cep: cep, nomeLogradouro: nomeLogradouro, numeroEndereco: numeroEndereco, complemento: complemento, bairro: bairro, cidade: cidade, uf: uf, pais: pais, dataCadastramento: dataCadastramento, contato: contato, email: email, flagArquivoSecrFazenda: flagArquivoSecrFazenda, flagCartaoDigitado: flagCartaoDigitado, inativo: inativo, idPais: idPais, mcc: mcc, idTipoEstabelecimento: idTipoEstabelecimento, idMoeda: idMoeda, tipoPagamento: tipoPagamento, numeroEstabelecimento: numeroEstabelecimento, cep2: cep2, nomeLogradouro2: nomeLogradouro2, numeroEndereco2: numeroEndereco2, complemento2: complemento2, bairro2: bairro2, cidade2: cidade2, uf2: uf2, flagMatriz: flagMatriz).execute { (response, error) -> Void in
+    public class func listarUsingGET21(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, idCredor: Int?, numeroReceitaFederal: String?, nome: String?, descricao: String?, nomeFantasia: String?, cep: String?, nomeLogradouro: String?, numeroEndereco: Int?, complemento: String?, bairro: String?, cidade: String?, uf: String?, pais: String?, dataCadastramento: String?, contato: String?, email: String?, flagArquivoSecrFazenda: Int?, flagCartaoDigitado: Int?, inativo: Int?, idPais: Int?, mcc: Int?, idTipoEstabelecimento: Int?, correspondencia: Int?, idMoeda: Int?, tipoPagamento: String?, numeroEstabelecimento: String?, cep2: String?, nomeLogradouro2: String?, numeroEndereco2: Int?, complemento2: String?, bairro2: String?, cidade2: String?, uf2: String?, flagMatriz: Int?, completion: ((data: PageEstabelecimentoResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET21WithRequestBuilder(sort: sort, page: page, limit: limit, id: id, idCredor: idCredor, numeroReceitaFederal: numeroReceitaFederal, nome: nome, descricao: descricao, nomeFantasia: nomeFantasia, cep: cep, nomeLogradouro: nomeLogradouro, numeroEndereco: numeroEndereco, complemento: complemento, bairro: bairro, cidade: cidade, uf: uf, pais: pais, dataCadastramento: dataCadastramento, contato: contato, email: email, flagArquivoSecrFazenda: flagArquivoSecrFazenda, flagCartaoDigitado: flagCartaoDigitado, inativo: inativo, idPais: idPais, mcc: mcc, idTipoEstabelecimento: idTipoEstabelecimento, correspondencia: correspondencia, idMoeda: idMoeda, tipoPagamento: tipoPagamento, numeroEstabelecimento: numeroEstabelecimento, cep2: cep2, nomeLogradouro2: nomeLogradouro2, numeroEndereco2: numeroEndereco2, complemento2: complemento2, bairro2: bairro2, cidade2: cidade2, uf2: uf2, flagMatriz: flagMatriz).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -1902,6 +1903,7 @@ public class EstabelecimentoAPI: APIBase {
     "nomeFantasia" : "aeiou",
     "complemento" : "aeiou",
     "flagCartaoDigitado" : 123,
+    "correspondencia" : 123,
     "id" : 123456789,
     "contato" : "aeiou",
     "consulta" : {
@@ -1916,7 +1918,6 @@ public class EstabelecimentoAPI: APIBase {
     "idMoeda" : 123456789,
     "cargoContato" : "aeiou",
     "dataCadastramento" : "aeiou",
-    "tipoCorrespondencia" : "aeiou",
     "nome" : "aeiou",
     "cidade2" : "aeiou",
     "numeroEndereco2" : "aeiou",
@@ -1969,6 +1970,7 @@ public class EstabelecimentoAPI: APIBase {
      - parameter idPais: (query) Identificador de Pa\u00C3\u00ADs. (optional)
      - parameter mcc: (query) C\u00C3\u00B3digo de Categoria de Mercado (optional)
      - parameter idTipoEstabelecimento: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do Estabelecimento. (optional)
+     - parameter correspondencia: (query) Indicador para qual endere\u00C3\u00A7o as correspond\u00C3\u00AAncias ser\u00C3\u00A3o enviadas, onde 1 \u00C3\u00A9 ORIGEM e 2 ENDERE\u00C3\u0087O DE CORRESPOND\u00C3\u008ANCIA. (optional)
      - parameter idMoeda: (query) C\u00C3\u00B3digo identificador da moeda. (optional)
      - parameter tipoPagamento: (query) Tipo do regime de pagamento do estabelecimento. (optional)
      - parameter numeroEstabelecimento: (query) N\u00C3\u00BAmero de identifica\u00C3\u00A7\u00C3\u00A3o do Estabelecimento na Conductor. (optional)
@@ -1983,7 +1985,7 @@ public class EstabelecimentoAPI: APIBase {
 
      - returns: RequestBuilder<PageEstabelecimentoResponse> 
      */
-    public class func listarUsingGET21WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, idCredor: Int?, numeroReceitaFederal: String?, nome: String?, descricao: String?, nomeFantasia: String?, cep: String?, nomeLogradouro: String?, numeroEndereco: Int?, complemento: String?, bairro: String?, cidade: String?, uf: String?, pais: String?, dataCadastramento: String?, contato: String?, email: String?, flagArquivoSecrFazenda: Int?, flagCartaoDigitado: Int?, inativo: Int?, idPais: Int?, mcc: Int?, idTipoEstabelecimento: Int?, idMoeda: Int?, tipoPagamento: String?, numeroEstabelecimento: String?, cep2: String?, nomeLogradouro2: String?, numeroEndereco2: Int?, complemento2: String?, bairro2: String?, cidade2: String?, uf2: String?, flagMatriz: Int?) -> RequestBuilder<PageEstabelecimentoResponse> {
+    public class func listarUsingGET21WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, idCredor: Int?, numeroReceitaFederal: String?, nome: String?, descricao: String?, nomeFantasia: String?, cep: String?, nomeLogradouro: String?, numeroEndereco: Int?, complemento: String?, bairro: String?, cidade: String?, uf: String?, pais: String?, dataCadastramento: String?, contato: String?, email: String?, flagArquivoSecrFazenda: Int?, flagCartaoDigitado: Int?, inativo: Int?, idPais: Int?, mcc: Int?, idTipoEstabelecimento: Int?, correspondencia: Int?, idMoeda: Int?, tipoPagamento: String?, numeroEstabelecimento: String?, cep2: String?, nomeLogradouro2: String?, numeroEndereco2: Int?, complemento2: String?, bairro2: String?, cidade2: String?, uf2: String?, flagMatriz: Int?) -> RequestBuilder<PageEstabelecimentoResponse> {
         let path = "/api/estabelecimentos"
         let URLString = PierAPI.basePath + path
         
@@ -2014,6 +2016,7 @@ public class EstabelecimentoAPI: APIBase {
             "idPais": idPais,
             "mcc": mcc,
             "idTipoEstabelecimento": idTipoEstabelecimento,
+            "correspondencia": correspondencia,
             "idMoeda": idMoeda,
             "tipoPagamento": tipoPagamento,
             "numeroEstabelecimento": numeroEstabelecimento,

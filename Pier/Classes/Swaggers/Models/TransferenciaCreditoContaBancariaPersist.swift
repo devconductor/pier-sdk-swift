@@ -28,7 +28,7 @@ public class TransferenciaCreditoContaBancariaPersist: JSONEncodable {
     /** Representa a identifica\u00C3\u00A7\u00C3\u00A3o do terminal requisitante. */
     public var terminalRequisitante: String?
     /** Representa a identifica\u00C3\u00A7\u00C3\u00A3o do n\u00C3\u00BAmero do estabelecimento. */
-    public var numeroEstabelecimento: Int?
+    public var numeroEstabelecimento: String?
     
 
     public init() {}
