@@ -1314,7 +1314,7 @@ public class CartaoAPI: APIBase {
      - parameter validaCVV: (body) validaCVV 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func validarCVVUsingPOST(id id: Int, validaCVV: ValidaCVVRequest, completion: ((data: AnyObject?, error: ErrorType?) -> Void)) {
+    public class func validarCVVUsingPOST(id id: Int, validaCVV: ValidaCVVRequest, completion: ((data: String?, error: ErrorType?) -> Void)) {
         validarCVVUsingPOSTWithRequestBuilder(id: id, validaCVV: validaCVV).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
@@ -1327,21 +1327,21 @@ public class CartaoAPI: APIBase {
      
      - POST /api/cartoes/{id}/validar-cvv
      - Esse recurso permite a valida\u00C3\u00A7\u00C3\u00A3o do cvv de um cart\u00C3\u00A3o
-     - examples: [{contentType=application/json, example="{}"}]
+     - examples: [{contentType=application/json, example="aeiou"}]
      
      - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do cart\u00C3\u00A3o (id). 
      - parameter validaCVV: (body) validaCVV 
 
-     - returns: RequestBuilder<AnyObject> 
+     - returns: RequestBuilder<String> 
      */
-    public class func validarCVVUsingPOSTWithRequestBuilder(id id: Int, validaCVV: ValidaCVVRequest) -> RequestBuilder<AnyObject> {
+    public class func validarCVVUsingPOSTWithRequestBuilder(id id: Int, validaCVV: ValidaCVVRequest) -> RequestBuilder<String> {
         var path = "/api/cartoes/{id}/validar-cvv"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
         
         let parameters = validaCVV.encodeToJSON() as? [String:AnyObject]
 
-        let requestBuilder: RequestBuilder<AnyObject>.Type = PierAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<String>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
     }
