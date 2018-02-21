@@ -7841,6 +7841,20 @@ class Decoders {
             }
 			
 
+			// Decoder for [WebHook]
+            Decoders.addDecoder(clazz: [WebHook].self) { (source: AnyObject) -> [WebHook] in
+                return Decoders.decode(clazz: [WebHook].self, source: source)
+            }
+			// Decoder for WebHook
+            Decoders.addDecoder(clazz: WebHook.self) { (source: AnyObject) -> WebHook in
+                let sourceDictionary = source as! [NSObject:AnyObject]
+                let instance = WebHook()
+                instance.tipoEvento = WebHook.TipoEvento(rawValue: (sourceDictionary["tipoEvento"] as? String) ?? "") 
+                instance.url = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["url"])
+                return instance
+            }
+			
+
 			// Decoder for [WebHookResponse]
             Decoders.addDecoder(clazz: [WebHookResponse].self) { (source: AnyObject) -> [WebHookResponse] in
                 return Decoders.decode(clazz: [WebHookResponse].self, source: source)
