@@ -8,18 +8,18 @@
 import Foundation
 
 
-/** Detalhe do plano de parcelamento para Transfer\u00C3\u00AAncia de cr\u00C3\u00A9dito para contas banc\u00C3\u00A1rias */
+/** Detalhe do plano de parcelamento para Transfer\u00EAncia de cr\u00E9dito para contas banc\u00E1rias */
 public class ParcelamentoTransferenciaResponse: JSONEncodable {
 
-    /** N\u00C3\u00BAmero de parcelas dispon\u00C3\u00ADveis. */
+    /** N\u00FAmero de parcelas dispon\u00EDveis. */
     public var numeroParcela: Int?
     /** Valor das demais parcelas. */
     public var valorParcelas: Double?
     /** Valor total do financiamento. */
     public var valorTotal: Double?
-    /** Valor da tarifa de contrata\u00C3\u00A7\u00C3\u00A3o. */
+    /** Valor da tarifa de contrata\u00E7\u00E3o. */
     public var valorTAC: Double?
-    /** IOF */
+    /** IOF calculado para o cliente */
     public var valorIOF: Double?
     /** Valor da taxa de juros. */
     public var taxaJuros: Double?

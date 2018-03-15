@@ -8,18 +8,18 @@
 import Foundation
 
 
-/** Detalhe da resposta do recurso de simular empr\u00C3\u00A9stimos/financiamentos */
+/** Detalhe da resposta do recurso de simular empr\u00E9stimos/financiamentos */
 public class PlanoParcelamentoEmprestimoResponse: JSONEncodable {
 
-    /** N\u00C3\u00BAmeros de parcelas do empr\u00C3\u00A9stimo/financiamento */
+    /** N\u00FAmeros de parcelas do empr\u00E9stimo/financiamento */
     public var numeroParcelas: Int?
     /** Valor da parcela */
     public var valorParcelas: Double?
-    /** Taxa de juros aplicado no empr\u00C3\u00A9stimo/financiamento */
+    /** Taxa de juros aplicado no empr\u00E9stimo/financiamento */
     public var taxaJuros: Double?
-    /** valor total estimado dos tributos do Imposto sobre Opera\u00C3\u00A7\u00C3\u00B5es Financeiras */
+    /** valor total estimado dos tributos do Imposto sobre Opera\u00E7\u00F5es Financeiras */
     public var valorTributosIOF: Double?
-    /** valor percentual do Custo Efetivo Total, ao ano, do empr\u00C3\u00A9stimo / financiamento */
+    /** valor percentual do Custo Efetivo Total, ao ano, do empr\u00E9stimo / financiamento */
     public var valorPercentualCET: Double?
     
 

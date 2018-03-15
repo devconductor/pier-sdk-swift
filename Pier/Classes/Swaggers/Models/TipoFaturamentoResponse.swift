@@ -11,13 +11,13 @@ import Foundation
 /** Objeto Faturamento */
 public class TipoFaturamentoResponse: JSONEncodable {
 
-    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do tipo de faturamento (id). */
+    /** C\u00F3digo de identifica\u00E7\u00E3o do tipo de faturamento (id). */
     public var id: Int?
-    /** Desci\u00C3\u00A7\u00C3\u00A3o do tipo de faturamento. */
+    /** Desci\u00E7\u00E3o do tipo de faturamento. */
     public var descricao: String?
-    /** Flag que representa que o faturamento ser\u00C3\u00A1 apenas demonstrativo. */
+    /** Flag que representa que o faturamento ser\u00E1 apenas demonstrativo. */
     public var flagApenasDemonstrativo: Bool?
-    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do conv\u00C3\u00AAnio relacionado ao tipo de faturamento. */
+    /** C\u00F3digo de identifica\u00E7\u00E3o do conv\u00EAnio relacionado ao tipo de faturamento. */
     public var idConvenio: Int?
     
 

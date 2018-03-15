@@ -11,15 +11,15 @@ import Foundation
 /** RefenciaAprovadoPersist */
 public class RefenciaComercialAprovadoPersist: JSONEncodable {
 
-    /** Apresenta o nome completo da raz\u00C3\u00A3o social da refer\u00C3\u00AAncia comercial (nome empresarial) */
+    /** Apresenta o nome completo da raz\u00E3o social da refer\u00EAncia comercial (nome empresarial) */
     public var razaoSocial: String?
-    /** Nome do respons\u00C3\u00A1vel pela refer\u00C3\u00AAncia comercial */
+    /** Nome do respons\u00E1vel pela refer\u00EAncia comercial */
     public var nomeContrato: String?
-    /** DDD do contato da refer\u00C3\u00AAncia comercial */
+    /** DDD do contato da refer\u00EAncia comercial */
     public var ddd: String?
-    /** N\u00C3\u00BAmero de contato da refer\u00C3\u00AAncia comercial */
+    /** N\u00FAmero de contato da refer\u00EAncia comercial */
     public var telefone: String?
-    /** E-mail de contato da refer\u00C3\u00AAncia comercial */
+    /** E-mail de contato da refer\u00EAncia comercial */
     public var email: String?
     
 

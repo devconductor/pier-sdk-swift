@@ -12,9 +12,9 @@ import Alamofire
 public class NotificacaoAPI: APIBase {
     /**
      
-     Altera configura\u00C3\u00A7\u00C3\u00B5es de E-mail
+     Altera configura\u00E7\u00F5es de E-mail
      
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da configura\u00C3\u00A7\u00C3\u00A3o de e-mail. 
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o da configura\u00E7\u00E3o de e-mail. 
      - parameter persist: (body) persist 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -27,10 +27,10 @@ public class NotificacaoAPI: APIBase {
 
     /**
      
-     Altera configura\u00C3\u00A7\u00C3\u00B5es de E-mail
+     Altera configura\u00E7\u00F5es de E-mail
      
      - PUT /api/configuracoes-email/{id}
-     - Esse recurso permite salvar altera\u00C3\u00A7\u00C3\u00B5es de configura\u00C3\u00A7\u00C3\u00B5es de E-mail.
+     - Esse recurso permite salvar altera\u00E7\u00F5es de configura\u00E7\u00F5es de E-mail.
      - examples: [{contentType=application/json, example={
   "portSSL" : "aeiou",
   "requerTLS" : false,
@@ -47,7 +47,7 @@ public class NotificacaoAPI: APIBase {
   "id" : 123456789
 }}]
      
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da configura\u00C3\u00A7\u00C3\u00A3o de e-mail. 
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o da configura\u00E7\u00E3o de e-mail. 
      - parameter persist: (body) persist 
 
      - returns: RequestBuilder<ConfiguracaoEmailResponse> 
@@ -66,16 +66,16 @@ public class NotificacaoAPI: APIBase {
 
     /**
      
-     Alterar template de notifica\u00C3\u00A7\u00C3\u00A3o
+     Alterar template de notifica\u00E7\u00E3o
      
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do layout de e-mail. 
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o do layout de e-mail. 
      - parameter conteudo: (body) Template HTML 
-     - parameter idConfiguracaoEmail: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da configra\u00C3\u00A7\u00C3\u00A3o de EMAIL. (optional)
+     - parameter idConfiguracaoEmail: (query) C\u00F3digo de identifica\u00E7\u00E3o da configra\u00E7\u00E3o de EMAIL. (optional)
      - parameter tipoLayout: (query) Tipo do layout. (optional)
-     - parameter tipoNotificacao: (query) Tipo da notifica\u00C3\u00A7\u00C3\u00A3o. (optional)
+     - parameter tipoNotificacao: (query) Tipo da notifica\u00E7\u00E3o. (optional)
      - parameter remetente: (query) Remetente (optional)
-     - parameter assunto: (query) Assunto da Notificaca\u00C3\u00A7\u00C3\u00A3o. (optional)
-     - parameter templatePadrao: (query) Template Padr\u00C3\u00A3o. (optional)
+     - parameter assunto: (query) Assunto da Notificaca\u00E7\u00E3o. (optional)
+     - parameter templatePadrao: (query) Template Padr\u00E3o. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func alterarTemplateNotificacaoUsingPUT(id id: Int, conteudo: String, idConfiguracaoEmail: Int?, tipoLayout: String?, tipoNotificacao: String?, remetente: String?, assunto: String?, templatePadrao: Bool?, completion: ((data: TemplateNotificacaoDetalheResponse?, error: ErrorType?) -> Void)) {
@@ -87,10 +87,10 @@ public class NotificacaoAPI: APIBase {
 
     /**
      
-     Alterar template de notifica\u00C3\u00A7\u00C3\u00A3o
+     Alterar template de notifica\u00E7\u00E3o
      
      - PUT /api/templates-notificacoes/{id}
-     - Esse recurso permite salvar altera\u00C3\u00A7\u00C3\u00B5es de templates notifica\u00C3\u00A7\u00C3\u00B5es.
+     - Esse recurso permite salvar altera\u00E7\u00F5es de templates notifica\u00E7\u00F5es.
      - examples: [{contentType=application/json, example={
   "idConfiguracaoEmail" : 123456789,
   "remetente" : "aeiou",
@@ -104,14 +104,14 @@ public class NotificacaoAPI: APIBase {
   "dataAlteracao" : "aeiou"
 }}]
      
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do layout de e-mail. 
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o do layout de e-mail. 
      - parameter conteudo: (body) Template HTML 
-     - parameter idConfiguracaoEmail: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da configra\u00C3\u00A7\u00C3\u00A3o de EMAIL. (optional)
+     - parameter idConfiguracaoEmail: (query) C\u00F3digo de identifica\u00E7\u00E3o da configra\u00E7\u00E3o de EMAIL. (optional)
      - parameter tipoLayout: (query) Tipo do layout. (optional)
-     - parameter tipoNotificacao: (query) Tipo da notifica\u00C3\u00A7\u00C3\u00A3o. (optional)
+     - parameter tipoNotificacao: (query) Tipo da notifica\u00E7\u00E3o. (optional)
      - parameter remetente: (query) Remetente (optional)
-     - parameter assunto: (query) Assunto da Notificaca\u00C3\u00A7\u00C3\u00A3o. (optional)
-     - parameter templatePadrao: (query) Template Padr\u00C3\u00A3o. (optional)
+     - parameter assunto: (query) Assunto da Notificaca\u00E7\u00E3o. (optional)
+     - parameter templatePadrao: (query) Template Padr\u00E3o. (optional)
 
      - returns: RequestBuilder<TemplateNotificacaoDetalheResponse> 
      */
@@ -131,7 +131,7 @@ public class NotificacaoAPI: APIBase {
      
      Atualizar SMS
      
-     - parameter nsu: (query) Seu n\u00C3\u00BAmero (optional)
+     - parameter nsu: (query) Seu n\u00FAmero (optional)
      - parameter status: (query) Status (optional)
      - parameter data: (query) Data (optional)
      - parameter textoStatus: (query) TextoStatus (optional)
@@ -171,7 +171,7 @@ public class NotificacaoAPI: APIBase {
   "status" : "aeiou"
 }}]
      
-     - parameter nsu: (query) Seu n\u00C3\u00BAmero (optional)
+     - parameter nsu: (query) Seu n\u00FAmero (optional)
      - parameter status: (query) Status (optional)
      - parameter data: (query) Data (optional)
      - parameter textoStatus: (query) TextoStatus (optional)
@@ -199,9 +199,9 @@ public class NotificacaoAPI: APIBase {
 
     /**
      
-     Consulta configura\u00C3\u00A7\u00C3\u00A3o de E-mail
+     Consulta configura\u00E7\u00E3o de E-mail
      
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da configura\u00C3\u00A7\u00C3\u00A3o de e-mail. 
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o da configura\u00E7\u00E3o de e-mail. 
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func consultarConfiguracaoUsingGET(id id: Int, completion: ((data: ConfiguracaoEmailResponse?, error: ErrorType?) -> Void)) {
@@ -213,10 +213,10 @@ public class NotificacaoAPI: APIBase {
 
     /**
      
-     Consulta configura\u00C3\u00A7\u00C3\u00A3o de E-mail
+     Consulta configura\u00E7\u00E3o de E-mail
      
      - GET /api/configuracoes-email/{id}
-     - Esse recurso permite consultar uma configura\u00C3\u00A7\u00C3\u00A3o espec\u00C3\u00ADfica por id.
+     - Esse recurso permite consultar uma configura\u00E7\u00E3o espec\u00EDfica por id.
      - examples: [{contentType=application/json, example={
   "portSSL" : "aeiou",
   "requerTLS" : false,
@@ -233,7 +233,7 @@ public class NotificacaoAPI: APIBase {
   "id" : 123456789
 }}]
      
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da configura\u00C3\u00A7\u00C3\u00A3o de e-mail. 
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o da configura\u00E7\u00E3o de e-mail. 
 
      - returns: RequestBuilder<ConfiguracaoEmailResponse> 
      */
@@ -252,9 +252,9 @@ public class NotificacaoAPI: APIBase {
 
     /**
      
-     Consulta c\u00C3\u00B3digo de seguran\u00C3\u00A7a E-mail
+     Consulta c\u00F3digo de seguran\u00E7a E-mail
      
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da configura\u00C3\u00A7\u00C3\u00A3o de e-mail. 
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o da configura\u00E7\u00E3o de e-mail. 
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func consultarPorEmailUsingGET(id id: Int, completion: ((data: CodigoSegurancaResponse?, error: ErrorType?) -> Void)) {
@@ -266,10 +266,10 @@ public class NotificacaoAPI: APIBase {
 
     /**
      
-     Consulta c\u00C3\u00B3digo de seguran\u00C3\u00A7a E-mail
+     Consulta c\u00F3digo de seguran\u00E7a E-mail
      
      - GET /api/codigos-seguranca-email/{id}
-     - Esse recurso permite consultar um c\u00C3\u00B3digo de seguran\u00C3\u00A7a E-mail espec\u00C3\u00ADfico por id.
+     - Esse recurso permite consultar um c\u00F3digo de seguran\u00E7a E-mail espec\u00EDfico por id.
      - examples: [{contentType=application/json, example={
   "ativo" : false,
   "dataValidade" : "aeiou",
@@ -279,7 +279,7 @@ public class NotificacaoAPI: APIBase {
   "contato" : "aeiou"
 }}]
      
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da configura\u00C3\u00A7\u00C3\u00A3o de e-mail. 
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o da configura\u00E7\u00E3o de e-mail. 
 
      - returns: RequestBuilder<CodigoSegurancaResponse> 
      */
@@ -298,9 +298,9 @@ public class NotificacaoAPI: APIBase {
 
     /**
      
-     Consulta c\u00C3\u00B3digo de seguran\u00C3\u00A7a SMS
+     Consulta c\u00F3digo de seguran\u00E7a SMS
      
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da configura\u00C3\u00A7\u00C3\u00A3o de e-mail. 
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o da configura\u00E7\u00E3o de e-mail. 
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func consultarPorSMSUsingGET(id id: Int, completion: ((data: CodigoSegurancaResponse?, error: ErrorType?) -> Void)) {
@@ -312,10 +312,10 @@ public class NotificacaoAPI: APIBase {
 
     /**
      
-     Consulta c\u00C3\u00B3digo de seguran\u00C3\u00A7a SMS
+     Consulta c\u00F3digo de seguran\u00E7a SMS
      
      - GET /api/codigos-seguranca-sms/{id}
-     - Esse recurso permite consultar um c\u00C3\u00B3digo de seguran\u00C3\u00A7a SMS espec\u00C3\u00ADfico por id.
+     - Esse recurso permite consultar um c\u00F3digo de seguran\u00E7a SMS espec\u00EDfico por id.
      - examples: [{contentType=application/json, example={
   "ativo" : false,
   "dataValidade" : "aeiou",
@@ -325,7 +325,7 @@ public class NotificacaoAPI: APIBase {
   "contato" : "aeiou"
 }}]
      
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da configura\u00C3\u00A7\u00C3\u00A3o de e-mail. 
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o da configura\u00E7\u00E3o de e-mail. 
 
      - returns: RequestBuilder<CodigoSegurancaResponse> 
      */
@@ -344,9 +344,9 @@ public class NotificacaoAPI: APIBase {
 
     /**
      
-     Consulta template de notifica\u00C3\u00A7\u00C3\u00A3o
+     Consulta template de notifica\u00E7\u00E3o
      
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do layout de e-mail. 
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o do layout de e-mail. 
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func consultarTemplateNotificacaoUsingGET(id id: Int, completion: ((data: TemplateNotificacaoDetalheResponse?, error: ErrorType?) -> Void)) {
@@ -358,10 +358,10 @@ public class NotificacaoAPI: APIBase {
 
     /**
      
-     Consulta template de notifica\u00C3\u00A7\u00C3\u00A3o
+     Consulta template de notifica\u00E7\u00E3o
      
      - GET /api/templates-notificacoes/{id}
-     - Esse recurso permite consultar uma configura\u00C3\u00A7\u00C3\u00A3o espec\u00C3\u00ADfica por id.
+     - Esse recurso permite consultar uma configura\u00E7\u00E3o espec\u00EDfica por id.
      - examples: [{contentType=application/json, example={
   "idConfiguracaoEmail" : 123456789,
   "remetente" : "aeiou",
@@ -375,7 +375,7 @@ public class NotificacaoAPI: APIBase {
   "dataAlteracao" : "aeiou"
 }}]
      
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do layout de e-mail. 
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o do layout de e-mail. 
 
      - returns: RequestBuilder<TemplateNotificacaoDetalheResponse> 
      */
@@ -394,7 +394,7 @@ public class NotificacaoAPI: APIBase {
 
     /**
      
-     Gerar c\u00C3\u00B3digo de seguran\u00C3\u00A7a e enviar por e-mail
+     Gerar c\u00F3digo de seguran\u00E7a e enviar por e-mail
      
      - parameter email: (body) email 
      - parameter completion: completion handler to receive the data and the error objects
@@ -408,10 +408,10 @@ public class NotificacaoAPI: APIBase {
 
     /**
      
-     Gerar c\u00C3\u00B3digo de seguran\u00C3\u00A7a e enviar por e-mail
+     Gerar c\u00F3digo de seguran\u00E7a e enviar por e-mail
      
      - POST /api/notificacoes-email/gerar-codigo-seguranca
-     - Esse recurso permite gerar e enviar c\u00C3\u00B3digos de seguran\u00C3\u00A7a por e-mail, para valida\u00C3\u00A7\u00C3\u00A3o de dispositivos.
+     - Esse recurso permite gerar e enviar c\u00F3digos de seguran\u00E7a por e-mail, para valida\u00E7\u00E3o de dispositivos.
      - examples: [{contentType=application/json, example="aeiou"}]
      
      - parameter email: (body) email 
@@ -431,7 +431,7 @@ public class NotificacaoAPI: APIBase {
 
     /**
      
-     Gerar c\u00C3\u00B3digo de seguran\u00C3\u00A7a e enviar por sms
+     Gerar c\u00F3digo de seguran\u00E7a e enviar por sms
      
      - parameter persist: (body) persist 
      - parameter completion: completion handler to receive the data and the error objects
@@ -445,10 +445,10 @@ public class NotificacaoAPI: APIBase {
 
     /**
      
-     Gerar c\u00C3\u00B3digo de seguran\u00C3\u00A7a e enviar por sms
+     Gerar c\u00F3digo de seguran\u00E7a e enviar por sms
      
      - POST /api/notificacoes-sms/gerar-codigo-seguranca
-     - Esse recurso permite gerar e enviar c\u00C3\u00B3digos de seguran\u00C3\u00A7a por sms, para valida\u00C3\u00A7\u00C3\u00A3o de dispositivos.
+     - Esse recurso permite gerar e enviar c\u00F3digos de seguran\u00E7a por sms, para valida\u00E7\u00E3o de dispositivos.
      - examples: [{contentType=application/json, example="aeiou"}]
      
      - parameter persist: (body) persist 
@@ -468,11 +468,11 @@ public class NotificacaoAPI: APIBase {
 
     /**
      
-     Lista configura\u00C3\u00A7\u00C3\u00B5es de E-mails
+     Lista configura\u00E7\u00F5es de E-mails
      
-     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+     - parameter sort: (query) Tipo de ordena\u00E7\u00E3o dos registros. (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func listarConfiguracaoUsingGET(sort sort: [String]?, page: Int?, limit: Int?, completion: ((data: PageConfiguracaoEmailResponse?, error: ErrorType?) -> Void)) {
@@ -484,10 +484,10 @@ public class NotificacaoAPI: APIBase {
 
     /**
      
-     Lista configura\u00C3\u00A7\u00C3\u00B5es de E-mails
+     Lista configura\u00E7\u00F5es de E-mails
      
      - GET /api/configuracoes-email
-     - Esse recurso permite listar as configura\u00C3\u00A7\u00C3\u00B5es de E-mails.
+     - Esse recurso permite listar as configura\u00E7\u00F5es de E-mails.
      - examples: [{contentType=application/json, example={
   "previousPage" : 123,
   "last" : true,
@@ -519,9 +519,9 @@ public class NotificacaoAPI: APIBase {
   "first" : true
 }}]
      
-     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+     - parameter sort: (query) Tipo de ordena\u00E7\u00E3o dos registros. (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
 
      - returns: RequestBuilder<PageConfiguracaoEmailResponse> 
      */
@@ -543,11 +543,11 @@ public class NotificacaoAPI: APIBase {
 
     /**
      
-     Lista os c\u00C3\u00B3digos de seguran\u00C3\u00A7a E-Mail
+     Lista os c\u00F3digos de seguran\u00E7a E-Mail
      
-     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+     - parameter sort: (query) Tipo de ordena\u00E7\u00E3o dos registros. (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func listarPorEmailUsingGET(sort sort: [String]?, page: Int?, limit: Int?, completion: ((data: PageCodigoSegurancaResponse?, error: ErrorType?) -> Void)) {
@@ -559,10 +559,10 @@ public class NotificacaoAPI: APIBase {
 
     /**
      
-     Lista os c\u00C3\u00B3digos de seguran\u00C3\u00A7a E-Mail
+     Lista os c\u00F3digos de seguran\u00E7a E-Mail
      
      - GET /api/codigos-seguranca-email
-     - Esse recurso permite listar os codigos de seguran\u00C3\u00A7a por E-Mail.
+     - Esse recurso permite listar os codigos de seguran\u00E7a por E-Mail.
      - examples: [{contentType=application/json, example={
   "previousPage" : 123,
   "last" : true,
@@ -587,9 +587,9 @@ public class NotificacaoAPI: APIBase {
   "first" : true
 }}]
      
-     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+     - parameter sort: (query) Tipo de ordena\u00E7\u00E3o dos registros. (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
 
      - returns: RequestBuilder<PageCodigoSegurancaResponse> 
      */
@@ -611,11 +611,11 @@ public class NotificacaoAPI: APIBase {
 
     /**
      
-     Lista os c\u00C3\u00B3digos de seguran\u00C3\u00A7a SMS
+     Lista os c\u00F3digos de seguran\u00E7a SMS
      
-     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+     - parameter sort: (query) Tipo de ordena\u00E7\u00E3o dos registros. (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func listarPorSMSUsingGET(sort sort: [String]?, page: Int?, limit: Int?, completion: ((data: PageCodigoSegurancaResponse?, error: ErrorType?) -> Void)) {
@@ -627,10 +627,10 @@ public class NotificacaoAPI: APIBase {
 
     /**
      
-     Lista os c\u00C3\u00B3digos de seguran\u00C3\u00A7a SMS
+     Lista os c\u00F3digos de seguran\u00E7a SMS
      
      - GET /api/codigos-seguranca-sms
-     - Esse recurso permite listar os codigos de seguran\u00C3\u00A7a por SMS.
+     - Esse recurso permite listar os codigos de seguran\u00E7a por SMS.
      - examples: [{contentType=application/json, example={
   "previousPage" : 123,
   "last" : true,
@@ -655,9 +655,9 @@ public class NotificacaoAPI: APIBase {
   "first" : true
 }}]
      
-     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+     - parameter sort: (query) Tipo de ordena\u00E7\u00E3o dos registros. (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
 
      - returns: RequestBuilder<PageCodigoSegurancaResponse> 
      */
@@ -681,14 +681,14 @@ public class NotificacaoAPI: APIBase {
      
      Listar Push
      
-     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+     - parameter sort: (query) Tipo de ordena\u00E7\u00E3o dos registros. (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
      - parameter dataEnvio: (query) Apresenta a data e em que o registro foi enviado para o dispositivo. (optional)
-     - parameter tipoEvento: (query) Nome do tipoEvento da notifica\u00C3\u00A7\u00C3\u00A3o (optional)
-     - parameter status: (query) Status de envio da notifica\u00C3\u00A7\u00C3\u00A3o (optional)
+     - parameter tipoEvento: (query) Nome do tipoEvento da notifica\u00E7\u00E3o (optional)
+     - parameter status: (query) Status de envio da notifica\u00E7\u00E3o (optional)
      - parameter plataforma: (query) Plataforma de Push notifications. (optional)
-     - parameter protocolo: (query) N\u00C3\u00BAmero do protocolo de envio de notifica\u00C3\u00A7\u00C3\u00B5es (optional)
+     - parameter protocolo: (query) N\u00FAmero do protocolo de envio de notifica\u00E7\u00F5es (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func listarPushUsingGET(sort sort: [String]?, page: Int?, limit: Int?, dataEnvio: String?, tipoEvento: String?, status: String?, plataforma: String?, protocolo: String?, completion: ((data: PagePushResponse?, error: ErrorType?) -> Void)) {
@@ -733,14 +733,14 @@ public class NotificacaoAPI: APIBase {
   "first" : true
 }}]
      
-     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+     - parameter sort: (query) Tipo de ordena\u00E7\u00E3o dos registros. (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
      - parameter dataEnvio: (query) Apresenta a data e em que o registro foi enviado para o dispositivo. (optional)
-     - parameter tipoEvento: (query) Nome do tipoEvento da notifica\u00C3\u00A7\u00C3\u00A3o (optional)
-     - parameter status: (query) Status de envio da notifica\u00C3\u00A7\u00C3\u00A3o (optional)
+     - parameter tipoEvento: (query) Nome do tipoEvento da notifica\u00E7\u00E3o (optional)
+     - parameter status: (query) Status de envio da notifica\u00E7\u00E3o (optional)
      - parameter plataforma: (query) Plataforma de Push notifications. (optional)
-     - parameter protocolo: (query) N\u00C3\u00BAmero do protocolo de envio de notifica\u00C3\u00A7\u00C3\u00B5es (optional)
+     - parameter protocolo: (query) N\u00FAmero do protocolo de envio de notifica\u00E7\u00F5es (optional)
 
      - returns: RequestBuilder<PagePushResponse> 
      */
@@ -769,15 +769,15 @@ public class NotificacaoAPI: APIBase {
      
      Listar SMS
      
-     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
-     - parameter dataInclusao: (query) Apresenta a data e em que o registro foi inclu\u00C3\u00ADdo na base para ser enviado (optional)
-     - parameter tipoEvento: (query) Nome do tipoEvento da notifica\u00C3\u00A7\u00C3\u00A3o (optional)
-     - parameter status: (query) Status de envio da notifica\u00C3\u00A7\u00C3\u00A3o (optional)
-     - parameter operadora: (query) Nome da operadora a qual a notifica\u00C3\u00A7\u00C3\u00A3o foi enviada. (optional)
-     - parameter protocolo: (query) N\u00C3\u00BAmero do protocolo de envio de notifica\u00C3\u00A7\u00C3\u00B5es (optional)
-     - parameter nsu: (query) Apresenta o nsu da notifica\u00C3\u00A7\u00C3\u00A3o (optional)
+     - parameter sort: (query) Tipo de ordena\u00E7\u00E3o dos registros. (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
+     - parameter dataInclusao: (query) Apresenta a data e em que o registro foi inclu\u00EDdo na base para ser enviado (optional)
+     - parameter tipoEvento: (query) Nome do tipoEvento da notifica\u00E7\u00E3o (optional)
+     - parameter status: (query) Status de envio da notifica\u00E7\u00E3o (optional)
+     - parameter operadora: (query) Nome da operadora a qual a notifica\u00E7\u00E3o foi enviada. (optional)
+     - parameter protocolo: (query) N\u00FAmero do protocolo de envio de notifica\u00E7\u00F5es (optional)
+     - parameter nsu: (query) Apresenta o nsu da notifica\u00E7\u00E3o (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func listarSMSUsingGET(sort sort: [String]?, page: Int?, limit: Int?, dataInclusao: String?, tipoEvento: String?, status: String?, operadora: String?, protocolo: String?, nsu: Int?, completion: ((data: PageSMSResponse?, error: ErrorType?) -> Void)) {
@@ -828,15 +828,15 @@ public class NotificacaoAPI: APIBase {
   "first" : true
 }}]
      
-     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
-     - parameter dataInclusao: (query) Apresenta a data e em que o registro foi inclu\u00C3\u00ADdo na base para ser enviado (optional)
-     - parameter tipoEvento: (query) Nome do tipoEvento da notifica\u00C3\u00A7\u00C3\u00A3o (optional)
-     - parameter status: (query) Status de envio da notifica\u00C3\u00A7\u00C3\u00A3o (optional)
-     - parameter operadora: (query) Nome da operadora a qual a notifica\u00C3\u00A7\u00C3\u00A3o foi enviada. (optional)
-     - parameter protocolo: (query) N\u00C3\u00BAmero do protocolo de envio de notifica\u00C3\u00A7\u00C3\u00B5es (optional)
-     - parameter nsu: (query) Apresenta o nsu da notifica\u00C3\u00A7\u00C3\u00A3o (optional)
+     - parameter sort: (query) Tipo de ordena\u00E7\u00E3o dos registros. (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
+     - parameter dataInclusao: (query) Apresenta a data e em que o registro foi inclu\u00EDdo na base para ser enviado (optional)
+     - parameter tipoEvento: (query) Nome do tipoEvento da notifica\u00E7\u00E3o (optional)
+     - parameter status: (query) Status de envio da notifica\u00E7\u00E3o (optional)
+     - parameter operadora: (query) Nome da operadora a qual a notifica\u00E7\u00E3o foi enviada. (optional)
+     - parameter protocolo: (query) N\u00FAmero do protocolo de envio de notifica\u00E7\u00F5es (optional)
+     - parameter nsu: (query) Apresenta o nsu da notifica\u00E7\u00E3o (optional)
 
      - returns: RequestBuilder<PageSMSResponse> 
      */
@@ -864,11 +864,11 @@ public class NotificacaoAPI: APIBase {
 
     /**
      
-     Lista templates de notifica\u00C3\u00A7\u00C3\u00B5es
+     Lista templates de notifica\u00E7\u00F5es
      
-     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+     - parameter sort: (query) Tipo de ordena\u00E7\u00E3o dos registros. (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func listarTemplateNotificacaoUsingGET(sort sort: [String]?, page: Int?, limit: Int?, completion: ((data: PageTemplateNotificacaoResponse?, error: ErrorType?) -> Void)) {
@@ -880,10 +880,10 @@ public class NotificacaoAPI: APIBase {
 
     /**
      
-     Lista templates de notifica\u00C3\u00A7\u00C3\u00B5es
+     Lista templates de notifica\u00E7\u00F5es
      
      - GET /api/templates-notificacoes
-     - Esse recurso permite listar templates notifica\u00C3\u00A7\u00C3\u00B5es.
+     - Esse recurso permite listar templates notifica\u00E7\u00F5es.
      - examples: [{contentType=application/json, example={
   "previousPage" : 123,
   "last" : true,
@@ -911,9 +911,9 @@ public class NotificacaoAPI: APIBase {
   "first" : true
 }}]
      
-     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+     - parameter sort: (query) Tipo de ordena\u00E7\u00E3o dos registros. (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
 
      - returns: RequestBuilder<PageTemplateNotificacaoResponse> 
      */
@@ -935,7 +935,7 @@ public class NotificacaoAPI: APIBase {
 
     /**
      
-     Lista os tipos templates de notifica\u00C3\u00A7\u00C3\u00A3o
+     Lista os tipos templates de notifica\u00E7\u00E3o
      
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -948,10 +948,10 @@ public class NotificacaoAPI: APIBase {
 
     /**
      
-     Lista os tipos templates de notifica\u00C3\u00A7\u00C3\u00A3o
+     Lista os tipos templates de notifica\u00E7\u00E3o
      
      - GET /api/tipos-layouts
-     - Esse recurso permite listar os tipos de templates dispon\u00C3\u00ADveis os par\u00C3\u00A2metros devem ser usados entre chaves. Ex: {{nomeParametro}} .
+     - Esse recurso permite listar os tipos de templates dispon\u00EDveis os par\u00E2metros devem ser usados entre chaves. Ex: {{nomeParametro}} .
      - examples: [{contentType=application/json, example=[ "{}" ]}]
 
      - returns: RequestBuilder<[AnyObject]> 
@@ -970,7 +970,7 @@ public class NotificacaoAPI: APIBase {
 
     /**
      
-     Enviar notifica\u00C3\u00A7\u00C3\u00A3o por email
+     Enviar notifica\u00E7\u00E3o por email
      
      - parameter request: (body) request 
      - parameter completion: completion handler to receive the data and the error objects
@@ -984,10 +984,10 @@ public class NotificacaoAPI: APIBase {
 
     /**
      
-     Enviar notifica\u00C3\u00A7\u00C3\u00A3o por email
+     Enviar notifica\u00E7\u00E3o por email
      
      - POST /api/notificacoes-email
-     - Esse recurso permite enviar uma mensagem de notifica\u00C3\u00A7\u00C3\u00A3o por email
+     - Esse recurso permite enviar uma mensagem de notifica\u00E7\u00E3o por email
      - examples: [{contentType=application/json, example="{}"}]
      
      - parameter request: (body) request 
@@ -1007,7 +1007,7 @@ public class NotificacaoAPI: APIBase {
 
     /**
      
-     Reenviar c\u00C3\u00B3digo de seguran\u00C3\u00A7a por sms
+     Reenviar c\u00F3digo de seguran\u00E7a por sms
      
      - parameter persist: (body) persist 
      - parameter completion: completion handler to receive the data and the error objects
@@ -1021,10 +1021,10 @@ public class NotificacaoAPI: APIBase {
 
     /**
      
-     Reenviar c\u00C3\u00B3digo de seguran\u00C3\u00A7a por sms
+     Reenviar c\u00F3digo de seguran\u00E7a por sms
      
      - POST /api/notificacoes-sms/reenviar-codigo-seguranca
-     - Esse recurso permite que seja reenviado para um determinado n\u00C3\u00BAmero de telefone, atrav\u00C3\u00A9s de SMS, o c\u00C3\u00B3digo de seguran\u00C3\u00A7a gerado previamente para ele. Caso o c\u00C3\u00B3digo de seguran\u00C3\u00A7a j\u00C3\u00A1 n\u00C3\u00A3o esteja mais v\u00C3\u00A1lido, o recurso retornar\u00C3\u00A1 uma mensagem orientando que seja solicitada uma nova gera\u00C3\u00A7\u00C3\u00A3o para o telefone em quest\u00C3\u00A3o.
+     - Esse recurso permite que seja reenviado para um determinado n\u00FAmero de telefone, atrav\u00E9s de SMS, o c\u00F3digo de seguran\u00E7a gerado previamente para ele. Caso o c\u00F3digo de seguran\u00E7a j\u00E1 n\u00E3o esteja mais v\u00E1lido, o recurso retornar\u00E1 uma mensagem orientando que seja solicitada uma nova gera\u00E7\u00E3o para o telefone em quest\u00E3o.
      - examples: [{contentType=application/json, example="aeiou"}]
      
      - parameter persist: (body) persist 
@@ -1046,7 +1046,7 @@ public class NotificacaoAPI: APIBase {
      
      Responder SMS
      
-     - parameter nsu: (query) Seu n\u00C3\u00BAmero (optional)
+     - parameter nsu: (query) Seu n\u00FAmero (optional)
      - parameter data: (query) Data (optional)
      - parameter resposta: (query) TextoStatus (optional)
      - parameter completion: completion handler to receive the data and the error objects
@@ -1063,7 +1063,7 @@ public class NotificacaoAPI: APIBase {
      Responder SMS
      
      - GET /api/notificacoes/sms/responder
-     - Esse recurso permite atualizar a resposta do SMS, fornecida pedo usu\u00C3\u00A1rio
+     - Esse recurso permite atualizar a resposta do SMS, fornecida pedo usu\u00E1rio
      - examples: [{contentType=application/json, example={
   "quantidadeTentativasEnvio" : 123,
   "conteudo" : "aeiou",
@@ -1084,7 +1084,7 @@ public class NotificacaoAPI: APIBase {
   "status" : "aeiou"
 }}]
      
-     - parameter nsu: (query) Seu n\u00C3\u00BAmero (optional)
+     - parameter nsu: (query) Seu n\u00FAmero (optional)
      - parameter data: (query) Data (optional)
      - parameter resposta: (query) TextoStatus (optional)
 
@@ -1108,7 +1108,7 @@ public class NotificacaoAPI: APIBase {
 
     /**
      
-     Salva configura\u00C3\u00A7\u00C3\u00B5es de E-mail
+     Salva configura\u00E7\u00F5es de E-mail
      
      - parameter persist: (body) persist 
      - parameter completion: completion handler to receive the data and the error objects
@@ -1122,10 +1122,10 @@ public class NotificacaoAPI: APIBase {
 
     /**
      
-     Salva configura\u00C3\u00A7\u00C3\u00B5es de E-mail
+     Salva configura\u00E7\u00F5es de E-mail
      
      - POST /api/configuracoes-email
-     - Esse recurso salvar configura\u00C3\u00A7\u00C3\u00B5es de E-mail.
+     - Esse recurso salvar configura\u00E7\u00F5es de E-mail.
      - examples: [{contentType=application/json, example={
   "portSSL" : "aeiou",
   "requerTLS" : false,
@@ -1176,7 +1176,7 @@ public class NotificacaoAPI: APIBase {
      Enviar Push FCM
      
      - POST /api/notificacoes/push/fcm
-     - Esse recurso permite enviar Push para um determinado dipositivo movel atrav\u00C3\u00A9s da plataforma FCM (Firebase Cloud Messaging).
+     - Esse recurso permite enviar Push para um determinado dipositivo movel atrav\u00E9s da plataforma FCM (Firebase Cloud Messaging).
      - examples: [{contentType=application/json, example={
   "protocolo" : "aeiou",
   "mensagem" : "aeiou"
@@ -1216,7 +1216,7 @@ public class NotificacaoAPI: APIBase {
      Enviar Push GCM
      
      - POST /api/notificacoes/push/gcm
-     - Esse recurso permite enviar Push para um determinado dipositivo movel atrav\u00C3\u00A9s da plataforma GCM (Google Cloud Messaging).
+     - Esse recurso permite enviar Push para um determinado dipositivo movel atrav\u00E9s da plataforma GCM (Google Cloud Messaging).
      - examples: [{contentType=application/json, example={
   "protocolo" : "aeiou",
   "mensagem" : "aeiou"
@@ -1256,7 +1256,7 @@ public class NotificacaoAPI: APIBase {
      Enviar Push APNS
      
      - POST /api/notificacoes/push/apns
-     - Esse recurso permite enviar Push para um determinado dipositivo movel atrav\u00C3\u00A9s da plataforma APNS (Apple Push Notification Service).
+     - Esse recurso permite enviar Push para um determinado dipositivo movel atrav\u00E9s da plataforma APNS (Apple Push Notification Service).
      - examples: [{contentType=application/json, example={
   "protocolo" : "aeiou",
   "mensagem" : "aeiou"
@@ -1319,15 +1319,15 @@ public class NotificacaoAPI: APIBase {
 
     /**
      
-     Salva template de notifica\u00C3\u00A7\u00C3\u00A3o
+     Salva template de notifica\u00E7\u00E3o
      
      - parameter conteudo: (body) Template HTML 
-     - parameter idConfiguracaoEmail: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da configra\u00C3\u00A7\u00C3\u00A3o de EMAIL. (optional)
+     - parameter idConfiguracaoEmail: (query) C\u00F3digo de identifica\u00E7\u00E3o da configra\u00E7\u00E3o de EMAIL. (optional)
      - parameter tipoLayout: (query) Tipo do layout. (optional)
-     - parameter tipoNotificacao: (query) Tipo da notifica\u00C3\u00A7\u00C3\u00A3o. (optional)
+     - parameter tipoNotificacao: (query) Tipo da notifica\u00E7\u00E3o. (optional)
      - parameter remetente: (query) Remetente (optional)
-     - parameter assunto: (query) Assunto da Notificaca\u00C3\u00A7\u00C3\u00A3o. (optional)
-     - parameter templatePadrao: (query) Template Padr\u00C3\u00A3o. (optional)
+     - parameter assunto: (query) Assunto da Notificaca\u00E7\u00E3o. (optional)
+     - parameter templatePadrao: (query) Template Padr\u00E3o. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func salvarTemplateNotificacaoUsingPOST(conteudo conteudo: String, idConfiguracaoEmail: Int?, tipoLayout: String?, tipoNotificacao: String?, remetente: String?, assunto: String?, templatePadrao: Bool?, completion: ((data: TemplateNotificacaoDetalheResponse?, error: ErrorType?) -> Void)) {
@@ -1339,10 +1339,10 @@ public class NotificacaoAPI: APIBase {
 
     /**
      
-     Salva template de notifica\u00C3\u00A7\u00C3\u00A3o
+     Salva template de notifica\u00E7\u00E3o
      
      - POST /api/templates-notificacoes
-     - Esse recurso salvar template notifica\u00C3\u00A7\u00C3\u00B5e.
+     - Esse recurso salvar template notifica\u00E7\u00F5e.
      - examples: [{contentType=application/json, example={
   "idConfiguracaoEmail" : 123456789,
   "remetente" : "aeiou",
@@ -1357,12 +1357,12 @@ public class NotificacaoAPI: APIBase {
 }}]
      
      - parameter conteudo: (body) Template HTML 
-     - parameter idConfiguracaoEmail: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da configra\u00C3\u00A7\u00C3\u00A3o de EMAIL. (optional)
+     - parameter idConfiguracaoEmail: (query) C\u00F3digo de identifica\u00E7\u00E3o da configra\u00E7\u00E3o de EMAIL. (optional)
      - parameter tipoLayout: (query) Tipo do layout. (optional)
-     - parameter tipoNotificacao: (query) Tipo da notifica\u00C3\u00A7\u00C3\u00A3o. (optional)
+     - parameter tipoNotificacao: (query) Tipo da notifica\u00E7\u00E3o. (optional)
      - parameter remetente: (query) Remetente (optional)
-     - parameter assunto: (query) Assunto da Notificaca\u00C3\u00A7\u00C3\u00A3o. (optional)
-     - parameter templatePadrao: (query) Template Padr\u00C3\u00A3o. (optional)
+     - parameter assunto: (query) Assunto da Notificaca\u00E7\u00E3o. (optional)
+     - parameter templatePadrao: (query) Template Padr\u00E3o. (optional)
 
      - returns: RequestBuilder<TemplateNotificacaoDetalheResponse> 
      */
@@ -1379,7 +1379,7 @@ public class NotificacaoAPI: APIBase {
 
     /**
      
-     Validar c\u00C3\u00B3digo de seguran\u00C3\u00A7a enviado por e-mail
+     Validar c\u00F3digo de seguran\u00E7a enviado por e-mail
      
      - parameter request: (body) request 
      - parameter completion: completion handler to receive the data and the error objects
@@ -1393,10 +1393,10 @@ public class NotificacaoAPI: APIBase {
 
     /**
      
-     Validar c\u00C3\u00B3digo de seguran\u00C3\u00A7a enviado por e-mail
+     Validar c\u00F3digo de seguran\u00E7a enviado por e-mail
      
      - POST /api/notificacoes-email/validar-codigo-seguranca
-     - Esse recurso permite validar os c\u00C3\u00B3digos de seguran\u00C3\u00A7a enviador por e-mail, para valida\u00C3\u00A7\u00C3\u00A3o de dispositivos.
+     - Esse recurso permite validar os c\u00F3digos de seguran\u00E7a enviador por e-mail, para valida\u00E7\u00E3o de dispositivos.
      - examples: [{contentType=application/json, example="aeiou"}]
      
      - parameter request: (body) request 
@@ -1416,7 +1416,7 @@ public class NotificacaoAPI: APIBase {
 
     /**
      
-     Validar c\u00C3\u00B3digo de seguran\u00C3\u00A7a enviado por sms
+     Validar c\u00F3digo de seguran\u00E7a enviado por sms
      
      - parameter request: (body) request 
      - parameter completion: completion handler to receive the data and the error objects
@@ -1430,10 +1430,10 @@ public class NotificacaoAPI: APIBase {
 
     /**
      
-     Validar c\u00C3\u00B3digo de seguran\u00C3\u00A7a enviado por sms
+     Validar c\u00F3digo de seguran\u00E7a enviado por sms
      
      - POST /api/notificacoes-sms/validar-codigo-seguranca
-     - Esse recurso permite validar os c\u00C3\u00B3digos de seguran\u00C3\u00A7a enviador por sms, para valida\u00C3\u00A7\u00C3\u00A3o de dispositivos.
+     - Esse recurso permite validar os c\u00F3digos de seguran\u00E7a enviador por sms, para valida\u00E7\u00E3o de dispositivos.
      - examples: [{contentType=application/json, example="aeiou"}]
      
      - parameter request: (body) request 

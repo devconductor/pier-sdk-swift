@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Lista de Endere\u00C3\u00A7os */
+/** Lista de Endere\u00E7os */
 public class PageEnderecoResponse: JSONEncodable {
 
     public var content: [EnderecoResponse]?

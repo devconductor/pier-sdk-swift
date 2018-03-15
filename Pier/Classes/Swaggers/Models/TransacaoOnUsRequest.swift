@@ -8,24 +8,24 @@
 import Foundation
 
 
-/** Objeto de Requisi\u00C3\u00A7\u00C3\u00A3o de Transa\u00C3\u00A7\u00C3\u00A3o On Us */
+/** Objeto de Requisi\u00E7\u00E3o de Transa\u00E7\u00E3o On Us */
 public class TransacaoOnUsRequest: JSONEncodable {
 
-    /** N\u00C3\u00BAmero Sequencial \u00C3\u009Anico que identifica a transa\u00C3\u00A7\u00C3\u00A3o no sistema que a originou. */
+    /** N\u00FAmero Sequencial \u00DAnico que identifica a transa\u00E7\u00E3o no sistema que a originou. */
     public var nsuOrigem: String?
-    /** C\u00C3\u00B3digo de Processamento que identifica o Tipo da Transa\u00C3\u00A7\u00C3\u00A3o. */
+    /** C\u00F3digo de Processamento que identifica o Tipo da Transa\u00E7\u00E3o. */
     public var codigoProcessamento: String?
-    /** Valor da transa\u00C3\u00A7\u00C3\u00A3o com duas casas decimais para os centavos. */
+    /** Valor da transa\u00E7\u00E3o com duas casas decimais para os centavos. */
     public var valorTransacao: Double?
-    /** N\u00C3\u00BAmero Real do Cart\u00C3\u00A3o. */
+    /** N\u00FAmero Real do Cart\u00E3o. */
     public var numeroRealCartao: String?
-    /** Data de Validade do Cart\u00C3\u00A3o. Ex: AAMM */
+    /** Data de Validade do Cart\u00E3o. Ex: AAMM */
     public var dataValidadeCartao: String?
-    /** N\u00C3\u00BAmero do Estabelecimento (N\u00C3\u00BAmero+DV). */
+    /** N\u00FAmero do Estabelecimento (N\u00FAmero+DV). */
     public var numeroEstabelecimento: Int?
     /** Apresenta a data e hora local da consulta yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZ. Ex: 2000-10-31T01:30:00.000-05:00 */
     public var dataHoraTerminal: String?
-    /** Apresenta a identifica\u00C3\u00A7\u00C3\u00A3o do terminal requisitante */
+    /** Apresenta a identifica\u00E7\u00E3o do terminal requisitante */
     public var terminalRequisitante: String?
     
 

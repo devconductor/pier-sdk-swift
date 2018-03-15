@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Lista de Status Impress\u00C3\u00A3o */
+/** Lista de Status Impress\u00E3o */
 public class PageStatusImpressaoResponse: JSONEncodable {
 
     public var content: [StatusImpressaoResponse]?

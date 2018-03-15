@@ -11,31 +11,31 @@ import Foundation
 /** Resposta do recurso de cadastrar adicional */
 public class AdicionalResponse: JSONEncodable {
 
-    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da Conta para cadastro do Adicional */
+    /** C\u00F3digo de identifica\u00E7\u00E3o da Conta para cadastro do Adicional */
     public var idConta: Int?
-    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da Pessoa Adicional */
+    /** C\u00F3digo de identifica\u00E7\u00E3o da Pessoa Adicional */
     public var idPessoa: Int?
     /** Nome completo do Adicional */
     public var nome: String?
-    /** Nome do Adicional que ser\u00C3\u00A1 gravado no Cart\u00C3\u00A3o */
+    /** Nome do Adicional que ser\u00E1 gravado no Cart\u00E3o */
     public var nomeImpresso: String?
-    /** N\u00C3\u00BAmero do CPF ou CNPJ do Adicional */
+    /** N\u00FAmero do CPF ou CNPJ do Adicional */
     public var numeroReceitaFederal: String?
     /** Data de Nascimento do Adicional */
     public var dataNascimento: String?
-    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do sexo da Pessoa, quando PF, sendo: (\&quot;M\&quot;: Masculino), (\&quot;F\&quot;: Feminino), (\&quot;O\&quot;: Outro), (\&quot;N\&quot;: N\u00C3\u00A3o Especificado). */
+    /** C\u00F3digo de identifica\u00E7\u00E3o do sexo da Pessoa, quando PF, sendo: (\&quot;M\&quot;: Masculino), (\&quot;F\&quot;: Feminino), (\&quot;O\&quot;: Outro), (\&quot;N\&quot;: N\u00E3o Especificado). */
     public var sexo: String?
-    /** N\u00C3\u00BAmero do Documento de Identidade do Adicional */
+    /** N\u00FAmero do Documento de Identidade do Adicional */
     public var numeroIdentidade: String?
-    /** Nome do Org\u00C3\u00A3o Emissor do Documento de Identidade do Adicional */
+    /** Nome do Org\u00E3o Emissor do Documento de Identidade do Adicional */
     public var orgaoExpedidorIdentidade: String?
     /** Sigla da Unidade Federativa onde o Documento de Identidade do Adicional foi emitido */
     public var unidadeFederativaIdentidade: String?
-    /** Data de emiss\u00C3\u00A3o do Documento de Identidade do Adicional */
+    /** Data de emiss\u00E3o do Documento de Identidade do Adicional */
     public var dataEmissaoIdentidade: String?
-    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do Parentesco do Adicional com o Titular */
+    /** C\u00F3digo de identifica\u00E7\u00E3o do Parentesco do Adicional com o Titular */
     public var idParentesco: Int?
-    /** Indica se o adicional est\u00C3\u00A1 ativo = 1 ou inativo = 0 */
+    /** Indica se o adicional est\u00E1 ativo = 1 ou inativo = 0 */
     public var flagAtivo: Int?
     /** Indica a data de cadastro do adicional */
     public var dataCadastroPortador: String?

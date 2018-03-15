@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Hist\u00C3\u00B3rico Pagamento Fatura Atraso */
+/** Hist\u00F3rico Pagamento Fatura Atraso */
 public class HistoricoAtrasoFaturaResponse: JSONEncodable {
 
     /** Data vencimento fatura. */

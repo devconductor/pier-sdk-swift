@@ -8,41 +8,41 @@
 import Foundation
 
 
-/** Transfer\u00C3\u00AAncia banc\u00C3\u00A1ria */
+/** Transfer\u00EAncia banc\u00E1ria */
 public class TransferenciaBancariaResponse: JSONEncodable {
 
     public var nsuorigem: Int?
-    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da autoriza\u00C3\u00A7\u00C3\u00A3o (id) */
+    /** C\u00F3digo de identifica\u00E7\u00E3o da autoriza\u00E7\u00E3o (id) */
     public var idAutorizacao: Int?
-    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da transferencia (id) */
+    /** C\u00F3digo de identifica\u00E7\u00E3o da transferencia (id) */
     public var idTransferencia: Int?
-    /** C\u00C3\u00B3digo da autoriza\u00C3\u00A7\u00C3\u00A3o */
+    /** C\u00F3digo da autoriza\u00E7\u00E3o */
     public var codigoAutorizacao: String?
-    /** Data da autoriza\u00C3\u00A7\u00C3\u00A3o */
+    /** Data da autoriza\u00E7\u00E3o */
     public var dataAutorizacao: String?
     /** Origem */
     public var origem: String?
     /** Valor */
     public var valor: Double?
-    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do tipo de opera\u00C3\u00A7\u00C3\u00A3o (id) */
+    /** C\u00F3digo de identifica\u00E7\u00E3o do tipo de opera\u00E7\u00E3o (id) */
     public var idOperacao: Int?
     /** Terminal */
     public var terminal: String?
-    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do cart\u00C3\u00A3o (id) */
+    /** C\u00F3digo de identifica\u00E7\u00E3o do cart\u00E3o (id) */
     public var idCartao: Int?
-    /** Data da transfer\u00C3\u00AAncia */
+    /** Data da transfer\u00EAncia */
     public var dataCompra: String?
-    /** Valor da transfer\u00C3\u00AAncia */
+    /** Valor da transfer\u00EAncia */
     public var valorCompra: Double?
-    /** N\u00C3\u00BAmero de parcelas */
+    /** N\u00FAmero de parcelas */
     public var numeroParcelas: Int?
     /** Valor da parcela */
     public var valorParcela: Double?
-    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do estabelecimento (id) */
+    /** C\u00F3digo de identifica\u00E7\u00E3o do estabelecimento (id) */
     public var idEstabelecimento: Int?
     /** Data do movimento */
     public var dataMovimento: String?
-    /** Valor da transfer\u00C3\u00AAncia acrescido do valor da tarifa de saque se houver tarifa de saque */
+    /** Valor da transfer\u00EAncia acrescido do valor da tarifa de saque se houver tarifa de saque */
     public var valorContrato: Double?
     /** Percentual de juros */
     public var taxaJuros: Double?
@@ -50,29 +50,29 @@ public class TransferenciaBancariaResponse: JSONEncodable {
     public var valorIOF: Double?
     /** Valor da TAC */
     public var valorTAC: Double?
-    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id) */
+    /** C\u00F3digo de identifica\u00E7\u00E3o da conta (id) */
     public var idConta: Int?
     /** Valor da entrada (primeira parcela) */
     public var valorEntrada: Double?
     /** Data do vencimento real da fatura */
     public var dataVencimentoReal: String?
-    /** Dia do vencimento padr\u00C3\u00A3o da fatura */
+    /** Dia do vencimento padr\u00E3o da fatura */
     public var dataVencimentoPadrao: String?
-    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta banc\u00C3\u00A1ria de destino (id) */
+    /** C\u00F3digo de identifica\u00E7\u00E3o da conta banc\u00E1ria de destino (id) */
     public var idContaPortador: Int?
     /** Atributo que representa o numero do estabelecimento. */
     public var numeroEstabelecimento: Int?
     /** Valor da taxa saque. */
     public var valorTaxaSaque: Double?
-    /** C\u00C3\u00B3digo do Banco */
+    /** C\u00F3digo do Banco */
     public var banco: Int?
-    /** N\u00C3\u00BAmero da Ag\u00C3\u00AAncia */
+    /** N\u00FAmero da Ag\u00EAncia */
     public var numeroAgencia: String?
-    /** D\u00C3\u00ADgito da Ag\u00C3\u00AAncia */
+    /** D\u00EDgito da Ag\u00EAncia */
     public var digitoAgencia: String?
-    /** N\u00C3\u00BAmero da Conta */
+    /** N\u00FAmero da Conta */
     public var numeroConta: String?
-    /** D\u00C3\u00ADgito da Conta */
+    /** D\u00EDgito da Conta */
     public var digitoConta: String?
     /** Tipo da Conta */
     public var flagContaPoupanca: Int?

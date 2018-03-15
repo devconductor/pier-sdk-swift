@@ -27,39 +27,39 @@ public class NotificacaoSMSResponse: JSONEncodable {
         case SucessoResposta = "SUCESSO_RESPOSTA"
     }
     
-    /** C\u00C3\u00B3digo Identificador. */
+    /** C\u00F3digo Identificador. */
     public var id: Int?
-    /** N\u00C3\u00BAmero sequencial \u00C3\u00BAnico. */
+    /** N\u00FAmero sequencial \u00FAnico. */
     public var nsu: Int?
-    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do emissor (id). */
+    /** C\u00F3digo de identifica\u00E7\u00E3o do emissor (id). */
     public var idEmissor: Int?
-    /** TipoEvento de notifica\u00C3\u00A7\u00C3\u00A3o */
+    /** TipoEvento de notifica\u00E7\u00E3o */
     public var tipoEvento: TipoEvento?
-    /** Status de envio da notifica\u00C3\u00A7\u00C3\u00A3o */
+    /** Status de envio da notifica\u00E7\u00E3o */
     public var status: Status?
-    /** Descri\u00C3\u00A7\u00C3\u00A3o do status de envio da notifica\u00C3\u00A7\u00C3\u00A3o */
+    /** Descri\u00E7\u00E3o do status de envio da notifica\u00E7\u00E3o */
     public var descricaoStatus: String?
-    /** C\u00C3\u00B3digo identificado da pessoa */
+    /** C\u00F3digo identificado da pessoa */
     public var idPessoa: Int?
-    /** C\u00C3\u00B3digo identificador da conta */
+    /** C\u00F3digo identificador da conta */
     public var idConta: Int?
     /** Apresenta o celular a ser eviado o SMS no formato 5588999999999 ou 5588999999999 */
     public var celular: String?
     /** Apresenta a operadora do celular a ser eviado o SMS */
     public var operadora: String?
-    /** Apresenta o texto da notifica\u00C3\u00A7\u00C3\u00A3o a ser enviado */
+    /** Apresenta o texto da notifica\u00E7\u00E3o a ser enviado */
     public var conteudo: String?
-    /** Apresenta o texto da resposta da notifica\u00C3\u00A7\u00C3\u00A3o que foi enviada */
+    /** Apresenta o texto da resposta da notifica\u00E7\u00E3o que foi enviada */
     public var resposta: String?
-    /** Apresenta a data e hora em que ser\u00C3\u00A1 enviado a notifica\u00C3\u00A7\u00C3\u00A3o */
+    /** Apresenta a data e hora em que ser\u00E1 enviado a notifica\u00E7\u00E3o */
     public var dataAgendamento: String?
-    /** Quantidade de tentativas e envio da notifica\u00C3\u00A7\u00C3\u00A3o */
+    /** Quantidade de tentativas e envio da notifica\u00E7\u00E3o */
     public var quantidadeTentativasEnvio: Int?
-    /** Apresenta a data e em que o registro foi inclu\u00C3\u00ADdo na base para ser enviado */
+    /** Apresenta a data e em que o registro foi inclu\u00EDdo na base para ser enviado */
     public var dataInclusao: String?
     /** Apresenta a data e em que o Stattjus do registro foi modificado */
     public var dataAlteracaoStatus: String?
-    /** N\u00C3\u00BAmero do protocolo de envio de notifica\u00C3\u00A7\u00C3\u00B5es */
+    /** N\u00FAmero do protocolo de envio de notifica\u00E7\u00F5es */
     public var protocolo: String?
     
 

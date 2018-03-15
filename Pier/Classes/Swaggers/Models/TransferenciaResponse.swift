@@ -11,13 +11,13 @@ import Foundation
 /** Objeto transferencia */
 public class TransferenciaResponse: JSONEncodable {
 
-    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da transfer\u00C3\u00AAncia (id). */
+    /** C\u00F3digo de identifica\u00E7\u00E3o da transfer\u00EAncia (id). */
     public var id: Int?
-    /** Data estabelecida para ocorrer a transfer\u00C3\u00AAncia. */
+    /** Data estabelecida para ocorrer a transfer\u00EAncia. */
     public var dataTransferencia: String?
-    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta em que o valor ser\u00C3\u00A1 debitado para a transfer\u00C3\u00AAncia. (id). */
+    /** C\u00F3digo de identifica\u00E7\u00E3o da conta em que o valor ser\u00E1 debitado para a transfer\u00EAncia. (id). */
     public var idContaOrigem: Int?
-    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta em que o valor ser\u00C3\u00A1 creditado para a transfer\u00C3\u00AAncia. (id). */
+    /** C\u00F3digo de identifica\u00E7\u00E3o da conta em que o valor ser\u00E1 creditado para a transfer\u00EAncia. (id). */
     public var idContaDestino: Int?
     /** Valor estabelecido para ser transferido. */
     public var valorTransferencia: Double?

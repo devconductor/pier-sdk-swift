@@ -11,99 +11,99 @@ import Foundation
 /** Fatura Consignada detalhe */
 public class FaturaConsignadaDetalheResponse: JSONEncodable {
 
-    /** C\u00C3\u00B3digo identificador da fatura. */
+    /** C\u00F3digo identificador da fatura. */
     public var id: Int?
-    /** C\u00C3\u00B3digo identificador da conta (id). */
+    /** C\u00F3digo identificador da conta (id). */
     public var idConta: Int?
-    /** Apresenta o valor do limite de cr\u00C3\u00A9dito que o portador do cart\u00C3\u00A3o possui. */
+    /** Apresenta o valor do limite de cr\u00E9dito que o portador do cart\u00E3o possui. */
     public var limiteGlobal: Double?
-    /** C\u00C3\u00B3digo identificador da conta a qual a fatura se refere. */
+    /** C\u00F3digo identificador da conta a qual a fatura se refere. */
     public var flagEmiteFatura: Int?
-    /** Quando utilizado pelo emissor, este campo apresenta o valor do limite de cr\u00C3\u00A9dito que o portador possui para uso exclusivo em Compras Nacionais. */
+    /** Quando utilizado pelo emissor, este campo apresenta o valor do limite de cr\u00E9dito que o portador possui para uso exclusivo em Compras Nacionais. */
     public var limiteCompra: Double?
     /** Data de vencimento da fatura. */
     public var dataVencimentoFatura: String?
-    /** Quando utilizado pelo emissor, este campo apresenta o valor do limite de cr\u00C3\u00A9dito que o portador possui para realizar transa\u00C3\u00A7\u00C3\u00B5es de compras parceladas. */
+    /** Quando utilizado pelo emissor, este campo apresenta o valor do limite de cr\u00E9dito que o portador possui para realizar transa\u00E7\u00F5es de compras parceladas. */
     public var limiteParcelado: Double?
-    /** Quando utilizado pelo emissor, este campo apresenta o valor do limite de cr\u00C3\u00A9dito que portador pode acumular a partir da soma das parcelas das compras que forem realizadas nesta modalidade. */
+    /** Quando utilizado pelo emissor, este campo apresenta o valor do limite de cr\u00E9dito que portador pode acumular a partir da soma das parcelas das compras que forem realizadas nesta modalidade. */
     public var limiteParcelas: Double?
     /** Valor para pagamento total da fatura. */
     public var valorTotalFatura: Double?
     /** Valor total da fatura anterior. */
     public var valorFaturaAnterior: Double?
-    /** Valor m\u00C3\u00ADnimo para pagamento da fatura. */
+    /** Valor m\u00EDnimo para pagamento da fatura. */
     public var valorPagamentoMinimo: Double?
-    /** Valor da fatura pago atrav\u00C3\u00A9s de desconto em folha. */
+    /** Valor da fatura pago atrav\u00E9s de desconto em folha. */
     public var valorPagamentoConsignado: Double?
-    /** Quando utilizado pelo emissor, este campo apresenta o valor do limite de cr\u00C3\u00A9dito que o portador pode utilizar para realizar transa\u00C3\u00A7\u00C3\u00B5es de Saque Nacional. */
+    /** Quando utilizado pelo emissor, este campo apresenta o valor do limite de cr\u00E9dito que o portador pode utilizar para realizar transa\u00E7\u00F5es de Saque Nacional. */
     public var limiteSaqueGlobal: Double?
-    /** Valor complementar para considerar o pagamento m\u00C3\u00ADnimo da fatura. */
+    /** Valor complementar para considerar o pagamento m\u00EDnimo da fatura. */
     public var valorPagamentoComplementar: Double?
-    /** Quando utilizado pelo emissor, este campo apresenta o valor do limite de cr\u00C3\u00A9dito que o portador pode utilizar para realizar transa\u00C3\u00A7\u00C3\u00B5es de Saque Nacional dentro de cada ciclo de faturamento. */
+    /** Quando utilizado pelo emissor, este campo apresenta o valor do limite de cr\u00E9dito que o portador pode utilizar para realizar transa\u00E7\u00F5es de Saque Nacional dentro de cada ciclo de faturamento. */
     public var limiteSaquePeriodo: Double?
-    /** Valor total das compras nacionais lan\u00C3\u00A7adas na fatura. */
+    /** Valor total das compras nacionais lan\u00E7adas na fatura. */
     public var totalComprasNacionais: Double?
-    /** Quando utilizado pelo emissor, este campo apresenta o valor da margem de cr\u00C3\u00A9dito que ele poder\u00C3\u00A1 utilizar para ser cobrado de forma consignada (desconto em folha) em seu sal\u00C3\u00A1rio/vencimentos. */
+    /** Quando utilizado pelo emissor, este campo apresenta o valor da margem de cr\u00E9dito que ele poder\u00E1 utilizar para ser cobrado de forma consignada (desconto em folha) em seu sal\u00E1rio/vencimentos. */
     public var limiteConsignado: Double?
-    /** Valor total das compras internacionais lan\u00C3\u00A7adas na fatura. */
+    /** Valor total das compras internacionais lan\u00E7adas na fatura. */
     public var totalComprasInternacionas: Double?
-    /** Quando utilizado pelo emissor, este campo apresenta o valor do limite de cr\u00C3\u00A9dito que o portador possui para uso exclusivo em Compras Internacionais. */
+    /** Quando utilizado pelo emissor, este campo apresenta o valor do limite de cr\u00E9dito que o portador possui para uso exclusivo em Compras Internacionais. */
     public var limiteInternacionalCompra: Double?
-    /** Valor total dos saques nacionais lan\u00C3\u00A7ados na fatura. */
+    /** Valor total dos saques nacionais lan\u00E7ados na fatura. */
     public var totalSaquesNacionais: Double?
-    /** Quando utilizado pelo emissor, este campo apresenta o valor do limite de cr\u00C3\u00A9dito que o portador possui para realizar transa\u00C3\u00A7\u00C3\u00B5es Internacionais de Compras Parceladas. */
+    /** Quando utilizado pelo emissor, este campo apresenta o valor do limite de cr\u00E9dito que o portador possui para realizar transa\u00E7\u00F5es Internacionais de Compras Parceladas. */
     public var limiteInternacionalParcelado: Double?
-    /** Valor total dos saques internacionais lan\u00C3\u00A7ados na fatura. */
+    /** Valor total dos saques internacionais lan\u00E7ados na fatura. */
     public var totalSaquesInternacionais: Double?
-    /** Quando utilizado pelo emissor, este campo apresenta o valor do limite de cr\u00C3\u00A9dito que portador pode acumular a partir da soma das parcelas das compras internacionais que forem realizadas nesta modalidade. */
+    /** Quando utilizado pelo emissor, este campo apresenta o valor do limite de cr\u00E9dito que portador pode acumular a partir da soma das parcelas das compras internacionais que forem realizadas nesta modalidade. */
     public var limiteInternacionalParcelas: Double?
-    /** Valor total dos d\u00C3\u00A9bitos nacionais lan\u00C3\u00A7ados na fatura. */
+    /** Valor total dos d\u00E9bitos nacionais lan\u00E7ados na fatura. */
     public var totalDebitosNacionais: Double?
-    /** Quando utilizado pelo emissor, este campo apresenta o valor do limite de cr\u00C3\u00A9dito que o portador pode utilizar para realizar transa\u00C3\u00A7\u00C3\u00B5es de Saque Internacional. */
+    /** Quando utilizado pelo emissor, este campo apresenta o valor do limite de cr\u00E9dito que o portador pode utilizar para realizar transa\u00E7\u00F5es de Saque Internacional. */
     public var limiteInternacionalSaqueGlobal: Double?
-    /** Valor total dos d\u00C3\u00A9bitos recorrentes lan\u00C3\u00A7ados na fatura. */
+    /** Valor total dos d\u00E9bitos recorrentes lan\u00E7ados na fatura. */
     public var totalDebitosRecorrentes: Double?
-    /** Quando utilizado pelo emissor, este campo apresenta o valor do limite de cr\u00C3\u00A9dito que o portador pode utilizar para realizar transa\u00C3\u00A7\u00C3\u00B5es de Saque Internacional dentro de cada ciclo de faturamento. */
+    /** Quando utilizado pelo emissor, este campo apresenta o valor do limite de cr\u00E9dito que o portador pode utilizar para realizar transa\u00E7\u00F5es de Saque Internacional dentro de cada ciclo de faturamento. */
     public var limiteInternacionalSaquePeriodo: Double?
-    /** Valor total dos d\u00C3\u00A9bitos internacionais lan\u00C3\u00A7ados na fatura. */
+    /** Valor total dos d\u00E9bitos internacionais lan\u00E7ados na fatura. */
     public var totalDebitosInternacionais: Double?
-    /** Apresenta o valor de cr\u00C3\u00A9dito que o portador possui dispon\u00C3\u00ADvel para realizar transa\u00C3\u00A7\u00C3\u00B5es. */
+    /** Apresenta o valor de cr\u00E9dito que o portador possui dispon\u00EDvel para realizar transa\u00E7\u00F5es. */
     public var saldoDisponivelGlobal: Double?
-    /** Valor total dos d\u00C3\u00A9bitos diversos nacionais lan\u00C3\u00A7ados na fatura. */
+    /** Valor total dos d\u00E9bitos diversos nacionais lan\u00E7ados na fatura. */
     public var totalDebitosDiversosNacionais: Double?
-    /** Quando utilizado pelo emissor a modalidade limiteCompra, este campo apresentar\u00C3\u00A1 o valor de cr\u00C3\u00A9dito que o portador possui dispon\u00C3\u00ADvel para realizar transa\u00C3\u00A7\u00C3\u00B5es de compra Nacional. */
+    /** Quando utilizado pelo emissor a modalidade limiteCompra, este campo apresentar\u00E1 o valor de cr\u00E9dito que o portador possui dispon\u00EDvel para realizar transa\u00E7\u00F5es de compra Nacional. */
     public var saldoDisponivelCompra: Double?
-    /** Valor total dos d\u00C3\u00A9bitos diversos opcionais lan\u00C3\u00A7ados na fatura. */
+    /** Valor total dos d\u00E9bitos diversos opcionais lan\u00E7ados na fatura. */
     public var totalDebitosOpcionais: Double?
-    /** Quando utilizado pelo emissor a modalidade limiteParcelado, este campo apresentar\u00C3\u00A1 o valor de cr\u00C3\u00A9dito que o portador possui dispon\u00C3\u00ADvel para realizar transa\u00C3\u00A7\u00C3\u00B5es de compra Nacional. */
+    /** Quando utilizado pelo emissor a modalidade limiteParcelado, este campo apresentar\u00E1 o valor de cr\u00E9dito que o portador possui dispon\u00EDvel para realizar transa\u00E7\u00F5es de compra Nacional. */
     public var saldoDisponivelParcelado: Double?
-    /** Valor total dos pagamentos lan\u00C3\u00A7ados na fatura. */
+    /** Valor total dos pagamentos lan\u00E7ados na fatura. */
     public var totalPagamentos: Double?
-    /** Quando utilizado pelo emissor a modalidade limiteParcelas, este campo apresentar\u00C3\u00A1 o valor de cr\u00C3\u00A9dito que o portador possui dispon\u00C3\u00ADvel para utilizar como valor de parcelas Nacionais em um determinado ciclo de faturamento. */
+    /** Quando utilizado pelo emissor a modalidade limiteParcelas, este campo apresentar\u00E1 o valor de cr\u00E9dito que o portador possui dispon\u00EDvel para utilizar como valor de parcelas Nacionais em um determinado ciclo de faturamento. */
     public var saldoDisponivelParcelas: Double?
-    /** Valor total dos cr\u00C3\u00A9ditos nacionais lan\u00C3\u00A7ados na fatura. */
+    /** Valor total dos cr\u00E9ditos nacionais lan\u00E7ados na fatura. */
     public var totalCreditosNacionais: Double?
-    /** Valor total dos ajustes lan\u00C3\u00A7ados na fatura. */
+    /** Valor total dos ajustes lan\u00E7ados na fatura. */
     public var totalAjustes: Double?
-    /** Valor total das tarifas lan\u00C3\u00A7adas na fatura. */
+    /** Valor total das tarifas lan\u00E7adas na fatura. */
     public var totalTarifas: Double?
-    /** Valor total da multa lan\u00C3\u00A7ada na fatura. */
+    /** Valor total da multa lan\u00E7ada na fatura. */
     public var totalMulta: Double?
-    /** Quando utilizado pelo emissor a modalidade limiteSaque, este campo apresentar\u00C3\u00A1 o valor de cr\u00C3\u00A9dito que o portador possui dispon\u00C3\u00ADvel para realizar transa\u00C3\u00A7\u00C3\u00B5es de Saque Nacional. */
+    /** Quando utilizado pelo emissor a modalidade limiteSaque, este campo apresentar\u00E1 o valor de cr\u00E9dito que o portador possui dispon\u00EDvel para realizar transa\u00E7\u00F5es de Saque Nacional. */
     public var saldoDisponivelSaque: Double?
-    /** Valor total dos juros de mora lan\u00C3\u00A7ados na fatura. */
+    /** Valor total dos juros de mora lan\u00E7ados na fatura. */
     public var totalJuros: Double?
-    /** Quando utilizado um programa de fidelidade pelo emissor, este campo apresentar\u00C3\u00A1 o saldo atual de pontos que o portador possui. */
+    /** Quando utilizado um programa de fidelidade pelo emissor, este campo apresentar\u00E1 o saldo atual de pontos que o portador possui. */
     public var saldoPontosFidelidade: Double?
     /** Valor percentual da taxa de juros rotativos. */
     public var taxaRotativo: Double?
-    /** Quando utilizado pelo emissor a modalidade limiteCompraInternacional, este campo apresentar\u00C3\u00A1 o valor de cr\u00C3\u00A9dito que o portador possui dispon\u00C3\u00ADvel para realizar transa\u00C3\u00A7\u00C3\u00B5es de Compra Internacional. */
+    /** Quando utilizado pelo emissor a modalidade limiteCompraInternacional, este campo apresentar\u00E1 o valor de cr\u00E9dito que o portador possui dispon\u00EDvel para realizar transa\u00E7\u00F5es de Compra Internacional. */
     public var saldoDisponivelCompraInternacional: Double?
     /** Valor percentual da taxa de saque. */
     public var taxaSaque: Double?
-    /** Quando utilizado pelo emissor a modalidade limiteSaqueInternacional, este campo apresentar\u00C3\u00A1 o valor de cr\u00C3\u00A9dito que o portador possui dispon\u00C3\u00ADvel para realizar transa\u00C3\u00A7\u00C3\u00B5es de Saque Internacional. */
+    /** Quando utilizado pelo emissor a modalidade limiteSaqueInternacional, este campo apresentar\u00E1 o valor de cr\u00E9dito que o portador possui dispon\u00EDvel para realizar transa\u00E7\u00F5es de Saque Internacional. */
     public var saldoDisponivelSaqueInternacional: Double?
-    /** Valor m\u00C3\u00A1ximo percentual da taxa de encargos para o pr\u00C3\u00B3ximo per\u00C3\u00ADodo. */
+    /** Valor m\u00E1ximo percentual da taxa de encargos para o pr\u00F3ximo per\u00EDodo. */
     public var taxaMaximaProximoPeriodo: Double?
     /** Apresenta a soma de todos os seguros cobrados na fatura do cliente. */
     public var totalServicos: Double?

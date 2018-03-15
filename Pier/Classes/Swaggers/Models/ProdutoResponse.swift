@@ -11,13 +11,13 @@ import Foundation
 /** Produto */
 public class ProdutoResponse: JSONEncodable {
 
-    /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Produto (id). */
+    /** C\u00F3digo de Identifica\u00E7\u00E3o do Produto (id). */
     public var id: Int?
-    /** Descri\u00C3\u00A7\u00C3\u00A3o do Nome do Produto. */
+    /** Descri\u00E7\u00E3o do Nome do Produto. */
     public var nome: String?
     /** Representa o Status do Produto, onde: (\&quot;0\&quot;: Inativo), (\&quot;1\&quot;: Ativo). */
     public var status: Int?
-    /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Fantasia B\u00C3\u00A1sica (id) a qual o produto pertence. */
+    /** C\u00F3digo de Identifica\u00E7\u00E3o da Fantasia B\u00E1sica (id) a qual o produto pertence. */
     public var idFantasiaBasica: Int?
     
 

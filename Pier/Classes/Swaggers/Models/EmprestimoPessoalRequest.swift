@@ -8,20 +8,20 @@
 import Foundation
 
 
-/** Representa\u00C3\u00A7\u00C3\u00A3o da requisi\u00C3\u00A7\u00C3\u00A3o do  recurso Dispositivo */
+/** Representa\u00E7\u00E3o da requisi\u00E7\u00E3o do  recurso Dispositivo */
 public class EmprestimoPessoalRequest: JSONEncodable {
 
-    /** Valor do empr\u00C3\u00A9stimo/financiamento */
+    /** Valor do empr\u00E9stimo/financiamento */
     public var valorSolicitado: Double?
-    /** N\u00C3\u00BAmero total de parcelas do empr\u00C3\u00A9stimo/financiamento */
+    /** N\u00FAmero total de parcelas do empr\u00E9stimo/financiamento */
     public var numeroParcelas: Int?
     /** Valor percentual da taxa de juros a ser aplicada */
     public var taxaJuros: Double?
-    /** Per\u00C3\u00ADodo de aplica da taxa de juros */
+    /** Per\u00EDodo de aplica da taxa de juros */
     public var periodoTaxa: String?
-    /** Sistema para amortiza\u00C3\u00A7\u00C3\u00A3o do valor das parcelas */
+    /** Sistema para amortiza\u00E7\u00E3o do valor das parcelas */
     public var sistemaAmortizacao: String?
-    /** N\u00C3\u00BAmero de meses para cobran\u00C3\u00A7a da primeira parcela */
+    /** N\u00FAmero de meses para cobran\u00E7a da primeira parcela */
     public var numeroMesesCarencia: Int?
     
 

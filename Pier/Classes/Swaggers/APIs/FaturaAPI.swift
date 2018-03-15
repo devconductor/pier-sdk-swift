@@ -15,7 +15,7 @@ public class FaturaAPI: APIBase {
      Consulta fatura de um cliente
      
      - parameter dataVencimento: (path) Data Vencimento 
-     - parameter idConta: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
+     - parameter idConta: (query) C\u00F3digo de identifica\u00E7\u00E3o da conta (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func consultarFaturaUsingGET1(dataVencimento dataVencimento: String, idConta: Int, completion: ((data: FaturaDetalheResponse?, error: ErrorType?) -> Void)) {
@@ -71,7 +71,7 @@ public class FaturaAPI: APIBase {
 }}]
      
      - parameter dataVencimento: (path) Data Vencimento 
-     - parameter idConta: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
+     - parameter idConta: (query) C\u00F3digo de identifica\u00E7\u00E3o da conta (id). 
 
      - returns: RequestBuilder<FaturaDetalheResponse> 
      */
@@ -94,11 +94,11 @@ public class FaturaAPI: APIBase {
      
      Listar planos de parcelamento
      
-     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
-     - parameter dataVencimentoPadrao: (query) Indica a data de vencimento padr\u00C3\u00A3o das faturas 
-     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+     - parameter id: (path) C\u00F3digo de identifica\u00E7\u00E3o da conta (id). 
+     - parameter dataVencimentoPadrao: (query) Indica a data de vencimento padr\u00E3o das faturas 
+     - parameter sort: (query) Tipo de ordena\u00E7\u00E3o dos registros. (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func consultarLancamentosFuturosFaturaUsingGET1(id id: Int, dataVencimentoPadrao: String, sort: [String]?, page: Int?, limit: Int?, completion: ((data: PagePlanoParcelamentoResponse?, error: ErrorType?) -> Void)) {
@@ -127,6 +127,7 @@ public class FaturaAPI: APIBase {
     "statusAdesao" : 123,
     "quantidadeParcelas" : 123,
     "dataVencimentoPadrao" : "yyyy-MM-dd",
+    "idServicoTipo" : 123456789,
     "valorParcela" : 1.3579000000000001069366817318950779736042022705078125,
     "valorTAC" : 1.3579000000000001069366817318950779736042022705078125,
     "valorTotalRefinanciamento" : 1.3579000000000001069366817318950779736042022705078125,
@@ -151,11 +152,11 @@ public class FaturaAPI: APIBase {
   "first" : true
 }}]
      
-     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
-     - parameter dataVencimentoPadrao: (query) Indica a data de vencimento padr\u00C3\u00A3o das faturas 
-     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+     - parameter id: (path) C\u00F3digo de identifica\u00E7\u00E3o da conta (id). 
+     - parameter dataVencimentoPadrao: (query) Indica a data de vencimento padr\u00E3o das faturas 
+     - parameter sort: (query) Tipo de ordena\u00E7\u00E3o dos registros. (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
 
      - returns: RequestBuilder<PagePlanoParcelamentoResponse> 
      */
@@ -179,11 +180,11 @@ public class FaturaAPI: APIBase {
 
     /**
      
-     Envia 2\u00C2\u00AA via de fatura por E-mail
+     Envia 2\u00AA via de fatura por E-mail
      
-     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
+     - parameter id: (path) C\u00F3digo de identifica\u00E7\u00E3o da conta (id). 
      - parameter dataVencimento: (path) Data de Vencimento da fatura (yyyy-MM-dd). 
-     - parameter email: (query) E-mail para envio da 2\u00C2\u00AA via da fatura, caso n\u00C3\u00A3o seja informado ser\u00C3\u00A1 usado o e-mail cadastrado. (optional)
+     - parameter email: (query) E-mail para envio da 2\u00AA via da fatura, caso n\u00E3o seja informado ser\u00E1 usado o e-mail cadastrado. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func enviarFaturaEmailUsingPOST(id id: Int, dataVencimento: String, email: String?, completion: ((data: AnyObject?, error: ErrorType?) -> Void)) {
@@ -195,15 +196,15 @@ public class FaturaAPI: APIBase {
 
     /**
      
-     Envia 2\u00C2\u00AA via de fatura por E-mail
+     Envia 2\u00AA via de fatura por E-mail
      
      - POST /api/contas/{id}/faturas/{dataVencimento}/enviar-email
      - Envia a segunda via da fatura para o e-mail informado/cadastrado.
      - examples: [{contentType=application/json, example="{}"}]
      
-     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
+     - parameter id: (path) C\u00F3digo de identifica\u00E7\u00E3o da conta (id). 
      - parameter dataVencimento: (path) Data de Vencimento da fatura (yyyy-MM-dd). 
-     - parameter email: (query) E-mail para envio da 2\u00C2\u00AA via da fatura, caso n\u00C3\u00A3o seja informado ser\u00C3\u00A1 usado o e-mail cadastrado. (optional)
+     - parameter email: (query) E-mail para envio da 2\u00AA via da fatura, caso n\u00E3o seja informado ser\u00E1 usado o e-mail cadastrado. (optional)
 
      - returns: RequestBuilder<AnyObject> 
      */
@@ -227,11 +228,11 @@ public class FaturaAPI: APIBase {
      
      Listar faturas de um cliente.
      
-     - parameter idConta: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
+     - parameter idConta: (query) C\u00F3digo de identifica\u00E7\u00E3o da conta (id). 
      - parameter situacaoProcessamento: (query) Status do processamento das faturas. Valores possiveis [ABERTA, FECHADA, TODAS]. (optional, default to TODAS)
-     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+     - parameter sort: (query) Tipo de ordena\u00E7\u00E3o dos registros. (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func listarFaturasUsingGET1(idConta idConta: Int, situacaoProcessamento: String?, sort: [String]?, page: Int?, limit: Int?, completion: ((data: PageFaturaResponse?, error: ErrorType?) -> Void)) {
@@ -274,11 +275,11 @@ public class FaturaAPI: APIBase {
   "first" : true
 }}]
      
-     - parameter idConta: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
+     - parameter idConta: (query) C\u00F3digo de identifica\u00E7\u00E3o da conta (id). 
      - parameter situacaoProcessamento: (query) Status do processamento das faturas. Valores possiveis [ABERTA, FECHADA, TODAS]. (optional, default to TODAS)
-     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+     - parameter sort: (query) Tipo de ordena\u00E7\u00E3o dos registros. (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
 
      - returns: RequestBuilder<PageFaturaResponse> 
      */
@@ -304,7 +305,7 @@ public class FaturaAPI: APIBase {
      
      Permite visualizar o extrato da fatura em formato PDF
      
-     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
+     - parameter id: (path) C\u00F3digo de identifica\u00E7\u00E3o da conta (id). 
      - parameter dataVencimento: (path) Data de Vencimento da fatura. 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -320,10 +321,10 @@ public class FaturaAPI: APIBase {
      Permite visualizar o extrato da fatura em formato PDF
      
      - GET /api/contas/{id}/faturas/{dataVencimento}/arquivo.pdf
-     - Esta opera\u00C3\u00A7\u00C3\u00A3o permite visualizar o extrato da fatura de uma determinada conta, em formato PDF. Quando ela for a fatura ativa, ou seja, a do m\u00C3\u00AAs corrente, o pdf ser\u00C3\u00A1 composto pelo extrato de lan\u00C3\u00A7amentos e pela ficha de compensa\u00C3\u00A7\u00C3\u00A3o banc\u00C3\u00A1ria. Quando for de uma fatura do hist\u00C3\u00B3rico do cliente, o PDF ser\u00C3\u00A1 composto apenas pelo extrato de transa\u00C3\u00A7\u00C3\u00B5es.
+     - Esta opera\u00E7\u00E3o permite visualizar o extrato da fatura de uma determinada conta, em formato PDF. Quando ela for a fatura ativa, ou seja, a do m\u00EAs corrente, o pdf ser\u00E1 composto pelo extrato de lan\u00E7amentos e pela ficha de compensa\u00E7\u00E3o banc\u00E1ria. Quando for de uma fatura do hist\u00F3rico do cliente, o PDF ser\u00E1 composto apenas pelo extrato de transa\u00E7\u00F5es.
      - examples: [{output=none}]
      
-     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
+     - parameter id: (path) C\u00F3digo de identifica\u00E7\u00E3o da conta (id). 
      - parameter dataVencimento: (path) Data de Vencimento da fatura. 
 
      - returns: RequestBuilder<AnyObject> 

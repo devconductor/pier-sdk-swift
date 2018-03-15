@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Lista de Status Cart\u00C3\u00B5es */
+/** Lista de Status Cart\u00F5es */
 public class PageStatusCartaoResponse: JSONEncodable {
 
     public var content: [StatusCartaoResponse]?

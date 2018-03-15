@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Representa\u00C3\u00A7\u00C3\u00A3o da resposta do recurso de plano de campanha */
+/** Representa\u00E7\u00E3o da resposta do recurso de plano de campanha */
 public class PlanoCampanhaResponse: JSONEncodable {
 
     /** Identificador do plano de campanha */
@@ -17,7 +17,7 @@ public class PlanoCampanhaResponse: JSONEncodable {
     public var parcelas: Int?
     /** Taxa de juros */
     public var taxa: Double?
-    /** Nome do usu\u00C3\u00A1rio */
+    /** Nome do usu\u00E1rio */
     public var usuario: String?
     
 

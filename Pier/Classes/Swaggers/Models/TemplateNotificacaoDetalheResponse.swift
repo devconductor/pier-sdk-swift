@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Objeto de detalhes do Template de Notifica\u00C3\u00A7\u00C3\u00A3o */
+/** Objeto de detalhes do Template de Notifica\u00E7\u00E3o */
 public class TemplateNotificacaoDetalheResponse: JSONEncodable {
 
     public enum TipoLayout: String { 
@@ -26,23 +26,23 @@ public class TemplateNotificacaoDetalheResponse: JSONEncodable {
         case Email = "EMAIL"
     }
     
-    /** C\u00C3\u00B3digo Identificador. */
+    /** C\u00F3digo Identificador. */
     public var id: Int?
-    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da configra\u00C3\u00A7\u00C3\u00A3o de e-mail. */
+    /** C\u00F3digo de identifica\u00E7\u00E3o da configra\u00E7\u00E3o de e-mail. */
     public var idConfiguracaoEmail: Int?
     /** Tipo do layout de e-mail. */
     public var tipoLayout: TipoLayout?
-    /** Tipo da notifica\u00C3\u00A7\u00C3\u00A3o. */
+    /** Tipo da notifica\u00E7\u00E3o. */
     public var tipoNotificacao: TipoNotificacao?
-    /** Template padr\u00C3\u00A3o. */
+    /** Template padr\u00E3o. */
     public var templatePadrao: String?
     /** Remetente. */
     public var remetente: String?
     /** Assunto do e-mail. */
     public var assunto: String?
-    /** Data da inclus\u00C3\u00A3o. */
+    /** Data da inclus\u00E3o. */
     public var dataInclusao: String?
-    /** Data altera\u00C3\u00A7\u00C3\u00A3o. */
+    /** Data altera\u00E7\u00E3o. */
     public var dataAlteracao: String?
     /** Conteudo do e-mail. */
     public var conteudo: String?

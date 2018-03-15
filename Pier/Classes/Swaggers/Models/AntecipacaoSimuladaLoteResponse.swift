@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Representa\u00C3\u00A7\u00C3\u00A3o da resposta do recurso Antecipacao Simulada */
+/** Representa\u00E7\u00E3o da resposta do recurso Antecipacao Simulada */
 public class AntecipacaoSimuladaLoteResponse: JSONEncodable {
 
     /** Valor total antecipado. */
@@ -17,7 +17,7 @@ public class AntecipacaoSimuladaLoteResponse: JSONEncodable {
     public var valorTotalDesconto: Double?
     /** Valor total antecipado com o desconto. */
     public var valorTotalComDesconto: Double?
-    /** Antecipa\u00C3\u00A7\u00C3\u00B5es Simuladas. */
+    /** Antecipa\u00E7\u00F5es Simuladas. */
     public var antecipacoesSimuladas: [AntecipacaoSimuladaResponse]?
     
 

@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Par\u00C3\u00A2metros de requisi\u00C3\u00A7\u00C3\u00A3o de um estabelecimento */
+/** Par\u00E2metros de requisi\u00E7\u00E3o de um estabelecimento */
 public class EstabelecimentoPersist: JSONEncodable {
 
     public enum TipoPagamento: String { 
@@ -16,83 +16,83 @@ public class EstabelecimentoPersist: JSONEncodable {
         case Pv = "PV"
     }
     
-    /** Indica se \u00C3\u00A9 matriz ou filial. */
+    /** Indica se \u00E9 matriz ou filial. */
     public var flagMatriz: Int?
-    /** Apresenta o n\u00C3\u00BAmero de identifica\u00C3\u00A7\u00C3\u00A3o do Credor. */
-    public var idCredor: Int?
-    /** Apresenta o n\u00C3\u00BAmero de identifica\u00C3\u00A7\u00C3\u00A3o do Estabelecimento na Receita Federal. */
+    /** Apresenta o n\u00FAmero de identifica\u00E7\u00E3o do Grupo Econ\u00F4mico. */
+    public var idGrupoEconomico: Int?
+    /** Apresenta o n\u00FAmero de identifica\u00E7\u00E3o do Estabelecimento na Receita Federal. */
     public var numeroReceitaFederal: String?
     /** Nome do Estabelecimento. */
     public var nome: String?
-    /** Raz\u00C3\u00A3o Social do Estabelecimento. */
+    /** Raz\u00E3o Social do Estabelecimento. */
     public var descricao: String?
-    /** T\u00C3\u00ADtulo Comercial do Estabelecimento. */
+    /** T\u00EDtulo Comercial do Estabelecimento. */
     public var nomeFantasia: String?
-    /** C\u00C3\u00B3digo de Endere\u00C3\u00A7amento Postal (CEP). */
+    /** C\u00F3digo de Endere\u00E7amento Postal (CEP). */
     public var cep: String?
     /** Nome do Logradouro. */
     public var nomeLogradouro: String?
-    /** N\u00C3\u00BAmero do endere\u00C3\u00A7o. */
+    /** N\u00FAmero do endere\u00E7o. */
     public var numeroEndereco: Int?
-    /** Nome do bairro do endere\u00C3\u00A7o. */
+    /** Nome do bairro do endere\u00E7o. */
     public var bairro: String?
-    /** Nome da cidade do endere\u00C3\u00A7o. */
+    /** Nome da cidade do endere\u00E7o. */
     public var cidade: String?
-    /** Descri\u00C3\u00A7\u00C3\u00B5es complementares referente ao endere\u00C3\u00A7o. */
+    /** Descri\u00E7\u00F5es complementares referente ao endere\u00E7o. */
     public var complemento: String?
-    /** Sigla de identifica\u00C3\u00A7\u00C3\u00A3o da Unidade Federativa do endere\u00C3\u00A7o. */
+    /** Sigla de identifica\u00E7\u00E3o da Unidade Federativa do endere\u00E7o. */
     public var uf: String?
-    /** C\u00C3\u00B3digo de Endere\u00C3\u00A7amento Postal (CEP). */
+    /** C\u00F3digo de Endere\u00E7amento Postal (CEP). */
     public var cep2: String?
     /** Nome do Logradouro . */
     public var nomeLogradouro2: String?
-    /** N\u00C3\u00BAmero do endere\u00C3\u00A7o. */
+    /** N\u00FAmero do endere\u00E7o. */
     public var numeroEndereco2: Int?
-    /** Nome do bairro do endere\u00C3\u00A7o. */
+    /** Nome do bairro do endere\u00E7o. */
     public var bairro2: String?
-    /** Nome da cidade do endere\u00C3\u00A7o. */
+    /** Nome da cidade do endere\u00E7o. */
     public var cidade2: String?
-    /** Descri\u00C3\u00A7\u00C3\u00B5es complementares referente ao endere\u00C3\u00A7o. */
+    /** Descri\u00E7\u00F5es complementares referente ao endere\u00E7o. */
     public var complemento2: String?
-    /** Sigla de identifica\u00C3\u00A7\u00C3\u00A3o da Unidade Federativa do endere\u00C3\u00A7o. */
+    /** Sigla de identifica\u00E7\u00E3o da Unidade Federativa do endere\u00E7o. */
     public var uf2: String?
-    /** Detalhes espec\u00C3\u00ADficos quanto ao Cadastro do Estabelecimento. */
+    /** Detalhes espec\u00EDficos quanto ao Cadastro do Estabelecimento. */
     public var obs: String?
     /** Nome da pessoa para contato com o Estabelecimento. */
     public var contato: String?
     /** E-mail da pessoa para contato com o Estabelecimento. */
     public var email: String?
-    /** Indica se o estabelecimento ser\u00C3\u00A1 inclu\u00C3\u00ADdo no arquivo de registro para a Secretaria da Fazenda Estadual. */
+    /** Indica se o estabelecimento ser\u00E1 inclu\u00EDdo no arquivo de registro para a Secretaria da Fazenda Estadual. */
     public var flagArquivoSecrFazenda: Int?
-    /** Indica se o estabelecimento poder\u00C3\u00A1 originar transa\u00C3\u00A7\u00C3\u00B5es sem a leitura da tarja ou do chip do cart\u00C3\u00A3o. */
+    /** Indica se o estabelecimento poder\u00E1 originar transa\u00E7\u00F5es sem a leitura da tarja ou do chip do cart\u00E3o. */
     public var flagCartaoDigitado: Int?
-    /** Indica se o estabelecimento est\u00C3\u00A1 inativo. */
+    /** Indica se o estabelecimento est\u00E1 inativo. */
     public var inativo: Int?
-    /** C\u00C3\u00B3digo identificador da moeda. */
+    /** C\u00F3digo identificador da moeda. */
     public var idMoeda: Int?
-    /** Identificador de Pa\u00C3\u00ADs. */
+    /** Identificador de Pa\u00EDs. */
     public var idPais: Int?
-    /** N\u00C3\u00BAmero do associado ao SPCBrasil. */
+    /** N\u00FAmero do associado ao SPCBrasil. */
     public var associadoSPCBrasil: Int?
-    /** C\u00C3\u00B3digo de Categoria de Mercado. */
+    /** C\u00F3digo de Categoria de Mercado. */
     public var mcc: Int?
-    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do Estabelecimento. */
+    /** C\u00F3digo de identifica\u00E7\u00E3o do tipo de Estabelecimento. */
     public var idTipoEstabelecimento: Int?
-    /** Indicador para qual endere\u00C3\u00A7o as correspond\u00C3\u00AAncias ser\u00C3\u00A3o enviadas, onde 1 \u00C3\u00A9 ORIGEM e 2 ENDERE\u00C3\u0087O DE CORRESPOND\u00C3\u008ANCIA. */
+    /** Indicador para qual endere\u00E7o as correspond\u00EAncias ser\u00E3o enviadas, onde 1 \u00E9 ORIGEM e 2 ENDERE\u00C7O DE CORRESPOND\u00CANCIA. */
     public var correspondencia: Int?
     /** Cargo do contato do estabelecimento. */
     public var cargoContato: String?
     /** Tipo do regime de pagamento do estabelecimento. */
     public var tipoPagamento: TipoPagamento?
-    /** Consulta de cadastro n\u00C3\u00BAmero um. */
+    /** Consulta de cadastro n\u00FAmero um. */
     public var consulta: ConsultaCadastroEstabelecimentoDTO?
-    /** Consulta de cadastro n\u00C3\u00BAmero um. */
+    /** Consulta de cadastro n\u00FAmero dois. */
     public var consulta2: ConsultaCadastroEstabelecimentoDTO?
-    /** Consulta de cadastro n\u00C3\u00BAmero um. */
+    /** Consulta de cadastro n\u00FAmero tr\u00EAs. */
     public var consulta3: ConsultaCadastroEstabelecimentoDTO?
-    /** Flag indicando se o terminal \u00C3\u00A9 f\u00C3\u00ADsico ou virtual, sendo: (true: Sim), (false: N\u00C3\u00A3o)). */
+    /** Flag indicando se o terminal \u00E9 f\u00EDsico ou virtual, sendo: (true: Sim), (false: N\u00E3o)). */
     public var flagTerminalVirtual: Bool?
-    /** Flag indicando se o terminal permite consultar extrato, sendo: (true: Sim), (false: N\u00C3\u00A3o)). */
+    /** Flag indicando se o terminal permite consultar extrato, sendo: (true: Sim), (false: N\u00E3o)). */
     public var flagConsultaExtrato: Bool?
     
 
@@ -102,7 +102,7 @@ public class EstabelecimentoPersist: JSONEncodable {
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
         nillableDictionary["flagMatriz"] = self.flagMatriz
-        nillableDictionary["idCredor"] = self.idCredor
+        nillableDictionary["idGrupoEconomico"] = self.idGrupoEconomico
         nillableDictionary["numeroReceitaFederal"] = self.numeroReceitaFederal
         nillableDictionary["nome"] = self.nome
         nillableDictionary["descricao"] = self.descricao

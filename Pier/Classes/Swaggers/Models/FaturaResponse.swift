@@ -17,9 +17,9 @@ public class FaturaResponse: JSONEncodable {
         case Todas = "TODAS"
     }
     
-    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta. */
+    /** C\u00F3digo de identifica\u00E7\u00E3o da conta. */
     public var idConta: Int?
-    /** Situa\u00C3\u00A7\u00C3\u00A3o de Processamento da fatura. */
+    /** Situa\u00E7\u00E3o de Processamento da fatura. */
     public var situacaoProcessamento: SituacaoProcessamento?
     /** Status de pagamento efetuado. */
     public var pagamentoEfetuado: Bool?
@@ -31,7 +31,7 @@ public class FaturaResponse: JSONEncodable {
     public var dataFechamento: String?
     /** Valor total da fatura. */
     public var valorTotal: Double?
-    /** Valor do pagamento m\u00C3\u00ADnimo. */
+    /** Valor do pagamento m\u00EDnimo. */
     public var valorPagamentoMinimo: Double?
     /** Valor do saldo anterior. */
     public var saldoAnterior: Double?

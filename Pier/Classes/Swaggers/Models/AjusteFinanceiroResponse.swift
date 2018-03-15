@@ -10,17 +10,17 @@ import Foundation
 
 public class AjusteFinanceiroResponse: JSONEncodable {
 
-    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do ajuste (id) */
+    /** C\u00F3digo de identifica\u00E7\u00E3o do ajuste (id) */
     public var id: Int?
-    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do tipo do ajuste */
+    /** C\u00F3digo de identifica\u00E7\u00E3o do tipo do ajuste */
     public var idTipoAjuste: Int?
-    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (idConta) */
+    /** C\u00F3digo de identifica\u00E7\u00E3o da conta (idConta) */
     public var idConta: Int?
     /** Data do ajuste */
     public var dataAjuste: String?
     /** Valor do ajuste */
     public var valor: Double?
-    /** Descri\u00C3\u00A7\u00C3\u00A3o do status da autoriza\u00C3\u00A7\u00C3\u00A3o da compra. */
+    /** Descri\u00E7\u00E3o do status da autoriza\u00E7\u00E3o da compra. */
     public var identificadorExterno: String?
     /** Status do ajuste. */
     public var status: Int?

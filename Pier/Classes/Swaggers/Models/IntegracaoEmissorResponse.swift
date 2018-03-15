@@ -8,20 +8,20 @@
 import Foundation
 
 
-/** Resposta do recurso de inclus\u00C3\u00A3o de registro para integra\u00C3\u00A7\u00C3\u00A3o */
+/** Resposta do recurso de inclus\u00E3o de registro para integra\u00E7\u00E3o */
 public class IntegracaoEmissorResponse: JSONEncodable {
 
-    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do registro na tabela Integra\u00C3\u00A7\u00C3\u00A3oEmissor. */
+    /** C\u00F3digo de identifica\u00E7\u00E3o do registro na tabela Integra\u00E7\u00E3oEmissor. */
     public var id: Int?
-    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta. */
+    /** C\u00F3digo de identifica\u00E7\u00E3o da conta. */
     public var idConta: Int?
-    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do arquivo. */
+    /** C\u00F3digo de identifica\u00E7\u00E3o do arquivo. */
     public var idArquivo: Int?
     /** Status do registro. */
     public var status: String?
-    /** Data de inclus\u00C3\u00A3o do registro. */
+    /** Data de inclus\u00E3o do registro. */
     public var dataInclusao: String?
-    /** Data da ultima altera\u00C3\u00A7\u00C3\u00A3o do registro. */
+    /** Data da ultima altera\u00E7\u00E3o do registro. */
     public var dataAlteracao: String?
     
 

@@ -21,11 +21,11 @@ public class AplicacaoMobileResponse: JSONEncodable {
     public var cor: String?
     /** Apresenta o som da mensagem da aplicacao */
     public var som: String?
-    /** Apresenta o icone da mensagem da aplica\u00C3\u00A7\u00C3\u00A3o. */
+    /** Apresenta o icone da mensagem da aplica\u00E7\u00E3o. */
     public var icone: String?
-    /** Apresenta o certificado da aplica\u00C3\u00A7\u00C3\u00A3o. */
+    /** Apresenta o certificado da aplica\u00E7\u00E3o. */
     public var certificadoBase64: String?
-    /** Apresenta a senha da aplica\u00C3\u00A7\u00C3\u00A3o. */
+    /** Apresenta a senha da aplica\u00E7\u00E3o. */
     public var senha: String?
     
 

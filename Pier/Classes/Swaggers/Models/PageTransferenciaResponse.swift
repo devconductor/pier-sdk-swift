@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Lista de Transfer\u00C3\u00AAncias */
+/** Lista de Transfer\u00EAncias */
 public class PageTransferenciaResponse: JSONEncodable {
 
     public var content: [TransferenciaResponse]?

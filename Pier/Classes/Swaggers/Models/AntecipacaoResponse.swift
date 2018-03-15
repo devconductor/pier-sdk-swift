@@ -12,11 +12,11 @@ public class AntecipacaoResponse: JSONEncodable {
 
     public var mcc: Int?
     public var uf: String?
-    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da antecipa\u00C3\u00A7\u00C3\u00A3o */
+    /** C\u00F3digo de identifica\u00E7\u00E3o da antecipa\u00E7\u00E3o */
     public var id: Int?
-    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta */
+    /** C\u00F3digo de identifica\u00E7\u00E3o da conta */
     public var idConta: Int?
-    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da compra */
+    /** C\u00F3digo de identifica\u00E7\u00E3o da compra */
     public var idCompra: Int?
     /** Apresenta o numero total de parcelas da compra */
     public var quantidadeParcelasTotal: Int?
@@ -32,29 +32,29 @@ public class AntecipacaoResponse: JSONEncodable {
     public var taxaDesconto: Double?
     /** Data da compra. */
     public var dataCompra: String?
-    /** Descri\u00C3\u00A7\u00C3\u00A3o do status da autoriza\u00C3\u00A7\u00C3\u00A3o da compra. */
+    /** Descri\u00E7\u00E3o do status da autoriza\u00E7\u00E3o da compra. */
     public var status: String?
     /** Nome do estabelecimento da compra. */
     public var nomeEstabelecimento: String?
-    /** Tipo de transa\u00C3\u00A7\u00C3\u00A3o da compra. */
+    /** Tipo de transa\u00E7\u00E3o da compra. */
     public var tipoOrigemTransacao: String?
     /** Cidade onde a compra foi realizada. */
     public var cidade: String?
-    /** Pa\u00C3\u00ADs onde a compra foi realizada. */
+    /** Pa\u00EDs onde a compra foi realizada. */
     public var pais: String?
-    /** Coordenada latitudinal da localiza\u00C3\u00A7\u00C3\u00A3o da compra. */
+    /** Coordenada latitudinal da localiza\u00E7\u00E3o da compra. */
     public var latitude: String?
-    /** Coordenada longitudinal da localiza\u00C3\u00A7\u00C3\u00A3o da compra. */
+    /** Coordenada longitudinal da localiza\u00E7\u00E3o da compra. */
     public var longitude: String?
-    /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Grupo MCC da compra. */
+    /** C\u00F3digo de Identifica\u00E7\u00E3o do Grupo MCC da compra. */
     public var idGrupoMCC: Int?
-    /** Descri\u00C3\u00A7\u00C3\u00A3o do Grupo MCC da compra. */
+    /** Descri\u00E7\u00E3o do Grupo MCC da compra. */
     public var descricaoGrupoMCC: String?
-    /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do produto da compra. */
+    /** C\u00F3digo de Identifica\u00E7\u00E3o do produto da compra. */
     public var idProduto: Int?
-    /** Descri\u00C3\u00A7\u00C3\u00A3o do produto da compra. */
+    /** Descri\u00E7\u00E3o do produto da compra. */
     public var descricaoProduto: String?
-    /** Descri\u00C3\u00A7\u00C3\u00A3o do estabelecimento da compra. */
+    /** Descri\u00E7\u00E3o do estabelecimento da compra. */
     public var descricaoEstabelecimento: String?
     /** Nome fantasia do estabelecimento da compra. */
     public var nomeFantasiaEstabelecimento: String?

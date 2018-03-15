@@ -13,9 +13,9 @@ public class TerminalPersist: JSONEncodable {
 
     /** Apresenta o id do estabelecimento. */
     public var idEstabelecimento: Int?
-    /** Flag indicando se permite consultar extrato, sendo: (true: Sim), (false: N\u00C3\u00A3o)). */
+    /** Flag indicando se permite consultar extrato, sendo: (true: Sim), (false: N\u00E3o)). */
     public var flagConsultaExtrato: Bool?
-    /** Flag indicando se o terminal \u00C3\u00A9 f\u00C3\u00ADsico ou virtual, sendo: (true: Sim), (false: N\u00C3\u00A3o)). */
+    /** Flag indicando se o terminal \u00E9 f\u00EDsico ou virtual, sendo: (true: Sim), (false: N\u00E3o)). */
     public var flagTerminalVirtual: Bool?
     
 

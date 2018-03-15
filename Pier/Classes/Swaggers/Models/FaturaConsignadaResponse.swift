@@ -11,11 +11,11 @@ import Foundation
 /** Fatura Consignada */
 public class FaturaConsignadaResponse: JSONEncodable {
 
-    /** C\u00C3\u00B3digo identificador da fatura. */
+    /** C\u00F3digo identificador da fatura. */
     public var id: Int?
-    /** C\u00C3\u00B3digo identificador da conta (id). */
+    /** C\u00F3digo identificador da conta (id). */
     public var idConta: Int?
-    /** C\u00C3\u00B3digo identificador da conta a qual a fatura se refere. */
+    /** C\u00F3digo identificador da conta a qual a fatura se refere. */
     public var flagEmiteFatura: Int?
     /** Data de vencimento da fatura. */
     public var dataVencimentoFatura: String?
@@ -23,47 +23,47 @@ public class FaturaConsignadaResponse: JSONEncodable {
     public var valorTotalFatura: Double?
     /** Valor total da fatura anterior. */
     public var valorFaturaAnterior: Double?
-    /** Valor m\u00C3\u00ADnimo para pagamento da fatura. */
+    /** Valor m\u00EDnimo para pagamento da fatura. */
     public var valorPagamentoMinimo: Double?
-    /** Valor da fatura pago atrav\u00C3\u00A9s de desconto em folha. */
+    /** Valor da fatura pago atrav\u00E9s de desconto em folha. */
     public var valorPagamentoConsignado: Double?
-    /** Valor complementar para considerar o pagamento m\u00C3\u00ADnimo da fatura. */
+    /** Valor complementar para considerar o pagamento m\u00EDnimo da fatura. */
     public var valorPagamentoComplementar: Double?
-    /** Valor total das compras nacionais lan\u00C3\u00A7adas na fatura. */
+    /** Valor total das compras nacionais lan\u00E7adas na fatura. */
     public var totalComprasNacionais: Double?
-    /** Valor total das compras internacionais lan\u00C3\u00A7adas na fatura. */
+    /** Valor total das compras internacionais lan\u00E7adas na fatura. */
     public var totalComprasInternacionas: Double?
-    /** Valor total dos saques nacionais lan\u00C3\u00A7ados na fatura. */
+    /** Valor total dos saques nacionais lan\u00E7ados na fatura. */
     public var totalSaquesNacionais: Double?
-    /** Valor total dos saques internacionais lan\u00C3\u00A7ados na fatura. */
+    /** Valor total dos saques internacionais lan\u00E7ados na fatura. */
     public var totalSaquesInternacionais: Double?
-    /** Valor total dos d\u00C3\u00A9bitos nacionais lan\u00C3\u00A7ados na fatura. */
+    /** Valor total dos d\u00E9bitos nacionais lan\u00E7ados na fatura. */
     public var totalDebitosNacionais: Double?
-    /** Valor total dos d\u00C3\u00A9bitos recorrentes lan\u00C3\u00A7ados na fatura. */
+    /** Valor total dos d\u00E9bitos recorrentes lan\u00E7ados na fatura. */
     public var totalDebitosRecorrentes: Double?
-    /** Valor total dos d\u00C3\u00A9bitos internacionais lan\u00C3\u00A7ados na fatura. */
+    /** Valor total dos d\u00E9bitos internacionais lan\u00E7ados na fatura. */
     public var totalDebitosInternacionais: Double?
-    /** Valor total dos d\u00C3\u00A9bitos diversos nacionais lan\u00C3\u00A7ados na fatura. */
+    /** Valor total dos d\u00E9bitos diversos nacionais lan\u00E7ados na fatura. */
     public var totalDebitosDiversosNacionais: Double?
-    /** Valor total dos d\u00C3\u00A9bitos diversos opcionais lan\u00C3\u00A7ados na fatura. */
+    /** Valor total dos d\u00E9bitos diversos opcionais lan\u00E7ados na fatura. */
     public var totalDebitosOpcionais: Double?
-    /** Valor total dos pagamentos lan\u00C3\u00A7ados na fatura. */
+    /** Valor total dos pagamentos lan\u00E7ados na fatura. */
     public var totalPagamentos: Double?
-    /** Valor total dos cr\u00C3\u00A9ditos nacionais lan\u00C3\u00A7ados na fatura. */
+    /** Valor total dos cr\u00E9ditos nacionais lan\u00E7ados na fatura. */
     public var totalCreditosNacionais: Double?
-    /** Valor total dos ajustes lan\u00C3\u00A7ados na fatura. */
+    /** Valor total dos ajustes lan\u00E7ados na fatura. */
     public var totalAjustes: Double?
-    /** Valor total das tarifas lan\u00C3\u00A7adas na fatura. */
+    /** Valor total das tarifas lan\u00E7adas na fatura. */
     public var totalTarifas: Double?
-    /** Valor total da multa lan\u00C3\u00A7ada na fatura. */
+    /** Valor total da multa lan\u00E7ada na fatura. */
     public var totalMulta: Double?
-    /** Valor total dos juros de mora lan\u00C3\u00A7ados na fatura. */
+    /** Valor total dos juros de mora lan\u00E7ados na fatura. */
     public var totalJuros: Double?
     /** Valor percentual da taxa de juros rotativos. */
     public var taxaRotativo: Double?
     /** Valor percentual da taxa de saque. */
     public var taxaSaque: Double?
-    /** Valor m\u00C3\u00A1ximo percentual da taxa de encargos para o pr\u00C3\u00B3ximo per\u00C3\u00ADodo. */
+    /** Valor m\u00E1ximo percentual da taxa de encargos para o pr\u00F3ximo per\u00EDodo. */
     public var taxaMaximaProximoPeriodo: Double?
     /** Apresenta a soma de todos os seguros cobrados na fatura do cliente. */
     public var totalServicos: Double?

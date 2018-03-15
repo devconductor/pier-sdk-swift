@@ -12,9 +12,9 @@ import Alamofire
 public class ConductorPayAPI: APIBase {
     /**
      
-     Atualiza a chave de gera\u00C3\u00A7\u00C3\u00A3o de transa\u00C3\u00A7\u00C3\u00A3o
+     Atualiza a chave de gera\u00E7\u00E3o de transa\u00E7\u00E3o
      
-     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do cart\u00C3\u00A3o (id). 
+     - parameter id: (path) C\u00F3digo de identifica\u00E7\u00E3o do cart\u00E3o (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func atualizarChaveUsingPOST(id id: Int, completion: ((data: CartaoPayAtualizarChaveResponse?, error: ErrorType?) -> Void)) {
@@ -26,10 +26,10 @@ public class ConductorPayAPI: APIBase {
 
     /**
      
-     Atualiza a chave de gera\u00C3\u00A7\u00C3\u00A3o de transa\u00C3\u00A7\u00C3\u00A3o
+     Atualiza a chave de gera\u00E7\u00E3o de transa\u00E7\u00E3o
      
      - POST /api/cartoes-tokenizados/{id}/atualizar-chave
-     - Este m\u00C3\u00A9todo permite atualizar a chave de gera\u00C3\u00A7\u00C3\u00A3o de transa\u00C3\u00A7\u00C3\u00A3o de um dispositivo a partir do seu identificador (id).
+     - Este m\u00E9todo permite atualizar a chave de gera\u00E7\u00E3o de transa\u00E7\u00E3o de um dispositivo a partir do seu identificador (id).
      - examples: [{contentType=application/json, example={
   "numeroCartao" : "aeiou",
   "idEntidade" : 123456789,
@@ -41,7 +41,7 @@ public class ConductorPayAPI: APIBase {
   "status" : "aeiou"
 }}]
      
-     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do cart\u00C3\u00A3o (id). 
+     - parameter id: (path) C\u00F3digo de identifica\u00E7\u00E3o do cart\u00E3o (id). 
 
      - returns: RequestBuilder<CartaoPayAtualizarChaveResponse> 
      */
@@ -60,9 +60,9 @@ public class ConductorPayAPI: APIBase {
 
     /**
      
-     Atualiza os dados do cart\u00C3\u00A3o
+     Atualiza os dados do cart\u00E3o
      
-     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do cart\u00C3\u00A3o (id). 
+     - parameter id: (path) C\u00F3digo de identifica\u00E7\u00E3o do cart\u00E3o (id). 
      - parameter update: (body) update 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -75,10 +75,10 @@ public class ConductorPayAPI: APIBase {
 
     /**
      
-     Atualiza os dados do cart\u00C3\u00A3o
+     Atualiza os dados do cart\u00E3o
      
      - PUT /api/cartoes-tokenizados/{id}
-     - Este m\u00C3\u00A9todo permite atualizar os dados do cart\u00C3\u00A3o tokenizados de um dispositivo a partir do seu identificador (id).
+     - Este m\u00E9todo permite atualizar os dados do cart\u00E3o tokenizados de um dispositivo a partir do seu identificador (id).
      - examples: [{contentType=application/json, example={
   "numeroCartao" : "aeiou",
   "idEntidade" : 123456789,
@@ -90,7 +90,7 @@ public class ConductorPayAPI: APIBase {
   "status" : "aeiou"
 }}]
      
-     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do cart\u00C3\u00A3o (id). 
+     - parameter id: (path) C\u00F3digo de identifica\u00E7\u00E3o do cart\u00E3o (id). 
      - parameter update: (body) update 
 
      - returns: RequestBuilder<CartaoPayResponse> 
@@ -109,9 +109,9 @@ public class ConductorPayAPI: APIBase {
 
     /**
      
-     Confirma a atualiza\u00C3\u00A7\u00C3\u00A3o da chave de transa\u00C3\u00A7\u00C3\u00A3o
+     Confirma a atualiza\u00E7\u00E3o da chave de transa\u00E7\u00E3o
      
-     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do cart\u00C3\u00A3o (id). 
+     - parameter id: (path) C\u00F3digo de identifica\u00E7\u00E3o do cart\u00E3o (id). 
      - parameter update: (body) update 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -124,10 +124,10 @@ public class ConductorPayAPI: APIBase {
 
     /**
      
-     Confirma a atualiza\u00C3\u00A7\u00C3\u00A3o da chave de transa\u00C3\u00A7\u00C3\u00A3o
+     Confirma a atualiza\u00E7\u00E3o da chave de transa\u00E7\u00E3o
      
      - POST /api/cartoes-tokenizados/{id}/confirmar-chave
-     - Este met\u00C3\u00B3do recebe confirma\u00C3\u00A7\u00C3\u00A3o de atualiza\u00C3\u00A7\u00C3\u00A3o de chave transa\u00C3\u00A7\u00C3\u00A3o.
+     - Este met\u00F3do recebe confirma\u00E7\u00E3o de atualiza\u00E7\u00E3o de chave transa\u00E7\u00E3o.
      - examples: [{contentType=application/json, example={
   "numeroCartao" : "aeiou",
   "idEntidade" : 123456789,
@@ -140,7 +140,7 @@ public class ConductorPayAPI: APIBase {
   "status" : "aeiou"
 }}]
      
-     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do cart\u00C3\u00A3o (id). 
+     - parameter id: (path) C\u00F3digo de identifica\u00E7\u00E3o do cart\u00E3o (id). 
      - parameter update: (body) update 
 
      - returns: RequestBuilder<CartaoPayConfirmarChaveResponse> 
@@ -159,13 +159,13 @@ public class ConductorPayAPI: APIBase {
 
     /**
      
-     Apresenta os dados de um determinado cart\u00C3\u00A3o
+     Apresenta os dados de um determinado cart\u00E3o
      
-     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do cart\u00C3\u00A3o (id). 
+     - parameter id: (path) C\u00F3digo de identifica\u00E7\u00E3o do cart\u00E3o (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET7(id id: Int, completion: ((data: CartaoPayDetalheResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET7WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET8(id id: Int, completion: ((data: CartaoPayDetalheResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET8WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -173,10 +173,10 @@ public class ConductorPayAPI: APIBase {
 
     /**
      
-     Apresenta os dados de um determinado cart\u00C3\u00A3o
+     Apresenta os dados de um determinado cart\u00E3o
      
      - GET /api/cartoes-tokenizados/{id}
-     - Este m\u00C3\u00A9todo permite consultar as informa\u00C3\u00A7\u00C3\u00B5es de um determinado cart\u00C3\u00A3o a partir do seu c\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o (id).
+     - Este m\u00E9todo permite consultar as informa\u00E7\u00F5es de um determinado cart\u00E3o a partir do seu c\u00F3digo de identifica\u00E7\u00E3o (id).
      - examples: [{contentType=application/json, example={
   "numeroCartao" : "aeiou",
   "cvv" : "aeiou",
@@ -189,11 +189,11 @@ public class ConductorPayAPI: APIBase {
   "status" : "aeiou"
 }}]
      
-     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do cart\u00C3\u00A3o (id). 
+     - parameter id: (path) C\u00F3digo de identifica\u00E7\u00E3o do cart\u00E3o (id). 
 
      - returns: RequestBuilder<CartaoPayDetalheResponse> 
      */
-    public class func consultarUsingGET7WithRequestBuilder(id id: Int) -> RequestBuilder<CartaoPayDetalheResponse> {
+    public class func consultarUsingGET8WithRequestBuilder(id id: Int) -> RequestBuilder<CartaoPayDetalheResponse> {
         var path = "/api/cartoes-tokenizados/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -208,7 +208,7 @@ public class ConductorPayAPI: APIBase {
 
     /**
      
-     Lista os c\u00C3\u00B3digos de resposta dos recursos de transa\u00C3\u00A7\u00C3\u00A3o e consulta de conta
+     Lista os c\u00F3digos de resposta dos recursos de transa\u00E7\u00E3o e consulta de conta
      
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -221,10 +221,10 @@ public class ConductorPayAPI: APIBase {
 
     /**
      
-     Lista os c\u00C3\u00B3digos de resposta dos recursos de transa\u00C3\u00A7\u00C3\u00A3o e consulta de conta
+     Lista os c\u00F3digos de resposta dos recursos de transa\u00E7\u00E3o e consulta de conta
      
      - GET /api/codigos-resposta
-     - Este m\u00C3\u00A9todo retorna a lista dos c\u00C3\u00B3digos de resposta das transa\u00C3\u00A7\u00C3\u00B5es e consulta de saque realizada no Pay.
+     - Este m\u00E9todo retorna a lista dos c\u00F3digos de resposta das transa\u00E7\u00F5es e consulta de saque realizada no Pay.
      - examples: [{contentType=application/json, example=[ "{}" ]}]
 
      - returns: RequestBuilder<[AnyObject]> 
@@ -259,7 +259,7 @@ public class ConductorPayAPI: APIBase {
      Lista os modos entradas
      
      - GET /api/modos-entrada
-     - Este recurso permite listar os modos de entrada para transa\u00C3\u00A7\u00C3\u00A3o
+     - Este recurso permite listar os modos de entrada para transa\u00E7\u00E3o
      - examples: [{contentType=application/json, example=[ "{}" ]}]
 
      - returns: RequestBuilder<[AnyObject]> 
@@ -278,7 +278,7 @@ public class ConductorPayAPI: APIBase {
 
     /**
      
-     Lista as opera\u00C3\u00A7\u00C3\u00B5es
+     Lista as opera\u00E7\u00F5es
      
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -291,10 +291,10 @@ public class ConductorPayAPI: APIBase {
 
     /**
      
-     Lista as opera\u00C3\u00A7\u00C3\u00B5es
+     Lista as opera\u00E7\u00F5es
      
      - GET /api/operacoes
-     - Este recurso permite listar as opera\u00C3\u00A7\u00C3\u00B5es disponiveis de transa\u00C3\u00A7\u00C3\u00A3o
+     - Este recurso permite listar as opera\u00E7\u00F5es disponiveis de transa\u00E7\u00E3o
      - examples: [{contentType=application/json, example=[ "{}" ]}]
 
      - returns: RequestBuilder<[AnyObject]> 
@@ -329,7 +329,7 @@ public class ConductorPayAPI: APIBase {
      Lista os tipos de terminais
      
      - GET /api/tipos-terminais
-     - Este m\u00C3\u00A9todo retorna a lista dos tipos de terminais.
+     - Este m\u00E9todo retorna a lista dos tipos de terminais.
      - examples: [{contentType=application/json, example=[ "{}" ]}]
 
      - returns: RequestBuilder<[AnyObject]> 
@@ -348,7 +348,7 @@ public class ConductorPayAPI: APIBase {
 
     /**
      
-     Lista os tipos de transa\u00C3\u00A7\u00C3\u00B5es
+     Lista os tipos de transa\u00E7\u00F5es
      
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -361,10 +361,10 @@ public class ConductorPayAPI: APIBase {
 
     /**
      
-     Lista os tipos de transa\u00C3\u00A7\u00C3\u00B5es
+     Lista os tipos de transa\u00E7\u00F5es
      
      - GET /api/tipos-transacoes
-     - Este m\u00C3\u00A9todo retorna a lista dos tipos de transa\u00C3\u00A7\u00C3\u00B5es realizadas no Pay.
+     - Este m\u00E9todo retorna a lista dos tipos de transa\u00E7\u00F5es realizadas no Pay.
      - examples: [{contentType=application/json, example=[ "{}" ]}]
 
      - returns: RequestBuilder<[AnyObject]> 
@@ -383,17 +383,17 @@ public class ConductorPayAPI: APIBase {
 
     /**
      
-     Lista os cart\u00C3\u00B5es cadastrados
+     Lista os cart\u00F5es cadastrados
      
-     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
-     - parameter status: (query) Status do cart\u00C3\u00A3o tokenizado (optional)
-     - parameter numeroCartao: (query) Numero do cart\u00C3\u00A3o tokenizado (optional)
+     - parameter sort: (query) Tipo de ordena\u00E7\u00E3o dos registros. (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
+     - parameter status: (query) Status do cart\u00E3o tokenizado (optional)
+     - parameter numeroCartao: (query) Numero do cart\u00E3o tokenizado (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET9(sort sort: [String]?, page: Int?, limit: Int?, status: String?, numeroCartao: String?, completion: ((data: PageCartaoPayResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET9WithRequestBuilder(sort: sort, page: page, limit: limit, status: status, numeroCartao: numeroCartao).execute { (response, error) -> Void in
+    public class func listarUsingGET10(sort sort: [String]?, page: Int?, limit: Int?, status: String?, numeroCartao: String?, completion: ((data: PageCartaoPayResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET10WithRequestBuilder(sort: sort, page: page, limit: limit, status: status, numeroCartao: numeroCartao).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -401,10 +401,10 @@ public class ConductorPayAPI: APIBase {
 
     /**
      
-     Lista os cart\u00C3\u00B5es cadastrados
+     Lista os cart\u00F5es cadastrados
      
      - GET /api/cartoes-tokenizados
-     - Este m\u00C3\u00A9todo permite listar os cart\u00C3\u00B5es cadastrado em um dispositivo.
+     - Este m\u00E9todo permite listar os cart\u00F5es cadastrado em um dispositivo.
      - examples: [{contentType=application/json, example={
   "previousPage" : 123,
   "last" : true,
@@ -431,15 +431,15 @@ public class ConductorPayAPI: APIBase {
   "first" : true
 }}]
      
-     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
-     - parameter status: (query) Status do cart\u00C3\u00A3o tokenizado (optional)
-     - parameter numeroCartao: (query) Numero do cart\u00C3\u00A3o tokenizado (optional)
+     - parameter sort: (query) Tipo de ordena\u00E7\u00E3o dos registros. (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
+     - parameter status: (query) Status do cart\u00E3o tokenizado (optional)
+     - parameter numeroCartao: (query) Numero do cart\u00E3o tokenizado (optional)
 
      - returns: RequestBuilder<PageCartaoPayResponse> 
      */
-    public class func listarUsingGET9WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, status: String?, numeroCartao: String?) -> RequestBuilder<PageCartaoPayResponse> {
+    public class func listarUsingGET10WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, status: String?, numeroCartao: String?) -> RequestBuilder<PageCartaoPayResponse> {
         let path = "/api/cartoes-tokenizados"
         let URLString = PierAPI.basePath + path
         
@@ -459,7 +459,7 @@ public class ConductorPayAPI: APIBase {
 
     /**
      
-     Cria\u00C3\u00A7\u00C3\u00A3o de cart\u00C3\u00A3o
+     Cria\u00E7\u00E3o de cart\u00E3o
      
      - parameter persist: (body) persist 
      - parameter completion: completion handler to receive the data and the error objects
@@ -473,10 +473,10 @@ public class ConductorPayAPI: APIBase {
 
     /**
      
-     Cria\u00C3\u00A7\u00C3\u00A3o de cart\u00C3\u00A3o
+     Cria\u00E7\u00E3o de cart\u00E3o
      
      - POST /api/cartoes-tokenizados
-     - Este met\u00C3\u00B3do permite a tokeniza\u00C3\u00A7\u00C3\u00A3o de um cart\u00C3\u00A3o a partir dos seus dados impressos.
+     - Este met\u00F3do permite a tokeniza\u00E7\u00E3o de um cart\u00E3o a partir dos seus dados impressos.
      - examples: [{contentType=application/json, example={
   "numeroCartao" : "aeiou",
   "cvv" : "aeiou",

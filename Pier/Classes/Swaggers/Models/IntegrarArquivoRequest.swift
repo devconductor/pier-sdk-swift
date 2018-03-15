@@ -8,11 +8,11 @@
 import Foundation
 
 
-/** Objeto de requisi\u00C3\u00A7\u00C3\u00A3o da integra\u00C3\u00A7\u00C3\u00A3o de Arquivos. */
+/** Objeto de requisi\u00E7\u00E3o da integra\u00E7\u00E3o de Arquivos. */
 public class IntegrarArquivoRequest: JSONEncodable {
 
-    /** CPF do cliente de Arquivos a serem integrados */
-    public var cpf: String?
+    /** N\u00FAmero Receita Federal (CPF) vinculado a um ou mais arquivos que ser\u00E3o enviados para realizar integra\u00E7\u00E3o */
+    public var numeroReceitaFederal: String?
     
 
     public init() {}
@@ -20,7 +20,7 @@ public class IntegrarArquivoRequest: JSONEncodable {
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
-        nillableDictionary["cpf"] = self.cpf
+        nillableDictionary["numeroReceitaFederal"] = self.numeroReceitaFederal
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

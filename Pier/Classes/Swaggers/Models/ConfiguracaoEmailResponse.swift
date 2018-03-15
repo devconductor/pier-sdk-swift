@@ -8,34 +8,34 @@
 import Foundation
 
 
-/** Objeto Configura\u00C3\u00A7\u00C3\u00A3o EMAIL */
+/** Objeto Configura\u00E7\u00E3o EMAIL */
 public class ConfiguracaoEmailResponse: JSONEncodable {
 
-    /** Id da Configura\u00C3\u00A7\u00C3\u00A3o EMAIL. */
+    /** Id da Configura\u00E7\u00E3o EMAIL. */
     public var id: Int?
     /** IP (Host) do servidor de e-mail. */
     public var host: String?
     /** Porta usada pelo servidor de e-mail. */
     public var port: String?
-    /** Porta usada pelo servi\u00C3\u00A7o TLS/STARTTLS. */
+    /** Porta usada pelo servi\u00E7o TLS/STARTTLS. */
     public var portTLSSTARTTLS: String?
-    /** Porta usada pelo servi\u00C3\u00A7o SSL. */
+    /** Porta usada pelo servi\u00E7o SSL. */
     public var portSSL: String?
-    /** Protocolo de comunica\u00C3\u00A7\u00C3\u00A3o usado pelo servi\u00C3\u00A7o de e-mail (Ex: smtp). */
+    /** Protocolo de comunica\u00E7\u00E3o usado pelo servi\u00E7o de e-mail (Ex: smtp). */
     public var protocolo: String?
-    /** O servi\u00C3\u00A7o de e-mail requer autentica\u00C3\u00A7\u00C3\u00A3o. */
+    /** O servi\u00E7o de e-mail requer autentica\u00E7\u00E3o. */
     public var requerAutenticacao: Bool?
-    /** O servi\u00C3\u00A7o de e-mail requer SSL. */
+    /** O servi\u00E7o de e-mail requer SSL. */
     public var requerSSL: Bool?
-    /** O servi\u00C3\u00A7o de e-mail requer TLS. */
+    /** O servi\u00E7o de e-mail requer TLS. */
     public var requerTLS: Bool?
-    /** Usuario do servi\u00C3\u00A7o de e-mail. */
+    /** Usuario do servi\u00E7o de e-mail. */
     public var usuario: String?
-    /** Senha de usu\u00C3\u00A1rio do servi\u00C3\u00A7o de e-mail. */
+    /** Senha de usu\u00E1rio do servi\u00E7o de e-mail. */
     public var senha: String?
-    /** Data de inclus\u00C3\u00A3o. */
+    /** Data de inclus\u00E3o. */
     public var dataInclusao: String?
-    /** Data de altera\u00C3\u00A7\u00C3\u00A3o. */
+    /** Data de altera\u00E7\u00E3o. */
     public var dataAlteracao: String?
     
 

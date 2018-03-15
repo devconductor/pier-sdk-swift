@@ -8,36 +8,36 @@
 import Foundation
 
 
-/** Representa\u00C3\u00A7\u00C3\u00A3o da entrada do recurso de cadastrar adicionais */
+/** Representa\u00E7\u00E3o da entrada do recurso de cadastrar adicionais */
 public class AdicionalPersist: JSONEncodable {
 
     /** Nome completo do Adicional. */
     public var nome: String?
-    /** Nome do Adicional que ser\u00C3\u00A1 gravado no Cart\u00C3\u00A3o. */
+    /** Nome do Adicional que ser\u00E1 gravado no Cart\u00E3o. */
     public var nomeImpresso: String?
-    /** N\u00C3\u00BAmero do CPF ou CNPJ do Adicional. */
+    /** N\u00FAmero do CPF ou CNPJ do Adicional. */
     public var numeroReceitaFederal: String?
     /** Data de Nascimento do Adicional em formato yyyy-MM-dd. */
     public var dataNascimento: String?
-    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do sexo da Pessoa, quando PF, sendo: (\&quot;M\&quot;: Masculino), (\&quot;F\&quot;: Feminino), (\&quot;O\&quot;: Outro), (\&quot;N\&quot;: N\u00C3\u00A3o Especificado). */
+    /** C\u00F3digo de identifica\u00E7\u00E3o do sexo da Pessoa, quando PF, sendo: (\&quot;M\&quot;: Masculino), (\&quot;F\&quot;: Feminino), (\&quot;O\&quot;: Outro), (\&quot;N\&quot;: N\u00E3o Especificado). */
     public var sexo: String?
-    /** N\u00C3\u00BAmero do Documento de Identidade do Adicional. */
+    /** N\u00FAmero do Documento de Identidade do Adicional. */
     public var numeroIdentidade: String?
-    /** Nome do Org\u00C3\u00A3o Emissor do Documento de Identidade do Adicional. */
+    /** Nome do Org\u00E3o Emissor do Documento de Identidade do Adicional. */
     public var orgaoExpedidorIdentidade: String?
     /** Sigla da Unidade Federativa onde o Documento de Identidade do Adicional foi emitido. */
     public var unidadeFederativaIdentidade: String?
-    /** Data de emiss\u00C3\u00A3o do Documento de Identidade do Adicional em formato yyyy-MM-dd. */
+    /** Data de emiss\u00E3o do Documento de Identidade do Adicional em formato yyyy-MM-dd. */
     public var dataEmissaoIdentidade: String?
-    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do Estado Civil do Adicional. */
+    /** C\u00F3digo de identifica\u00E7\u00E3o do Estado Civil do Adicional. */
     public var idEstadoCivil: Int?
-    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da Profissao do Adicional. */
+    /** C\u00F3digo de identifica\u00E7\u00E3o da Profissao do Adicional. */
     public var idProfissao: Int?
-    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da Nacionalidade do Adicional. */
+    /** C\u00F3digo de identifica\u00E7\u00E3o da Nacionalidade do Adicional. */
     public var idNacionalidade: Int?
-    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do Parentesco do Adicional com o Titular. */
+    /** C\u00F3digo de identifica\u00E7\u00E3o do Parentesco do Adicional com o Titular. */
     public var idParentesco: Int?
-    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do Parentesco do Adicional com o Titular. */
+    /** C\u00F3digo de identifica\u00E7\u00E3o do Parentesco do Adicional com o Titular. */
     public var email: String?
     /** Lista de telefones do adicional. */
     public var telefones: [TelefoneAdicionalPersist]?

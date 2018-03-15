@@ -12,9 +12,9 @@ import Alamofire
 public class CartaoAPI: APIBase {
     /**
      
-     Realiza a altera\u00C3\u00A7\u00C3\u00A3o da senha de um Cart\u00C3\u00A3o
+     Realiza a altera\u00E7\u00E3o da senha de um Cart\u00E3o
      
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o do Cart\u00E3o (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func alterarAlterarSenhaUsingPUT(id id: Int, completion: ((data: String?, error: ErrorType?) -> Void)) {
@@ -26,13 +26,13 @@ public class CartaoAPI: APIBase {
 
     /**
      
-     Realiza a altera\u00C3\u00A7\u00C3\u00A3o da senha de um Cart\u00C3\u00A3o
+     Realiza a altera\u00E7\u00E3o da senha de um Cart\u00E3o
      
      - PUT /api/cartoes/{id}/alterar-senha
-     - Esta opera\u00C3\u00A7\u00C3\u00A3o tem como objetivo permitir que o portador de um determinado cart\u00C3\u00A3o possa definir uma senha a sua escolha.
+     - Esta opera\u00E7\u00E3o tem como objetivo permitir que o portador de um determinado cart\u00E3o possa definir uma senha a sua escolha.
      - examples: [{contentType=application/json, example="aeiou"}]
      
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o do Cart\u00E3o (id). 
 
      - returns: RequestBuilder<String> 
      */
@@ -51,10 +51,10 @@ public class CartaoAPI: APIBase {
 
     /**
      
-     Realiza a altera\u00C3\u00A7\u00C3\u00A3o do Status de Impress\u00C3\u00A3o do Cart\u00C3\u00A3o
+     Realiza a altera\u00E7\u00E3o do Status de Impress\u00E3o do Cart\u00E3o
      
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
-     - parameter idStatusImpressao: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Status Impress\u00C3\u00A3o (Id). 
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o do Cart\u00E3o (id). 
+     - parameter idStatusImpressao: (query) C\u00F3digo de Identifica\u00E7\u00E3o do Status Impress\u00E3o (Id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func alterarStatusImpressaoUsingPUT(id id: Int, idStatusImpressao: Int, completion: ((data: HistoricoImpressaoCartaoResponse?, error: ErrorType?) -> Void)) {
@@ -66,10 +66,10 @@ public class CartaoAPI: APIBase {
 
     /**
      
-     Realiza a altera\u00C3\u00A7\u00C3\u00A3o do Status de Impress\u00C3\u00A3o do Cart\u00C3\u00A3o
+     Realiza a altera\u00E7\u00E3o do Status de Impress\u00E3o do Cart\u00E3o
      
      - PUT /api/cartoes/{id}/alterar-status-impressao
-     - Este m\u00C3\u00A9todo permite que uma Aplica\u00C3\u00A7\u00C3\u00A3o que realize a impress\u00C3\u00A3o de cart\u00C3\u00B5es possa indicar que um determinado idCartao fora impresso ou est\u00C3\u00A1 em processo de impress\u00C3\u00A3o. Para isso, basta informar o respectivo c\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do cart\u00C3\u00A3o (id) que deseja ter seu um determinado id_status_impressao atribu\u00C3\u00ADdo a ele. Por padr\u00C3\u00A3o, cart\u00C3\u00B5es provis\u00C3\u00B3rios ou que j\u00C3\u00A1 tenham sido inclu\u00C3\u00ADdos em um arquivo para impress\u00C3\u00A3o via gr\u00C3\u00A1fica ter\u00C3\u00A3o esta requisi\u00C3\u00A7\u00C3\u00A3o negada, se utilizada.
+     - Este m\u00E9todo permite que uma Aplica\u00E7\u00E3o que realize a impress\u00E3o de cart\u00F5es possa indicar que um determinado idCartao fora impresso ou est\u00E1 em processo de impress\u00E3o. Para isso, basta informar o respectivo c\u00F3digo de identifica\u00E7\u00E3o do cart\u00E3o (id) que deseja ter seu um determinado id_status_impressao atribu\u00EDdo a ele. Por padr\u00E3o, cart\u00F5es provis\u00F3rios ou que j\u00E1 tenham sido inclu\u00EDdos em um arquivo para impress\u00E3o via gr\u00E1fica ter\u00E3o esta requisi\u00E7\u00E3o negada, se utilizada.
      - examples: [{contentType=application/json, example={
   "idStatusImpressaoCartao" : 123456789,
   "idCartao" : 123456789,
@@ -78,8 +78,8 @@ public class CartaoAPI: APIBase {
   "id" : 123456789
 }}]
      
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
-     - parameter idStatusImpressao: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Status Impress\u00C3\u00A3o (Id). 
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o do Cart\u00E3o (id). 
+     - parameter idStatusImpressao: (query) C\u00F3digo de Identifica\u00E7\u00E3o do Status Impress\u00E3o (Id). 
 
      - returns: RequestBuilder<HistoricoImpressaoCartaoResponse> 
      */
@@ -100,10 +100,10 @@ public class CartaoAPI: APIBase {
 
     /**
      
-     Realiza a atribui\u00C3\u00A7\u00C3\u00A3o de um cart\u00C3\u00A3o pr\u00C3\u00A9-pago a uma pessoa
+     Realiza a atribui\u00E7\u00E3o de um cart\u00E3o pr\u00E9-pago a uma pessoa
      
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id) 
-     - parameter idPessoa: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o de uma Pessoa (id). 
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o do Cart\u00E3o (id) 
+     - parameter idPessoa: (query) C\u00F3digo de identifica\u00E7\u00E3o de uma Pessoa (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func atribuirPessoaUsingPUT(id id: Int, idPessoa: Int, completion: ((data: CartaoResponse?, error: ErrorType?) -> Void)) {
@@ -115,10 +115,10 @@ public class CartaoAPI: APIBase {
 
     /**
      
-     Realiza a atribui\u00C3\u00A7\u00C3\u00A3o de um cart\u00C3\u00A3o pr\u00C3\u00A9-pago a uma pessoa
+     Realiza a atribui\u00E7\u00E3o de um cart\u00E3o pr\u00E9-pago a uma pessoa
      
      - PUT /api/cartoes/{id}/atribuir-titular
-     - Esta m\u00C3\u00A9todo permite que um cart\u00C3\u00A3o pr\u00C3\u00A9-pago impresso de forma avulsa e an\u00C3\u00B4nimo seja atribu\u00C3\u00ADdo a uma pessoa para que esta passe a ser a portadora titular dele.
+     - Esta m\u00E9todo permite que um cart\u00E3o pr\u00E9-pago impresso de forma avulsa e an\u00F4nimo seja atribu\u00EDdo a uma pessoa para que esta passe a ser a portadora titular dele.
      - examples: [{contentType=application/json, example={
   "numeroBin" : 123456789,
   "idConta" : 123456789,
@@ -144,8 +144,8 @@ public class CartaoAPI: APIBase {
   "impressaoAvulsa" : 123
 }}]
      
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id) 
-     - parameter idPessoa: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o de uma Pessoa (id). 
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o do Cart\u00E3o (id) 
+     - parameter idPessoa: (query) C\u00F3digo de identifica\u00E7\u00E3o de uma Pessoa (id). 
 
      - returns: RequestBuilder<CartaoResponse> 
      */
@@ -166,11 +166,11 @@ public class CartaoAPI: APIBase {
 
     /**
      
-     Realiza o bloqueio de um determinado Cart\u00C3\u00A3o
+     Realiza o bloqueio de um determinado Cart\u00E3o
      
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
-     - parameter idStatus: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Novo Status Cart\u00C3\u00A3o. 
-     - parameter observacao: (query) Texto informando uma observa\u00C3\u00A7\u00C3\u00A3o sobre o bloqueio. 
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o do Cart\u00E3o (id). 
+     - parameter idStatus: (query) C\u00F3digo de Identifica\u00E7\u00E3o do Novo Status Cart\u00E3o. 
+     - parameter observacao: (query) Texto informando uma observa\u00E7\u00E3o sobre o bloqueio. 
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func bloquearUsingPOST(id id: Int, idStatus: Int, observacao: String, completion: ((data: CartaoResponse?, error: ErrorType?) -> Void)) {
@@ -182,10 +182,10 @@ public class CartaoAPI: APIBase {
 
     /**
      
-     Realiza o bloqueio de um determinado Cart\u00C3\u00A3o
+     Realiza o bloqueio de um determinado Cart\u00E3o
      
      - POST /api/cartoes/{id}/bloquear
-     - Este m\u00C3\u00A9todo permite a realiza\u00C3\u00A7\u00C3\u00A3o do bloqueio (tempor\u00C3\u00A1rio) ou do cancelamento (definitivo) de um determinado cart\u00C3\u00A3o a partir do seu c\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o (id). Para isso, \u00C3\u00A9 preciso informar qual o motivo deste bloqueio que nada mais \u00C3\u00A9 do que atribuir um novo StatusCartao para ele dentre as op\u00C3\u00A7\u00C3\u00B5es praticadas pelo emissor.
+     - Este m\u00E9todo permite a realiza\u00E7\u00E3o do bloqueio (tempor\u00E1rio) ou do cancelamento (definitivo) de um determinado cart\u00E3o a partir do seu c\u00F3digo de identifica\u00E7\u00E3o (id). Para isso, \u00E9 preciso informar qual o motivo deste bloqueio que nada mais \u00E9 do que atribuir um novo StatusCartao para ele dentre as op\u00E7\u00F5es praticadas pelo emissor.
      - examples: [{contentType=application/json, example={
   "numeroBin" : 123456789,
   "idConta" : 123456789,
@@ -211,9 +211,9 @@ public class CartaoAPI: APIBase {
   "impressaoAvulsa" : 123
 }}]
      
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
-     - parameter idStatus: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Novo Status Cart\u00C3\u00A3o. 
-     - parameter observacao: (query) Texto informando uma observa\u00C3\u00A7\u00C3\u00A3o sobre o bloqueio. 
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o do Cart\u00E3o (id). 
+     - parameter idStatus: (query) C\u00F3digo de Identifica\u00E7\u00E3o do Novo Status Cart\u00E3o. 
+     - parameter observacao: (query) Texto informando uma observa\u00E7\u00E3o sobre o bloqueio. 
 
      - returns: RequestBuilder<CartaoResponse> 
      */
@@ -235,9 +235,9 @@ public class CartaoAPI: APIBase {
 
     /**
      
-     Realiza o cadastro da senha de um Cart\u00C3\u00A3o
+     Realiza o cadastro da senha de um Cart\u00E3o
      
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o do Cart\u00E3o (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func cadastrarAlterarSenhaUsingPOST(id id: Int, completion: ((data: String?, error: ErrorType?) -> Void)) {
@@ -249,13 +249,13 @@ public class CartaoAPI: APIBase {
 
     /**
      
-     Realiza o cadastro da senha de um Cart\u00C3\u00A3o
+     Realiza o cadastro da senha de um Cart\u00E3o
      
      - POST /api/cartoes/{id}/cadastrar-senha
-     - Esta opera\u00C3\u00A7\u00C3\u00A3o tem como objetivo permitir que o portador de um determinado cart\u00C3\u00A3o possa definir uma senha a sua escolha.
+     - Esta opera\u00E7\u00E3o tem como objetivo permitir que o portador de um determinado cart\u00E3o possa definir uma senha a sua escolha.
      - examples: [{contentType=application/json, example="aeiou"}]
      
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o do Cart\u00E3o (id). 
 
      - returns: RequestBuilder<String> 
      */
@@ -274,11 +274,11 @@ public class CartaoAPI: APIBase {
 
     /**
      
-     Realiza o cancelamento de um determinado Cart\u00C3\u00A3o
+     Realiza o cancelamento de um determinado Cart\u00E3o
      
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
-     - parameter idStatus: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Novo Status Cart\u00C3\u00A3o. 
-     - parameter observacao: (query) Texto informando uma observa\u00C3\u00A7\u00C3\u00A3o sobre o cancelamento. 
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o do Cart\u00E3o (id). 
+     - parameter idStatus: (query) C\u00F3digo de Identifica\u00E7\u00E3o do Novo Status Cart\u00E3o. 
+     - parameter observacao: (query) Texto informando uma observa\u00E7\u00E3o sobre o cancelamento. 
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func cancelarUsingPOST(id id: Int, idStatus: Int, observacao: String, completion: ((data: CartaoResponse?, error: ErrorType?) -> Void)) {
@@ -290,10 +290,10 @@ public class CartaoAPI: APIBase {
 
     /**
      
-     Realiza o cancelamento de um determinado Cart\u00C3\u00A3o
+     Realiza o cancelamento de um determinado Cart\u00E3o
      
      - POST /api/cartoes/{id}/cancelar
-     - Este m\u00C3\u00A9todo permite a realiza\u00C3\u00A7\u00C3\u00A3o cancelamento de um determinado cart\u00C3\u00A3o a partir do seu c\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o (id). Para isso, \u00C3\u00A9 preciso informar qual o motivo deste bloqueio que nada mais \u00C3\u00A9 do que atribuir um novo StatusCartao para ele dentre as op\u00C3\u00A7\u00C3\u00B5es praticadas pelo emissor.
+     - Este m\u00E9todo permite a realiza\u00E7\u00E3o cancelamento de um determinado cart\u00E3o a partir do seu c\u00F3digo de identifica\u00E7\u00E3o (id). Para isso, \u00E9 preciso informar qual o motivo deste bloqueio que nada mais \u00E9 do que atribuir um novo StatusCartao para ele dentre as op\u00E7\u00F5es praticadas pelo emissor.
      - examples: [{contentType=application/json, example={
   "numeroBin" : 123456789,
   "idConta" : 123456789,
@@ -319,9 +319,9 @@ public class CartaoAPI: APIBase {
   "impressaoAvulsa" : 123
 }}]
      
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
-     - parameter idStatus: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Novo Status Cart\u00C3\u00A3o. 
-     - parameter observacao: (query) Texto informando uma observa\u00C3\u00A7\u00C3\u00A3o sobre o cancelamento. 
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o do Cart\u00E3o (id). 
+     - parameter idStatus: (query) C\u00F3digo de Identifica\u00E7\u00E3o do Novo Status Cart\u00E3o. 
+     - parameter observacao: (query) Texto informando uma observa\u00E7\u00E3o sobre o cancelamento. 
 
      - returns: RequestBuilder<CartaoResponse> 
      */
@@ -343,9 +343,9 @@ public class CartaoAPI: APIBase {
 
     /**
      
-     Consultar os dados de impress\u00C3\u00A3o de um Cart\u00C3\u00A3o
+     Consultar os dados de impress\u00E3o de um Cart\u00E3o
      
-     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do cart\u00C3\u00A3o (id). 
+     - parameter id: (path) C\u00F3digo de identifica\u00E7\u00E3o do cart\u00E3o (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func consultarCartaoImpressaoUsingGET(id id: Int, completion: ((data: DadosCartaoImpressaoResponse?, error: ErrorType?) -> Void)) {
@@ -357,10 +357,10 @@ public class CartaoAPI: APIBase {
 
     /**
      
-     Consultar os dados de impress\u00C3\u00A3o de um Cart\u00C3\u00A3o
+     Consultar os dados de impress\u00E3o de um Cart\u00E3o
      
      - GET /api/cartoes/{id}/consultar-dados-impressao
-     - Esse recurso permite consultar os dados de impress\u00C3\u00A3o de um cart\u00C3\u00A3o
+     - Esse recurso permite consultar os dados de impress\u00E3o de um cart\u00E3o
      - examples: [{contentType=application/json, example={
   "cvv2" : "aeiou",
   "trilha1" : "aeiou",
@@ -387,6 +387,7 @@ public class CartaoAPI: APIBase {
   "descricaoStatusConta" : 123456789,
   "sequencialCartao" : 123,
   "nomePessoa" : "aeiou",
+  "senhaCriptografada" : "aeiou",
   "nomePlastico" : "aeiou",
   "flagVirtual" : 123,
   "dataNascimento" : "aeiou",
@@ -411,7 +412,7 @@ public class CartaoAPI: APIBase {
   "dataEmbossing" : "aeiou"
 }}]
      
-     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do cart\u00C3\u00A3o (id). 
+     - parameter id: (path) C\u00F3digo de identifica\u00E7\u00E3o do cart\u00E3o (id). 
 
      - returns: RequestBuilder<DadosCartaoImpressaoResponse> 
      */
@@ -430,7 +431,7 @@ public class CartaoAPI: APIBase {
 
     /**
      
-     Consultar Detalhes do Cart\u00C3\u00A3o
+     Consultar Detalhes do Cart\u00E3o
      
      - parameter id: (path) id 
      - parameter completion: completion handler to receive the data and the error objects
@@ -444,10 +445,10 @@ public class CartaoAPI: APIBase {
 
     /**
      
-     Consultar Detalhes do Cart\u00C3\u00A3o
+     Consultar Detalhes do Cart\u00E3o
      
      - GET /api/cartoes/{id}/consultar-dados-reais
-     - Este m\u00C3\u00A9todo permite que seja consultado os dados necessarios de um cart\u00C3\u00A3o para executar servi\u00C3\u00A7os de autoriza\u00C3\u00A7\u00C3\u00A3o.
+     - Este m\u00E9todo permite que seja consultado os dados necessarios de um cart\u00E3o para executar servi\u00E7os de autoriza\u00E7\u00E3o.
      - examples: [{contentType=application/json, example={
   "cvv2" : "aeiou",
   "idCartao" : 123456789,
@@ -483,9 +484,9 @@ public class CartaoAPI: APIBase {
 
     /**
      
-     Apresenta os limites do Portador do Cart\u00C3\u00A3o
+     Apresenta os limites do Portador do Cart\u00E3o
      
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o do Cart\u00E3o (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func consultarLimiteDisponibilidadeUsingGET(id id: Int, completion: ((data: LimiteDisponibilidadeResponse?, error: ErrorType?) -> Void)) {
@@ -497,10 +498,10 @@ public class CartaoAPI: APIBase {
 
     /**
      
-     Apresenta os limites do Portador do Cart\u00C3\u00A3o
+     Apresenta os limites do Portador do Cart\u00E3o
      
      - GET /api/cartoes/{id}/limites-disponibilidades
-     - Este m\u00C3\u00A9todo permite consultar os Limites configurados para o Portador de um determinado Cart\u00C3\u00A3o, seja ele o titular da conta ou um adicional, a partir do c\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id).
+     - Este m\u00E9todo permite consultar os Limites configurados para o Portador de um determinado Cart\u00E3o, seja ele o titular da conta ou um adicional, a partir do c\u00F3digo de identifica\u00E7\u00E3o do Cart\u00E3o (id).
      - examples: [{contentType=application/json, example={
   "saldoDisponivelCompraInternacional" : 1.3579000000000001069366817318950779736042022705078125,
   "saldoDisponivelSaque" : 1.3579000000000001069366817318950779736042022705078125,
@@ -526,7 +527,7 @@ public class CartaoAPI: APIBase {
   "limiteCompra" : 1.3579000000000001069366817318950779736042022705078125
 }}]
      
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o do Cart\u00E3o (id). 
 
      - returns: RequestBuilder<LimiteDisponibilidadeResponse> 
      */
@@ -545,9 +546,9 @@ public class CartaoAPI: APIBase {
 
     /**
      
-     Permite consultar um determinado Lote de Cart\u00C3\u00B5es Pr\u00C3\u00A9-Pago
+     Permite consultar um determinado Lote de Cart\u00F5es Pr\u00E9-Pago
      
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do lote de cart\u00C3\u00B5es (id) 
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o do lote de cart\u00F5es (id) 
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func consultarLotesCartoesPrePagosUsingGET(id id: Int, completion: ((data: LoteCartoesPrePagosResponse?, error: ErrorType?) -> Void)) {
@@ -559,10 +560,10 @@ public class CartaoAPI: APIBase {
 
     /**
      
-     Permite consultar um determinado Lote de Cart\u00C3\u00B5es Pr\u00C3\u00A9-Pago
+     Permite consultar um determinado Lote de Cart\u00F5es Pr\u00E9-Pago
      
      - GET /api/cartoes/lotes-cartoes-pre-pagos/{id}
-     - Este m\u00C3\u00A9todo permite consultar os cart\u00C3\u00B5es pr\u00C3\u00A9-pagos existentes na base do emissor atrav\u00C3\u00A9s do id do lote.
+     - Este m\u00E9todo permite consultar os cart\u00F5es pr\u00E9-pagos existentes na base do emissor atrav\u00E9s do id do lote.
      - examples: [{contentType=application/json, example={
   "identificadorExterno" : "aeiou",
   "idOrigemComercial" : 123456789,
@@ -577,7 +578,7 @@ public class CartaoAPI: APIBase {
   "usuarioCadastro" : "aeiou"
 }}]
      
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do lote de cart\u00C3\u00B5es (id) 
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o do lote de cart\u00F5es (id) 
 
      - returns: RequestBuilder<LoteCartoesPrePagosResponse> 
      */
@@ -596,9 +597,9 @@ public class CartaoAPI: APIBase {
 
     /**
      
-     Apresenta os dados do Portador do Cart\u00C3\u00A3o
+     Apresenta os dados do Portador do Cart\u00E3o
      
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o do Cart\u00E3o (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func consultarPortadorUsingGET(id id: Int, completion: ((data: PortadorResponse?, error: ErrorType?) -> Void)) {
@@ -610,10 +611,10 @@ public class CartaoAPI: APIBase {
 
     /**
      
-     Apresenta os dados do Portador do Cart\u00C3\u00A3o
+     Apresenta os dados do Portador do Cart\u00E3o
      
      - GET /api/cartoes/{id}/portadores
-     - Este m\u00C3\u00A9todo permite consultar as informa\u00C3\u00A7\u00C3\u00B5es do Portador de um determinado Cart\u00C3\u00A3o a partir do c\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id).
+     - Este m\u00E9todo permite consultar as informa\u00E7\u00F5es do Portador de um determinado Cart\u00E3o a partir do c\u00F3digo de identifica\u00E7\u00E3o do Cart\u00E3o (id).
      - examples: [{contentType=application/json, example={
   "idPessoa" : 123456789,
   "idConta" : 123456789,
@@ -627,7 +628,7 @@ public class CartaoAPI: APIBase {
   "tipoPortador" : "aeiou"
 }}]
      
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o do Cart\u00E3o (id). 
 
      - returns: RequestBuilder<PortadorResponse> 
      */
@@ -646,13 +647,13 @@ public class CartaoAPI: APIBase {
 
     /**
      
-     Apresenta os dados de um determinado Cart\u00C3\u00A3o
+     Apresenta os dados de um determinado Cart\u00E3o
      
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o do Cart\u00E3o (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET8(id id: Int, completion: ((data: CartaoDetalheResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET8WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET9(id id: Int, completion: ((data: CartaoDetalheResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET9WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -660,10 +661,10 @@ public class CartaoAPI: APIBase {
 
     /**
      
-     Apresenta os dados de um determinado Cart\u00C3\u00A3o
+     Apresenta os dados de um determinado Cart\u00E3o
      
      - GET /api/cartoes/{id}
-     - Este m\u00C3\u00A9todo permite consultar as informa\u00C3\u00A7\u00C3\u00B5es b\u00C3\u00A1sicas de um determinado Cart\u00C3\u00A3o a partir do seu c\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o (id).
+     - Este m\u00E9todo permite consultar as informa\u00E7\u00F5es b\u00E1sicas de um determinado Cart\u00E3o a partir do seu c\u00F3digo de identifica\u00E7\u00E3o (id).
      - examples: [{contentType=application/json, example={
   "numeroBin" : 123456789,
   "idConta" : 123456789,
@@ -691,11 +692,11 @@ public class CartaoAPI: APIBase {
   "impressaoAvulsa" : 123
 }}]
      
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o do Cart\u00E3o (id). 
 
      - returns: RequestBuilder<CartaoDetalheResponse> 
      */
-    public class func consultarUsingGET8WithRequestBuilder(id id: Int) -> RequestBuilder<CartaoDetalheResponse> {
+    public class func consultarUsingGET9WithRequestBuilder(id id: Int) -> RequestBuilder<CartaoDetalheResponse> {
         var path = "/api/cartoes/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -710,9 +711,9 @@ public class CartaoAPI: APIBase {
 
     /**
      
-     Realiza o desbloqueio de um cart\u00C3\u00A3o bloqueado por tentativas de senha incorretas
+     Realiza o desbloqueio de um cart\u00E3o bloqueado por tentativas de senha incorretas
      
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o do Cart\u00E3o (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func desbloquearSenhaIncorretaUsingPOST(id id: Int, completion: ((data: CartaoResponse?, error: ErrorType?) -> Void)) {
@@ -724,10 +725,10 @@ public class CartaoAPI: APIBase {
 
     /**
      
-     Realiza o desbloqueio de um cart\u00C3\u00A3o bloqueado por tentativas de senha incorretas
+     Realiza o desbloqueio de um cart\u00E3o bloqueado por tentativas de senha incorretas
      
      - POST /api/cartoes/{id}/desbloquear-senha-incorreta
-     - Este m\u00C3\u00A9todo permite que seja desbloqueado um determinado cart\u00C3\u00A3o que foi bloqueado por tentativas de senha incorretas, a partir do seu c\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o (id).
+     - Este m\u00E9todo permite que seja desbloqueado um determinado cart\u00E3o que foi bloqueado por tentativas de senha incorretas, a partir do seu c\u00F3digo de identifica\u00E7\u00E3o (id).
      - examples: [{contentType=application/json, example={
   "numeroBin" : 123456789,
   "idConta" : 123456789,
@@ -753,7 +754,7 @@ public class CartaoAPI: APIBase {
   "impressaoAvulsa" : 123
 }}]
      
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o do Cart\u00E3o (id). 
 
      - returns: RequestBuilder<CartaoResponse> 
      */
@@ -772,9 +773,9 @@ public class CartaoAPI: APIBase {
 
     /**
      
-     Realiza o desbloqueio de um determinado Cart\u00C3\u00A3o
+     Realiza o desbloqueio de um determinado Cart\u00E3o
      
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o do Cart\u00E3o (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func desbloquearUsingPOST(id id: Int, completion: ((data: CartaoResponse?, error: ErrorType?) -> Void)) {
@@ -786,10 +787,10 @@ public class CartaoAPI: APIBase {
 
     /**
      
-     Realiza o desbloqueio de um determinado Cart\u00C3\u00A3o
+     Realiza o desbloqueio de um determinado Cart\u00E3o
      
      - POST /api/cartoes/{id}/desbloquear
-     - Este m\u00C3\u00A9todo permite que seja desbloqueado um determinado cart\u00C3\u00A3o a partir do seu c\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o (id).
+     - Este m\u00E9todo permite que seja desbloqueado um determinado cart\u00E3o a partir do seu c\u00F3digo de identifica\u00E7\u00E3o (id).
      - examples: [{contentType=application/json, example={
   "numeroBin" : 123456789,
   "idConta" : 123456789,
@@ -815,7 +816,7 @@ public class CartaoAPI: APIBase {
   "impressaoAvulsa" : 123
 }}]
      
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o do Cart\u00E3o (id). 
 
      - returns: RequestBuilder<CartaoResponse> 
      */
@@ -834,15 +835,15 @@ public class CartaoAPI: APIBase {
 
     /**
      
-     Permite gerar um novo Lote de Cart\u00C3\u00B5es Pr\u00C3\u00A9-Pago
+     Permite gerar um novo Lote de Cart\u00F5es Pr\u00E9-Pago
      
-     - parameter idOrigemComercial: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Origem Comercial (id). (optional)
-     - parameter idProduto: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Produto (id). (optional)
-     - parameter idTipoCartao: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Tipo do Cart\u00C3\u00A3o (id). (optional)
-     - parameter idImagem: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Imagem (id). (optional)
-     - parameter idEndereco: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Endere\u00C3\u00A7o (id). (optional)
-     - parameter quantidadeCartoes: (query) N\u00C3\u00BAmero de cart\u00C3\u00B5es existentes no Lote. (optional)
-     - parameter identificadorExterno: (query) N\u00C3\u00BAmero de identifica\u00C3\u00A7\u00C3\u00A3o externo (utilizado pelo emissor). (optional)
+     - parameter idOrigemComercial: (query) C\u00F3digo de Identifica\u00E7\u00E3o da Origem Comercial (id). (optional)
+     - parameter idProduto: (query) C\u00F3digo de Identifica\u00E7\u00E3o do Produto (id). (optional)
+     - parameter idTipoCartao: (query) C\u00F3digo de Identifica\u00E7\u00E3o do Tipo do Cart\u00E3o (id). (optional)
+     - parameter idImagem: (query) C\u00F3digo de Identifica\u00E7\u00E3o da Imagem (id). (optional)
+     - parameter idEndereco: (query) C\u00F3digo de Identifica\u00E7\u00E3o do Endere\u00E7o (id). (optional)
+     - parameter quantidadeCartoes: (query) N\u00FAmero de cart\u00F5es existentes no Lote. (optional)
+     - parameter identificadorExterno: (query) N\u00FAmero de identifica\u00E7\u00E3o externo (utilizado pelo emissor). (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func gerarLotesCartoesPrePagosUsingPOST(idOrigemComercial idOrigemComercial: Int?, idProduto: Int?, idTipoCartao: Int?, idImagem: Int?, idEndereco: Int?, quantidadeCartoes: Int?, identificadorExterno: String?, completion: ((data: LoteCartoesPrePagosResponse?, error: ErrorType?) -> Void)) {
@@ -854,10 +855,10 @@ public class CartaoAPI: APIBase {
 
     /**
      
-     Permite gerar um novo Lote de Cart\u00C3\u00B5es Pr\u00C3\u00A9-Pago
+     Permite gerar um novo Lote de Cart\u00F5es Pr\u00E9-Pago
      
      - POST /api/cartoes/lotes-cartoes-pre-pagos
-     - Esta opera\u00C3\u00A7\u00C3\u00A3o tem como objetivo permitir que os Emissores gerem uma determinada quantidade de Cart\u00C3\u00B5es Pr\u00C3\u00A9-Pagos, de forma n\u00C3\u00A3o nominal, os quais poder\u00C3\u00A3o ser comercializados e posteriormente vinculados a um cliente que o adquirir. Para isso, al\u00C3\u00A9m de definir quantos cart\u00C3\u00B5es dever\u00C3\u00A3o ser gerados, ser\u00C3\u00A1 poss\u00C3\u00ADvel definir qual a Origem Comercial, o Produto, o Tipo do Cart\u00C3\u00A3o, a Imagem e o Endere\u00C3\u00A7o para entrega dos Cart\u00C3\u00B5es presentes no lote gerado. Por padr\u00C3\u00A3o, todos os cart\u00C3\u00B5es ser\u00C3\u00A3o associados a um idPessoa fict\u00C3\u00ADcio e receber\u00C3\u00A1 um idConta \u00C3\u00BAnico para cada um deles. Feito isso, os Cart\u00C3\u00B5es gerados por esta opera\u00C3\u00A7\u00C3\u00A3o seguir\u00C3\u00A3o os mesmos processos de impress\u00C3\u00A3o via gr\u00C3\u00A1fica previamente definidos entre o Emissor e a Conductor.
+     - Esta opera\u00E7\u00E3o tem como objetivo permitir que os Emissores gerem uma determinada quantidade de Cart\u00F5es Pr\u00E9-Pagos, de forma n\u00E3o nominal, os quais poder\u00E3o ser comercializados e posteriormente vinculados a um cliente que o adquirir. Para isso, al\u00E9m de definir quantos cart\u00F5es dever\u00E3o ser gerados, ser\u00E1 poss\u00EDvel definir qual a Origem Comercial, o Produto, o Tipo do Cart\u00E3o, a Imagem e o Endere\u00E7o para entrega dos Cart\u00F5es presentes no lote gerado. Por padr\u00E3o, todos os cart\u00F5es ser\u00E3o associados a um idPessoa fict\u00EDcio e receber\u00E1 um idConta \u00FAnico para cada um deles. Feito isso, os Cart\u00F5es gerados por esta opera\u00E7\u00E3o seguir\u00E3o os mesmos processos de impress\u00E3o via gr\u00E1fica previamente definidos entre o Emissor e a Conductor.
      - examples: [{contentType=application/json, example={
   "identificadorExterno" : "aeiou",
   "idOrigemComercial" : 123456789,
@@ -872,13 +873,13 @@ public class CartaoAPI: APIBase {
   "usuarioCadastro" : "aeiou"
 }}]
      
-     - parameter idOrigemComercial: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Origem Comercial (id). (optional)
-     - parameter idProduto: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Produto (id). (optional)
-     - parameter idTipoCartao: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Tipo do Cart\u00C3\u00A3o (id). (optional)
-     - parameter idImagem: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Imagem (id). (optional)
-     - parameter idEndereco: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Endere\u00C3\u00A7o (id). (optional)
-     - parameter quantidadeCartoes: (query) N\u00C3\u00BAmero de cart\u00C3\u00B5es existentes no Lote. (optional)
-     - parameter identificadorExterno: (query) N\u00C3\u00BAmero de identifica\u00C3\u00A7\u00C3\u00A3o externo (utilizado pelo emissor). (optional)
+     - parameter idOrigemComercial: (query) C\u00F3digo de Identifica\u00E7\u00E3o da Origem Comercial (id). (optional)
+     - parameter idProduto: (query) C\u00F3digo de Identifica\u00E7\u00E3o do Produto (id). (optional)
+     - parameter idTipoCartao: (query) C\u00F3digo de Identifica\u00E7\u00E3o do Tipo do Cart\u00E3o (id). (optional)
+     - parameter idImagem: (query) C\u00F3digo de Identifica\u00E7\u00E3o da Imagem (id). (optional)
+     - parameter idEndereco: (query) C\u00F3digo de Identifica\u00E7\u00E3o do Endere\u00E7o (id). (optional)
+     - parameter quantidadeCartoes: (query) N\u00FAmero de cart\u00F5es existentes no Lote. (optional)
+     - parameter identificadorExterno: (query) N\u00FAmero de identifica\u00E7\u00E3o externo (utilizado pelo emissor). (optional)
 
      - returns: RequestBuilder<LoteCartoesPrePagosResponse> 
      */
@@ -904,9 +905,9 @@ public class CartaoAPI: APIBase {
 
     /**
      
-     Gerar uma nova via de Cart\u00C3\u00A3o
+     Gerar uma nova via de Cart\u00E3o
      
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id) 
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o do Cart\u00E3o (id) 
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func gerarNovaViaUsingPOST(id id: Int, completion: ((data: CartaoResponse?, error: ErrorType?) -> Void)) {
@@ -918,10 +919,10 @@ public class CartaoAPI: APIBase {
 
     /**
      
-     Gerar uma nova via de Cart\u00C3\u00A3o
+     Gerar uma nova via de Cart\u00E3o
      
      - POST /api/cartoes/{id}/gerar-nova-via
-     - Esta opera\u00C3\u00A7\u00C3\u00A3o tem como objetivo permitir que os Emissores ou seus clientes possam solicitar a gera\u00C3\u00A7\u00C3\u00A3o de uma nova via de Cart\u00C3\u00A3o que ser\u00C3\u00A1 encaminhando para impress\u00C3\u00A3o e postagem de acordo com os fluxos padr\u00C3\u00B5es j\u00C3\u00A1 definidos pelo emissor. Para isso, \u00C3\u00A9 preciso que o cliente j\u00C3\u00A1 possua um cart\u00C3\u00A3o gerado e informar o C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o deste (idCartao) para que ele possa utilizar esta opera\u00C3\u00A7\u00C3\u00A3o. Assim, esta funcionalidade se aplica apenas para a gera\u00C3\u00A7\u00C3\u00A3o de cart\u00C3\u00B5es f\u00C3\u00ADsicos.
+     - Esta opera\u00E7\u00E3o tem como objetivo permitir que os Emissores ou seus clientes possam solicitar a gera\u00E7\u00E3o de uma nova via de Cart\u00E3o que ser\u00E1 encaminhando para impress\u00E3o e postagem de acordo com os fluxos padr\u00F5es j\u00E1 definidos pelo emissor. Para isso, \u00E9 preciso que o cliente j\u00E1 possua um cart\u00E3o gerado e informar o C\u00F3digo de Identifica\u00E7\u00E3o deste (idCartao) para que ele possa utilizar esta opera\u00E7\u00E3o. Assim, esta funcionalidade se aplica apenas para a gera\u00E7\u00E3o de cart\u00F5es f\u00EDsicos.
      - examples: [{contentType=application/json, example={
   "numeroBin" : 123456789,
   "idConta" : 123456789,
@@ -947,7 +948,7 @@ public class CartaoAPI: APIBase {
   "impressaoAvulsa" : 123
 }}]
      
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id) 
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o do Cart\u00E3o (id) 
 
      - returns: RequestBuilder<CartaoResponse> 
      */
@@ -966,9 +967,9 @@ public class CartaoAPI: APIBase {
 
     /**
      
-     Adiciona tarifa de ajuste da segunda via do cart\u00C3\u00A3o
+     Adiciona tarifa de ajuste da segunda via do cart\u00E3o
      
-     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do cart\u00C3\u00A3o (id). 
+     - parameter id: (path) C\u00F3digo de identifica\u00E7\u00E3o do cart\u00E3o (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func lancarTarifaSegundaViaUsingPOST(id id: Int, completion: ((data: AnyObject?, error: ErrorType?) -> Void)) {
@@ -980,13 +981,13 @@ public class CartaoAPI: APIBase {
 
     /**
      
-     Adiciona tarifa de ajuste da segunda via do cart\u00C3\u00A3o
+     Adiciona tarifa de ajuste da segunda via do cart\u00E3o
      
      - POST /api/cartoes/{id}/lancar-tarifa-reemissao
-     - Esse recurso permite adicionar tar\u00C3\u00ADfa de ajuste pela emiss\u00C3\u00A3o da segunda via do cart\u00C3\u00A3o.
+     - Esse recurso permite adicionar tar\u00EDfa de ajuste pela emiss\u00E3o da segunda via do cart\u00E3o.
      - examples: [{contentType=application/json, example="{}"}]
      
-     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do cart\u00C3\u00A3o (id). 
+     - parameter id: (path) C\u00F3digo de identifica\u00E7\u00E3o do cart\u00E3o (id). 
 
      - returns: RequestBuilder<AnyObject> 
      */
@@ -1005,21 +1006,21 @@ public class CartaoAPI: APIBase {
 
     /**
      
-     Permite listar os Lotes de Cart\u00C3\u00B5es Pr\u00C3\u00A9-Pago
+     Permite listar os Lotes de Cart\u00F5es Pr\u00E9-Pago
      
-     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
-     - parameter idOrigemComercial: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Origem Comercial (id). (optional)
-     - parameter idProduto: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Produto (id). (optional)
-     - parameter idTipoCartao: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Tipo do Cart\u00C3\u00A3o (id). (optional)
-     - parameter idImagem: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Imagem (id). (optional)
-     - parameter idEndereco: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Endere\u00C3\u00A7o (id). (optional)
-     - parameter quantidadeCartoes: (query) N\u00C3\u00BAmero de cart\u00C3\u00B5es existentes no Lote. (optional)
-     - parameter dataCadastro: (query) Data de Cadastro do Lote de Cart\u00C3\u00B5es N\u00C3\u00A3o Nominais. (optional)
-     - parameter usuarioCadastro: (query) Nome do Usu\u00C3\u00A1rio que criou o Lote. (optional)
+     - parameter sort: (query) Tipo de ordena\u00E7\u00E3o dos registros. (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
+     - parameter idOrigemComercial: (query) C\u00F3digo de Identifica\u00E7\u00E3o da Origem Comercial (id). (optional)
+     - parameter idProduto: (query) C\u00F3digo de Identifica\u00E7\u00E3o do Produto (id). (optional)
+     - parameter idTipoCartao: (query) C\u00F3digo de Identifica\u00E7\u00E3o do Tipo do Cart\u00E3o (id). (optional)
+     - parameter idImagem: (query) C\u00F3digo de Identifica\u00E7\u00E3o da Imagem (id). (optional)
+     - parameter idEndereco: (query) C\u00F3digo de Identifica\u00E7\u00E3o do Endere\u00E7o (id). (optional)
+     - parameter quantidadeCartoes: (query) N\u00FAmero de cart\u00F5es existentes no Lote. (optional)
+     - parameter dataCadastro: (query) Data de Cadastro do Lote de Cart\u00F5es N\u00E3o Nominais. (optional)
+     - parameter usuarioCadastro: (query) Nome do Usu\u00E1rio que criou o Lote. (optional)
      - parameter statusProcessamento: (query) Indica o Status de Processamento do Lote. (optional)
-     - parameter identificadorExterno: (query) N\u00C3\u00BAmero de identifica\u00C3\u00A7\u00C3\u00A3o externo (utilizado pelo emissor). (optional)
+     - parameter identificadorExterno: (query) N\u00FAmero de identifica\u00E7\u00E3o externo (utilizado pelo emissor). (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func listarLotesCartoesPrePagosUsingGET(sort sort: [String]?, page: Int?, limit: Int?, idOrigemComercial: Int?, idProduto: Int?, idTipoCartao: Int?, idImagem: Int?, idEndereco: Int?, quantidadeCartoes: Int?, dataCadastro: String?, usuarioCadastro: String?, statusProcessamento: Int?, identificadorExterno: String?, completion: ((data: PageLoteCartoesPrePagosResponse?, error: ErrorType?) -> Void)) {
@@ -1031,10 +1032,10 @@ public class CartaoAPI: APIBase {
 
     /**
      
-     Permite listar os Lotes de Cart\u00C3\u00B5es Pr\u00C3\u00A9-Pago
+     Permite listar os Lotes de Cart\u00F5es Pr\u00E9-Pago
      
      - GET /api/cartoes/lotes-cartoes-pre-pagos
-     - Este m\u00C3\u00A9todo permite que sejam listados os cart\u00C3\u00B5es pr\u00C3\u00A9-pagos existentes na base do emissor.
+     - Este m\u00E9todo permite que sejam listados os cart\u00F5es pr\u00E9-pagos existentes na base do emissor.
      - examples: [{contentType=application/json, example={
   "previousPage" : 123,
   "last" : true,
@@ -1064,19 +1065,19 @@ public class CartaoAPI: APIBase {
   "first" : true
 }}]
      
-     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
-     - parameter idOrigemComercial: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Origem Comercial (id). (optional)
-     - parameter idProduto: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Produto (id). (optional)
-     - parameter idTipoCartao: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Tipo do Cart\u00C3\u00A3o (id). (optional)
-     - parameter idImagem: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Imagem (id). (optional)
-     - parameter idEndereco: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Endere\u00C3\u00A7o (id). (optional)
-     - parameter quantidadeCartoes: (query) N\u00C3\u00BAmero de cart\u00C3\u00B5es existentes no Lote. (optional)
-     - parameter dataCadastro: (query) Data de Cadastro do Lote de Cart\u00C3\u00B5es N\u00C3\u00A3o Nominais. (optional)
-     - parameter usuarioCadastro: (query) Nome do Usu\u00C3\u00A1rio que criou o Lote. (optional)
+     - parameter sort: (query) Tipo de ordena\u00E7\u00E3o dos registros. (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
+     - parameter idOrigemComercial: (query) C\u00F3digo de Identifica\u00E7\u00E3o da Origem Comercial (id). (optional)
+     - parameter idProduto: (query) C\u00F3digo de Identifica\u00E7\u00E3o do Produto (id). (optional)
+     - parameter idTipoCartao: (query) C\u00F3digo de Identifica\u00E7\u00E3o do Tipo do Cart\u00E3o (id). (optional)
+     - parameter idImagem: (query) C\u00F3digo de Identifica\u00E7\u00E3o da Imagem (id). (optional)
+     - parameter idEndereco: (query) C\u00F3digo de Identifica\u00E7\u00E3o do Endere\u00E7o (id). (optional)
+     - parameter quantidadeCartoes: (query) N\u00FAmero de cart\u00F5es existentes no Lote. (optional)
+     - parameter dataCadastro: (query) Data de Cadastro do Lote de Cart\u00F5es N\u00E3o Nominais. (optional)
+     - parameter usuarioCadastro: (query) Nome do Usu\u00E1rio que criou o Lote. (optional)
      - parameter statusProcessamento: (query) Indica o Status de Processamento do Lote. (optional)
-     - parameter identificadorExterno: (query) N\u00C3\u00BAmero de identifica\u00C3\u00A7\u00C3\u00A3o externo (utilizado pelo emissor). (optional)
+     - parameter identificadorExterno: (query) N\u00FAmero de identifica\u00E7\u00E3o externo (utilizado pelo emissor). (optional)
 
      - returns: RequestBuilder<PageLoteCartoesPrePagosResponse> 
      */
@@ -1108,33 +1109,33 @@ public class CartaoAPI: APIBase {
 
     /**
      
-     Lista os Cart\u00C3\u00B5es gerados pelo Emissor
+     Lista os Cart\u00F5es gerados pelo Emissor
      
-     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
-     - parameter idStatusCartao: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Status do Cart\u00C3\u00A3o (id). (optional)
-     - parameter idEstagioCartao: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Est\u00C3\u00A1gio de Impress\u00C3\u00A3o do Cart\u00C3\u00A3o (id). (optional)
-     - parameter idConta: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Conta a qual o cart\u00C3\u00A3o pertence (id). (optional)
-     - parameter idPessoa: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Pessoa a qual o cart\u00C3\u00A3o pertence (id) (optional)
-     - parameter idProduto: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Produto a qual o cart\u00C3\u00A3o pertence (id). (optional)
-     - parameter tipoPortador: (query) Apresenta o tipo do Portador do cart\u00C3\u00A3o, sendo: (&#39;T&#39;: Titular, &#39;A&#39;: Adicional). (optional)
-     - parameter numeroCartao: (query) Apresenta o n\u00C3\u00BAmero do cart\u00C3\u00A3o. (optional)
-     - parameter nomeImpresso: (query) Apresenta o nome impresso no cart\u00C3\u00A3o. (optional)
-     - parameter dataGeracao: (query) Apresenta a data em que o cart\u00C3\u00A3o foi gerado. (optional)
-     - parameter dataStatusCartao: (query) Apresenta a data em que o idStatusCartao atual do cart\u00C3\u00A3o fora aplicado, quando houver. (optional)
-     - parameter dataEstagioCartao: (query) Apresenta a data em que o idEstagioCartao atual do cart\u00C3\u00A3o fora aplicado, quando houver. (optional)
-     - parameter dataValidade: (query) Apresenta a data de validade do cart\u00C3\u00A3o em formato yyyy-MM, quando houver. (optional)
-     - parameter dataImpressao: (query) Apresenta a data em que o cart\u00C3\u00A3o fora impresso, caso impress\u00C3\u00A3o em loja, ou a data em que ele fora inclu\u00C3\u00ADdo no arquivo para impress\u00C3\u00A3o via gr\u00C3\u00A1fica. (optional)
-     - parameter arquivoImpressao: (query) Apresenta o nome do arquivo onde o cart\u00C3\u00A3o fora inclu\u00C3\u00ADdo para impress\u00C3\u00A3o por uma gr\u00C3\u00A1fica, quando houver. (optional)
-     - parameter flagImpressaoOrigemComercial: (query) Quando ativa, indica que o cart\u00C3\u00A3o fora impresso na Origem Comercial. (optional)
-     - parameter flagProvisorio: (query) Quando ativa, indica que o cart\u00C3\u00A3o \u00C3\u00A9 provis\u00C3\u00B3rio. Ou seja, \u00C3\u00A9 um cart\u00C3\u00A3o para uso tempor\u00C3\u00A1rio quando se deseja permitir que o cliente transacione sem que ele tenha recebido um cart\u00C3\u00A3o definitivo. (optional)
-     - parameter codigoDesbloqueio: (query) Apresenta um c\u00C3\u00B3digo espec\u00C3\u00ADfico para ser utilizado como vari\u00C3\u00A1vel no processo de desbloqueio do cart\u00C3\u00A3o para emissores que querem usar esta funcionalidade. (optional)
-     - parameter sequencialCartao: (query) N\u00C3\u00BAmero sequencial do cart\u00C3\u00A3o (optional)
+     - parameter sort: (query) Tipo de ordena\u00E7\u00E3o dos registros. (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
+     - parameter idStatusCartao: (query) C\u00F3digo de Identifica\u00E7\u00E3o do Status do Cart\u00E3o (id). (optional)
+     - parameter idEstagioCartao: (query) C\u00F3digo de Identifica\u00E7\u00E3o do Est\u00E1gio de Impress\u00E3o do Cart\u00E3o (id). (optional)
+     - parameter idConta: (query) C\u00F3digo de Identifica\u00E7\u00E3o da Conta a qual o cart\u00E3o pertence (id). (optional)
+     - parameter idPessoa: (query) C\u00F3digo de Identifica\u00E7\u00E3o da Pessoa a qual o cart\u00E3o pertence (id) (optional)
+     - parameter idProduto: (query) C\u00F3digo de Identifica\u00E7\u00E3o do Produto a qual o cart\u00E3o pertence (id). (optional)
+     - parameter tipoPortador: (query) Apresenta o tipo do Portador do cart\u00E3o, sendo: (&#39;T&#39;: Titular, &#39;A&#39;: Adicional). (optional)
+     - parameter numeroCartao: (query) Apresenta o n\u00FAmero do cart\u00E3o. (optional)
+     - parameter nomeImpresso: (query) Apresenta o nome impresso no cart\u00E3o. (optional)
+     - parameter dataGeracao: (query) Apresenta a data em que o cart\u00E3o foi gerado. (optional)
+     - parameter dataStatusCartao: (query) Apresenta a data em que o idStatusCartao atual do cart\u00E3o fora aplicado, quando houver. (optional)
+     - parameter dataEstagioCartao: (query) Apresenta a data em que o idEstagioCartao atual do cart\u00E3o fora aplicado, quando houver. (optional)
+     - parameter dataValidade: (query) Apresenta a data de validade do cart\u00E3o em formato yyyy-MM, quando houver. (optional)
+     - parameter dataImpressao: (query) Apresenta a data em que o cart\u00E3o fora impresso, caso impress\u00E3o em loja, ou a data em que ele fora inclu\u00EDdo no arquivo para impress\u00E3o via gr\u00E1fica. (optional)
+     - parameter arquivoImpressao: (query) Apresenta o nome do arquivo onde o cart\u00E3o fora inclu\u00EDdo para impress\u00E3o por uma gr\u00E1fica, quando houver. (optional)
+     - parameter flagImpressaoOrigemComercial: (query) Quando ativa, indica que o cart\u00E3o fora impresso na Origem Comercial. (optional)
+     - parameter flagProvisorio: (query) Quando ativa, indica que o cart\u00E3o \u00E9 provis\u00F3rio. Ou seja, \u00E9 um cart\u00E3o para uso tempor\u00E1rio quando se deseja permitir que o cliente transacione sem que ele tenha recebido um cart\u00E3o definitivo. (optional)
+     - parameter codigoDesbloqueio: (query) Apresenta um c\u00F3digo espec\u00EDfico para ser utilizado como vari\u00E1vel no processo de desbloqueio do cart\u00E3o para emissores que querem usar esta funcionalidade. (optional)
+     - parameter sequencialCartao: (query) N\u00FAmero sequencial do cart\u00E3o (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET10(sort sort: [String]?, page: Int?, limit: Int?, idStatusCartao: Int?, idEstagioCartao: Int?, idConta: Int?, idPessoa: Int?, idProduto: Int?, tipoPortador: String?, numeroCartao: String?, nomeImpresso: String?, dataGeracao: String?, dataStatusCartao: String?, dataEstagioCartao: String?, dataValidade: String?, dataImpressao: String?, arquivoImpressao: String?, flagImpressaoOrigemComercial: Int?, flagProvisorio: Int?, codigoDesbloqueio: String?, sequencialCartao: Int?, completion: ((data: PageCartaoResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET10WithRequestBuilder(sort: sort, page: page, limit: limit, idStatusCartao: idStatusCartao, idEstagioCartao: idEstagioCartao, idConta: idConta, idPessoa: idPessoa, idProduto: idProduto, tipoPortador: tipoPortador, numeroCartao: numeroCartao, nomeImpresso: nomeImpresso, dataGeracao: dataGeracao, dataStatusCartao: dataStatusCartao, dataEstagioCartao: dataEstagioCartao, dataValidade: dataValidade, dataImpressao: dataImpressao, arquivoImpressao: arquivoImpressao, flagImpressaoOrigemComercial: flagImpressaoOrigemComercial, flagProvisorio: flagProvisorio, codigoDesbloqueio: codigoDesbloqueio, sequencialCartao: sequencialCartao).execute { (response, error) -> Void in
+    public class func listarUsingGET11(sort sort: [String]?, page: Int?, limit: Int?, idStatusCartao: Int?, idEstagioCartao: Int?, idConta: Int?, idPessoa: Int?, idProduto: Int?, tipoPortador: String?, numeroCartao: String?, nomeImpresso: String?, dataGeracao: String?, dataStatusCartao: String?, dataEstagioCartao: String?, dataValidade: String?, dataImpressao: String?, arquivoImpressao: String?, flagImpressaoOrigemComercial: Int?, flagProvisorio: Int?, codigoDesbloqueio: String?, sequencialCartao: Int?, completion: ((data: PageCartaoResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET11WithRequestBuilder(sort: sort, page: page, limit: limit, idStatusCartao: idStatusCartao, idEstagioCartao: idEstagioCartao, idConta: idConta, idPessoa: idPessoa, idProduto: idProduto, tipoPortador: tipoPortador, numeroCartao: numeroCartao, nomeImpresso: nomeImpresso, dataGeracao: dataGeracao, dataStatusCartao: dataStatusCartao, dataEstagioCartao: dataEstagioCartao, dataValidade: dataValidade, dataImpressao: dataImpressao, arquivoImpressao: arquivoImpressao, flagImpressaoOrigemComercial: flagImpressaoOrigemComercial, flagProvisorio: flagProvisorio, codigoDesbloqueio: codigoDesbloqueio, sequencialCartao: sequencialCartao).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -1142,10 +1143,10 @@ public class CartaoAPI: APIBase {
 
     /**
      
-     Lista os Cart\u00C3\u00B5es gerados pelo Emissor
+     Lista os Cart\u00F5es gerados pelo Emissor
      
      - GET /api/cartoes
-     - Este m\u00C3\u00A9todo permite que sejam listados os cart\u00C3\u00B5es existentes na base do emissor.
+     - Este m\u00E9todo permite que sejam listados os cart\u00F5es existentes na base do emissor.
      - examples: [{contentType=application/json, example={
   "previousPage" : 123,
   "last" : true,
@@ -1186,31 +1187,31 @@ public class CartaoAPI: APIBase {
   "first" : true
 }}]
      
-     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
-     - parameter idStatusCartao: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Status do Cart\u00C3\u00A3o (id). (optional)
-     - parameter idEstagioCartao: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Est\u00C3\u00A1gio de Impress\u00C3\u00A3o do Cart\u00C3\u00A3o (id). (optional)
-     - parameter idConta: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Conta a qual o cart\u00C3\u00A3o pertence (id). (optional)
-     - parameter idPessoa: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Pessoa a qual o cart\u00C3\u00A3o pertence (id) (optional)
-     - parameter idProduto: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Produto a qual o cart\u00C3\u00A3o pertence (id). (optional)
-     - parameter tipoPortador: (query) Apresenta o tipo do Portador do cart\u00C3\u00A3o, sendo: (&#39;T&#39;: Titular, &#39;A&#39;: Adicional). (optional)
-     - parameter numeroCartao: (query) Apresenta o n\u00C3\u00BAmero do cart\u00C3\u00A3o. (optional)
-     - parameter nomeImpresso: (query) Apresenta o nome impresso no cart\u00C3\u00A3o. (optional)
-     - parameter dataGeracao: (query) Apresenta a data em que o cart\u00C3\u00A3o foi gerado. (optional)
-     - parameter dataStatusCartao: (query) Apresenta a data em que o idStatusCartao atual do cart\u00C3\u00A3o fora aplicado, quando houver. (optional)
-     - parameter dataEstagioCartao: (query) Apresenta a data em que o idEstagioCartao atual do cart\u00C3\u00A3o fora aplicado, quando houver. (optional)
-     - parameter dataValidade: (query) Apresenta a data de validade do cart\u00C3\u00A3o em formato yyyy-MM, quando houver. (optional)
-     - parameter dataImpressao: (query) Apresenta a data em que o cart\u00C3\u00A3o fora impresso, caso impress\u00C3\u00A3o em loja, ou a data em que ele fora inclu\u00C3\u00ADdo no arquivo para impress\u00C3\u00A3o via gr\u00C3\u00A1fica. (optional)
-     - parameter arquivoImpressao: (query) Apresenta o nome do arquivo onde o cart\u00C3\u00A3o fora inclu\u00C3\u00ADdo para impress\u00C3\u00A3o por uma gr\u00C3\u00A1fica, quando houver. (optional)
-     - parameter flagImpressaoOrigemComercial: (query) Quando ativa, indica que o cart\u00C3\u00A3o fora impresso na Origem Comercial. (optional)
-     - parameter flagProvisorio: (query) Quando ativa, indica que o cart\u00C3\u00A3o \u00C3\u00A9 provis\u00C3\u00B3rio. Ou seja, \u00C3\u00A9 um cart\u00C3\u00A3o para uso tempor\u00C3\u00A1rio quando se deseja permitir que o cliente transacione sem que ele tenha recebido um cart\u00C3\u00A3o definitivo. (optional)
-     - parameter codigoDesbloqueio: (query) Apresenta um c\u00C3\u00B3digo espec\u00C3\u00ADfico para ser utilizado como vari\u00C3\u00A1vel no processo de desbloqueio do cart\u00C3\u00A3o para emissores que querem usar esta funcionalidade. (optional)
-     - parameter sequencialCartao: (query) N\u00C3\u00BAmero sequencial do cart\u00C3\u00A3o (optional)
+     - parameter sort: (query) Tipo de ordena\u00E7\u00E3o dos registros. (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
+     - parameter idStatusCartao: (query) C\u00F3digo de Identifica\u00E7\u00E3o do Status do Cart\u00E3o (id). (optional)
+     - parameter idEstagioCartao: (query) C\u00F3digo de Identifica\u00E7\u00E3o do Est\u00E1gio de Impress\u00E3o do Cart\u00E3o (id). (optional)
+     - parameter idConta: (query) C\u00F3digo de Identifica\u00E7\u00E3o da Conta a qual o cart\u00E3o pertence (id). (optional)
+     - parameter idPessoa: (query) C\u00F3digo de Identifica\u00E7\u00E3o da Pessoa a qual o cart\u00E3o pertence (id) (optional)
+     - parameter idProduto: (query) C\u00F3digo de Identifica\u00E7\u00E3o do Produto a qual o cart\u00E3o pertence (id). (optional)
+     - parameter tipoPortador: (query) Apresenta o tipo do Portador do cart\u00E3o, sendo: (&#39;T&#39;: Titular, &#39;A&#39;: Adicional). (optional)
+     - parameter numeroCartao: (query) Apresenta o n\u00FAmero do cart\u00E3o. (optional)
+     - parameter nomeImpresso: (query) Apresenta o nome impresso no cart\u00E3o. (optional)
+     - parameter dataGeracao: (query) Apresenta a data em que o cart\u00E3o foi gerado. (optional)
+     - parameter dataStatusCartao: (query) Apresenta a data em que o idStatusCartao atual do cart\u00E3o fora aplicado, quando houver. (optional)
+     - parameter dataEstagioCartao: (query) Apresenta a data em que o idEstagioCartao atual do cart\u00E3o fora aplicado, quando houver. (optional)
+     - parameter dataValidade: (query) Apresenta a data de validade do cart\u00E3o em formato yyyy-MM, quando houver. (optional)
+     - parameter dataImpressao: (query) Apresenta a data em que o cart\u00E3o fora impresso, caso impress\u00E3o em loja, ou a data em que ele fora inclu\u00EDdo no arquivo para impress\u00E3o via gr\u00E1fica. (optional)
+     - parameter arquivoImpressao: (query) Apresenta o nome do arquivo onde o cart\u00E3o fora inclu\u00EDdo para impress\u00E3o por uma gr\u00E1fica, quando houver. (optional)
+     - parameter flagImpressaoOrigemComercial: (query) Quando ativa, indica que o cart\u00E3o fora impresso na Origem Comercial. (optional)
+     - parameter flagProvisorio: (query) Quando ativa, indica que o cart\u00E3o \u00E9 provis\u00F3rio. Ou seja, \u00E9 um cart\u00E3o para uso tempor\u00E1rio quando se deseja permitir que o cliente transacione sem que ele tenha recebido um cart\u00E3o definitivo. (optional)
+     - parameter codigoDesbloqueio: (query) Apresenta um c\u00F3digo espec\u00EDfico para ser utilizado como vari\u00E1vel no processo de desbloqueio do cart\u00E3o para emissores que querem usar esta funcionalidade. (optional)
+     - parameter sequencialCartao: (query) N\u00FAmero sequencial do cart\u00E3o (optional)
 
      - returns: RequestBuilder<PageCartaoResponse> 
      */
-    public class func listarUsingGET10WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, idStatusCartao: Int?, idEstagioCartao: Int?, idConta: Int?, idPessoa: Int?, idProduto: Int?, tipoPortador: String?, numeroCartao: String?, nomeImpresso: String?, dataGeracao: String?, dataStatusCartao: String?, dataEstagioCartao: String?, dataValidade: String?, dataImpressao: String?, arquivoImpressao: String?, flagImpressaoOrigemComercial: Int?, flagProvisorio: Int?, codigoDesbloqueio: String?, sequencialCartao: Int?) -> RequestBuilder<PageCartaoResponse> {
+    public class func listarUsingGET11WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, idStatusCartao: Int?, idEstagioCartao: Int?, idConta: Int?, idPessoa: Int?, idProduto: Int?, tipoPortador: String?, numeroCartao: String?, nomeImpresso: String?, dataGeracao: String?, dataStatusCartao: String?, dataEstagioCartao: String?, dataValidade: String?, dataImpressao: String?, arquivoImpressao: String?, flagImpressaoOrigemComercial: Int?, flagProvisorio: Int?, codigoDesbloqueio: String?, sequencialCartao: Int?) -> RequestBuilder<PageCartaoResponse> {
         let path = "/api/cartoes"
         let URLString = PierAPI.basePath + path
         
@@ -1246,9 +1247,9 @@ public class CartaoAPI: APIBase {
 
     /**
      
-     Realiza a reativa\u00C3\u00A7\u00C3\u00A3o de um determinado Cart\u00C3\u00A3o
+     Realiza a reativa\u00E7\u00E3o de um determinado Cart\u00E3o
      
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o do Cart\u00E3o (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func reativarUsingPOST(id id: Int, completion: ((data: CartaoResponse?, error: ErrorType?) -> Void)) {
@@ -1260,10 +1261,10 @@ public class CartaoAPI: APIBase {
 
     /**
      
-     Realiza a reativa\u00C3\u00A7\u00C3\u00A3o de um determinado Cart\u00C3\u00A3o
+     Realiza a reativa\u00E7\u00E3o de um determinado Cart\u00E3o
      
      - POST /api/cartoes/{id}/reativar
-     - Este m\u00C3\u00A9todo permite a realiza\u00C3\u00A7\u00C3\u00A3o da reativa\u00C3\u00A7\u00C3\u00A3o de um determinado cart\u00C3\u00A3o a partir do seu c\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o (id).
+     - Este m\u00E9todo permite a realiza\u00E7\u00E3o da reativa\u00E7\u00E3o de um determinado cart\u00E3o a partir do seu c\u00F3digo de identifica\u00E7\u00E3o (id).
      - examples: [{contentType=application/json, example={
   "numeroBin" : 123456789,
   "idConta" : 123456789,
@@ -1289,7 +1290,7 @@ public class CartaoAPI: APIBase {
   "impressaoAvulsa" : 123
 }}]
      
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o do Cart\u00E3o (id). 
 
      - returns: RequestBuilder<CartaoResponse> 
      */
@@ -1308,9 +1309,9 @@ public class CartaoAPI: APIBase {
 
     /**
      
-     Validar CVV do cart\u00C3\u00A3o
+     Validar CVV do cart\u00E3o
      
-     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do cart\u00C3\u00A3o (id). 
+     - parameter id: (path) C\u00F3digo de identifica\u00E7\u00E3o do cart\u00E3o (id). 
      - parameter validaCVV: (body) validaCVV 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -1323,13 +1324,13 @@ public class CartaoAPI: APIBase {
 
     /**
      
-     Validar CVV do cart\u00C3\u00A3o
+     Validar CVV do cart\u00E3o
      
      - POST /api/cartoes/{id}/validar-cvv
-     - Esse recurso permite a valida\u00C3\u00A7\u00C3\u00A3o do cvv de um cart\u00C3\u00A3o
+     - Esse recurso permite a valida\u00E7\u00E3o do cvv de um cart\u00E3o
      - examples: [{contentType=application/json, example="aeiou"}]
      
-     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do cart\u00C3\u00A3o (id). 
+     - parameter id: (path) C\u00F3digo de identifica\u00E7\u00E3o do cart\u00E3o (id). 
      - parameter validaCVV: (body) validaCVV 
 
      - returns: RequestBuilder<String> 
@@ -1348,12 +1349,12 @@ public class CartaoAPI: APIBase {
 
     /**
      
-     Permite validar os dados impressos em um cart\u00C3\u00A3o bandeirado
+     Permite validar os dados impressos em um cart\u00E3o bandeirado
      
-     - parameter numeroCartao: (query) N\u00C3\u00BAmero do cart\u00C3\u00A3o a ser validado. 
-     - parameter nomePortador: (query) Nome do portador do cart\u00C3\u00A3o 
-     - parameter dataValidade: (query) Data de validade do cart\u00C3\u00A3o no formato yyyy-MM 
-     - parameter codigoSeguranca: (query) C\u00C3\u00B3digo de seguran\u00C3\u00A7a do cart\u00C3\u00A3o com tr\u00C3\u00AAs n\u00C3\u00BAmeros 
+     - parameter numeroCartao: (query) N\u00FAmero do cart\u00E3o a ser validado. 
+     - parameter nomePortador: (query) Nome do portador do cart\u00E3o 
+     - parameter dataValidade: (query) Data de validade do cart\u00E3o no formato yyyy-MM 
+     - parameter codigoSeguranca: (query) C\u00F3digo de seguran\u00E7a do cart\u00E3o com tr\u00EAs n\u00FAmeros 
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func validarDadosImpressosBandeiradoUsingGET(numeroCartao numeroCartao: String, nomePortador: String, dataValidade: String, codigoSeguranca: String, completion: ((data: ValidaCartaoResponse?, error: ErrorType?) -> Void)) {
@@ -1365,10 +1366,10 @@ public class CartaoAPI: APIBase {
 
     /**
      
-     Permite validar os dados impressos em um cart\u00C3\u00A3o bandeirado
+     Permite validar os dados impressos em um cart\u00E3o bandeirado
      
      - GET /api/cartoes/validar-dados-impressos-bandeirados
-     - Esta opera\u00C3\u00A7\u00C3\u00A3o tem como objetivo permitir que os Emissores validem a autenticidade de um determinado Cart\u00C3\u00A3o a partir do envio dos dados sens\u00C3\u00ADveis impressos nele. A utiliza\u00C3\u00A7\u00C3\u00A3o desde m\u00C3\u00A9todo tem diversas aplica\u00C3\u00A7\u00C3\u00B5es, sendo a principal delas a de Identifica\u00C3\u00A7\u00C3\u00A3o Positiva do Cart\u00C3\u00A3o para a realiza\u00C3\u00A7\u00C3\u00A3o de transa\u00C3\u00A7\u00C3\u00B5es e-commerce ou por meio de Centrais de Atendimento Eletr\u00C3\u00B4nico (URA), dentre outras.
+     - Esta opera\u00E7\u00E3o tem como objetivo permitir que os Emissores validem a autenticidade de um determinado Cart\u00E3o a partir do envio dos dados sens\u00EDveis impressos nele. A utiliza\u00E7\u00E3o desde m\u00E9todo tem diversas aplica\u00E7\u00F5es, sendo a principal delas a de Identifica\u00E7\u00E3o Positiva do Cart\u00E3o para a realiza\u00E7\u00E3o de transa\u00E7\u00F5es e-commerce ou por meio de Centrais de Atendimento Eletr\u00F4nico (URA), dentre outras.
      - examples: [{contentType=application/json, example={
   "idStatusConta" : 123456789,
   "idConta" : 123456789,
@@ -1380,10 +1381,10 @@ public class CartaoAPI: APIBase {
   "numeroAgencia" : 123
 }}]
      
-     - parameter numeroCartao: (query) N\u00C3\u00BAmero do cart\u00C3\u00A3o a ser validado. 
-     - parameter nomePortador: (query) Nome do portador do cart\u00C3\u00A3o 
-     - parameter dataValidade: (query) Data de validade do cart\u00C3\u00A3o no formato yyyy-MM 
-     - parameter codigoSeguranca: (query) C\u00C3\u00B3digo de seguran\u00C3\u00A7a do cart\u00C3\u00A3o com tr\u00C3\u00AAs n\u00C3\u00BAmeros 
+     - parameter numeroCartao: (query) N\u00FAmero do cart\u00E3o a ser validado. 
+     - parameter nomePortador: (query) Nome do portador do cart\u00E3o 
+     - parameter dataValidade: (query) Data de validade do cart\u00E3o no formato yyyy-MM 
+     - parameter codigoSeguranca: (query) C\u00F3digo de seguran\u00E7a do cart\u00E3o com tr\u00EAs n\u00FAmeros 
 
      - returns: RequestBuilder<ValidaCartaoResponse> 
      */
@@ -1406,12 +1407,12 @@ public class CartaoAPI: APIBase {
 
     /**
      
-     Permite validar os dados impressos de um cartao n\u00C3\u00A3o bandeirado
+     Permite validar os dados impressos de um cartao n\u00E3o bandeirado
      
-     - parameter numeroCartao: (query) N\u00C3\u00BAmero do cart\u00C3\u00A3o a ser validado. 
-     - parameter nomePortador: (query) Nome do portador do cart\u00C3\u00A3o 
-     - parameter dataValidade: (query) Data de validade do cart\u00C3\u00A3o no formato yyyy-MM 
-     - parameter codigoSeguranca: (query) C\u00C3\u00B3digo de seguran\u00C3\u00A7a do cart\u00C3\u00A3o com tr\u00C3\u00AAs n\u00C3\u00BAmeros 
+     - parameter numeroCartao: (query) N\u00FAmero do cart\u00E3o a ser validado. 
+     - parameter nomePortador: (query) Nome do portador do cart\u00E3o 
+     - parameter dataValidade: (query) Data de validade do cart\u00E3o no formato yyyy-MM 
+     - parameter codigoSeguranca: (query) C\u00F3digo de seguran\u00E7a do cart\u00E3o com tr\u00EAs n\u00FAmeros 
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func validarDadosImpressosNaoBandeiradoUsingGET(numeroCartao numeroCartao: String, nomePortador: String, dataValidade: String, codigoSeguranca: String, completion: ((data: ValidaCartaoResponse?, error: ErrorType?) -> Void)) {
@@ -1423,10 +1424,10 @@ public class CartaoAPI: APIBase {
 
     /**
      
-     Permite validar os dados impressos de um cartao n\u00C3\u00A3o bandeirado
+     Permite validar os dados impressos de um cartao n\u00E3o bandeirado
      
      - GET /api/cartoes/validar-dados-impressos-nao-bandeirados
-     - Esta opera\u00C3\u00A7\u00C3\u00A3o tem como objetivo permitir que os Emissores validem a autenticidade de um determinado Cart\u00C3\u00A3o a partir do envio dos dados sens\u00C3\u00ADveis impressos nele. A utiliza\u00C3\u00A7\u00C3\u00A3o desde m\u00C3\u00A9todo tem diversas aplica\u00C3\u00A7\u00C3\u00B5es, sendo a principal delas a de Identifica\u00C3\u00A7\u00C3\u00A3o Positiva do Cart\u00C3\u00A3o para a realiza\u00C3\u00A7\u00C3\u00A3o de transa\u00C3\u00A7\u00C3\u00B5es e-commerce ou por meio de Centrais de Atendimento Eletr\u00C3\u00B4nico (URA), dentre outras.
+     - Esta opera\u00E7\u00E3o tem como objetivo permitir que os Emissores validem a autenticidade de um determinado Cart\u00E3o a partir do envio dos dados sens\u00EDveis impressos nele. A utiliza\u00E7\u00E3o desde m\u00E9todo tem diversas aplica\u00E7\u00F5es, sendo a principal delas a de Identifica\u00E7\u00E3o Positiva do Cart\u00E3o para a realiza\u00E7\u00E3o de transa\u00E7\u00F5es e-commerce ou por meio de Centrais de Atendimento Eletr\u00F4nico (URA), dentre outras.
      - examples: [{contentType=application/json, example={
   "idStatusConta" : 123456789,
   "idConta" : 123456789,
@@ -1438,10 +1439,10 @@ public class CartaoAPI: APIBase {
   "numeroAgencia" : 123
 }}]
      
-     - parameter numeroCartao: (query) N\u00C3\u00BAmero do cart\u00C3\u00A3o a ser validado. 
-     - parameter nomePortador: (query) Nome do portador do cart\u00C3\u00A3o 
-     - parameter dataValidade: (query) Data de validade do cart\u00C3\u00A3o no formato yyyy-MM 
-     - parameter codigoSeguranca: (query) C\u00C3\u00B3digo de seguran\u00C3\u00A7a do cart\u00C3\u00A3o com tr\u00C3\u00AAs n\u00C3\u00BAmeros 
+     - parameter numeroCartao: (query) N\u00FAmero do cart\u00E3o a ser validado. 
+     - parameter nomePortador: (query) Nome do portador do cart\u00E3o 
+     - parameter dataValidade: (query) Data de validade do cart\u00E3o no formato yyyy-MM 
+     - parameter codigoSeguranca: (query) C\u00F3digo de seguran\u00E7a do cart\u00E3o com tr\u00EAs n\u00FAmeros 
 
      - returns: RequestBuilder<ValidaCartaoResponse> 
      */
@@ -1464,10 +1465,10 @@ public class CartaoAPI: APIBase {
 
     /**
      
-     Permite validar um Cart\u00C3\u00A3o com bandeira Mastercard a partir do de55
+     Permite validar um Cart\u00E3o com bandeira Mastercard a partir do de55
      
-     - parameter numeroCartao: (query) N\u00C3\u00BAmero do cart\u00C3\u00A3o a ser validado. 
-     - parameter criptograma: (query) Criptograma do cart\u00C3\u00A3o no formato de55 
+     - parameter numeroCartao: (query) N\u00FAmero do cart\u00E3o a ser validado. 
+     - parameter criptograma: (query) Criptograma do cart\u00E3o no formato de55 
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func validarDe55CartaoMastercardUsingGET(numeroCartao numeroCartao: String, criptograma: String, completion: ((data: ValidaCartaoResponse?, error: ErrorType?) -> Void)) {
@@ -1479,10 +1480,10 @@ public class CartaoAPI: APIBase {
 
     /**
      
-     Permite validar um Cart\u00C3\u00A3o com bandeira Mastercard a partir do de55
+     Permite validar um Cart\u00E3o com bandeira Mastercard a partir do de55
      
      - GET /api/cartoes/validar-de55-mastercard
-     - Esta opera\u00C3\u00A7\u00C3\u00A3o tem como objetivo permitir que os Emissores validem o DE55 gerado a partir da leitura de um chip EMV de um Cart\u00C3\u00A3o com bandeira Mastercard a fim de verificar a sua autenticidade. A utiliza\u00C3\u00A7\u00C3\u00A3o desde m\u00C3\u00A9todo tem diversas aplica\u00C3\u00A7\u00C3\u00B5es, sendo a principal delas a de Identifica\u00C3\u00A7\u00C3\u00A3o Positiva do Cart\u00C3\u00A3o antes de permitir que o portador realize transa\u00C3\u00A7\u00C3\u00B5es diversas, como as de compra e saque na modalidade d\u00C3\u00A9bito em conta corrente, dentre outras.
+     - Esta opera\u00E7\u00E3o tem como objetivo permitir que os Emissores validem o DE55 gerado a partir da leitura de um chip EMV de um Cart\u00E3o com bandeira Mastercard a fim de verificar a sua autenticidade. A utiliza\u00E7\u00E3o desde m\u00E9todo tem diversas aplica\u00E7\u00F5es, sendo a principal delas a de Identifica\u00E7\u00E3o Positiva do Cart\u00E3o antes de permitir que o portador realize transa\u00E7\u00F5es diversas, como as de compra e saque na modalidade d\u00E9bito em conta corrente, dentre outras.
      - examples: [{contentType=application/json, example={
   "idStatusConta" : 123456789,
   "idConta" : 123456789,
@@ -1494,8 +1495,8 @@ public class CartaoAPI: APIBase {
   "numeroAgencia" : 123
 }}]
      
-     - parameter numeroCartao: (query) N\u00C3\u00BAmero do cart\u00C3\u00A3o a ser validado. 
-     - parameter criptograma: (query) Criptograma do cart\u00C3\u00A3o no formato de55 
+     - parameter numeroCartao: (query) N\u00FAmero do cart\u00E3o a ser validado. 
+     - parameter criptograma: (query) Criptograma do cart\u00E3o no formato de55 
 
      - returns: RequestBuilder<ValidaCartaoResponse> 
      */
@@ -1516,9 +1517,9 @@ public class CartaoAPI: APIBase {
 
     /**
      
-     Permite validar a senha de um Cart\u00C3\u00A3o
+     Permite validar a senha de um Cart\u00E3o
      
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o do Cart\u00E3o (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func validarSenhaUsingGET(id id: Int, completion: ((data: ValidaSenhaCartaoResponse?, error: ErrorType?) -> Void)) {
@@ -1530,10 +1531,10 @@ public class CartaoAPI: APIBase {
 
     /**
      
-     Permite validar a senha de um Cart\u00C3\u00A3o
+     Permite validar a senha de um Cart\u00E3o
      
      - GET /api/cartoes/{id}/validar-senha
-     - Esta opera\u00C3\u00A7\u00C3\u00A3o tem como objetivo permitir validar que a senha informada pelo portador de um determinado cart\u00C3\u00A3o est\u00C3\u00A1 correta.
+     - Esta opera\u00E7\u00E3o tem como objetivo permitir validar que a senha informada pelo portador de um determinado cart\u00E3o est\u00E1 correta.
      - examples: [{contentType=application/json, example={
   "quantidadeTentativas" : 123,
   "idStatusCartao" : 123456789,
@@ -1542,7 +1543,7 @@ public class CartaoAPI: APIBase {
   "statusCartao" : "aeiou"
 }}]
      
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). 
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o do Cart\u00E3o (id). 
 
      - returns: RequestBuilder<ValidaSenhaCartaoResponse> 
      */
@@ -1561,11 +1562,11 @@ public class CartaoAPI: APIBase {
 
     /**
      
-     Permite validar um Cart\u00C3\u00A3o Bandeirado a partir da Tarja
+     Permite validar um Cart\u00E3o Bandeirado a partir da Tarja
      
-     - parameter numeroCartao: (query) N\u00C3\u00BAmero do cart\u00C3\u00A3o a ser validado. 
-     - parameter trilha1: (query) Trilha 1 do cart\u00C3\u00A3o a ser validado 
-     - parameter trilha2: (query) Trilha 2 do cart\u00C3\u00A3o a ser validado 
+     - parameter numeroCartao: (query) N\u00FAmero do cart\u00E3o a ser validado. 
+     - parameter trilha1: (query) Trilha 1 do cart\u00E3o a ser validado 
+     - parameter trilha2: (query) Trilha 2 do cart\u00E3o a ser validado 
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func validarTarjaUsingGET(numeroCartao numeroCartao: String, trilha1: String, trilha2: String, completion: ((data: ValidaCartaoResponse?, error: ErrorType?) -> Void)) {
@@ -1577,10 +1578,10 @@ public class CartaoAPI: APIBase {
 
     /**
      
-     Permite validar um Cart\u00C3\u00A3o Bandeirado a partir da Tarja
+     Permite validar um Cart\u00E3o Bandeirado a partir da Tarja
      
      - GET /api/cartoes/validar-tarja
-     - Esta opera\u00C3\u00A7\u00C3\u00A3o tem como objetivo permitir que os Emissores validem a autenticidade de um determinado Cart\u00C3\u00A3o a partir da leitura da tarja magn\u00C3\u00A9tica do mesmo. A utiliza\u00C3\u00A7\u00C3\u00A3o desde m\u00C3\u00A9todo tem diversas aplica\u00C3\u00A7\u00C3\u00B5es, sendo a principal delas a de Identifica\u00C3\u00A7\u00C3\u00A3o Positiva do Cart\u00C3\u00A3o antes de permitir que o portador realize transa\u00C3\u00A7\u00C3\u00B5es diversas, como as de compra e saque na modalidade d\u00C3\u00A9bito em conta corrente, dentre outras.
+     - Esta opera\u00E7\u00E3o tem como objetivo permitir que os Emissores validem a autenticidade de um determinado Cart\u00E3o a partir da leitura da tarja magn\u00E9tica do mesmo. A utiliza\u00E7\u00E3o desde m\u00E9todo tem diversas aplica\u00E7\u00F5es, sendo a principal delas a de Identifica\u00E7\u00E3o Positiva do Cart\u00E3o antes de permitir que o portador realize transa\u00E7\u00F5es diversas, como as de compra e saque na modalidade d\u00E9bito em conta corrente, dentre outras.
      - examples: [{contentType=application/json, example={
   "idStatusConta" : 123456789,
   "idConta" : 123456789,
@@ -1592,9 +1593,9 @@ public class CartaoAPI: APIBase {
   "numeroAgencia" : 123
 }}]
      
-     - parameter numeroCartao: (query) N\u00C3\u00BAmero do cart\u00C3\u00A3o a ser validado. 
-     - parameter trilha1: (query) Trilha 1 do cart\u00C3\u00A3o a ser validado 
-     - parameter trilha2: (query) Trilha 2 do cart\u00C3\u00A3o a ser validado 
+     - parameter numeroCartao: (query) N\u00FAmero do cart\u00E3o a ser validado. 
+     - parameter trilha1: (query) Trilha 1 do cart\u00E3o a ser validado 
+     - parameter trilha2: (query) Trilha 2 do cart\u00E3o a ser validado 
 
      - returns: RequestBuilder<ValidaCartaoResponse> 
      */

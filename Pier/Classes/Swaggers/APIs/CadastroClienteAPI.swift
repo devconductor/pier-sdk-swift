@@ -14,8 +14,8 @@ public class CadastroClienteAPI: APIBase {
      
      Altera Adicional de uma Conta
      
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
-     - parameter idPessoa: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da pessoa (id). 
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o da conta (id). 
+     - parameter idPessoa: (path) C\u00F3digo de Identifica\u00E7\u00E3o da pessoa (id). 
      - parameter adicionalUpdate: (body) adicionalUpdate 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -31,7 +31,7 @@ public class CadastroClienteAPI: APIBase {
      Altera Adicional de uma Conta
      
      - PUT /api/contas/{id}/adicionais/{idPessoa}
-     - Este m\u00C3\u00A9todo permite que seja alterado um portador Adicional de uma determinada Conta.
+     - Este m\u00E9todo permite que seja alterado um portador Adicional de uma determinada Conta.
      - examples: [{contentType=application/json, example={
   "numeroIdentidade" : "aeiou",
   "idEstadoCivil" : 123456789,
@@ -63,8 +63,8 @@ public class CadastroClienteAPI: APIBase {
   "email" : "aeiou"
 }}]
      
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
-     - parameter idPessoa: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da pessoa (id). 
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o da conta (id). 
+     - parameter idPessoa: (path) C\u00F3digo de Identifica\u00E7\u00E3o da pessoa (id). 
      - parameter adicionalUpdate: (body) adicionalUpdate 
 
      - returns: RequestBuilder<AdicionalDetalheResponse> 
@@ -87,16 +87,16 @@ public class CadastroClienteAPI: APIBase {
      Atualiza os detalhes de uma determinada Pessoa
      
      - parameter id: (path) ID da Pessoa 
-     - parameter nomeMae: (query) Apresenta o nome da m\u00C3\u00A3e da pessoa fisica (optional)
+     - parameter nomeMae: (query) Apresenta o nome da m\u00E3e da pessoa fisica (optional)
      - parameter idEstadoCivil: (query) Id Estado civil da pessoa fisica (optional)
-     - parameter idProfissao: (query) Profiss\u00C3\u00A3o da pessoa fisica (optional)
-     - parameter idNaturezaOcupacao: (query) Id Natureza Ocupa\u00C3\u00A7\u00C3\u00A3o da pessoa fisica (optional)
+     - parameter idProfissao: (query) Profiss\u00E3o da pessoa fisica (optional)
+     - parameter idNaturezaOcupacao: (query) Id Natureza Ocupa\u00E7\u00E3o da pessoa fisica (optional)
      - parameter idNacionalidade: (query) Id Nacionalidade da pessoa fisica (optional)
-     - parameter numeroBanco: (query) N\u00C3\u00BAmero do banco. (optional)
-     - parameter numeroAgencia: (query) N\u00C3\u00BAmero da ag\u00C3\u00AAncia. (optional)
-     - parameter numeroContaCorrente: (query) N\u00C3\u00BAmero da conta corrente. (optional)
+     - parameter numeroBanco: (query) N\u00FAmero do banco. (optional)
+     - parameter numeroAgencia: (query) N\u00FAmero da ag\u00EAncia. (optional)
+     - parameter numeroContaCorrente: (query) N\u00FAmero da conta corrente. (optional)
      - parameter email: (query) Email da pessoa fisica (optional)
-     - parameter nomeEmpresa: (query) Nome que deve ser impresso no cart\u00C3\u00A3o (optional)
+     - parameter nomeEmpresa: (query) Nome que deve ser impresso no cart\u00E3o (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func alterarUsingPUT13(id id: Int, nomeMae: String?, idEstadoCivil: Int?, idProfissao: String?, idNaturezaOcupacao: Int?, idNacionalidade: Int?, numeroBanco: Int?, numeroAgencia: Int?, numeroContaCorrente: String?, email: String?, nomeEmpresa: String?, completion: ((data: PessoaDetalheResponse?, error: ErrorType?) -> Void)) {
@@ -111,7 +111,7 @@ public class CadastroClienteAPI: APIBase {
      Atualiza os detalhes de uma determinada Pessoa
      
      - PUT /api/pessoas-detalhes/{id}
-     - Este m\u00C3\u00A9todo permite que seja alterado na base do emissor os detalhes de uma determinada Pessoa.
+     - Este m\u00E9todo permite que seja alterado na base do emissor os detalhes de uma determinada Pessoa.
      - examples: [{contentType=application/json, example={
   "idNacionalidade" : 123456789,
   "numeroBanco" : 123,
@@ -127,16 +127,16 @@ public class CadastroClienteAPI: APIBase {
 }}]
      
      - parameter id: (path) ID da Pessoa 
-     - parameter nomeMae: (query) Apresenta o nome da m\u00C3\u00A3e da pessoa fisica (optional)
+     - parameter nomeMae: (query) Apresenta o nome da m\u00E3e da pessoa fisica (optional)
      - parameter idEstadoCivil: (query) Id Estado civil da pessoa fisica (optional)
-     - parameter idProfissao: (query) Profiss\u00C3\u00A3o da pessoa fisica (optional)
-     - parameter idNaturezaOcupacao: (query) Id Natureza Ocupa\u00C3\u00A7\u00C3\u00A3o da pessoa fisica (optional)
+     - parameter idProfissao: (query) Profiss\u00E3o da pessoa fisica (optional)
+     - parameter idNaturezaOcupacao: (query) Id Natureza Ocupa\u00E7\u00E3o da pessoa fisica (optional)
      - parameter idNacionalidade: (query) Id Nacionalidade da pessoa fisica (optional)
-     - parameter numeroBanco: (query) N\u00C3\u00BAmero do banco. (optional)
-     - parameter numeroAgencia: (query) N\u00C3\u00BAmero da ag\u00C3\u00AAncia. (optional)
-     - parameter numeroContaCorrente: (query) N\u00C3\u00BAmero da conta corrente. (optional)
+     - parameter numeroBanco: (query) N\u00FAmero do banco. (optional)
+     - parameter numeroAgencia: (query) N\u00FAmero da ag\u00EAncia. (optional)
+     - parameter numeroContaCorrente: (query) N\u00FAmero da conta corrente. (optional)
      - parameter email: (query) Email da pessoa fisica (optional)
-     - parameter nomeEmpresa: (query) Nome que deve ser impresso no cart\u00C3\u00A3o (optional)
+     - parameter nomeEmpresa: (query) Nome que deve ser impresso no cart\u00E3o (optional)
 
      - returns: RequestBuilder<PessoaDetalheResponse> 
      */
@@ -169,16 +169,16 @@ public class CadastroClienteAPI: APIBase {
      Atualiza os dados de uma determinada Pessoa
      
      - parameter id: (path) ID da Pessoa 
-     - parameter nome: (query) Apresenta o &#39;Nome Completo da PF&#39; ou o &#39;Nome Completo da Raz\u00C3\u00A3o Social (Nome Empresarial)&#39;. 
-     - parameter tipo: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do tipo da Pessoa, sendo: (\&quot;PF\&quot;: Pessoa F\u00C3\u00ADsica), (\&quot;PJ\&quot;: Pessoa Jur\u00C3\u00ADdica). 
+     - parameter nome: (query) Apresenta o &#39;Nome Completo da PF&#39; ou o &#39;Nome Completo da Raz\u00E3o Social (Nome Empresarial)&#39;. 
+     - parameter tipo: (query) C\u00F3digo de identifica\u00E7\u00E3o do tipo da Pessoa, sendo: (\&quot;PF\&quot;: Pessoa F\u00EDsica), (\&quot;PJ\&quot;: Pessoa Jur\u00EDdica). 
      - parameter dataNascimento: (query) Data de Nascimento da Pessoa, quando PF, ou a Data de Abertura da Empresa, quando PJ. Essa data deve ser informada no formato aaaa-MM-dd. 
-     - parameter cpf: (query) N\u00C3\u00BAmero do CPF, quando PF. (optional)
-     - parameter cnpj: (query) N\u00C3\u00BAmero do CNPJ, quando PJ. (optional)
-     - parameter sexo: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do sexo da Pessoa, quando PF, sendo: (\&quot;M\&quot;: Masculino), (\&quot;F\&quot;: Feminino), (\&quot;O\&quot;: Outro), (\&quot;N\&quot;: N\u00C3\u00A3o Especificado). (optional)
-     - parameter numeroIdentidade: (query) N\u00C3\u00BAmero da Identidade. (optional)
-     - parameter orgaoExpedidorIdentidade: (query) Org\u00C3\u00A3o expedidor do Identidade. (optional)
+     - parameter cpf: (query) N\u00FAmero do CPF, quando PF. (optional)
+     - parameter cnpj: (query) N\u00FAmero do CNPJ, quando PJ. (optional)
+     - parameter sexo: (query) C\u00F3digo de identifica\u00E7\u00E3o do sexo da Pessoa, quando PF, sendo: (\&quot;M\&quot;: Masculino), (\&quot;F\&quot;: Feminino), (\&quot;O\&quot;: Outro), (\&quot;N\&quot;: N\u00E3o Especificado). (optional)
+     - parameter numeroIdentidade: (query) N\u00FAmero da Identidade. (optional)
+     - parameter orgaoExpedidorIdentidade: (query) Org\u00E3o expedidor do Identidade. (optional)
      - parameter unidadeFederativaIdentidade: (query) Sigla da Unidade Federativa de onde foi expedido a Identidade (optional)
-     - parameter dataEmissaoIdentidade: (query) Data emiss\u00C3\u00A3o da Identidade. (optional)
+     - parameter dataEmissaoIdentidade: (query) Data emiss\u00E3o da Identidade. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func alterarUsingPUT14(id id: Int, nome: String, tipo: String, dataNascimento: String, cpf: String?, cnpj: String?, sexo: String?, numeroIdentidade: String?, orgaoExpedidorIdentidade: String?, unidadeFederativaIdentidade: String?, dataEmissaoIdentidade: String?, completion: ((data: PessoaResponse?, error: ErrorType?) -> Void)) {
@@ -193,7 +193,7 @@ public class CadastroClienteAPI: APIBase {
      Atualiza os dados de uma determinada Pessoa
      
      - PUT /api/pessoas/{id}
-     - Este m\u00C3\u00A9todo permite que seja alterado na base do emissor um registro de determinada Pessoa.
+     - Este m\u00E9todo permite que seja alterado na base do emissor um registro de determinada Pessoa.
      - examples: [{contentType=application/json, example={
   "numeroIdentidade" : "aeiou",
   "tipo" : "aeiou",
@@ -209,16 +209,16 @@ public class CadastroClienteAPI: APIBase {
 }}]
      
      - parameter id: (path) ID da Pessoa 
-     - parameter nome: (query) Apresenta o &#39;Nome Completo da PF&#39; ou o &#39;Nome Completo da Raz\u00C3\u00A3o Social (Nome Empresarial)&#39;. 
-     - parameter tipo: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do tipo da Pessoa, sendo: (\&quot;PF\&quot;: Pessoa F\u00C3\u00ADsica), (\&quot;PJ\&quot;: Pessoa Jur\u00C3\u00ADdica). 
+     - parameter nome: (query) Apresenta o &#39;Nome Completo da PF&#39; ou o &#39;Nome Completo da Raz\u00E3o Social (Nome Empresarial)&#39;. 
+     - parameter tipo: (query) C\u00F3digo de identifica\u00E7\u00E3o do tipo da Pessoa, sendo: (\&quot;PF\&quot;: Pessoa F\u00EDsica), (\&quot;PJ\&quot;: Pessoa Jur\u00EDdica). 
      - parameter dataNascimento: (query) Data de Nascimento da Pessoa, quando PF, ou a Data de Abertura da Empresa, quando PJ. Essa data deve ser informada no formato aaaa-MM-dd. 
-     - parameter cpf: (query) N\u00C3\u00BAmero do CPF, quando PF. (optional)
-     - parameter cnpj: (query) N\u00C3\u00BAmero do CNPJ, quando PJ. (optional)
-     - parameter sexo: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do sexo da Pessoa, quando PF, sendo: (\&quot;M\&quot;: Masculino), (\&quot;F\&quot;: Feminino), (\&quot;O\&quot;: Outro), (\&quot;N\&quot;: N\u00C3\u00A3o Especificado). (optional)
-     - parameter numeroIdentidade: (query) N\u00C3\u00BAmero da Identidade. (optional)
-     - parameter orgaoExpedidorIdentidade: (query) Org\u00C3\u00A3o expedidor do Identidade. (optional)
+     - parameter cpf: (query) N\u00FAmero do CPF, quando PF. (optional)
+     - parameter cnpj: (query) N\u00FAmero do CNPJ, quando PJ. (optional)
+     - parameter sexo: (query) C\u00F3digo de identifica\u00E7\u00E3o do sexo da Pessoa, quando PF, sendo: (\&quot;M\&quot;: Masculino), (\&quot;F\&quot;: Feminino), (\&quot;O\&quot;: Outro), (\&quot;N\&quot;: N\u00E3o Especificado). (optional)
+     - parameter numeroIdentidade: (query) N\u00FAmero da Identidade. (optional)
+     - parameter orgaoExpedidorIdentidade: (query) Org\u00E3o expedidor do Identidade. (optional)
      - parameter unidadeFederativaIdentidade: (query) Sigla da Unidade Federativa de onde foi expedido a Identidade (optional)
-     - parameter dataEmissaoIdentidade: (query) Data emiss\u00C3\u00A3o da Identidade. (optional)
+     - parameter dataEmissaoIdentidade: (query) Data emiss\u00E3o da Identidade. (optional)
 
      - returns: RequestBuilder<PessoaResponse> 
      */
@@ -248,13 +248,13 @@ public class CadastroClienteAPI: APIBase {
 
     /**
      
-     Realiza a altera\u00C3\u00A7\u00C3\u00A3o de um determinado Telefone
+     Realiza a altera\u00E7\u00E3o de um determinado Telefone
      
-     - parameter id: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Telefone (id). 
-     - parameter idTipoTelefone: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Tipo do Telefone (id). (optional)
-     - parameter ddd: (query) C\u00C3\u00B3digo DDD do telefone (id). (optional)
-     - parameter telefone: (query) N\u00C3\u00BAmero do telefone. (optional)
-     - parameter ramal: (query) N\u00C3\u00BAmero do ramal. (optional)
+     - parameter id: (query) C\u00F3digo de Identifica\u00E7\u00E3o do Telefone (id). 
+     - parameter idTipoTelefone: (query) C\u00F3digo de Identifica\u00E7\u00E3o do Tipo do Telefone (id). (optional)
+     - parameter ddd: (query) C\u00F3digo DDD do telefone (id). (optional)
+     - parameter telefone: (query) N\u00FAmero do telefone. (optional)
+     - parameter ramal: (query) N\u00FAmero do ramal. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func alterarUsingPUT16(id id: Int, idTipoTelefone: Int?, ddd: String?, telefone: String?, ramal: String?, completion: ((data: TelefoneResponse?, error: ErrorType?) -> Void)) {
@@ -266,10 +266,10 @@ public class CadastroClienteAPI: APIBase {
 
     /**
      
-     Realiza a altera\u00C3\u00A7\u00C3\u00A3o de um determinado Telefone
+     Realiza a altera\u00E7\u00E3o de um determinado Telefone
      
      - PUT /api/telefones
-     - Este m\u00C3\u00A9todo permite que seja alterado um determinado Telefone na base de dados do Emissor.
+     - Este m\u00E9todo permite que seja alterado um determinado Telefone na base de dados do Emissor.
      - examples: [{contentType=application/json, example={
   "idPessoa" : 123456789,
   "telefone" : "aeiou",
@@ -280,11 +280,11 @@ public class CadastroClienteAPI: APIBase {
   "status" : 123
 }}]
      
-     - parameter id: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Telefone (id). 
-     - parameter idTipoTelefone: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Tipo do Telefone (id). (optional)
-     - parameter ddd: (query) C\u00C3\u00B3digo DDD do telefone (id). (optional)
-     - parameter telefone: (query) N\u00C3\u00BAmero do telefone. (optional)
-     - parameter ramal: (query) N\u00C3\u00BAmero do ramal. (optional)
+     - parameter id: (query) C\u00F3digo de Identifica\u00E7\u00E3o do Telefone (id). 
+     - parameter idTipoTelefone: (query) C\u00F3digo de Identifica\u00E7\u00E3o do Tipo do Telefone (id). (optional)
+     - parameter ddd: (query) C\u00F3digo DDD do telefone (id). (optional)
+     - parameter telefone: (query) N\u00FAmero do telefone. (optional)
+     - parameter ramal: (query) N\u00FAmero do ramal. (optional)
 
      - returns: RequestBuilder<TelefoneResponse> 
      */
@@ -308,16 +308,16 @@ public class CadastroClienteAPI: APIBase {
 
     /**
      
-     Atualiza os dados de um determinado Endere\u00C3\u00A7o
+     Atualiza os dados de um determinado Endere\u00E7o
      
      - parameter id: (query) id 
-     - parameter idPessoa: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Pessoa a qual o endere\u00C3\u00A7o pertence (id) (optional)
-     - parameter idTipoEndereco: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Tipo Endere\u00C3\u00A7o (id) (optional)
-     - parameter cep: (query) Apresenta o C\u00C3\u00B3digo de Endere\u00C3\u00A7amento Postal (CEP) no formaro &#39;58800000&#39; (optional)
+     - parameter idPessoa: (query) C\u00F3digo de Identifica\u00E7\u00E3o da Pessoa a qual o endere\u00E7o pertence (id) (optional)
+     - parameter idTipoEndereco: (query) C\u00F3digo de Identifica\u00E7\u00E3o da Tipo Endere\u00E7o (id) (optional)
+     - parameter cep: (query) Apresenta o C\u00F3digo de Endere\u00E7amento Postal (CEP) no formaro &#39;58800000&#39; (optional)
      - parameter logradouro: (query) Apresenta o nome do Logradouro (optional)
-     - parameter numero: (query) Apresenta o n\u00C3\u00BAmero do endere\u00C3\u00A7o (optional)
-     - parameter complemento: (query) Apresenta descri\u00C3\u00A7oes complementares referente ao endere\u00C3\u00A7o (optional)
-     - parameter pontoReferencia: (query) Apresenta a descri\u00C3\u00A7\u00C3\u00A3o de ponto de refer\u00C3\u00AAncia do endere\u00C3\u00A7o (optional)
+     - parameter numero: (query) Apresenta o n\u00FAmero do endere\u00E7o (optional)
+     - parameter complemento: (query) Apresenta descri\u00E7oes complementares referente ao endere\u00E7o (optional)
+     - parameter pontoReferencia: (query) Apresenta a descri\u00E7\u00E3o de ponto de refer\u00EAncia do endere\u00E7o (optional)
      - parameter bairro: (query) Apresenta nome do bairro (optional)
      - parameter cidade: (query) Apresenta nome da cidade (optional)
      - parameter uf: (query) Apresenta sigla da Unidade Federativa (optional)
@@ -333,10 +333,10 @@ public class CadastroClienteAPI: APIBase {
 
     /**
      
-     Atualiza os dados de um determinado Endere\u00C3\u00A7o
+     Atualiza os dados de um determinado Endere\u00E7o
      
      - PUT /api/enderecos
-     - Este m\u00C3\u00A9todo permite que seja alterado na base do emissor um ou mais registros ligados a um determinado Endere\u00C3\u00A7o.
+     - Este m\u00E9todo permite que seja alterado na base do emissor um ou mais registros ligados a um determinado Endere\u00E7o.
      - examples: [{contentType=application/json, example={
   "pontoReferencia" : "aeiou",
   "cidade" : "aeiou",
@@ -355,13 +355,13 @@ public class CadastroClienteAPI: APIBase {
 }}]
      
      - parameter id: (query) id 
-     - parameter idPessoa: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Pessoa a qual o endere\u00C3\u00A7o pertence (id) (optional)
-     - parameter idTipoEndereco: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Tipo Endere\u00C3\u00A7o (id) (optional)
-     - parameter cep: (query) Apresenta o C\u00C3\u00B3digo de Endere\u00C3\u00A7amento Postal (CEP) no formaro &#39;58800000&#39; (optional)
+     - parameter idPessoa: (query) C\u00F3digo de Identifica\u00E7\u00E3o da Pessoa a qual o endere\u00E7o pertence (id) (optional)
+     - parameter idTipoEndereco: (query) C\u00F3digo de Identifica\u00E7\u00E3o da Tipo Endere\u00E7o (id) (optional)
+     - parameter cep: (query) Apresenta o C\u00F3digo de Endere\u00E7amento Postal (CEP) no formaro &#39;58800000&#39; (optional)
      - parameter logradouro: (query) Apresenta o nome do Logradouro (optional)
-     - parameter numero: (query) Apresenta o n\u00C3\u00BAmero do endere\u00C3\u00A7o (optional)
-     - parameter complemento: (query) Apresenta descri\u00C3\u00A7oes complementares referente ao endere\u00C3\u00A7o (optional)
-     - parameter pontoReferencia: (query) Apresenta a descri\u00C3\u00A7\u00C3\u00A3o de ponto de refer\u00C3\u00AAncia do endere\u00C3\u00A7o (optional)
+     - parameter numero: (query) Apresenta o n\u00FAmero do endere\u00E7o (optional)
+     - parameter complemento: (query) Apresenta descri\u00E7oes complementares referente ao endere\u00E7o (optional)
+     - parameter pontoReferencia: (query) Apresenta a descri\u00E7\u00E3o de ponto de refer\u00EAncia do endere\u00E7o (optional)
      - parameter bairro: (query) Apresenta nome do bairro (optional)
      - parameter cidade: (query) Apresenta nome da cidade (optional)
      - parameter uf: (query) Apresenta sigla da Unidade Federativa (optional)
@@ -398,8 +398,8 @@ public class CadastroClienteAPI: APIBase {
      
      Permite atribuir um documento para uma Conta
      
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Conta 
-     - parameter body: (body) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Arquivo 
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o da Conta 
+     - parameter body: (body) C\u00F3digo de Identifica\u00E7\u00E3o do Arquivo 
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func atribuirAssinaturaClienteUsingPOST(id id: Int, body: AtribuirAssinaturaClientePersist, completion: ((data: AnyObject?, error: ErrorType?) -> Void)) {
@@ -414,11 +414,11 @@ public class CadastroClienteAPI: APIBase {
      Permite atribuir um documento para uma Conta
      
      - POST /api/contas/{id}/atribuir-assinatura-cliente
-     - Este m\u00C3\u00A9todo permite que seja atribu\u00C3\u00ADdo a uma determinada Conta um documento que esteja armazenado no PIER Cloud, informando qual o tipo do documento e o seu respectivo id.
+     - Este m\u00E9todo permite que seja atribu\u00EDdo a uma determinada Conta um documento que esteja armazenado no PIER Cloud, informando qual o tipo do documento e o seu respectivo id.
      - examples: [{contentType=application/json, example="{}"}]
      
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Conta 
-     - parameter body: (body) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Arquivo 
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o da Conta 
+     - parameter body: (body) C\u00F3digo de Identifica\u00E7\u00E3o do Arquivo 
 
      - returns: RequestBuilder<AnyObject> 
      */
@@ -438,8 +438,8 @@ public class CadastroClienteAPI: APIBase {
      
      Atualiza conta integrada com o emissor
      
-     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
-     - parameter body: (body) Descri\u00C3\u00A7\u00C3\u00A3o do canal de entrada (optional)
+     - parameter id: (path) C\u00F3digo de identifica\u00E7\u00E3o da conta (id). 
+     - parameter body: (body) Descri\u00E7\u00E3o do canal de entrada (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func atualizarUsingPOST(id id: Int, body: IntegracaoEmissorPersist?, completion: ((data: IntegracaoEmissorResponse?, error: ErrorType?) -> Void)) {
@@ -454,7 +454,7 @@ public class CadastroClienteAPI: APIBase {
      Atualiza conta integrada com o emissor
      
      - POST /api/contas/{id}/atualizar-registro-integracao
-     - Este recurso permite a atualiza\u00C3\u00A7\u00C3\u00A3o de uma conta integrada com o emissor.
+     - Este recurso permite a atualiza\u00E7\u00E3o de uma conta integrada com o emissor.
      - examples: [{contentType=application/json, example={
   "idArquivo" : 123456789,
   "idConta" : 123456789,
@@ -464,8 +464,8 @@ public class CadastroClienteAPI: APIBase {
   "status" : "aeiou"
 }}]
      
-     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
-     - parameter body: (body) Descri\u00C3\u00A7\u00C3\u00A3o do canal de entrada (optional)
+     - parameter id: (path) C\u00F3digo de identifica\u00E7\u00E3o da conta (id). 
+     - parameter body: (body) Descri\u00E7\u00E3o do canal de entrada (optional)
 
      - returns: RequestBuilder<IntegracaoEmissorResponse> 
      */
@@ -485,7 +485,7 @@ public class CadastroClienteAPI: APIBase {
      
      Realiza o cadastro de Adicionais para uma Conta
      
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o da conta (id). 
      - parameter persist: (body) persist 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -501,7 +501,7 @@ public class CadastroClienteAPI: APIBase {
      Realiza o cadastro de Adicionais para uma Conta
      
      - POST /api/contas/{id}/cadastrar-adicional
-     - Este m\u00C3\u00A9todo permite que sejam cadastrados um portador Adicional para uma determinada Conta.
+     - Este m\u00E9todo permite que sejam cadastrados um portador Adicional para uma determinada Conta.
      - examples: [{contentType=application/json, example={
   "numeroIdentidade" : "aeiou",
   "idEstadoCivil" : 123456789,
@@ -533,7 +533,7 @@ public class CadastroClienteAPI: APIBase {
   "email" : "aeiou"
 }}]
      
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o da conta (id). 
      - parameter persist: (body) persist 
 
      - returns: RequestBuilder<AdicionalDetalheResponse> 
@@ -554,12 +554,12 @@ public class CadastroClienteAPI: APIBase {
      
      Consulta Adicional de uma Conta
      
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
-     - parameter idPessoa: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da pessoa (id). 
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o da conta (id). 
+     - parameter idPessoa: (path) C\u00F3digo de Identifica\u00E7\u00E3o da pessoa (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET(id id: Int, idPessoa: Int, completion: ((data: AdicionalDetalheResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGETWithRequestBuilder(id: id, idPessoa: idPessoa).execute { (response, error) -> Void in
+    public class func consultarUsingGET1(id id: Int, idPessoa: Int, completion: ((data: AdicionalDetalheResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET1WithRequestBuilder(id: id, idPessoa: idPessoa).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -570,7 +570,7 @@ public class CadastroClienteAPI: APIBase {
      Consulta Adicional de uma Conta
      
      - GET /api/contas/{id}/adicionais/{idPessoa}
-     - Este m\u00C3\u00A9todo permite que seja consultado um portador Adicional de uma determinada Conta.
+     - Este m\u00E9todo permite que seja consultado um portador Adicional de uma determinada Conta.
      - examples: [{contentType=application/json, example={
   "numeroIdentidade" : "aeiou",
   "idEstadoCivil" : 123456789,
@@ -602,12 +602,12 @@ public class CadastroClienteAPI: APIBase {
   "email" : "aeiou"
 }}]
      
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
-     - parameter idPessoa: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da pessoa (id). 
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o da conta (id). 
+     - parameter idPessoa: (path) C\u00F3digo de Identifica\u00E7\u00E3o da pessoa (id). 
 
      - returns: RequestBuilder<AdicionalDetalheResponse> 
      */
-    public class func consultarUsingGETWithRequestBuilder(id id: Int, idPessoa: Int) -> RequestBuilder<AdicionalDetalheResponse> {
+    public class func consultarUsingGET1WithRequestBuilder(id id: Int, idPessoa: Int) -> RequestBuilder<AdicionalDetalheResponse> {
         var path = "/api/contas/{id}/adicionais/{idPessoa}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{idPessoa}", withString: "\(idPessoa)", options: .LiteralSearch, range: nil)
@@ -623,13 +623,13 @@ public class CadastroClienteAPI: APIBase {
 
     /**
      
-     Apresenta os dados de um determinado Endere\u00C3\u00A7o
+     Apresenta os dados de um determinado Endere\u00E7o
      
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Endere\u00C3\u00A7o (id). 
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o do Endere\u00E7o (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET15(id id: Int, completion: ((data: EnderecoResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET15WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET16(id id: Int, completion: ((data: EnderecoResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET16WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -637,10 +637,10 @@ public class CadastroClienteAPI: APIBase {
 
     /**
      
-     Apresenta os dados de um determinado Endere\u00C3\u00A7o
+     Apresenta os dados de um determinado Endere\u00E7o
      
      - GET /api/enderecos/{id}
-     - Este m\u00C3\u00A9todo permite consultar um determinado Endere\u00C3\u00A7o a partir do seu c\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o (id).
+     - Este m\u00E9todo permite consultar um determinado Endere\u00E7o a partir do seu c\u00F3digo de identifica\u00E7\u00E3o (id).
      - examples: [{contentType=application/json, example={
   "pontoReferencia" : "aeiou",
   "cidade" : "aeiou",
@@ -658,11 +658,11 @@ public class CadastroClienteAPI: APIBase {
   "id" : 123456789
 }}]
      
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Endere\u00C3\u00A7o (id). 
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o do Endere\u00E7o (id). 
 
      - returns: RequestBuilder<EnderecoResponse> 
      */
-    public class func consultarUsingGET15WithRequestBuilder(id id: Int) -> RequestBuilder<EnderecoResponse> {
+    public class func consultarUsingGET16WithRequestBuilder(id id: Int) -> RequestBuilder<EnderecoResponse> {
         var path = "/api/enderecos/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -682,8 +682,8 @@ public class CadastroClienteAPI: APIBase {
      - parameter id: (path) ID da Pessoa 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET23(id id: Int, completion: ((data: PessoaDetalheResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET23WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET24(id id: Int, completion: ((data: PessoaDetalheResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET24WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -694,7 +694,7 @@ public class CadastroClienteAPI: APIBase {
      Apresenta os detalhes de uma determinada Pessoa
      
      - GET /api/pessoas-detalhes/{id}
-     - Este m\u00C3\u00A9todo permite a consulta dos detalhes de uma Pessoa existentes na base de dados do Emissor.
+     - Este m\u00E9todo permite a consulta dos detalhes de uma Pessoa existentes na base de dados do Emissor.
      - examples: [{contentType=application/json, example={
   "idNacionalidade" : 123456789,
   "numeroBanco" : 123,
@@ -713,7 +713,7 @@ public class CadastroClienteAPI: APIBase {
 
      - returns: RequestBuilder<PessoaDetalheResponse> 
      */
-    public class func consultarUsingGET23WithRequestBuilder(id id: Int) -> RequestBuilder<PessoaDetalheResponse> {
+    public class func consultarUsingGET24WithRequestBuilder(id id: Int) -> RequestBuilder<PessoaDetalheResponse> {
         var path = "/api/pessoas-detalhes/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -733,8 +733,8 @@ public class CadastroClienteAPI: APIBase {
      - parameter id: (path) ID da Pessoa 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET24(id id: Int, completion: ((data: PessoaResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET24WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET25(id id: Int, completion: ((data: PessoaResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET25WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -745,7 +745,7 @@ public class CadastroClienteAPI: APIBase {
      Apresenta os dados de uma determinada Pessoa
      
      - GET /api/pessoas/{id}
-     - Este m\u00C3\u00A9todo permite que sejam listadas as Pessoas existentes na base de dados do Emissor.
+     - Este m\u00E9todo permite que sejam listadas as Pessoas existentes na base de dados do Emissor.
      - examples: [{contentType=application/json, example={
   "numeroIdentidade" : "aeiou",
   "tipo" : "aeiou",
@@ -764,7 +764,7 @@ public class CadastroClienteAPI: APIBase {
 
      - returns: RequestBuilder<PessoaResponse> 
      */
-    public class func consultarUsingGET24WithRequestBuilder(id id: Int) -> RequestBuilder<PessoaResponse> {
+    public class func consultarUsingGET25WithRequestBuilder(id id: Int) -> RequestBuilder<PessoaResponse> {
         var path = "/api/pessoas/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -781,11 +781,11 @@ public class CadastroClienteAPI: APIBase {
      
      Apresenta os dados de um determinado Telefone
      
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Telefone (id). 
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o do Telefone (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET30(id id: Int, completion: ((data: TelefoneResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET30WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET31(id id: Int, completion: ((data: TelefoneResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET31WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -796,7 +796,7 @@ public class CadastroClienteAPI: APIBase {
      Apresenta os dados de um determinado Telefone
      
      - GET /api/telefones/{id}
-     - Este m\u00C3\u00A9todo permite consultar um determinado Telefone a partir do seu c\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o (id).
+     - Este m\u00E9todo permite consultar um determinado Telefone a partir do seu c\u00F3digo de identifica\u00E7\u00E3o (id).
      - examples: [{contentType=application/json, example={
   "idPessoa" : 123456789,
   "telefone" : "aeiou",
@@ -807,11 +807,11 @@ public class CadastroClienteAPI: APIBase {
   "status" : 123
 }}]
      
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Telefone (id). 
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o do Telefone (id). 
 
      - returns: RequestBuilder<TelefoneResponse> 
      */
-    public class func consultarUsingGET30WithRequestBuilder(id id: Int) -> RequestBuilder<TelefoneResponse> {
+    public class func consultarUsingGET31WithRequestBuilder(id id: Int) -> RequestBuilder<TelefoneResponse> {
         var path = "/api/telefones/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -828,8 +828,8 @@ public class CadastroClienteAPI: APIBase {
      
      Inativa Adicional de uma Conta
      
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
-     - parameter idPessoa: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da pessoa (id). 
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o da conta (id). 
+     - parameter idPessoa: (path) C\u00F3digo de Identifica\u00E7\u00E3o da pessoa (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func inativarUsingPOST(id id: Int, idPessoa: Int, completion: ((data: String?, error: ErrorType?) -> Void)) {
@@ -844,11 +844,11 @@ public class CadastroClienteAPI: APIBase {
      Inativa Adicional de uma Conta
      
      - POST /api/contas/{id}/adicionais/{idPessoa}/inativar
-     - Este m\u00C3\u00A9todo permite que seja inativado um portador Adicional de uma determinada Conta.
+     - Este m\u00E9todo permite que seja inativado um portador Adicional de uma determinada Conta.
      - examples: [{contentType=application/json, example="aeiou"}]
      
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
-     - parameter idPessoa: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da pessoa (id). 
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o da conta (id). 
+     - parameter idPessoa: (path) C\u00F3digo de Identifica\u00E7\u00E3o da pessoa (id). 
 
      - returns: RequestBuilder<String> 
      */
@@ -868,12 +868,12 @@ public class CadastroClienteAPI: APIBase {
 
     /**
      
-     Listar s\u00C3\u00B3cios de uma pessoa jur\u00C3\u00ADdica
+     Listar s\u00F3cios de uma pessoa jur\u00EDdica
      
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Pessoa Jur\u00C3\u00ADdica 
-     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o da Pessoa Jur\u00EDdica 
+     - parameter sort: (query) Tipo de ordena\u00E7\u00E3o dos registros. (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func listarSociosUsingGET(id id: Int, sort: [String]?, page: Int?, limit: Int?, completion: ((data: PagePessoaResponse?, error: ErrorType?) -> Void)) {
@@ -885,10 +885,10 @@ public class CadastroClienteAPI: APIBase {
 
     /**
      
-     Listar s\u00C3\u00B3cios de uma pessoa jur\u00C3\u00ADdica
+     Listar s\u00F3cios de uma pessoa jur\u00EDdica
      
      - GET /api/clientes-pessoas-juridicas/{id}/socios
-     - Lista os s\u00C3\u00B3cios vinculados \u00C3\u00A0 uma Pessoa Jur\u00C3\u00ADdica cadastrada.
+     - Lista os s\u00F3cios vinculados \u00E0 uma Pessoa Jur\u00EDdica cadastrada.
      - examples: [{contentType=application/json, example={
   "previousPage" : 123,
   "last" : true,
@@ -918,10 +918,10 @@ public class CadastroClienteAPI: APIBase {
   "first" : true
 }}]
      
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Pessoa Jur\u00C3\u00ADdica 
-     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o da Pessoa Jur\u00EDdica 
+     - parameter sort: (query) Tipo de ordena\u00E7\u00E3o dos registros. (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
 
      - returns: RequestBuilder<PagePessoaResponse> 
      */
@@ -946,14 +946,14 @@ public class CadastroClienteAPI: APIBase {
      
      Lista os Adicionais de uma Conta
      
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
-     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o da conta (id). 
+     - parameter sort: (query) Tipo de ordena\u00E7\u00E3o dos registros. (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET(id id: Int, sort: [String]?, page: Int?, limit: Int?, completion: ((data: AdicionalResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGETWithRequestBuilder(id: id, sort: sort, page: page, limit: limit).execute { (response, error) -> Void in
+    public class func listarUsingGET1(id id: Int, sort: [String]?, page: Int?, limit: Int?, completion: ((data: AdicionalResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET1WithRequestBuilder(id: id, sort: sort, page: page, limit: limit).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -964,7 +964,7 @@ public class CadastroClienteAPI: APIBase {
      Lista os Adicionais de uma Conta
      
      - GET /api/contas/{id}/adicionais
-     - Este m\u00C3\u00A9todo permite que sejam listados portadores Adicionais de uma determinada Conta.
+     - Este m\u00E9todo permite que sejam listados portadores Adicionais de uma determinada Conta.
      - examples: [{contentType=application/json, example={
   "numeroIdentidade" : "aeiou",
   "idConta" : 123456789,
@@ -983,14 +983,14 @@ public class CadastroClienteAPI: APIBase {
   "dataEmissaoIdentidade" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
 }}]
      
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
-     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o da conta (id). 
+     - parameter sort: (query) Tipo de ordena\u00E7\u00E3o dos registros. (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
 
      - returns: RequestBuilder<AdicionalResponse> 
      */
-    public class func listarUsingGETWithRequestBuilder(id id: Int, sort: [String]?, page: Int?, limit: Int?) -> RequestBuilder<AdicionalResponse> {
+    public class func listarUsingGET1WithRequestBuilder(id id: Int, sort: [String]?, page: Int?, limit: Int?) -> RequestBuilder<AdicionalResponse> {
         var path = "/api/contas/{id}/adicionais"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -1009,29 +1009,29 @@ public class CadastroClienteAPI: APIBase {
 
     /**
      
-     Lista os Endere\u00C3\u00A7os cadastrados para o Emissor
+     Lista os Endere\u00E7os cadastrados para o Emissor
      
-     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
-     - parameter id: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Endere\u00C3\u00A7o (id). (optional)
-     - parameter idPessoa: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Pessoa a qual o endere\u00C3\u00A7o pertence (id) (optional)
-     - parameter idTipoEndereco: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Tipo Endere\u00C3\u00A7o (id) (optional)
-     - parameter cep: (query) Apresenta o C\u00C3\u00B3digo de Endere\u00C3\u00A7amento Postal (CEP) (optional)
+     - parameter sort: (query) Tipo de ordena\u00E7\u00E3o dos registros. (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
+     - parameter id: (query) C\u00F3digo de Identifica\u00E7\u00E3o do Endere\u00E7o (id). (optional)
+     - parameter idPessoa: (query) C\u00F3digo de Identifica\u00E7\u00E3o da Pessoa a qual o endere\u00E7o pertence (id) (optional)
+     - parameter idTipoEndereco: (query) C\u00F3digo de Identifica\u00E7\u00E3o da Tipo Endere\u00E7o (id) (optional)
+     - parameter cep: (query) Apresenta o C\u00F3digo de Endere\u00E7amento Postal (CEP) (optional)
      - parameter logradouro: (query) Apresenta o nome do Logradouro (optional)
-     - parameter numero: (query) Apresenta o n\u00C3\u00BAmero do endere\u00C3\u00A7o (optional)
-     - parameter complemento: (query) Apresenta descri\u00C3\u00A7oes complementares referente ao endere\u00C3\u00A7o (optional)
-     - parameter pontoReferencia: (query) Apresenta a descri\u00C3\u00A7\u00C3\u00A3o de ponto de refer\u00C3\u00AAncia do endere\u00C3\u00A7o (optional)
+     - parameter numero: (query) Apresenta o n\u00FAmero do endere\u00E7o (optional)
+     - parameter complemento: (query) Apresenta descri\u00E7oes complementares referente ao endere\u00E7o (optional)
+     - parameter pontoReferencia: (query) Apresenta a descri\u00E7\u00E3o de ponto de refer\u00EAncia do endere\u00E7o (optional)
      - parameter bairro: (query) Apresenta nome do bairro (optional)
      - parameter cidade: (query) Apresenta nome da cidade (optional)
      - parameter uf: (query) Apresenta sigla da Unidade Federativa (optional)
      - parameter pais: (query) Apresenta nome do Pais (optional)
-     - parameter dataInclusao: (query) Apresenta a data em que fora cadastrado o Endere\u00C3\u00A7o (optional)
-     - parameter dataUltimaAtualizacao: (query) Data em que fora realizada a \u00C3\u00BAltima mudan\u00C3\u00A7a neste registro de endere\u00C3\u00A7o. Quando n\u00C3\u00A3o tiver ocorrido mudan\u00C3\u00A7a, conter\u00C3\u00A1 a mesma informa\u00C3\u00A7\u00C3\u00A3o que o campo dataInclusao (optional)
+     - parameter dataInclusao: (query) Apresenta a data em que fora cadastrado o Endere\u00E7o (optional)
+     - parameter dataUltimaAtualizacao: (query) Data em que fora realizada a \u00FAltima mudan\u00E7a neste registro de endere\u00E7o. Quando n\u00E3o tiver ocorrido mudan\u00E7a, conter\u00E1 a mesma informa\u00E7\u00E3o que o campo dataInclusao (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET20(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, idPessoa: Int?, idTipoEndereco: Int?, cep: String?, logradouro: String?, numero: Int?, complemento: String?, pontoReferencia: String?, bairro: String?, cidade: String?, uf: String?, pais: String?, dataInclusao: String?, dataUltimaAtualizacao: String?, completion: ((data: PageEnderecoResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET20WithRequestBuilder(sort: sort, page: page, limit: limit, id: id, idPessoa: idPessoa, idTipoEndereco: idTipoEndereco, cep: cep, logradouro: logradouro, numero: numero, complemento: complemento, pontoReferencia: pontoReferencia, bairro: bairro, cidade: cidade, uf: uf, pais: pais, dataInclusao: dataInclusao, dataUltimaAtualizacao: dataUltimaAtualizacao).execute { (response, error) -> Void in
+    public class func listarUsingGET21(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, idPessoa: Int?, idTipoEndereco: Int?, cep: String?, logradouro: String?, numero: Int?, complemento: String?, pontoReferencia: String?, bairro: String?, cidade: String?, uf: String?, pais: String?, dataInclusao: String?, dataUltimaAtualizacao: String?, completion: ((data: PageEnderecoResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET21WithRequestBuilder(sort: sort, page: page, limit: limit, id: id, idPessoa: idPessoa, idTipoEndereco: idTipoEndereco, cep: cep, logradouro: logradouro, numero: numero, complemento: complemento, pontoReferencia: pontoReferencia, bairro: bairro, cidade: cidade, uf: uf, pais: pais, dataInclusao: dataInclusao, dataUltimaAtualizacao: dataUltimaAtualizacao).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -1039,10 +1039,10 @@ public class CadastroClienteAPI: APIBase {
 
     /**
      
-     Lista os Endere\u00C3\u00A7os cadastrados para o Emissor
+     Lista os Endere\u00E7os cadastrados para o Emissor
      
      - GET /api/enderecos
-     - Este m\u00C3\u00A9todo permite que sejam listados os Endere\u00C3\u00A7os existentes na base de dados do Emissor.
+     - Este m\u00E9todo permite que sejam listados os Endere\u00E7os existentes na base de dados do Emissor.
      - examples: [{contentType=application/json, example={
   "previousPage" : 123,
   "last" : true,
@@ -1075,27 +1075,27 @@ public class CadastroClienteAPI: APIBase {
   "first" : true
 }}]
      
-     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
-     - parameter id: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Endere\u00C3\u00A7o (id). (optional)
-     - parameter idPessoa: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Pessoa a qual o endere\u00C3\u00A7o pertence (id) (optional)
-     - parameter idTipoEndereco: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Tipo Endere\u00C3\u00A7o (id) (optional)
-     - parameter cep: (query) Apresenta o C\u00C3\u00B3digo de Endere\u00C3\u00A7amento Postal (CEP) (optional)
+     - parameter sort: (query) Tipo de ordena\u00E7\u00E3o dos registros. (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
+     - parameter id: (query) C\u00F3digo de Identifica\u00E7\u00E3o do Endere\u00E7o (id). (optional)
+     - parameter idPessoa: (query) C\u00F3digo de Identifica\u00E7\u00E3o da Pessoa a qual o endere\u00E7o pertence (id) (optional)
+     - parameter idTipoEndereco: (query) C\u00F3digo de Identifica\u00E7\u00E3o da Tipo Endere\u00E7o (id) (optional)
+     - parameter cep: (query) Apresenta o C\u00F3digo de Endere\u00E7amento Postal (CEP) (optional)
      - parameter logradouro: (query) Apresenta o nome do Logradouro (optional)
-     - parameter numero: (query) Apresenta o n\u00C3\u00BAmero do endere\u00C3\u00A7o (optional)
-     - parameter complemento: (query) Apresenta descri\u00C3\u00A7oes complementares referente ao endere\u00C3\u00A7o (optional)
-     - parameter pontoReferencia: (query) Apresenta a descri\u00C3\u00A7\u00C3\u00A3o de ponto de refer\u00C3\u00AAncia do endere\u00C3\u00A7o (optional)
+     - parameter numero: (query) Apresenta o n\u00FAmero do endere\u00E7o (optional)
+     - parameter complemento: (query) Apresenta descri\u00E7oes complementares referente ao endere\u00E7o (optional)
+     - parameter pontoReferencia: (query) Apresenta a descri\u00E7\u00E3o de ponto de refer\u00EAncia do endere\u00E7o (optional)
      - parameter bairro: (query) Apresenta nome do bairro (optional)
      - parameter cidade: (query) Apresenta nome da cidade (optional)
      - parameter uf: (query) Apresenta sigla da Unidade Federativa (optional)
      - parameter pais: (query) Apresenta nome do Pais (optional)
-     - parameter dataInclusao: (query) Apresenta a data em que fora cadastrado o Endere\u00C3\u00A7o (optional)
-     - parameter dataUltimaAtualizacao: (query) Data em que fora realizada a \u00C3\u00BAltima mudan\u00C3\u00A7a neste registro de endere\u00C3\u00A7o. Quando n\u00C3\u00A3o tiver ocorrido mudan\u00C3\u00A7a, conter\u00C3\u00A1 a mesma informa\u00C3\u00A7\u00C3\u00A3o que o campo dataInclusao (optional)
+     - parameter dataInclusao: (query) Apresenta a data em que fora cadastrado o Endere\u00E7o (optional)
+     - parameter dataUltimaAtualizacao: (query) Data em que fora realizada a \u00FAltima mudan\u00E7a neste registro de endere\u00E7o. Quando n\u00E3o tiver ocorrido mudan\u00E7a, conter\u00E1 a mesma informa\u00E7\u00E3o que o campo dataInclusao (optional)
 
      - returns: RequestBuilder<PageEnderecoResponse> 
      */
-    public class func listarUsingGET20WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, idPessoa: Int?, idTipoEndereco: Int?, cep: String?, logradouro: String?, numero: Int?, complemento: String?, pontoReferencia: String?, bairro: String?, cidade: String?, uf: String?, pais: String?, dataInclusao: String?, dataUltimaAtualizacao: String?) -> RequestBuilder<PageEnderecoResponse> {
+    public class func listarUsingGET21WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, idPessoa: Int?, idTipoEndereco: Int?, cep: String?, logradouro: String?, numero: Int?, complemento: String?, pontoReferencia: String?, bairro: String?, cidade: String?, uf: String?, pais: String?, dataInclusao: String?, dataUltimaAtualizacao: String?) -> RequestBuilder<PageEnderecoResponse> {
         let path = "/api/enderecos"
         let URLString = PierAPI.basePath + path
         
@@ -1129,24 +1129,24 @@ public class CadastroClienteAPI: APIBase {
      
      Lista os Detalhes das Pessoas cadastradas no Emissor
      
-     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
-     - parameter idPessoa: (query) C\u00C3\u00B3digo identificador da pessoa (optional)
-     - parameter nomeMae: (query) Apresenta o nome da m\u00C3\u00A3e da pessoa fisica (optional)
+     - parameter sort: (query) Tipo de ordena\u00E7\u00E3o dos registros. (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
+     - parameter idPessoa: (query) C\u00F3digo identificador da pessoa (optional)
+     - parameter nomeMae: (query) Apresenta o nome da m\u00E3e da pessoa fisica (optional)
      - parameter idEstadoCivil: (query) Id Estado civil da pessoa fisica (optional)
-     - parameter idProfissao: (query) Profiss\u00C3\u00A3o da pessoa fisica (optional)
-     - parameter idNaturezaOcupacao: (query) Id Natureza Ocupa\u00C3\u00A7\u00C3\u00A3o da pessoa fisica (optional)
+     - parameter idProfissao: (query) Profiss\u00E3o da pessoa fisica (optional)
+     - parameter idNaturezaOcupacao: (query) Id Natureza Ocupa\u00E7\u00E3o da pessoa fisica (optional)
      - parameter idNacionalidade: (query) Id Nacionalidade da pessoa fisica (optional)
-     - parameter numeroBanco: (query) N\u00C3\u00BAmero do Banco. (optional)
-     - parameter numeroAgencia: (query) N\u00C3\u00BAmero da ag\u00C3\u00AAncia. (optional)
-     - parameter numeroContaCorrente: (query) N\u00C3\u00BAmero da conta corrente. (optional)
+     - parameter numeroBanco: (query) N\u00FAmero do Banco. (optional)
+     - parameter numeroAgencia: (query) N\u00FAmero da ag\u00EAncia. (optional)
+     - parameter numeroContaCorrente: (query) N\u00FAmero da conta corrente. (optional)
      - parameter email: (query) Email da pessoa fisica (optional)
-     - parameter nomeEmpresa: (query) Nome que deve ser impresso no cart\u00C3\u00A3o (optional)
+     - parameter nomeEmpresa: (query) Nome que deve ser impresso no cart\u00E3o (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET29(sort sort: [String]?, page: Int?, limit: Int?, idPessoa: Int?, nomeMae: String?, idEstadoCivil: Int?, idProfissao: String?, idNaturezaOcupacao: Int?, idNacionalidade: Int?, numeroBanco: Int?, numeroAgencia: Int?, numeroContaCorrente: String?, email: String?, nomeEmpresa: String?, completion: ((data: PagePessoaDetalheResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET29WithRequestBuilder(sort: sort, page: page, limit: limit, idPessoa: idPessoa, nomeMae: nomeMae, idEstadoCivil: idEstadoCivil, idProfissao: idProfissao, idNaturezaOcupacao: idNaturezaOcupacao, idNacionalidade: idNacionalidade, numeroBanco: numeroBanco, numeroAgencia: numeroAgencia, numeroContaCorrente: numeroContaCorrente, email: email, nomeEmpresa: nomeEmpresa).execute { (response, error) -> Void in
+    public class func listarUsingGET31(sort sort: [String]?, page: Int?, limit: Int?, idPessoa: Int?, nomeMae: String?, idEstadoCivil: Int?, idProfissao: String?, idNaturezaOcupacao: Int?, idNacionalidade: Int?, numeroBanco: Int?, numeroAgencia: Int?, numeroContaCorrente: String?, email: String?, nomeEmpresa: String?, completion: ((data: PagePessoaDetalheResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET31WithRequestBuilder(sort: sort, page: page, limit: limit, idPessoa: idPessoa, nomeMae: nomeMae, idEstadoCivil: idEstadoCivil, idProfissao: idProfissao, idNaturezaOcupacao: idNaturezaOcupacao, idNacionalidade: idNacionalidade, numeroBanco: numeroBanco, numeroAgencia: numeroAgencia, numeroContaCorrente: numeroContaCorrente, email: email, nomeEmpresa: nomeEmpresa).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -1157,7 +1157,7 @@ public class CadastroClienteAPI: APIBase {
      Lista os Detalhes das Pessoas cadastradas no Emissor
      
      - GET /api/pessoas-detalhes
-     - Este m\u00C3\u00A9todo permite que sejam listadas od detalhes das Pessoas existentes na base de dados do Emissor.
+     - Este m\u00E9todo permite que sejam listadas od detalhes das Pessoas existentes na base de dados do Emissor.
      - examples: [{contentType=application/json, example={
   "previousPage" : 123,
   "last" : true,
@@ -1187,24 +1187,24 @@ public class CadastroClienteAPI: APIBase {
   "first" : true
 }}]
      
-     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
-     - parameter idPessoa: (query) C\u00C3\u00B3digo identificador da pessoa (optional)
-     - parameter nomeMae: (query) Apresenta o nome da m\u00C3\u00A3e da pessoa fisica (optional)
+     - parameter sort: (query) Tipo de ordena\u00E7\u00E3o dos registros. (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
+     - parameter idPessoa: (query) C\u00F3digo identificador da pessoa (optional)
+     - parameter nomeMae: (query) Apresenta o nome da m\u00E3e da pessoa fisica (optional)
      - parameter idEstadoCivil: (query) Id Estado civil da pessoa fisica (optional)
-     - parameter idProfissao: (query) Profiss\u00C3\u00A3o da pessoa fisica (optional)
-     - parameter idNaturezaOcupacao: (query) Id Natureza Ocupa\u00C3\u00A7\u00C3\u00A3o da pessoa fisica (optional)
+     - parameter idProfissao: (query) Profiss\u00E3o da pessoa fisica (optional)
+     - parameter idNaturezaOcupacao: (query) Id Natureza Ocupa\u00E7\u00E3o da pessoa fisica (optional)
      - parameter idNacionalidade: (query) Id Nacionalidade da pessoa fisica (optional)
-     - parameter numeroBanco: (query) N\u00C3\u00BAmero do Banco. (optional)
-     - parameter numeroAgencia: (query) N\u00C3\u00BAmero da ag\u00C3\u00AAncia. (optional)
-     - parameter numeroContaCorrente: (query) N\u00C3\u00BAmero da conta corrente. (optional)
+     - parameter numeroBanco: (query) N\u00FAmero do Banco. (optional)
+     - parameter numeroAgencia: (query) N\u00FAmero da ag\u00EAncia. (optional)
+     - parameter numeroContaCorrente: (query) N\u00FAmero da conta corrente. (optional)
      - parameter email: (query) Email da pessoa fisica (optional)
-     - parameter nomeEmpresa: (query) Nome que deve ser impresso no cart\u00C3\u00A3o (optional)
+     - parameter nomeEmpresa: (query) Nome que deve ser impresso no cart\u00E3o (optional)
 
      - returns: RequestBuilder<PagePessoaDetalheResponse> 
      */
-    public class func listarUsingGET29WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, idPessoa: Int?, nomeMae: String?, idEstadoCivil: Int?, idProfissao: String?, idNaturezaOcupacao: Int?, idNacionalidade: Int?, numeroBanco: Int?, numeroAgencia: Int?, numeroContaCorrente: String?, email: String?, nomeEmpresa: String?) -> RequestBuilder<PagePessoaDetalheResponse> {
+    public class func listarUsingGET31WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, idPessoa: Int?, nomeMae: String?, idEstadoCivil: Int?, idProfissao: String?, idNaturezaOcupacao: Int?, idNacionalidade: Int?, numeroBanco: Int?, numeroAgencia: Int?, numeroContaCorrente: String?, email: String?, nomeEmpresa: String?) -> RequestBuilder<PagePessoaDetalheResponse> {
         let path = "/api/pessoas-detalhes"
         let URLString = PierAPI.basePath + path
         
@@ -1235,24 +1235,24 @@ public class CadastroClienteAPI: APIBase {
      
      Lista as Pessoas cadastradas no Emissor
      
-     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
-     - parameter id: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Pessoa (id). (optional)
-     - parameter nome: (query) Apresenta o &#39;Nome Completo da PF&#39; ou o &#39;Nome Completo da Raz\u00C3\u00A3o Social (Nome Empresarial)&#39;. (optional)
-     - parameter tipo: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do tipo da Pessoa, sendo: (\&quot;PF\&quot;: Pessoa F\u00C3\u00ADsica), (\&quot;PJ\&quot;: Pessoa Jur\u00C3\u00ADdica). (optional)
-     - parameter cpf: (query) N\u00C3\u00BAmero do CPF, quando PF. (optional)
-     - parameter cnpj: (query) N\u00C3\u00BAmero do CNPJ, quando PJ. (optional)
+     - parameter sort: (query) Tipo de ordena\u00E7\u00E3o dos registros. (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
+     - parameter id: (query) C\u00F3digo de Identifica\u00E7\u00E3o da Pessoa (id). (optional)
+     - parameter nome: (query) Apresenta o &#39;Nome Completo da PF&#39; ou o &#39;Nome Completo da Raz\u00E3o Social (Nome Empresarial)&#39;. (optional)
+     - parameter tipo: (query) C\u00F3digo de identifica\u00E7\u00E3o do tipo da Pessoa, sendo: (\&quot;PF\&quot;: Pessoa F\u00EDsica), (\&quot;PJ\&quot;: Pessoa Jur\u00EDdica). (optional)
+     - parameter cpf: (query) N\u00FAmero do CPF, quando PF. (optional)
+     - parameter cnpj: (query) N\u00FAmero do CNPJ, quando PJ. (optional)
      - parameter dataNascimento: (query) Data de Nascimento da Pessoa, quando PF, ou a Data de Abertura da Empresa, quando PJ. (optional)
-     - parameter sexo: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do sexo da Pessoa, quando PF, sendo: (\&quot;M\&quot;: Masculino), (\&quot;F\&quot;: Feminino), (\&quot;O\&quot;: Outro), (\&quot;N\&quot;: N\u00C3\u00A3o Especificado). (optional)
-     - parameter numeroIdentidade: (query) N\u00C3\u00BAmero da Identidade (optional)
-     - parameter orgaoExpedidorIdentidade: (query) Org\u00C3\u00A3o expedidor do RG. (optional)
+     - parameter sexo: (query) C\u00F3digo de identifica\u00E7\u00E3o do sexo da Pessoa, quando PF, sendo: (\&quot;M\&quot;: Masculino), (\&quot;F\&quot;: Feminino), (\&quot;O\&quot;: Outro), (\&quot;N\&quot;: N\u00E3o Especificado). (optional)
+     - parameter numeroIdentidade: (query) N\u00FAmero da Identidade (optional)
+     - parameter orgaoExpedidorIdentidade: (query) Org\u00E3o expedidor do RG. (optional)
      - parameter unidadeFederativaIdentidade: (query) Sigla da Unidade Federativa de onde foi expedido a Identidade (optional)
-     - parameter dataEmissaoIdentidade: (query) Data emiss\u00C3\u00A3o da identidade no formato aaaa-MM-dd (optional)
+     - parameter dataEmissaoIdentidade: (query) Data emiss\u00E3o da identidade no formato aaaa-MM-dd (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET30(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, nome: String?, tipo: String?, cpf: String?, cnpj: String?, dataNascimento: String?, sexo: String?, numeroIdentidade: String?, orgaoExpedidorIdentidade: String?, unidadeFederativaIdentidade: String?, dataEmissaoIdentidade: String?, completion: ((data: PagePessoaResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET30WithRequestBuilder(sort: sort, page: page, limit: limit, id: id, nome: nome, tipo: tipo, cpf: cpf, cnpj: cnpj, dataNascimento: dataNascimento, sexo: sexo, numeroIdentidade: numeroIdentidade, orgaoExpedidorIdentidade: orgaoExpedidorIdentidade, unidadeFederativaIdentidade: unidadeFederativaIdentidade, dataEmissaoIdentidade: dataEmissaoIdentidade).execute { (response, error) -> Void in
+    public class func listarUsingGET32(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, nome: String?, tipo: String?, cpf: String?, cnpj: String?, dataNascimento: String?, sexo: String?, numeroIdentidade: String?, orgaoExpedidorIdentidade: String?, unidadeFederativaIdentidade: String?, dataEmissaoIdentidade: String?, completion: ((data: PagePessoaResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET32WithRequestBuilder(sort: sort, page: page, limit: limit, id: id, nome: nome, tipo: tipo, cpf: cpf, cnpj: cnpj, dataNascimento: dataNascimento, sexo: sexo, numeroIdentidade: numeroIdentidade, orgaoExpedidorIdentidade: orgaoExpedidorIdentidade, unidadeFederativaIdentidade: unidadeFederativaIdentidade, dataEmissaoIdentidade: dataEmissaoIdentidade).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -1263,7 +1263,7 @@ public class CadastroClienteAPI: APIBase {
      Lista as Pessoas cadastradas no Emissor
      
      - GET /api/pessoas
-     - Este m\u00C3\u00A9todo permite que sejam listadas as Pessoas existentes na base de dados do Emissor.
+     - Este m\u00E9todo permite que sejam listadas as Pessoas existentes na base de dados do Emissor.
      - examples: [{contentType=application/json, example={
   "previousPage" : 123,
   "last" : true,
@@ -1293,24 +1293,24 @@ public class CadastroClienteAPI: APIBase {
   "first" : true
 }}]
      
-     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
-     - parameter id: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Pessoa (id). (optional)
-     - parameter nome: (query) Apresenta o &#39;Nome Completo da PF&#39; ou o &#39;Nome Completo da Raz\u00C3\u00A3o Social (Nome Empresarial)&#39;. (optional)
-     - parameter tipo: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do tipo da Pessoa, sendo: (\&quot;PF\&quot;: Pessoa F\u00C3\u00ADsica), (\&quot;PJ\&quot;: Pessoa Jur\u00C3\u00ADdica). (optional)
-     - parameter cpf: (query) N\u00C3\u00BAmero do CPF, quando PF. (optional)
-     - parameter cnpj: (query) N\u00C3\u00BAmero do CNPJ, quando PJ. (optional)
+     - parameter sort: (query) Tipo de ordena\u00E7\u00E3o dos registros. (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
+     - parameter id: (query) C\u00F3digo de Identifica\u00E7\u00E3o da Pessoa (id). (optional)
+     - parameter nome: (query) Apresenta o &#39;Nome Completo da PF&#39; ou o &#39;Nome Completo da Raz\u00E3o Social (Nome Empresarial)&#39;. (optional)
+     - parameter tipo: (query) C\u00F3digo de identifica\u00E7\u00E3o do tipo da Pessoa, sendo: (\&quot;PF\&quot;: Pessoa F\u00EDsica), (\&quot;PJ\&quot;: Pessoa Jur\u00EDdica). (optional)
+     - parameter cpf: (query) N\u00FAmero do CPF, quando PF. (optional)
+     - parameter cnpj: (query) N\u00FAmero do CNPJ, quando PJ. (optional)
      - parameter dataNascimento: (query) Data de Nascimento da Pessoa, quando PF, ou a Data de Abertura da Empresa, quando PJ. (optional)
-     - parameter sexo: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do sexo da Pessoa, quando PF, sendo: (\&quot;M\&quot;: Masculino), (\&quot;F\&quot;: Feminino), (\&quot;O\&quot;: Outro), (\&quot;N\&quot;: N\u00C3\u00A3o Especificado). (optional)
-     - parameter numeroIdentidade: (query) N\u00C3\u00BAmero da Identidade (optional)
-     - parameter orgaoExpedidorIdentidade: (query) Org\u00C3\u00A3o expedidor do RG. (optional)
+     - parameter sexo: (query) C\u00F3digo de identifica\u00E7\u00E3o do sexo da Pessoa, quando PF, sendo: (\&quot;M\&quot;: Masculino), (\&quot;F\&quot;: Feminino), (\&quot;O\&quot;: Outro), (\&quot;N\&quot;: N\u00E3o Especificado). (optional)
+     - parameter numeroIdentidade: (query) N\u00FAmero da Identidade (optional)
+     - parameter orgaoExpedidorIdentidade: (query) Org\u00E3o expedidor do RG. (optional)
      - parameter unidadeFederativaIdentidade: (query) Sigla da Unidade Federativa de onde foi expedido a Identidade (optional)
-     - parameter dataEmissaoIdentidade: (query) Data emiss\u00C3\u00A3o da identidade no formato aaaa-MM-dd (optional)
+     - parameter dataEmissaoIdentidade: (query) Data emiss\u00E3o da identidade no formato aaaa-MM-dd (optional)
 
      - returns: RequestBuilder<PagePessoaResponse> 
      */
-    public class func listarUsingGET30WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, nome: String?, tipo: String?, cpf: String?, cnpj: String?, dataNascimento: String?, sexo: String?, numeroIdentidade: String?, orgaoExpedidorIdentidade: String?, unidadeFederativaIdentidade: String?, dataEmissaoIdentidade: String?) -> RequestBuilder<PagePessoaResponse> {
+    public class func listarUsingGET32WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, nome: String?, tipo: String?, cpf: String?, cnpj: String?, dataNascimento: String?, sexo: String?, numeroIdentidade: String?, orgaoExpedidorIdentidade: String?, unidadeFederativaIdentidade: String?, dataEmissaoIdentidade: String?) -> RequestBuilder<PagePessoaResponse> {
         let path = "/api/pessoas"
         let URLString = PierAPI.basePath + path
         
@@ -1341,20 +1341,20 @@ public class CadastroClienteAPI: APIBase {
      
      Lista os Telefones cadastrados no Emissor
      
-     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
-     - parameter id: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Telefone (id). (optional)
-     - parameter idTipoTelefone: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Tipo do Telefone (id). (optional)
-     - parameter idPessoa: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Pessoa (id) a qual o telefone pertence. (optional)
-     - parameter ddd: (query) C\u00C3\u00B3digo DDD do telefone (id). (optional)
-     - parameter telefone: (query) N\u00C3\u00BAmero do telefone. (optional)
-     - parameter ramal: (query) N\u00C3\u00BAmero do ramal. (optional)
+     - parameter sort: (query) Tipo de ordena\u00E7\u00E3o dos registros. (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
+     - parameter id: (query) C\u00F3digo de Identifica\u00E7\u00E3o do Telefone (id). (optional)
+     - parameter idTipoTelefone: (query) C\u00F3digo de Identifica\u00E7\u00E3o do Tipo do Telefone (id). (optional)
+     - parameter idPessoa: (query) C\u00F3digo de Identifica\u00E7\u00E3o da Pessoa (id) a qual o telefone pertence. (optional)
+     - parameter ddd: (query) C\u00F3digo DDD do telefone (id). (optional)
+     - parameter telefone: (query) N\u00FAmero do telefone. (optional)
+     - parameter ramal: (query) N\u00FAmero do ramal. (optional)
      - parameter status: (query) Apresenta o Status do Telefone, onde: &#39;0&#39;: Inativo e &#39;1&#39;: Ativo (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET39(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, idTipoTelefone: Int?, idPessoa: Int?, ddd: String?, telefone: String?, ramal: String?, status: Int?, completion: ((data: PageTelefoneResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET39WithRequestBuilder(sort: sort, page: page, limit: limit, id: id, idTipoTelefone: idTipoTelefone, idPessoa: idPessoa, ddd: ddd, telefone: telefone, ramal: ramal, status: status).execute { (response, error) -> Void in
+    public class func listarUsingGET41(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, idTipoTelefone: Int?, idPessoa: Int?, ddd: String?, telefone: String?, ramal: String?, status: Int?, completion: ((data: PageTelefoneResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET41WithRequestBuilder(sort: sort, page: page, limit: limit, id: id, idTipoTelefone: idTipoTelefone, idPessoa: idPessoa, ddd: ddd, telefone: telefone, ramal: ramal, status: status).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -1365,7 +1365,7 @@ public class CadastroClienteAPI: APIBase {
      Lista os Telefones cadastrados no Emissor
      
      - GET /api/telefones
-     - Este m\u00C3\u00A9todo permite que sejam listados os Telefones existentes na base de dados do Emissor.
+     - Este m\u00E9todo permite que sejam listados os Telefones existentes na base de dados do Emissor.
      - examples: [{contentType=application/json, example={
   "previousPage" : 123,
   "last" : true,
@@ -1391,20 +1391,20 @@ public class CadastroClienteAPI: APIBase {
   "first" : true
 }}]
      
-     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
-     - parameter id: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Telefone (id). (optional)
-     - parameter idTipoTelefone: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Tipo do Telefone (id). (optional)
-     - parameter idPessoa: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Pessoa (id) a qual o telefone pertence. (optional)
-     - parameter ddd: (query) C\u00C3\u00B3digo DDD do telefone (id). (optional)
-     - parameter telefone: (query) N\u00C3\u00BAmero do telefone. (optional)
-     - parameter ramal: (query) N\u00C3\u00BAmero do ramal. (optional)
+     - parameter sort: (query) Tipo de ordena\u00E7\u00E3o dos registros. (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
+     - parameter id: (query) C\u00F3digo de Identifica\u00E7\u00E3o do Telefone (id). (optional)
+     - parameter idTipoTelefone: (query) C\u00F3digo de Identifica\u00E7\u00E3o do Tipo do Telefone (id). (optional)
+     - parameter idPessoa: (query) C\u00F3digo de Identifica\u00E7\u00E3o da Pessoa (id) a qual o telefone pertence. (optional)
+     - parameter ddd: (query) C\u00F3digo DDD do telefone (id). (optional)
+     - parameter telefone: (query) N\u00FAmero do telefone. (optional)
+     - parameter ramal: (query) N\u00FAmero do ramal. (optional)
      - parameter status: (query) Apresenta o Status do Telefone, onde: &#39;0&#39;: Inativo e &#39;1&#39;: Ativo (optional)
 
      - returns: RequestBuilder<PageTelefoneResponse> 
      */
-    public class func listarUsingGET39WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, idTipoTelefone: Int?, idPessoa: Int?, ddd: String?, telefone: String?, ramal: String?, status: Int?) -> RequestBuilder<PageTelefoneResponse> {
+    public class func listarUsingGET41WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, idTipoTelefone: Int?, idPessoa: Int?, ddd: String?, telefone: String?, ramal: String?, status: Int?) -> RequestBuilder<PageTelefoneResponse> {
         let path = "/api/telefones"
         let URLString = PierAPI.basePath + path
         
@@ -1446,7 +1446,7 @@ public class CadastroClienteAPI: APIBase {
      Cadastro de Conta e Pessoa Fisica
      
      - POST /api/clientes-pessoas-fisicas
-     - Permite realizar o cadastro de uma Conta para um cliente do tipo Pessoa F\u00C3\u00ADsica, recebendo nesta opera\u00C3\u00A7\u00C3\u00A3o todos os dados cadastrais que se fazem necess\u00C3\u00A1rios para isso. Uma vez criado, poder\u00C3\u00A1 ser acionado o m\u00C3\u00A9todo de 'Gera\u00C3\u00A7\u00C3\u00A3o de Cart\u00C3\u00A3o' para o cliente e seus adicionais.
+     - Permite realizar o cadastro de uma Conta para um cliente do tipo Pessoa F\u00EDsica, recebendo nesta opera\u00E7\u00E3o todos os dados cadastrais que se fazem necess\u00E1rios para isso. Uma vez criado, poder\u00E1 ser acionado o m\u00E9todo de 'Gera\u00E7\u00E3o de Cart\u00E3o' para o cliente e seus adicionais.
      - examples: [{contentType=application/json, example={
   "numeroIdentidade" : "aeiou",
   "idEstadoCivil" : 123456789,
@@ -1518,7 +1518,7 @@ public class CadastroClienteAPI: APIBase {
 
     /**
      
-     Cadastro de Conta e Pessoa Jur\u00C3\u00ADdica
+     Cadastro de Conta e Pessoa Jur\u00EDdica
      
      - parameter pessoaPersist: (body) pessoaPersist 
      - parameter completion: completion handler to receive the data and the error objects
@@ -1532,10 +1532,10 @@ public class CadastroClienteAPI: APIBase {
 
     /**
      
-     Cadastro de Conta e Pessoa Jur\u00C3\u00ADdica
+     Cadastro de Conta e Pessoa Jur\u00EDdica
      
      - POST /api/clientes-pessoas-juridicas
-     - Cadastro de Conta e Pessoa Jur\u00C3\u00ADdica Permite realizar o cadastro de uma Conta para um cliente do tipo Pessoa Jur\u00C3\u00ADdica, recebendo nesta opera\u00C3\u00A7\u00C3\u00A3o todos os dados cadastrais que se fazem necess\u00C3\u00A1rios para isso, inclu\u00C3\u00ADndo o registro de cada um dos s\u00C3\u00B3cios. Uma vez criado, poder\u00C3\u00A1 ser acionado o m\u00C3\u00A9todo de 'Gera\u00C3\u00A7\u00C3\u00A3o de Cart\u00C3\u00A3o' para o cliente e cada um dos s\u00C3\u00B3cios vinculados.
+     - Cadastro de Conta e Pessoa Jur\u00EDdica Permite realizar o cadastro de uma Conta para um cliente do tipo Pessoa Jur\u00EDdica, recebendo nesta opera\u00E7\u00E3o todos os dados cadastrais que se fazem necess\u00E1rios para isso, inclu\u00EDndo o registro de cada um dos s\u00F3cios. Uma vez criado, poder\u00E1 ser acionado o m\u00E9todo de 'Gera\u00E7\u00E3o de Cart\u00E3o' para o cliente e cada um dos s\u00F3cios vinculados.
      - examples: [{contentType=application/json, example={
   "idOrigemComercial" : 123456789,
   "idConta" : 123456789,
@@ -1620,15 +1620,15 @@ public class CadastroClienteAPI: APIBase {
 
     /**
      
-     Realiza o cadastro de um novo Endere\u00C3\u00A7o
+     Realiza o cadastro de um novo Endere\u00E7o
      
-     - parameter idPessoa: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Pessoa a qual o endere\u00C3\u00A7o pertence (id) (optional)
-     - parameter idTipoEndereco: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Tipo Endere\u00C3\u00A7o (id) (optional)
-     - parameter cep: (query) Apresenta o C\u00C3\u00B3digo de Endere\u00C3\u00A7amento Postal (CEP) no formaro &#39;58800000&#39; (optional)
+     - parameter idPessoa: (query) C\u00F3digo de Identifica\u00E7\u00E3o da Pessoa a qual o endere\u00E7o pertence (id) (optional)
+     - parameter idTipoEndereco: (query) C\u00F3digo de Identifica\u00E7\u00E3o da Tipo Endere\u00E7o (id) (optional)
+     - parameter cep: (query) Apresenta o C\u00F3digo de Endere\u00E7amento Postal (CEP) no formaro &#39;58800000&#39; (optional)
      - parameter logradouro: (query) Apresenta o nome do Logradouro (optional)
-     - parameter numero: (query) Apresenta o n\u00C3\u00BAmero do endere\u00C3\u00A7o (optional)
-     - parameter complemento: (query) Apresenta descri\u00C3\u00A7oes complementares referente ao endere\u00C3\u00A7o (optional)
-     - parameter pontoReferencia: (query) Apresenta a descri\u00C3\u00A7\u00C3\u00A3o de ponto de refer\u00C3\u00AAncia do endere\u00C3\u00A7o (optional)
+     - parameter numero: (query) Apresenta o n\u00FAmero do endere\u00E7o (optional)
+     - parameter complemento: (query) Apresenta descri\u00E7oes complementares referente ao endere\u00E7o (optional)
+     - parameter pontoReferencia: (query) Apresenta a descri\u00E7\u00E3o de ponto de refer\u00EAncia do endere\u00E7o (optional)
      - parameter bairro: (query) Apresenta nome do bairro (optional)
      - parameter cidade: (query) Apresenta nome da cidade (optional)
      - parameter uf: (query) Apresenta sigla da Unidade Federativa (optional)
@@ -1644,10 +1644,10 @@ public class CadastroClienteAPI: APIBase {
 
     /**
      
-     Realiza o cadastro de um novo Endere\u00C3\u00A7o
+     Realiza o cadastro de um novo Endere\u00E7o
      
      - POST /api/enderecos
-     - Este m\u00C3\u00A9todo permite que seja cadastrado um novo Endere\u00C3\u00A7o na base de dados do Emissor.
+     - Este m\u00E9todo permite que seja cadastrado um novo Endere\u00E7o na base de dados do Emissor.
      - examples: [{contentType=application/json, example={
   "pontoReferencia" : "aeiou",
   "cidade" : "aeiou",
@@ -1665,13 +1665,13 @@ public class CadastroClienteAPI: APIBase {
   "id" : 123456789
 }}]
      
-     - parameter idPessoa: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Pessoa a qual o endere\u00C3\u00A7o pertence (id) (optional)
-     - parameter idTipoEndereco: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Tipo Endere\u00C3\u00A7o (id) (optional)
-     - parameter cep: (query) Apresenta o C\u00C3\u00B3digo de Endere\u00C3\u00A7amento Postal (CEP) no formaro &#39;58800000&#39; (optional)
+     - parameter idPessoa: (query) C\u00F3digo de Identifica\u00E7\u00E3o da Pessoa a qual o endere\u00E7o pertence (id) (optional)
+     - parameter idTipoEndereco: (query) C\u00F3digo de Identifica\u00E7\u00E3o da Tipo Endere\u00E7o (id) (optional)
+     - parameter cep: (query) Apresenta o C\u00F3digo de Endere\u00E7amento Postal (CEP) no formaro &#39;58800000&#39; (optional)
      - parameter logradouro: (query) Apresenta o nome do Logradouro (optional)
-     - parameter numero: (query) Apresenta o n\u00C3\u00BAmero do endere\u00C3\u00A7o (optional)
-     - parameter complemento: (query) Apresenta descri\u00C3\u00A7oes complementares referente ao endere\u00C3\u00A7o (optional)
-     - parameter pontoReferencia: (query) Apresenta a descri\u00C3\u00A7\u00C3\u00A3o de ponto de refer\u00C3\u00AAncia do endere\u00C3\u00A7o (optional)
+     - parameter numero: (query) Apresenta o n\u00FAmero do endere\u00E7o (optional)
+     - parameter complemento: (query) Apresenta descri\u00E7oes complementares referente ao endere\u00E7o (optional)
+     - parameter pontoReferencia: (query) Apresenta a descri\u00E7\u00E3o de ponto de refer\u00EAncia do endere\u00E7o (optional)
      - parameter bairro: (query) Apresenta nome do bairro (optional)
      - parameter cidade: (query) Apresenta nome da cidade (optional)
      - parameter uf: (query) Apresenta sigla da Unidade Federativa (optional)
@@ -1705,10 +1705,10 @@ public class CadastroClienteAPI: APIBase {
 
     /**
      
-     Inclui a conta como registro para integra\u00C3\u00A7\u00C3\u00A3o
+     Inclui a conta como registro para integra\u00E7\u00E3o
      
-     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
-     - parameter body: (body) Descri\u00C3\u00A7\u00C3\u00A3o do canal de entrada (optional)
+     - parameter id: (path) C\u00F3digo de identifica\u00E7\u00E3o da conta (id). 
+     - parameter body: (body) Descri\u00E7\u00E3o do canal de entrada (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func salvarUsingPOST14(id id: Int, body: IntegracaoEmissorPersist?, completion: ((data: IntegracaoEmissorResponse?, error: ErrorType?) -> Void)) {
@@ -1720,10 +1720,10 @@ public class CadastroClienteAPI: APIBase {
 
     /**
      
-     Inclui a conta como registro para integra\u00C3\u00A7\u00C3\u00A3o
+     Inclui a conta como registro para integra\u00E7\u00E3o
      
      - POST /api/contas/{id}/incluir-registro-integracao
-     - Este recurso permite incluir uma conta como registro para integra\u00C3\u00A7\u00C3\u00A3o.
+     - Este recurso permite incluir uma conta como registro para integra\u00E7\u00E3o.
      - examples: [{contentType=application/json, example={
   "idArquivo" : 123456789,
   "idConta" : 123456789,
@@ -1733,8 +1733,8 @@ public class CadastroClienteAPI: APIBase {
   "status" : "aeiou"
 }}]
      
-     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
-     - parameter body: (body) Descri\u00C3\u00A7\u00C3\u00A3o do canal de entrada (optional)
+     - parameter id: (path) C\u00F3digo de identifica\u00E7\u00E3o da conta (id). 
+     - parameter body: (body) Descri\u00E7\u00E3o do canal de entrada (optional)
 
      - returns: RequestBuilder<IntegracaoEmissorResponse> 
      */
@@ -1754,17 +1754,17 @@ public class CadastroClienteAPI: APIBase {
      
      Salvar os detalhes de uma determinada Pessoa
      
-     - parameter idPessoa: (query) Apresenta o c\u00C3\u00B3digo identificador da pessoa 
-     - parameter nomeMae: (query) Apresenta o nome da m\u00C3\u00A3e da pessoa fisica (optional)
+     - parameter idPessoa: (query) Apresenta o c\u00F3digo identificador da pessoa 
+     - parameter nomeMae: (query) Apresenta o nome da m\u00E3e da pessoa fisica (optional)
      - parameter idEstadoCivil: (query) Id Estado civil da pessoa fisica (optional)
-     - parameter idProfissao: (query) Profiss\u00C3\u00A3o da pessoa fisica (optional)
-     - parameter idNaturezaOcupacao: (query) Id Natureza Ocupa\u00C3\u00A7\u00C3\u00A3o da pessoa fisica (optional)
+     - parameter idProfissao: (query) Profiss\u00E3o da pessoa fisica (optional)
+     - parameter idNaturezaOcupacao: (query) Id Natureza Ocupa\u00E7\u00E3o da pessoa fisica (optional)
      - parameter idNacionalidade: (query) Id Nacionalidade da pessoa fisica (optional)
-     - parameter numeroBanco: (query) N\u00C3\u00BAmero do banco. (optional)
-     - parameter numeroAgencia: (query) N\u00C3\u00BAmero da ag\u00C3\u00AAncia. (optional)
-     - parameter numeroContaCorrente: (query) N\u00C3\u00BAmero da conta corrente. (optional)
+     - parameter numeroBanco: (query) N\u00FAmero do banco. (optional)
+     - parameter numeroAgencia: (query) N\u00FAmero da ag\u00EAncia. (optional)
+     - parameter numeroContaCorrente: (query) N\u00FAmero da conta corrente. (optional)
      - parameter email: (query) Email da pessoa fisica (optional)
-     - parameter nomeEmpresa: (query) Nome que deve ser impresso no cart\u00C3\u00A3o (optional)
+     - parameter nomeEmpresa: (query) Nome que deve ser impresso no cart\u00E3o (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func salvarUsingPOST19(idPessoa idPessoa: Int, nomeMae: String?, idEstadoCivil: Int?, idProfissao: String?, idNaturezaOcupacao: Int?, idNacionalidade: Int?, numeroBanco: Int?, numeroAgencia: Int?, numeroContaCorrente: String?, email: String?, nomeEmpresa: String?, completion: ((data: PessoaDetalheResponse?, error: ErrorType?) -> Void)) {
@@ -1779,7 +1779,7 @@ public class CadastroClienteAPI: APIBase {
      Salvar os detalhes de uma determinada Pessoa
      
      - POST /api/pessoas-detalhes
-     - Este m\u00C3\u00A9todo permite que seja incluido na base do emissor os detalhes de uma determinada Pessoa.
+     - Este m\u00E9todo permite que seja incluido na base do emissor os detalhes de uma determinada Pessoa.
      - examples: [{contentType=application/json, example={
   "idNacionalidade" : 123456789,
   "numeroBanco" : 123,
@@ -1794,17 +1794,17 @@ public class CadastroClienteAPI: APIBase {
   "email" : "aeiou"
 }}]
      
-     - parameter idPessoa: (query) Apresenta o c\u00C3\u00B3digo identificador da pessoa 
-     - parameter nomeMae: (query) Apresenta o nome da m\u00C3\u00A3e da pessoa fisica (optional)
+     - parameter idPessoa: (query) Apresenta o c\u00F3digo identificador da pessoa 
+     - parameter nomeMae: (query) Apresenta o nome da m\u00E3e da pessoa fisica (optional)
      - parameter idEstadoCivil: (query) Id Estado civil da pessoa fisica (optional)
-     - parameter idProfissao: (query) Profiss\u00C3\u00A3o da pessoa fisica (optional)
-     - parameter idNaturezaOcupacao: (query) Id Natureza Ocupa\u00C3\u00A7\u00C3\u00A3o da pessoa fisica (optional)
+     - parameter idProfissao: (query) Profiss\u00E3o da pessoa fisica (optional)
+     - parameter idNaturezaOcupacao: (query) Id Natureza Ocupa\u00E7\u00E3o da pessoa fisica (optional)
      - parameter idNacionalidade: (query) Id Nacionalidade da pessoa fisica (optional)
-     - parameter numeroBanco: (query) N\u00C3\u00BAmero do banco. (optional)
-     - parameter numeroAgencia: (query) N\u00C3\u00BAmero da ag\u00C3\u00AAncia. (optional)
-     - parameter numeroContaCorrente: (query) N\u00C3\u00BAmero da conta corrente. (optional)
+     - parameter numeroBanco: (query) N\u00FAmero do banco. (optional)
+     - parameter numeroAgencia: (query) N\u00FAmero da ag\u00EAncia. (optional)
+     - parameter numeroContaCorrente: (query) N\u00FAmero da conta corrente. (optional)
      - parameter email: (query) Email da pessoa fisica (optional)
-     - parameter nomeEmpresa: (query) Nome que deve ser impresso no cart\u00C3\u00A3o (optional)
+     - parameter nomeEmpresa: (query) Nome que deve ser impresso no cart\u00E3o (optional)
 
      - returns: RequestBuilder<PessoaDetalheResponse> 
      */
@@ -1836,16 +1836,16 @@ public class CadastroClienteAPI: APIBase {
      
      Realiza o cadastro de um nova Pessoa
      
-     - parameter nome: (query) Apresenta o &#39;Nome Completo da PF&#39; ou o &#39;Nome Completo da Raz\u00C3\u00A3o Social (Nome Empresarial)&#39;. 
-     - parameter tipo: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do tipo da Pessoa, sendo: (\&quot;PF\&quot;: Pessoa F\u00C3\u00ADsica), (\&quot;PJ\&quot;: Pessoa Jur\u00C3\u00ADdica). 
+     - parameter nome: (query) Apresenta o &#39;Nome Completo da PF&#39; ou o &#39;Nome Completo da Raz\u00E3o Social (Nome Empresarial)&#39;. 
+     - parameter tipo: (query) C\u00F3digo de identifica\u00E7\u00E3o do tipo da Pessoa, sendo: (\&quot;PF\&quot;: Pessoa F\u00EDsica), (\&quot;PJ\&quot;: Pessoa Jur\u00EDdica). 
      - parameter dataNascimento: (query) Data de Nascimento da Pessoa, quando PF, ou a Data de Abertura da Empresa, quando PJ. Essa data deve ser informada no formato aaaa-MM-dd. 
-     - parameter cpf: (query) N\u00C3\u00BAmero do CPF, quando PF. (optional)
-     - parameter cnpj: (query) N\u00C3\u00BAmero do CNPJ, quando PJ. (optional)
-     - parameter sexo: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do sexo da Pessoa, quando PF, sendo: (\&quot;M\&quot;: Masculino), (\&quot;F\&quot;: Feminino), (\&quot;O\&quot;: Outro), (\&quot;N\&quot;: N\u00C3\u00A3o Especificado). (optional)
-     - parameter numeroIdentidade: (query) N\u00C3\u00BAmero da Identidade. (optional)
-     - parameter orgaoExpedidorIdentidade: (query) Org\u00C3\u00A3o expedidor do Identidade. (optional)
+     - parameter cpf: (query) N\u00FAmero do CPF, quando PF. (optional)
+     - parameter cnpj: (query) N\u00FAmero do CNPJ, quando PJ. (optional)
+     - parameter sexo: (query) C\u00F3digo de identifica\u00E7\u00E3o do sexo da Pessoa, quando PF, sendo: (\&quot;M\&quot;: Masculino), (\&quot;F\&quot;: Feminino), (\&quot;O\&quot;: Outro), (\&quot;N\&quot;: N\u00E3o Especificado). (optional)
+     - parameter numeroIdentidade: (query) N\u00FAmero da Identidade. (optional)
+     - parameter orgaoExpedidorIdentidade: (query) Org\u00E3o expedidor do Identidade. (optional)
      - parameter unidadeFederativaIdentidade: (query) Sigla da Unidade Federativa de onde foi expedido a Identidade (optional)
-     - parameter dataEmissaoIdentidade: (query) Data emiss\u00C3\u00A3o da Identidade. (optional)
+     - parameter dataEmissaoIdentidade: (query) Data emiss\u00E3o da Identidade. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func salvarUsingPOST20(nome nome: String, tipo: String, dataNascimento: String, cpf: String?, cnpj: String?, sexo: String?, numeroIdentidade: String?, orgaoExpedidorIdentidade: String?, unidadeFederativaIdentidade: String?, dataEmissaoIdentidade: String?, completion: ((data: PessoaResponse?, error: ErrorType?) -> Void)) {
@@ -1860,7 +1860,7 @@ public class CadastroClienteAPI: APIBase {
      Realiza o cadastro de um nova Pessoa
      
      - POST /api/pessoas
-     - Este m\u00C3\u00A9todo permite que seja cadastrado uma nova Pessoa na base de dados do Emissor.
+     - Este m\u00E9todo permite que seja cadastrado uma nova Pessoa na base de dados do Emissor.
      - examples: [{contentType=application/json, example={
   "numeroIdentidade" : "aeiou",
   "tipo" : "aeiou",
@@ -1875,16 +1875,16 @@ public class CadastroClienteAPI: APIBase {
   "orgaoExpedidorIdentidade" : "aeiou"
 }}]
      
-     - parameter nome: (query) Apresenta o &#39;Nome Completo da PF&#39; ou o &#39;Nome Completo da Raz\u00C3\u00A3o Social (Nome Empresarial)&#39;. 
-     - parameter tipo: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do tipo da Pessoa, sendo: (\&quot;PF\&quot;: Pessoa F\u00C3\u00ADsica), (\&quot;PJ\&quot;: Pessoa Jur\u00C3\u00ADdica). 
+     - parameter nome: (query) Apresenta o &#39;Nome Completo da PF&#39; ou o &#39;Nome Completo da Raz\u00E3o Social (Nome Empresarial)&#39;. 
+     - parameter tipo: (query) C\u00F3digo de identifica\u00E7\u00E3o do tipo da Pessoa, sendo: (\&quot;PF\&quot;: Pessoa F\u00EDsica), (\&quot;PJ\&quot;: Pessoa Jur\u00EDdica). 
      - parameter dataNascimento: (query) Data de Nascimento da Pessoa, quando PF, ou a Data de Abertura da Empresa, quando PJ. Essa data deve ser informada no formato aaaa-MM-dd. 
-     - parameter cpf: (query) N\u00C3\u00BAmero do CPF, quando PF. (optional)
-     - parameter cnpj: (query) N\u00C3\u00BAmero do CNPJ, quando PJ. (optional)
-     - parameter sexo: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do sexo da Pessoa, quando PF, sendo: (\&quot;M\&quot;: Masculino), (\&quot;F\&quot;: Feminino), (\&quot;O\&quot;: Outro), (\&quot;N\&quot;: N\u00C3\u00A3o Especificado). (optional)
-     - parameter numeroIdentidade: (query) N\u00C3\u00BAmero da Identidade. (optional)
-     - parameter orgaoExpedidorIdentidade: (query) Org\u00C3\u00A3o expedidor do Identidade. (optional)
+     - parameter cpf: (query) N\u00FAmero do CPF, quando PF. (optional)
+     - parameter cnpj: (query) N\u00FAmero do CNPJ, quando PJ. (optional)
+     - parameter sexo: (query) C\u00F3digo de identifica\u00E7\u00E3o do sexo da Pessoa, quando PF, sendo: (\&quot;M\&quot;: Masculino), (\&quot;F\&quot;: Feminino), (\&quot;O\&quot;: Outro), (\&quot;N\&quot;: N\u00E3o Especificado). (optional)
+     - parameter numeroIdentidade: (query) N\u00FAmero da Identidade. (optional)
+     - parameter orgaoExpedidorIdentidade: (query) Org\u00E3o expedidor do Identidade. (optional)
      - parameter unidadeFederativaIdentidade: (query) Sigla da Unidade Federativa de onde foi expedido a Identidade (optional)
-     - parameter dataEmissaoIdentidade: (query) Data emiss\u00C3\u00A3o da Identidade. (optional)
+     - parameter dataEmissaoIdentidade: (query) Data emiss\u00E3o da Identidade. (optional)
 
      - returns: RequestBuilder<PessoaResponse> 
      */
@@ -1915,11 +1915,11 @@ public class CadastroClienteAPI: APIBase {
      
      Realiza o cadastro de um novo Telefone
      
-     - parameter idTipoTelefone: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Tipo do Telefone (id). (optional)
-     - parameter idPessoa: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Pessoa (id) a qual o telefone pertence. (optional)
-     - parameter ddd: (query) C\u00C3\u00B3digo DDD do telefone (id). (optional)
-     - parameter telefone: (query) N\u00C3\u00BAmero do telefone. (optional)
-     - parameter ramal: (query) N\u00C3\u00BAmero do ramal. (optional)
+     - parameter idTipoTelefone: (query) C\u00F3digo de Identifica\u00E7\u00E3o do Tipo do Telefone (id). (optional)
+     - parameter idPessoa: (query) C\u00F3digo de Identifica\u00E7\u00E3o da Pessoa (id) a qual o telefone pertence. (optional)
+     - parameter ddd: (query) C\u00F3digo DDD do telefone (id). (optional)
+     - parameter telefone: (query) N\u00FAmero do telefone. (optional)
+     - parameter ramal: (query) N\u00FAmero do ramal. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func salvarUsingPOST23(idTipoTelefone idTipoTelefone: Int?, idPessoa: Int?, ddd: String?, telefone: String?, ramal: String?, completion: ((data: TelefoneResponse?, error: ErrorType?) -> Void)) {
@@ -1934,7 +1934,7 @@ public class CadastroClienteAPI: APIBase {
      Realiza o cadastro de um novo Telefone
      
      - POST /api/telefones
-     - Este m\u00C3\u00A9todo permite que seja cadastrado um novo Telefone na base de dados do Emissor.
+     - Este m\u00E9todo permite que seja cadastrado um novo Telefone na base de dados do Emissor.
      - examples: [{contentType=application/json, example={
   "idPessoa" : 123456789,
   "telefone" : "aeiou",
@@ -1945,11 +1945,11 @@ public class CadastroClienteAPI: APIBase {
   "status" : 123
 }}]
      
-     - parameter idTipoTelefone: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Tipo do Telefone (id). (optional)
-     - parameter idPessoa: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Pessoa (id) a qual o telefone pertence. (optional)
-     - parameter ddd: (query) C\u00C3\u00B3digo DDD do telefone (id). (optional)
-     - parameter telefone: (query) N\u00C3\u00BAmero do telefone. (optional)
-     - parameter ramal: (query) N\u00C3\u00BAmero do ramal. (optional)
+     - parameter idTipoTelefone: (query) C\u00F3digo de Identifica\u00E7\u00E3o do Tipo do Telefone (id). (optional)
+     - parameter idPessoa: (query) C\u00F3digo de Identifica\u00E7\u00E3o da Pessoa (id) a qual o telefone pertence. (optional)
+     - parameter ddd: (query) C\u00F3digo DDD do telefone (id). (optional)
+     - parameter telefone: (query) N\u00FAmero do telefone. (optional)
+     - parameter ramal: (query) N\u00FAmero do ramal. (optional)
 
      - returns: RequestBuilder<TelefoneResponse> 
      */

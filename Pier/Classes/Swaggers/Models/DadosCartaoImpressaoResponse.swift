@@ -8,32 +8,32 @@
 import Foundation
 
 
-/** Objeto Cart\u00C3\u00A3o para Impresso */
+/** Objeto Cart\u00E3o para Impresso */
 public class DadosCartaoImpressaoResponse: JSONEncodable {
 
-    /** O C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Conta (id) a qual o cart\u00C3\u00A3o gerado pertence. */
+    /** O C\u00F3digo de Identifica\u00E7\u00E3o da Conta (id) a qual o cart\u00E3o gerado pertence. */
     public var idConta: Int?
-    /** O C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Pessoa (id) portadora do cart\u00C3\u00A3o gerado. */
+    /** O C\u00F3digo de Identifica\u00E7\u00E3o da Pessoa (id) portadora do cart\u00E3o gerado. */
     public var idPessoa: Int?
-    /** O C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id) que foi gerado. */
+    /** O C\u00F3digo de Identifica\u00E7\u00E3o do Cart\u00E3o (id) que foi gerado. */
     public var idCartao: Int?
-    /** O C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Bandeira (id) a qual o Cart\u00C3\u00A3o pertence, quando bandeirado. */
+    /** O C\u00F3digo de Identifica\u00E7\u00E3o da Bandeira (id) a qual o Cart\u00E3o pertence, quando bandeirado. */
     public var idBandeira: Int?
-    /** O C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Tipo do Cart\u00C3\u00A3o (id) atribu\u00C3\u00ADdo ao Cart\u00C3\u00A3o. */
+    /** O C\u00F3digo de Identifica\u00E7\u00E3o do Tipo do Cart\u00E3o (id) atribu\u00EDdo ao Cart\u00E3o. */
     public var idTipoCartao: Int?
-    /** O n\u00C3\u00BAmero do cart\u00C3\u00A3o. */
+    /** O n\u00FAmero do cart\u00E3o. */
     public var numeroCartao: String?
-    /** O nome do Portador do Cart\u00C3\u00A3o. */
+    /** O nome do Portador do Cart\u00E3o. */
     public var nomePlastico: String?
-    /** O n\u00C3\u00BAmero do CVV a ser impresso no Cart\u00C3\u00A3o */
+    /** O n\u00FAmero do CVV a ser impresso no Cart\u00E3o */
     public var cvv2: String?
-    /** Apresenta a data de emiss\u00C3\u00A3o do Cart\u00C3\u00A3o. */
+    /** Apresenta a data de emiss\u00E3o do Cart\u00E3o. */
     public var dataGeracao: String?
-    /** Apresenta a data de Validade do Cart\u00C3\u00A3o. */
+    /** Apresenta a data de Validade do Cart\u00E3o. */
     public var dataValidade: String?
-    /** O CPF do Portador do Cart\u00C3\u00A3o. */
+    /** O CPF do Portador do Cart\u00E3o. */
     public var cpf: String?
-    /** O tipo do Portador do cart\u00C3\u00A3o, sendo: (&#39;T&#39;: Titular, &#39;A&#39;: Adicional). */
+    /** O tipo do Portador do cart\u00E3o, sendo: (&#39;T&#39;: Titular, &#39;A&#39;: Adicional). */
     public var tipoPortador: String?
     /** Os dados da Trilha1, seguindo as regras de trilha do emissor. */
     public var trilha1: String?
@@ -43,59 +43,59 @@ public class DadosCartaoImpressaoResponse: JSONEncodable {
     public var trilhaCVV1: String?
     /** Os dados da TrilhaCVV02, seguindo as regras de trilha do emissor. */
     public var trilhaCVV2: String?
-    /** O status que informa se o cart\u00C3\u00A3o \u00C3\u00A9 virtual  */
+    /** O status que informa se o cart\u00E3o \u00E9 virtual  */
     public var flagVirtual: Int?
     /** Nome da Bandeira */
     public var nomeBandeira: String?
     /** Flag Indicativo de Titularidade da Conta */
     public var flagTitular: Int?
-    /** C\u00C3\u00B3digo Sequencial do Cart\u00C3\u00A3o */
+    /** C\u00F3digo Sequencial do Cart\u00E3o */
     public var sequencialCartao: Int?
-    /** Identificador do Status do Cart\u00C3\u00A3o */
+    /** Identificador do Status do Cart\u00E3o */
     public var idStatus: Int?
-    /** Descri\u00C3\u00A7\u00C3\u00A3o do Status do Cart\u00C3\u00A3o */
+    /** Descri\u00E7\u00E3o do Status do Cart\u00E3o */
     public var descricaoStatusCartao: String?
-    /** Apresenta a data em que o idStatusCartao atual do cart\u00C3\u00A3o fora aplicado, quando houver. */
+    /** Apresenta a data em que o idStatusCartao atual do cart\u00E3o fora aplicado, quando houver. */
     public var dataStatus: String?
-    /** Identificador do Est\u00C3\u00A1gio do Cart\u00C3\u00A3o. */
+    /** Identificador do Est\u00E1gio do Cart\u00E3o. */
     public var idEstagio: Int?
-    /** Descri\u00C3\u00A7\u00C3\u00A3o do Estagio do Cart\u00C3\u00A3o. */
+    /** Descri\u00E7\u00E3o do Estagio do Cart\u00E3o. */
     public var descricaoEstagio: String?
-    /** Apresenta a data em que o idEstagioCartao atual do cart\u00C3\u00A3o fora aplicado, quando houver. */
+    /** Apresenta a data em que o idEstagioCartao atual do cart\u00E3o fora aplicado, quando houver. */
     public var dataEstagio: String?
-    /** N\u00C3\u00BAmero do Bin do Cart\u00C3\u00A3o */
+    /** N\u00FAmero do Bin do Cart\u00E3o */
     public var numeroBin: String?
     /** Identificador do Produto Associado a Conta */
     public var idProduto: Int?
-    /** Descri\u00C3\u00A7\u00C3\u00A3o do produto */
+    /** Descri\u00E7\u00E3o do produto */
     public var descricaoProduto: String?
     /** Identificador do Status da Conta */
     public var idStatusConta: Int?
-    /** Descri\u00C3\u00A7\u00C3\u00A3o do status da conta */
+    /** Descri\u00E7\u00E3o do status da conta */
     public var descricaoStatusConta: Int?
-    /** Data que o cart\u00C3\u00A3o foi embossado */
+    /** Data que o cart\u00E3o foi embossado */
     public var dataEmbossing: String?
-    /** C\u00C3\u00B3digo de desbloqueio do cart\u00C3\u00A3o */
+    /** C\u00F3digo de desbloqueio do cart\u00E3o */
     public var codigoDesbloqueio: String?
-    /** O &#39;Nome Completo da PF&#39; ou o &#39;Nome Completo da Raz\u00C3\u00A3o Social (Nome Empresarial)&#39;. */
+    /** O &#39;Nome Completo da PF&#39; ou o &#39;Nome Completo da Raz\u00E3o Social (Nome Empresarial)&#39;. */
     public var nomePessoa: String?
-    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do tipo da Pessoa, sendo: (\&quot;PF\&quot;: Pessoa F\u00C3\u00ADsica), (\&quot;PJ\&quot;: Pessoa Jur\u00C3\u00ADdica). */
+    /** C\u00F3digo de identifica\u00E7\u00E3o do tipo da Pessoa, sendo: (\&quot;PF\&quot;: Pessoa F\u00EDsica), (\&quot;PJ\&quot;: Pessoa Jur\u00EDdica). */
     public var tipoPessoa: String?
     /** Data de Nascimento da Pessoa, quando PF, ou a Data de Abertura da Empresa, quando PJ. */
     public var dataNascimento: String?
-    /** Identificador do Endere\u00C3\u00A7o do titular do cart\u00C3\u00A3o */
+    /** Identificador do Endere\u00E7o do titular do cart\u00E3o */
     public var idEndereco: Int?
-    /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Tipo Endere\u00C3\u00A7o (id) */
+    /** C\u00F3digo de Identifica\u00E7\u00E3o da Tipo Endere\u00E7o (id) */
     public var idTipoEndereco: Int?
-    /** Descri\u00C3\u00A7\u00C3\u00A3o do Tipo de Endere\u00C3\u00A7o */
+    /** Descri\u00E7\u00E3o do Tipo de Endere\u00E7o */
     public var descricaoTipoEndereco: String?
-    /** O C\u00C3\u00B3digo de Endere\u00C3\u00A7amento Postal (CEP) no formaro &#39;58800000&#39; */
+    /** O C\u00F3digo de Endere\u00E7amento Postal (CEP) no formaro &#39;58800000&#39; */
     public var cep: String?
     /** Nome do Logradouro */
     public var logradouro: String?
-    /** N\u00C3\u00BAmero do endere\u00C3\u00A7o */
+    /** N\u00FAmero do endere\u00E7o */
     public var numeroEndereco: String?
-    /** Descri\u00C3\u00A7oes complementares referente ao endere\u00C3\u00A7o */
+    /** Descri\u00E7oes complementares referente ao endere\u00E7o */
     public var complementoEndereco: String?
     /** Nome do bairro */
     public var bairro: String?
@@ -103,8 +103,10 @@ public class DadosCartaoImpressaoResponse: JSONEncodable {
     public var cidade: String?
     /** Unidade federativa */
     public var uf: String?
-    /** Nome do pa\u00C3\u00ADs */
+    /** Nome do pa\u00EDs */
     public var pais: String?
+    /** Senha Criptografada */
+    public var senhaCriptografada: String?
     
 
     public init() {}
@@ -159,6 +161,7 @@ public class DadosCartaoImpressaoResponse: JSONEncodable {
         nillableDictionary["cidade"] = self.cidade
         nillableDictionary["uf"] = self.uf
         nillableDictionary["pais"] = self.pais
+        nillableDictionary["senhaCriptografada"] = self.senhaCriptografada
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

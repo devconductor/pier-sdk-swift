@@ -14,7 +14,7 @@ public class PlataformaMobileAPI: APIBase {
      
      Atualiza Plataforma Mobile
      
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Plataforma (id). 
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o da Plataforma (id). 
      - parameter update: (body) update 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -36,7 +36,7 @@ public class PlataformaMobileAPI: APIBase {
   "id" : 123456789
 }}]
      
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Plataforma (id). 
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o da Plataforma (id). 
      - parameter update: (body) update 
 
      - returns: RequestBuilder<PlataformaMobileResponse> 
@@ -57,14 +57,14 @@ public class PlataformaMobileAPI: APIBase {
      
      Lista as plataformas mobile cadastradas
      
-     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+     - parameter sort: (query) Tipo de ordena\u00E7\u00E3o dos registros. (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
      - parameter nome: (query) Nome da Plataforma Mobile (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET31(sort sort: [String]?, page: Int?, limit: Int?, nome: String?, completion: ((data: PagePlataformaMobileResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET31WithRequestBuilder(sort: sort, page: page, limit: limit, nome: nome).execute { (response, error) -> Void in
+    public class func listarUsingGET33(sort sort: [String]?, page: Int?, limit: Int?, nome: String?, completion: ((data: PagePlataformaMobileResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET33WithRequestBuilder(sort: sort, page: page, limit: limit, nome: nome).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -75,7 +75,7 @@ public class PlataformaMobileAPI: APIBase {
      Lista as plataformas mobile cadastradas
      
      - GET /api/plataformas-mobile
-     - Este m\u00C3\u00A9todo permite que sejam listadas as plataformas mobile existentes na base do PIER.
+     - Este m\u00E9todo permite que sejam listadas as plataformas mobile existentes na base do PIER.
      - examples: [{contentType=application/json, example={
   "previousPage" : 123,
   "last" : true,
@@ -96,14 +96,14 @@ public class PlataformaMobileAPI: APIBase {
   "first" : true
 }}]
      
-     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+     - parameter sort: (query) Tipo de ordena\u00E7\u00E3o dos registros. (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
      - parameter nome: (query) Nome da Plataforma Mobile (optional)
 
      - returns: RequestBuilder<PagePlataformaMobileResponse> 
      */
-    public class func listarUsingGET31WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, nome: String?) -> RequestBuilder<PagePlataformaMobileResponse> {
+    public class func listarUsingGET33WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, nome: String?) -> RequestBuilder<PagePlataformaMobileResponse> {
         let path = "/api/plataformas-mobile"
         let URLString = PierAPI.basePath + path
         

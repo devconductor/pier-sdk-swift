@@ -12,12 +12,12 @@ import Alamofire
 public class AjusteFinanceiroAPI: APIBase {
     /**
      
-     Lan\u00C3\u00A7a um ajuste para a conta informada
+     Lan\u00E7a um ajuste para a conta informada
      
-     - parameter idTipoAjuste: (query) C\u00C3\u00B3digo identificador do tipo de ajuste. 
+     - parameter idTipoAjuste: (query) C\u00F3digo identificador do tipo de ajuste. 
      - parameter dataAjuste: (query) Data do ajuste no formato yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZ. 
      - parameter valorAjuste: (query) Valor do ajuste 
-     - parameter idConta: (query) C\u00C3\u00B3digo identificador da conta. 
+     - parameter idConta: (query) C\u00F3digo identificador da conta. 
      - parameter identificadorExterno: (query) Codigo Hexadecimal (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -30,7 +30,7 @@ public class AjusteFinanceiroAPI: APIBase {
 
     /**
      
-     Lan\u00C3\u00A7a um ajuste para a conta informada
+     Lan\u00E7a um ajuste para a conta informada
      
      - POST /api/ajustes-financeiros
      - Este recurso insere um ajuste para a conta do id informado
@@ -44,10 +44,10 @@ public class AjusteFinanceiroAPI: APIBase {
   "status" : 123456789
 }}]
      
-     - parameter idTipoAjuste: (query) C\u00C3\u00B3digo identificador do tipo de ajuste. 
+     - parameter idTipoAjuste: (query) C\u00F3digo identificador do tipo de ajuste. 
      - parameter dataAjuste: (query) Data do ajuste no formato yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZ. 
      - parameter valorAjuste: (query) Valor do ajuste 
-     - parameter idConta: (query) C\u00C3\u00B3digo identificador da conta. 
+     - parameter idConta: (query) C\u00F3digo identificador da conta. 
      - parameter identificadorExterno: (query) Codigo Hexadecimal (optional)
 
      - returns: RequestBuilder<AjusteFinanceiroResponse> 
@@ -74,11 +74,11 @@ public class AjusteFinanceiroAPI: APIBase {
      
      Apresenta dados de um determinado ajuste financeiro
      
-     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do ajuste (id). 
+     - parameter id: (path) C\u00F3digo de identifica\u00E7\u00E3o do ajuste (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET1(id id: Int, completion: ((data: AjusteFinanceiroResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET1WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET2(id id: Int, completion: ((data: AjusteFinanceiroResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET2WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -89,7 +89,7 @@ public class AjusteFinanceiroAPI: APIBase {
      Apresenta dados de um determinado ajuste financeiro
      
      - GET /api/ajustes-financeiros/{id}
-     - Este m\u00C3\u00A9todo permite consultar dados de um determinado ajuste a partir de seu codigo de identifica\u00C3\u00A7\u00C3\u00A3o (id).
+     - Este m\u00E9todo permite consultar dados de um determinado ajuste a partir de seu codigo de identifica\u00E7\u00E3o (id).
      - examples: [{contentType=application/json, example={
   "identificadorExterno" : "aeiou",
   "idConta" : 123456789,
@@ -100,11 +100,11 @@ public class AjusteFinanceiroAPI: APIBase {
   "status" : 123456789
 }}]
      
-     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do ajuste (id). 
+     - parameter id: (path) C\u00F3digo de identifica\u00E7\u00E3o do ajuste (id). 
 
      - returns: RequestBuilder<AjusteFinanceiroResponse> 
      */
-    public class func consultarUsingGET1WithRequestBuilder(id id: Int) -> RequestBuilder<AjusteFinanceiroResponse> {
+    public class func consultarUsingGET2WithRequestBuilder(id id: Int) -> RequestBuilder<AjusteFinanceiroResponse> {
         var path = "/api/ajustes-financeiros/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -121,18 +121,18 @@ public class AjusteFinanceiroAPI: APIBase {
      
      Lista ajustes existentes na base de dados do Emissor
      
-     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
-     - parameter idTipoAjuste: (query) C\u00C3\u00B3digo identificador do tipo de ajuste. (optional)
+     - parameter sort: (query) Tipo de ordena\u00E7\u00E3o dos registros. (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
+     - parameter idTipoAjuste: (query) C\u00F3digo identificador do tipo de ajuste. (optional)
      - parameter dataAjuste: (query) Data do ajuste no formato yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZ. (optional)
      - parameter valorAjuste: (query) Valor do ajuste (optional)
      - parameter identificadorExterno: (query) Codigo Hexadecimal (optional)
-     - parameter idConta: (query) C\u00C3\u00B3digo identificador da conta. (optional)
+     - parameter idConta: (query) C\u00F3digo identificador da conta. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET1(sort sort: [String]?, page: Int?, limit: Int?, idTipoAjuste: Int?, dataAjuste: String?, valorAjuste: Double?, identificadorExterno: String?, idConta: Int?, completion: ((data: PageAjusteResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET1WithRequestBuilder(sort: sort, page: page, limit: limit, idTipoAjuste: idTipoAjuste, dataAjuste: dataAjuste, valorAjuste: valorAjuste, identificadorExterno: identificadorExterno, idConta: idConta).execute { (response, error) -> Void in
+    public class func listarUsingGET2(sort sort: [String]?, page: Int?, limit: Int?, idTipoAjuste: Int?, dataAjuste: String?, valorAjuste: Double?, identificadorExterno: String?, idConta: Int?, completion: ((data: PageAjusteResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET2WithRequestBuilder(sort: sort, page: page, limit: limit, idTipoAjuste: idTipoAjuste, dataAjuste: dataAjuste, valorAjuste: valorAjuste, identificadorExterno: identificadorExterno, idConta: idConta).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -169,18 +169,18 @@ public class AjusteFinanceiroAPI: APIBase {
   "first" : true
 }}]
      
-     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
-     - parameter idTipoAjuste: (query) C\u00C3\u00B3digo identificador do tipo de ajuste. (optional)
+     - parameter sort: (query) Tipo de ordena\u00E7\u00E3o dos registros. (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
+     - parameter idTipoAjuste: (query) C\u00F3digo identificador do tipo de ajuste. (optional)
      - parameter dataAjuste: (query) Data do ajuste no formato yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZ. (optional)
      - parameter valorAjuste: (query) Valor do ajuste (optional)
      - parameter identificadorExterno: (query) Codigo Hexadecimal (optional)
-     - parameter idConta: (query) C\u00C3\u00B3digo identificador da conta. (optional)
+     - parameter idConta: (query) C\u00F3digo identificador da conta. (optional)
 
      - returns: RequestBuilder<PageAjusteResponse> 
      */
-    public class func listarUsingGET1WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, idTipoAjuste: Int?, dataAjuste: String?, valorAjuste: Double?, identificadorExterno: String?, idConta: Int?) -> RequestBuilder<PageAjusteResponse> {
+    public class func listarUsingGET2WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, idTipoAjuste: Int?, dataAjuste: String?, valorAjuste: Double?, identificadorExterno: String?, idConta: Int?) -> RequestBuilder<PageAjusteResponse> {
         let path = "/api/ajustes-financeiros"
         let URLString = PierAPI.basePath + path
         

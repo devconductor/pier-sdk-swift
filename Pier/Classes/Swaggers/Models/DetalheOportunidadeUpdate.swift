@@ -11,11 +11,11 @@ import Foundation
 /** Objeto DetalheOportunidade */
 public class DetalheOportunidadeUpdate: JSONEncodable {
 
-    /** C\u00C3\u00B3digo identificador do detalhe */
+    /** C\u00F3digo identificador do detalhe */
     public var id: Int?
-    /** Nome do conte\u00C3\u00BAdo */
+    /** Nome do conte\u00FAdo */
     public var nomeCampo: String?
-    /** Conte\u00C3\u00BAdo do detalhe */
+    /** Conte\u00FAdo do detalhe */
     public var conteudo: String?
     
 

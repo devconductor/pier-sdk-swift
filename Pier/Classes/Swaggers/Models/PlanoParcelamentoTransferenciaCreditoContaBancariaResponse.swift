@@ -8,16 +8,16 @@
 import Foundation
 
 
-/** Plano de Parcelamentos para Transfer\u00C3\u00AAncia de cr\u00C3\u00A9dito para contas banc\u00C3\u00A1rias */
+/** Plano de Parcelamentos para Transfer\u00EAncia de cr\u00E9dito para contas banc\u00E1rias */
 public class PlanoParcelamentoTransferenciaCreditoContaBancariaResponse: JSONEncodable {
 
-    /** N\u00C3\u00BAmero do Cart\u00C3\u00A3o que originou a transa\u00C3\u00A7\u00C3\u00A3o em formato mascarado. */
+    /** N\u00FAmero do Cart\u00E3o que originou a transa\u00E7\u00E3o em formato mascarado. */
     public var numeroMascaradoCartao: String?
     /** Data de vencimento da primeira parcela. */
     public var vencimentoPrimeiraParcela: String?
-    /** Valor da solicita\u00C3\u00A7\u00C3\u00A3o de saque. */
+    /** Valor da solicita\u00E7\u00E3o de saque. */
     public var valorTransacao: Double?
-    /** N\u00C3\u00BAmero de meses para car\u00C3\u00AAncia. */
+    /** N\u00FAmero de meses para car\u00EAncia. */
     public var numeroMesesCarencia: Int?
     /** Lista com os planos de parcelamento. */
     public var parcelas: [ParcelamentoTransferenciaResponse]?

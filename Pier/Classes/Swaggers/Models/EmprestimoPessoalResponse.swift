@@ -8,23 +8,23 @@
 import Foundation
 
 
-/** Resposta do recurso de simular empr\u00C3\u00A9stimos/financiamentos */
+/** Resposta do recurso de simular empr\u00E9stimos/financiamentos */
 public class EmprestimoPessoalResponse: JSONEncodable {
 
     public var planosParcelamentos: [PlanoParcelamentoEmprestimoResponse]?
-    /** Valor solicitado do empr\u00C3\u00A9stimo/financiamento */
+    /** Valor solicitado do empr\u00E9stimo/financiamento */
     public var valorSolicitado: Double?
-    /** Valor m\u00C3\u00A1ximo de empr\u00C3\u00A9stimo pelo valor limite de parcela */
+    /** Valor m\u00E1ximo de empr\u00E9stimo pelo valor limite de parcela */
     public var valorMaximoSolicitacao: Double?
-    /** N\u00C3\u00BAmero de parcelas solicitado */
+    /** N\u00FAmero de parcelas solicitado */
     public var numeroParcelas: Int?
-    /** Limite m\u00C3\u00A1ximo de parcela permitido */
+    /** Limite m\u00E1ximo de parcela permitido */
     public var valorMaximoParcela: Double?
     /** Data do desconto da primeira parcela */
     public var dataPrimeiraParcela: String?
-    /** Per\u00C3\u00ADodo de aplica da taxa de juros */
+    /** Per\u00EDodo de aplica da taxa de juros */
     public var periodoTaxa: String?
-    /** Sistema para amortiza\u00C3\u00A7\u00C3\u00A3o do valor das parcelas */
+    /** Sistema para amortiza\u00E7\u00E3o do valor das parcelas */
     public var sistemaAmortizacao: String?
     /** Valor percentual da taxa de juros a ser aplicada */
     public var taxaJuros: Double?

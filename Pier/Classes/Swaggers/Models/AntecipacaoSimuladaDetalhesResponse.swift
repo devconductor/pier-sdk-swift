@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Representa\u00C3\u00A7\u00C3\u00A3o da resposta dos detalhes do recurso Antecipacao Simulada */
+/** Representa\u00E7\u00E3o da resposta dos detalhes do recurso Antecipacao Simulada */
 public class AntecipacaoSimuladaDetalhesResponse: JSONEncodable {
 
     /** Quantidade de parcelas do plano de parcelamento simulado. */
@@ -17,7 +17,7 @@ public class AntecipacaoSimuladaDetalhesResponse: JSONEncodable {
     public var valorParcelas: Double?
     /** Valor do desconto para o plano de parcelamento. */
     public var valorDesconto: Double?
-    /** Valor total da parcela ap\u00C3\u00B3s a aplica\u00C3\u00A7\u00C3\u00A3o do desconto. */
+    /** Valor total da parcela ap\u00F3s a aplica\u00E7\u00E3o do desconto. */
     public var valorParcelasDesconto: Double?
     
 

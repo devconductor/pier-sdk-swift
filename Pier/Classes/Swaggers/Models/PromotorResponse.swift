@@ -11,15 +11,15 @@ import Foundation
 /** Objeto Promotor */
 public class PromotorResponse: JSONEncodable {
 
-    /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do promotor (id) */
+    /** C\u00F3digo de Identifica\u00E7\u00E3o do promotor (id) */
     public var id: Int?
     /** Nome do Promotor */
     public var nome: String?
-    /** Data da Inclus\u00C3\u00A3o */
+    /** Data da Inclus\u00E3o */
     public var dataCadastro: String?
-    /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Estabelecimento */
+    /** C\u00F3digo de Identifica\u00E7\u00E3o do Estabelecimento */
     public var idEstabelecimento: Int?
-    /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do usu\u00C3\u00A1rio */
+    /** C\u00F3digo de Identifica\u00E7\u00E3o do usu\u00E1rio */
     public var idUsuario: Int?
     
 

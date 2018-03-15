@@ -8,12 +8,12 @@
 import Foundation
 
 
-/** Representa\u00C3\u00A7\u00C3\u00A3o do recurso Tipo Endere\u00C3\u00A7o */
+/** Representa\u00E7\u00E3o do recurso Tipo Endere\u00E7o */
 public class TipoEnderecoResponse: JSONEncodable {
 
-    /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Tipo do Endere\u00C3\u00A7o (id) */
+    /** C\u00F3digo de Identifica\u00E7\u00E3o do Tipo do Endere\u00E7o (id) */
     public var id: Int?
-    /** Nome do Tipo do Endere\u00C3\u00A7o */
+    /** Nome do Tipo do Endere\u00E7o */
     public var nome: String?
     
 

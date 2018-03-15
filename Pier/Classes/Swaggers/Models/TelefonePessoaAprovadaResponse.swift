@@ -11,15 +11,15 @@ import Foundation
 /** Objeto Telefone Pessoa Aprovada */
 public class TelefonePessoaAprovadaResponse: JSONEncodable {
 
-    /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Endere\u00C3\u00A7o (id) */
+    /** C\u00F3digo de Identifica\u00E7\u00E3o do Endere\u00E7o (id) */
     public var id: Int?
-    /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Tipo do Telefone (id). */
+    /** C\u00F3digo de Identifica\u00E7\u00E3o do Tipo do Telefone (id). */
     public var idTipoTelefone: Int?
-    /** C\u00C3\u00B3digo DDD do telefone (id). */
+    /** C\u00F3digo DDD do telefone (id). */
     public var ddd: String?
-    /** N\u00C3\u00BAmero do telefone. */
+    /** N\u00FAmero do telefone. */
     public var telefone: String?
-    /** N\u00C3\u00BAmero do ramal. */
+    /** N\u00FAmero do ramal. */
     public var ramal: String?
     
 

@@ -11,11 +11,11 @@ import Foundation
 /** Objeto VinculoOperacao */
 public class VinculoOperacaoPersist: JSONEncodable {
 
-    /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Produto (id). */
+    /** C\u00F3digo de Identifica\u00E7\u00E3o do Produto (id). */
     public var idProduto: Int?
-    /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Opera\u00C3\u00A7\u00C3\u00A3o (id). */
+    /** C\u00F3digo de Identifica\u00E7\u00E3o da Opera\u00E7\u00E3o (id). */
     public var idOperacao: Int?
-    /** C\u00C3\u00B3digo MCC. */
+    /** C\u00F3digo MCC. */
     public var codigoMCC: Int?
     
 

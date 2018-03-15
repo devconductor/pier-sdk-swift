@@ -14,8 +14,8 @@ public class OportunidadeAPI: APIBase {
      
      Altera o status do tipo oportunidade
      
-     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do tipo oportunidade (id). 
-     - parameter idStatus: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do status do tipo oportunidade (id). 
+     - parameter id: (path) C\u00F3digo de identifica\u00E7\u00E3o do tipo oportunidade (id). 
+     - parameter idStatus: (path) C\u00F3digo de identifica\u00E7\u00E3o do status do tipo oportunidade (id). 
      - parameter persist: (body) persist 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -31,7 +31,7 @@ public class OportunidadeAPI: APIBase {
      Altera o status do tipo oportunidade
      
      - PUT /api/tipos-oportunidades/{id}/status/{idStatus}
-     - Este m\u00C3\u00A9todo realiza a altera\u00C3\u00A7\u00C3\u00A3o do status do tipo oportunidade.
+     - Este m\u00E9todo realiza a altera\u00E7\u00E3o do status do tipo oportunidade.
      - examples: [{contentType=application/json, example={
   "nome" : "aeiou",
   "id" : 123456789,
@@ -40,8 +40,8 @@ public class OportunidadeAPI: APIBase {
   "descricao" : "aeiou"
 }}]
      
-     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do tipo oportunidade (id). 
-     - parameter idStatus: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do status do tipo oportunidade (id). 
+     - parameter id: (path) C\u00F3digo de identifica\u00E7\u00E3o do tipo oportunidade (id). 
+     - parameter idStatus: (path) C\u00F3digo de identifica\u00E7\u00E3o do status do tipo oportunidade (id). 
      - parameter persist: (body) persist 
 
      - returns: RequestBuilder<StatusOportunidadeResponse> 
@@ -63,7 +63,7 @@ public class OportunidadeAPI: APIBase {
      
      Altera as oportunidades
      
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da oportunidade (id). 
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o da oportunidade (id). 
      - parameter update: (body) update 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -79,7 +79,7 @@ public class OportunidadeAPI: APIBase {
      Altera as oportunidades
      
      - PUT /api/oportunidades/{id}
-     - Este m\u00C3\u00A9todo realiza a altera\u00C3\u00A7\u00C3\u00A3o das oportunidades.
+     - Este m\u00E9todo realiza a altera\u00E7\u00E3o das oportunidades.
      - examples: [{contentType=application/json, example={
   "dataAtualizacao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
   "idStatusOportunidade" : 123456789,
@@ -97,7 +97,7 @@ public class OportunidadeAPI: APIBase {
   "idTipoOportunidade" : 123456789
 }}]
      
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da oportunidade (id). 
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o da oportunidade (id). 
      - parameter update: (body) update 
 
      - returns: RequestBuilder<OportunidadeResponse> 
@@ -118,7 +118,7 @@ public class OportunidadeAPI: APIBase {
      
      Altera os tipos oportunidades
      
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do tipo oportunidade (id). 
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o do tipo oportunidade (id). 
      - parameter persist: (body) persist 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -134,14 +134,14 @@ public class OportunidadeAPI: APIBase {
      Altera os tipos oportunidades
      
      - PUT /api/tipos-oportunidades/{id}
-     - Este m\u00C3\u00A9todo realiza a altera\u00C3\u00A7\u00C3\u00A3o dos tipos oportunidades.
+     - Este m\u00E9todo realiza a altera\u00E7\u00E3o dos tipos oportunidades.
      - examples: [{contentType=application/json, example={
   "id" : 123456789,
   "flagAtivo" : true,
   "descricao" : "aeiou"
 }}]
      
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do tipo oportunidade (id). 
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o do tipo oportunidade (id). 
      - parameter persist: (body) persist 
 
      - returns: RequestBuilder<TipoOportunidadeResponse> 
@@ -162,8 +162,8 @@ public class OportunidadeAPI: APIBase {
      
      Apresenta dados de um determinado status do tipo oportunidade
      
-     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do tipo oportunidade (id). 
-     - parameter idStatus: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do status (idStatus). 
+     - parameter id: (path) C\u00F3digo de identifica\u00E7\u00E3o do tipo oportunidade (id). 
+     - parameter idStatus: (path) C\u00F3digo de identifica\u00E7\u00E3o do status (idStatus). 
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func consultarStatusUsingGET(id id: Int, idStatus: Int, completion: ((data: StatusOportunidadeResponse?, error: ErrorType?) -> Void)) {
@@ -178,7 +178,7 @@ public class OportunidadeAPI: APIBase {
      Apresenta dados de um determinado status do tipo oportunidade
      
      - GET /api/tipos-oportunidades/{id}/status/{idStatus}
-     - Este recurso permite consultar dados de um determinado status do tipo oportunidade a partir de seu codigo de identifica\u00C3\u00A7\u00C3\u00A3o (idStatus).
+     - Este recurso permite consultar dados de um determinado status do tipo oportunidade a partir de seu codigo de identifica\u00E7\u00E3o (idStatus).
      - examples: [{contentType=application/json, example={
   "nome" : "aeiou",
   "id" : 123456789,
@@ -187,8 +187,8 @@ public class OportunidadeAPI: APIBase {
   "descricao" : "aeiou"
 }}]
      
-     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do tipo oportunidade (id). 
-     - parameter idStatus: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do status (idStatus). 
+     - parameter id: (path) C\u00F3digo de identifica\u00E7\u00E3o do tipo oportunidade (id). 
+     - parameter idStatus: (path) C\u00F3digo de identifica\u00E7\u00E3o do status (idStatus). 
 
      - returns: RequestBuilder<StatusOportunidadeResponse> 
      */
@@ -210,11 +210,11 @@ public class OportunidadeAPI: APIBase {
      
      Apresenta dados de uma determinada oportunidade
      
-     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da oportunidade (id). 
+     - parameter id: (path) C\u00F3digo de identifica\u00E7\u00E3o da oportunidade (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET22(id id: Int, completion: ((data: OportunidadeResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET22WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET23(id id: Int, completion: ((data: OportunidadeResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET23WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -225,7 +225,7 @@ public class OportunidadeAPI: APIBase {
      Apresenta dados de uma determinada oportunidade
      
      - GET /api/oportunidades/{id}
-     - Este recurso permite consultar dados de uma determinada oportunidade a partir de seu codigo de identifica\u00C3\u00A7\u00C3\u00A3o (id).
+     - Este recurso permite consultar dados de uma determinada oportunidade a partir de seu codigo de identifica\u00E7\u00E3o (id).
      - examples: [{contentType=application/json, example={
   "dataAtualizacao" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
   "idStatusOportunidade" : 123456789,
@@ -243,11 +243,11 @@ public class OportunidadeAPI: APIBase {
   "idTipoOportunidade" : 123456789
 }}]
      
-     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da oportunidade (id). 
+     - parameter id: (path) C\u00F3digo de identifica\u00E7\u00E3o da oportunidade (id). 
 
      - returns: RequestBuilder<OportunidadeResponse> 
      */
-    public class func consultarUsingGET22WithRequestBuilder(id id: Int) -> RequestBuilder<OportunidadeResponse> {
+    public class func consultarUsingGET23WithRequestBuilder(id id: Int) -> RequestBuilder<OportunidadeResponse> {
         var path = "/api/oportunidades/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -264,11 +264,11 @@ public class OportunidadeAPI: APIBase {
      
      Apresenta dados de um determinado tipo oportunidade
      
-     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do tipo oportunidade (id). 
+     - parameter id: (path) C\u00F3digo de identifica\u00E7\u00E3o do tipo oportunidade (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET36(id id: Int, completion: ((data: TipoOportunidadeResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET36WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET37(id id: Int, completion: ((data: TipoOportunidadeResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET37WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -279,18 +279,18 @@ public class OportunidadeAPI: APIBase {
      Apresenta dados de um determinado tipo oportunidade
      
      - GET /api/tipos-oportunidades/{id}
-     - Este recurso permite consultar dados de um determinado tipo oportunidade a partir de seu codigo de identifica\u00C3\u00A7\u00C3\u00A3o (id).
+     - Este recurso permite consultar dados de um determinado tipo oportunidade a partir de seu codigo de identifica\u00E7\u00E3o (id).
      - examples: [{contentType=application/json, example={
   "id" : 123456789,
   "flagAtivo" : true,
   "descricao" : "aeiou"
 }}]
      
-     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do tipo oportunidade (id). 
+     - parameter id: (path) C\u00F3digo de identifica\u00E7\u00E3o do tipo oportunidade (id). 
 
      - returns: RequestBuilder<TipoOportunidadeResponse> 
      */
-    public class func consultarUsingGET36WithRequestBuilder(id id: Int) -> RequestBuilder<TipoOportunidadeResponse> {
+    public class func consultarUsingGET37WithRequestBuilder(id id: Int) -> RequestBuilder<TipoOportunidadeResponse> {
         var path = "/api/tipos-oportunidades/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -307,17 +307,17 @@ public class OportunidadeAPI: APIBase {
      
      Lista as auditorias dos status oportunidades
      
-     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
-     - parameter revType: (query) C\u00C3\u00B3digo que representa o tipo de a\u00C3\u00A7\u00C3\u00A3o realizada no recurso de tipos oportunidades (optional)
-     - parameter revDate: (query) Data da a\u00C3\u00A7\u00C3\u00A3o realizada no recurso de tipos oportunidades (optional)
-     - parameter id: (query) C\u00C3\u00B3digo identificador do status oportunidade (optional)
-     - parameter idTipoOportunidade: (query) C\u00C3\u00B3digo identificador do tipo oportunidade (optional)
+     - parameter sort: (query) Tipo de ordena\u00E7\u00E3o dos registros. (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
+     - parameter revType: (query) C\u00F3digo que representa o tipo de a\u00E7\u00E3o realizada no recurso de tipos oportunidades (optional)
+     - parameter revDate: (query) Data da a\u00E7\u00E3o realizada no recurso de tipos oportunidades (optional)
+     - parameter id: (query) C\u00F3digo identificador do status oportunidade (optional)
+     - parameter idTipoOportunidade: (query) C\u00F3digo identificador do tipo oportunidade (optional)
      - parameter nome: (query) Nome do status oportunidade (optional)
-     - parameter descricao: (query) Descri\u00C3\u00A7\u00C3\u00A3o do status oportunidade (optional)
-     - parameter flagAtivo: (query) Flag de verifica\u00C3\u00A7\u00C3\u00A3o se o status oportunidade est\u00C3\u00A1 ativo (optional)
-     - parameter revUser: (query) Usu\u00C3\u00A1rio da auditoria (optional)
+     - parameter descricao: (query) Descri\u00E7\u00E3o do status oportunidade (optional)
+     - parameter flagAtivo: (query) Flag de verifica\u00E7\u00E3o se o status oportunidade est\u00E1 ativo (optional)
+     - parameter revUser: (query) Usu\u00E1rio da auditoria (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func listarAuditoriasStatusUsingGET(sort sort: [String]?, page: Int?, limit: Int?, revType: Int?, revDate: String?, id: Int?, idTipoOportunidade: Int?, nome: String?, descricao: String?, flagAtivo: Bool?, revUser: String?, completion: ((data: PageStatusOportunidadeAUDResponse?, error: ErrorType?) -> Void)) {
@@ -359,17 +359,17 @@ public class OportunidadeAPI: APIBase {
   "first" : true
 }}]
      
-     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
-     - parameter revType: (query) C\u00C3\u00B3digo que representa o tipo de a\u00C3\u00A7\u00C3\u00A3o realizada no recurso de tipos oportunidades (optional)
-     - parameter revDate: (query) Data da a\u00C3\u00A7\u00C3\u00A3o realizada no recurso de tipos oportunidades (optional)
-     - parameter id: (query) C\u00C3\u00B3digo identificador do status oportunidade (optional)
-     - parameter idTipoOportunidade: (query) C\u00C3\u00B3digo identificador do tipo oportunidade (optional)
+     - parameter sort: (query) Tipo de ordena\u00E7\u00E3o dos registros. (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
+     - parameter revType: (query) C\u00F3digo que representa o tipo de a\u00E7\u00E3o realizada no recurso de tipos oportunidades (optional)
+     - parameter revDate: (query) Data da a\u00E7\u00E3o realizada no recurso de tipos oportunidades (optional)
+     - parameter id: (query) C\u00F3digo identificador do status oportunidade (optional)
+     - parameter idTipoOportunidade: (query) C\u00F3digo identificador do tipo oportunidade (optional)
      - parameter nome: (query) Nome do status oportunidade (optional)
-     - parameter descricao: (query) Descri\u00C3\u00A7\u00C3\u00A3o do status oportunidade (optional)
-     - parameter flagAtivo: (query) Flag de verifica\u00C3\u00A7\u00C3\u00A3o se o status oportunidade est\u00C3\u00A1 ativo (optional)
-     - parameter revUser: (query) Usu\u00C3\u00A1rio da auditoria (optional)
+     - parameter descricao: (query) Descri\u00E7\u00E3o do status oportunidade (optional)
+     - parameter flagAtivo: (query) Flag de verifica\u00E7\u00E3o se o status oportunidade est\u00E1 ativo (optional)
+     - parameter revUser: (query) Usu\u00E1rio da auditoria (optional)
 
      - returns: RequestBuilder<PageStatusOportunidadeAUDResponse> 
      */
@@ -401,19 +401,19 @@ public class OportunidadeAPI: APIBase {
      
      Lista as auditorias das oportunidades
      
-     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
-     - parameter idStatusOportunidade: (query) C\u00C3\u00B3digo identificador do status oportunidade (optional)
+     - parameter sort: (query) Tipo de ordena\u00E7\u00E3o dos registros. (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
+     - parameter idStatusOportunidade: (query) C\u00F3digo identificador do status oportunidade (optional)
      - parameter dataCadastro: (query) Data do cadastro da oportunidade (optional)
-     - parameter dataAtualizacao: (query) Data da atualiza\u00C3\u00A7\u00C3\u00A3o da oportunidade (optional)
-     - parameter numeroReceitaFederal: (query) N\u00C3\u00BAmero receita federal do cliente ao qual ser\u00C3\u00A1 ofertada a oportunidade (optional)
-     - parameter dataInicioVigencia: (query) In\u00C3\u00ADcio da vig\u00C3\u00AAncia da oportunidade (optional)
-     - parameter datatFimVigencia: (query) Fim da vig\u00C3\u00AAncia da oportunidade (optional)
-     - parameter flagAtivo: (query) Flag de verifica\u00C3\u00A7\u00C3\u00A3o se a oportunidade est\u00C3\u00A1 ativa (optional)
+     - parameter dataAtualizacao: (query) Data da atualiza\u00E7\u00E3o da oportunidade (optional)
+     - parameter numeroReceitaFederal: (query) N\u00FAmero receita federal do cliente ao qual ser\u00E1 ofertada a oportunidade (optional)
+     - parameter dataInicioVigencia: (query) In\u00EDcio da vig\u00EAncia da oportunidade (optional)
+     - parameter datatFimVigencia: (query) Fim da vig\u00EAncia da oportunidade (optional)
+     - parameter flagAtivo: (query) Flag de verifica\u00E7\u00E3o se a oportunidade est\u00E1 ativa (optional)
      - parameter revDate: (query) Data da auditoria (optional)
      - parameter revType: (query) Tipo da auditoria (optional)
-     - parameter revUser: (query) Usu\u00C3\u00A1rio da auditoria (optional)
+     - parameter revUser: (query) Usu\u00E1rio da auditoria (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func listarAuditoriasUsingGET(sort sort: [String]?, page: Int?, limit: Int?, idStatusOportunidade: Int?, dataCadastro: String?, dataAtualizacao: String?, numeroReceitaFederal: String?, dataInicioVigencia: String?, datatFimVigencia: String?, flagAtivo: Bool?, revDate: String?, revType: String?, revUser: String?, completion: ((data: PageOportunidadeAUDResponse?, error: ErrorType?) -> Void)) {
@@ -470,19 +470,19 @@ public class OportunidadeAPI: APIBase {
   "first" : true
 }}]
      
-     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
-     - parameter idStatusOportunidade: (query) C\u00C3\u00B3digo identificador do status oportunidade (optional)
+     - parameter sort: (query) Tipo de ordena\u00E7\u00E3o dos registros. (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
+     - parameter idStatusOportunidade: (query) C\u00F3digo identificador do status oportunidade (optional)
      - parameter dataCadastro: (query) Data do cadastro da oportunidade (optional)
-     - parameter dataAtualizacao: (query) Data da atualiza\u00C3\u00A7\u00C3\u00A3o da oportunidade (optional)
-     - parameter numeroReceitaFederal: (query) N\u00C3\u00BAmero receita federal do cliente ao qual ser\u00C3\u00A1 ofertada a oportunidade (optional)
-     - parameter dataInicioVigencia: (query) In\u00C3\u00ADcio da vig\u00C3\u00AAncia da oportunidade (optional)
-     - parameter datatFimVigencia: (query) Fim da vig\u00C3\u00AAncia da oportunidade (optional)
-     - parameter flagAtivo: (query) Flag de verifica\u00C3\u00A7\u00C3\u00A3o se a oportunidade est\u00C3\u00A1 ativa (optional)
+     - parameter dataAtualizacao: (query) Data da atualiza\u00E7\u00E3o da oportunidade (optional)
+     - parameter numeroReceitaFederal: (query) N\u00FAmero receita federal do cliente ao qual ser\u00E1 ofertada a oportunidade (optional)
+     - parameter dataInicioVigencia: (query) In\u00EDcio da vig\u00EAncia da oportunidade (optional)
+     - parameter datatFimVigencia: (query) Fim da vig\u00EAncia da oportunidade (optional)
+     - parameter flagAtivo: (query) Flag de verifica\u00E7\u00E3o se a oportunidade est\u00E1 ativa (optional)
      - parameter revDate: (query) Data da auditoria (optional)
      - parameter revType: (query) Tipo da auditoria (optional)
-     - parameter revUser: (query) Usu\u00C3\u00A1rio da auditoria (optional)
+     - parameter revUser: (query) Usu\u00E1rio da auditoria (optional)
 
      - returns: RequestBuilder<PageOportunidadeAUDResponse> 
      */
@@ -516,15 +516,15 @@ public class OportunidadeAPI: APIBase {
      
      Lista as auditorias dos tipos oportunidades
      
-     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
-     - parameter revType: (query) C\u00C3\u00B3digo que representa o tipo de a\u00C3\u00A7\u00C3\u00A3o realizada no recurso de tipos oportunidades (optional)
-     - parameter revDate: (query) Data da a\u00C3\u00A7\u00C3\u00A3o realizada no recurso de tipos oportunidades (optional)
-     - parameter id: (query) C\u00C3\u00B3digo identificador do tipo oportunidade no qual foi realizado a a\u00C3\u00A7\u00C3\u00A3o (optional)
-     - parameter descricao: (query) Descri\u00C3\u00A7\u00C3\u00A3o do tipo oportunidade no qual foi realizado a a\u00C3\u00A7\u00C3\u00A3o (optional)
-     - parameter flagAtivo: (query) Atributo que representa se o tipo oportunidade est\u00C3\u00A1 ativo (optional)
-     - parameter revUser: (query) Usu\u00C3\u00A1rio da auditoria (optional)
+     - parameter sort: (query) Tipo de ordena\u00E7\u00E3o dos registros. (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
+     - parameter revType: (query) C\u00F3digo que representa o tipo de a\u00E7\u00E3o realizada no recurso de tipos oportunidades (optional)
+     - parameter revDate: (query) Data da a\u00E7\u00E3o realizada no recurso de tipos oportunidades (optional)
+     - parameter id: (query) C\u00F3digo identificador do tipo oportunidade no qual foi realizado a a\u00E7\u00E3o (optional)
+     - parameter descricao: (query) Descri\u00E7\u00E3o do tipo oportunidade no qual foi realizado a a\u00E7\u00E3o (optional)
+     - parameter flagAtivo: (query) Atributo que representa se o tipo oportunidade est\u00E1 ativo (optional)
+     - parameter revUser: (query) Usu\u00E1rio da auditoria (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func listarAuditoriasUsingGET1(sort sort: [String]?, page: Int?, limit: Int?, revType: Int?, revDate: String?, id: Int?, descricao: String?, flagAtivo: Bool?, revUser: String?, completion: ((data: PageTipoOportunidadeAUDResponse?, error: ErrorType?) -> Void)) {
@@ -564,15 +564,15 @@ public class OportunidadeAPI: APIBase {
   "first" : true
 }}]
      
-     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
-     - parameter revType: (query) C\u00C3\u00B3digo que representa o tipo de a\u00C3\u00A7\u00C3\u00A3o realizada no recurso de tipos oportunidades (optional)
-     - parameter revDate: (query) Data da a\u00C3\u00A7\u00C3\u00A3o realizada no recurso de tipos oportunidades (optional)
-     - parameter id: (query) C\u00C3\u00B3digo identificador do tipo oportunidade no qual foi realizado a a\u00C3\u00A7\u00C3\u00A3o (optional)
-     - parameter descricao: (query) Descri\u00C3\u00A7\u00C3\u00A3o do tipo oportunidade no qual foi realizado a a\u00C3\u00A7\u00C3\u00A3o (optional)
-     - parameter flagAtivo: (query) Atributo que representa se o tipo oportunidade est\u00C3\u00A1 ativo (optional)
-     - parameter revUser: (query) Usu\u00C3\u00A1rio da auditoria (optional)
+     - parameter sort: (query) Tipo de ordena\u00E7\u00E3o dos registros. (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
+     - parameter revType: (query) C\u00F3digo que representa o tipo de a\u00E7\u00E3o realizada no recurso de tipos oportunidades (optional)
+     - parameter revDate: (query) Data da a\u00E7\u00E3o realizada no recurso de tipos oportunidades (optional)
+     - parameter id: (query) C\u00F3digo identificador do tipo oportunidade no qual foi realizado a a\u00E7\u00E3o (optional)
+     - parameter descricao: (query) Descri\u00E7\u00E3o do tipo oportunidade no qual foi realizado a a\u00E7\u00E3o (optional)
+     - parameter flagAtivo: (query) Atributo que representa se o tipo oportunidade est\u00E1 ativo (optional)
+     - parameter revUser: (query) Usu\u00E1rio da auditoria (optional)
 
      - returns: RequestBuilder<PageTipoOportunidadeAUDResponse> 
      */
@@ -602,13 +602,13 @@ public class OportunidadeAPI: APIBase {
      
      Lista os status do tipo oportunidades
      
-     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do tipo oportunidade (id). 
-     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+     - parameter id: (path) C\u00F3digo de identifica\u00E7\u00E3o do tipo oportunidade (id). 
+     - parameter sort: (query) Tipo de ordena\u00E7\u00E3o dos registros. (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
      - parameter nome: (query) Nome do status oportunidade (optional)
-     - parameter descricao: (query) Descri\u00C3\u00A7\u00C3\u00A3o do status oportunidade (optional)
-     - parameter flagAtivo: (query) Flag de verifica\u00C3\u00A7\u00C3\u00A3o se o status oportunidade est\u00C3\u00A1 ativo (optional)
+     - parameter descricao: (query) Descri\u00E7\u00E3o do status oportunidade (optional)
+     - parameter flagAtivo: (query) Flag de verifica\u00E7\u00E3o se o status oportunidade est\u00E1 ativo (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func listarStatusUsingGET(id id: Int, sort: [String]?, page: Int?, limit: Int?, nome: String?, descricao: String?, flagAtivo: Bool?, completion: ((data: PageStatusOportunidadeResponse?, error: ErrorType?) -> Void)) {
@@ -647,13 +647,13 @@ public class OportunidadeAPI: APIBase {
   "first" : true
 }}]
      
-     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do tipo oportunidade (id). 
-     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+     - parameter id: (path) C\u00F3digo de identifica\u00E7\u00E3o do tipo oportunidade (id). 
+     - parameter sort: (query) Tipo de ordena\u00E7\u00E3o dos registros. (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
      - parameter nome: (query) Nome do status oportunidade (optional)
-     - parameter descricao: (query) Descri\u00C3\u00A7\u00C3\u00A3o do status oportunidade (optional)
-     - parameter flagAtivo: (query) Flag de verifica\u00C3\u00A7\u00C3\u00A3o se o status oportunidade est\u00C3\u00A1 ativo (optional)
+     - parameter descricao: (query) Descri\u00E7\u00E3o do status oportunidade (optional)
+     - parameter flagAtivo: (query) Flag de verifica\u00E7\u00E3o se o status oportunidade est\u00E1 ativo (optional)
 
      - returns: RequestBuilder<PageStatusOportunidadeResponse> 
      */
@@ -681,20 +681,20 @@ public class OportunidadeAPI: APIBase {
      
      Lista as oportunidades
      
-     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
-     - parameter idStatusOportunidade: (query) C\u00C3\u00B3digo identificador do status oportunidade (optional)
+     - parameter sort: (query) Tipo de ordena\u00E7\u00E3o dos registros. (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
+     - parameter idStatusOportunidade: (query) C\u00F3digo identificador do status oportunidade (optional)
      - parameter dataCadastro: (query) Data do cadastro da oportunidade (optional)
-     - parameter dataAtualizacao: (query) Data da atualiza\u00C3\u00A7\u00C3\u00A3o da oportunidade (optional)
-     - parameter numeroReceitaFederal: (query) N\u00C3\u00BAmero receita federal do cliente ao qual ser\u00C3\u00A1 ofertada a oportunidade (optional)
-     - parameter dataInicioVigencia: (query) Data de in\u00C3\u00ADcio da vig\u00C3\u00AAncia da oportunidade (optional)
-     - parameter dataFimVigencia: (query) Data do fim da vig\u00C3\u00AAncia da oportunidade (optional)
-     - parameter flagAtivo: (query) Flag de verifica\u00C3\u00A7\u00C3\u00A3o se a oportunidade est\u00C3\u00A1 ativa (optional)
+     - parameter dataAtualizacao: (query) Data da atualiza\u00E7\u00E3o da oportunidade (optional)
+     - parameter numeroReceitaFederal: (query) N\u00FAmero receita federal do cliente ao qual ser\u00E1 ofertada a oportunidade (optional)
+     - parameter dataInicioVigencia: (query) Data de in\u00EDcio da vig\u00EAncia da oportunidade (optional)
+     - parameter dataFimVigencia: (query) Data do fim da vig\u00EAncia da oportunidade (optional)
+     - parameter flagAtivo: (query) Flag de verifica\u00E7\u00E3o se a oportunidade est\u00E1 ativa (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET28(sort sort: [String]?, page: Int?, limit: Int?, idStatusOportunidade: Int?, dataCadastro: String?, dataAtualizacao: String?, numeroReceitaFederal: String?, dataInicioVigencia: String?, dataFimVigencia: String?, flagAtivo: Bool?, completion: ((data: PageOportunidadeResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET28WithRequestBuilder(sort: sort, page: page, limit: limit, idStatusOportunidade: idStatusOportunidade, dataCadastro: dataCadastro, dataAtualizacao: dataAtualizacao, numeroReceitaFederal: numeroReceitaFederal, dataInicioVigencia: dataInicioVigencia, dataFimVigencia: dataFimVigencia, flagAtivo: flagAtivo).execute { (response, error) -> Void in
+    public class func listarUsingGET30(sort sort: [String]?, page: Int?, limit: Int?, idStatusOportunidade: Int?, dataCadastro: String?, dataAtualizacao: String?, numeroReceitaFederal: String?, dataInicioVigencia: String?, dataFimVigencia: String?, flagAtivo: Bool?, completion: ((data: PageOportunidadeResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET30WithRequestBuilder(sort: sort, page: page, limit: limit, idStatusOportunidade: idStatusOportunidade, dataCadastro: dataCadastro, dataAtualizacao: dataAtualizacao, numeroReceitaFederal: numeroReceitaFederal, dataInicioVigencia: dataInicioVigencia, dataFimVigencia: dataFimVigencia, flagAtivo: flagAtivo).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -738,20 +738,20 @@ public class OportunidadeAPI: APIBase {
   "first" : true
 }}]
      
-     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
-     - parameter idStatusOportunidade: (query) C\u00C3\u00B3digo identificador do status oportunidade (optional)
+     - parameter sort: (query) Tipo de ordena\u00E7\u00E3o dos registros. (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
+     - parameter idStatusOportunidade: (query) C\u00F3digo identificador do status oportunidade (optional)
      - parameter dataCadastro: (query) Data do cadastro da oportunidade (optional)
-     - parameter dataAtualizacao: (query) Data da atualiza\u00C3\u00A7\u00C3\u00A3o da oportunidade (optional)
-     - parameter numeroReceitaFederal: (query) N\u00C3\u00BAmero receita federal do cliente ao qual ser\u00C3\u00A1 ofertada a oportunidade (optional)
-     - parameter dataInicioVigencia: (query) Data de in\u00C3\u00ADcio da vig\u00C3\u00AAncia da oportunidade (optional)
-     - parameter dataFimVigencia: (query) Data do fim da vig\u00C3\u00AAncia da oportunidade (optional)
-     - parameter flagAtivo: (query) Flag de verifica\u00C3\u00A7\u00C3\u00A3o se a oportunidade est\u00C3\u00A1 ativa (optional)
+     - parameter dataAtualizacao: (query) Data da atualiza\u00E7\u00E3o da oportunidade (optional)
+     - parameter numeroReceitaFederal: (query) N\u00FAmero receita federal do cliente ao qual ser\u00E1 ofertada a oportunidade (optional)
+     - parameter dataInicioVigencia: (query) Data de in\u00EDcio da vig\u00EAncia da oportunidade (optional)
+     - parameter dataFimVigencia: (query) Data do fim da vig\u00EAncia da oportunidade (optional)
+     - parameter flagAtivo: (query) Flag de verifica\u00E7\u00E3o se a oportunidade est\u00E1 ativa (optional)
 
      - returns: RequestBuilder<PageOportunidadeResponse> 
      */
-    public class func listarUsingGET28WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, idStatusOportunidade: Int?, dataCadastro: String?, dataAtualizacao: String?, numeroReceitaFederal: String?, dataInicioVigencia: String?, dataFimVigencia: String?, flagAtivo: Bool?) -> RequestBuilder<PageOportunidadeResponse> {
+    public class func listarUsingGET30WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, idStatusOportunidade: Int?, dataCadastro: String?, dataAtualizacao: String?, numeroReceitaFederal: String?, dataInicioVigencia: String?, dataFimVigencia: String?, flagAtivo: Bool?) -> RequestBuilder<PageOportunidadeResponse> {
         let path = "/api/oportunidades"
         let URLString = PierAPI.basePath + path
         
@@ -778,15 +778,15 @@ public class OportunidadeAPI: APIBase {
      
      Lista os tipos oportunidades
      
-     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
-     - parameter descricao: (query) Descri\u00C3\u00A7\u00C3\u00A3o do tipo oportunidade (optional)
-     - parameter flagAtivo: (query) Flag de verifica\u00C3\u00A7\u00C3\u00A3o se o tipo oportunidade est\u00C3\u00A1 ativo (optional)
+     - parameter sort: (query) Tipo de ordena\u00E7\u00E3o dos registros. (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
+     - parameter descricao: (query) Descri\u00E7\u00E3o do tipo oportunidade (optional)
+     - parameter flagAtivo: (query) Flag de verifica\u00E7\u00E3o se o tipo oportunidade est\u00E1 ativo (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET43(sort sort: [String]?, page: Int?, limit: Int?, descricao: String?, flagAtivo: Bool?, completion: ((data: PageTipoOportunidadeResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET43WithRequestBuilder(sort: sort, page: page, limit: limit, descricao: descricao, flagAtivo: flagAtivo).execute { (response, error) -> Void in
+    public class func listarUsingGET45(sort sort: [String]?, page: Int?, limit: Int?, descricao: String?, flagAtivo: Bool?, completion: ((data: PageTipoOportunidadeResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET45WithRequestBuilder(sort: sort, page: page, limit: limit, descricao: descricao, flagAtivo: flagAtivo).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -819,15 +819,15 @@ public class OportunidadeAPI: APIBase {
   "first" : true
 }}]
      
-     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
-     - parameter descricao: (query) Descri\u00C3\u00A7\u00C3\u00A3o do tipo oportunidade (optional)
-     - parameter flagAtivo: (query) Flag de verifica\u00C3\u00A7\u00C3\u00A3o se o tipo oportunidade est\u00C3\u00A1 ativo (optional)
+     - parameter sort: (query) Tipo de ordena\u00E7\u00E3o dos registros. (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
+     - parameter descricao: (query) Descri\u00E7\u00E3o do tipo oportunidade (optional)
+     - parameter flagAtivo: (query) Flag de verifica\u00E7\u00E3o se o tipo oportunidade est\u00E1 ativo (optional)
 
      - returns: RequestBuilder<PageTipoOportunidadeResponse> 
      */
-    public class func listarUsingGET43WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, descricao: String?, flagAtivo: Bool?) -> RequestBuilder<PageTipoOportunidadeResponse> {
+    public class func listarUsingGET45WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, descricao: String?, flagAtivo: Bool?) -> RequestBuilder<PageTipoOportunidadeResponse> {
         let path = "/api/tipos-oportunidades"
         let URLString = PierAPI.basePath + path
         
@@ -849,7 +849,7 @@ public class OportunidadeAPI: APIBase {
      
      Cadastra status para o tipo oportunidade
      
-     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do tipo oportunidade (id). 
+     - parameter id: (path) C\u00F3digo de identifica\u00E7\u00E3o do tipo oportunidade (id). 
      - parameter persist: (body) persist 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -874,7 +874,7 @@ public class OportunidadeAPI: APIBase {
   "descricao" : "aeiou"
 }}]
      
-     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do tipo oportunidade (id). 
+     - parameter id: (path) C\u00F3digo de identifica\u00E7\u00E3o do tipo oportunidade (id). 
      - parameter persist: (body) persist 
 
      - returns: RequestBuilder<StatusOportunidadeResponse> 

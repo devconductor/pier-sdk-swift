@@ -13,7 +13,7 @@ public class DetalhesFaturaConsignadaResponse: JSONEncodable {
 
     /** Apresenta os detalhes da fatura */
     public var faturaConsignadaResponse: FaturaConsignadaResponse?
-    /** Apresenta as transa\u00C3\u00A7\u00C3\u00B5es relacionadas a fatura. */
+    /** Apresenta as transa\u00E7\u00F5es relacionadas a fatura. */
     public var transacoes: [TransacoesCorrentesResponse]?
     
 

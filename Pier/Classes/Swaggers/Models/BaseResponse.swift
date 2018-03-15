@@ -8,29 +8,33 @@
 import Foundation
 
 
-/** Representa\u00C3\u00A7\u00C3\u00A3o do recurso Base */
+/** Representa\u00E7\u00E3o do recurso Base */
 public class BaseResponse: JSONEncodable {
 
-    /** C\u00C3\u00B3digo identificador da base */
+    /** C\u00F3digo identificador da base */
     public var id: Int?
     /** IP do servidor */
     public var servidor: String?
-    /** Nome do usu\u00C3\u00A1rio */
+    /** Nome do usu\u00E1rio */
     public var usuario: String?
-    /** Senha */
-    public var senha: String?
     /** Nome da base */
     public var nomeBase: String?
     /** senha Criptografada */
     public var senhaCriptografada: Bool?
-    /** Dom\u00C3\u00ADnio da base */
+    /** Dom\u00EDnio da base */
     public var domain: String?
     /** Nome da base de controle acesso */
     public var nomeBaseControleAcesso: String?
-    /** C\u00C3\u00B3digo do identificador do emissor */
+    /** C\u00F3digo do identificador do emissor */
     public var idEmissor: Int?
     /** Servidor do controle de acesso */
     public var servidorControleAcesso: String?
+    /** Nome da base de usu\u00E1rios */
+    public var nomeBaseUsuarios: String?
+    /** Servidor do controle de acesso */
+    public var servidorUsuarios: String?
+    /** Flag Cluester */
+    public var flagCluster: Bool?
     
 
     public init() {}
@@ -41,13 +45,15 @@ public class BaseResponse: JSONEncodable {
         nillableDictionary["id"] = self.id
         nillableDictionary["servidor"] = self.servidor
         nillableDictionary["usuario"] = self.usuario
-        nillableDictionary["senha"] = self.senha
         nillableDictionary["nomeBase"] = self.nomeBase
         nillableDictionary["senhaCriptografada"] = self.senhaCriptografada
         nillableDictionary["domain"] = self.domain
         nillableDictionary["nomeBaseControleAcesso"] = self.nomeBaseControleAcesso
         nillableDictionary["idEmissor"] = self.idEmissor
         nillableDictionary["servidorControleAcesso"] = self.servidorControleAcesso
+        nillableDictionary["nomeBaseUsuarios"] = self.nomeBaseUsuarios
+        nillableDictionary["servidorUsuarios"] = self.servidorUsuarios
+        nillableDictionary["flagCluster"] = self.flagCluster
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

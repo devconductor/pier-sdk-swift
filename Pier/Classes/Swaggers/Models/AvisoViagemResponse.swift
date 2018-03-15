@@ -8,20 +8,20 @@
 import Foundation
 
 
-/** Representa\u00C3\u00A7\u00C3\u00A3o da resposta do recurso aviso viagens */
+/** Representa\u00E7\u00E3o da resposta do recurso aviso viagens */
 public class AvisoViagemResponse: JSONEncodable {
 
-    /** C\u00C3\u00B3digo identificador \u00C3\u00BAnico do aviso viagem na base (id) */
+    /** C\u00F3digo identificador \u00FAnico do aviso viagem na base (id) */
     public var id: Int?
-    /** C\u00C3\u00B3digo identificador do cart\u00C3\u00A3o na base (id) */
+    /** C\u00F3digo identificador do cart\u00E3o na base (id) */
     public var idCartao: Int?
-    /** Codigo identificador do pa\u00C3\u00ADs na base (id) */
+    /** Codigo identificador do pa\u00EDs na base (id) */
     public var codigoPais: String?
     /** Data inicio do aviso viagem */
     public var dataInicio: String?
     /** Data fim do aviso viagem */
     public var dataFim: String?
-    /** Identifica se o aviso viagem esta ativo ou n\u00C3\u00A3o */
+    /** Identifica se o aviso viagem esta ativo ou n\u00E3o */
     public var flagAtivo: Int?
     
 

@@ -25,15 +25,15 @@ public class OperacaoCredorUpdate: JSONEncodable {
         case AgendaNegativa = "AGENDA_NEGATIVA"
     }
     
-    /** Apresenta o id da Opera\u00C3\u00A7\u00C3\u00A3o. */
+    /** Apresenta o id da Opera\u00E7\u00E3o. */
     public var idOperacao: Int?
     /** Apresenta o id do Credor. */
     public var idCredor: Int?
     /** Apresenta o id do produto que vai ser alterado. */
     public var idProduto: Int?
-    /** Remunera\u00C3\u00A7\u00C3\u00A3o Percentual. */
+    /** Remunera\u00E7\u00E3o Percentual. */
     public var remuneracaoPercentual: Double?
-    /** Remunera\u00C3\u00A7\u00C3\u00A3o Fixa. */
+    /** Remunera\u00E7\u00E3o Fixa. */
     public var remuneracaoFixa: Double?
     /** Periodicidade (DIARIO(1), SEMANAL(2), MENSAL(3), DECENDIAL(4), QUINZENAL(5)). */
     public var periodicidade: Periodicidade?
@@ -45,9 +45,9 @@ public class OperacaoCredorUpdate: JSONEncodable {
     public var fatorMultiplicador: FatorMultiplicador?
     /** Flag taxa fixada. */
     public var flagTaxaFixada: Bool?
-    /** Plano m\u00C3\u00ADnimo da regra. */
+    /** Plano m\u00EDnimo da regra. */
     public var planoMinimo: Int?
-    /** Plano m\u00C3\u00A1ximo da regra. */
+    /** Plano m\u00E1ximo da regra. */
     public var planoMaximo: Int?
     
 

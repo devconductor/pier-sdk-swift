@@ -11,55 +11,55 @@ import Foundation
 /** Fatura futura */
 public class LancamentoFaturaResponse: JSONEncodable {
 
-    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da transa\u00C3\u00A7\u00C3\u00A3o */
+    /** C\u00F3digo de identifica\u00E7\u00E3o da transa\u00E7\u00E3o */
     public var idTransacao: Int?
-    /** Descri\u00C3\u00A7\u00C3\u00A3o do tipo da transa\u00C3\u00A7\u00C3\u00A3o */
+    /** Descri\u00E7\u00E3o do tipo da transa\u00E7\u00E3o */
     public var descricaoTipoTransacao: String?
-    /** C\u00C3\u00B3digo identificador do tipo do evento */
+    /** C\u00F3digo identificador do tipo do evento */
     public var idTipoEvento: Int?
-    /** Descri\u00C3\u00A7\u00C3\u00A3o do tipo do evento */
+    /** Descri\u00E7\u00E3o do tipo do evento */
     public var descricaoTipoEvento: String?
-    /** C\u00C3\u00B3digo identificador do evento */
+    /** C\u00F3digo identificador do evento */
     public var idEvento: Int?
-    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta. */
+    /** C\u00F3digo de identifica\u00E7\u00E3o da conta. */
     public var idConta: Int?
-    /** Descri\u00C3\u00A7\u00C3\u00A3o complementar do evento */
+    /** Descri\u00E7\u00E3o complementar do evento */
     public var complemento: String?
     /** Valor em reais */
     public var valorBRL: Double?
     /** Valor em dolar */
     public var valorUSD: Double?
-    /** N\u00C3\u00BAmero da parcela */
+    /** N\u00FAmero da parcela */
     public var numeroParcela: Int?
     /** Quantidade de parcelas */
     public var quantidadeParcelas: Int?
-    /** Data da transa\u00C3\u00A7\u00C3\u00A3o */
+    /** Data da transa\u00E7\u00E3o */
     public var dataHoraTransacao: String?
     /** Nome do estabelecimento */
     public var nomeEstabelecimento: String?
-    /** Descri\u00C3\u00A7\u00C3\u00A3o do estabelecimento */
+    /** Descri\u00E7\u00E3o do estabelecimento */
     public var descricaoEstabelecimento: String?
     /** Nome fantasia do estabelecimento */
     public var nomeFantasiaEstabelecimento: String?
-    /** Flag que indica se o lan\u00C3\u00A7amento \u00C3\u00A9 de cr\u00C3\u00A9dito */
+    /** Flag que indica se o lan\u00E7amento \u00E9 de cr\u00E9dito */
     public var flagCredito: Bool?
-    /** C\u00C3\u00B3digo identificador do MCC (Merchant Category Codes) */
+    /** C\u00F3digo identificador do MCC (Merchant Category Codes) */
     public var idMCC: Int?
-    /** C\u00C3\u00B3digo identificador do grupo MCC */
+    /** C\u00F3digo identificador do grupo MCC */
     public var idGrupoMCC: Int?
-    /** Descri\u00C3\u00A7\u00C3\u00A3o do grupo MCC */
+    /** Descri\u00E7\u00E3o do grupo MCC */
     public var descricaoGrupoMCC: String?
-    /** Indica se o portador do cart\u00C3\u00A3o \u00C3\u00A9 o titular da conta */
+    /** Indica se o portador do cart\u00E3o \u00E9 o titular da conta */
     public var titular: Bool?
-    /** Nome impresso no cart\u00C3\u00A3o */
+    /** Nome impresso no cart\u00E3o */
     public var nomePortador: String?
-    /** N\u00C3\u00BAmero do cart\u00C3\u00A3o mascarado */
+    /** N\u00FAmero do cart\u00E3o mascarado */
     public var numeroCartaoMascarado: String?
-    /** Flag que indica se o cliente solicitou contesta\u00C3\u00A7\u00C3\u00A3o da transa\u00C3\u00A7\u00C3\u00A3o */
+    /** Flag que indica se o cliente solicitou contesta\u00E7\u00E3o da transa\u00E7\u00E3o */
     public var flagSolicitouContestacao: Bool?
     /** Valor da taxa de embarque */
     public var valorTaxaEmbarque: Double?
-    /** Descri\u00C3\u00A7\u00C3\u00A3o abreviada da transa\u00C3\u00A7\u00C3\u00A3o */
+    /** Descri\u00E7\u00E3o abreviada da transa\u00E7\u00E3o */
     public var descricaoAbreviada: String?
     
 

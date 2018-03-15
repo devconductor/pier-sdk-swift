@@ -12,13 +12,13 @@ import Alamofire
 public class RiscoFraudeAPI: APIBase {
     /**
      
-     Consultar uma transa\u00C3\u00A7\u00C3\u00A3o classificada com risco de fraude
+     Consultar uma transa\u00E7\u00E3o classificada com risco de fraude
      
-     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do risco de fraude 
+     - parameter id: (path) C\u00F3digo de identifica\u00E7\u00E3o do risco de fraude 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET26(id id: Int, completion: ((data: RiscoFraudeDetalhadoResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET26WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET27(id id: Int, completion: ((data: RiscoFraudeDetalhadoResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET27WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -26,10 +26,10 @@ public class RiscoFraudeAPI: APIBase {
 
     /**
      
-     Consultar uma transa\u00C3\u00A7\u00C3\u00A3o classificada com risco de fraude
+     Consultar uma transa\u00E7\u00E3o classificada com risco de fraude
      
      - GET /api/riscos-fraudes/{id}
-     - Consulta os detalhes de uma transa\u00C3\u00A7\u00C3\u00A3o classificada como risco de fraude.
+     - Consulta os detalhes de uma transa\u00E7\u00E3o classificada como risco de fraude.
      - examples: [{contentType=application/json, example={
   "valorOrigem" : 1.3579000000000001069366817318950779736042022705078125,
   "origemTransacao" : "aeiou",
@@ -68,11 +68,11 @@ public class RiscoFraudeAPI: APIBase {
   "codigoRespostaAutorizador" : "aeiou"
 }}]
      
-     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do risco de fraude 
+     - parameter id: (path) C\u00F3digo de identifica\u00E7\u00E3o do risco de fraude 
 
      - returns: RequestBuilder<RiscoFraudeDetalhadoResponse> 
      */
-    public class func consultarUsingGET26WithRequestBuilder(id id: Int) -> RequestBuilder<RiscoFraudeDetalhadoResponse> {
+    public class func consultarUsingGET27WithRequestBuilder(id id: Int) -> RequestBuilder<RiscoFraudeDetalhadoResponse> {
         var path = "/api/riscos-fraudes/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -87,10 +87,10 @@ public class RiscoFraudeAPI: APIBase {
 
     /**
      
-     Listar os tipos de resolu\u00C3\u00A7\u00C3\u00A3o de fraude
+     Listar os tipos de resolu\u00E7\u00E3o de fraude
      
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func listarTiposResolucaoUsingGET(page page: Int?, limit: Int?, completion: ((data: TipoResolucaoResponse?, error: ErrorType?) -> Void)) {
@@ -102,17 +102,17 @@ public class RiscoFraudeAPI: APIBase {
 
     /**
      
-     Listar os tipos de resolu\u00C3\u00A7\u00C3\u00A3o de fraude
+     Listar os tipos de resolu\u00E7\u00E3o de fraude
      
      - GET /api/tipos-resolucao
-     - Este recurso permite que sejam listados os tipos de resolu\u00C3\u00A7\u00C3\u00A3o de fraude, cadastrados para um emissor.
+     - Este recurso permite que sejam listados os tipos de resolu\u00E7\u00E3o de fraude, cadastrados para um emissor.
      - examples: [{contentType=application/json, example={
   "id" : 123456789,
   "descricao" : "aeiou"
 }}]
      
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
 
      - returns: RequestBuilder<TipoResolucaoResponse> 
      */
@@ -133,9 +133,9 @@ public class RiscoFraudeAPI: APIBase {
 
     /**
      
-     Negar autenticidade de uma transa\u00C3\u00A7\u00C3\u00A3o classificada como risco de fraude
+     Negar autenticidade de uma transa\u00E7\u00E3o classificada como risco de fraude
      
-     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do risco de fraude 
+     - parameter id: (path) C\u00F3digo de identifica\u00E7\u00E3o do risco de fraude 
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func negarUsingPOST(id id: Int, completion: ((data: AnyObject?, error: ErrorType?) -> Void)) {
@@ -147,13 +147,13 @@ public class RiscoFraudeAPI: APIBase {
 
     /**
      
-     Negar autenticidade de uma transa\u00C3\u00A7\u00C3\u00A3o classificada como risco de fraude
+     Negar autenticidade de uma transa\u00E7\u00E3o classificada como risco de fraude
      
      - POST /api/riscos-fraudes/{id}/negar
-     - Nega a realiza\u00C3\u00A7\u00C3\u00A3o de uma transa\u00C3\u00A7\u00C3\u00A3o classificada como risco de fraude.
+     - Nega a realiza\u00E7\u00E3o de uma transa\u00E7\u00E3o classificada como risco de fraude.
      - examples: [{contentType=application/json, example="{}"}]
      
-     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do risco de fraude 
+     - parameter id: (path) C\u00F3digo de identifica\u00E7\u00E3o do risco de fraude 
 
      - returns: RequestBuilder<AnyObject> 
      */
@@ -172,9 +172,9 @@ public class RiscoFraudeAPI: APIBase {
 
     /**
      
-     Reconhecer autenticidade de uma transa\u00C3\u00A7\u00C3\u00A3o classificada como risco de fraude
+     Reconhecer autenticidade de uma transa\u00E7\u00E3o classificada como risco de fraude
      
-     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do risco de fraude 
+     - parameter id: (path) C\u00F3digo de identifica\u00E7\u00E3o do risco de fraude 
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func reconhecerUsingPOST(id id: Int, completion: ((data: AnyObject?, error: ErrorType?) -> Void)) {
@@ -186,13 +186,13 @@ public class RiscoFraudeAPI: APIBase {
 
     /**
      
-     Reconhecer autenticidade de uma transa\u00C3\u00A7\u00C3\u00A3o classificada como risco de fraude
+     Reconhecer autenticidade de uma transa\u00E7\u00E3o classificada como risco de fraude
      
      - POST /api/riscos-fraudes/{id}/reconhecer
-     - Confirma a autenticidade de uma transa\u00C3\u00A7\u00C3\u00A3o classificada como risco de fraude.
+     - Confirma a autenticidade de uma transa\u00E7\u00E3o classificada como risco de fraude.
      - examples: [{contentType=application/json, example="{}"}]
      
-     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do risco de fraude 
+     - parameter id: (path) C\u00F3digo de identifica\u00E7\u00E3o do risco de fraude 
 
      - returns: RequestBuilder<AnyObject> 
      */
@@ -203,6 +203,43 @@ public class RiscoFraudeAPI: APIBase {
         
         let nillableParameters: [String:AnyObject?] = [:]
         let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<AnyObject>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Val\u00EDda os dados informados, consultando as informa\u00E7\u00F5es na base do emissor
+     
+     - parameter request: (body) request 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func validarDadosPortadorUsingPOST(request request: DadosPortadorRequest, completion: ((data: AnyObject?, error: ErrorType?) -> Void)) {
+        validarDadosPortadorUsingPOSTWithRequestBuilder(request: request).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Val\u00EDda os dados informados, consultando as informa\u00E7\u00F5es na base do emissor
+     
+     - POST /api/riscos-fraudes/validar-dados-portador
+     - Verif\u00EDca a exist\u00EAncias das informa\u00E7\u00F5es na base do emissor.
+     - examples: [{contentType=application/json, example="{}"}]
+     
+     - parameter request: (body) request 
+
+     - returns: RequestBuilder<AnyObject> 
+     */
+    public class func validarDadosPortadorUsingPOSTWithRequestBuilder(request request: DadosPortadorRequest) -> RequestBuilder<AnyObject> {
+        let path = "/api/riscos-fraudes/validar-dados-portador"
+        let URLString = PierAPI.basePath + path
+        
+        let parameters = request.encodeToJSON() as? [String:AnyObject]
 
         let requestBuilder: RequestBuilder<AnyObject>.Type = PierAPI.requestBuilderFactory.getBuilder()
 

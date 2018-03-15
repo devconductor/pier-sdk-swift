@@ -8,14 +8,14 @@
 import Foundation
 
 
-/** Transfer\u00C3\u00AAncia cr\u00C3\u00A9dito conta banc\u00C3\u00A1ria request */
+/** Transfer\u00EAncia cr\u00E9dito conta banc\u00E1ria request */
 public class PlanoParcelamentoTransferenciaCreditoContaBancariaRequest: JSONEncodable {
 
-    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do cart\u00C3\u00A3o. */
+    /** C\u00F3digo de identifica\u00E7\u00E3o do cart\u00E3o. */
     public var idCartao: Int?
-    /** Valor da transa\u00C3\u00A7\u00C3\u00A3o com duas casas decimais para os centavos. */
+    /** Valor da transa\u00E7\u00E3o com duas casas decimais para os centavos. */
     public var valorTransacao: Double?
-    /** Representa o N\u00C3\u00BAmero de Meses concedido como car\u00C3\u00AAncia. */
+    /** Representa o N\u00FAmero de Meses concedido como car\u00EAncia. */
     public var numeroMesesCarencia: Int?
     
 

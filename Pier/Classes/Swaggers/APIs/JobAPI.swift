@@ -14,7 +14,7 @@ public class JobAPI: APIBase {
      
      Ativar Job
      
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Job (id). 
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o do Job (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func ativarJobUsingPOST(id id: Int, completion: ((data: JobResponse?, error: ErrorType?) -> Void)) {
@@ -38,7 +38,7 @@ public class JobAPI: APIBase {
   "status" : "aeiou"
 }}]
      
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Job (id). 
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o do Job (id). 
 
      - returns: RequestBuilder<JobResponse> 
      */
@@ -59,7 +59,7 @@ public class JobAPI: APIBase {
      
      Atualizar Job
      
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Job (id). 
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o do Job (id). 
      - parameter descricao: (query) descricao. 
      - parameter cron: (query) Cron do Job. 
      - parameter groovy: (body) groovy 
@@ -86,7 +86,7 @@ public class JobAPI: APIBase {
   "status" : "aeiou"
 }}]
      
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Job (id). 
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o do Job (id). 
      - parameter descricao: (query) descricao. 
      - parameter cron: (query) Cron do Job. 
      - parameter groovy: (body) groovy 
@@ -109,7 +109,7 @@ public class JobAPI: APIBase {
      
      Desativar Job
      
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Job (id). 
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o do Job (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func desativarJobUsingPOST(id id: Int, completion: ((data: JobResponse?, error: ErrorType?) -> Void)) {
@@ -133,7 +133,7 @@ public class JobAPI: APIBase {
   "status" : "aeiou"
 }}]
      
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Job (id). 
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o do Job (id). 
 
      - returns: RequestBuilder<JobResponse> 
      */
@@ -155,15 +155,15 @@ public class JobAPI: APIBase {
      Listar Jobs
      
      - parameter groovy: (query) Script Groovy do Job (optional)
-     - parameter descricao: (query) Descri\u00C3\u00A7\u00C3\u00A3o do Job (optional)
+     - parameter descricao: (query) Descri\u00E7\u00E3o do Job (optional)
      - parameter cron: (query) Cron do Job (optional)
      - parameter status: (query) Status do Job (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET24(groovy groovy: String?, descricao: String?, cron: String?, status: String?, page: Int?, limit: Int?, completion: ((data: PageJobResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET24WithRequestBuilder(groovy: groovy, descricao: descricao, cron: cron, status: status, page: page, limit: limit).execute { (response, error) -> Void in
+    public class func listarUsingGET26(groovy groovy: String?, descricao: String?, cron: String?, status: String?, page: Int?, limit: Int?, completion: ((data: PageJobResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET26WithRequestBuilder(groovy: groovy, descricao: descricao, cron: cron, status: status, page: page, limit: limit).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -199,15 +199,15 @@ public class JobAPI: APIBase {
 }}]
      
      - parameter groovy: (query) Script Groovy do Job (optional)
-     - parameter descricao: (query) Descri\u00C3\u00A7\u00C3\u00A3o do Job (optional)
+     - parameter descricao: (query) Descri\u00E7\u00E3o do Job (optional)
      - parameter cron: (query) Cron do Job (optional)
      - parameter status: (query) Status do Job (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
 
      - returns: RequestBuilder<PageJobResponse> 
      */
-    public class func listarUsingGET24WithRequestBuilder(groovy groovy: String?, descricao: String?, cron: String?, status: String?, page: Int?, limit: Int?) -> RequestBuilder<PageJobResponse> {
+    public class func listarUsingGET26WithRequestBuilder(groovy groovy: String?, descricao: String?, cron: String?, status: String?, page: Int?, limit: Int?) -> RequestBuilder<PageJobResponse> {
         let path = "/api/jobs"
         let URLString = PierAPI.basePath + path
         

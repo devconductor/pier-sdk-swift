@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Representa\u00C3\u00A7\u00C3\u00A3o da resposta do recurso pa\u00C3\u00ADses */
+/** Representa\u00E7\u00E3o da resposta do recurso pa\u00EDses */
 public class PaisResponse: JSONEncodable {
 
     public enum Continente: String { 
@@ -21,17 +21,17 @@ public class PaisResponse: JSONEncodable {
         case Oceania = "OCEANIA"
     }
     
-    /** C\u00C3\u00B3digo identificador \u00C3\u00BAnico do pa\u00C3\u00ADs na base */
+    /** C\u00F3digo identificador \u00FAnico do pa\u00EDs na base */
     public var id: Int?
-    /** C\u00C3\u00B3digo identificador do pa\u00C3\u00ADs */
+    /** C\u00F3digo identificador do pa\u00EDs */
     public var codigo: String?
-    /** Sigla do pa\u00C3\u00ADs */
+    /** Sigla do pa\u00EDs */
     public var sigla: String?
-    /** Nome do pa\u00C3\u00ADs */
+    /** Nome do pa\u00EDs */
     public var descricao: String?
-    /** Continente no qual o pa\u00C3\u00ADs faz parte */
+    /** Continente no qual o pa\u00EDs faz parte */
     public var continente: Continente?
-    /** Atributo que representa se o pa\u00C3\u00ADs est\u00C3\u00A1 ativo */
+    /** Atributo que representa se o pa\u00EDs est\u00E1 ativo */
     public var flagAtivo: Bool?
     
 

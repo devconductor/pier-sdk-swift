@@ -8,56 +8,56 @@
 import Foundation
 
 
-/** Representa\u00C3\u00A7\u00C3\u00A3o da resposta do recurso Antecipacao Simulada */
+/** Representa\u00E7\u00E3o da resposta do recurso Antecipacao Simulada */
 public class AntecipacaoSimuladaResponse: JSONEncodable {
 
     public var mcc: Int?
     public var uf: String?
-    /** C\u00C3\u00B3digo identificador da simula\u00C3\u00A7\u00C3\u00A3o de antecipa\u00C3\u00A7\u00C3\u00A3o. */
+    /** C\u00F3digo identificador da simula\u00E7\u00E3o de antecipa\u00E7\u00E3o. */
     public var idAntecipacaoSimulada: Int?
-    /** C\u00C3\u00B3digo identificador da conta. */
+    /** C\u00F3digo identificador da conta. */
     public var idConta: Int?
-    /** C\u00C3\u00B3digo identificador do evento compra. */
+    /** C\u00F3digo identificador do evento compra. */
     public var idCompra: Int?
-    /** C\u00C3\u00B3digo identificador do tipo do evento compra. */
+    /** C\u00F3digo identificador do tipo do evento compra. */
     public var idTipoTransacao: Int?
-    /** Quantidade de parcelas antecip\u00C3\u00A1veis. */
+    /** Quantidade de parcelas antecip\u00E1veis. */
     public var quantidadeParcelasAntecipaveis: Int?
     /** Valor da parcela. */
     public var valorParcela: Double?
-    /** Data e hora em que a simula\u00C3\u00A7\u00C3\u00A3o foi feita. */
+    /** Data e hora em que a simula\u00E7\u00E3o foi feita. */
     public var dataHoraSimulacao: String?
-    /** Taxa de antecipa\u00C3\u00A7\u00C3\u00A3o aplicada (ao ano). */
+    /** Taxa de antecipa\u00E7\u00E3o aplicada (ao ano). */
     public var taxaAntecipacaoAno: Double?
-    /** Estabelecimento onde foi realizada a transa\u00C3\u00A7\u00C3\u00A3o */
+    /** Estabelecimento onde foi realizada a transa\u00E7\u00E3o */
     public var nomeEstabelecimento: String?
-    /** Descri\u00C3\u00A7\u00C3\u00A3o do status da autoriza\u00C3\u00A7\u00C3\u00A3o da compra. */
+    /** Descri\u00E7\u00E3o do status da autoriza\u00E7\u00E3o da compra. */
     public var status: String?
     /** Data da compra. */
     public var dataCompra: String?
-    /** Tipo de transa\u00C3\u00A7\u00C3\u00A3o da compra. */
+    /** Tipo de transa\u00E7\u00E3o da compra. */
     public var tipoOrigemTransacao: String?
     /** Cidade onde a compra foi realizada. */
     public var cidade: String?
-    /** Pa\u00C3\u00ADs onde a compra foi realizada. */
+    /** Pa\u00EDs onde a compra foi realizada. */
     public var pais: String?
-    /** Coordenada latitudinal da localiza\u00C3\u00A7\u00C3\u00A3o da compra. */
+    /** Coordenada latitudinal da localiza\u00E7\u00E3o da compra. */
     public var latitude: String?
-    /** Coordenada longitudinal da localiza\u00C3\u00A7\u00C3\u00A3o da compra. */
+    /** Coordenada longitudinal da localiza\u00E7\u00E3o da compra. */
     public var longitude: String?
-    /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Grupo MCC da compra. */
+    /** C\u00F3digo de Identifica\u00E7\u00E3o do Grupo MCC da compra. */
     public var idGrupoMCC: Int?
-    /** Descri\u00C3\u00A7\u00C3\u00A3o do Grupo MCC da compra. */
+    /** Descri\u00E7\u00E3o do Grupo MCC da compra. */
     public var descricaoGrupoMCC: String?
-    /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do produto da compra. */
+    /** C\u00F3digo de Identifica\u00E7\u00E3o do produto da compra. */
     public var idProduto: Int?
-    /** Descri\u00C3\u00A7\u00C3\u00A3o do produto da compra. */
+    /** Descri\u00E7\u00E3o do produto da compra. */
     public var descricaoProduto: String?
-    /** Descri\u00C3\u00A7\u00C3\u00A3o do estabelecimento da compra. */
+    /** Descri\u00E7\u00E3o do estabelecimento da compra. */
     public var descricaoEstabelecimento: String?
     /** Nome fantasia do estabelecimento da compra. */
     public var nomeFantasiaEstabelecimento: String?
-    /** Detalhes da simula\u00C3\u00A7\u00C3\u00A3o. */
+    /** Detalhes da simula\u00E7\u00E3o. */
     public var detalhes: [AntecipacaoSimuladaDetalhesResponse]?
     
 

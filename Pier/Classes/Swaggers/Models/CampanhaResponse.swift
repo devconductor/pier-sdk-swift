@@ -8,14 +8,14 @@
 import Foundation
 
 
-/** Representa\u00C3\u00A7\u00C3\u00A3o da resposta do recurso de campanha */
+/** Representa\u00E7\u00E3o da resposta do recurso de campanha */
 public class CampanhaResponse: JSONEncodable {
 
     /** Identificador da campanha */
     public var id: Int?
     /** Nome da campanha */
     public var nome: String?
-    /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do tipo de campanha a qual a a Campanha pertence */
+    /** C\u00F3digo de Identifica\u00E7\u00E3o do tipo de campanha a qual a a Campanha pertence */
     public var idTipoCampanha: Int?
     /** Lista de planos associados a Campanha */
     public var planosCampanhas: [PlanoCampanhaResponse]?

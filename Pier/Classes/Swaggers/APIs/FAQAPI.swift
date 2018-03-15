@@ -14,12 +14,12 @@ public class FAQAPI: APIBase {
      
      Adiciona uma nova FAQ
      
-     - parameter pergunta: (query) Conte\u00C3\u00BAdo da pergunta. 
-     - parameter resposta: (query) Conte\u00C3\u00BAdo da resposta. 
-     - parameter relevancia: (query) N\u00C3\u00ADvel de relev\u00C3\u00A2ncia da pergunta. (optional)
+     - parameter pergunta: (query) Conte\u00FAdo da pergunta. 
+     - parameter resposta: (query) Conte\u00FAdo da resposta. 
+     - parameter relevancia: (query) N\u00EDvel de relev\u00E2ncia da pergunta. (optional)
      - parameter plataforma: (query) Plataforma em que a FAQ se encaixa. (optional)
      - parameter categoria: (query) Categoria de assunto do qual a FAQ se trata. (optional)
-     - parameter status: (query) Status descrevendo a situa\u00C3\u00A7\u00C3\u00A3o atual da FAQ. (optional)
+     - parameter status: (query) Status descrevendo a situa\u00E7\u00E3o atual da FAQ. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func adicionarUsingPOST(pergunta pergunta: String, resposta: String, relevancia: Int?, plataforma: String?, categoria: String?, status: String?, completion: ((data: FaqResponse?, error: ErrorType?) -> Void)) {
@@ -45,12 +45,12 @@ public class FAQAPI: APIBase {
   "status" : "aeiou"
 }}]
      
-     - parameter pergunta: (query) Conte\u00C3\u00BAdo da pergunta. 
-     - parameter resposta: (query) Conte\u00C3\u00BAdo da resposta. 
-     - parameter relevancia: (query) N\u00C3\u00ADvel de relev\u00C3\u00A2ncia da pergunta. (optional)
+     - parameter pergunta: (query) Conte\u00FAdo da pergunta. 
+     - parameter resposta: (query) Conte\u00FAdo da resposta. 
+     - parameter relevancia: (query) N\u00EDvel de relev\u00E2ncia da pergunta. (optional)
      - parameter plataforma: (query) Plataforma em que a FAQ se encaixa. (optional)
      - parameter categoria: (query) Categoria de assunto do qual a FAQ se trata. (optional)
-     - parameter status: (query) Status descrevendo a situa\u00C3\u00A7\u00C3\u00A3o atual da FAQ. (optional)
+     - parameter status: (query) Status descrevendo a situa\u00E7\u00E3o atual da FAQ. (optional)
 
      - returns: RequestBuilder<FaqResponse> 
      */
@@ -78,12 +78,12 @@ public class FAQAPI: APIBase {
      Alterar FAQ
      
      - parameter id: (path) Id 
-     - parameter pergunta: (query) Conte\u00C3\u00BAdo da pergunta. 
-     - parameter resposta: (query) Conte\u00C3\u00BAdo da resposta. 
-     - parameter relevancia: (query) N\u00C3\u00ADvel de relev\u00C3\u00A2ncia da pergunta. (optional)
+     - parameter pergunta: (query) Conte\u00FAdo da pergunta. 
+     - parameter resposta: (query) Conte\u00FAdo da resposta. 
+     - parameter relevancia: (query) N\u00EDvel de relev\u00E2ncia da pergunta. (optional)
      - parameter plataforma: (query) Plataforma em que a FAQ se encaixa. (optional)
      - parameter categoria: (query) Categoria de assunto do qual a FAQ se trata. (optional)
-     - parameter status: (query) Status descrevendo a situa\u00C3\u00A7\u00C3\u00A3o atual da FAQ. (optional)
+     - parameter status: (query) Status descrevendo a situa\u00E7\u00E3o atual da FAQ. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func alterarUsingPUT7(id id: Int, pergunta: String, resposta: String, relevancia: Int?, plataforma: String?, categoria: String?, status: String?, completion: ((data: FaqResponse?, error: ErrorType?) -> Void)) {
@@ -110,12 +110,12 @@ public class FAQAPI: APIBase {
 }}]
      
      - parameter id: (path) Id 
-     - parameter pergunta: (query) Conte\u00C3\u00BAdo da pergunta. 
-     - parameter resposta: (query) Conte\u00C3\u00BAdo da resposta. 
-     - parameter relevancia: (query) N\u00C3\u00ADvel de relev\u00C3\u00A2ncia da pergunta. (optional)
+     - parameter pergunta: (query) Conte\u00FAdo da pergunta. 
+     - parameter resposta: (query) Conte\u00FAdo da resposta. 
+     - parameter relevancia: (query) N\u00EDvel de relev\u00E2ncia da pergunta. (optional)
      - parameter plataforma: (query) Plataforma em que a FAQ se encaixa. (optional)
      - parameter categoria: (query) Categoria de assunto do qual a FAQ se trata. (optional)
-     - parameter status: (query) Status descrevendo a situa\u00C3\u00A7\u00C3\u00A3o atual da FAQ. (optional)
+     - parameter status: (query) Status descrevendo a situa\u00E7\u00E3o atual da FAQ. (optional)
 
      - returns: RequestBuilder<FaqResponse> 
      */
@@ -146,8 +146,8 @@ public class FAQAPI: APIBase {
      - parameter id: (path) Id 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET17(id id: Int, completion: ((data: FaqResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET17WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET18(id id: Int, completion: ((data: FaqResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET18WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -173,7 +173,7 @@ public class FAQAPI: APIBase {
 
      - returns: RequestBuilder<FaqResponse> 
      */
-    public class func consultarUsingGET17WithRequestBuilder(id id: Int) -> RequestBuilder<FaqResponse> {
+    public class func consultarUsingGET18WithRequestBuilder(id id: Int) -> RequestBuilder<FaqResponse> {
         var path = "/api/faqs/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -190,20 +190,20 @@ public class FAQAPI: APIBase {
      
      Lista FAQs
      
-     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
-     - parameter idFaq: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da FAQ (id). (optional)
-     - parameter pergunta: (query) Conte\u00C3\u00BAdo da pergunta. (optional)
-     - parameter resposta: (query) Conte\u00C3\u00BAdo da resposta. (optional)
-     - parameter relevancia: (query) N\u00C3\u00ADvel de relev\u00C3\u00A2ncia da pergunta. (optional)
+     - parameter sort: (query) Tipo de ordena\u00E7\u00E3o dos registros. (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
+     - parameter idFaq: (query) C\u00F3digo de identifica\u00E7\u00E3o da FAQ (id). (optional)
+     - parameter pergunta: (query) Conte\u00FAdo da pergunta. (optional)
+     - parameter resposta: (query) Conte\u00FAdo da resposta. (optional)
+     - parameter relevancia: (query) N\u00EDvel de relev\u00E2ncia da pergunta. (optional)
      - parameter plataforma: (query) Plataforma em que a FAQ se encaixa. (optional)
      - parameter categoria: (query) Categoria de assunto do qual a FAQ se trata. (optional)
-     - parameter status: (query) Status descrevendo a situa\u00C3\u00A7\u00C3\u00A3o atual da FAQ. (optional)
+     - parameter status: (query) Status descrevendo a situa\u00E7\u00E3o atual da FAQ. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET22(sort sort: [String]?, page: Int?, limit: Int?, idFaq: Int?, pergunta: String?, resposta: String?, relevancia: Int?, plataforma: String?, categoria: String?, status: String?, completion: ((data: PageFaqResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET22WithRequestBuilder(sort: sort, page: page, limit: limit, idFaq: idFaq, pergunta: pergunta, resposta: resposta, relevancia: relevancia, plataforma: plataforma, categoria: categoria, status: status).execute { (response, error) -> Void in
+    public class func listarUsingGET23(sort sort: [String]?, page: Int?, limit: Int?, idFaq: Int?, pergunta: String?, resposta: String?, relevancia: Int?, plataforma: String?, categoria: String?, status: String?, completion: ((data: PageFaqResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET23WithRequestBuilder(sort: sort, page: page, limit: limit, idFaq: idFaq, pergunta: pergunta, resposta: resposta, relevancia: relevancia, plataforma: plataforma, categoria: categoria, status: status).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -240,20 +240,20 @@ public class FAQAPI: APIBase {
   "first" : true
 }}]
      
-     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
-     - parameter idFaq: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da FAQ (id). (optional)
-     - parameter pergunta: (query) Conte\u00C3\u00BAdo da pergunta. (optional)
-     - parameter resposta: (query) Conte\u00C3\u00BAdo da resposta. (optional)
-     - parameter relevancia: (query) N\u00C3\u00ADvel de relev\u00C3\u00A2ncia da pergunta. (optional)
+     - parameter sort: (query) Tipo de ordena\u00E7\u00E3o dos registros. (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
+     - parameter idFaq: (query) C\u00F3digo de identifica\u00E7\u00E3o da FAQ (id). (optional)
+     - parameter pergunta: (query) Conte\u00FAdo da pergunta. (optional)
+     - parameter resposta: (query) Conte\u00FAdo da resposta. (optional)
+     - parameter relevancia: (query) N\u00EDvel de relev\u00E2ncia da pergunta. (optional)
      - parameter plataforma: (query) Plataforma em que a FAQ se encaixa. (optional)
      - parameter categoria: (query) Categoria de assunto do qual a FAQ se trata. (optional)
-     - parameter status: (query) Status descrevendo a situa\u00C3\u00A7\u00C3\u00A3o atual da FAQ. (optional)
+     - parameter status: (query) Status descrevendo a situa\u00E7\u00E3o atual da FAQ. (optional)
 
      - returns: RequestBuilder<PageFaqResponse> 
      */
-    public class func listarUsingGET22WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, idFaq: Int?, pergunta: String?, resposta: String?, relevancia: Int?, plataforma: String?, categoria: String?, status: String?) -> RequestBuilder<PageFaqResponse> {
+    public class func listarUsingGET23WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, idFaq: Int?, pergunta: String?, resposta: String?, relevancia: Int?, plataforma: String?, categoria: String?, status: String?) -> RequestBuilder<PageFaqResponse> {
         let path = "/api/faqs"
         let URLString = PierAPI.basePath + path
         

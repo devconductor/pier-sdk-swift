@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Par\u00C3\u00A2metros de requisi\u00C3\u00A7\u00C3\u00A3o para cadastrar origem comercial */
+/** Par\u00E2metros de requisi\u00E7\u00E3o para cadastrar origem comercial */
 public class OrigemComercialPersist: JSONEncodable {
 
     public enum TipoPessoa: String { 
@@ -18,7 +18,7 @@ public class OrigemComercialPersist: JSONEncodable {
     
     /** Nome da origem comercial */
     public var nome: String?
-    /** Descri\u00C3\u00A7\u00C3\u00A3o da origem comercial */
+    /** Descri\u00E7\u00E3o da origem comercial */
     public var descricao: String?
     /** Identificador do estabelecimento */
     public var idEstabelecimento: Int?
@@ -28,35 +28,35 @@ public class OrigemComercialPersist: JSONEncodable {
     public var idGrupoOrigemComercial: Int?
     /** Indica o status da origem comercial */
     public var status: Int?
-    /** Indica se permite pr\u00C3\u00A9 aprova\u00C3\u00A7\u00C3\u00A3o */
+    /** Indica se permite pr\u00E9 aprova\u00E7\u00E3o */
     public var flagPreAprovado: Bool?
-    /** Indica se permite aprova\u00C3\u00A7\u00C3\u00A3o imediata */
+    /** Indica se permite aprova\u00E7\u00E3o imediata */
     public var flagAprovacaoImediata: Bool?
-    /** Nome fantasia impresso no pl\u00C3\u00A1stico */
+    /** Nome fantasia impresso no pl\u00E1stico */
     public var nomeFantasiaPlastico: String?
-    /** Indica se permite cart\u00C3\u00A3o provis\u00C3\u00B3rio */
+    /** Indica se permite cart\u00E3o provis\u00F3rio */
     public var flagCartaoProvisorio: Bool?
-    /** Indica se permite cart\u00C3\u00A3o definitivo */
+    /** Indica se permite cart\u00E3o definitivo */
     public var flagCartaoDefinitivo: Bool?
-    /** Usu\u00C3\u00A1rio para autentica\u00C3\u00A7\u00C3\u00A3o */
+    /** Usu\u00E1rio para autentica\u00E7\u00E3o */
     public var usuario: String?
-    /** Senha para autentica\u00C3\u00A7\u00C3\u00A3o */
+    /** Senha para autentica\u00E7\u00E3o */
     public var senha: String?
-    /** Indica se \u00C3\u00A9 origem externa */
+    /** Indica se \u00E9 origem externa */
     public var flagOrigemExterna: Bool?
-    /** Indica se h\u00C3\u00A1 modifica\u00C3\u00A7\u00C3\u00A3o */
+    /** Indica se h\u00E1 modifica\u00E7\u00E3o */
     public var flagModificado: Bool?
     /** Indica se envia fatura */
     public var flagEnviaFaturaUsuario: Bool?
-    /** Indica se permite cr\u00C3\u00A9dito de faturamento */
+    /** Indica se permite cr\u00E9dito de faturamento */
     public var flagCreditoFaturamento: Bool?
-    /** Indica se concede limite provis\u00C3\u00B3rio */
+    /** Indica se concede limite provis\u00F3rio */
     public var flagConcedeLimiteProvisorio: Bool?
     /** Indica se digitaliza documento */
     public var flagDigitalizarDoc: Bool?
     /** Indica se realiza embossing em loja */
     public var flagEmbossingLoja: Bool?
-    /** Indica se realiza consulta pr\u00C3\u00A9via */
+    /** Indica se realiza consulta pr\u00E9via */
     public var flagConsultaPrevia: Bool?
     /** Tipo de pessoa */
     public var tipoPessoa: TipoPessoa?

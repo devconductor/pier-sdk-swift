@@ -11,21 +11,21 @@ import Foundation
 /** Fatura */
 public class TipoBoletoResponse: JSONEncodable {
 
-    /** C\u00C3\u00B3digo identificador do tipo de boleto. */
+    /** C\u00F3digo identificador do tipo de boleto. */
     public var id: Int?
-    /** Descri\u00C3\u00A7\u00C3\u00A3o do tipo de boleto. */
+    /** Descri\u00E7\u00E3o do tipo de boleto. */
     public var descricao: String?
-    /** C\u00C3\u00B3digo identificador do banco. */
+    /** C\u00F3digo identificador do banco. */
     public var banco: Int?
-    /** Faixa permitida para cria\u00C3\u00A7\u00C3\u00A3o do nosso n\u00C3\u00BAmero. */
+    /** Faixa permitida para cria\u00E7\u00E3o do nosso n\u00FAmero. */
     public var faixaNossoNumero: Int?
-    /** N\u00C3\u00BAmero minimo para o nosso n\u00C3\u00BAmero. */
+    /** N\u00FAmero minimo para o nosso n\u00FAmero. */
     public var minNossoNumero: Double?
-    /** N\u00C3\u00BAmero m\u00C3\u00A1ximo para o nosso n\u00C3\u00BAmero. */
+    /** N\u00FAmero m\u00E1ximo para o nosso n\u00FAmero. */
     public var maxNossoNumero: Double?
-    /** Tamanho do nosso n\u00C3\u00BAmero. */
+    /** Tamanho do nosso n\u00FAmero. */
     public var tamNossoNumero: Int?
-    /** \u00C3\u009Altimo nosso n\u00C3\u00BAmero utilizado. */
+    /** \u00DAltimo nosso n\u00FAmero utilizado. */
     public var ultimoNossoNumero: Double?
     
 

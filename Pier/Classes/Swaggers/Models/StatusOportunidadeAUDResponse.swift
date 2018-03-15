@@ -8,24 +8,24 @@
 import Foundation
 
 
-/** Representa\u00C3\u00A7\u00C3\u00A3o da resposta do recurso StatusTipoOportunidadeAUD */
+/** Representa\u00E7\u00E3o da resposta do recurso StatusTipoOportunidadeAUD */
 public class StatusOportunidadeAUDResponse: JSONEncodable {
 
-    /** C\u00C3\u00B3digo identificador da auditoria dos tipos oportunidades */
+    /** C\u00F3digo identificador da auditoria dos tipos oportunidades */
     public var rev: Int?
-    /** C\u00C3\u00B3digo que representa o tipo de a\u00C3\u00A7\u00C3\u00A3o realizada no recurso de tipos oportunidades */
+    /** C\u00F3digo que representa o tipo de a\u00E7\u00E3o realizada no recurso de tipos oportunidades */
     public var revType: Int?
-    /** Data da a\u00C3\u00A7\u00C3\u00A3o realizada no recurso de tipos oportunidades */
+    /** Data da a\u00E7\u00E3o realizada no recurso de tipos oportunidades */
     public var revDate: String?
-    /** C\u00C3\u00B3digo identificador do StatusOportunidade */
+    /** C\u00F3digo identificador do StatusOportunidade */
     public var id: Int?
-    /** C\u00C3\u00B3digo identificador do TipoOportunidade */
+    /** C\u00F3digo identificador do TipoOportunidade */
     public var idTipoOportunidade: Int?
     /** Nome do status oportunidade */
     public var nome: String?
     /** Descricao do StatusOportunidade */
     public var descricao: String?
-    /** Flag que representa se o tipo oportunidade est\u00C3\u00A1 ativo */
+    /** Flag que representa se o tipo oportunidade est\u00E1 ativo */
     public var flagAtivo: Bool?
     
 

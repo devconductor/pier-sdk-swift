@@ -11,49 +11,49 @@ import Foundation
 /** Limite Disponibilidade */
 public class LimiteDisponibilidadeResponse: JSONEncodable {
 
-    /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o de Limite e Disponibilidade (id). */
+    /** C\u00F3digo de Identifica\u00E7\u00E3o de Limite e Disponibilidade (id). */
     public var id: Int?
-    /** Valor do limite de cr\u00C3\u00A9dito. */
+    /** Valor do limite de cr\u00E9dito. */
     public var limiteGlobal: Double?
-    /** Valor do limite de cr\u00C3\u00A9dito para uso exclusivo em compras nacionais. */
+    /** Valor do limite de cr\u00E9dito para uso exclusivo em compras nacionais. */
     public var limiteCompra: Double?
-    /** Valor do limite de cr\u00C3\u00A9dito para transa\u00C3\u00A7\u00C3\u00B5es de compras parceladas. */
+    /** Valor do limite de cr\u00E9dito para transa\u00E7\u00F5es de compras parceladas. */
     public var limiteParcelado: Double?
-    /** Valor do limite de cr\u00C3\u00A9dito acumulado da soma das parcelas das compras que forem realizadas nesta modalidade. */
+    /** Valor do limite de cr\u00E9dito acumulado da soma das parcelas das compras que forem realizadas nesta modalidade. */
     public var limiteParcelas: Double?
-    /** Valor do limite de cr\u00C3\u00A9dito para transa\u00C3\u00A7\u00C3\u00B5es de Saque Nacional. */
+    /** Valor do limite de cr\u00E9dito para transa\u00E7\u00F5es de Saque Nacional. */
     public var limiteSaqueGlobal: Double?
-    /** Valor do limite de cr\u00C3\u00A9dito para transa\u00C3\u00A7\u00C3\u00B5es de Saque Nacional dentro de cada ciclo de faturamento. */
+    /** Valor do limite de cr\u00E9dito para transa\u00E7\u00F5es de Saque Nacional dentro de cada ciclo de faturamento. */
     public var limiteSaquePeriodo: Double?
-    /** Valor da margem de cr\u00C3\u00A9dito para consigna\u00C3\u00A7\u00C3\u00B5es (desconto em folha). */
+    /** Valor da margem de cr\u00E9dito para consigna\u00E7\u00F5es (desconto em folha). */
     public var limiteConsignado: Double?
-    /** Valor do limite de cr\u00C3\u00A9dito para uso exclusivo em compras internacionais. */
+    /** Valor do limite de cr\u00E9dito para uso exclusivo em compras internacionais. */
     public var limiteInternacionalCompra: Double?
-    /** Valor do limite de cr\u00C3\u00A9dito para transa\u00C3\u00A7\u00C3\u00B5es internacionais de compras parceladas. */
+    /** Valor do limite de cr\u00E9dito para transa\u00E7\u00F5es internacionais de compras parceladas. */
     public var limiteInternacionalParcelado: Double?
-    /** Valor do limite de cr\u00C3\u00A9dito acumulado da soma das parcelas das compras internacionais que forem realizadas nesta modalidade. */
+    /** Valor do limite de cr\u00E9dito acumulado da soma das parcelas das compras internacionais que forem realizadas nesta modalidade. */
     public var limiteInternacionalParcelas: Double?
-    /** Valor do limite de cr\u00C3\u00A9dito para transa\u00C3\u00A7\u00C3\u00B5es de saque internacional. */
+    /** Valor do limite de cr\u00E9dito para transa\u00E7\u00F5es de saque internacional. */
     public var limiteInternacionalSaqueGlobal: Double?
-    /** Valor do limite de cr\u00C3\u00A9dito para transa\u00C3\u00A7\u00C3\u00B5es de saque internacional dentro de cada ciclo de faturamento. */
+    /** Valor do limite de cr\u00E9dito para transa\u00E7\u00F5es de saque internacional dentro de cada ciclo de faturamento. */
     public var limiteInternacionalSaquePeriodo: Double?
-    /** Valor m\u00C3\u00A1ximo do limite de cr\u00C3\u00A9dito para realizar transa\u00C3\u00A7\u00C3\u00B5es. */
+    /** Valor m\u00E1ximo do limite de cr\u00E9dito para realizar transa\u00E7\u00F5es. */
     public var limiteMaximo: Double?
-    /** Valor de cr\u00C3\u00A9dito dispon\u00C3\u00ADvel para transa\u00C3\u00A7\u00C3\u00B5es. */
+    /** Valor de cr\u00E9dito dispon\u00EDvel para transa\u00E7\u00F5es. */
     public var saldoDisponivelGlobal: Double?
-    /** Valor de cr\u00C3\u00A9dito dispon\u00C3\u00ADvel para transa\u00C3\u00A7\u00C3\u00B5es de compra nacional. */
+    /** Valor de cr\u00E9dito dispon\u00EDvel para transa\u00E7\u00F5es de compra nacional. */
     public var saldoDisponivelCompra: Double?
-    /** Valor de cr\u00C3\u00A9dito dispon\u00C3\u00ADvel para transa\u00C3\u00A7\u00C3\u00B5es de compra nacional parcelada. */
+    /** Valor de cr\u00E9dito dispon\u00EDvel para transa\u00E7\u00F5es de compra nacional parcelada. */
     public var saldoDisponivelParcelado: Double?
-    /** Valor de cr\u00C3\u00A9dito dispon\u00C3\u00ADvel para utilizar como valor de parcelas Nacionais em um determinado ciclo de faturamento. */
+    /** Valor de cr\u00E9dito dispon\u00EDvel para utilizar como valor de parcelas Nacionais em um determinado ciclo de faturamento. */
     public var saldoDisponivelParcelas: Double?
-    /** Valor de cr\u00C3\u00A9dito que o portador possui dispon\u00C3\u00ADvel para realizar transa\u00C3\u00A7\u00C3\u00B5es de Saque Nacional. */
+    /** Valor de cr\u00E9dito que o portador possui dispon\u00EDvel para realizar transa\u00E7\u00F5es de Saque Nacional. */
     public var saldoDisponivelSaque: Double?
     /** Saldo atual de pontos do programa de fidelidade. */
     public var saldoPontosFidelidade: Double?
-    /** Valor de cr\u00C3\u00A9dito dispon\u00C3\u00ADvel para transa\u00C3\u00A7\u00C3\u00B5es de compra internacional. */
+    /** Valor de cr\u00E9dito dispon\u00EDvel para transa\u00E7\u00F5es de compra internacional. */
     public var saldoDisponivelCompraInternacional: Double?
-    /** Valor de cr\u00C3\u00A9dito dispon\u00C3\u00ADvel para transa\u00C3\u00A7\u00C3\u00B5es de saque internacional. */
+    /** Valor de cr\u00E9dito dispon\u00EDvel para transa\u00E7\u00F5es de saque internacional. */
     public var saldoDisponivelSaqueInternacional: Double?
     
 

@@ -14,13 +14,13 @@ public class ServicoContaAPI: APIBase {
      
      Atribuir Anuidade
      
-     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
+     - parameter id: (path) C\u00F3digo de identifica\u00E7\u00E3o da conta (id). 
      - parameter idAnuidade: (query) Identificador da anuidade 
-     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+     - parameter sort: (query) Tipo de ordena\u00E7\u00E3o dos registros. (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
      - parameter DDD: (query) DDD do celular (optional)
-     - parameter celular: (query) N\u00C3\u00BAmero do celular (optional)
+     - parameter celular: (query) N\u00FAmero do celular (optional)
      - parameter idOperadora: (query) Identificador da operadora do celular (optional)
      - parameter idOrigemComercial: (query) Identificador da origem comercial (optional)
      - parameter completion: completion handler to receive the data and the error objects
@@ -37,16 +37,16 @@ public class ServicoContaAPI: APIBase {
      Atribuir Anuidade
      
      - POST /api/contas/{id}/atribuir-anuidade
-     - Esse recurso permite configurar qual a regra de Anuidade que ser\u00C3\u00A1 atribu\u00C3\u00ADda a uma determinada Conta.
+     - Esse recurso permite configurar qual a regra de Anuidade que ser\u00E1 atribu\u00EDda a uma determinada Conta.
      - examples: [{contentType=application/json, example="{}"}]
      
-     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
+     - parameter id: (path) C\u00F3digo de identifica\u00E7\u00E3o da conta (id). 
      - parameter idAnuidade: (query) Identificador da anuidade 
-     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+     - parameter sort: (query) Tipo de ordena\u00E7\u00E3o dos registros. (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
      - parameter DDD: (query) DDD do celular (optional)
-     - parameter celular: (query) N\u00C3\u00BAmero do celular (optional)
+     - parameter celular: (query) N\u00FAmero do celular (optional)
      - parameter idOperadora: (query) Identificador da operadora do celular (optional)
      - parameter idOrigemComercial: (query) Identificador da origem comercial (optional)
 
@@ -76,9 +76,9 @@ public class ServicoContaAPI: APIBase {
 
     /**
      
-      Ativa o servi\u00C3\u00A7o de envio de fatura por email
+      Ativa o servi\u00E7o de envio de fatura por email
      
-     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
+     - parameter id: (path) C\u00F3digo de identifica\u00E7\u00E3o da conta (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func ativarEnvioFaturaEmailUsingPOST(id id: Int, completion: ((data: AnyObject?, error: ErrorType?) -> Void)) {
@@ -90,13 +90,13 @@ public class ServicoContaAPI: APIBase {
 
     /**
      
-      Ativa o servi\u00C3\u00A7o de envio de fatura por email
+      Ativa o servi\u00E7o de envio de fatura por email
      
      - POST /api/contas/{id}/ativar-fatura-email
-     - Este recurso ativa o servi\u00C3\u00A7o de envio de fatura por email
+     - Este recurso ativa o servi\u00E7o de envio de fatura por email
      - examples: [{contentType=application/json, example="{}"}]
      
-     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
+     - parameter id: (path) C\u00F3digo de identifica\u00E7\u00E3o da conta (id). 
 
      - returns: RequestBuilder<AnyObject> 
      */
@@ -115,9 +115,9 @@ public class ServicoContaAPI: APIBase {
 
     /**
      
-     Desativa o servi\u00C3\u00A7o de envio de fatura por email
+     Desativa o servi\u00E7o de envio de fatura por email
      
-     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
+     - parameter id: (path) C\u00F3digo de identifica\u00E7\u00E3o da conta (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func desativarEnvioFaturaEmailUsingPOST(id id: Int, completion: ((data: AnyObject?, error: ErrorType?) -> Void)) {
@@ -129,13 +129,13 @@ public class ServicoContaAPI: APIBase {
 
     /**
      
-     Desativa o servi\u00C3\u00A7o de envio de fatura por email
+     Desativa o servi\u00E7o de envio de fatura por email
      
      - POST /api/contas/{id}/desativar-fatura-email
-     - Este recurso desativa o servi\u00C3\u00A7o de envio de fatura por email
+     - Este recurso desativa o servi\u00E7o de envio de fatura por email
      - examples: [{contentType=application/json, example="{}"}]
      
-     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
+     - parameter id: (path) C\u00F3digo de identifica\u00E7\u00E3o da conta (id). 
 
      - returns: RequestBuilder<AnyObject> 
      */
@@ -156,9 +156,9 @@ public class ServicoContaAPI: APIBase {
      
      Listar Anuidades
      
-     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+     - parameter sort: (query) Tipo de ordena\u00E7\u00E3o dos registros. (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func listarAnuidadesUsingGET(sort sort: [String]?, page: Int?, limit: Int?, completion: ((data: PageAnuidadeResponse?, error: ErrorType?) -> Void)) {
@@ -196,9 +196,9 @@ public class ServicoContaAPI: APIBase {
   "first" : true
 }}]
      
-     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+     - parameter sort: (query) Tipo de ordena\u00E7\u00E3o dos registros. (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
 
      - returns: RequestBuilder<PageAnuidadeResponse> 
      */
@@ -222,9 +222,9 @@ public class ServicoContaAPI: APIBase {
      
      Listar Operadoras
      
-     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+     - parameter sort: (query) Tipo de ordena\u00E7\u00E3o dos registros. (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func listarOperadorasTelefonicasUsingGET(sort sort: [String]?, page: Int?, limit: Int?, completion: ((data: PageOperadoraResponse?, error: ErrorType?) -> Void)) {
@@ -260,9 +260,9 @@ public class ServicoContaAPI: APIBase {
   "first" : true
 }}]
      
-     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+     - parameter sort: (query) Tipo de ordena\u00E7\u00E3o dos registros. (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
 
      - returns: RequestBuilder<PageOperadoraResponse> 
      */

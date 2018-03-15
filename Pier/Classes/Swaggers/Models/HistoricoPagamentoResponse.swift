@@ -11,25 +11,23 @@ import Foundation
 /** Objeto HistoricoPagamentoResponse */
 public class HistoricoPagamentoResponse: JSONEncodable {
 
-    /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Conta */
+    /** C\u00F3digo de Identifica\u00E7\u00E3o da Conta */
     public var idConta: Int?
-    /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Pagamento */
+    /** C\u00F3digo de Identifica\u00E7\u00E3o do Pagamento */
     public var idPagamento: Int?
-    /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Estabelecimento onde o Pagamento foi realizado, quando este for o local de pagamento. */
+    /** C\u00F3digo de Identifica\u00E7\u00E3o do Estabelecimento onde o Pagamento foi realizado, quando este for o local de pagamento. */
     public var idEstabelecimento: Int?
-    /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Institui\u00C3\u00A7\u00C3\u00A3o Banc\u00C3\u00A1ria onde o Pagamento foi realizado, quando este for o local de pagamento */
+    /** C\u00F3digo de Identifica\u00E7\u00E3o da Institui\u00E7\u00E3o Banc\u00E1ria onde o Pagamento foi realizado, quando este for o local de pagamento */
     public var idBanco: Int?
-    /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o */
+    /** C\u00F3digo de Identifica\u00E7\u00E3o do Cart\u00E3o */
     public var idCartao: Int?
     /** Valor do Pagamento */
     public var valorPagamento: Double?
-    /** Data e Hora da realiza\u00C3\u00A7\u00C3\u00A3o do Pagamento. Quando feito em Institui\u00C3\u00A7\u00C3\u00A3o Banc\u00C3\u00A1ria, o hor\u00C3\u00A1rio do pagamento \u00C3\u00A9 exibido com valor zero */
+    /** Data e Hora da realiza\u00E7\u00E3o do Pagamento. Quando feito em Institui\u00E7\u00E3o Banc\u00E1ria, o hor\u00E1rio do pagamento \u00E9 exibido com valor zero */
     public var dataHoraPagamento: String?
     /** Data e Hora em que o registro do Pagamento foi cadastrado */
     public var dataHoraEntradaPagamento: String?
-    /** Data e Hora do vencimento da parcela do acordo */
-    public var dataVencimentoParcelaAcordo: String?
-    /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Status do Pagamento */
+    /** C\u00F3digo de Identifica\u00E7\u00E3o do Status do Pagamento */
     public var status: Int?
     
 
@@ -46,7 +44,6 @@ public class HistoricoPagamentoResponse: JSONEncodable {
         nillableDictionary["valorPagamento"] = self.valorPagamento
         nillableDictionary["dataHoraPagamento"] = self.dataHoraPagamento
         nillableDictionary["dataHoraEntradaPagamento"] = self.dataHoraEntradaPagamento
-        nillableDictionary["dataVencimentoParcelaAcordo"] = self.dataVencimentoParcelaAcordo
         nillableDictionary["status"] = self.status
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary

@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Representa\u00C3\u00A7\u00C3\u00A3o do recurso token */
+/** Representa\u00E7\u00E3o do recurso token */
 public class TokenResponse: JSONEncodable {
 
     public enum Status: String { 
@@ -17,23 +17,21 @@ public class TokenResponse: JSONEncodable {
         case Deleted = "DELETED"
     }
     
-    /** C\u00C3\u00B3digo identificador do token */
+    /** C\u00F3digo identificador do token */
     public var id: Int?
-    /** Token */
-    public var token: String?
-    /** C\u00C3\u00B3digo identificador da base */
+    /** C\u00F3digo identificador da base */
     public var base: Int?
     /** Owner do token */
     public var owner: String?
     /** Status do token */
     public var status: Status?
-    /** Descri\u00C3\u00A7\u00C3\u00A3o de quem criou o token */
+    /** Descri\u00E7\u00E3o de quem criou o token */
     public var criadoPor: String?
-    /** Data de cria\u00C3\u00A7\u00C3\u00A3o do token */
+    /** Data de cria\u00E7\u00E3o do token */
     public var dataCriacao: NSDate?
-    /** Descri\u00C3\u00A7\u00C3\u00A3o de quem alterou o token */
+    /** Descri\u00E7\u00E3o de quem alterou o token */
     public var alteradoPor: String?
-    /** Data de modifica\u00C3\u00A7\u00C3\u00A3o do token */
+    /** Data de modifica\u00E7\u00E3o do token */
     public var dataModificacao: NSDate?
     
 
@@ -43,7 +41,6 @@ public class TokenResponse: JSONEncodable {
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
         nillableDictionary["id"] = self.id
-        nillableDictionary["token"] = self.token
         nillableDictionary["base"] = self.base
         nillableDictionary["owner"] = self.owner
         nillableDictionary["status"] = self.status?.rawValue

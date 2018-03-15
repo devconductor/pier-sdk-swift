@@ -14,7 +14,7 @@ public class WebhookAPI: APIBase {
      
      Alterar Webhook
      
-     - parameter id: (path) C\u00C3\u00B3digo identificador do Webhook 
+     - parameter id: (path) C\u00F3digo identificador do Webhook 
      - parameter webhook: (body) webhook 
      - parameter status: (query) Status (optional)
      - parameter completion: completion handler to receive the data and the error objects
@@ -31,7 +31,7 @@ public class WebhookAPI: APIBase {
      Alterar Webhook
      
      - PUT /api/webhooks/{id}
-     - Este m\u00C3\u00A9todo permite que seja modificado um webhooks j\u00C3\u00A1 cadastrado
+     - Este m\u00E9todo permite que seja modificado um webhooks j\u00E1 cadastrado
      - examples: [{contentType=application/json, example={
   "tipoEvento" : "aeiou",
   "id" : 123456789,
@@ -40,7 +40,7 @@ public class WebhookAPI: APIBase {
   "status" : "aeiou"
 }}]
      
-     - parameter id: (path) C\u00C3\u00B3digo identificador do Webhook 
+     - parameter id: (path) C\u00F3digo identificador do Webhook 
      - parameter webhook: (body) webhook 
      - parameter status: (query) Status (optional)
 
@@ -62,11 +62,11 @@ public class WebhookAPI: APIBase {
      
      Consultar Webhook
      
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Webhook (id). 
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o do Webhook (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET44(id id: Int, completion: ((data: WebHookResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET44WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET45(id id: Int, completion: ((data: WebHookResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET45WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -77,7 +77,7 @@ public class WebhookAPI: APIBase {
      Consultar Webhook
      
      - GET /api/webhooks/{id}
-     - Este m\u00C3\u00A9todo permite que sejam consultado um webhook do emissor atrav\u00C3\u00A9s de um id especifico
+     - Este m\u00E9todo permite que sejam consultado um webhook do emissor atrav\u00E9s de um id especifico
      - examples: [{contentType=application/json, example={
   "tipoEvento" : "aeiou",
   "id" : 123456789,
@@ -86,11 +86,11 @@ public class WebhookAPI: APIBase {
   "status" : "aeiou"
 }}]
      
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Webhook (id). 
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o do Webhook (id). 
 
      - returns: RequestBuilder<WebHookResponse> 
      */
-    public class func consultarUsingGET44WithRequestBuilder(id id: Int) -> RequestBuilder<WebHookResponse> {
+    public class func consultarUsingGET45WithRequestBuilder(id id: Int) -> RequestBuilder<WebHookResponse> {
         var path = "/api/webhooks/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -107,17 +107,17 @@ public class WebhookAPI: APIBase {
      
      Lista os Webhooks
      
-     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+     - parameter sort: (query) Tipo de ordena\u00E7\u00E3o dos registros. (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
      - parameter id: (query) Id do WebHook (optional)
      - parameter tipoEvento: (query) TipoEvento a ser chamado pelo WebHook (optional)
-     - parameter metodo: (query) M\u00C3\u00A9todo que a ser chamado pelo WebHook (optional)
+     - parameter metodo: (query) M\u00E9todo que a ser chamado pelo WebHook (optional)
      - parameter url: (query) URL que a ser consumida pelo WebHook (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET53(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, tipoEvento: String?, metodo: String?, url: String?, completion: ((data: PageWebHookResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET53WithRequestBuilder(sort: sort, page: page, limit: limit, id: id, tipoEvento: tipoEvento, metodo: metodo, url: url).execute { (response, error) -> Void in
+    public class func listarUsingGET55(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, tipoEvento: String?, metodo: String?, url: String?, completion: ((data: PageWebHookResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET55WithRequestBuilder(sort: sort, page: page, limit: limit, id: id, tipoEvento: tipoEvento, metodo: metodo, url: url).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -128,7 +128,7 @@ public class WebhookAPI: APIBase {
      Lista os Webhooks
      
      - GET /api/webhooks
-     - Este m\u00C3\u00A9todo permite que sejam listados os webhooks existentes
+     - Este m\u00E9todo permite que sejam listados os webhooks existentes
      - examples: [{contentType=application/json, example={
   "previousPage" : 123,
   "last" : true,
@@ -152,17 +152,17 @@ public class WebhookAPI: APIBase {
   "first" : true
 }}]
      
-     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+     - parameter sort: (query) Tipo de ordena\u00E7\u00E3o dos registros. (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
      - parameter id: (query) Id do WebHook (optional)
      - parameter tipoEvento: (query) TipoEvento a ser chamado pelo WebHook (optional)
-     - parameter metodo: (query) M\u00C3\u00A9todo que a ser chamado pelo WebHook (optional)
+     - parameter metodo: (query) M\u00E9todo que a ser chamado pelo WebHook (optional)
      - parameter url: (query) URL que a ser consumida pelo WebHook (optional)
 
      - returns: RequestBuilder<PageWebHookResponse> 
      */
-    public class func listarUsingGET53WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, tipoEvento: String?, metodo: String?, url: String?) -> RequestBuilder<PageWebHookResponse> {
+    public class func listarUsingGET55WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, tipoEvento: String?, metodo: String?, url: String?) -> RequestBuilder<PageWebHookResponse> {
         let path = "/api/webhooks"
         let URLString = PierAPI.basePath + path
         
@@ -201,7 +201,7 @@ public class WebhookAPI: APIBase {
      Salvar Webhook
      
      - POST /api/webhooks
-     - Este m\u00C3\u00A9todo permite que seja adicionado um novo webhook
+     - Este m\u00E9todo permite que seja adicionado um novo webhook
      - examples: [{contentType=application/json, example={
   "tipoEvento" : "aeiou",
   "id" : 123456789,

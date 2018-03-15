@@ -11,11 +11,11 @@ import Foundation
 /** Objeto Banco */
 public class BancoResponse: JSONEncodable {
 
-    /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Banco (id). */
+    /** C\u00F3digo de Identifica\u00E7\u00E3o do Banco (id). */
     public var id: Int?
     /** Nome do banco */
     public var nome: String?
-    /** Descri\u00C3\u00A7\u00C3\u00A3o do banco */
+    /** Descri\u00E7\u00E3o do banco */
     public var descricao: String?
     /** Digito do banco */
     public var digitoBanco: String?

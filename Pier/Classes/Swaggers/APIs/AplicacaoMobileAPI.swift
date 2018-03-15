@@ -14,7 +14,7 @@ public class AplicacaoMobileAPI: APIBase {
      
      Atualiza Aplicacao Mobile
      
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Aplicacao (id). 
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o da Aplicacao (id). 
      - parameter update: (body) update 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -42,7 +42,7 @@ public class AplicacaoMobileAPI: APIBase {
   "certificadoBase64" : "aeiou"
 }}]
      
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Aplicacao (id). 
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o da Aplicacao (id). 
      - parameter update: (body) update 
 
      - returns: RequestBuilder<AplicacaoMobileResponse> 
@@ -63,15 +63,15 @@ public class AplicacaoMobileAPI: APIBase {
      
      Lista os aplicacoes mobile cadastradas
      
-     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+     - parameter sort: (query) Tipo de ordena\u00E7\u00E3o dos registros. (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
      - parameter id: (query) Identificador da Aplicacao Mobile (optional)
      - parameter idPlataformaMobile: (query) Identificador da Plataforma Mobile (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET2(sort sort: [String]?, page: Int?, limit: Int?, id: String?, idPlataformaMobile: Int?, completion: ((data: PageAplicacaoMobileResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET2WithRequestBuilder(sort: sort, page: page, limit: limit, id: id, idPlataformaMobile: idPlataformaMobile).execute { (response, error) -> Void in
+    public class func listarUsingGET3(sort sort: [String]?, page: Int?, limit: Int?, id: String?, idPlataformaMobile: Int?, completion: ((data: PageAplicacaoMobileResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET3WithRequestBuilder(sort: sort, page: page, limit: limit, id: id, idPlataformaMobile: idPlataformaMobile).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -82,7 +82,7 @@ public class AplicacaoMobileAPI: APIBase {
      Lista os aplicacoes mobile cadastradas
      
      - GET /api/aplicacoes-mobile
-     - Este m\u00C3\u00A9todo permite que sejam listadas as aplicacoes mobile existentes na base do PIER.
+     - Este m\u00E9todo permite que sejam listadas as aplicacoes mobile existentes na base do PIER.
      - examples: [{contentType=application/json, example={
   "previousPage" : 123,
   "last" : true,
@@ -109,15 +109,15 @@ public class AplicacaoMobileAPI: APIBase {
   "first" : true
 }}]
      
-     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+     - parameter sort: (query) Tipo de ordena\u00E7\u00E3o dos registros. (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
      - parameter id: (query) Identificador da Aplicacao Mobile (optional)
      - parameter idPlataformaMobile: (query) Identificador da Plataforma Mobile (optional)
 
      - returns: RequestBuilder<PageAplicacaoMobileResponse> 
      */
-    public class func listarUsingGET2WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, id: String?, idPlataformaMobile: Int?) -> RequestBuilder<PageAplicacaoMobileResponse> {
+    public class func listarUsingGET3WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, id: String?, idPlataformaMobile: Int?) -> RequestBuilder<PageAplicacaoMobileResponse> {
         let path = "/api/aplicacoes-mobile"
         let URLString = PierAPI.basePath + path
         

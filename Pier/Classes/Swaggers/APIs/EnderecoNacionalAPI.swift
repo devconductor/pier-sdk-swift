@@ -12,7 +12,7 @@ import Alamofire
 public class EnderecoNacionalAPI: APIBase {
     /**
      
-     Consultar Endere\u00C3\u00A7o
+     Consultar Endere\u00E7o
      
      - parameter CEP: (query) CEP 
      - parameter completion: completion handler to receive the data and the error objects
@@ -26,10 +26,10 @@ public class EnderecoNacionalAPI: APIBase {
 
     /**
      
-     Consultar Endere\u00C3\u00A7o
+     Consultar Endere\u00E7o
      
      - GET /api/ceps
-     - Este recurso permite consultar endere\u00C3\u00A7os atrav\u00C3\u00A9s do CEP.
+     - Este recurso permite consultar endere\u00E7os atrav\u00E9s do CEP.
      - examples: [{contentType=application/json, example={
   "pontoReferencia" : "aeiou",
   "cidade" : "aeiou",

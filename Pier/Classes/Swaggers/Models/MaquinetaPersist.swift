@@ -11,13 +11,13 @@ import Foundation
 /** Objeto Maquineta */
 public class MaquinetaPersist: JSONEncodable {
 
-    /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Terminal (id). */
+    /** C\u00F3digo de Identifica\u00E7\u00E3o do Terminal (id). */
     public var idTerminal: Int?
-    /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Tipo Maquineta (id). */
+    /** C\u00F3digo de Identifica\u00E7\u00E3o do Tipo Maquineta (id). */
     public var idTipoMaquineta: Int?
-    /** Valor de Manuten\u00C3\u00A7\u00C3\u00A3o da Maquineta. */
+    /** Valor de Manuten\u00E7\u00E3o da Maquineta. */
     public var valor: Double?
-    /** Data da implanta\u00C3\u00A7\u00C3\u00A3o da Maquineta, inserir no formato yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSS&#39;Z&#39;. */
+    /** Data da implanta\u00E7\u00E3o da Maquineta, inserir no formato yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSS&#39;Z&#39;. */
     public var dataHoraImplantacao: String?
     
 

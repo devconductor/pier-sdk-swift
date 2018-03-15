@@ -8,12 +8,12 @@
 import Foundation
 
 
-/** Parametros de requisi\u00C3\u00A7\u00C3\u00A3o da gera\u00C3\u00A7\u00C3\u00A3o do cart\u00C3\u00A3o embossing */
+/** Parametros de requisi\u00E7\u00E3o da gera\u00E7\u00E3o do cart\u00E3o embossing */
 public class CartaoEmbossingRequest: JSONEncodable {
 
-    /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Pessoa a qual o cart\u00C3\u00A3o pertence (id) */
+    /** C\u00F3digo de Identifica\u00E7\u00E3o da Pessoa a qual o cart\u00E3o pertence (id) */
     public var idPessoa: Int?
-    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do TipoPlastico (id). */
+    /** C\u00F3digo de identifica\u00E7\u00E3o do TipoPlastico (id). */
     public var idTipoPlastico: Int?
     
 

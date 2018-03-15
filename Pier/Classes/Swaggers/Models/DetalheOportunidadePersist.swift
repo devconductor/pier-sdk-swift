@@ -11,9 +11,9 @@ import Foundation
 /** Objeto DetalheOportunidade */
 public class DetalheOportunidadePersist: JSONEncodable {
 
-    /** Nome do conte\u00C3\u00BAdo */
+    /** Nome do conte\u00FAdo */
     public var nomeCampo: String?
-    /** Conte\u00C3\u00BAdo do detalhe */
+    /** Conte\u00FAdo do detalhe */
     public var conteudo: String?
     
 

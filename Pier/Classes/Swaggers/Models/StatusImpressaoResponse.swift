@@ -8,12 +8,12 @@
 import Foundation
 
 
-/** Representa\u00C3\u00A7\u00C3\u00A3o do recurso Status Impress\u00C3\u00A3o */
+/** Representa\u00E7\u00E3o do recurso Status Impress\u00E3o */
 public class StatusImpressaoResponse: JSONEncodable {
 
-    /** Id do est\u00C3\u00A1gio cart\u00C3\u00A3o */
+    /** Id do est\u00E1gio cart\u00E3o */
     public var id: Int?
-    /** Nome do status impress\u00C3\u00A3o */
+    /** Nome do status impress\u00E3o */
     public var nome: String?
     
 

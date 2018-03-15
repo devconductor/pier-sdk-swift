@@ -8,43 +8,43 @@
 import Foundation
 
 
-/** Representa\u00C3\u00A7\u00C3\u00A3o do recurso transacao */
+/** Representa\u00E7\u00E3o do recurso transacao */
 public class TransacaoCorrenteResponse: JSONEncodable {
 
     public var ultimaParcelaLancada: Int?
-    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). */
+    /** C\u00F3digo de identifica\u00E7\u00E3o da conta (id). */
     public var idConta: Int?
-    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do tipo de transacao (id). */
+    /** C\u00F3digo de identifica\u00E7\u00E3o do tipo de transacao (id). */
     public var idTipoRegistro: Int?
-    /** Representa\u00C3\u00A7\u00C3\u00A3o da ordena\u00C3\u00A7\u00C3\u00A3o da transacao (id). */
+    /** Representa\u00E7\u00E3o da ordena\u00E7\u00E3o da transacao (id). */
     public var ordem: Int?
-    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da transacao (id). */
+    /** C\u00F3digo de identifica\u00E7\u00E3o da transacao (id). */
     public var idTransacao: Int?
-    /** Atributo que representa a descri\u00C3\u00A7\u00C3\u00A3o da transa\u00C3\u00A7\u00C3\u00A3o. */
+    /** Atributo que representa a descri\u00E7\u00E3o da transa\u00E7\u00E3o. */
     public var descricao: String?
-    /** Atributo que representa o c\u00C3\u00B3digo identificador do status da transa\u00C3\u00A7\u00C3\u00A3o. */
+    /** Atributo que representa o c\u00F3digo identificador do status da transa\u00E7\u00E3o. */
     public var status: Int?
-    /** Atributo que representa a descri\u00C3\u00A7\u00C3\u00A3o do status da transa\u00C3\u00A7\u00C3\u00A3o. */
+    /** Atributo que representa a descri\u00E7\u00E3o do status da transa\u00E7\u00E3o. */
     public var descricaoStatus: String?
-    /** Atributo que representa o valor da transa\u00C3\u00A7\u00C3\u00A3o. */
+    /** Atributo que representa o valor da transa\u00E7\u00E3o. */
     public var valor: Double?
-    /** Atributo que representa o valor em D\u00C3\u00B3lar da transa\u00C3\u00A7\u00C3\u00A3o. */
+    /** Atributo que representa o valor em D\u00F3lar da transa\u00E7\u00E3o. */
     public var valorDolar: Double?
-    /** Atributo que representa a quantidade de parcelas da transa\u00C3\u00A7\u00C3\u00A3o. */
+    /** Atributo que representa a quantidade de parcelas da transa\u00E7\u00E3o. */
     public var quantidadeParcelas: Int?
-    /** Atributo que representa o valor da parcela da transa\u00C3\u00A7\u00C3\u00A3o. */
+    /** Atributo que representa o valor da parcela da transa\u00E7\u00E3o. */
     public var valorParcela: Double?
-    /** Atributo que representa a data de envio da transa\u00C3\u00A7\u00C3\u00A3o. */
+    /** Atributo que representa a data de envio da transa\u00E7\u00E3o. */
     public var dataEvento: String?
-    /** Atributo que representa o estabelecimento da transa\u00C3\u00A7\u00C3\u00A3o. */
+    /** Atributo que representa o estabelecimento da transa\u00E7\u00E3o. */
     public var estabelecimento: String?
-    /** Atributo que identifica se a transa\u00C3\u00A7\u00C3\u00A3o \u00C3\u00A9 um cr\u00C3\u00A9dito ou d\u00C3\u00A9bito. */
+    /** Atributo que identifica se a transa\u00E7\u00E3o \u00E9 um cr\u00E9dito ou d\u00E9bito. */
     public var flagCredito: Int?
-    /** Atributo que representa o tipo de estabelecimento da transa\u00C3\u00A7\u00C3\u00A3o. */
+    /** Atributo que representa o tipo de estabelecimento da transa\u00E7\u00E3o. */
     public var tipoEstabelecimento: String?
-    /** Atributo que representa o grupo MCC da transa\u00C3\u00A7\u00C3\u00A3o. */
+    /** Atributo que representa o grupo MCC da transa\u00E7\u00E3o. */
     public var idGrupoMCC: Int?
-    /** Atributo que identifica se o portador solicitou contesta\u00C3\u00A7\u00C3\u00A3o da transa\u00C3\u00A7\u00C3\u00A3o. */
+    /** Atributo que identifica se o portador solicitou contesta\u00E7\u00E3o da transa\u00E7\u00E3o. */
     public var flagSolicitouContestacao: Int?
     
 

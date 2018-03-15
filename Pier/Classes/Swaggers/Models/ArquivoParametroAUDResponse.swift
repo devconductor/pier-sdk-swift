@@ -8,22 +8,22 @@
 import Foundation
 
 
-/** Objeto Response da auditoria dos par\u00C3\u00A2metros do arquivo. */
+/** Objeto Response da auditoria dos par\u00E2metros do arquivo. */
 public class ArquivoParametroAUDResponse: JSONEncodable {
 
     /** Identificador da auditoria arquivo */
     public var rev: Int?
-    /** Identificador do tipo de auditoria (0 - Criado, 1 - Alterado, 2 - Exclu\u00C3\u00ADdo) */
+    /** Identificador do tipo de auditoria (0 - Criado, 1 - Alterado, 2 - Exclu\u00EDdo) */
     public var revType: Int?
-    /** Identificador do par\u00C3\u00A2metro */
+    /** Identificador do par\u00E2metro */
     public var id: String?
-    /** Nome do par\u00C3\u00A2metro */
+    /** Nome do par\u00E2metro */
     public var parametro: String?
-    /** Conte\u00C3\u00BAdo do par\u00C3\u00A2metro */
+    /** Conte\u00FAdo do par\u00E2metro */
     public var conteudo: String?
-    /** Data de inclus\u00C3\u00A3o do par\u00C3\u00A2metro */
+    /** Data de inclus\u00E3o do par\u00E2metro */
     public var dataHoraInclusao: String?
-    /** Data de altera\u00C3\u00A7\u00C3\u00A3o do par\u00C3\u00A2metro */
+    /** Data de altera\u00E7\u00E3o do par\u00E2metro */
     public var dataHoraAlteracao: String?
     
 

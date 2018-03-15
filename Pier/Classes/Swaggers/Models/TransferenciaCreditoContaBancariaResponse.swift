@@ -8,32 +8,32 @@
 import Foundation
 
 
-/** Transfer\u00C3\u00AAncia de cr\u00C3\u00A9dito para contas banc\u00C3\u00A1rias */
+/** Transfer\u00EAncia de cr\u00E9dito para contas banc\u00E1rias */
 public class TransferenciaCreditoContaBancariaResponse: JSONEncodable {
 
-    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da transferencia. */
+    /** C\u00F3digo de identifica\u00E7\u00E3o da transferencia. */
     public var idTransferencia: Int?
     /** Taxa de custo efetivo total. */
     public var valorCET: Double?
-    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da autoriza\u00C3\u00A7\u00C3\u00A3o. */
+    /** C\u00F3digo de identifica\u00E7\u00E3o da autoriza\u00E7\u00E3o. */
     public var idAutorizacao: Int?
-    /** C\u00C3\u00B3digo da autoriza\u00C3\u00A7\u00C3\u00A3o. */
+    /** C\u00F3digo da autoriza\u00E7\u00E3o. */
     public var codigoAutorizacao: String?
     /** NSU de origem. */
     public var nsuOrigem: Int?
-    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta. */
+    /** C\u00F3digo de identifica\u00E7\u00E3o da conta. */
     public var idConta: Int?
-    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do cart\u00C3\u00A3o. */
+    /** C\u00F3digo de identifica\u00E7\u00E3o do cart\u00E3o. */
     public var idCartao: Int?
-    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do tipo de opera\u00C3\u00A7\u00C3\u00A3o. */
+    /** C\u00F3digo de identifica\u00E7\u00E3o do tipo de opera\u00E7\u00E3o. */
     public var idOperacao: Int?
-    /** Valor da transfer\u00C3\u00AAncia. */
+    /** Valor da transfer\u00EAncia. */
     public var valorCompra: Double?
     /** Valor da parcela. */
     public var valorParcela: Double?
-    /** Valor da transfer\u00C3\u00AAncia acrescido do valor da tarifa de saque se houver tarifa de saque. */
+    /** Valor da transfer\u00EAncia acrescido do valor da tarifa de saque se houver tarifa de saque. */
     public var valorContrato: Double?
-    /** N\u00C3\u00BAmero de parcelas. */
+    /** N\u00FAmero de parcelas. */
     public var numeroParcelas: Int?
     /** Valor do IOF. */
     public var valorIOF: Double?
@@ -43,25 +43,25 @@ public class TransferenciaCreditoContaBancariaResponse: JSONEncodable {
     public var valorTaxaSaque: Double?
     /** Percentual de juros. */
     public var taxaJuros: Double?
-    /** Data da transfer\u00C3\u00AAncia. */
+    /** Data da transfer\u00EAncia. */
     public var dataCompra: String?
     /** Data do movimento. */
     public var dataMovimento: String?
     /** Data do vencimento real da fatura. */
     public var dataVencimentoReal: String?
-    /** Dia do vencimento padr\u00C3\u00A3o da fatura. */
+    /** Dia do vencimento padr\u00E3o da fatura. */
     public var dataVencimentoPadrao: String?
-    /** Data da autoriza\u00C3\u00A7\u00C3\u00A3o. */
+    /** Data da autoriza\u00E7\u00E3o. */
     public var dataAutorizacao: String?
-    /** C\u00C3\u00B3digo do Banco. */
+    /** C\u00F3digo do Banco. */
     public var banco: Int?
-    /** N\u00C3\u00BAmero da Ag\u00C3\u00AAncia. */
+    /** N\u00FAmero da Ag\u00EAncia. */
     public var numeroAgencia: String?
-    /** D\u00C3\u00ADgito da Ag\u00C3\u00AAncia. */
+    /** D\u00EDgito da Ag\u00EAncia. */
     public var digitoAgencia: String?
-    /** N\u00C3\u00BAmero da Conta. */
+    /** N\u00FAmero da Conta. */
     public var numeroConta: String?
-    /** D\u00C3\u00ADgito da Conta. */
+    /** D\u00EDgito da Conta. */
     public var digitoConta: String?
     /** Tipo da Conta. */
     public var flagContaPoupanca: Bool?
@@ -69,7 +69,7 @@ public class TransferenciaCreditoContaBancariaResponse: JSONEncodable {
     public var documentoFavorecido: String?
     /** Nome do Favorecido. */
     public var nomeFavorecido: String?
-    /** C\u00C3\u00B3digo do Status */
+    /** C\u00F3digo do Status */
     public var status: String?
     /** Status Processamento. */
     public var statusProcessamento: String?

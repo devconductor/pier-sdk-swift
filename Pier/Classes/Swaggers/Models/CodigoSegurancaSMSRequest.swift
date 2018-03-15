@@ -8,14 +8,14 @@
 import Foundation
 
 
-/** Representa\u00C3\u00A7\u00C3\u00A3o do recurso validar c\u00C3\u00B3digo de seguran\u00C3\u00A7a. */
+/** Representa\u00E7\u00E3o do recurso validar c\u00F3digo de seguran\u00E7a. */
 public class CodigoSegurancaSMSRequest: JSONEncodable {
 
-    /** C\u00C3\u00B3digo DDD do telefone (id). */
+    /** C\u00F3digo DDD do telefone (id). */
     public var ddd: String?
-    /** N\u00C3\u00BAmero do telefone. */
+    /** N\u00FAmero do telefone. */
     public var telefone: String?
-    /** Token para valida\u00C3\u00A7\u00C3\u00A3o. */
+    /** Token para valida\u00E7\u00E3o. */
     public var codigoSeguranca: String?
     
 

@@ -8,24 +8,24 @@
 import Foundation
 
 
-/** Objeto Endere\u00C3\u00A7o */
+/** Objeto Endere\u00E7o */
 public class EnderecoResponse: JSONEncodable {
 
-    /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Endere\u00C3\u00A7o (id). */
+    /** C\u00F3digo de Identifica\u00E7\u00E3o do Endere\u00E7o (id). */
     public var id: Int?
-    /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Pessoa a qual o endere\u00C3\u00A7o pertence (id) */
+    /** C\u00F3digo de Identifica\u00E7\u00E3o da Pessoa a qual o endere\u00E7o pertence (id) */
     public var idPessoa: Int?
-    /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Tipo Endere\u00C3\u00A7o (id) */
+    /** C\u00F3digo de Identifica\u00E7\u00E3o da Tipo Endere\u00E7o (id) */
     public var idTipoEndereco: Int?
-    /** Apresenta o C\u00C3\u00B3digo de Endere\u00C3\u00A7amento Postal (CEP) no formaro &#39;58800000&#39; */
+    /** Apresenta o C\u00F3digo de Endere\u00E7amento Postal (CEP) no formaro &#39;58800000&#39; */
     public var cep: String?
     /** Apresenta o nome do Logradouro */
     public var logradouro: String?
-    /** Apresenta o n\u00C3\u00BAmero do endere\u00C3\u00A7o */
+    /** Apresenta o n\u00FAmero do endere\u00E7o */
     public var numero: Int?
-    /** Apresenta descri\u00C3\u00A7oes complementares referente ao endere\u00C3\u00A7o */
+    /** Apresenta descri\u00E7oes complementares referente ao endere\u00E7o */
     public var complemento: String?
-    /** Apresenta a descri\u00C3\u00A7\u00C3\u00A3o de ponto de refer\u00C3\u00AAncia do endere\u00C3\u00A7o */
+    /** Apresenta a descri\u00E7\u00E3o de ponto de refer\u00EAncia do endere\u00E7o */
     public var pontoReferencia: String?
     /** Apresenta nome do bairro */
     public var bairro: String?
@@ -35,9 +35,9 @@ public class EnderecoResponse: JSONEncodable {
     public var uf: String?
     /** Apresenta nome do Pais */
     public var pais: String?
-    /** Apresenta a data em que fora cadastrado o Endere\u00C3\u00A7o */
+    /** Apresenta a data em que fora cadastrado o Endere\u00E7o */
     public var dataInclusao: String?
-    /** Data em que fora realizada a \u00C3\u00BAltima mudan\u00C3\u00A7a neste registro de endere\u00C3\u00A7o. Quando n\u00C3\u00A3o tiver ocorrido mudan\u00C3\u00A7a, conter\u00C3\u00A1 a mesma informa\u00C3\u00A7\u00C3\u00A3o que o campo dataInclusao */
+    /** Data em que fora realizada a \u00FAltima mudan\u00E7a neste registro de endere\u00E7o. Quando n\u00E3o tiver ocorrido mudan\u00E7a, conter\u00E1 a mesma informa\u00E7\u00E3o que o campo dataInclusao */
     public var dataUltimaAtualizacao: String?
     
 

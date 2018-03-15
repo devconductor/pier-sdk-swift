@@ -11,19 +11,19 @@ import Foundation
 /** Objeto de resposta do VinculoEstabelecimentoAdquirente */
 public class VinculoEstabelecimentoAdquirenteResponse: JSONEncodable {
 
-    /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do VinculoEstabelecimentoAdquirente (id). */
+    /** C\u00F3digo de Identifica\u00E7\u00E3o do VinculoEstabelecimentoAdquirente (id). */
     public var id: Int?
-    /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Estabelecimento (id). */
+    /** C\u00F3digo de Identifica\u00E7\u00E3o do Estabelecimento (id). */
     public var idEstabelecimento: Int?
-    /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Adquirente (id). */
+    /** C\u00F3digo de Identifica\u00E7\u00E3o do Adquirente (id). */
     public var idAdquirente: Int?
-    /** C\u00C3\u00B3digo do v\u00C3\u00ADnculo entre o estabelecimento e o adquirente. */
+    /** C\u00F3digo do v\u00EDnculo entre o estabelecimento e o adquirente. */
     public var codigoEstabelecimentoAdquirente: String?
-    /** Data de cadastro do v\u00C3\u00ADnculo. */
+    /** Data de cadastro do v\u00EDnculo. */
     public var dataHoraCadastro: String?
-    /** Data de cadastro do v\u00C3\u00ADnculo. */
+    /** Data de cadastro do v\u00EDnculo. */
     public var mensagem: String?
-    /** Data de cadastro do v\u00C3\u00ADnculo. */
+    /** Data de cadastro do v\u00EDnculo. */
     public var status: Int?
     
 

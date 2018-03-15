@@ -8,40 +8,40 @@
 import Foundation
 
 
-/** D\u00C3\u00ADvida do cliente */
+/** D\u00EDvida do cliente */
 public class DividaClienteResponse: JSONEncodable {
 
-    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id) */
+    /** C\u00F3digo de identifica\u00E7\u00E3o da conta (id) */
     public var id: Int?
-    /** Data de vencimento da cobran\u00C3\u00A7a */
+    /** Data de vencimento da cobran\u00E7a */
     public var dataVencimentoFaturaAtraso: String?
-    /** Quantidade de dias em atraso at\u00C3\u00A9 a data de vencimento da cobran\u00C3\u00A7a */
+    /** Quantidade de dias em atraso at\u00E9 a data de vencimento da cobran\u00E7a */
     public var quantidadeDiasAtraso: Int?
     /** Data de vencimento do acordo */
     public var dataVencimentoAcordo: String?
-    /** Quantidade de dias em atraso at\u00C3\u00A9 a data de vencimento do acordo */
+    /** Quantidade de dias em atraso at\u00E9 a data de vencimento do acordo */
     public var quantidadeDiasAtrasoCorrigido: Int?
-    /** Valor do saldo devedor at\u00C3\u00A9 a data de vencimento da cobran\u00C3\u00A7a */
+    /** Valor do saldo devedor at\u00E9 a data de vencimento da cobran\u00E7a */
     public var valorSaldoDevedor: Double?
-    /** Percentual de corre\u00C3\u00A7\u00C3\u00A3o */
+    /** Percentual de corre\u00E7\u00E3o */
     public var taxaCorrecao: Double?
-    /** Valor da corre\u00C3\u00A7\u00C3\u00A3o */
+    /** Valor da corre\u00E7\u00E3o */
     public var valorCorrecao: Double?
     /** Valor do IOF devido */
     public var valorIOF: Double?
-    /** Valor do saldo devedor corrido da d\u00C3\u00ADvida at\u00C3\u00A9 a data de vencimento do acordo */
+    /** Valor do saldo devedor corrido da d\u00EDvida at\u00E9 a data de vencimento do acordo */
     public var valorSaldoCorrigido: Double?
-    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do status da conta (id) */
+    /** C\u00F3digo de identifica\u00E7\u00E3o do status da conta (id) */
     public var idStatusConta: Int?
-    /** Descri\u00C3\u00A7\u00C3\u00A3o do status da conta */
+    /** Descri\u00E7\u00E3o do status da conta */
     public var descricaoStatusConta: String?
-    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do status do acordo (id) */
+    /** C\u00F3digo de identifica\u00E7\u00E3o do status do acordo (id) */
     public var idStatusAcordo: Int?
-    /** Descri\u00C3\u00A7\u00C3\u00A3o do status do acordo */
+    /** Descri\u00E7\u00E3o do status do acordo */
     public var descricaoStatusAcordo: String?
-    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do escrit\u00C3\u00B3rio de cobran\u00C3\u00A7a */
+    /** C\u00F3digo de identifica\u00E7\u00E3o do escrit\u00F3rio de cobran\u00E7a */
     public var idEscritorioCobranca: Int?
-    /** Nome do escrit\u00C3\u00B3rio de cobran\u00C3\u00A7a */
+    /** Nome do escrit\u00F3rio de cobran\u00E7a */
     public var nomeEscritorioCobranca: String?
     /** Email do devedor */
     public var emailPessoaConta: String?

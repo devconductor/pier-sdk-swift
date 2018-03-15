@@ -15,9 +15,9 @@ public class DispositivoResponse: JSONEncodable {
     public var id: Int?
     /** Token do dispositivo. */
     public var token: String?
-    /** Identificador da Aplica\u00C3\u00A7\u00C3\u00A3o. */
+    /** Identificador da Aplica\u00E7\u00E3o. */
     public var idAplicacaoMobile: Int?
-    /** Identificador do usu\u00C3\u00A1rio. */
+    /** Identificador do usu\u00E1rio. */
     public var idUsuario: Int?
     
 

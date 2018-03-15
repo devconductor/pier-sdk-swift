@@ -8,21 +8,21 @@
 import Foundation
 
 
-/** Objeto cart\u00C3\u00A3o provis\u00C3\u00B3rio */
+/** Objeto cart\u00E3o provis\u00F3rio */
 public class CartaoImpressaoProvisorioResponse: JSONEncodable {
 
     public var flagVirtual: Int?
-    /** Apresenta o C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Conta (id) a qual o cart\u00C3\u00A3o gerado pertence. */
+    /** Apresenta o C\u00F3digo de Identifica\u00E7\u00E3o da Conta (id) a qual o cart\u00E3o gerado pertence. */
     public var idConta: Int?
-    /** Apresenta o C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Pessoa (id) portadora do cart\u00C3\u00A3o gerado. */
+    /** Apresenta o C\u00F3digo de Identifica\u00E7\u00E3o da Pessoa (id) portadora do cart\u00E3o gerado. */
     public var idPessoa: Int?
-    /** Apresenta o C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id) que foi gerado. */
+    /** Apresenta o C\u00F3digo de Identifica\u00E7\u00E3o do Cart\u00E3o (id) que foi gerado. */
     public var idCartao: Int?
-    /** Apresenta o n\u00C3\u00BAmero do cart\u00C3\u00A3o. */
+    /** Apresenta o n\u00FAmero do cart\u00E3o. */
     public var numeroCartao: String?
-    /** Apresenta o nome do Portador do Cart\u00C3\u00A3o. */
+    /** Apresenta o nome do Portador do Cart\u00E3o. */
     public var nomePlastico: String?
-    /** Apresenta a data de Validade do Cart\u00C3\u00A3o. */
+    /** Apresenta a data de Validade do Cart\u00E3o. */
     public var dataValidade: String?
     
 

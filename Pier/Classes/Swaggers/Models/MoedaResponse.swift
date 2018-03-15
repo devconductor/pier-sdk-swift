@@ -13,11 +13,11 @@ public class MoedaResponse: JSONEncodable {
 
     /** Identificador do tipo de moeda. */
     public var id: Int?
-    /** C\u00C3\u00B3digo identificador do tipo de moeda. */
+    /** C\u00F3digo identificador do tipo de moeda. */
     public var codigoMoeda: String?
-    /** S\u00C3\u00ADmbolo da Moeda. */
+    /** S\u00EDmbolo da Moeda. */
     public var simbolo: String?
-    /** Descri\u00C3\u00A7\u00C3\u00A3o do tipo da moeda. */
+    /** Descri\u00E7\u00E3o do tipo da moeda. */
     public var descricao: String?
     
 

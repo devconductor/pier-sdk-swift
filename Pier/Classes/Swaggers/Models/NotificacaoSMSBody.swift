@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Objeto Notifica\u00C3\u00A7\u00C3\u00A3o */
+/** Objeto Notifica\u00E7\u00E3o */
 public class NotificacaoSMSBody: JSONEncodable {
 
     public enum TipoEvento: String { 
@@ -17,19 +17,19 @@ public class NotificacaoSMSBody: JSONEncodable {
         case Outros = "OUTROS"
     }
     
-    /** N\u00C3\u00BAmero sequencial \u00C3\u00BAnico */
+    /** N\u00FAmero sequencial \u00FAnico */
     public var nsu: Int?
-    /** C\u00C3\u00B3digo identificado da pessoa */
+    /** C\u00F3digo identificado da pessoa */
     public var idPessoa: Int?
-    /** C\u00C3\u00B3digo identificador da conta */
+    /** C\u00F3digo identificador da conta */
     public var idConta: Int?
     /** Apresenta o celular a ser eviado o SMS no formato 5588999999999 ou 5588999999999. */
     public var celular: String?
     /** Apresenta o texto do SMS a ser enviado */
     public var conteudo: String?
-    /** Apresenta a data e hora em que ser\u00C3\u00A1 enviado a notifica\u00C3\u00A7\u00C3\u00A3o */
+    /** Apresenta a data e hora em que ser\u00E1 enviado a notifica\u00E7\u00E3o */
     public var dataAgendamento: String?
-    /** Apresenta o tipoEvento a qual pertence a notifica\u00C3\u00A7\u00C3\u00A3o */
+    /** Apresenta o tipoEvento a qual pertence a notifica\u00E7\u00E3o */
     public var tipoEvento: TipoEvento?
     
 

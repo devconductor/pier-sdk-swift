@@ -11,25 +11,25 @@ import Foundation
 /** Objeto conta */
 public class ContaResponse: JSONEncodable {
 
-    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o de conta (id). */
+    /** C\u00F3digo de identifica\u00E7\u00E3o de conta (id). */
     public var id: Int?
-    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do produto ao qual a conta faz parte. (id). */
+    /** C\u00F3digo de identifica\u00E7\u00E3o do produto ao qual a conta faz parte. (id). */
     public var idProduto: Int?
-    /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Origem Comercial (id) que deu origem a Conta. */
+    /** C\u00F3digo de Identifica\u00E7\u00E3o da Origem Comercial (id) que deu origem a Conta. */
     public var idOrigemComercial: Int?
-    /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Pessoa Titular da Conta (id). */
+    /** C\u00F3digo de Identifica\u00E7\u00E3o da Pessoa Titular da Conta (id). */
     public var idPessoa: Int?
-    /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do status atribuido a conta. */
+    /** C\u00F3digo de Identifica\u00E7\u00E3o do status atribuido a conta. */
     public var idStatusConta: Int?
     /** Apresenta o dia de vencimento. */
     public var diaVencimento: Int?
     /** Apresenta o melhor dia de compra. */
     public var melhorDiaCompra: Int?
-    /** Apresenta a data em que o idStatusConta atual fora atribu\u00C3\u00ADdo para ela. */
+    /** Apresenta a data em que o idStatusConta atual fora atribu\u00EDdo para ela. */
     public var dataStatusConta: String?
-    /** Apresenta a data em que o cart\u00C3\u00A3o foi gerado. */
+    /** Apresenta a data em que o cart\u00E3o foi gerado. */
     public var dataCadastro: String?
-    /** Apresenta a data da ultima altera\u00C3\u00A7\u00C3\u00A3o de vencimento. */
+    /** Apresenta a data da ultima altera\u00E7\u00E3o de vencimento. */
     public var dataUltimaAlteracaoVencimento: String?
     /** Apresenta o valor da renda comprovada */
     public var valorRenda: Double?

@@ -11,17 +11,17 @@ import Foundation
 /** ProdutoDetalhes */
 public class ProdutoDetalhesResponse: JSONEncodable {
 
-    /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Produto (id). */
+    /** C\u00F3digo de Identifica\u00E7\u00E3o do Produto (id). */
     public var id: Int?
-    /** Descri\u00C3\u00A7\u00C3\u00A3o do Nome do Produto. */
+    /** Descri\u00E7\u00E3o do Nome do Produto. */
     public var nome: String?
     /** Representa o Status do Produto, onde: (\&quot;0\&quot;: Inativo), (\&quot;1\&quot;: Ativo). */
     public var status: Int?
-    /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Fantasia B\u00C3\u00A1sica (id) a qual o produto pertence. */
+    /** C\u00F3digo de Identifica\u00E7\u00E3o da Fantasia B\u00E1sica (id) a qual o produto pertence. */
     public var idFantasiaBasica: Int?
-    /** Descri\u00C3\u00A7\u00C3\u00A3o da Fantasia B\u00C3\u00A1sica a qual o produto pertence. */
+    /** Descri\u00E7\u00E3o da Fantasia B\u00E1sica a qual o produto pertence. */
     public var fantasiaBasica: String?
-    /** Par\u00C3\u00A2metro que indica se o produto est\u00C3\u00A1 habilitado para compras no exterior. */
+    /** Par\u00E2metro que indica se o produto est\u00E1 habilitado para compras no exterior. */
     public var usoExterior: Bool?
     
 

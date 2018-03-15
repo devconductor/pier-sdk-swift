@@ -8,28 +8,28 @@
 import Foundation
 
 
-/** Transfer\u00C3\u00AAncia banc\u00C3\u00A1ria */
+/** Transfer\u00EAncia banc\u00E1ria */
 public class TransferenciaBancariaPersist: JSONEncodable {
 
-    /** Valor da transfer\u00C3\u00AAncia */
+    /** Valor da transfer\u00EAncia */
     public var valorCompra: Double?
-    /** Valor da transfer\u00C3\u00AAncia */
+    /** Valor da transfer\u00EAncia */
     public var valor: Double?
-    /** N\u00C3\u00BAmero do CPF ou CNPJ. */
+    /** N\u00FAmero do CPF ou CNPJ. */
     public var documentoFavorecido: String?
-    /** C\u00C3\u00B3digo do banco */
+    /** C\u00F3digo do banco */
     public var banco: Int?
-    /** N\u00C3\u00BAmero da ag\u00C3\u00AAncia */
+    /** N\u00FAmero da ag\u00EAncia */
     public var numeroAgencia: String?
-    /** D\u00C3\u00ADgito da ag\u00C3\u00AAncia */
+    /** D\u00EDgito da ag\u00EAncia */
     public var digitoAgencia: String?
-    /** N\u00C3\u00BAmero da conta */
+    /** N\u00FAmero da conta */
     public var numeroConta: String?
-    /** D\u00C3\u00ADgito da conta */
+    /** D\u00EDgito da conta */
     public var digitoConta: String?
-    /** Sinaliza se conta banc\u00C3\u00A1ria \u00C3\u00A9 poupan\u00C3\u00A7a (1: Poupan\u00C3\u00A7a, 0: Conta corrente) */
+    /** Sinaliza se conta banc\u00E1ria \u00E9 poupan\u00E7a (1: Poupan\u00E7a, 0: Conta corrente) */
     public var flagContaPoupanca: Int?
-    /** Apresenta o &#39;Nome Completo da PF&#39; ou o &#39;Nome Completo da Raz\u00C3\u00A3o Social (Nome Empresarial)&#39;. */
+    /** Apresenta o &#39;Nome Completo da PF&#39; ou o &#39;Nome Completo da Raz\u00E3o Social (Nome Empresarial)&#39;. */
     public var nomeFavorecido: String?
     
 

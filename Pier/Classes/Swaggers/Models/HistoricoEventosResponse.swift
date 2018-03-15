@@ -8,18 +8,18 @@
 import Foundation
 
 
-/** Representa\u00C3\u00A7\u00C3\u00A3o do objeto que abstrai o hist\u00C3\u00B3rico de eventos */
+/** Representa\u00E7\u00E3o do objeto que abstrai o hist\u00F3rico de eventos */
 public class HistoricoEventosResponse: JSONEncodable {
 
-    /** C\u00C3\u00B3digo identificador do evento */
+    /** C\u00F3digo identificador do evento */
     public var idHistorico: Int?
     /** Data do evento */
     public var dataHistorico: String?
     /** Nome do campo alterado */
     public var tipoHistorico: String?
-    /** Valor anterior a modifica\u00C3\u00A7\u00C3\u00A3o */
+    /** Valor anterior a modifica\u00E7\u00E3o */
     public var valorAnterior: String?
-    /** Valor atribu\u00C3\u00ADdo na modifica\u00C3\u00A7\u00C3\u00A3o */
+    /** Valor atribu\u00EDdo na modifica\u00E7\u00E3o */
     public var valorAtribuido: String?
     
 

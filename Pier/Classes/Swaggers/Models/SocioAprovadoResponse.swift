@@ -11,33 +11,33 @@ import Foundation
 /** PessoaPersist */
 public class SocioAprovadoResponse: JSONEncodable {
 
-    /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do S\u00C3\u00B3cio (id) */
+    /** C\u00F3digo de Identifica\u00E7\u00E3o do S\u00F3cio (id) */
     public var id: Int?
     /** Apresenta o Nome do Socio */
     public var nome: String?
-    /** N\u00C3\u00BAmero do CPF, quando PF. */
+    /** N\u00FAmero do CPF, quando PF. */
     public var cpf: String?
     /** Data de Nascimento da Pessoa, quando PF, ou a Data de Abertura da Empresa, quando PJ. Essa data deve ser informada no formato aaaa-MM-dd. */
     public var dataNascimento: String?
-    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do sexo da Pessoa, quando PF, sendo: (\&quot;M\&quot;: Masculino), (\&quot;F\&quot;: Feminino), (\&quot;O\&quot;: Outro), (\&quot;N\&quot;: N\u00C3\u00A3o Especificado). */
+    /** C\u00F3digo de identifica\u00E7\u00E3o do sexo da Pessoa, quando PF, sendo: (\&quot;M\&quot;: Masculino), (\&quot;F\&quot;: Feminino), (\&quot;O\&quot;: Outro), (\&quot;N\&quot;: N\u00E3o Especificado). */
     public var sexo: String?
-    /** N\u00C3\u00BAmero da Identidade. */
+    /** N\u00FAmero da Identidade. */
     public var numeroIdentidade: String?
-    /** Org\u00C3\u00A3o expedidor do RG. */
+    /** Org\u00E3o expedidor do RG. */
     public var orgaoExpedidorIdentidade: String?
     /** Sigla da Unidade Federativa de onde foi expedido a Identidade */
     public var unidadeFederativaIdentidade: String?
-    /** Data emiss\u00C3\u00A3o da Identidade */
+    /** Data emiss\u00E3o da Identidade */
     public var dataEmissaoIdentidade: String?
-    /** Estado civil do s\u00C3\u00B3cio */
+    /** Estado civil do s\u00F3cio */
     public var estadoCivil: String?
-    /** Profiss\u00C3\u00A3o do s\u00C3\u00B3cio */
+    /** Profiss\u00E3o do s\u00F3cio */
     public var profissao: String?
-    /** Nacionalidade do s\u00C3\u00B3cio */
+    /** Nacionalidade do s\u00F3cio */
     public var nacionalidade: String?
-    /** Email do s\u00C3\u00B3cio */
+    /** Email do s\u00F3cio */
     public var email: String?
-    /** Informa os telefones do s\u00C3\u00B3cio */
+    /** Informa os telefones do s\u00F3cio */
     public var telefones: [TelefonePessoaAprovadaResponse]?
     
 

@@ -14,7 +14,7 @@ public class DispositivoAPI: APIBase {
      
      Ativa Dispositivo
      
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Plataforma (id). 
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o da Plataforma (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func ativarUsingPOST(id id: Int, completion: ((data: DispositivoResponse?, error: ErrorType?) -> Void)) {
@@ -37,7 +37,7 @@ public class DispositivoAPI: APIBase {
   "token" : "aeiou"
 }}]
      
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Plataforma (id). 
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o da Plataforma (id). 
 
      - returns: RequestBuilder<DispositivoResponse> 
      */
@@ -58,7 +58,7 @@ public class DispositivoAPI: APIBase {
      
      Desativa Dispositivo
      
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Plataforma (id). 
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o da Plataforma (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func desativarUsingPOST(id id: Int, completion: ((data: DispositivoResponse?, error: ErrorType?) -> Void)) {
@@ -81,7 +81,7 @@ public class DispositivoAPI: APIBase {
   "token" : "aeiou"
 }}]
      
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Plataforma (id). 
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o da Plataforma (id). 
 
      - returns: RequestBuilder<DispositivoResponse> 
      */
@@ -102,18 +102,18 @@ public class DispositivoAPI: APIBase {
      
      Lista os dispositivos cadastrados
      
-     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+     - parameter sort: (query) Tipo de ordena\u00E7\u00E3o dos registros. (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
      - parameter token: (query) Token do Dispositivo (optional)
-     - parameter idUsuario: (query) Identificador do Usu\u00C3\u00A1rio (optional)
-     - parameter idAplicacaoMobile: (query) Identificador da aplica\u00C3\u00A7\u00C3\u00A3o (optional)
+     - parameter idUsuario: (query) Identificador do Usu\u00E1rio (optional)
+     - parameter idAplicacaoMobile: (query) Identificador da aplica\u00E7\u00E3o (optional)
      - parameter dataCriacao: (query) Apresenta a data e em que o registro foi criado. (optional)
      - parameter dataDesativacao: (query) Apresenta a data e em que o registro foi desativado. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET17(sort sort: [String]?, page: Int?, limit: Int?, token: String?, idUsuario: Int?, idAplicacaoMobile: Int?, dataCriacao: String?, dataDesativacao: String?, completion: ((data: PageDispositivoResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET17WithRequestBuilder(sort: sort, page: page, limit: limit, token: token, idUsuario: idUsuario, idAplicacaoMobile: idAplicacaoMobile, dataCriacao: dataCriacao, dataDesativacao: dataDesativacao).execute { (response, error) -> Void in
+    public class func listarUsingGET18(sort sort: [String]?, page: Int?, limit: Int?, token: String?, idUsuario: Int?, idAplicacaoMobile: Int?, dataCriacao: String?, dataDesativacao: String?, completion: ((data: PageDispositivoResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET18WithRequestBuilder(sort: sort, page: page, limit: limit, token: token, idUsuario: idUsuario, idAplicacaoMobile: idAplicacaoMobile, dataCriacao: dataCriacao, dataDesativacao: dataDesativacao).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -124,7 +124,7 @@ public class DispositivoAPI: APIBase {
      Lista os dispositivos cadastrados
      
      - GET /api/dispositivos
-     - Este m\u00C3\u00A9todo permite que sejam listados os dispositivos existentes na base do PIER.
+     - Este m\u00E9todo permite que sejam listados os dispositivos existentes na base do PIER.
      - examples: [{contentType=application/json, example={
   "previousPage" : 123,
   "last" : true,
@@ -147,18 +147,18 @@ public class DispositivoAPI: APIBase {
   "first" : true
 }}]
      
-     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+     - parameter sort: (query) Tipo de ordena\u00E7\u00E3o dos registros. (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
      - parameter token: (query) Token do Dispositivo (optional)
-     - parameter idUsuario: (query) Identificador do Usu\u00C3\u00A1rio (optional)
-     - parameter idAplicacaoMobile: (query) Identificador da aplica\u00C3\u00A7\u00C3\u00A3o (optional)
+     - parameter idUsuario: (query) Identificador do Usu\u00E1rio (optional)
+     - parameter idAplicacaoMobile: (query) Identificador da aplica\u00E7\u00E3o (optional)
      - parameter dataCriacao: (query) Apresenta a data e em que o registro foi criado. (optional)
      - parameter dataDesativacao: (query) Apresenta a data e em que o registro foi desativado. (optional)
 
      - returns: RequestBuilder<PageDispositivoResponse> 
      */
-    public class func listarUsingGET17WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, token: String?, idUsuario: Int?, idAplicacaoMobile: Int?, dataCriacao: String?, dataDesativacao: String?) -> RequestBuilder<PageDispositivoResponse> {
+    public class func listarUsingGET18WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, token: String?, idUsuario: Int?, idAplicacaoMobile: Int?, dataCriacao: String?, dataDesativacao: String?) -> RequestBuilder<PageDispositivoResponse> {
         let path = "/api/dispositivos"
         let URLString = PierAPI.basePath + path
         

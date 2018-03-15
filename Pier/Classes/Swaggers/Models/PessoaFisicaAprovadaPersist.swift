@@ -13,27 +13,27 @@ public class PessoaFisicaAprovadaPersist: JSONEncodable {
 
     /** Apresenta o nome completo da pessoa fisica. */
     public var nome: String?
-    /** Apresenta o nome da m\u00C3\u00A3e da pessoa fisica */
+    /** Apresenta o nome da m\u00E3e da pessoa fisica */
     public var nomeMae: String?
     /** Data de Nascimento da Pessoa. Essa data deve ser informada no formato aaaa-MM-dd. */
     public var dataNascimento: String?
-    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do sexo da Pessoa, quando PF, sendo: (\&quot;M\&quot;: Masculino), (\&quot;F\&quot;: Feminino). */
+    /** C\u00F3digo de identifica\u00E7\u00E3o do sexo da Pessoa, quando PF, sendo: (\&quot;M\&quot;: Masculino), (\&quot;F\&quot;: Feminino). */
     public var sexo: String?
-    /** N\u00C3\u00BAmero do Cadastro de Pessoa Fisica (CPF) */
+    /** N\u00FAmero do Cadastro de Pessoa Fisica (CPF) */
     public var cpf: String?
-    /** N\u00C3\u00BAmero da Identidade */
+    /** N\u00FAmero da Identidade */
     public var numeroIdentidade: String?
-    /** Org\u00C3\u00A3o expedidor do RG. */
+    /** Org\u00E3o expedidor do RG. */
     public var orgaoExpedidorIdentidade: String?
     /** Sigla da Unidade Federativa de onde foi expedido a Identidade */
     public var unidadeFederativaIdentidade: String?
-    /** Data emiss\u00C3\u00A3o da identidade no formato aaaa-MM-dd */
+    /** Data emiss\u00E3o da identidade no formato aaaa-MM-dd */
     public var dataEmissaoIdentidade: String?
     /** Id Estado civil da pessoa fisica */
     public var idEstadoCivil: Int?
-    /** Profiss\u00C3\u00A3o da pessoa fisica */
+    /** Profiss\u00E3o da pessoa fisica */
     public var idProfissao: String?
-    /** Id Natureza Ocupa\u00C3\u00A7\u00C3\u00A3o da pessoa fisica */
+    /** Id Natureza Ocupa\u00E7\u00E3o da pessoa fisica */
     public var idNaturezaOcupacao: Int?
     /** Id Nacionalidade da pessoa fisica */
     public var idNacionalidade: Int?
@@ -41,33 +41,33 @@ public class PessoaFisicaAprovadaPersist: JSONEncodable {
     public var idOrigemComercial: Int?
     /** Id do produto */
     public var idProduto: Int?
-    /** N\u00C3\u00BAmero da ag\u00C3\u00AAncia. */
+    /** N\u00FAmero da ag\u00EAncia. */
     public var numeroAgencia: Int?
-    /** N\u00C3\u00BAmero da conta corrente. */
+    /** N\u00FAmero da conta corrente. */
     public var numeroContaCorrente: String?
     /** Email da pessoa fisica */
     public var email: String?
     /** Dia vencimento */
     public var diaVencimento: Int?
-    /** Nome que deve ser impresso no cart\u00C3\u00A3o */
+    /** Nome que deve ser impresso no cart\u00E3o */
     public var nomeImpresso: String?
-    /** Nome que deve ser impresso no cart\u00C3\u00A3o */
+    /** Nome que deve ser impresso no cart\u00E3o */
     public var nomeEmpresa: String?
     /** Apresenta o valor da renda compravada */
     public var valorRenda: Double?
     /** Indica o canal pelo qual o cadastro do cliente foi realizado */
     public var canalEntrada: String?
-    /** Indica o valor da pontua\u00C3\u00A7\u00C3\u00A3o atribuido ao cliente (caso n\u00C3\u00A3o informado ser\u00C3\u00A1 atribuido o valor = 0) */
+    /** Indica o valor da pontua\u00E7\u00E3o atribuido ao cliente (caso n\u00E3o informado ser\u00E1 atribuido o valor = 0) */
     public var valorPontuacao: Int?
     /** Apresenta os telefones da empresa */
     public var telefones: [TelefonePessoaAprovadaPersist]?
-    /** Pode ser informado os seguintes tipos de endere\u00C3\u00A7o: Residencial, Comercial, e Outros */
+    /** Pode ser informado os seguintes tipos de endere\u00E7o: Residencial, Comercial, e Outros */
     public var enderecos: [EnderecoAprovadoPersist]?
     /** Valor do Limite Global */
     public var limiteGlobal: Double?
-    /** Valor m\u00C3\u00A1ximo do limite de cr\u00C3\u00A9dito para realizar transa\u00C3\u00A7\u00C3\u00B5es */
+    /** Valor m\u00E1ximo do limite de cr\u00E9dito para realizar transa\u00E7\u00F5es */
     public var limiteMaximo: Double?
-    /** Valor do limite de cr\u00C3\u00A9dito acumulado da soma das parcelas das compras */
+    /** Valor do limite de cr\u00E9dito acumulado da soma das parcelas das compras */
     public var limiteParcelas: Double?
     /** Valor do limite de margem consignado */
     public var limiteConsignado: Double?

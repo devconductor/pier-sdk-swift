@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Lista arquivos armazenados na contig\u00C3\u00AAncia */
+/** Lista arquivos armazenados na contig\u00EAncia */
 public class PageArquivoResponse: JSONEncodable {
 
     public var content: [ArquivoResponse]?

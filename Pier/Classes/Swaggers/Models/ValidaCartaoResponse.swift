@@ -8,22 +8,22 @@
 import Foundation
 
 
-/** Objeto de resposta para a valida\u00C3\u00A7\u00C3\u00A3o de cart\u00C3\u00A3o */
+/** Objeto de resposta para a valida\u00E7\u00E3o de cart\u00E3o */
 public class ValidaCartaoResponse: JSONEncodable {
 
-    /** Descri\u00C3\u00A7\u00C3\u00A3o do status do cart\u00C3\u00A3o */
+    /** Descri\u00E7\u00E3o do status do cart\u00E3o */
     public var idStatusCartao: Int?
-    /** Descri\u00C3\u00A7\u00C3\u00A3o do status do cart\u00C3\u00A3o */
+    /** Descri\u00E7\u00E3o do status do cart\u00E3o */
     public var statusCartao: String?
-    /** Descri\u00C3\u00A7\u00C3\u00A3o do status da conta */
+    /** Descri\u00E7\u00E3o do status da conta */
     public var idStatusConta: Int?
-    /** Descri\u00C3\u00A7\u00C3\u00A3o do status da conta */
+    /** Descri\u00E7\u00E3o do status da conta */
     public var statusConta: String?
-    /** C\u00C3\u00B3digo identificador da conta. */
+    /** C\u00F3digo identificador da conta. */
     public var idConta: Int?
-    /** N\u00C3\u00BAmero da ag\u00C3\u00AAncia. */
+    /** N\u00FAmero da ag\u00EAncia. */
     public var numeroAgencia: Int?
-    /** N\u00C3\u00BAmero da conta corrente. */
+    /** N\u00FAmero da conta corrente. */
     public var numeroContaCorrente: String?
     /** Criptograma de resposta */
     public var criptogramaResposta: String?

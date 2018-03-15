@@ -11,21 +11,21 @@ import Foundation
 /** Objeto de Resposta de Maquineta */
 public class MaquinetaResponse: JSONEncodable {
 
-    /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Maquineta. */
+    /** C\u00F3digo de Identifica\u00E7\u00E3o da Maquineta. */
     public var id: Int?
-    /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do EStabelecimento. */
+    /** C\u00F3digo de Identifica\u00E7\u00E3o do EStabelecimento. */
     public var idEstabelecimento: Int?
-    /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Tipo Maquineta. */
+    /** C\u00F3digo de Identifica\u00E7\u00E3o do Tipo Maquineta. */
     public var idTipoMaquineta: Int?
-    /** Valor de manuten\u00C3\u00A7\u00C3\u00A3o da Maquineta. */
+    /** Valor de manuten\u00E7\u00E3o da Maquineta. */
     public var valor: Double?
-    /** Data de implanta\u00C3\u00A7\u00C3\u00A3o da Maquineta. */
+    /** Data de implanta\u00E7\u00E3o da Maquineta. */
     public var dataHoraImplantacao: String?
     /** Data de cadastramento da Maquineta. */
     public var dataHoraCadastramento: String?
-    /** N\u00C3\u00BAmero do terminal vinculado a Maquineta. */
+    /** N\u00FAmero do terminal vinculado a Maquineta. */
     public var terminal: String?
-    /** Usu\u00C3\u00A1rio da aplica\u00C3\u00A7\u00C3\u00A3o. */
+    /** Usu\u00E1rio da aplica\u00E7\u00E3o. */
     public var usuarioApl: String?
     
 

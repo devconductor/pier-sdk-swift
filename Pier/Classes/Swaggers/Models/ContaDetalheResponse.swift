@@ -11,55 +11,55 @@ import Foundation
 /** Objeto conta */
 public class ContaDetalheResponse: JSONEncodable {
 
-    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o de conta (id). */
+    /** C\u00F3digo de identifica\u00E7\u00E3o de conta (id). */
     public var id: Int?
-    /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Pessoa Titular da Conta (id). */
+    /** C\u00F3digo de Identifica\u00E7\u00E3o da Pessoa Titular da Conta (id). */
     public var idPessoa: Int?
-    /** Apresenta o &#39;Nome Completo da PF&#39; ou o &#39;Nome Completo da Raz\u00C3\u00A3o Social (Nome Empresarial)&#39;. */
+    /** Apresenta o &#39;Nome Completo da PF&#39; ou o &#39;Nome Completo da Raz\u00E3o Social (Nome Empresarial)&#39;. */
     public var nome: String?
-    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do produto ao qual a conta faz parte. (id). */
+    /** C\u00F3digo de identifica\u00E7\u00E3o do produto ao qual a conta faz parte. (id). */
     public var idProduto: Int?
-    /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Origem Comercial (id) que deu origem a Conta. */
+    /** C\u00F3digo de Identifica\u00E7\u00E3o da Origem Comercial (id) que deu origem a Conta. */
     public var idOrigemComercial: Int?
     /** Nome da origem comercial */
     public var nomeOrigemComercial: String?
-    /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Fantasia Basica (id). */
+    /** C\u00F3digo de Identifica\u00E7\u00E3o da Fantasia Basica (id). */
     public var idFantasiaBasica: Int?
     /** Nome da Fantasia Basica */
     public var nomeFantasiaBasica: String?
-    /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do status atribuido a conta. */
+    /** C\u00F3digo de Identifica\u00E7\u00E3o do status atribuido a conta. */
     public var idStatusConta: Int?
-    /** Descri\u00C3\u00A7\u00C3\u00A3o do status da conta */
+    /** Descri\u00E7\u00E3o do status da conta */
     public var statusConta: String?
     /** Apresenta o dia de vencimento. */
     public var diaVencimento: Int?
     /** Apresenta o melhor dia de compra. */
     public var melhorDiaCompra: Int?
-    /** Apresenta a data em que o idStatusConta atual fora atribu\u00C3\u00ADdo para ela. */
+    /** Apresenta a data em que o idStatusConta atual fora atribu\u00EDdo para ela. */
     public var dataStatusConta: String?
     /** Valor da renda comprovada. */
     public var valorRenda: Double?
-    /** Apresenta a data em que o cart\u00C3\u00A3o foi gerado. */
+    /** Apresenta a data em que o cart\u00E3o foi gerado. */
     public var dataCadastro: String?
-    /** Apresenta a data da ultima altera\u00C3\u00A7\u00C3\u00A3o de vencimento. */
+    /** Apresenta a data da ultima altera\u00E7\u00E3o de vencimento. */
     public var dataUltimaAlteracaoVencimento: String?
-    /** Apresenta a data da ultima altera\u00C3\u00A7\u00C3\u00A3o de vencimento. */
+    /** Apresenta a data da ultima altera\u00E7\u00E3o de vencimento. */
     public var dataHoraUltimaCompra: String?
-    /** N\u00C3\u00BAmero da ag\u00C3\u00AAncia. */
+    /** N\u00FAmero da ag\u00EAncia. */
     public var numeroAgencia: Int?
-    /** N\u00C3\u00BAmero da conta corrente. */
+    /** N\u00FAmero da conta corrente. */
     public var numeroContaCorrente: String?
     /** Forma de envio da fatura. */
     public var formaEnvioFatura: String?
-    /** Apresenta se a pessoa \u00C3\u00A9 titular da conta. */
+    /** Apresenta se a pessoa \u00E9 titular da conta. */
     public var titular: Bool?
-    /** Apresenta o valor do limite de cr\u00C3\u00A9dito que o portador do cart\u00C3\u00A3o possui. */
+    /** Apresenta o valor do limite de cr\u00E9dito que o portador do cart\u00E3o possui. */
     public var limiteGlobal: Double?
-    /** Quando utilizado pelo emissor, este campo apresenta o valor do limite de cr\u00C3\u00A9dito que o portador pode utilizar para realizar transa\u00C3\u00A7\u00C3\u00B5es de Saque Nacional. */
+    /** Quando utilizado pelo emissor, este campo apresenta o valor do limite de cr\u00E9dito que o portador pode utilizar para realizar transa\u00E7\u00F5es de Saque Nacional. */
     public var limiteSaqueGlobal: Double?
-    /** Quando utilizado pelo emissor, este campo apresenta o valor do limite de cr\u00C3\u00A9dito que o portador possui para uso exclusivo em Compras Nacionais. */
+    /** Quando utilizado pelo emissor, este campo apresenta o valor do limite de cr\u00E9dito que o portador possui para uso exclusivo em Compras Nacionais. */
     public var saldoDisponivelGlobal: Double?
-    /** Quando utilizado pelo emissor, este campo apresenta o valor do limite de cr\u00C3\u00A9dito que o portador pode utilizar para realizar transa\u00C3\u00A7\u00C3\u00B5es de Saque Nacional dentro de cada ciclo de faturamento. */
+    /** Quando utilizado pelo emissor, este campo apresenta o valor do limite de cr\u00E9dito que o portador pode utilizar para realizar transa\u00E7\u00F5es de Saque Nacional dentro de cada ciclo de faturamento. */
     public var saldoDisponivelSaque: Double?
     /** Apresenta a quantidade de dias que a conta esta em atraso */
     public var diasAtraso: Int?

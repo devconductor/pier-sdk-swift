@@ -12,18 +12,75 @@ import Alamofire
 public class PagamentoAPI: APIBase {
     /**
      
-     Lista hist\u00C3\u00B3rico de pagamentos
+     Consulta os dados de um determinado acordo
      
-     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
-     - parameter idConta: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Conta (optional)
-     - parameter idPagamento: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Pagamento (optional)
-     - parameter idEstabelecimento: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Estabelecimento onde o Pagamento foi realizado, quando este for o local de pagamento (optional)
-     - parameter idBanco: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Institui\u00C3\u00A7\u00C3\u00A3o Banc\u00C3\u00A1ria onde o Pagamento foi realizado, quando este for o local de pagamento (optional)
-     - parameter idCartao: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (optional)
-     - parameter dataHoraPagamento: (query) Data e Hora da realiza\u00C3\u00A7\u00C3\u00A3o do Pagamento. Quando feito em Institui\u00C3\u00A7\u00C3\u00A3o Banc\u00C3\u00A1ria, o hor\u00C3\u00A1rio do pagamento \u00C3\u00A9 exibido com valor zero (optional)
-     - parameter status: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Status do Pagamento (optional)
+     - parameter id: (path) C\u00F3digo de identifica\u00E7\u00E3o do acordo (id). 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func consultarUsingGET(id id: Int, completion: ((data: AcordoDetalheResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGETWithRequestBuilder(id: id).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Consulta os dados de um determinado acordo
+     
+     - GET /api/acordos/{id}
+     - Este m\u00E9todo permite consultar dados de um determinado acordo a partir de seu codigo de identifica\u00E7\u00E3o (id).
+     - examples: [{contentType=application/json, example={
+  "idConta" : 123456789,
+  "diasEmAtraso" : 123,
+  "saldoAtualFinal" : 1.3579000000000001069366817318950779736042022705078125,
+  "statusConta" : 123456789,
+  "totalPagamentos" : 1.3579000000000001069366817318950779736042022705078125,
+  "valorAcordo" : 1.3579000000000001069366817318950779736042022705078125,
+  "assessoriaAtual" : "aeiou",
+  "quantidadeParcelas" : 123,
+  "statusAcordo" : 123456789,
+  "dataAcordo" : "aeiou",
+  "vencimentoParcelaPedida" : "aeiou",
+  "parcelaPedida" : 123,
+  "dataQuebraAcordo" : "aeiou",
+  "dataVencimentoCobranca" : "aeiou",
+  "valorParcela1" : 1.3579000000000001069366817318950779736042022705078125,
+  "id" : 123456789,
+  "valorParcelaN" : 1.3579000000000001069366817318950779736042022705078125
+}}]
+     
+     - parameter id: (path) C\u00F3digo de identifica\u00E7\u00E3o do acordo (id). 
+
+     - returns: RequestBuilder<AcordoDetalheResponse> 
+     */
+    public class func consultarUsingGETWithRequestBuilder(id id: Int) -> RequestBuilder<AcordoDetalheResponse> {
+        var path = "/api/acordos/{id}"
+        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<AcordoDetalheResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Lista hist\u00F3rico de pagamentos
+     
+     - parameter sort: (query) Tipo de ordena\u00E7\u00E3o dos registros. (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
+     - parameter idConta: (query) C\u00F3digo de Identifica\u00E7\u00E3o da Conta (optional)
+     - parameter idPagamento: (query) C\u00F3digo de Identifica\u00E7\u00E3o do Pagamento (optional)
+     - parameter idEstabelecimento: (query) C\u00F3digo de Identifica\u00E7\u00E3o do Estabelecimento onde o Pagamento foi realizado, quando este for o local de pagamento (optional)
+     - parameter idBanco: (query) C\u00F3digo de Identifica\u00E7\u00E3o da Institui\u00E7\u00E3o Banc\u00E1ria onde o Pagamento foi realizado, quando este for o local de pagamento (optional)
+     - parameter idCartao: (query) C\u00F3digo de Identifica\u00E7\u00E3o do Cart\u00E3o (optional)
+     - parameter dataHoraPagamento: (query) Data e Hora da realiza\u00E7\u00E3o do Pagamento. Quando feito em Institui\u00E7\u00E3o Banc\u00E1ria, o hor\u00E1rio do pagamento \u00E9 exibido com valor zero (optional)
+     - parameter status: (query) C\u00F3digo de Identifica\u00E7\u00E3o do Status do Pagamento (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func listarPagamentosUsingGET1(sort sort: [String]?, page: Int?, limit: Int?, idConta: Int?, idPagamento: Int?, idEstabelecimento: Int?, idBanco: Int?, idCartao: Int?, dataHoraPagamento: String?, status: Int?, completion: ((data: PageHistoricoPagamentoResponse?, error: ErrorType?) -> Void)) {
@@ -35,7 +92,7 @@ public class PagamentoAPI: APIBase {
 
     /**
      
-     Lista hist\u00C3\u00B3rico de pagamentos
+     Lista hist\u00F3rico de pagamentos
      
      - GET /api/pagamentos
      - Este recurso permite listar todos os Pagamentos realizados independente do seu Status de Processamento.
@@ -54,7 +111,6 @@ public class PagamentoAPI: APIBase {
     "dataHoraPagamento" : "aeiou",
     "dataHoraEntradaPagamento" : "aeiou",
     "valorPagamento" : 1.3579000000000001069366817318950779736042022705078125,
-    "dataVencimentoParcelaAcordo" : "aeiou",
     "status" : 123456789
   } ],
   "totalElements" : 123456789,
@@ -67,16 +123,16 @@ public class PagamentoAPI: APIBase {
   "first" : true
 }}]
      
-     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
-     - parameter idConta: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Conta (optional)
-     - parameter idPagamento: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Pagamento (optional)
-     - parameter idEstabelecimento: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Estabelecimento onde o Pagamento foi realizado, quando este for o local de pagamento (optional)
-     - parameter idBanco: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Institui\u00C3\u00A7\u00C3\u00A3o Banc\u00C3\u00A1ria onde o Pagamento foi realizado, quando este for o local de pagamento (optional)
-     - parameter idCartao: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (optional)
-     - parameter dataHoraPagamento: (query) Data e Hora da realiza\u00C3\u00A7\u00C3\u00A3o do Pagamento. Quando feito em Institui\u00C3\u00A7\u00C3\u00A3o Banc\u00C3\u00A1ria, o hor\u00C3\u00A1rio do pagamento \u00C3\u00A9 exibido com valor zero (optional)
-     - parameter status: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Status do Pagamento (optional)
+     - parameter sort: (query) Tipo de ordena\u00E7\u00E3o dos registros. (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
+     - parameter idConta: (query) C\u00F3digo de Identifica\u00E7\u00E3o da Conta (optional)
+     - parameter idPagamento: (query) C\u00F3digo de Identifica\u00E7\u00E3o do Pagamento (optional)
+     - parameter idEstabelecimento: (query) C\u00F3digo de Identifica\u00E7\u00E3o do Estabelecimento onde o Pagamento foi realizado, quando este for o local de pagamento (optional)
+     - parameter idBanco: (query) C\u00F3digo de Identifica\u00E7\u00E3o da Institui\u00E7\u00E3o Banc\u00E1ria onde o Pagamento foi realizado, quando este for o local de pagamento (optional)
+     - parameter idCartao: (query) C\u00F3digo de Identifica\u00E7\u00E3o do Cart\u00E3o (optional)
+     - parameter dataHoraPagamento: (query) Data e Hora da realiza\u00E7\u00E3o do Pagamento. Quando feito em Institui\u00E7\u00E3o Banc\u00E1ria, o hor\u00E1rio do pagamento \u00E9 exibido com valor zero (optional)
+     - parameter status: (query) C\u00F3digo de Identifica\u00E7\u00E3o do Status do Pagamento (optional)
 
      - returns: RequestBuilder<PageHistoricoPagamentoResponse> 
      */
@@ -99,6 +155,88 @@ public class PagamentoAPI: APIBase {
         let parameters = APIHelper.rejectNil(nillableParameters)
 
         let requestBuilder: RequestBuilder<PageHistoricoPagamentoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
+    }
+
+    /**
+     
+     Lista os acordos existentes na base
+     
+     - parameter sort: (query) Tipo de ordena\u00E7\u00E3o dos registros. (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
+     - parameter idConta: (query) C\u00F3digo Identificador da conta na base (id) (optional)
+     - parameter statusAcordo: (query) Status do acordo na base (optional)
+     - parameter dataAcordo: (query) Data do acordo (optional)
+     - parameter quantidadeParcelas: (query) Quantidade de parcelas (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func listarUsingGET(sort sort: [String]?, page: Int?, limit: Int?, idConta: Int?, statusAcordo: Int?, dataAcordo: String?, quantidadeParcelas: Int?, completion: ((data: PageAcordoResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGETWithRequestBuilder(sort: sort, page: page, limit: limit, idConta: idConta, statusAcordo: statusAcordo, dataAcordo: dataAcordo, quantidadeParcelas: quantidadeParcelas).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Lista os acordos existentes na base
+     
+     - GET /api/acordos
+     - Este m\u00E9todo permite que sejam listados todos os acordos existentes na base do emissor.
+     - examples: [{contentType=application/json, example={
+  "previousPage" : 123,
+  "last" : true,
+  "hasContent" : true,
+  "hasNextPage" : true,
+  "nextPage" : 123,
+  "content" : [ {
+    "idConta" : 123456789,
+    "diasEmAtraso" : 123,
+    "saldoAtualFinal" : 1.3579000000000001069366817318950779736042022705078125,
+    "id" : 123456789,
+    "valorAcordo" : 1.3579000000000001069366817318950779736042022705078125,
+    "quantidadeParcelas" : 123,
+    "statusAcordo" : 123456789,
+    "dataAcordo" : "aeiou"
+  } ],
+  "totalElements" : 123456789,
+  "number" : 123,
+  "firstPage" : true,
+  "numberOfElements" : 123,
+  "size" : 123,
+  "totalPages" : 123,
+  "hasPreviousPage" : true,
+  "first" : true
+}}]
+     
+     - parameter sort: (query) Tipo de ordena\u00E7\u00E3o dos registros. (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
+     - parameter idConta: (query) C\u00F3digo Identificador da conta na base (id) (optional)
+     - parameter statusAcordo: (query) Status do acordo na base (optional)
+     - parameter dataAcordo: (query) Data do acordo (optional)
+     - parameter quantidadeParcelas: (query) Quantidade de parcelas (optional)
+
+     - returns: RequestBuilder<PageAcordoResponse> 
+     */
+    public class func listarUsingGETWithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, idConta: Int?, statusAcordo: Int?, dataAcordo: String?, quantidadeParcelas: Int?) -> RequestBuilder<PageAcordoResponse> {
+        let path = "/api/acordos"
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [
+            "sort": sort,
+            "page": page,
+            "limit": limit,
+            "idConta": idConta,
+            "statusAcordo": statusAcordo,
+            "dataAcordo": dataAcordo,
+            "quantidadeParcelas": quantidadeParcelas
+        ]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<PageAcordoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
     }

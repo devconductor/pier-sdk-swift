@@ -8,12 +8,12 @@
 import Foundation
 
 
-/** Representa\u00C3\u00A7\u00C3\u00A3o do tipo de template. */
+/** Representa\u00E7\u00E3o do tipo de template. */
 public class TipoTemplateRequest: JSONEncodable {
 
     /** Nome do tipo de template. */
     public var nome: String?
-    /** Descri\u00C3\u00A7\u00C3\u00A3o do tipo de template. */
+    /** Descri\u00E7\u00E3o do tipo de template. */
     public var descricao: String?
     /** Sigla do tipo de template. */
     public var sigla: String?

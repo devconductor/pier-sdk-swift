@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Objeto de resposta para a valida\u00C3\u00A7\u00C3\u00A3o das Taxas de Refinanciamento */
+/** Objeto de resposta para a valida\u00E7\u00E3o das Taxas de Refinanciamento */
 public class TaxasRefinanciamentoResponse: JSONEncodable {
 
     /** ID das taxas */
@@ -27,21 +27,21 @@ public class TaxasRefinanciamentoResponse: JSONEncodable {
     public var dataEntrada: String?
     /** Vencimento das taxas */
     public var vencimento: String?
-    /** Recupera\u00C3\u00A7\u00C3\u00A3o de encargos financeiro */
+    /** Recupera\u00E7\u00E3o de encargos financeiro */
     public var recuperacaoEncargosFinanceiros: Double?
-    /** Descri\u00C3\u00A7\u00C3\u00A3o da comiss\u00C3\u00A3o de garantia */
+    /** Descri\u00E7\u00E3o da comiss\u00E3o de garantia */
     public var comissaoGarantia: Double?
-    /** Descri\u00C3\u00A7\u00C3\u00A3o do agenciamento */
+    /** Descri\u00E7\u00E3o do agenciamento */
     public var agenciamento: Double?
-    /** Taxa m\u00C3\u00A1xima do proximo per\u00C3\u00ADodo */
+    /** Taxa m\u00E1xima do proximo per\u00EDodo */
     public var taxaMaximaProximoPeriodo: Double?
     /** Taxa de encargos do financiamento */
     public var taxaEncargosFinanciamento: Double?
-    /** Taxa m\u00C3\u00A1xima de saque */
+    /** Taxa m\u00E1xima de saque */
     public var taxaMaximaSaque: Double?
     /** Taxa de saque */
     public var taxaSaque: Double?
-    /** Taxa m\u00C3\u00A1xima de compras juros */
+    /** Taxa m\u00E1xima de compras juros */
     public var taxaMaximaCompraJuros: Double?
     /** Taxa de juros compra */
     public var taxaCompraJuros: Double?
@@ -53,7 +53,7 @@ public class TaxasRefinanciamentoResponse: JSONEncodable {
     public var taxaRecuperacaoRefinanciamento: Double?
     /** Taxa Percelamento pagamento minimo */
     public var taxaPercCalcPagamentoMinimo: Double?
-    /** Plano de taxa padr\u00C3\u00A3o */
+    /** Plano de taxa padr\u00E3o */
     public var planoTaxaDefault: Int?
     
 

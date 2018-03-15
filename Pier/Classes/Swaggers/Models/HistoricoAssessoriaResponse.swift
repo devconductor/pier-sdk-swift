@@ -8,14 +8,14 @@
 import Foundation
 
 
-/** Representa\u00C3\u00A7\u00C3\u00A3o da resposta do {@link HistoricoAssessoriaResponse} */
+/** Representa\u00E7\u00E3o da resposta do {@link HistoricoAssessoriaResponse} */
 public class HistoricoAssessoriaResponse: JSONEncodable {
 
-    /** Apresenta a data e hora do hist\u00C3\u00B3rico */
+    /** Apresenta a data e hora do hist\u00F3rico */
     public var dataHoraHistorico: String?
-    /** Apresenta o tipo do hist\u00C3\u00B3rico podendo ser ENTRADA ou SAIDA */
+    /** Apresenta o tipo do hist\u00F3rico podendo ser ENTRADA ou SAIDA */
     public var tipoHistorico: String?
-    /** Apresenta o nome da Assessoria de Cobran\u00C3\u00A7a relacionada ao hist\u00C3\u00B3rico */
+    /** Apresenta o nome da Assessoria de Cobran\u00E7a relacionada ao hist\u00F3rico */
     public var nomeAssessoria: String?
     
 

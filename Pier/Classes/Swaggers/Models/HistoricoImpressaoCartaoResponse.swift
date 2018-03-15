@@ -8,18 +8,18 @@
 import Foundation
 
 
-/** Hist\u00C3\u00B3rico Impress\u00C3\u00A3o Cart\u00C3\u00A3o */
+/** Hist\u00F3rico Impress\u00E3o Cart\u00E3o */
 public class HistoricoImpressaoCartaoResponse: JSONEncodable {
 
-    /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Hist\u00C3\u00B3rico de Impress\u00C3\u00A3o Avulsa de Cart\u00C3\u00B5es (id). */
+    /** C\u00F3digo de Identifica\u00E7\u00E3o do Hist\u00F3rico de Impress\u00E3o Avulsa de Cart\u00F5es (id). */
     public var id: Int?
-    /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id). */
+    /** C\u00F3digo de Identifica\u00E7\u00E3o do Cart\u00E3o (id). */
     public var idCartao: Int?
-    /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Status de Impress\u00C3\u00A3o do Cart\u00C3\u00A3o (id). */
+    /** C\u00F3digo de Identifica\u00E7\u00E3o do Status de Impress\u00E3o do Cart\u00E3o (id). */
     public var idStatusImpressaoCartao: Int?
-    /** Apresenta uma mensagem que descreve a etapa do processo de impress\u00C3\u00A3o do cart\u00C3\u00A3o que fora realizado. */
+    /** Apresenta uma mensagem que descreve a etapa do processo de impress\u00E3o do cart\u00E3o que fora realizado. */
     public var mensagemHistorico: String?
-    /** Apresenta a data que o registro de Hist\u00C3\u00B3rico de Impress\u00C3\u00A3o de um Cart\u00C3\u00A3o fora inserido. */
+    /** Apresenta a data que o registro de Hist\u00F3rico de Impress\u00E3o de um Cart\u00E3o fora inserido. */
     public var dataHistorico: String?
     
 

@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Representa\u00C3\u00A7\u00C3\u00A3o da resposta do recurso de grupo econ\u00C3\u00B4mico */
+/** Representa\u00E7\u00E3o da resposta do recurso de grupo econ\u00F4mico */
 public class GrupoEconomicoResponse: JSONEncodable {
 
     public enum Periodicidade: String { 
@@ -35,29 +35,29 @@ public class GrupoEconomicoResponse: JSONEncodable {
         case DebitoRav = "DEBITO_RAV"
     }
     
-    /** C\u00C3\u00B3digo identificador do grupo econ\u00C3\u00B4mico */
+    /** C\u00F3digo identificador do grupo econ\u00F4mico */
     public var id: Int?
-    /** Raz\u00C3\u00A3o social da pessoa jur\u00C3\u00ADdica */
+    /** Raz\u00E3o social da pessoa jur\u00EDdica */
     public var razaoSocial: String?
     /** Nome do credor */
     public var nomeCredor: String?
-    /** N\u00C3\u00BAmero da Receita Federal */
+    /** N\u00FAmero da Receita Federal */
     public var numeroReceitaFederal: String?
-    /** N\u00C3\u00BAmero da inscri\u00C3\u00A7\u00C3\u00A3o estadual */
+    /** N\u00FAmero da inscri\u00E7\u00E3o estadual */
     public var inscricaoEstadual: String?
     /** Nome da pessoa para entrar em contato */
     public var contato: String?
-    /** C\u00C3\u00B3digo do banco */
+    /** C\u00F3digo do banco */
     public var banco: Int?
-    /** C\u00C3\u00B3digo da ag\u00C3\u00AAncia */
+    /** C\u00F3digo da ag\u00EAncia */
     public var agencia: Int?
-    /** D\u00C3\u00ADgito verificador da ag\u00C3\u00AAncia */
+    /** D\u00EDgito verificador da ag\u00EAncia */
     public var digitoAgencia: String?
-    /** C\u00C3\u00B3digo da Conta Corrente */
+    /** C\u00F3digo da Conta Corrente */
     public var contaCorrente: String?
-    /** D\u00C3\u00ADgito Verificador da Conta Corrente */
+    /** D\u00EDgito Verificador da Conta Corrente */
     public var digitoContaCorrente: String?
-    /** Login do usu\u00C3\u00A1rio para registro da inser\u00C3\u00A7\u00C3\u00A3o */
+    /** Login do usu\u00E1rio para registro da inser\u00E7\u00E3o */
     public var usuario: String?
     /** Periodicidade do pagamento */
     public var periodicidade: Periodicidade?
@@ -75,6 +75,8 @@ public class GrupoEconomicoResponse: JSONEncodable {
     public var pagamentoQuinzenalPrimeiro: Int?
     /** Dia da data para o segundo pagamento quinzenal */
     public var pagamentoQuinzenalSegundo: Int?
+    /** Identificador do credor RAV */
+    public var idCredorRAV: Int?
     /** Valor percentual do RAV do credor */
     public var percentualRAV: Double?
     /** Indica se o credor recebe RAV e o tipo */
@@ -114,6 +116,7 @@ public class GrupoEconomicoResponse: JSONEncodable {
         nillableDictionary["pagamentoDecendialTerceiro"] = self.pagamentoDecendialTerceiro
         nillableDictionary["pagamentoQuinzenalPrimeiro"] = self.pagamentoQuinzenalPrimeiro
         nillableDictionary["pagamentoQuinzenalSegundo"] = self.pagamentoQuinzenalSegundo
+        nillableDictionary["idCredorRAV"] = self.idCredorRAV
         nillableDictionary["percentualRAV"] = self.percentualRAV
         nillableDictionary["recebeRAV"] = self.recebeRAV?.rawValue
         nillableDictionary["percentualMultiplica"] = self.percentualMultiplica

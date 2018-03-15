@@ -11,25 +11,25 @@ import Foundation
 /** Objeto Response do arquivo. */
 public class ArquivoResponse: JSONEncodable {
 
-    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do arquivo */
+    /** C\u00F3digo de identifica\u00E7\u00E3o do arquivo */
     public var id: Int?
-    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do Tipo do arquivo */
+    /** C\u00F3digo de identifica\u00E7\u00E3o do Tipo do arquivo */
     public var idTipoArquivo: Int?
-    /** Descri\u00C3\u00A7\u00C3\u00A3o do tipo do arquivo */
+    /** Descri\u00E7\u00E3o do tipo do arquivo */
     public var nomeTipoArquivo: String?
-    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do Status do arquivo */
+    /** C\u00F3digo de identifica\u00E7\u00E3o do Status do arquivo */
     public var idStatusArquivo: Int?
-    /** Desci\u00C3\u00A7\u00C3\u00A3o do status do arquivo */
+    /** Desci\u00E7\u00E3o do status do arquivo */
     public var nomeStatusArquivo: String?
     /** Nome do arquivo */
     public var nome: String?
-    /** Formato/Extens\u00C3\u00A3o do arquivo */
+    /** Formato/Extens\u00E3o do arquivo */
     public var extensao: String?
-    /** Data de inclus\u00C3\u00A3o do arquivo. */
+    /** Data de inclus\u00E3o do arquivo. */
     public var dataInclusao: String?
-    /** Data da \u00C3\u00BAltima altera\u00C3\u00A7\u00C3\u00A3o do aquivo. */
+    /** Data da \u00FAltima altera\u00E7\u00E3o do aquivo. */
     public var dataAlteracao: String?
-    /** Detalhes contendo informa\u00C3\u00A7\u00C3\u00B5es adicionais, relacionadas ao arquivo. */
+    /** Detalhes contendo informa\u00E7\u00F5es adicionais, relacionadas ao arquivo. */
     public var detalhes: [ArquivoParametroResponse]?
     
 

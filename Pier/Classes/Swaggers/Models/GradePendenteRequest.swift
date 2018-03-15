@@ -10,7 +10,7 @@ import Foundation
 
 public class GradePendenteRequest: JSONEncodable {
 
-    /** C\u00C3\u00B3digo identificador da conta. */
+    /** C\u00F3digo identificador da conta. */
     public var idConta: Int?
     /** Data do ajuste no formato yyyy-MM-dd. */
     public var dataBase: String?

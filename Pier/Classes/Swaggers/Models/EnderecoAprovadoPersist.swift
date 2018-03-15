@@ -8,20 +8,20 @@
 import Foundation
 
 
-/** Objeto Endere\u00C3\u00A7o Aprovado */
+/** Objeto Endere\u00E7o Aprovado */
 public class EnderecoAprovadoPersist: JSONEncodable {
 
-    /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Tipo Endere\u00C3\u00A7o (id) */
+    /** C\u00F3digo de Identifica\u00E7\u00E3o da Tipo Endere\u00E7o (id) */
     public var idTipoEndereco: Int?
-    /** Apresenta o C\u00C3\u00B3digo de Endere\u00C3\u00A7amento Postal (CEP) no formaro &#39;58800000&#39; */
+    /** Apresenta o C\u00F3digo de Endere\u00E7amento Postal (CEP) no formaro &#39;58800000&#39; */
     public var cep: String?
     /** Apresenta o nome do Logradouro */
     public var logradouro: String?
-    /** Apresenta o n\u00C3\u00BAmero do endere\u00C3\u00A7o */
+    /** Apresenta o n\u00FAmero do endere\u00E7o */
     public var numero: Int?
-    /** Apresenta descri\u00C3\u00A7oes complementares referente ao endere\u00C3\u00A7o */
+    /** Apresenta descri\u00E7oes complementares referente ao endere\u00E7o */
     public var complemento: String?
-    /** Apresenta a descri\u00C3\u00A7\u00C3\u00A3o de ponto de refer\u00C3\u00AAncia do endere\u00C3\u00A7o */
+    /** Apresenta a descri\u00E7\u00E3o de ponto de refer\u00EAncia do endere\u00E7o */
     public var pontoReferencia: String?
     /** Apresenta nome do bairro */
     public var bairro: String?
@@ -31,7 +31,7 @@ public class EnderecoAprovadoPersist: JSONEncodable {
     public var uf: String?
     /** Apresenta nome do Pais */
     public var pais: String?
-    /** Indica se o endere\u00C3\u00A7o informado \u00C3\u00A9 o de correspond\u00C3\u00AAncia */
+    /** Indica se o endere\u00E7o informado \u00E9 o de correspond\u00EAncia */
     public var enderecoCorrespondencia: Bool?
     
 

@@ -8,26 +8,26 @@
 import Foundation
 
 
-/** Transfer\u00C3\u00AAncia de cr\u00C3\u00A9dito para conta banc\u00C3\u00A1ria */
+/** Transfer\u00EAncia de cr\u00E9dito para conta banc\u00E1ria */
 public class TransferenciaCreditoContaBancariaPersist: JSONEncodable {
 
-    /** Representa o N\u00C3\u00BAmero Sequencial \u00C3\u009Anico que identifica a transa\u00C3\u00A7\u00C3\u00A3o no sistema que a originou. */
+    /** Representa o N\u00FAmero Sequencial \u00DAnico que identifica a transa\u00E7\u00E3o no sistema que a originou. */
     public var nsuOrigem: Int?
     /** Representa o Identificador do Cartao. */
     public var idCartao: Int?
-    /** Representa o Identificador da conta banc\u00C3\u00A1ria. */
+    /** Representa o Identificador da conta banc\u00E1ria. */
     public var idContaBancaria: Int?
-    /** Representa o Valor da transfer\u00C3\u00AAncia. */
+    /** Representa o Valor da transfer\u00EAncia. */
     public var valor: Double?
-    /** Representa o N\u00C3\u00BAmero de Parcelas pelo qual o valor da transfer\u00C3\u00AAncia ser\u00C3\u00A1 dividido. */
+    /** Representa o N\u00FAmero de Parcelas pelo qual o valor da transfer\u00EAncia ser\u00E1 dividido. */
     public var numeroParcelas: Int?
-    /** Representa o N\u00C3\u00BAmero de Meses concedido como car\u00C3\u00AAncia. */
+    /** Representa o N\u00FAmero de Meses concedido como car\u00EAncia. */
     public var numeroMesesCarencia: Int?
     /** Representa a Data e hora do terminal requisitante. */
     public var dataHoraTerminal: String?
-    /** Representa a identifica\u00C3\u00A7\u00C3\u00A3o do terminal requisitante. */
+    /** Representa a identifica\u00E7\u00E3o do terminal requisitante. */
     public var terminalRequisitante: String?
-    /** Representa a identifica\u00C3\u00A7\u00C3\u00A3o do n\u00C3\u00BAmero do estabelecimento. */
+    /** Representa a identifica\u00E7\u00E3o do n\u00FAmero do estabelecimento. */
     public var numeroEstabelecimento: String?
     
 

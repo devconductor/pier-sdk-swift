@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Representa\u00C3\u00A7\u00C3\u00A3o do recurso Usuario */
+/** Representa\u00E7\u00E3o do recurso Usuario */
 public class UsuarioResponse: JSONEncodable {
 
     public enum Status: String { 
@@ -16,25 +16,25 @@ public class UsuarioResponse: JSONEncodable {
         case Ativo = "ATIVO"
     }
     
-    /** Id do Usu\u00C3\u00A1rio */
+    /** Id do Usu\u00E1rio */
     public var id: Int?
-    /** Nome do Usu\u00C3\u00A1rio */
+    /** Nome do Usu\u00E1rio */
     public var nome: String?
-    /** Login do Usu\u00C3\u00A1rio */
+    /** Login do Usu\u00E1rio */
     public var login: String?
-    /** Id do emissor do usu\u00C3\u00A1rio */
+    /** Id do emissor do usu\u00E1rio */
     public var idEmissor: Int?
-    /** CPF do Usu\u00C3\u00A1rio */
+    /** CPF do Usu\u00E1rio */
     public var cpf: String?
-    /** Email do Usu\u00C3\u00A1rio */
+    /** Email do Usu\u00E1rio */
     public var email: String?
-    /** Status do Usu\u00C3\u00A1rio */
+    /** Status do Usu\u00E1rio */
     public var status: Status?
-    /** Data de cria\u00C3\u00A7\u00C3\u00A3o do Usu\u00C3\u00A1rio */
+    /** Data de cria\u00E7\u00E3o do Usu\u00E1rio */
     public var dataCriacao: String?
-    /** Data de modifica\u00C3\u00A7\u00C3\u00A3o do Usu\u00C3\u00A1rio */
+    /** Data de modifica\u00E7\u00E3o do Usu\u00E1rio */
     public var dataModificacao: String?
-    /** N\u00C3\u00BAmero de tentativas de valida\u00C3\u00A7\u00C3\u00A3o incorretas */
+    /** N\u00FAmero de tentativas de valida\u00E7\u00E3o incorretas */
     public var tentativasIncorretas: Int?
     
 

@@ -8,12 +8,12 @@
 import Foundation
 
 
-/** Representa\u00C3\u00A7\u00C3\u00A3o do recurso validar c\u00C3\u00B3digo de seguran\u00C3\u00A7a. */
+/** Representa\u00E7\u00E3o do recurso validar c\u00F3digo de seguran\u00E7a. */
 public class CodigoSegurancaEMAILPersist: JSONEncodable {
 
-    /** E-mail usado para envio do c\u00C3\u00B3digo de seguran\u00C3\u00A7a. */
+    /** E-mail usado para envio do c\u00F3digo de seguran\u00E7a. */
     public var email: String?
-    /** Token para valida\u00C3\u00A7\u00C3\u00A3o. */
+    /** Token para valida\u00E7\u00E3o. */
     public var codigoSeguranca: String?
     
 

@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Objeto Push Notifica\u00C3\u00A7\u00C3\u00A3o APNS */
+/** Objeto Push Notifica\u00E7\u00E3o APNS */
 public class PushAPNS: JSONEncodable {
 
     public enum TipoEvento: String { 
@@ -17,21 +17,21 @@ public class PushAPNS: JSONEncodable {
         case Outros = "OUTROS"
     }
     
-    /** C\u00C3\u00B3digo identificado da pessoa */
+    /** C\u00F3digo identificado da pessoa */
     public var idPessoa: Int?
-    /** C\u00C3\u00B3digo identificador da conta */
+    /** C\u00F3digo identificador da conta */
     public var idConta: Int?
-    /** Apresenta o token do dispositivo que dever\u00C3\u00A1 receber o push. */
+    /** Apresenta o token do dispositivo que dever\u00E1 receber o push. */
     public var tokenDispositivo: String?
-    /** Apresenta o certificado APNs que est\u00C3\u00A1 cadastrado para o aplicativo na loja da Apple. Esse certificado dever\u00C3\u00A1 ser enviado no formado Base64. */
+    /** Apresenta o certificado APNs que est\u00E1 cadastrado para o aplicativo na loja da Apple. Esse certificado dever\u00E1 ser enviado no formado Base64. */
     public var certificado: String?
-    /** Apresenta a senha para o certificado APNs que est\u00C3\u00A1 cadastrado para o aplicativo na loja da Apple. */
+    /** Apresenta a senha para o certificado APNs que est\u00E1 cadastrado para o aplicativo na loja da Apple. */
     public var senha: String?
-    /** Apresenta o t\u00C3\u00ADtulo da notifica\u00C3\u00A7\u00C3\u00A3o. */
+    /** Apresenta o t\u00EDtulo da notifica\u00E7\u00E3o. */
     public var titulo: String?
-    /** Apresenta o texto da notifica\u00C3\u00A7\u00C3\u00A3o a ser enviado. */
+    /** Apresenta o texto da notifica\u00E7\u00E3o a ser enviado. */
     public var conteudo: String?
-    /** Apresenta o tipoEvento a qual pertence a notifica\u00C3\u00A7\u00C3\u00A3o */
+    /** Apresenta o tipoEvento a qual pertence a notifica\u00E7\u00E3o */
     public var tipoEvento: TipoEvento?
     /** Apresenta o nome do icone a ser apresentado no push. */
     public var icone: String?

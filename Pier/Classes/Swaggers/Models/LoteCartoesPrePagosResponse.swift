@@ -8,30 +8,30 @@
 import Foundation
 
 
-/** Lote Cart\u00C3\u00B5es Pr\u00C3\u00A9-Pagos */
+/** Lote Cart\u00F5es Pr\u00E9-Pagos */
 public class LoteCartoesPrePagosResponse: JSONEncodable {
 
-    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do lote de cart\u00C3\u00B5es pr\u00C3\u00A9-pagos (id). */
+    /** C\u00F3digo de identifica\u00E7\u00E3o do lote de cart\u00F5es pr\u00E9-pagos (id). */
     public var id: Int?
-    /** C\u00C3\u00B3digo identificador da origem comercial. */
+    /** C\u00F3digo identificador da origem comercial. */
     public var idOrigemComercial: Int?
-    /** C\u00C3\u00B3digo identificador do Produto. */
+    /** C\u00F3digo identificador do Produto. */
     public var idProduto: Int?
-    /** C\u00C3\u00B3digo identificador do tipo do cart\u00C3\u00A3o. */
+    /** C\u00F3digo identificador do tipo do cart\u00E3o. */
     public var idTipoCartao: Int?
-    /** C\u00C3\u00B3digo identificador da Imagem do cart\u00C3\u00A3o. */
+    /** C\u00F3digo identificador da Imagem do cart\u00E3o. */
     public var idImagem: Int?
-    /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Endere\u00C3\u00A7o. */
+    /** C\u00F3digo de Identifica\u00E7\u00E3o do Endere\u00E7o. */
     public var idEndereco: Int?
-    /** N\u00C3\u00BAmero de cart\u00C3\u00B5es existentes no Lote. */
+    /** N\u00FAmero de cart\u00F5es existentes no Lote. */
     public var quantidade: Int?
-    /** Data de cadastro do lote de cart\u00C3\u00B5es pr\u00C3\u00A9-pagos. */
+    /** Data de cadastro do lote de cart\u00F5es pr\u00E9-pagos. */
     public var dataCadastro: String?
-    /** Nome do usu\u00C3\u00A1rio que criou o lote. */
+    /** Nome do usu\u00E1rio que criou o lote. */
     public var usuarioCadastro: String?
     /** Indica o status de processamento do lote. */
     public var statusProcessamento: Int?
-    /** N\u00C3\u00BAmero de identifica\u00C3\u00A7\u00C3\u00A3o externo (utilizado pelo emissor). */
+    /** N\u00FAmero de identifica\u00E7\u00E3o externo (utilizado pelo emissor). */
     public var identificadorExterno: String?
     
 

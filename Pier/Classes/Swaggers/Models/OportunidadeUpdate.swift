@@ -11,17 +11,17 @@ import Foundation
 /** Objeto Oportunidade */
 public class OportunidadeUpdate: JSONEncodable {
 
-    /** C\u00C3\u00B3digo identificador do tipo oportunidade */
+    /** C\u00F3digo identificador do tipo oportunidade */
     public var idTipoOportunidade: Int?
-    /** C\u00C3\u00B3digo identificador do status oportunidade */
+    /** C\u00F3digo identificador do status oportunidade */
     public var idStatusOportunidade: Int?
-    /** N\u00C3\u00BAmero receita federal do cliente */
+    /** N\u00FAmero receita federal do cliente */
     public var numeroReceitaFederal: String?
-    /** In\u00C3\u00ADcio da vig\u00C3\u00AAncia da oportunidade */
+    /** In\u00EDcio da vig\u00EAncia da oportunidade */
     public var dataInicioVigencia: String?
-    /** Fim da vig\u00C3\u00AAncia da oportunidade */
+    /** Fim da vig\u00EAncia da oportunidade */
     public var dataFimVigencia: String?
-    /** Atributo que indica se a oportunidade est\u00C3\u00A1 ativa */
+    /** Atributo que indica se a oportunidade est\u00E1 ativa */
     public var flagAtivo: Bool?
     /** Lista de detalhes */
     public var detalhes: [DetalheOportunidadeUpdate]?

@@ -11,27 +11,27 @@ import Foundation
 /** Pessoa */
 public class PessoaResponse: JSONEncodable {
 
-    /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Pessoa (id). */
+    /** C\u00F3digo de Identifica\u00E7\u00E3o da Pessoa (id). */
     public var id: Int?
-    /** Apresenta o &#39;Nome Completo da PF&#39; ou o &#39;Nome Completo da Raz\u00C3\u00A3o Social (Nome Empresarial)&#39;. */
+    /** Apresenta o &#39;Nome Completo da PF&#39; ou o &#39;Nome Completo da Raz\u00E3o Social (Nome Empresarial)&#39;. */
     public var nome: String?
-    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do tipo da Pessoa, sendo: (\&quot;PF\&quot;: Pessoa F\u00C3\u00ADsica), (\&quot;PJ\&quot;: Pessoa Jur\u00C3\u00ADdica). */
+    /** C\u00F3digo de identifica\u00E7\u00E3o do tipo da Pessoa, sendo: (\&quot;PF\&quot;: Pessoa F\u00EDsica), (\&quot;PJ\&quot;: Pessoa Jur\u00EDdica). */
     public var tipo: String?
-    /** N\u00C3\u00BAmero do CPF, quando PF. */
+    /** N\u00FAmero do CPF, quando PF. */
     public var cpf: String?
-    /** N\u00C3\u00BAmero do CNPJ, quando PJ. */
+    /** N\u00FAmero do CNPJ, quando PJ. */
     public var cnpj: String?
     /** Data de Nascimento da Pessoa, quando PF, ou a Data de Abertura da Empresa, quando PJ. */
     public var dataNascimento: String?
-    /** N\u00C3\u00BAmero da Identidade */
+    /** N\u00FAmero da Identidade */
     public var numeroIdentidade: String?
-    /** Org\u00C3\u00A3o expedidor do RG. */
+    /** Org\u00E3o expedidor do RG. */
     public var orgaoExpedidorIdentidade: String?
-    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do sexo da Pessoa, quando PF, sendo: (\&quot;M\&quot;: Masculino), (\&quot;F\&quot;: Feminino), (\&quot;O\&quot;: Outro), (\&quot;N\&quot;: N\u00C3\u00A3o Especificado). */
+    /** C\u00F3digo de identifica\u00E7\u00E3o do sexo da Pessoa, quando PF, sendo: (\&quot;M\&quot;: Masculino), (\&quot;F\&quot;: Feminino), (\&quot;O\&quot;: Outro), (\&quot;N\&quot;: N\u00E3o Especificado). */
     public var sexo: String?
     /** Sigla da Unidade Federativa de onde foi expedido a Identidade */
     public var unidadeFederativaIdentidade: String?
-    /** Data emiss\u00C3\u00A3o da identidade no formato aaaa-MM-dd */
+    /** Data emiss\u00E3o da identidade no formato aaaa-MM-dd */
     public var dataEmissaoIdentidade: String?
     
 

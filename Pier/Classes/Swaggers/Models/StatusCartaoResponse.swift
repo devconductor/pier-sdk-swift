@@ -8,20 +8,20 @@
 import Foundation
 
 
-/** Representa\u00C3\u00A7\u00C3\u00A3o do recurso Status Cart\u00C3\u00A3o */
+/** Representa\u00E7\u00E3o do recurso Status Cart\u00E3o */
 public class StatusCartaoResponse: JSONEncodable {
 
-    /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Status do Cart\u00C3\u00A3o (id)  */
+    /** C\u00F3digo de Identifica\u00E7\u00E3o do Status do Cart\u00E3o (id)  */
     public var id: Int?
-    /** Nome atribu\u00C3\u00ADdo ao Status de Entrega do Cart\u00C3\u00A3o. */
+    /** Nome atribu\u00EDdo ao Status de Entrega do Cart\u00E3o. */
     public var nome: String?
-    /** Par\u00C3\u00A2metro que define se o status do cart\u00C3\u00A3o permite a reativa\u00C3\u00A7\u00C3\u00A3o do cart\u00C3\u00A3o, sendo: 0: Inativo e 1: Ativo. */
+    /** Par\u00E2metro que define se o status do cart\u00E3o permite a reativa\u00E7\u00E3o do cart\u00E3o, sendo: 0: Inativo e 1: Ativo. */
     public var permiteDesbloquear: Int?
-    /** Par\u00C3\u00A2metro que define se o status do cart\u00C3\u00A3o permite a reativa\u00C3\u00A7\u00C3\u00A3o do cart\u00C3\u00A3o, sendo: 0: Inativo e 1: Ativo. */
+    /** Par\u00E2metro que define se o status do cart\u00E3o permite a reativa\u00E7\u00E3o do cart\u00E3o, sendo: 0: Inativo e 1: Ativo. */
     public var permiteAtribuirComoBloqueio: Int?
-    /** Par\u00C3\u00A2metro que define se o status do cart\u00C3\u00A3o permite a reativa\u00C3\u00A7\u00C3\u00A3o do cart\u00C3\u00A3o, sendo: 0: Inativo e 1: Ativo. */
+    /** Par\u00E2metro que define se o status do cart\u00E3o permite a reativa\u00E7\u00E3o do cart\u00E3o, sendo: 0: Inativo e 1: Ativo. */
     public var permiteAtribuirComoCancelamento: Int?
-    /** Par\u00C3\u00A2metro que define se o status do cart\u00C3\u00A3o permite a reativa\u00C3\u00A7\u00C3\u00A3o do cart\u00C3\u00A3o, sendo: 0: Inativo e 1: Ativo. */
+    /** Par\u00E2metro que define se o status do cart\u00E3o permite a reativa\u00E7\u00E3o do cart\u00E3o, sendo: 0: Inativo e 1: Ativo. */
     public var cobrarTarifaAoEmitirNovaVia: Int?
     
 

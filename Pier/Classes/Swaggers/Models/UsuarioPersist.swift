@@ -11,15 +11,15 @@ import Foundation
 /** Objeto Usuario */
 public class UsuarioPersist: JSONEncodable {
 
-    /** Apresenta o nome do usu\u00C3\u00A1rio. */
+    /** Apresenta o nome do usu\u00E1rio. */
     public var nome: String?
-    /** Apresenta o login do usu\u00C3\u00A1rio. */
+    /** Apresenta o login do usu\u00E1rio. */
     public var login: String?
-    /** N\u00C3\u00BAmero do CPF. */
+    /** N\u00FAmero do CPF. */
     public var cpf: String?
-    /** Apresenta o email do usu\u00C3\u00A1rio. */
+    /** Apresenta o email do usu\u00E1rio. */
     public var email: String?
-    /** Apresenta a senha do usu\u00C3\u00A1rio. */
+    /** Apresenta a senha do usu\u00E1rio. */
     public var senha: String?
     
 

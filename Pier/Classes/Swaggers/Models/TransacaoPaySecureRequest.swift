@@ -8,36 +8,36 @@
 import Foundation
 
 
-/** Representa\u00C3\u00A7\u00C3\u00A3o da requisi\u00C3\u00A7\u00C3\u00A3o do recurso de transa\u00C3\u00A7\u00C3\u00A3o segura conductorPay */
+/** Representa\u00E7\u00E3o da requisi\u00E7\u00E3o do recurso de transa\u00E7\u00E3o segura conductorPay */
 public class TransacaoPaySecureRequest: JSONEncodable {
 
-    /** Data e hora utilizado na gera\u00C3\u00A7\u00C3\u00A3o do criptograma em GMT - 0 */
+    /** Data e hora utilizado na gera\u00E7\u00E3o do criptograma em GMT - 0 */
     public var dataHoraTransacao: String?
     /** Numero do cartao (criptografado) */
     public var numeroCartao: String?
-    /** Id do cart\u00C3\u00A3o */
+    /** Id do cart\u00E3o */
     public var idCartao: Int?
-    /** Valor da transa\u00C3\u00A7\u00C3\u00A3o em moeda local */
+    /** Valor da transa\u00E7\u00E3o em moeda local */
     public var valor: Double?
-    /** N\u00C3\u00BAmero Sequencial \u00C3\u009Anico que identifica a transa\u00C3\u00A7\u00C3\u00A3o no sistema que a originou (critografado). */
+    /** N\u00FAmero Sequencial \u00DAnico que identifica a transa\u00E7\u00E3o no sistema que a originou (critografado). */
     public var nsuOrigem: String?
-    /** Nome do Portador do Cart\u00C3\u00A3o que originou a transa\u00C3\u00A7\u00C3\u00A3o (criptografado). */
+    /** Nome do Portador do Cart\u00E3o que originou a transa\u00E7\u00E3o (criptografado). */
     public var nomePortadorCartao: String?
-    /** Origem da transa\u00C3\u00A7\u00C3\u00A3o */
+    /** Origem da transa\u00E7\u00E3o */
     public var origem: String?
-    /** Apresenta a identifica\u00C3\u00A7\u00C3\u00A3o do terminal requisitante */
+    /** Apresenta a identifica\u00E7\u00E3o do terminal requisitante */
     public var terminalRequisitante: String?
-    /** C\u00C3\u00B3digo de Processamento que identifica o Tipo da Transa\u00C3\u00A7\u00C3\u00A3o. */
+    /** C\u00F3digo de Processamento que identifica o Tipo da Transa\u00E7\u00E3o. */
     public var codigoProcessamento: String?
-    /** Data de Validade do Cart\u00C3\u00A3o. Ex: AAMM */
+    /** Data de Validade do Cart\u00E3o. Ex: AAMM */
     public var dataValidadeCartao: String?
-    /** N\u00C3\u00BAmero do Estabelecimento (N\u00C3\u00BAmero+DV). */
+    /** N\u00FAmero do Estabelecimento (N\u00FAmero+DV). */
     public var numeroEstabelecimento: String?
-    /** N\u00C3\u00BAmero de Parcelas. */
+    /** N\u00FAmero de Parcelas. */
     public var numeroParcelas: Int?
-    /** C\u00C3\u00B3digo de Seguran\u00C3\u00A7a do Cart\u00C3\u00A3o (criptografado). */
+    /** C\u00F3digo de Seguran\u00E7a do Cart\u00E3o (criptografado). */
     public var codigoSegurancaCartao: String?
-    /** Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. */
+    /** Tipo de ordena\u00E7\u00E3o dos registros. */
     public var sort: [String]?
     
 

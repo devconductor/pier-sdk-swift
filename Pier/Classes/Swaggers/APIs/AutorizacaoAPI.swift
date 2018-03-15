@@ -12,7 +12,7 @@ import Alamofire
 public class AutorizacaoAPI: APIBase {
     /**
      
-     Autoriza transa\u00C3\u00A7\u00C3\u00A3o financeira por idConta
+     Autoriza transa\u00E7\u00E3o financeira por idConta
      
      - parameter id: (path) Id Conta 
      - parameter transacaoOnUsPorIdCartaoRequest: (body) transacaoOnUsPorIdCartaoRequest 
@@ -27,10 +27,10 @@ public class AutorizacaoAPI: APIBase {
 
     /**
      
-     Autoriza transa\u00C3\u00A7\u00C3\u00A3o financeira por idConta
+     Autoriza transa\u00E7\u00E3o financeira por idConta
      
      - POST /api/contas/{id}/autorizar-transacao
-     - Este m\u00C3\u00A9todo faz uma autoriza\u00C3\u00A7\u00C3\u00A3o de transa\u00C3\u00A7\u00C3\u00A3o financeira com o idConta.
+     - Este m\u00E9todo faz uma autoriza\u00E7\u00E3o de transa\u00E7\u00E3o financeira com o idConta.
      - examples: [{contentType=application/json, example={
   "codigoAutorizacao" : "aeiou",
   "planoDeParcelamento" : [ { } ],
@@ -60,7 +60,7 @@ public class AutorizacaoAPI: APIBase {
 
     /**
      
-     Autoriza transa\u00C3\u00A7\u00C3\u00A3o financeira
+     Autoriza transa\u00E7\u00E3o financeira
      
      - parameter autorizacaoOnUsRequest: (body) autorizacaoOnUsRequest 
      - parameter completion: completion handler to receive the data and the error objects
@@ -74,10 +74,10 @@ public class AutorizacaoAPI: APIBase {
 
     /**
      
-     Autoriza transa\u00C3\u00A7\u00C3\u00A3o financeira
+     Autoriza transa\u00E7\u00E3o financeira
      
      - POST /api/autorizar-transacao
-     - Este m\u00C3\u00A9todo faz uma autoriza\u00C3\u00A7\u00C3\u00A3o de transa\u00C3\u00A7\u00C3\u00A3o financeira.
+     - Este m\u00E9todo faz uma autoriza\u00E7\u00E3o de transa\u00E7\u00E3o financeira.
      - examples: [{contentType=application/json, example={
   "codigoAutorizacao" : "aeiou",
   "planoDeParcelamento" : [ { } ],
@@ -105,7 +105,7 @@ public class AutorizacaoAPI: APIBase {
 
     /**
      
-     Autoriza transa\u00C3\u00A7\u00C3\u00A3o financeira por idCartao
+     Autoriza transa\u00E7\u00E3o financeira por idCartao
      
      - parameter id: (path) Id Cartao 
      - parameter transacaoOnUsPorIdCartaoRequest: (body) transacaoOnUsPorIdCartaoRequest 
@@ -120,10 +120,10 @@ public class AutorizacaoAPI: APIBase {
 
     /**
      
-     Autoriza transa\u00C3\u00A7\u00C3\u00A3o financeira por idCartao
+     Autoriza transa\u00E7\u00E3o financeira por idCartao
      
      - POST /api/cartoes/{id}/autorizar-transacao
-     - Este m\u00C3\u00A9todo faz uma autoriza\u00C3\u00A7\u00C3\u00A3o de transa\u00C3\u00A7\u00C3\u00A3o financeira com o idCartao.
+     - Este m\u00E9todo faz uma autoriza\u00E7\u00E3o de transa\u00E7\u00E3o financeira com o idCartao.
      - examples: [{contentType=application/json, example={
   "codigoAutorizacao" : "aeiou",
   "planoDeParcelamento" : [ { } ],
@@ -153,7 +153,7 @@ public class AutorizacaoAPI: APIBase {
 
     /**
      
-     Cancela transa\u00C3\u00A7\u00C3\u00A3o financeira por idConta
+     Cancela transa\u00E7\u00E3o financeira por idConta
      
      - parameter id: (path) Id Conta 
      - parameter cancelamentoRequest: (body) cancelamentoRequest 
@@ -168,10 +168,10 @@ public class AutorizacaoAPI: APIBase {
 
     /**
      
-     Cancela transa\u00C3\u00A7\u00C3\u00A3o financeira por idConta
+     Cancela transa\u00E7\u00E3o financeira por idConta
      
      - POST /api/contas/{id}/cancelar-transacao
-     - Este m\u00C3\u00A9todo permite que seja cancelada uma transa\u00C3\u00A7\u00C3\u00A3o a partir do idConta.
+     - Este m\u00E9todo permite que seja cancelada uma transa\u00E7\u00E3o a partir do idConta.
      - examples: [{contentType=application/json, example={
   "codigoAutorizacao" : "aeiou",
   "planoDeParcelamento" : [ { } ],
@@ -201,7 +201,7 @@ public class AutorizacaoAPI: APIBase {
 
     /**
      
-     Cancela transa\u00C3\u00A7\u00C3\u00A3o financeira
+     Cancela transa\u00E7\u00E3o financeira
      
      - parameter cancelamentoRequest: (body) cancelamentoRequest 
      - parameter completion: completion handler to receive the data and the error objects
@@ -215,10 +215,10 @@ public class AutorizacaoAPI: APIBase {
 
     /**
      
-     Cancela transa\u00C3\u00A7\u00C3\u00A3o financeira
+     Cancela transa\u00E7\u00E3o financeira
      
      - POST /api/cancelar-transacao
-     - Este m\u00C3\u00A9todo permite que seja cancelada uma transa\u00C3\u00A7\u00C3\u00A3o.
+     - Este m\u00E9todo permite que seja cancelada uma transa\u00E7\u00E3o.
      - examples: [{contentType=application/json, example={
   "codigoAutorizacao" : "aeiou",
   "planoDeParcelamento" : [ { } ],
@@ -246,7 +246,7 @@ public class AutorizacaoAPI: APIBase {
 
     /**
      
-     Cancela transa\u00C3\u00A7\u00C3\u00A3o financeira por idCartao
+     Cancela transa\u00E7\u00E3o financeira por idCartao
      
      - parameter id: (path) Id Cartao 
      - parameter cancelamentoRequest: (body) cancelamentoRequest 
@@ -261,10 +261,10 @@ public class AutorizacaoAPI: APIBase {
 
     /**
      
-     Cancela transa\u00C3\u00A7\u00C3\u00A3o financeira por idCartao
+     Cancela transa\u00E7\u00E3o financeira por idCartao
      
      - POST /api/cartoes/{id}/cancelar-transacao
-     - Este m\u00C3\u00A9todo permite que seja cancelada uma transa\u00C3\u00A7\u00C3\u00A3o a partir do idCartao.
+     - Este m\u00E9todo permite que seja cancelada uma transa\u00E7\u00E3o a partir do idCartao.
      - examples: [{contentType=application/json, example={
   "codigoAutorizacao" : "aeiou",
   "planoDeParcelamento" : [ { } ],
@@ -294,7 +294,7 @@ public class AutorizacaoAPI: APIBase {
 
     /**
      
-     Retorna c\u00C3\u00B3digos de processamento de autoriza\u00C3\u00A7\u00C3\u00A3o
+     Retorna c\u00F3digos de processamento de autoriza\u00E7\u00E3o
      
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -307,10 +307,10 @@ public class AutorizacaoAPI: APIBase {
 
     /**
      
-     Retorna c\u00C3\u00B3digos de processamento de autoriza\u00C3\u00A7\u00C3\u00A3o
+     Retorna c\u00F3digos de processamento de autoriza\u00E7\u00E3o
      
      - GET /api/consultar-codigos-processamento-autorizacao
-     - Este m\u00C3\u00A9todo retorna a lista dos c\u00C3\u00B3digos de processamento para autoriza\u00C3\u00A7\u00C3\u00A3o de transa\u00C3\u00A7\u00C3\u00B5es financeiras.
+     - Este m\u00E9todo retorna a lista dos c\u00F3digos de processamento para autoriza\u00E7\u00E3o de transa\u00E7\u00F5es financeiras.
      - examples: [{contentType=application/json, example=[ "{}" ]}]
 
      - returns: RequestBuilder<[AnyObject]> 
@@ -329,7 +329,7 @@ public class AutorizacaoAPI: APIBase {
 
     /**
      
-     Simula planos de transa\u00C3\u00A7\u00C3\u00B5es
+     Simula planos de transa\u00E7\u00F5es
      
      - parameter transacoesRequest: (body) transacoesRequest 
      - parameter completion: completion handler to receive the data and the error objects
@@ -343,10 +343,10 @@ public class AutorizacaoAPI: APIBase {
 
     /**
      
-     Simula planos de transa\u00C3\u00A7\u00C3\u00B5es
+     Simula planos de transa\u00E7\u00F5es
      
      - POST /api/simular-transacao
-     - Este m\u00C3\u00A9todo permite que seja simulada um plano de transa\u00C3\u00A7\u00C3\u00B5es.
+     - Este m\u00E9todo permite que seja simulada um plano de transa\u00E7\u00F5es.
      - examples: [{contentType=application/json, example={
   "codigoAutorizacao" : "aeiou",
   "planoDeParcelamento" : [ { } ],

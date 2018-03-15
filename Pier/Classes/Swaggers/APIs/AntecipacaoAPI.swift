@@ -12,7 +12,7 @@ import Alamofire
 public class AntecipacaoAPI: APIBase {
     /**
      
-     Configura a Taxa de Antecipa\u00C3\u00A7\u00C3\u00A3o de um Produto
+     Configura a Taxa de Antecipa\u00E7\u00E3o de um Produto
      
      - parameter id: (path) Id Produto 
      - parameter taxaAntecipacaoRequest: (body) taxaAntecipacaoRequest 
@@ -27,10 +27,10 @@ public class AntecipacaoAPI: APIBase {
 
     /**
      
-     Configura a Taxa de Antecipa\u00C3\u00A7\u00C3\u00A3o de um Produto
+     Configura a Taxa de Antecipa\u00E7\u00E3o de um Produto
      
      - POST /api/produtos/{id}/configurar-taxa-antecipacao
-     - Este recurso permite configurar a Taxa de Antecipa\u00C3\u00A7\u00C3\u00A3o de um Produto, a partir do seu c\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o (id).
+     - Este recurso permite configurar a Taxa de Antecipa\u00E7\u00E3o de um Produto, a partir do seu c\u00F3digo de identifica\u00E7\u00E3o (id).
      - examples: [{contentType=application/json, example={
   "idProduto" : 123456789,
   "tipoOrigemTransacao" : "aeiou",
@@ -58,10 +58,10 @@ public class AntecipacaoAPI: APIBase {
 
     /**
      
-     Consulta a Taxa de Antecipa\u00C3\u00A7\u00C3\u00A3o de um Produto
+     Consulta a Taxa de Antecipa\u00E7\u00E3o de um Produto
      
      - parameter id: (path) Id Produto 
-     - parameter tipoTransacao: (query) Tipo da Transa\u00C3\u00A7\u00C3\u00A3o (ON-US ou OFF-US) 
+     - parameter tipoTransacao: (query) Tipo da Transa\u00E7\u00E3o (ON-US ou OFF-US) 
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func consultarTaxaAntecipacaoUsingGET(id id: Int, tipoTransacao: String, completion: ((data: ParametroProdutoResponse?, error: ErrorType?) -> Void)) {
@@ -73,10 +73,10 @@ public class AntecipacaoAPI: APIBase {
 
     /**
      
-     Consulta a Taxa de Antecipa\u00C3\u00A7\u00C3\u00A3o de um Produto
+     Consulta a Taxa de Antecipa\u00E7\u00E3o de um Produto
      
      - GET /api/produtos/{id}/consultar-taxa-antecipacao
-     - Este recurso permite consultar a Taxa de Antecipa\u00C3\u00A7\u00C3\u00A3o de um Produto, a partir do seu c\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o (id).
+     - Este recurso permite consultar a Taxa de Antecipa\u00E7\u00E3o de um Produto, a partir do seu c\u00F3digo de identifica\u00E7\u00E3o (id).
      - examples: [{contentType=application/json, example={
   "idProduto" : 123456789,
   "tipoOrigemTransacao" : "aeiou",
@@ -86,7 +86,7 @@ public class AntecipacaoAPI: APIBase {
 }}]
      
      - parameter id: (path) Id Produto 
-     - parameter tipoTransacao: (query) Tipo da Transa\u00C3\u00A7\u00C3\u00A3o (ON-US ou OFF-US) 
+     - parameter tipoTransacao: (query) Tipo da Transa\u00E7\u00E3o (ON-US ou OFF-US) 
 
      - returns: RequestBuilder<ParametroProdutoResponse> 
      */
@@ -107,12 +107,12 @@ public class AntecipacaoAPI: APIBase {
 
     /**
      
-     Faz a efetiva\u00C3\u00A7\u00C3\u00A3o da antecipa\u00C3\u00A7\u00C3\u00A3o
+     Faz a efetiva\u00E7\u00E3o da antecipa\u00E7\u00E3o
      
-     - parameter idConta: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Conta. 
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do evento. 
+     - parameter idConta: (query) C\u00F3digo de Identifica\u00E7\u00E3o da Conta. 
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o do evento. 
      - parameter quantidadeParcelas: (query) Quantidade de parcelas para serem antecipadas. 
-     - parameter complemento: (query) Dados complementares sobre a realiza\u00C3\u00A7\u00C3\u00A3o da transa\u00C3\u00A7\u00C3\u00A3o. (optional)
+     - parameter complemento: (query) Dados complementares sobre a realiza\u00E7\u00E3o da transa\u00E7\u00E3o. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func efetivarAntecipacaoUsingPOST(idConta idConta: Int, id: Int, quantidadeParcelas: Int, complemento: String?, completion: ((data: AntecipacaoResponse?, error: ErrorType?) -> Void)) {
@@ -124,10 +124,10 @@ public class AntecipacaoAPI: APIBase {
 
     /**
      
-     Faz a efetiva\u00C3\u00A7\u00C3\u00A3o da antecipa\u00C3\u00A7\u00C3\u00A3o
+     Faz a efetiva\u00E7\u00E3o da antecipa\u00E7\u00E3o
      
      - POST /api/compras-antecipaveis/{id}/efetivar-antecipacao
-     - M\u00C3\u00A9todo responsavel pela efetiva\u00C3\u00A7\u00C3\u00A3o da antecipa\u00C3\u00A7\u00C3\u00A3o, cujo desconto \u00C3\u00A9 calculado baseado na data da \u00C3\u00BAltima parcela em aberto.
+     - M\u00E9todo responsavel pela efetiva\u00E7\u00E3o da antecipa\u00E7\u00E3o, cujo desconto \u00E9 calculado baseado na data da \u00FAltima parcela em aberto.
      - examples: [{contentType=application/json, example={
   "cidade" : "aeiou",
   "tipoOrigemTransacao" : "aeiou",
@@ -156,10 +156,10 @@ public class AntecipacaoAPI: APIBase {
   "status" : "aeiou"
 }}]
      
-     - parameter idConta: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Conta. 
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do evento. 
+     - parameter idConta: (query) C\u00F3digo de Identifica\u00E7\u00E3o da Conta. 
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o do evento. 
      - parameter quantidadeParcelas: (query) Quantidade de parcelas para serem antecipadas. 
-     - parameter complemento: (query) Dados complementares sobre a realiza\u00C3\u00A7\u00C3\u00A3o da transa\u00C3\u00A7\u00C3\u00A3o. (optional)
+     - parameter complemento: (query) Dados complementares sobre a realiza\u00E7\u00E3o da transa\u00E7\u00E3o. (optional)
 
      - returns: RequestBuilder<AntecipacaoResponse> 
      */
@@ -182,10 +182,10 @@ public class AntecipacaoAPI: APIBase {
 
     /**
      
-     Faz a efetiva\u00C3\u00A7\u00C3\u00A3o da antecipa\u00C3\u00A7\u00C3\u00A3o
+     Faz a efetiva\u00E7\u00E3o da antecipa\u00E7\u00E3o
      
-     - parameter idConta: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Conta. 
-     - parameter complemento: (query) Dados complementares sobre a realiza\u00C3\u00A7\u00C3\u00A3o da transa\u00C3\u00A7\u00C3\u00A3o. (optional)
+     - parameter idConta: (query) C\u00F3digo de Identifica\u00E7\u00E3o da Conta. 
+     - parameter complemento: (query) Dados complementares sobre a realiza\u00E7\u00E3o da transa\u00E7\u00E3o. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func efetivarAntecipacoesUsingPOST(idConta idConta: Int, complemento: String?, completion: ((data: AntecipacaoResponse?, error: ErrorType?) -> Void)) {
@@ -197,10 +197,10 @@ public class AntecipacaoAPI: APIBase {
 
     /**
      
-     Faz a efetiva\u00C3\u00A7\u00C3\u00A3o da antecipa\u00C3\u00A7\u00C3\u00A3o
+     Faz a efetiva\u00E7\u00E3o da antecipa\u00E7\u00E3o
      
      - POST /api/compras-antecipaveis/efetivar-antecipacao
-     - M\u00C3\u00A9todo responsavel pela efetiva\u00C3\u00A7\u00C3\u00A3o de todas as compras antecip\u00C3\u00A1veis com todas as parcelas de uma conta.
+     - M\u00E9todo responsavel pela efetiva\u00E7\u00E3o de todas as compras antecip\u00E1veis com todas as parcelas de uma conta.
      - examples: [{contentType=application/json, example={
   "cidade" : "aeiou",
   "tipoOrigemTransacao" : "aeiou",
@@ -229,8 +229,8 @@ public class AntecipacaoAPI: APIBase {
   "status" : "aeiou"
 }}]
      
-     - parameter idConta: (query) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Conta. 
-     - parameter complemento: (query) Dados complementares sobre a realiza\u00C3\u00A7\u00C3\u00A3o da transa\u00C3\u00A7\u00C3\u00A3o. (optional)
+     - parameter idConta: (query) C\u00F3digo de Identifica\u00E7\u00E3o da Conta. 
+     - parameter complemento: (query) Dados complementares sobre a realiza\u00E7\u00E3o da transa\u00E7\u00E3o. (optional)
 
      - returns: RequestBuilder<AntecipacaoResponse> 
      */
@@ -251,20 +251,20 @@ public class AntecipacaoAPI: APIBase {
 
     /**
      
-     Listar compras com parcelas antecip\u00C3\u00A1veis
+     Listar compras com parcelas antecip\u00E1veis
      
-     - parameter idConta: (query) C\u00C3\u00B3digo identificador da conta da Compra. 
-     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
-     - parameter idCompra: (query) C\u00C3\u00B3digo identificador da Compra. (optional)
-     - parameter parcelada: (query) Indica se a compra \u00C3\u00A9 parcelada. (optional)
-     - parameter juros: (query) Indica se a compra \u00C3\u00A9 com ou sem juros. (optional)
-     - parameter tipoOrigemTransacao: (query) Indica se a compra \u00C3\u00A9 ON-US ou OFF-US (optional)
+     - parameter idConta: (query) C\u00F3digo identificador da conta da Compra. 
+     - parameter sort: (query) Tipo de ordena\u00E7\u00E3o dos registros. (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
+     - parameter idCompra: (query) C\u00F3digo identificador da Compra. (optional)
+     - parameter parcelada: (query) Indica se a compra \u00E9 parcelada. (optional)
+     - parameter juros: (query) Indica se a compra \u00E9 com ou sem juros. (optional)
+     - parameter tipoOrigemTransacao: (query) Indica se a compra \u00E9 ON-US ou OFF-US (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET11(idConta idConta: Int, sort: [String]?, page: Int?, limit: Int?, idCompra: Int?, parcelada: Bool?, juros: Bool?, tipoOrigemTransacao: String?, completion: ((data: PageCompraResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET11WithRequestBuilder(idConta: idConta, sort: sort, page: page, limit: limit, idCompra: idCompra, parcelada: parcelada, juros: juros, tipoOrigemTransacao: tipoOrigemTransacao).execute { (response, error) -> Void in
+    public class func listarUsingGET12(idConta idConta: Int, sort: [String]?, page: Int?, limit: Int?, idCompra: Int?, parcelada: Bool?, juros: Bool?, tipoOrigemTransacao: String?, completion: ((data: PageCompraResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET12WithRequestBuilder(idConta: idConta, sort: sort, page: page, limit: limit, idCompra: idCompra, parcelada: parcelada, juros: juros, tipoOrigemTransacao: tipoOrigemTransacao).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -272,10 +272,10 @@ public class AntecipacaoAPI: APIBase {
 
     /**
      
-     Listar compras com parcelas antecip\u00C3\u00A1veis
+     Listar compras com parcelas antecip\u00E1veis
      
      - GET /api/compras-antecipaveis
-     - Lista as compras antecip\u00C3\u00A1veis de uma conta.
+     - Lista as compras antecip\u00E1veis de uma conta.
      - examples: [{contentType=application/json, example={
   "previousPage" : 123,
   "last" : true,
@@ -317,18 +317,18 @@ public class AntecipacaoAPI: APIBase {
   "first" : true
 }}]
      
-     - parameter idConta: (query) C\u00C3\u00B3digo identificador da conta da Compra. 
-     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
-     - parameter idCompra: (query) C\u00C3\u00B3digo identificador da Compra. (optional)
-     - parameter parcelada: (query) Indica se a compra \u00C3\u00A9 parcelada. (optional)
-     - parameter juros: (query) Indica se a compra \u00C3\u00A9 com ou sem juros. (optional)
-     - parameter tipoOrigemTransacao: (query) Indica se a compra \u00C3\u00A9 ON-US ou OFF-US (optional)
+     - parameter idConta: (query) C\u00F3digo identificador da conta da Compra. 
+     - parameter sort: (query) Tipo de ordena\u00E7\u00E3o dos registros. (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
+     - parameter idCompra: (query) C\u00F3digo identificador da Compra. (optional)
+     - parameter parcelada: (query) Indica se a compra \u00E9 parcelada. (optional)
+     - parameter juros: (query) Indica se a compra \u00E9 com ou sem juros. (optional)
+     - parameter tipoOrigemTransacao: (query) Indica se a compra \u00E9 ON-US ou OFF-US (optional)
 
      - returns: RequestBuilder<PageCompraResponse> 
      */
-    public class func listarUsingGET11WithRequestBuilder(idConta idConta: Int, sort: [String]?, page: Int?, limit: Int?, idCompra: Int?, parcelada: Bool?, juros: Bool?, tipoOrigemTransacao: String?) -> RequestBuilder<PageCompraResponse> {
+    public class func listarUsingGET12WithRequestBuilder(idConta idConta: Int, sort: [String]?, page: Int?, limit: Int?, idCompra: Int?, parcelada: Bool?, juros: Bool?, tipoOrigemTransacao: String?) -> RequestBuilder<PageCompraResponse> {
         let path = "/api/compras-antecipaveis"
         let URLString = PierAPI.basePath + path
         
@@ -351,11 +351,11 @@ public class AntecipacaoAPI: APIBase {
 
     /**
      
-     Simular antecipa\u00C3\u00A7\u00C3\u00A3o de parcelas
+     Simular antecipa\u00E7\u00E3o de parcelas
      
-     - parameter idConta: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta. 
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do evento. 
-     - parameter complemento: (query) Dados complementares sobre a realiza\u00C3\u00A7\u00C3\u00A3o da transa\u00C3\u00A7\u00C3\u00A3o. (optional)
+     - parameter idConta: (query) C\u00F3digo de identifica\u00E7\u00E3o da conta. 
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o do evento. 
+     - parameter complemento: (query) Dados complementares sobre a realiza\u00E7\u00E3o da transa\u00E7\u00E3o. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func simularAntecipacaoUsingGET(idConta idConta: Int, id: Int, complemento: String?, completion: ((data: AntecipacaoSimuladaResponse?, error: ErrorType?) -> Void)) {
@@ -367,10 +367,10 @@ public class AntecipacaoAPI: APIBase {
 
     /**
      
-     Simular antecipa\u00C3\u00A7\u00C3\u00A3o de parcelas
+     Simular antecipa\u00E7\u00E3o de parcelas
      
      - GET /api/compras-antecipaveis/{id}/simular-antecipacao
-     - Simula a antecipa\u00C3\u00A7\u00C3\u00A3o de parcelas de um evento, listando todos os planos de parcelamento dispon\u00C3\u00ADveis, cujo desconto \u00C3\u00A9 calculado baseado na data da \u00C3\u00BAltima parcela em aberto.
+     - Simula a antecipa\u00E7\u00E3o de parcelas de um evento, listando todos os planos de parcelamento dispon\u00EDveis, cujo desconto \u00E9 calculado baseado na data da \u00FAltima parcela em aberto.
      - examples: [{contentType=application/json, example={
   "cidade" : "aeiou",
   "tipoOrigemTransacao" : "aeiou",
@@ -404,9 +404,9 @@ public class AntecipacaoAPI: APIBase {
   "status" : "aeiou"
 }}]
      
-     - parameter idConta: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta. 
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do evento. 
-     - parameter complemento: (query) Dados complementares sobre a realiza\u00C3\u00A7\u00C3\u00A3o da transa\u00C3\u00A7\u00C3\u00A3o. (optional)
+     - parameter idConta: (query) C\u00F3digo de identifica\u00E7\u00E3o da conta. 
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o do evento. 
+     - parameter complemento: (query) Dados complementares sobre a realiza\u00E7\u00E3o da transa\u00E7\u00E3o. (optional)
 
      - returns: RequestBuilder<AntecipacaoSimuladaResponse> 
      */
@@ -428,10 +428,10 @@ public class AntecipacaoAPI: APIBase {
 
     /**
      
-     Simular antecipa\u00C3\u00A7\u00C3\u00A3o de todas as parcelas antecip\u00C3\u00A1veis
+     Simular antecipa\u00E7\u00E3o de todas as parcelas antecip\u00E1veis
      
-     - parameter idConta: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta. 
-     - parameter complemento: (query) Dados complementares sobre a realiza\u00C3\u00A7\u00C3\u00A3o da transa\u00C3\u00A7\u00C3\u00A3o. (optional)
+     - parameter idConta: (query) C\u00F3digo de identifica\u00E7\u00E3o da conta. 
+     - parameter complemento: (query) Dados complementares sobre a realiza\u00E7\u00E3o da transa\u00E7\u00E3o. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func simularAntecipacoesUsingGET(idConta idConta: Int, complemento: String?, completion: ((data: AntecipacaoSimuladaLoteResponse?, error: ErrorType?) -> Void)) {
@@ -443,10 +443,10 @@ public class AntecipacaoAPI: APIBase {
 
     /**
      
-     Simular antecipa\u00C3\u00A7\u00C3\u00A3o de todas as parcelas antecip\u00C3\u00A1veis
+     Simular antecipa\u00E7\u00E3o de todas as parcelas antecip\u00E1veis
      
      - GET /api/compras-antecipaveis/simular-antecipacao
-     - O recurso permite realizar a simula\u00C3\u00A7\u00C3\u00A3o da antecipa\u00C3\u00A7\u00C3\u00A3o de todas as compras antecip\u00C3\u00A1veis de todas as parcelas de uma determinada conta.
+     - O recurso permite realizar a simula\u00E7\u00E3o da antecipa\u00E7\u00E3o de todas as compras antecip\u00E1veis de todas as parcelas de uma determinada conta.
      - examples: [{contentType=application/json, example={
   "valorTotalDesconto" : 1.3579000000000001069366817318950779736042022705078125,
   "antecipacoesSimuladas" : [ {
@@ -485,8 +485,8 @@ public class AntecipacaoAPI: APIBase {
   "valorTotalComDesconto" : 1.3579000000000001069366817318950779736042022705078125
 }}]
      
-     - parameter idConta: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta. 
-     - parameter complemento: (query) Dados complementares sobre a realiza\u00C3\u00A7\u00C3\u00A3o da transa\u00C3\u00A7\u00C3\u00A3o. (optional)
+     - parameter idConta: (query) C\u00F3digo de identifica\u00E7\u00E3o da conta. 
+     - parameter complemento: (query) Dados complementares sobre a realiza\u00E7\u00E3o da transa\u00E7\u00E3o. (optional)
 
      - returns: RequestBuilder<AntecipacaoSimuladaLoteResponse> 
      */

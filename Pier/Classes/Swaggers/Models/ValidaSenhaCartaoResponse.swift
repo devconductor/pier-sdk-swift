@@ -8,18 +8,18 @@
 import Foundation
 
 
-/** Objeto de resposta para a valida\u00C3\u00A7\u00C3\u00A3o de senha do cart\u00C3\u00A3o */
+/** Objeto de resposta para a valida\u00E7\u00E3o de senha do cart\u00E3o */
 public class ValidaSenhaCartaoResponse: JSONEncodable {
 
     /** Mensagem */
     public var mensagem: String?
-    /** Descri\u00C3\u00A7\u00C3\u00A3o do status do cart\u00C3\u00A3o */
+    /** Descri\u00E7\u00E3o do status do cart\u00E3o */
     public var idStatusCartao: Int?
-    /** Descri\u00C3\u00A7\u00C3\u00A3o do status do cart\u00C3\u00A3o */
+    /** Descri\u00E7\u00E3o do status do cart\u00E3o */
     public var statusCartao: String?
     /** Quantidade tentativas */
     public var quantidadeTentativas: Int?
-    /** Quantidade m\u00C3\u00A1xima tentativas permitidas */
+    /** Quantidade m\u00E1xima tentativas permitidas */
     public var quantidadeMaximaTentativas: Int?
     
 

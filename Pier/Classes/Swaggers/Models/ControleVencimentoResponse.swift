@@ -13,15 +13,15 @@ public class ControleVencimentoResponse: JSONEncodable {
 
     /**  Indica a data de vencimento das faturas */
     public var dataVencimento: String?
-    /**  Indica a data prevista para a realiza\u00C3\u00A7\u00C3\u00A3o do Corte das faturas */
+    /**  Indica a data prevista para a realiza\u00E7\u00E3o do Corte das faturas */
     public var dataPrevistaCorte: String?
-    /** Indica a data e a hora que fora realizada a realiza\u00C3\u00A7\u00C3\u00A3o do Corte das faturas */
+    /** Indica a data e a hora que fora realizada a realiza\u00E7\u00E3o do Corte das faturas */
     public var dataHoraRealizacaoCorte: String?
-    /** Indica a data prevista para a realiza\u00C3\u00A7\u00C3\u00A3o do faturamento */
+    /** Indica a data prevista para a realiza\u00E7\u00E3o do faturamento */
     public var dataPrevistaFaturamento: String?
     /** Indica a data e a hora que fora realizado o faturamento */
     public var dataHoraRealizacaoFaturamento: String?
-    /** Indica o dia \u00C3\u00BAtil que ser\u00C3\u00A1 considerado como a data de vencimento */
+    /** Indica o dia \u00FAtil que ser\u00E1 considerado como a data de vencimento */
     public var dataRealVencimento: String?
     
 

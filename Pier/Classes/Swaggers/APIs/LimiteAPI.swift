@@ -12,12 +12,12 @@ import Alamofire
 public class LimiteAPI: APIBase {
     /**
      
-     Lista o hist\u00C3\u00B3rico de altera\u00C3\u00A7\u00C3\u00B5es de limites da conta
+     Lista o hist\u00F3rico de altera\u00E7\u00F5es de limites da conta
      
-     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
-     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+     - parameter id: (path) C\u00F3digo de identifica\u00E7\u00E3o da conta (id). 
+     - parameter sort: (query) Tipo de ordena\u00E7\u00E3o dos registros. (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func listarHistoricoAlteracoesLimitesUsingGET(id id: Int, sort: [String]?, page: Int?, limit: Int?, completion: ((data: PageHistoricoEventosResponse?, error: ErrorType?) -> Void)) {
@@ -29,10 +29,10 @@ public class LimiteAPI: APIBase {
 
     /**
      
-     Lista o hist\u00C3\u00B3rico de altera\u00C3\u00A7\u00C3\u00B5es de limites da conta
+     Lista o hist\u00F3rico de altera\u00E7\u00F5es de limites da conta
      
      - GET /api/contas/{id}/historicos-alteracoes-limites
-     - Este recurso consulta o hist\u00C3\u00B3rico com as altera\u00C3\u00A7\u00C3\u00B5es de limites da conta informada
+     - Este recurso consulta o hist\u00F3rico com as altera\u00E7\u00F5es de limites da conta informada
      - examples: [{contentType=application/json, example={
   "previousPage" : 123,
   "last" : true,
@@ -56,10 +56,10 @@ public class LimiteAPI: APIBase {
   "first" : true
 }}]
      
-     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta (id). 
-     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+     - parameter id: (path) C\u00F3digo de identifica\u00E7\u00E3o da conta (id). 
+     - parameter sort: (query) Tipo de ordena\u00E7\u00E3o dos registros. (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
 
      - returns: RequestBuilder<PageHistoricoEventosResponse> 
      */

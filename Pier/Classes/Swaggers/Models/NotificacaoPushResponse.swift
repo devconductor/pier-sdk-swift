@@ -34,25 +34,25 @@ public class NotificacaoPushResponse: JSONEncodable {
     
     /** Apresenta a data e em que o registro foi enviado para o dispositivo. */
     public var dataEnvio: String?
-    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do emissor (id). */
+    /** C\u00F3digo de identifica\u00E7\u00E3o do emissor (id). */
     public var idEmissor: Int?
-    /** Nome do tipoEvento da notifica\u00C3\u00A7\u00C3\u00A3o */
+    /** Nome do tipoEvento da notifica\u00E7\u00E3o */
     public var tipoEvento: TipoEvento?
-    /** Status de envio da notifica\u00C3\u00A7\u00C3\u00A3o */
+    /** Status de envio da notifica\u00E7\u00E3o */
     public var status: Status?
-    /** C\u00C3\u00B3digo identificado da pessoa */
+    /** C\u00F3digo identificado da pessoa */
     public var idPessoa: Int?
-    /** C\u00C3\u00B3digo identificador da conta */
+    /** C\u00F3digo identificador da conta */
     public var idConta: Int?
-    /** Token do dispositivo a qual foi destinado a notifica\u00C3\u00A7\u00C3\u00A3o (device_token) */
+    /** Token do dispositivo a qual foi destinado a notifica\u00E7\u00E3o (device_token) */
     public var tokenDispositivo: String?
-    /** T\u00C3\u00ADtulo da notifica\u00C3\u00A7\u00C3\u00A3o enviada. */
+    /** T\u00EDtulo da notifica\u00E7\u00E3o enviada. */
     public var titulo: String?
-    /** Conte\u00C3\u00BAdo da notifica\u00C3\u00A7\u00C3\u00A3o enviada. */
+    /** Conte\u00FAdo da notifica\u00E7\u00E3o enviada. */
     public var conteudo: String?
     /** Nome do Sistema Operacional a qual foi enviado o Push. */
     public var plataforma: Plataforma?
-    /** N\u00C3\u00BAmero do protocolo de envio de notifica\u00C3\u00A7\u00C3\u00B5es */
+    /** N\u00FAmero do protocolo de envio de notifica\u00E7\u00F5es */
     public var protocolo: String?
     
 

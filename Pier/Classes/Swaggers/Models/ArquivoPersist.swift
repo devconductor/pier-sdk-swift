@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Objeto Arquivo para persist\u00C3\u00AAncia de dados. */
+/** Objeto Arquivo para persist\u00EAncia de dados. */
 public class ArquivoPersist: JSONEncodable {
 
     public enum TipoComunicacao: String { 
@@ -18,15 +18,15 @@ public class ArquivoPersist: JSONEncodable {
     
     /** Tipo do arquivo */
     public var idTipoArquivo: Int?
-    /** Conte\u00C3\u00BAdo do arquivo convertido em Base 64 */
+    /** Conte\u00FAdo do arquivo convertido em Base 64 */
     public var arquivo: String?
     /** Nome do arquivo. */
     public var nome: String?
-    /** Formato/extens\u00C3\u00A3o do arquivo. */
+    /** Formato/extens\u00E3o do arquivo. */
     public var extensao: String?
-    /** Tipo de comunica\u00C3\u00A7\u00C3\u00A3o. */
+    /** Tipo de comunica\u00E7\u00E3o. */
     public var tipoComunicacao: TipoComunicacao?
-    /** Detalhes contendo informa\u00C3\u00A7\u00C3\u00B5es adicionais, relacionadas ao arquivo */
+    /** Detalhes contendo informa\u00E7\u00F5es adicionais, relacionadas ao arquivo */
     public var detalhes: [ArquivoDetalhesPersist]?
     
 

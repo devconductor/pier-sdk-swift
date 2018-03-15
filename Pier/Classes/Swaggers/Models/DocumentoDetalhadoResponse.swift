@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Representa\u00C3\u00A7\u00C3\u00A3o da resposta para o recurso de Documento */
+/** Representa\u00E7\u00E3o da resposta para o recurso de Documento */
 public class DocumentoDetalhadoResponse: JSONEncodable {
 
     /** ID do Documento. */
@@ -17,9 +17,9 @@ public class DocumentoDetalhadoResponse: JSONEncodable {
     public var idTemplateDocumento: Int?
     /** Nome do Documento. */
     public var nome: String?
-    /** Representa\u00C3\u00A7\u00C3\u00A3o do documento em Base64. */
+    /** Representa\u00E7\u00E3o do documento em Base64. */
     public var documento: String?
-    /** Extens\u00C3\u00A3o do Documento. */
+    /** Extens\u00E3o do Documento. */
     public var extensao: String?
     /** Detalhamento do documento. */
     public var documentoDetalhes: [DocumentoDetalheResponse]?

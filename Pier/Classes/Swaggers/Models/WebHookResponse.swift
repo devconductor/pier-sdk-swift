@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Representa\u00C3\u00A7\u00C3\u00A3o do recurso WebHook */
+/** Representa\u00E7\u00E3o do recurso WebHook */
 public class WebHookResponse: JSONEncodable {
 
     public enum TipoEvento: String { 
@@ -33,7 +33,7 @@ public class WebHookResponse: JSONEncodable {
     public var id: Int?
     /** TipoEvento a ser chamado pelo WebHook */
     public var tipoEvento: TipoEvento?
-    /** M\u00C3\u00A9todo que a ser chamado pelo WebHook */
+    /** M\u00E9todo que a ser chamado pelo WebHook */
     public var metodo: Metodo?
     /** URL que a ser consumida pelo WebHook */
     public var url: String?

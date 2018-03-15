@@ -8,17 +8,23 @@
 import Foundation
 
 
-/** Listagem de Transfer\u00C3\u00AAncia de cr\u00C3\u00A9dito para contas banc\u00C3\u00A1rias */
+/** Listagem de Transfer\u00EAncia de cr\u00E9dito para contas banc\u00E1rias */
 public class TransferenciaCreditoContaBancariaListaResponse: JSONEncodable {
 
-    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da transferencia. */
+    /** C\u00F3digo de identifica\u00E7\u00E3o da transferencia. */
     public var idTransferencia: Int?
-    /** Valor da transfer\u00C3\u00AAncia. */
+    /** C\u00F3digo de identifica\u00E7\u00E3o da conta. */
+    public var idConta: Int?
+    /** C\u00F3digo de identifica\u00E7\u00E3o do cart\u00E3o. */
+    public var idCartao: Int?
+    /** Valor da transfer\u00EAncia. */
     public var valorCompra: Double?
-    /** Valor da transfer\u00C3\u00AAncia acrescido do valor da tarifa de saque se houver tarifa de saque. */
+    /** Valor da transfer\u00EAncia acrescido do valor da tarifa de saque se houver tarifa de saque. */
     public var valorContrato: Double?
-    /** Data da transfer\u00C3\u00AAncia. */
+    /** Data da transfer\u00EAncia. */
     public var dataCompra: String?
+    /** C\u00F3digo de status de processamento. */
+    public var status: Int?
     /** Status Processamento. */
     public var statusProcessamento: String?
     
@@ -29,9 +35,12 @@ public class TransferenciaCreditoContaBancariaListaResponse: JSONEncodable {
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
         nillableDictionary["idTransferencia"] = self.idTransferencia
+        nillableDictionary["idConta"] = self.idConta
+        nillableDictionary["idCartao"] = self.idCartao
         nillableDictionary["valorCompra"] = self.valorCompra
         nillableDictionary["valorContrato"] = self.valorContrato
         nillableDictionary["dataCompra"] = self.dataCompra
+        nillableDictionary["status"] = self.status
         nillableDictionary["statusProcessamento"] = self.statusProcessamento
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary

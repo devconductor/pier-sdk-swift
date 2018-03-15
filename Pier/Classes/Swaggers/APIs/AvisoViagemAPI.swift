@@ -14,11 +14,11 @@ public class AvisoViagemAPI: APIBase {
      
      Consultar um aviso viagem de acordo com o id passado
      
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Aviso Viagem (id). 
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o do Aviso Viagem (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET4(id id: Int, completion: ((data: AvisoViagemResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET4WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET5(id id: Int, completion: ((data: AvisoViagemResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET5WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -29,7 +29,7 @@ public class AvisoViagemAPI: APIBase {
      Consultar um aviso viagem de acordo com o id passado
      
      - GET /api/avisos-viagens/{id}
-     - Este m\u00C3\u00A9todo permite que seja consultado um aviso viagen existente na base do emissor.
+     - Este m\u00E9todo permite que seja consultado um aviso viagen existente na base do emissor.
      - examples: [{contentType=application/json, example={
   "idCartao" : 123456789,
   "dataFim" : "aeiou",
@@ -39,11 +39,11 @@ public class AvisoViagemAPI: APIBase {
   "codigoPais" : "aeiou"
 }}]
      
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Aviso Viagem (id). 
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o do Aviso Viagem (id). 
 
      - returns: RequestBuilder<AvisoViagemResponse> 
      */
-    public class func consultarUsingGET4WithRequestBuilder(id id: Int) -> RequestBuilder<AvisoViagemResponse> {
+    public class func consultarUsingGET5WithRequestBuilder(id id: Int) -> RequestBuilder<AvisoViagemResponse> {
         var path = "/api/avisos-viagens/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -60,7 +60,7 @@ public class AvisoViagemAPI: APIBase {
      
      Desabilitar um aviso viagem de acordo com o id passado
      
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Aviso Viagem (id). 
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o do Aviso Viagem (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func desabilitarUsingPOST(id id: Int, completion: ((data: AvisoViagemResponse?, error: ErrorType?) -> Void)) {
@@ -75,7 +75,7 @@ public class AvisoViagemAPI: APIBase {
      Desabilitar um aviso viagem de acordo com o id passado
      
      - POST /api/avisos-viagens/{id}/desabilitar
-     - Este m\u00C3\u00A9todo permite que seja desabilitado um aviso viagen existente na base do emissor.
+     - Este m\u00E9todo permite que seja desabilitado um aviso viagen existente na base do emissor.
      - examples: [{contentType=application/json, example={
   "idCartao" : 123456789,
   "dataFim" : "aeiou",
@@ -85,7 +85,7 @@ public class AvisoViagemAPI: APIBase {
   "codigoPais" : "aeiou"
 }}]
      
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Aviso Viagem (id). 
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o do Aviso Viagem (id). 
 
      - returns: RequestBuilder<AvisoViagemResponse> 
      */
@@ -106,7 +106,7 @@ public class AvisoViagemAPI: APIBase {
      
      Habilitar um aviso viagem de acordo com o id passado
      
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Aviso Viagem (id). 
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o do Aviso Viagem (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func habilitarUsingPOST(id id: Int, completion: ((data: AvisoViagemResponse?, error: ErrorType?) -> Void)) {
@@ -121,7 +121,7 @@ public class AvisoViagemAPI: APIBase {
      Habilitar um aviso viagem de acordo com o id passado
      
      - POST /api/avisos-viagens/{id}/habilitar
-     - Este m\u00C3\u00A9todo permite que seja habilitado um aviso viagen existente na base do emissor.
+     - Este m\u00E9todo permite que seja habilitado um aviso viagen existente na base do emissor.
      - examples: [{contentType=application/json, example={
   "idCartao" : 123456789,
   "dataFim" : "aeiou",
@@ -131,7 +131,7 @@ public class AvisoViagemAPI: APIBase {
   "codigoPais" : "aeiou"
 }}]
      
-     - parameter id: (path) C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Aviso Viagem (id). 
+     - parameter id: (path) C\u00F3digo de Identifica\u00E7\u00E3o do Aviso Viagem (id). 
 
      - returns: RequestBuilder<AvisoViagemResponse> 
      */
@@ -152,18 +152,18 @@ public class AvisoViagemAPI: APIBase {
      
      Lista os avisos viagens gerados pelo Emissor
      
-     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
-     - parameter idCartao: (query) C\u00C3\u00B3digo Identificador do cart\u00C3\u00A3o na base (id) (optional)
-     - parameter codigoPais: (query) Codigo identificador do pa\u00C3\u00ADs na base (id) (optional)
+     - parameter sort: (query) Tipo de ordena\u00E7\u00E3o dos registros. (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
+     - parameter idCartao: (query) C\u00F3digo Identificador do cart\u00E3o na base (id) (optional)
+     - parameter codigoPais: (query) Codigo identificador do pa\u00EDs na base (id) (optional)
      - parameter dataInicio: (query) Data inicio do aviso viagem (optional)
      - parameter dataFim: (query) Data fim do aviso viagem (optional)
-     - parameter flagAtivo: (query) Identifica se o aviso viagem esta ativo ou n\u00C3\u00A3o (optional)
+     - parameter flagAtivo: (query) Identifica se o aviso viagem esta ativo ou n\u00E3o (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET6(sort sort: [String]?, page: Int?, limit: Int?, idCartao: Int?, codigoPais: String?, dataInicio: String?, dataFim: String?, flagAtivo: Int?, completion: ((data: PageAvisoViagemResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET6WithRequestBuilder(sort: sort, page: page, limit: limit, idCartao: idCartao, codigoPais: codigoPais, dataInicio: dataInicio, dataFim: dataFim, flagAtivo: flagAtivo).execute { (response, error) -> Void in
+    public class func listarUsingGET7(sort sort: [String]?, page: Int?, limit: Int?, idCartao: Int?, codigoPais: String?, dataInicio: String?, dataFim: String?, flagAtivo: Int?, completion: ((data: PageAvisoViagemResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET7WithRequestBuilder(sort: sort, page: page, limit: limit, idCartao: idCartao, codigoPais: codigoPais, dataInicio: dataInicio, dataFim: dataFim, flagAtivo: flagAtivo).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -174,7 +174,7 @@ public class AvisoViagemAPI: APIBase {
      Lista os avisos viagens gerados pelo Emissor
      
      - GET /api/avisos-viagens
-     - Este m\u00C3\u00A9todo permite que sejam listados os avisos viagens existentes na base do emissor.
+     - Este m\u00E9todo permite que sejam listados os avisos viagens existentes na base do emissor.
      - examples: [{contentType=application/json, example={
   "previousPage" : 123,
   "last" : true,
@@ -199,18 +199,18 @@ public class AvisoViagemAPI: APIBase {
   "first" : true
 }}]
      
-     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
-     - parameter idCartao: (query) C\u00C3\u00B3digo Identificador do cart\u00C3\u00A3o na base (id) (optional)
-     - parameter codigoPais: (query) Codigo identificador do pa\u00C3\u00ADs na base (id) (optional)
+     - parameter sort: (query) Tipo de ordena\u00E7\u00E3o dos registros. (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
+     - parameter idCartao: (query) C\u00F3digo Identificador do cart\u00E3o na base (id) (optional)
+     - parameter codigoPais: (query) Codigo identificador do pa\u00EDs na base (id) (optional)
      - parameter dataInicio: (query) Data inicio do aviso viagem (optional)
      - parameter dataFim: (query) Data fim do aviso viagem (optional)
-     - parameter flagAtivo: (query) Identifica se o aviso viagem esta ativo ou n\u00C3\u00A3o (optional)
+     - parameter flagAtivo: (query) Identifica se o aviso viagem esta ativo ou n\u00E3o (optional)
 
      - returns: RequestBuilder<PageAvisoViagemResponse> 
      */
-    public class func listarUsingGET6WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, idCartao: Int?, codigoPais: String?, dataInicio: String?, dataFim: String?, flagAtivo: Int?) -> RequestBuilder<PageAvisoViagemResponse> {
+    public class func listarUsingGET7WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, idCartao: Int?, codigoPais: String?, dataInicio: String?, dataFim: String?, flagAtivo: Int?) -> RequestBuilder<PageAvisoViagemResponse> {
         let path = "/api/avisos-viagens"
         let URLString = PierAPI.basePath + path
         
@@ -235,8 +235,8 @@ public class AvisoViagemAPI: APIBase {
      
      Realiza o cadastro de um novo Aviso Viagem
      
-     - parameter idCartao: (query) C\u00C3\u00B3digo Identificador do cart\u00C3\u00A3o na base (id) 
-     - parameter codigoPais: (query) Codigo identificador do pa\u00C3\u00ADs na base (id) 
+     - parameter idCartao: (query) C\u00F3digo Identificador do cart\u00E3o na base (id) 
+     - parameter codigoPais: (query) Codigo identificador do pa\u00EDs na base (id) 
      - parameter dataInicio: (query) Data inicio do aviso viagem 
      - parameter dataFim: (query) Data fim do aviso viagem 
      - parameter completion: completion handler to receive the data and the error objects
@@ -253,7 +253,7 @@ public class AvisoViagemAPI: APIBase {
      Realiza o cadastro de um novo Aviso Viagem
      
      - POST /api/avisos-viagens
-     - Este m\u00C3\u00A9todo permite que seja cadastrado um novo Aviso Viagem na base de dados do Emissor.
+     - Este m\u00E9todo permite que seja cadastrado um novo Aviso Viagem na base de dados do Emissor.
      - examples: [{contentType=application/json, example={
   "idCartao" : 123456789,
   "dataFim" : "aeiou",
@@ -263,8 +263,8 @@ public class AvisoViagemAPI: APIBase {
   "codigoPais" : "aeiou"
 }}]
      
-     - parameter idCartao: (query) C\u00C3\u00B3digo Identificador do cart\u00C3\u00A3o na base (id) 
-     - parameter codigoPais: (query) Codigo identificador do pa\u00C3\u00ADs na base (id) 
+     - parameter idCartao: (query) C\u00F3digo Identificador do cart\u00E3o na base (id) 
+     - parameter codigoPais: (query) Codigo identificador do pa\u00EDs na base (id) 
      - parameter dataInicio: (query) Data inicio do aviso viagem 
      - parameter dataFim: (query) Data fim do aviso viagem 
 

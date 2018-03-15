@@ -8,10 +8,10 @@
 import Foundation
 
 
-/** Representa\u00C3\u00A7\u00C3\u00A3o de um documento anexo para uma notifica\u00C3\u00A7\u00C3\u00A3o. */
+/** Representa\u00E7\u00E3o de um documento anexo para uma notifica\u00E7\u00E3o. */
 public class AnexoNotificacaoEmailRequest: JSONEncodable {
 
-    /** ID do documento que ser\u00C3\u00A1 anexado a notifica\u00C3\u00A7\u00C3\u00A3o. */
+    /** ID do documento que ser\u00E1 anexado a notifica\u00E7\u00E3o. */
     public var idDocumento: Int?
     
 

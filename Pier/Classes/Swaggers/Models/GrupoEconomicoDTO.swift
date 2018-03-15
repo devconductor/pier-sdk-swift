@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Par\u00C3\u00A2metros de requisi\u00C3\u00A7\u00C3\u00A3o para cadastrar grupo econ\u00C3\u00B4mico */
+/** Par\u00E2metros de requisi\u00E7\u00E3o para cadastrar grupo econ\u00F4mico */
 public class GrupoEconomicoDTO: JSONEncodable {
 
     public enum Periodicidade: String { 
@@ -35,25 +35,25 @@ public class GrupoEconomicoDTO: JSONEncodable {
         case DebitoRav = "DEBITO_RAV"
     }
     
-    /** Raz\u00C3\u00A3o social da pessoa jur\u00C3\u00ADdica */
+    /** Raz\u00E3o social da pessoa jur\u00EDdica */
     public var razaoSocial: String?
     /** Nome do credor */
     public var nomeCredor: String?
-    /** N\u00C3\u00BAmero da Receita Federal */
+    /** N\u00FAmero da Receita Federal */
     public var numeroReceitaFederal: String?
-    /** N\u00C3\u00BAmero da inscri\u00C3\u00A7\u00C3\u00A3o estadual */
+    /** N\u00FAmero da inscri\u00E7\u00E3o estadual */
     public var inscricaoEstadual: String?
     /** Nome da pessoa para entrar em contato */
     public var contato: String?
-    /** C\u00C3\u00B3digo do banco */
+    /** C\u00F3digo do banco */
     public var banco: Int?
-    /** Raz\u00C3\u00A3o social da pessoa jur\u00C3\u00ADdica */
+    /** C\u00F3digo da ag\u00EAncia */
     public var agencia: Int?
-    /** D\u00C3\u00ADgito Verificador da ag\u00C3\u00AAncia */
+    /** D\u00EDgito verificador da ag\u00EAncia */
     public var digitoAgencia: String?
-    /** C\u00C3\u00B3digo da Conta Corrente */
+    /** C\u00F3digo da Conta Corrente */
     public var contaCorrente: String?
-    /** D\u00C3\u00ADgito Verificador da Conta Corrente */
+    /** D\u00EDgito Verificador da Conta Corrente */
     public var digitoContaCorrente: String?
     /** Periodicidade do pagamento */
     public var periodicidade: Periodicidade?
@@ -71,6 +71,8 @@ public class GrupoEconomicoDTO: JSONEncodable {
     public var pagamentoQuinzenalPrimeiro: Int?
     /** Dia da data para o segundo pagamento quinzenal */
     public var pagamentoQuinzenalSegundo: Int?
+    /** Identificador do credor RAV */
+    public var idCredorRAV: Int?
     /** Valor percentual do RAV do credor */
     public var percentualRAV: Double?
     /** Indica se o credor recebe RAV e o tipo */
@@ -108,6 +110,7 @@ public class GrupoEconomicoDTO: JSONEncodable {
         nillableDictionary["pagamentoDecendialTerceiro"] = self.pagamentoDecendialTerceiro
         nillableDictionary["pagamentoQuinzenalPrimeiro"] = self.pagamentoQuinzenalPrimeiro
         nillableDictionary["pagamentoQuinzenalSegundo"] = self.pagamentoQuinzenalSegundo
+        nillableDictionary["idCredorRAV"] = self.idCredorRAV
         nillableDictionary["percentualRAV"] = self.percentualRAV
         nillableDictionary["recebeRAV"] = self.recebeRAV?.rawValue
         nillableDictionary["percentualMultiplica"] = self.percentualMultiplica

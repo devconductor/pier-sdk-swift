@@ -11,13 +11,13 @@ import Foundation
 /** Objeto de resposta para historico de telefones */
 public class HistoricoTelefoneResponse: JSONEncodable {
 
-    /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Telefone (id). */
+    /** C\u00F3digo de Identifica\u00E7\u00E3o do Telefone (id). */
     public var id: Int?
-    /** Apresenta o N\u00C3\u00BAmero do telefone. */
+    /** Apresenta o N\u00FAmero do telefone. */
     public var telefone: String?
     /** Apresenta o id do tipo do telefone. */
     public var idTipoTelefone: Int?
-    /** Apresenta a descri\u00C3\u00A7\u00C3\u00A3o do tipo do telefone. */
+    /** Apresenta a descri\u00E7\u00E3o do tipo do telefone. */
     public var tipoTelefone: String?
     /** Apresenta a data que o telefone fora alterado. */
     public var dataModificacao: String?

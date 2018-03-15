@@ -11,13 +11,13 @@ import Foundation
 /** Objeto PlanoCampanha */
 public class PlanoCampanhaUpdate: JSONEncodable {
 
-    /** C\u00C3\u00B3digo identificador do plano campanha */
+    /** C\u00F3digo identificador do plano campanha */
     public var id: Int?
     /** Quantidade de parcelas */
     public var parcelas: Int?
     /** Taxa de juros */
     public var taxa: Double?
-    /** Nome do usu\u00C3\u00A1rio */
+    /** Nome do usu\u00E1rio */
     public var usuario: String?
     
 

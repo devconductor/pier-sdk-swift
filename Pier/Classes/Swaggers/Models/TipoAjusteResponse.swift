@@ -11,9 +11,9 @@ import Foundation
 /** Tipo de ajuste */
 public class TipoAjusteResponse: JSONEncodable {
 
-    /** C\u00C3\u00B3digo identificador do tipo de ajuste. */
+    /** C\u00F3digo identificador do tipo de ajuste. */
     public var id: Int?
-    /** Descri\u00C3\u00A7\u00C3\u00A3o do tipo de ajuste. */
+    /** Descri\u00E7\u00E3o do tipo de ajuste. */
     public var descricao: String?
     
 

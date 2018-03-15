@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Lista de Configura\u00C3\u00A7\u00C3\u00B5es de E-mail */
+/** Lista de Configura\u00E7\u00F5es de E-mail */
 public class PageConfiguracaoEmailResponse: JSONEncodable {
 
     public var content: [ConfiguracaoEmailResponse]?

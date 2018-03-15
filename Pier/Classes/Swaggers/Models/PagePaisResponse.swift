@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Lista de Pa\u00C3\u00ADses */
+/** Lista de Pa\u00EDses */
 public class PagePaisResponse: JSONEncodable {
 
     public var content: [PaisResponse]?

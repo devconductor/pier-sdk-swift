@@ -12,9 +12,9 @@ import Alamofire
 public class TransferenciaBancariaAPI: APIBase {
     /**
      
-     Atualiza conta banc\u00C3\u00A1ria portador
+     Atualiza conta banc\u00E1ria portador
      
-     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta banc\u00C3\u00A1ria do portador (id). 
+     - parameter id: (path) C\u00F3digo de identifica\u00E7\u00E3o da conta banc\u00E1ria do portador (id). 
      - parameter update: (body) update 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -27,10 +27,10 @@ public class TransferenciaBancariaAPI: APIBase {
 
     /**
      
-     Atualiza conta banc\u00C3\u00A1ria portador
+     Atualiza conta banc\u00E1ria portador
      
      - PUT /api/contas-bancarias-portador/{id}
-     - Esse recurso permite atualizar uma conta banc\u00C3\u00A1ria do portador.
+     - Esse recurso permite atualizar uma conta banc\u00E1ria do portador.
      - examples: [{contentType=application/json, example={
   "nomeAgencia" : "aeiou",
   "idConta" : 123456789,
@@ -49,7 +49,7 @@ public class TransferenciaBancariaAPI: APIBase {
   "flagContaOrigemDoc" : 123
 }}]
      
-     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta banc\u00C3\u00A1ria do portador (id). 
+     - parameter id: (path) C\u00F3digo de identifica\u00E7\u00E3o da conta banc\u00E1ria do portador (id). 
      - parameter update: (body) update 
 
      - returns: RequestBuilder<ContaBancariaPortadorResponse> 
@@ -68,9 +68,87 @@ public class TransferenciaBancariaAPI: APIBase {
 
     /**
      
-     Realiza a consulta de uma transfer\u00C3\u00AAncia banc\u00C3\u00A1ria de cr\u00C3\u00A9dito entre contas banc\u00C3\u00A1rias de um portador
+     Realizar o cancelamento de uma transfer\u00EAncia banc\u00E1ria do cart\u00E3o para contas banc\u00E1rias que esteja pendente de confirma\u00E7\u00E3o.
      
-     - parameter idTransferencia: (path) Id Transfer\u00C3\u00AAncia 
+     - parameter idTransferencia: (path) Id Transfer\u00EAncia 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func cancelarTransferenciaCreditoContaBancariaUsingPOST(idTransferencia idTransferencia: Int, completion: ((data: String?, error: ErrorType?) -> Void)) {
+        cancelarTransferenciaCreditoContaBancariaUsingPOSTWithRequestBuilder(idTransferencia: idTransferencia).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Realizar o cancelamento de uma transfer\u00EAncia banc\u00E1ria do cart\u00E3o para contas banc\u00E1rias que esteja pendente de confirma\u00E7\u00E3o.
+     
+     - POST /api/transferencias-creditos-contas-bancarias/{idTransferencia}/cancelar
+     - Este recurso tem como objetivo permitir o canelamento de uma transfer\u00EAncia de cr\u00E9dito entre contas.
+     - examples: [{contentType=application/json, example="aeiou"}]
+     
+     - parameter idTransferencia: (path) Id Transfer\u00EAncia 
+
+     - returns: RequestBuilder<String> 
+     */
+    public class func cancelarTransferenciaCreditoContaBancariaUsingPOSTWithRequestBuilder(idTransferencia idTransferencia: Int) -> RequestBuilder<String> {
+        var path = "/api/transferencias-creditos-contas-bancarias/{idTransferencia}/cancelar"
+        path = path.stringByReplacingOccurrencesOfString("{idTransferencia}", withString: "\(idTransferencia)", options: .LiteralSearch, range: nil)
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<String>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Realizar a confirma\u00E7\u00E3o de uma transfer\u00EAncia banc\u00E1ria do cart\u00E3o para contas banc\u00E1rias que esteja pendente de confirma\u00E7\u00E3o.
+     
+     - parameter idTransferencia: (path) Id Transfer\u00EAncia 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func confirmarTransferenciaCreditoContaBancariaUsingPOST(idTransferencia idTransferencia: Int, completion: ((data: String?, error: ErrorType?) -> Void)) {
+        confirmarTransferenciaCreditoContaBancariaUsingPOSTWithRequestBuilder(idTransferencia: idTransferencia).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     Realizar a confirma\u00E7\u00E3o de uma transfer\u00EAncia banc\u00E1ria do cart\u00E3o para contas banc\u00E1rias que esteja pendente de confirma\u00E7\u00E3o.
+     
+     - POST /api/transferencias-creditos-contas-bancarias/{idTransferencia}/confirmar
+     - Este recurso tem como objetivo permitir a confirma\u00E7\u00E3o da transfer\u00EAncia de cr\u00E9dito entre contas.
+     - examples: [{contentType=application/json, example="aeiou"}]
+     
+     - parameter idTransferencia: (path) Id Transfer\u00EAncia 
+
+     - returns: RequestBuilder<String> 
+     */
+    public class func confirmarTransferenciaCreditoContaBancariaUsingPOSTWithRequestBuilder(idTransferencia idTransferencia: Int) -> RequestBuilder<String> {
+        var path = "/api/transferencias-creditos-contas-bancarias/{idTransferencia}/confirmar"
+        path = path.stringByReplacingOccurrencesOfString("{idTransferencia}", withString: "\(idTransferencia)", options: .LiteralSearch, range: nil)
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<String>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     Realiza a consulta de uma transfer\u00EAncia banc\u00E1ria de cr\u00E9dito entre contas banc\u00E1rias de um portador
+     
+     - parameter idTransferencia: (path) Id Transfer\u00EAncia 
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func consultarTransferenciaBancariaUsingGET(idTransferencia idTransferencia: Int, completion: ((data: TransferenciaCreditoContaBancariaResponse?, error: ErrorType?) -> Void)) {
@@ -82,10 +160,10 @@ public class TransferenciaBancariaAPI: APIBase {
 
     /**
      
-     Realiza a consulta de uma transfer\u00C3\u00AAncia banc\u00C3\u00A1ria de cr\u00C3\u00A9dito entre contas banc\u00C3\u00A1rias de um portador
+     Realiza a consulta de uma transfer\u00EAncia banc\u00E1ria de cr\u00E9dito entre contas banc\u00E1rias de um portador
      
      - GET /api/transferencias-creditos-contas-bancarias/{idTransferencia}
-     - Recurso utilizado para recuperar uma transfer\u00C3\u00AAncia de cr\u00C3\u00A9dito entre contas banc\u00C3\u00A1ria de um portador, utiliza o ID da transfer\u00C3\u00AAncia banc\u00C3\u00A1riae o idConta para realizar a consulta.
+     - Recurso utilizado para recuperar uma transfer\u00EAncia de cr\u00E9dito entre contas banc\u00E1ria de um portador, utiliza o ID da transfer\u00EAncia banc\u00E1riae o idConta para realizar a consulta.
      - examples: [{contentType=application/json, example={
   "digitoAgencia" : "aeiou",
   "numeroParcelas" : 123,
@@ -120,7 +198,7 @@ public class TransferenciaBancariaAPI: APIBase {
   "status" : "aeiou"
 }}]
      
-     - parameter idTransferencia: (path) Id Transfer\u00C3\u00AAncia 
+     - parameter idTransferencia: (path) Id Transfer\u00EAncia 
 
      - returns: RequestBuilder<TransferenciaCreditoContaBancariaResponse> 
      */
@@ -139,13 +217,13 @@ public class TransferenciaBancariaAPI: APIBase {
 
     /**
      
-     Consulta conta banc\u00C3\u00A1ria portador
+     Consulta conta banc\u00E1ria portador
      
-     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta banc\u00C3\u00A1ria (id). 
+     - parameter id: (path) C\u00F3digo de identifica\u00E7\u00E3o da conta banc\u00E1ria (id). 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET11(id id: Int, completion: ((data: ContaBancariaPortadorResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET11WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET12(id id: Int, completion: ((data: ContaBancariaPortadorResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET12WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -153,10 +231,10 @@ public class TransferenciaBancariaAPI: APIBase {
 
     /**
      
-     Consulta conta banc\u00C3\u00A1ria portador
+     Consulta conta banc\u00E1ria portador
      
      - GET /api/contas-bancarias-portador/{id}
-     - Esse recurso permite consultar uma conta banc\u00C3\u00A1ria do portador a partir do seu c\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o (id).
+     - Esse recurso permite consultar uma conta banc\u00E1ria do portador a partir do seu c\u00F3digo de identifica\u00E7\u00E3o (id).
      - examples: [{contentType=application/json, example={
   "nomeAgencia" : "aeiou",
   "idConta" : 123456789,
@@ -175,11 +253,11 @@ public class TransferenciaBancariaAPI: APIBase {
   "flagContaOrigemDoc" : 123
 }}]
      
-     - parameter id: (path) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta banc\u00C3\u00A1ria (id). 
+     - parameter id: (path) C\u00F3digo de identifica\u00E7\u00E3o da conta banc\u00E1ria (id). 
 
      - returns: RequestBuilder<ContaBancariaPortadorResponse> 
      */
-    public class func consultarUsingGET11WithRequestBuilder(id id: Int) -> RequestBuilder<ContaBancariaPortadorResponse> {
+    public class func consultarUsingGET12WithRequestBuilder(id id: Int) -> RequestBuilder<ContaBancariaPortadorResponse> {
         var path = "/api/contas-bancarias-portador/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -194,15 +272,15 @@ public class TransferenciaBancariaAPI: APIBase {
 
     /**
      
-     Consultar uma transfer\u00C3\u00AAncia banc\u00C3\u00A1ria para um banco
+     Consultar uma transfer\u00EAncia banc\u00E1ria para um banco
      
      - parameter id: (path) Id Conta 
-     - parameter idTransferencia: (path) Id Transfer\u00C3\u00AAncia 
-     - parameter idContaBancariaDestino: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta banc\u00C3\u00A1ria de destino (id) (optional)
+     - parameter idTransferencia: (path) Id Transfer\u00EAncia 
+     - parameter idContaBancariaDestino: (query) C\u00F3digo de identifica\u00E7\u00E3o da conta banc\u00E1ria de destino (id) (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET40(id id: Int, idTransferencia: Int, idContaBancariaDestino: Int?, completion: ((data: TransferenciaBancariaResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET40WithRequestBuilder(id: id, idTransferencia: idTransferencia, idContaBancariaDestino: idContaBancariaDestino).execute { (response, error) -> Void in
+    public class func consultarUsingGET41(id id: Int, idTransferencia: Int, idContaBancariaDestino: Int?, completion: ((data: TransferenciaBancariaResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET41WithRequestBuilder(id: id, idTransferencia: idTransferencia, idContaBancariaDestino: idContaBancariaDestino).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -210,10 +288,10 @@ public class TransferenciaBancariaAPI: APIBase {
 
     /**
      
-     Consultar uma transfer\u00C3\u00AAncia banc\u00C3\u00A1ria para um banco
+     Consultar uma transfer\u00EAncia banc\u00E1ria para um banco
      
      - GET /api/contas/{id}/transferencias-creditos-contas-bancarias/{idTransferencia}
-     - Este recurso permite consultar os detalhes de uma determinada transfer\u00C3\u00AAncia de cr\u00C3\u00A9dito realizada para uma conta banc\u00C3\u00A1ria. De modo geral, esta opera\u00C3\u00A7\u00C3\u00A3o poder\u00C3\u00A1 ser utilizada para uma consulta simples destes detalhes ou para realizar a montagem de um comprovante de 2\u00C2\u00AA via de transfer\u00C3\u00AAncia entre contas.
+     - Este recurso permite consultar os detalhes de uma determinada transfer\u00EAncia de cr\u00E9dito realizada para uma conta banc\u00E1ria. De modo geral, esta opera\u00E7\u00E3o poder\u00E1 ser utilizada para uma consulta simples destes detalhes ou para realizar a montagem de um comprovante de 2\u00AA via de transfer\u00EAncia entre contas.
      - examples: [{contentType=application/json, example={
   "digitoAgencia" : "aeiou",
   "numeroParcelas" : 123,
@@ -253,12 +331,12 @@ public class TransferenciaBancariaAPI: APIBase {
 }}]
      
      - parameter id: (path) Id Conta 
-     - parameter idTransferencia: (path) Id Transfer\u00C3\u00AAncia 
-     - parameter idContaBancariaDestino: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta banc\u00C3\u00A1ria de destino (id) (optional)
+     - parameter idTransferencia: (path) Id Transfer\u00EAncia 
+     - parameter idContaBancariaDestino: (query) C\u00F3digo de identifica\u00E7\u00E3o da conta banc\u00E1ria de destino (id) (optional)
 
      - returns: RequestBuilder<TransferenciaBancariaResponse> 
      */
-    public class func consultarUsingGET40WithRequestBuilder(id id: Int, idTransferencia: Int, idContaBancariaDestino: Int?) -> RequestBuilder<TransferenciaBancariaResponse> {
+    public class func consultarUsingGET41WithRequestBuilder(id id: Int, idTransferencia: Int, idContaBancariaDestino: Int?) -> RequestBuilder<TransferenciaBancariaResponse> {
         var path = "/api/contas/{id}/transferencias-creditos-contas-bancarias/{idTransferencia}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{idTransferencia}", withString: "\(idTransferencia)", options: .LiteralSearch, range: nil)
@@ -276,18 +354,19 @@ public class TransferenciaBancariaAPI: APIBase {
 
     /**
      
-     Realiza a listagem das transfer\u00C3\u00AAncias banc\u00C3\u00A1rias de cr\u00C3\u00A9dito entre contas banc\u00C3\u00A1rias
+     Realiza a listagem das transfer\u00EAncias banc\u00E1rias de cr\u00E9dito entre contas banc\u00E1rias
      
-     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
-     - parameter idConta: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da Conta. (optional)
-     - parameter dataSolicitacaoInicial: (query) Data inicial da solicita\u00C3\u00A7\u00C3\u00A3o de transfer\u00C3\u00AAncia. (optional)
-     - parameter dataSolicitacaoFinal: (query) Data final da solicita\u00C3\u00A7\u00C3\u00A3o de transfer\u00C3\u00AAncia (optional)
+     - parameter sort: (query) Tipo de ordena\u00E7\u00E3o dos registros. (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
+     - parameter idConta: (query) C\u00F3digo de identifica\u00E7\u00E3o da Conta. (optional)
+     - parameter dataSolicitacaoInicial: (query) Data inicial da solicita\u00E7\u00E3o de transfer\u00EAncia. (optional)
+     - parameter dataSolicitacaoFinal: (query) Data final da solicita\u00E7\u00E3o de transfer\u00EAncia (optional)
+     - parameter status: (query) C\u00F3digo do status do processamento (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarTransferenciaBancariaUsingGET(sort sort: [String]?, page: Int?, limit: Int?, idConta: Int?, dataSolicitacaoInicial: String?, dataSolicitacaoFinal: String?, completion: ((data: PageTransferenciaCreditoContaBancariaResponse?, error: ErrorType?) -> Void)) {
-        listarTransferenciaBancariaUsingGETWithRequestBuilder(sort: sort, page: page, limit: limit, idConta: idConta, dataSolicitacaoInicial: dataSolicitacaoInicial, dataSolicitacaoFinal: dataSolicitacaoFinal).execute { (response, error) -> Void in
+    public class func listarTransferenciaBancariaUsingGET(sort sort: [String]?, page: Int?, limit: Int?, idConta: Int?, dataSolicitacaoInicial: String?, dataSolicitacaoFinal: String?, status: Int?, completion: ((data: PageTransferenciaCreditoContaBancariaResponse?, error: ErrorType?) -> Void)) {
+        listarTransferenciaBancariaUsingGETWithRequestBuilder(sort: sort, page: page, limit: limit, idConta: idConta, dataSolicitacaoInicial: dataSolicitacaoInicial, dataSolicitacaoFinal: dataSolicitacaoFinal, status: status).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -295,10 +374,10 @@ public class TransferenciaBancariaAPI: APIBase {
 
     /**
      
-     Realiza a listagem das transfer\u00C3\u00AAncias banc\u00C3\u00A1rias de cr\u00C3\u00A9dito entre contas banc\u00C3\u00A1rias
+     Realiza a listagem das transfer\u00EAncias banc\u00E1rias de cr\u00E9dito entre contas banc\u00E1rias
      
      - GET /api/transferencias-creditos-contas-bancarias
-     - Recurso utilizado para listar as transfer\u00C3\u00AAncia de cr\u00C3\u00A9dito entre contas banc\u00C3\u00A1ria de um portador solicitadas.
+     - Recurso utilizado para listar as transfer\u00EAncia de cr\u00E9dito entre contas banc\u00E1ria de um portador solicitadas.
      - examples: [{contentType=application/json, example={
   "previousPage" : 123,
   "last" : true,
@@ -307,10 +386,13 @@ public class TransferenciaBancariaAPI: APIBase {
   "nextPage" : 123,
   "content" : [ {
     "valorContrato" : 1.3579000000000001069366817318950779736042022705078125,
+    "idCartao" : 123456789,
+    "idConta" : 123456789,
     "statusProcessamento" : "aeiou",
     "valorCompra" : 1.3579000000000001069366817318950779736042022705078125,
     "idTransferencia" : 123456789,
-    "dataCompra" : "aeiou"
+    "dataCompra" : "aeiou",
+    "status" : 123
   } ],
   "totalElements" : 123456789,
   "number" : 123,
@@ -322,16 +404,17 @@ public class TransferenciaBancariaAPI: APIBase {
   "first" : true
 }}]
      
-     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
-     - parameter idConta: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da Conta. (optional)
-     - parameter dataSolicitacaoInicial: (query) Data inicial da solicita\u00C3\u00A7\u00C3\u00A3o de transfer\u00C3\u00AAncia. (optional)
-     - parameter dataSolicitacaoFinal: (query) Data final da solicita\u00C3\u00A7\u00C3\u00A3o de transfer\u00C3\u00AAncia (optional)
+     - parameter sort: (query) Tipo de ordena\u00E7\u00E3o dos registros. (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
+     - parameter idConta: (query) C\u00F3digo de identifica\u00E7\u00E3o da Conta. (optional)
+     - parameter dataSolicitacaoInicial: (query) Data inicial da solicita\u00E7\u00E3o de transfer\u00EAncia. (optional)
+     - parameter dataSolicitacaoFinal: (query) Data final da solicita\u00E7\u00E3o de transfer\u00EAncia (optional)
+     - parameter status: (query) C\u00F3digo do status do processamento (optional)
 
      - returns: RequestBuilder<PageTransferenciaCreditoContaBancariaResponse> 
      */
-    public class func listarTransferenciaBancariaUsingGETWithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, idConta: Int?, dataSolicitacaoInicial: String?, dataSolicitacaoFinal: String?) -> RequestBuilder<PageTransferenciaCreditoContaBancariaResponse> {
+    public class func listarTransferenciaBancariaUsingGETWithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, idConta: Int?, dataSolicitacaoInicial: String?, dataSolicitacaoFinal: String?, status: Int?) -> RequestBuilder<PageTransferenciaCreditoContaBancariaResponse> {
         let path = "/api/transferencias-creditos-contas-bancarias"
         let URLString = PierAPI.basePath + path
         
@@ -341,7 +424,8 @@ public class TransferenciaBancariaAPI: APIBase {
             "limit": limit,
             "idConta": idConta,
             "dataSolicitacaoInicial": dataSolicitacaoInicial,
-            "dataSolicitacaoFinal": dataSolicitacaoFinal
+            "dataSolicitacaoFinal": dataSolicitacaoFinal,
+            "status": status
         ]
         let parameters = APIHelper.rejectNil(nillableParameters)
 
@@ -352,23 +436,23 @@ public class TransferenciaBancariaAPI: APIBase {
 
     /**
      
-     Lista contas banc\u00C3\u00A1rias portador
+     Lista contas banc\u00E1rias portador
      
-     - parameter idConta: (query) C\u00C3\u00B3digo identificador da conta cart\u00C3\u00A3o (optional)
-     - parameter nomeAgencia: (query) Descri\u00C3\u00A7\u00C3\u00A3o da ag\u00C3\u00AAncia (optional)
-     - parameter numeroAgencia: (query) N\u00C3\u00BAmero da ag\u00C3\u00AAncia (optional)
-     - parameter numeroConta: (query) N\u00C3\u00BAmero da conta (optional)
-     - parameter flagContaOrigemDoc: (query) Sinaliza se origem \u00C3\u00A9 DOC (1: DOC, 0: TED) (optional)
-     - parameter idPessoaFisica: (query) C\u00C3\u00B3digo da pessoa (optional)
+     - parameter idConta: (query) C\u00F3digo identificador da conta cart\u00E3o (optional)
+     - parameter nomeAgencia: (query) Descri\u00E7\u00E3o da ag\u00EAncia (optional)
+     - parameter numeroAgencia: (query) N\u00FAmero da ag\u00EAncia (optional)
+     - parameter numeroConta: (query) N\u00FAmero da conta (optional)
+     - parameter flagContaOrigemDoc: (query) Sinaliza se origem \u00E9 DOC (1: DOC, 0: TED) (optional)
+     - parameter idPessoaFisica: (query) C\u00F3digo da pessoa (optional)
      - parameter favorecido: (query) Nome do favorecido (optional)
      - parameter numeroReceiraFederal: (query) Documento do favorecido (optional)
-     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+     - parameter sort: (query) Tipo de ordena\u00E7\u00E3o dos registros. (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET14(idConta idConta: Int?, nomeAgencia: String?, numeroAgencia: String?, numeroConta: String?, flagContaOrigemDoc: Int?, idPessoaFisica: Int?, favorecido: String?, numeroReceiraFederal: String?, sort: [String]?, page: Int?, limit: Int?, completion: ((data: PageContaBancariaPortadorResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET14WithRequestBuilder(idConta: idConta, nomeAgencia: nomeAgencia, numeroAgencia: numeroAgencia, numeroConta: numeroConta, flagContaOrigemDoc: flagContaOrigemDoc, idPessoaFisica: idPessoaFisica, favorecido: favorecido, numeroReceiraFederal: numeroReceiraFederal, sort: sort, page: page, limit: limit).execute { (response, error) -> Void in
+    public class func listarUsingGET15(idConta idConta: Int?, nomeAgencia: String?, numeroAgencia: String?, numeroConta: String?, flagContaOrigemDoc: Int?, idPessoaFisica: Int?, favorecido: String?, numeroReceiraFederal: String?, sort: [String]?, page: Int?, limit: Int?, completion: ((data: PageContaBancariaPortadorResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET15WithRequestBuilder(idConta: idConta, nomeAgencia: nomeAgencia, numeroAgencia: numeroAgencia, numeroConta: numeroConta, flagContaOrigemDoc: flagContaOrigemDoc, idPessoaFisica: idPessoaFisica, favorecido: favorecido, numeroReceiraFederal: numeroReceiraFederal, sort: sort, page: page, limit: limit).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -376,10 +460,10 @@ public class TransferenciaBancariaAPI: APIBase {
 
     /**
      
-     Lista contas banc\u00C3\u00A1rias portador
+     Lista contas banc\u00E1rias portador
      
      - GET /api/contas-bancarias-portador
-     - Esse recurso permite listar contas banc\u00C3\u00A1rias do portador.
+     - Esse recurso permite listar contas banc\u00E1rias do portador.
      - examples: [{contentType=application/json, example={
   "previousPage" : 123,
   "last" : true,
@@ -413,21 +497,21 @@ public class TransferenciaBancariaAPI: APIBase {
   "first" : true
 }}]
      
-     - parameter idConta: (query) C\u00C3\u00B3digo identificador da conta cart\u00C3\u00A3o (optional)
-     - parameter nomeAgencia: (query) Descri\u00C3\u00A7\u00C3\u00A3o da ag\u00C3\u00AAncia (optional)
-     - parameter numeroAgencia: (query) N\u00C3\u00BAmero da ag\u00C3\u00AAncia (optional)
-     - parameter numeroConta: (query) N\u00C3\u00BAmero da conta (optional)
-     - parameter flagContaOrigemDoc: (query) Sinaliza se origem \u00C3\u00A9 DOC (1: DOC, 0: TED) (optional)
-     - parameter idPessoaFisica: (query) C\u00C3\u00B3digo da pessoa (optional)
+     - parameter idConta: (query) C\u00F3digo identificador da conta cart\u00E3o (optional)
+     - parameter nomeAgencia: (query) Descri\u00E7\u00E3o da ag\u00EAncia (optional)
+     - parameter numeroAgencia: (query) N\u00FAmero da ag\u00EAncia (optional)
+     - parameter numeroConta: (query) N\u00FAmero da conta (optional)
+     - parameter flagContaOrigemDoc: (query) Sinaliza se origem \u00E9 DOC (1: DOC, 0: TED) (optional)
+     - parameter idPessoaFisica: (query) C\u00F3digo da pessoa (optional)
      - parameter favorecido: (query) Nome do favorecido (optional)
      - parameter numeroReceiraFederal: (query) Documento do favorecido (optional)
-     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+     - parameter sort: (query) Tipo de ordena\u00E7\u00E3o dos registros. (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
 
      - returns: RequestBuilder<PageContaBancariaPortadorResponse> 
      */
-    public class func listarUsingGET14WithRequestBuilder(idConta idConta: Int?, nomeAgencia: String?, numeroAgencia: String?, numeroConta: String?, flagContaOrigemDoc: Int?, idPessoaFisica: Int?, favorecido: String?, numeroReceiraFederal: String?, sort: [String]?, page: Int?, limit: Int?) -> RequestBuilder<PageContaBancariaPortadorResponse> {
+    public class func listarUsingGET15WithRequestBuilder(idConta idConta: Int?, nomeAgencia: String?, numeroAgencia: String?, numeroConta: String?, flagContaOrigemDoc: Int?, idPessoaFisica: Int?, favorecido: String?, numeroReceiraFederal: String?, sort: [String]?, page: Int?, limit: Int?) -> RequestBuilder<PageContaBancariaPortadorResponse> {
         let path = "/api/contas-bancarias-portador"
         let URLString = PierAPI.basePath + path
         
@@ -453,17 +537,17 @@ public class TransferenciaBancariaAPI: APIBase {
 
     /**
      
-     Listar as transfer\u00C3\u00AAncias banc\u00C3\u00A1rias realizadas
+     Listar as transfer\u00EAncias banc\u00E1rias realizadas
      
      - parameter id: (path) Id Conta 
-     - parameter idContaBancariaDestino: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta banc\u00C3\u00A1ria de destino (id) (optional)
-     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+     - parameter idContaBancariaDestino: (query) C\u00F3digo de identifica\u00E7\u00E3o da conta banc\u00E1ria de destino (id) (optional)
+     - parameter sort: (query) Tipo de ordena\u00E7\u00E3o dos registros. (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET47(id id: Int, idContaBancariaDestino: Int?, sort: [String]?, page: Int?, limit: Int?, completion: ((data: PageTransferenciaBancariaResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET47WithRequestBuilder(id: id, idContaBancariaDestino: idContaBancariaDestino, sort: sort, page: page, limit: limit).execute { (response, error) -> Void in
+    public class func listarUsingGET49(id id: Int, idContaBancariaDestino: Int?, sort: [String]?, page: Int?, limit: Int?, completion: ((data: PageTransferenciaBancariaResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET49WithRequestBuilder(id: id, idContaBancariaDestino: idContaBancariaDestino, sort: sort, page: page, limit: limit).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -471,10 +555,10 @@ public class TransferenciaBancariaAPI: APIBase {
 
     /**
      
-     Listar as transfer\u00C3\u00AAncias banc\u00C3\u00A1rias realizadas
+     Listar as transfer\u00EAncias banc\u00E1rias realizadas
      
      - GET /api/contas/{id}/transferencias-creditos-contas-bancarias
-     - Este recurso tem como objetivo permitir que o portador de um Cart\u00C3\u00A3o possa consultar uma lista das Transfer\u00C3\u00AAncias Banc\u00C3\u00A1rias para os Favorecidos cadastrados.
+     - Este recurso tem como objetivo permitir que o portador de um Cart\u00E3o possa consultar uma lista das Transfer\u00EAncias Banc\u00E1rias para os Favorecidos cadastrados.
      - examples: [{contentType=application/json, example={
   "previousPage" : 123,
   "last" : true,
@@ -529,14 +613,14 @@ public class TransferenciaBancariaAPI: APIBase {
 }}]
      
      - parameter id: (path) Id Conta 
-     - parameter idContaBancariaDestino: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta banc\u00C3\u00A1ria de destino (id) (optional)
-     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
+     - parameter idContaBancariaDestino: (query) C\u00F3digo de identifica\u00E7\u00E3o da conta banc\u00E1ria de destino (id) (optional)
+     - parameter sort: (query) Tipo de ordena\u00E7\u00E3o dos registros. (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
 
      - returns: RequestBuilder<PageTransferenciaBancariaResponse> 
      */
-    public class func listarUsingGET47WithRequestBuilder(id id: Int, idContaBancariaDestino: Int?, sort: [String]?, page: Int?, limit: Int?) -> RequestBuilder<PageTransferenciaBancariaResponse> {
+    public class func listarUsingGET49WithRequestBuilder(id id: Int, idContaBancariaDestino: Int?, sort: [String]?, page: Int?, limit: Int?) -> RequestBuilder<PageTransferenciaBancariaResponse> {
         var path = "/api/contas/{id}/transferencias-creditos-contas-bancarias"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -556,7 +640,7 @@ public class TransferenciaBancariaAPI: APIBase {
 
     /**
      
-     Cadastra uma conta banc\u00C3\u00A1ria do portador
+     Cadastra uma conta banc\u00E1ria do portador
      
      - parameter persist: (body) persist 
      - parameter completion: completion handler to receive the data and the error objects
@@ -570,10 +654,10 @@ public class TransferenciaBancariaAPI: APIBase {
 
     /**
      
-     Cadastra uma conta banc\u00C3\u00A1ria do portador
+     Cadastra uma conta banc\u00E1ria do portador
      
      - POST /api/contas-bancarias-portador
-     - Esse recurso permite cadastrar contas banc\u00C3\u00A1rias do portador.
+     - Esse recurso permite cadastrar contas banc\u00E1rias do portador.
      - examples: [{contentType=application/json, example={
   "nomeAgencia" : "aeiou",
   "idConta" : 123456789,
@@ -609,7 +693,7 @@ public class TransferenciaBancariaAPI: APIBase {
 
     /**
      
-     Realiza a simula\u00C3\u00A7\u00C3\u00A3o dos planos de parcelamentos para uma transfer\u00C3\u00AAncia banc\u00C3\u00A1ria de cr\u00C3\u00A9dito entre contas banc\u00C3\u00A1rias
+     Realiza a simula\u00E7\u00E3o dos planos de parcelamentos para uma transfer\u00EAncia banc\u00E1ria de cr\u00E9dito entre contas banc\u00E1rias
      
      - parameter request: (body) request 
      - parameter completion: completion handler to receive the data and the error objects
@@ -623,10 +707,10 @@ public class TransferenciaBancariaAPI: APIBase {
 
     /**
      
-     Realiza a simula\u00C3\u00A7\u00C3\u00A3o dos planos de parcelamentos para uma transfer\u00C3\u00AAncia banc\u00C3\u00A1ria de cr\u00C3\u00A9dito entre contas banc\u00C3\u00A1rias
+     Realiza a simula\u00E7\u00E3o dos planos de parcelamentos para uma transfer\u00EAncia banc\u00E1ria de cr\u00E9dito entre contas banc\u00E1rias
      
      - POST /api/simular-transferencias-creditos-contas-bancarias
-     - Realiza a simula\u00C3\u00A7\u00C3\u00A3o dos planos de parcelamentos para uma transfer\u00C3\u00AAncia banc\u00C3\u00A1ria de cr\u00C3\u00A9dito entre contas banc\u00C3\u00A1rias.
+     - Realiza a simula\u00E7\u00E3o dos planos de parcelamentos para uma transfer\u00EAncia banc\u00E1ria de cr\u00E9dito entre contas banc\u00E1rias.
      - examples: [{contentType=application/json, example={
   "numeroMesesCarencia" : 123,
   "parcelas" : [ {
@@ -660,7 +744,7 @@ public class TransferenciaBancariaAPI: APIBase {
 
     /**
      
-     Realizar transfer\u00C3\u00AAncia banc\u00C3\u00A1ria do cart\u00C3\u00A3o para contas banc\u00C3\u00A1rias
+     Realizar transfer\u00EAncia banc\u00E1ria do cart\u00E3o para contas banc\u00E1rias
      
      - parameter persist: (body) persist 
      - parameter completion: completion handler to receive the data and the error objects
@@ -674,10 +758,10 @@ public class TransferenciaBancariaAPI: APIBase {
 
     /**
      
-     Realizar transfer\u00C3\u00AAncia banc\u00C3\u00A1ria do cart\u00C3\u00A3o para contas banc\u00C3\u00A1rias
+     Realizar transfer\u00EAncia banc\u00E1ria do cart\u00E3o para contas banc\u00E1rias
      
      - POST /api/transferencias-creditos-contas-bancarias
-     - Este recurso tem como objetivo permitir que o portador de um cart\u00C3\u00A3o possa realizar a transfer\u00C3\u00AAncia de cr\u00C3\u00A9dito para uma conta banc\u00C3\u00A1ria. Assim, o valor do cr\u00C3\u00A9dito somado a tarifa para transfer\u00C3\u00AAncia, quando praticada pelo emissor, ser\u00C3\u00A1 debitado da conta de origem, se houver saldo suficiente, e ser\u00C3\u00A1 creditado na conta banc\u00C3\u00A1ria de destino.
+     - Este recurso tem como objetivo permitir que o portador de um cart\u00E3o possa realizar a transfer\u00EAncia de cr\u00E9dito para uma conta banc\u00E1ria. Assim, o valor do cr\u00E9dito somado a tarifa para transfer\u00EAncia, quando praticada pelo emissor, ser\u00E1 debitado da conta de origem, se houver saldo suficiente, e ser\u00E1 creditado na conta banc\u00E1ria de destino.
      - examples: [{contentType=application/json, example={
   "digitoAgencia" : "aeiou",
   "numeroParcelas" : 123,
@@ -729,7 +813,7 @@ public class TransferenciaBancariaAPI: APIBase {
 
     /**
      
-     Realizar transfer\u00C3\u00AAncia banc\u00C3\u00A1ria do cart\u00C3\u00A3o para contas banc\u00C3\u00A1rias
+     Realizar transfer\u00EAncia banc\u00E1ria do cart\u00E3o para contas banc\u00E1rias
      
      - parameter id: (path) Id Conta 
      - parameter transferenciaBancariaPersist: (body) transferenciaBancariaPersist 
@@ -744,10 +828,10 @@ public class TransferenciaBancariaAPI: APIBase {
 
     /**
      
-     Realizar transfer\u00C3\u00AAncia banc\u00C3\u00A1ria do cart\u00C3\u00A3o para contas banc\u00C3\u00A1rias
+     Realizar transfer\u00EAncia banc\u00E1ria do cart\u00E3o para contas banc\u00E1rias
      
      - POST /api/contas/{id}/transferencias-creditos-contas-bancarias
-     - Este recurso tem como objetivo permitir que o portador de um cart\u00C3\u00A3o possa realizar a transfer\u00C3\u00AAncia de cr\u00C3\u00A9dito para uma conta banc\u00C3\u00A1ria. Assim, o valor do cr\u00C3\u00A9dito somado a tarifa para transfer\u00C3\u00AAncia, quando praticada pelo emissor, ser\u00C3\u00A1 debitado da conta de origem, se houver saldo suficiente, e ser\u00C3\u00A1 creditado na conta banc\u00C3\u00A1ria de destino.
+     - Este recurso tem como objetivo permitir que o portador de um cart\u00E3o possa realizar a transfer\u00EAncia de cr\u00E9dito para uma conta banc\u00E1ria. Assim, o valor do cr\u00E9dito somado a tarifa para transfer\u00EAncia, quando praticada pelo emissor, ser\u00E1 debitado da conta de origem, se houver saldo suficiente, e ser\u00E1 creditado na conta banc\u00E1ria de destino.
      - examples: [{contentType=application/json, example={
   "digitoAgencia" : "aeiou",
   "numeroParcelas" : 123,

@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Representa\u00C3\u00A7\u00C3\u00A3o da requisi\u00C3\u00A7\u00C3\u00A3o do recurso Configura\u00C3\u00A7\u00C3\u00A3o Registro de Cobran\u00C3\u00A7a Online */
+/** Representa\u00E7\u00E3o da requisi\u00E7\u00E3o do recurso Configura\u00E7\u00E3o Registro de Cobran\u00E7a Online */
 public class ConfiguracaoRegistroCobrancaPersist: JSONEncodable {
 
     public enum Status: String { 
@@ -16,7 +16,7 @@ public class ConfiguracaoRegistroCobrancaPersist: JSONEncodable {
         case Ativo = "ATIVO"
     }
     
-    /** C\u00C3\u00B3digo do Banco. */
+    /** C\u00F3digo do Banco. */
     public var codigoBanco: Int?
     /** URL de acesso ao banco. */
     public var uri: String?
@@ -40,7 +40,7 @@ public class ConfiguracaoRegistroCobrancaPersist: JSONEncodable {
     public var typeTruststore: String?
     /** URL adicional de acesso ao banco. */
     public var uriAdicional: String?
-    /** Status descrevendo a situa\u00C3\u00A7\u00C3\u00A3o atual da configura\u00C3\u00A7\u00C3\u00A3o. */
+    /** Status descrevendo a situa\u00E7\u00E3o atual da configura\u00E7\u00E3o. */
     public var status: Status?
     
 

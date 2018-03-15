@@ -8,12 +8,12 @@
 import Foundation
 
 
-/** Representa\u00C3\u00A7\u00C3\u00A3o da requisi\u00C3\u00A7\u00C3\u00A3o do recurso gerar c\u00C3\u00B3digo de seguran\u00C3\u00A7a. */
+/** Representa\u00E7\u00E3o da requisi\u00E7\u00E3o do recurso gerar c\u00F3digo de seguran\u00E7a. */
 public class CodigoSegurancaSMSPersist: JSONEncodable {
 
-    /** DDD do n\u00C3\u00BAmero de telefone para envio do sms. */
+    /** DDD do n\u00FAmero de telefone para envio do sms. */
     public var ddd: String?
-    /** N\u00C3\u00BAmero do telefone para envio do sms. */
+    /** N\u00FAmero do telefone para envio do sms. */
     public var telefone: String?
     
 

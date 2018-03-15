@@ -8,26 +8,26 @@
 import Foundation
 
 
-/** Representa\u00C3\u00A7\u00C3\u00A3o da resposta do recurso TipoOperacao */
+/** Representa\u00E7\u00E3o da resposta do recurso TipoOperacao */
 public class TipoOperacaoResponse: JSONEncodable {
 
-    /** C\u00C3\u00B3digo identificador do TipoOperacao */
+    /** C\u00F3digo identificador do TipoOperacao */
     public var id: Int?
-    /** C\u00C3\u00B3digo do TipoOperacao */
+    /** C\u00F3digo do TipoOperacao */
     public var tipoOperacao: String?
     /** Nome do TipoOperacao */
     public var nome: String?
-    /** Decri\u00C3\u00A7\u00C3\u00A3o do TipoOperacao */
+    /** Decri\u00E7\u00E3o do TipoOperacao */
     public var descricao: String?
     /** Excedente permitido para o TipoOperacao */
     public var excedentePermitido: Double?
     /** Tipo do Excedente permitido para o TipoOperacao */
     public var tipoExcedentePermitido: String?
-    /** Valor minimo para a transa\u00C3\u00A7\u00C3\u00A3o do TipoOperacao */
+    /** Valor minimo para a transa\u00E7\u00E3o do TipoOperacao */
     public var valorMinimo: Double?
-    /** Valor maximo para a transa\u00C3\u00A7\u00C3\u00A3o do TipoOperacao */
+    /** Valor maximo para a transa\u00E7\u00E3o do TipoOperacao */
     public var valorMaximo: Double?
-    /** Valor TAC da transa\u00C3\u00A7\u00C3\u00A3o do TipoOperacao */
+    /** Valor TAC da transa\u00E7\u00E3o do TipoOperacao */
     public var valorTAC: Double?
     /** Flag Tira TAC do TipoOperacao */
     public var flagTiraTac: Int?
@@ -37,9 +37,9 @@ public class TipoOperacaoResponse: JSONEncodable {
     public var idEstabelecimento: Int?
     /** Tarifa do TipoOperacao */
     public var tarifa: Double?
-    /** Remunera\u00C3\u00A7\u00C3\u00A3o do Emissor para o TipoOperacao */
+    /** Remunera\u00E7\u00E3o do Emissor para o TipoOperacao */
     public var remuneracaoEmissor: Double?
-    /** Plano m\u00C3\u00A1ximo do TipoOperacao */
+    /** Plano m\u00E1ximo do TipoOperacao */
     public var planoMaximo: Int?
     /** Plano minimo do TipoOperacao */
     public var planoMinimo: Int?

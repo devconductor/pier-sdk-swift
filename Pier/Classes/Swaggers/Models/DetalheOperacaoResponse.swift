@@ -8,46 +8,46 @@
 import Foundation
 
 
-/** Representa\u00C3\u00A7\u00C3\u00A3o da resposta do recurso Operacao */
+/** Representa\u00E7\u00E3o da resposta do recurso Operacao */
 public class DetalheOperacaoResponse: JSONEncodable {
 
-    /** C\u00C3\u00B3digo que identifica a opera\u00C3\u00A7\u00C3\u00A3o */
+    /** C\u00F3digo que identifica a opera\u00E7\u00E3o */
     public var idOperacao: Int?
-    /** C\u00C3\u00B3digo de processamento usado em transa\u00C3\u00A7\u00C3\u00B5es com o autorizador */
+    /** C\u00F3digo de processamento usado em transa\u00E7\u00F5es com o autorizador */
     public var codigoProcessamento: String?
-    /** C\u00C3\u00B3digo de processamento usado para cancelar transa\u00C3\u00A7\u00C3\u00B5es no autorizador */
+    /** C\u00F3digo de processamento usado para cancelar transa\u00E7\u00F5es no autorizador */
     public var codigoProcessamentoCancelamento: String?
-    /** Nome da opera\u00C3\u00A7\u00C3\u00A3o */
+    /** Nome da opera\u00E7\u00E3o */
     public var nomeOperacao: String?
-    /** Descri\u00C3\u00A7\u00C3\u00A3o da opera\u00C3\u00A7\u00C3\u00A3o */
+    /** Descri\u00E7\u00E3o da opera\u00E7\u00E3o */
     public var descricaoOperacao: String?
-    /** Quantidade m\u00C3\u00ADnima de meses permitido para opera\u00C3\u00A7\u00C3\u00A3o */
+    /** Quantidade m\u00EDnima de meses permitido para opera\u00E7\u00E3o */
     public var planoMinimo: Int?
-    /** Quantidade M\u00C3\u00A1ximo de meses permitido para opera\u00C3\u00A7\u00C3\u00A3o */
+    /** Quantidade M\u00E1ximo de meses permitido para opera\u00E7\u00E3o */
     public var planoMaximo: Int?
-    /**  Valor m\u00C3\u00ADnimo permitido permitido para opera\u00C3\u00A7\u00C3\u00A3o */
+    /**  Valor m\u00EDnimo permitido permitido para opera\u00E7\u00E3o */
     public var valorMinimo: Double?
-    /**  Valor m\u00C3\u00A1ximo permitido permitido para opera\u00C3\u00A7\u00C3\u00A3o */
+    /**  Valor m\u00E1ximo permitido permitido para opera\u00E7\u00E3o */
     public var valorMaximo: Double?
-    /** Flag indicativa para crobran\u00C3\u00A7a de juros */
+    /** Flag indicativa para crobran\u00E7a de juros */
     public var flagCobraJuros: Bool?
-    /** Valor do juros a ser cobrado, caso opera\u00C3\u00A7\u00C3\u00A3o cobre juros */
+    /** Valor do juros a ser cobrado, caso opera\u00E7\u00E3o cobre juros */
     public var taxaJuros: Double?
-    /** Flag indicativa para crobran\u00C3\u00A7a de tarifas */
+    /** Flag indicativa para crobran\u00E7a de tarifas */
     public var flagCobraTarifa: Bool?
-    /** Valor da tarifa a ser cobrado, caso opera\u00C3\u00A7\u00C3\u00A3o cobre tarifas */
+    /** Valor da tarifa a ser cobrado, caso opera\u00E7\u00E3o cobre tarifas */
     public var taxaTarifa: Double?
     /** Valor da taxa de abertura de conta */
     public var valorTac: Double?
     /** Percentual da taxa de abertura de conta */
     public var percentualTac: Double?
-    /** Valor da opera\u00C3\u00A7\u00C3\u00A3o */
+    /** Valor da opera\u00E7\u00E3o */
     public var valorOperacao: Double?
-    /** Quantidade de meses para car\u00C3\u00AAncia */
+    /** Quantidade de meses para car\u00EAncia */
     public var carencia: Int?
-    /** Valor excedente permitido para opera\u00C3\u00A7\u00C3\u00A3o */
+    /** Valor excedente permitido para opera\u00E7\u00E3o */
     public var excedentePermitido: Double?
-    /** Permitir transa\u00C3\u00A7\u00C3\u00B5es parceladas */
+    /** Permitir transa\u00E7\u00F5es parceladas */
     public var flagPermitirParcelamento: Bool?
     
 

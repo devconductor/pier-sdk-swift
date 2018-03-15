@@ -8,20 +8,20 @@
 import Foundation
 
 
-/** Representa\u00C3\u00A7\u00C3\u00A3o do recurso atualizar cart\u00C3\u00A3o */
+/** Representa\u00E7\u00E3o do recurso atualizar cart\u00E3o */
 public class CartaoPayPersist: JSONEncodable {
 
-    /** N\u00C3\u00BAmero do cart\u00C3\u00A3o criptografado */
+    /** N\u00FAmero do cart\u00E3o criptografado */
     public var numeroCartao: String?
-    /** Data de validade do cart\u00C3\u00A3o */
+    /** Data de validade do cart\u00E3o */
     public var dataValidade: String?
-    /** CVV do cart\u00C3\u00A3o criptografado */
+    /** CVV do cart\u00E3o criptografado */
     public var cvv: String?
-    /** CPF do portador do cart\u00C3\u00A3o criptografado */
+    /** CPF do portador do cart\u00E3o criptografado */
     public var numeroReceitaFederal: String?
-    /** Nome impresso no cart\u00C3\u00A3o criptografado */
+    /** Nome impresso no cart\u00E3o criptografado */
     public var nomeImpresso: String?
-    /** Chave p\u00C3\u00BAblica do dispositivo criptografada */
+    /** Chave p\u00FAblica do dispositivo criptografada */
     public var chavePublicaDevice: String?
     
 

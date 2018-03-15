@@ -8,14 +8,14 @@
 import Foundation
 
 
-/** Representa\u00C3\u00A7\u00C3\u00A3o da resposta do recurso de operadora telef\u00C3\u00B4nica */
+/** Representa\u00E7\u00E3o da resposta do recurso de operadora telef\u00F4nica */
 public class FantasiaBasicaResponse: JSONEncodable {
 
-    /** Identificador da fantasia b\u00C3\u00A1sica */
+    /** Identificador da fantasia b\u00E1sica */
     public var id: Int?
-    /** Nome da fantasia b\u00C3\u00A1sica */
+    /** Nome da fantasia b\u00E1sica */
     public var nome: String?
-    /** Descri\u00C3\u00A7\u00C3\u00A3o da fantasia b\u00C3\u00A1sica */
+    /** Descri\u00E7\u00E3o da fantasia b\u00E1sica */
     public var descricao: String?
     
 

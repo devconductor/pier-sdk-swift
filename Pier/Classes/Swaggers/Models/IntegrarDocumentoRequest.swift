@@ -8,16 +8,16 @@
 import Foundation
 
 
-/** Objeto de requisi\u00C3\u00A7\u00C3\u00A3o. */
+/** Objeto de requisi\u00E7\u00E3o. */
 public class IntegrarDocumentoRequest: JSONEncodable {
 
     /** Identificador do template de documento */
     public var idTemplate: Int?
-    /** Conte\u00C3\u00BAdo do arquivo convertido em Base 64 */
+    /** Conte\u00FAdo do arquivo convertido em Base 64 */
     public var arquivo: String?
     /** Nome do arquivo. */
     public var nome: String?
-    /** Lista de par\u00C3\u00A2metros para montagem do documento. */
+    /** Lista de par\u00E2metros para montagem do documento. */
     public var propriedades: [PropriedadeDocumentoRequest]?
     
 

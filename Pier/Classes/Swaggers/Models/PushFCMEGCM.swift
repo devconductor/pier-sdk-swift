@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Objeto Notifica\u00C3\u00A7\u00C3\u00A3o Push FCM e GCM */
+/** Objeto Notifica\u00E7\u00E3o Push FCM e GCM */
 public class PushFCMEGCM: JSONEncodable {
 
     public enum TipoEvento: String { 
@@ -17,25 +17,25 @@ public class PushFCMEGCM: JSONEncodable {
         case Outros = "OUTROS"
     }
     
-    /** C\u00C3\u00B3digo identificado da pessoa */
+    /** C\u00F3digo identificado da pessoa */
     public var idPessoa: Int?
-    /** C\u00C3\u00B3digo identificador da conta */
+    /** C\u00F3digo identificador da conta */
     public var idConta: Int?
-    /** Apresenta o token do dispositivo que dever\u00C3\u00A1 receber o push. */
+    /** Apresenta o token do dispositivo que dever\u00E1 receber o push. */
     public var tokenDispositivo: String?
-    /** Apresenta o token da sua aplica\u00C3\u00A7\u00C3\u00A3o Android gerada pela Google. */
+    /** Apresenta o token da sua aplica\u00E7\u00E3o Android gerada pela Google. */
     public var tokenServidor: String?
-    /** Apresenta o t\u00C3\u00ADtulo da notifica\u00C3\u00A7\u00C3\u00A3o. */
+    /** Apresenta o t\u00EDtulo da notifica\u00E7\u00E3o. */
     public var titulo: String?
-    /** Apresenta o texto da notifica\u00C3\u00A7\u00C3\u00A3o a ser enviado. */
+    /** Apresenta o texto da notifica\u00E7\u00E3o a ser enviado. */
     public var conteudo: String?
-    /** Apresenta o tipoEvento a qual pertence a notifica\u00C3\u00A7\u00C3\u00A3o */
+    /** Apresenta o tipoEvento a qual pertence a notifica\u00E7\u00E3o */
     public var tipoEvento: TipoEvento?
     /** Apresenta o nome do icone a ser apresentado no push. */
     public var icone: String?
     /** Apresenta o cor do icone a ser apresentado no push */
     public var som: String?
-    /** Apresenta a cor do icone da notifica\u00C3\u00A7\u00C3\u00A3o. Essa cor dever\u00C3\u00A1 ser informada no formato RGB Ex. #000000. */
+    /** Apresenta a cor do icone da notifica\u00E7\u00E3o. Essa cor dever\u00E1 ser informada no formato RGB Ex. #000000. */
     public var cor: String?
     
 

@@ -8,28 +8,28 @@
 import Foundation
 
 
-/** Objeto Cart\u00C3\u00A3o para Impress\u00C3\u00A3o pela Gr\u00C3\u00A1fica */
+/** Objeto Cart\u00E3o para Impress\u00E3o pela Gr\u00E1fica */
 public class CartaoEmbossingResponse: JSONEncodable {
 
-    /** Apresenta o status que informa se o cart\u00C3\u00A3o \u00C3\u00A9 virtual  */
+    /** Apresenta o status que informa se o cart\u00E3o \u00E9 virtual  */
     public var flagVirtual: Int?
-    /** Apresenta o C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Conta (id) a qual o cart\u00C3\u00A3o gerado pertence. */
+    /** Apresenta o C\u00F3digo de Identifica\u00E7\u00E3o da Conta (id) a qual o cart\u00E3o gerado pertence. */
     public var idConta: Int?
-    /** Apresenta o C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Pessoa (id) portadora do cart\u00C3\u00A3o gerado. */
+    /** Apresenta o C\u00F3digo de Identifica\u00E7\u00E3o da Pessoa (id) portadora do cart\u00E3o gerado. */
     public var idPessoa: Int?
-    /** Apresenta o C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Cart\u00C3\u00A3o (id) que foi gerado. */
+    /** Apresenta o C\u00F3digo de Identifica\u00E7\u00E3o do Cart\u00E3o (id) que foi gerado. */
     public var idCartao: Int?
-    /** Apresenta o C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da Bandeira (id) a qual o Cart\u00C3\u00A3o pertence, quando bandeirado. */
+    /** Apresenta o C\u00F3digo de Identifica\u00E7\u00E3o da Bandeira (id) a qual o Cart\u00E3o pertence, quando bandeirado. */
     public var idBandeira: Int?
-    /** Apresenta o C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o do Tipo do Cart\u00C3\u00A3o (id) atribu\u00C3\u00ADdo ao Cart\u00C3\u00A3o. */
+    /** Apresenta o C\u00F3digo de Identifica\u00E7\u00E3o do Tipo do Cart\u00E3o (id) atribu\u00EDdo ao Cart\u00E3o. */
     public var idTipoCartao: Int?
-    /** Apresenta a data de emiss\u00C3\u00A3o do Cart\u00C3\u00A3o. */
+    /** Apresenta a data de emiss\u00E3o do Cart\u00E3o. */
     public var dataGeracao: String?
-    /** Apresenta a data de Validade do Cart\u00C3\u00A3o. */
+    /** Apresenta a data de Validade do Cart\u00E3o. */
     public var dataValidade: String?
-    /** Apresenta o nome da Origem Comercial que realizou o cadastro do Titular da Conta a qual o Cart\u00C3\u00A3o pertence. */
+    /** Apresenta o nome da Origem Comercial que realizou o cadastro do Titular da Conta a qual o Cart\u00E3o pertence. */
     public var nomeOrigemComercial: String?
-    /** Apresenta o CPF do Portador do Cart\u00C3\u00A3o. */
+    /** Apresenta o CPF do Portador do Cart\u00E3o. */
     public var cpf: String?
     
 

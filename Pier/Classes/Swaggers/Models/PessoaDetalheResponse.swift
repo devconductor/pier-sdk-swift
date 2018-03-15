@@ -11,27 +11,27 @@ import Foundation
 /** PessoaDetalheResponse */
 public class PessoaDetalheResponse: JSONEncodable {
 
-    /** C\u00C3\u00B3digo identificador da pessoa */
+    /** C\u00F3digo identificador da pessoa */
     public var idPessoa: Int?
-    /** Apresenta o nome da m\u00C3\u00A3e da pessoa fisica */
+    /** Apresenta o nome da m\u00E3e da pessoa fisica */
     public var nomeMae: String?
     /** Id Estado civil da pessoa fisica */
     public var idEstadoCivil: Int?
-    /** Profiss\u00C3\u00A3o da pessoa fisica */
+    /** Profiss\u00E3o da pessoa fisica */
     public var idProfissao: String?
-    /** Id Natureza Ocupa\u00C3\u00A7\u00C3\u00A3o da pessoa fisica */
+    /** Id Natureza Ocupa\u00E7\u00E3o da pessoa fisica */
     public var idNaturezaOcupacao: Int?
     /** Id Nacionalidade da pessoa fisica */
     public var idNacionalidade: Int?
-    /** N\u00C3\u00BAmero do banco. */
+    /** N\u00FAmero do banco. */
     public var numeroBanco: Int?
-    /** N\u00C3\u00BAmero da ag\u00C3\u00AAncia. */
+    /** N\u00FAmero da ag\u00EAncia. */
     public var numeroAgencia: Int?
-    /** N\u00C3\u00BAmero da conta corrente. */
+    /** N\u00FAmero da conta corrente. */
     public var numeroContaCorrente: String?
     /** Email da pessoa fisica */
     public var email: String?
-    /** Nome que deve ser impresso no cart\u00C3\u00A3o */
+    /** Nome que deve ser impresso no cart\u00E3o */
     public var nomeEmpresa: String?
     
 

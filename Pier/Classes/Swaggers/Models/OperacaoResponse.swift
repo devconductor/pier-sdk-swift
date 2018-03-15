@@ -8,24 +8,24 @@
 import Foundation
 
 
-/** Representa\u00C3\u00A7\u00C3\u00A3o da resposta do recurso Operacao */
+/** Representa\u00E7\u00E3o da resposta do recurso Operacao */
 public class OperacaoResponse: JSONEncodable {
 
-    /** C\u00C3\u00B3digo que identifica a opera\u00C3\u00A7\u00C3\u00A3o */
+    /** C\u00F3digo que identifica a opera\u00E7\u00E3o */
     public var idOperacao: Int?
-    /** C\u00C3\u00B3digo de processamento usado em transa\u00C3\u00A7\u00C3\u00B5es com o autorizador */
+    /** C\u00F3digo de processamento usado em transa\u00E7\u00F5es com o autorizador */
     public var codigoProcessamento: String?
-    /** C\u00C3\u00B3digo de processamento usado para cancelar transa\u00C3\u00A7\u00C3\u00B5es no autorizador */
+    /** C\u00F3digo de processamento usado para cancelar transa\u00E7\u00F5es no autorizador */
     public var codigoProcessamentoCancelamento: String?
-    /** Nome da opera\u00C3\u00A7\u00C3\u00A3o */
+    /** Nome da opera\u00E7\u00E3o */
     public var nomeOperacao: String?
-    /** Flag indicativa para crobran\u00C3\u00A7a de juros */
+    /** Flag indicativa para crobran\u00E7a de juros */
     public var flagCobraJuros: Bool?
-    /** Flag indicativa para crobran\u00C3\u00A7a de tarifas */
+    /** Flag indicativa para crobran\u00E7a de tarifas */
     public var flagCobraTarifa: Bool?
-    /** Quantidade de meses para car\u00C3\u00AAncia */
+    /** Quantidade de meses para car\u00EAncia */
     public var carencia: Int?
-    /** Permitir transa\u00C3\u00A7\u00C3\u00B5es parceladas */
+    /** Permitir transa\u00E7\u00F5es parceladas */
     public var flagPermitirParcelamento: Bool?
     
 

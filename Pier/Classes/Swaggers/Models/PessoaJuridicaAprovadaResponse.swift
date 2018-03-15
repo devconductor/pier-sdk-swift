@@ -11,15 +11,15 @@ import Foundation
 /** PessoaJuridicaAprovadaPersist */
 public class PessoaJuridicaAprovadaResponse: JSONEncodable {
 
-    /** C\u00C3\u00B3digo de Identifica\u00C3\u00A7\u00C3\u00A3o da pessoa jur\u00C3\u00ADdica (id) */
+    /** C\u00F3digo de Identifica\u00E7\u00E3o da pessoa jur\u00EDdica (id) */
     public var id: Int?
-    /** Apresenta o nome completo da raz\u00C3\u00A3o social (nome empresarial)&#39;. */
+    /** Apresenta o nome completo da raz\u00E3o social (nome empresarial)&#39;. */
     public var razaoSocial: String?
     /** Apresenta o nome fantasia da empresa. */
     public var nomeFantasia: String?
-    /** N\u00C3\u00BAmero do Cadastro Nacional de Pessoa Juridica (CNPJ) */
+    /** N\u00FAmero do Cadastro Nacional de Pessoa Juridica (CNPJ) */
     public var cnpj: String?
-    /** N\u00C3\u00BAmero da Inscri\u00C3\u00A7\u00C3\u00A3o Estadual (IE). */
+    /** N\u00FAmero da Inscri\u00E7\u00E3o Estadual (IE). */
     public var inscricaoEstadual: String?
     /** Data de abertura da empresa, essa data deve ser informada no formato: aaaa-MM-dd. */
     public var dataAberturaEmpresa: String?
@@ -27,37 +27,37 @@ public class PessoaJuridicaAprovadaResponse: JSONEncodable {
     public var idOrigemComercial: Int?
     /** Id do produto */
     public var idProduto: Int?
-    /** N\u00C3\u00BAmero da ag\u00C3\u00AAncia. */
+    /** N\u00FAmero da ag\u00EAncia. */
     public var numeroAgencia: Int?
-    /** N\u00C3\u00BAmero da conta corrente. */
+    /** N\u00FAmero da conta corrente. */
     public var numeroContaCorrente: String?
     /** Email da empresa */
     public var email: String?
     /** Dia vencimento */
     public var diaVencimento: Int?
-    /** Nome que deve ser impresso no cart\u00C3\u00A3o */
+    /** Nome que deve ser impresso no cart\u00E3o */
     public var nomeImpresso: String?
-    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da conta cadastrada */
+    /** C\u00F3digo de identifica\u00E7\u00E3o da conta cadastrada */
     public var idConta: Int?
-    /** C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o da proposta */
+    /** C\u00F3digo de identifica\u00E7\u00E3o da proposta */
     public var idProposta: Int?
     /** Indica o canal pelo qual o cadastro do cliente foi realizado */
     public var canalEntrada: String?
-    /** Indica o valor da pontua\u00C3\u00A7\u00C3\u00A3o atribuido ao cliente (caso n\u00C3\u00A3o informado ser\u00C3\u00A1 atribuido o valor = 0) */
+    /** Indica o valor da pontua\u00E7\u00E3o atribuido ao cliente (caso n\u00E3o informado ser\u00E1 atribuido o valor = 0) */
     public var valorPontuacao: Int?
     /** Apresenta os telefones da empresa */
     public var telefones: [TelefonePessoaAprovadaResponse]?
-    /** Pode ser informado os seguintes tipos de endere\u00C3\u00A7o: Residencial, Comercial, e Outros */
+    /** Pode ser informado os seguintes tipos de endere\u00E7o: Residencial, Comercial, e Outros */
     public var enderecos: [EnderecoAprovadoResponse]?
-    /** Apresenta os dados dos s\u00C3\u00B3cios da empresa, caso exista */
+    /** Apresenta os dados dos s\u00F3cios da empresa, caso exista */
     public var socios: [SocioAprovadoResponse]?
-    /** Apresenta os dados dos s\u00C3\u00B3cios da empresa, caso exista */
+    /** Apresenta os dados dos s\u00F3cios da empresa, caso exista */
     public var referencias: [ReferenciaComercialAprovadoResponse]?
     /** Valor do Limite Global */
     public var limiteGlobal: Double?
-    /** Valor m\u00C3\u00A1ximo do limite de cr\u00C3\u00A9dito para realizar transa\u00C3\u00A7\u00C3\u00B5es */
+    /** Valor m\u00E1ximo do limite de cr\u00E9dito para realizar transa\u00E7\u00F5es */
     public var limiteMaximo: Double?
-    /** Valor do limite de cr\u00C3\u00A9dito acumulado da soma das parcelas das compras */
+    /** Valor do limite de cr\u00E9dito acumulado da soma das parcelas das compras */
     public var limiteParcelas: Double?
     
 

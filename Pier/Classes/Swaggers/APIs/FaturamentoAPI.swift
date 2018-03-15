@@ -30,7 +30,7 @@ public class FaturamentoAPI: APIBase {
      Alterar Faturamento
      
      - PUT /api/tipos-faturamento/{id}
-     - Alterar as configura\u00C3\u00A7\u00C3\u00B5es de um determinado tipo de faturamento
+     - Alterar as configura\u00E7\u00F5es de um determinado tipo de faturamento
      - examples: [{contentType=application/json, example={
   "flagApenasDemonstrativo" : false,
   "id" : 123456789,
@@ -57,7 +57,7 @@ public class FaturamentoAPI: APIBase {
 
     /**
      
-     Adiciona uma nova configura\u00C3\u00A7\u00C3\u00A3o de faturamento para uma conta
+     Adiciona uma nova configura\u00E7\u00E3o de faturamento para uma conta
      
      - parameter tipoFaturamentoPorContaPersist: (body) tipoFaturamentoPorContaPersist 
      - parameter completion: completion handler to receive the data and the error objects
@@ -71,10 +71,10 @@ public class FaturamentoAPI: APIBase {
 
     /**
      
-     Adiciona uma nova configura\u00C3\u00A7\u00C3\u00A3o de faturamento para uma conta
+     Adiciona uma nova configura\u00E7\u00E3o de faturamento para uma conta
      
      - POST /api/tipos-faturamento-conta
-     - Este m\u00C3\u00A9todo permite adicionar uma nova configura\u00C3\u00A7\u00C3\u00A3o de tipo de faturamento para um conta espec\u00C3\u00ADfica.
+     - Este m\u00E9todo permite adicionar uma nova configura\u00E7\u00E3o de tipo de faturamento para um conta espec\u00EDfica.
      - examples: [{contentType=application/json, example={
   "idConta" : 123456789,
   "dataHoraCancelamento" : "aeiou",
@@ -119,7 +119,7 @@ public class FaturamentoAPI: APIBase {
      Adiciona um novo faturamento
      
      - POST /api/tipos-faturamento
-     - Adiciona uma nova configura\u00C3\u00A7\u00C3\u00A3o de tipo de faturamento
+     - Adiciona uma nova configura\u00E7\u00E3o de tipo de faturamento
      - examples: [{contentType=application/json, example={
   "flagApenasDemonstrativo" : false,
   "id" : 123456789,
@@ -188,7 +188,7 @@ public class FaturamentoAPI: APIBase {
 
     /**
      
-     Desativar uma configura\u00C3\u00A7\u00C3\u00A3o de tipo de faturamento por conta atrav\u00C3\u00A9s do id
+     Desativar uma configura\u00E7\u00E3o de tipo de faturamento por conta atrav\u00E9s do id
      
      - parameter id: (path) Id 
      - parameter modificadoPor: (body) modificadoPor 
@@ -203,10 +203,10 @@ public class FaturamentoAPI: APIBase {
 
     /**
      
-     Desativar uma configura\u00C3\u00A7\u00C3\u00A3o de tipo de faturamento por conta atrav\u00C3\u00A9s do id
+     Desativar uma configura\u00E7\u00E3o de tipo de faturamento por conta atrav\u00E9s do id
      
      - POST /api/tipos-faturamento-conta/{id}/desativar
-     - Desativa uma configura\u00C3\u00A7\u00C3\u00A3o de tipo de faturamento de uma determinada conta.
+     - Desativa uma configura\u00E7\u00E3o de tipo de faturamento de uma determinada conta.
      - examples: [{contentType=application/json, example={
   "idConta" : 123456789,
   "dataHoraCancelamento" : "aeiou",
@@ -236,7 +236,7 @@ public class FaturamentoAPI: APIBase {
 
     /**
      
-     Desativar uma configura\u00C3\u00A7\u00C3\u00A3o de tipo de faturamento atrav\u00C3\u00A9s do id
+     Desativar uma configura\u00E7\u00E3o de tipo de faturamento atrav\u00E9s do id
      
      - parameter id: (path) Id 
      - parameter completion: completion handler to receive the data and the error objects
@@ -250,10 +250,10 @@ public class FaturamentoAPI: APIBase {
 
     /**
      
-     Desativar uma configura\u00C3\u00A7\u00C3\u00A3o de tipo de faturamento atrav\u00C3\u00A9s do id
+     Desativar uma configura\u00E7\u00E3o de tipo de faturamento atrav\u00E9s do id
      
      - POST /api/tipos-faturamento/{id}/desativar
-     - Desativa uma configura\u00C3\u00A7\u00C3\u00A3o de tipo de faturamento.
+     - Desativa uma configura\u00E7\u00E3o de tipo de faturamento.
      - examples: [{contentType=application/json, example={
   "flagApenasDemonstrativo" : false,
   "id" : 123456789,
@@ -280,18 +280,18 @@ public class FaturamentoAPI: APIBase {
 
     /**
      
-     Lista as configura\u00C3\u00A7\u00C3\u00B5es de tipos de faturamento por conta
+     Lista as configura\u00E7\u00F5es de tipos de faturamento por conta
      
-     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
-     - parameter idTipoFaturamentoPorConta: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do tipo de faturamento por conta (id). (optional)
-     - parameter status: (query) Representa se a configura\u00C3\u00A7\u00C3\u00A3o est\u00C3\u00A1 ativada ou desativada para a conta. (optional)
-     - parameter idConta: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do tipo de faturamento por conta (id). (optional)
-     - parameter idTipoFaturamento: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do tipo de faturamento relacionada (id). (optional)
-     - parameter dataHoraInclusao: (query) Data da inclus\u00C3\u00A3o da configura\u00C3\u00A7\u00C3\u00A3o, deve ser informada no formato yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSS&#39;Z&#39;. (optional)
-     - parameter dataHoraCancelamento: (query) Data do cancelamento da configura\u00C3\u00A7\u00C3\u00A3o, deve ser informada no formato yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSS&#39;Z&#39;. (optional)
-     - parameter modificadoPor: (query) Identificador do respons\u00C3\u00A1vel pela modifica\u00C3\u00A7\u00C3\u00A3o do registro. (optional)
+     - parameter sort: (query) Tipo de ordena\u00E7\u00E3o dos registros. (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
+     - parameter idTipoFaturamentoPorConta: (query) C\u00F3digo de identifica\u00E7\u00E3o do tipo de faturamento por conta (id). (optional)
+     - parameter status: (query) Representa se a configura\u00E7\u00E3o est\u00E1 ativada ou desativada para a conta. (optional)
+     - parameter idConta: (query) C\u00F3digo de identifica\u00E7\u00E3o do tipo de faturamento por conta (id). (optional)
+     - parameter idTipoFaturamento: (query) C\u00F3digo de identifica\u00E7\u00E3o do tipo de faturamento relacionada (id). (optional)
+     - parameter dataHoraInclusao: (query) Data da inclus\u00E3o da configura\u00E7\u00E3o, deve ser informada no formato yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSS&#39;Z&#39;. (optional)
+     - parameter dataHoraCancelamento: (query) Data do cancelamento da configura\u00E7\u00E3o, deve ser informada no formato yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSS&#39;Z&#39;. (optional)
+     - parameter modificadoPor: (query) Identificador do respons\u00E1vel pela modifica\u00E7\u00E3o do registro. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func listarFaturamentoPorContaUsingGET(sort sort: [String]?, page: Int?, limit: Int?, idTipoFaturamentoPorConta: Int?, status: Bool?, idConta: Int?, idTipoFaturamento: Int?, dataHoraInclusao: String?, dataHoraCancelamento: String?, modificadoPor: String?, completion: ((data: PageTipoFaturamentoPorContaResponse?, error: ErrorType?) -> Void)) {
@@ -303,10 +303,10 @@ public class FaturamentoAPI: APIBase {
 
     /**
      
-     Lista as configura\u00C3\u00A7\u00C3\u00B5es de tipos de faturamento por conta
+     Lista as configura\u00E7\u00F5es de tipos de faturamento por conta
      
      - GET /api/tipos-faturamento-conta
-     - Este m\u00C3\u00A9todo permite listar as configura\u00C3\u00A7\u00C3\u00B5es de tipos de faturamento registrados a uma conta.
+     - Este m\u00E9todo permite listar as configura\u00E7\u00F5es de tipos de faturamento registrados a uma conta.
      - examples: [{contentType=application/json, example={
   "previousPage" : 123,
   "last" : true,
@@ -332,16 +332,16 @@ public class FaturamentoAPI: APIBase {
   "first" : true
 }}]
      
-     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
-     - parameter idTipoFaturamentoPorConta: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do tipo de faturamento por conta (id). (optional)
-     - parameter status: (query) Representa se a configura\u00C3\u00A7\u00C3\u00A3o est\u00C3\u00A1 ativada ou desativada para a conta. (optional)
-     - parameter idConta: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do tipo de faturamento por conta (id). (optional)
-     - parameter idTipoFaturamento: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do tipo de faturamento relacionada (id). (optional)
-     - parameter dataHoraInclusao: (query) Data da inclus\u00C3\u00A3o da configura\u00C3\u00A7\u00C3\u00A3o, deve ser informada no formato yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSS&#39;Z&#39;. (optional)
-     - parameter dataHoraCancelamento: (query) Data do cancelamento da configura\u00C3\u00A7\u00C3\u00A3o, deve ser informada no formato yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSS&#39;Z&#39;. (optional)
-     - parameter modificadoPor: (query) Identificador do respons\u00C3\u00A1vel pela modifica\u00C3\u00A7\u00C3\u00A3o do registro. (optional)
+     - parameter sort: (query) Tipo de ordena\u00E7\u00E3o dos registros. (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
+     - parameter idTipoFaturamentoPorConta: (query) C\u00F3digo de identifica\u00E7\u00E3o do tipo de faturamento por conta (id). (optional)
+     - parameter status: (query) Representa se a configura\u00E7\u00E3o est\u00E1 ativada ou desativada para a conta. (optional)
+     - parameter idConta: (query) C\u00F3digo de identifica\u00E7\u00E3o do tipo de faturamento por conta (id). (optional)
+     - parameter idTipoFaturamento: (query) C\u00F3digo de identifica\u00E7\u00E3o do tipo de faturamento relacionada (id). (optional)
+     - parameter dataHoraInclusao: (query) Data da inclus\u00E3o da configura\u00E7\u00E3o, deve ser informada no formato yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSS&#39;Z&#39;. (optional)
+     - parameter dataHoraCancelamento: (query) Data do cancelamento da configura\u00E7\u00E3o, deve ser informada no formato yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSS&#39;Z&#39;. (optional)
+     - parameter modificadoPor: (query) Identificador do respons\u00E1vel pela modifica\u00E7\u00E3o do registro. (optional)
 
      - returns: RequestBuilder<PageTipoFaturamentoPorContaResponse> 
      */
@@ -372,13 +372,13 @@ public class FaturamentoAPI: APIBase {
      
      Lista Tipos de Faturamento
      
-     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
-     - parameter idTipoFaturamento: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do tipo de faturamento (id). (optional)
-     - parameter descricao: (query) Descri\u00C3\u00A7\u00C3\u00A3o do tipo de faturamento. (optional)
-     - parameter flagApenasDemonstrativo: (query) Flag que representa que o faturamento ser\u00C3\u00A1 apenas demonstrativo. (optional)
-     - parameter idConvenio: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do conv\u00C3\u00AAnio relacionado ao tipo de faturamento. (optional)
+     - parameter sort: (query) Tipo de ordena\u00E7\u00E3o dos registros. (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
+     - parameter idTipoFaturamento: (query) C\u00F3digo de identifica\u00E7\u00E3o do tipo de faturamento (id). (optional)
+     - parameter descricao: (query) Descri\u00E7\u00E3o do tipo de faturamento. (optional)
+     - parameter flagApenasDemonstrativo: (query) Flag que representa que o faturamento ser\u00E1 apenas demonstrativo. (optional)
+     - parameter idConvenio: (query) C\u00F3digo de identifica\u00E7\u00E3o do conv\u00EAnio relacionado ao tipo de faturamento. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
     public class func listarTipoFaturamentoUsingGET(sort sort: [String]?, page: Int?, limit: Int?, idTipoFaturamento: Int?, descricao: String?, flagApenasDemonstrativo: Bool?, idConvenio: Int?, completion: ((data: PageTipoFaturamentoResponse?, error: ErrorType?) -> Void)) {
@@ -393,7 +393,7 @@ public class FaturamentoAPI: APIBase {
      Lista Tipos de Faturamento
      
      - GET /api/tipos-faturamento
-     - Lista todas as configura\u00C3\u00A7\u00C3\u00B5es dos tipos de faturamento
+     - Lista todas as configura\u00E7\u00F5es dos tipos de faturamento
      - examples: [{contentType=application/json, example={
   "previousPage" : 123,
   "last" : true,
@@ -416,13 +416,13 @@ public class FaturamentoAPI: APIBase {
   "first" : true
 }}]
      
-     - parameter sort: (query) Tipo de ordena\u00C3\u00A7\u00C3\u00A3o dos registros. (optional)
-     - parameter page: (query) P\u00C3\u00A1gina solicitada (Default = 0) (optional)
-     - parameter limit: (query) Limite de elementos por solicita\u00C3\u00A7\u00C3\u00A3o (Default = 50, Max = 50) (optional)
-     - parameter idTipoFaturamento: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do tipo de faturamento (id). (optional)
-     - parameter descricao: (query) Descri\u00C3\u00A7\u00C3\u00A3o do tipo de faturamento. (optional)
-     - parameter flagApenasDemonstrativo: (query) Flag que representa que o faturamento ser\u00C3\u00A1 apenas demonstrativo. (optional)
-     - parameter idConvenio: (query) C\u00C3\u00B3digo de identifica\u00C3\u00A7\u00C3\u00A3o do conv\u00C3\u00AAnio relacionado ao tipo de faturamento. (optional)
+     - parameter sort: (query) Tipo de ordena\u00E7\u00E3o dos registros. (optional)
+     - parameter page: (query) P\u00E1gina solicitada (Default = 0) (optional)
+     - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
+     - parameter idTipoFaturamento: (query) C\u00F3digo de identifica\u00E7\u00E3o do tipo de faturamento (id). (optional)
+     - parameter descricao: (query) Descri\u00E7\u00E3o do tipo de faturamento. (optional)
+     - parameter flagApenasDemonstrativo: (query) Flag que representa que o faturamento ser\u00E1 apenas demonstrativo. (optional)
+     - parameter idConvenio: (query) C\u00F3digo de identifica\u00E7\u00E3o do conv\u00EAnio relacionado ao tipo de faturamento. (optional)
 
      - returns: RequestBuilder<PageTipoFaturamentoResponse> 
      */

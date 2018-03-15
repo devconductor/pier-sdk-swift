@@ -8,33 +8,33 @@
 import Foundation
 
 
-/** Objeto Dados Cart\u00C3\u00A3o */
+/** Objeto Dados Cart\u00E3o */
 public class DadosCartaoResponse: JSONEncodable {
 
     public var flagVirtual: Int?
-    /** N\u00C3\u00BAmero do cart\u00C3\u00A3o. */
+    /** N\u00FAmero do cart\u00E3o. */
     public var numeroCartao: String?
     /** Data de validade. */
     public var dataValidade: String?
-    /** CVV2 do cart\u00C3\u00A3o. */
+    /** CVV2 do cart\u00E3o. */
     public var cvv2: String?
     /** Nome do portador. */
     public var nomePlastico: String?
     /** Identificador da conta do portador. */
     public var idConta: Int?
-    /** Identificador da cart\u00C3\u00A3o do portador. */
+    /** Identificador da cart\u00E3o do portador. */
     public var idCartao: Int?
-    /** Apresenta o n\u00C3\u00BAmero da Ag\u00C3\u00AAncia a ser impresso no Cart\u00C3\u00A3o, quando aplic\u00C3\u00A1vel. */
+    /** Apresenta o n\u00FAmero da Ag\u00EAncia a ser impresso no Cart\u00E3o, quando aplic\u00E1vel. */
     public var numeroAgencia: Int?
-    /** Apresenta o n\u00C3\u00BAmero da Conta Corrente a ser impresso no Cart\u00C3\u00A3o, quando aplic\u00C3\u00A1vel. */
+    /** Apresenta o n\u00FAmero da Conta Corrente a ser impresso no Cart\u00E3o, quando aplic\u00E1vel. */
     public var numeroContaCorente: String?
     /** Status da conta do portador. */
     public var idStatusConta: Int?
-    /** Descri\u00C3\u00A7\u00C3\u00A3o do status da conta do portador. */
+    /** Descri\u00E7\u00E3o do status da conta do portador. */
     public var statusConta: String?
-    /** Status do cart\u00C3\u00A3o. */
+    /** Status do cart\u00E3o. */
     public var idStatusCartao: Int?
-    /** Descri\u00C3\u00A7\u00C3\u00A3o do status do cart\u00C3\u00A3o. */
+    /** Descri\u00E7\u00E3o do status do cart\u00E3o. */
     public var statusCartao: String?
     
 

@@ -8,14 +8,14 @@
 import Foundation
 
 
-/** Representa\u00C3\u00A7\u00C3\u00A3o da resposta do recurso de planos de parcelamento */
+/** Representa\u00E7\u00E3o da resposta do recurso de planos de parcelamento */
 public class PlanoParcelamentoResponse: JSONEncodable {
 
     /** Identificador do parcelamento */
     public var id: Int?
     /** Data de fechamento da fatura */
     public var dataFechamentoFatura: String?
-    /** Data de vencimento padr\u00C3\u00A3o */
+    /** Data de vencimento padr\u00E3o */
     public var dataVencimentoPadrao: String?
     /** Valor total da fatura */
     public var valorTotalFatura: Double?
@@ -35,15 +35,17 @@ public class PlanoParcelamentoResponse: JSONEncodable {
     public var valorIOF: Double?
     /** Valor do TAC */
     public var valorTAC: Double?
-    /** Status da ades\u00C3\u00A3o */
+    /** Status da ades\u00E3o */
     public var statusAdesao: Int?
-    /** Data de inclus\u00C3\u00A3o */
+    /** Data de inclus\u00E3o */
     public var dataInclusao: String?
-    /** Data de processamento da ades\u00C3\u00A3o */
+    /** Data de processamento da ades\u00E3o */
     public var dataProcessamentoAdesao: String?
     /** Identificador da conta */
     public var idConta: Int?
-    /** Descri\u00C3\u00A7\u00C3\u00A3o do tipo de servi\u00C3\u00A7o */
+    /** C\u00F3digo de identifica\u00E7\u00E3o do tipo de servi\u00E7o */
+    public var idServicoTipo: Int?
+    /** Descri\u00E7\u00E3o do tipo de servi\u00E7o */
     public var descricaoServicoTipo: String?
     /** Indica se a fatura foi com entrada */
     public var comEntrada: Bool?
@@ -72,6 +74,7 @@ public class PlanoParcelamentoResponse: JSONEncodable {
         nillableDictionary["dataInclusao"] = self.dataInclusao
         nillableDictionary["dataProcessamentoAdesao"] = self.dataProcessamentoAdesao
         nillableDictionary["idConta"] = self.idConta
+        nillableDictionary["idServicoTipo"] = self.idServicoTipo
         nillableDictionary["descricaoServicoTipo"] = self.descricaoServicoTipo
         nillableDictionary["comEntrada"] = self.comEntrada
         nillableDictionary["nomeCampanha"] = self.nomeCampanha
