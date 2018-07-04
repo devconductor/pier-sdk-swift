@@ -8,56 +8,56 @@
 import Foundation
 
 
-/** Objeto Cart\u00E3o para Impresso */
+/** {{{cartao_impressao_response_description}}} */
 public class CartaoImpressaoResponse: JSONEncodable {
 
-    /** Apresenta o C\u00F3digo de Identifica\u00E7\u00E3o da Conta (id) a qual o cart\u00E3o gerado pertence. */
+    /** {{{cartao_impressao_response_id_conta_value}}} */
     public var idConta: Int?
-    /** Apresenta o C\u00F3digo de Identifica\u00E7\u00E3o da Pessoa (id) portadora do cart\u00E3o gerado. */
+    /** {{{cartao_impressao_response_id_pessoa_value}}} */
     public var idPessoa: Int?
-    /** Apresenta o C\u00F3digo de Identifica\u00E7\u00E3o do Cart\u00E3o (id) que foi gerado. */
+    /** {{{cartao_impressao_response_id_cartao_value}}} */
     public var idCartao: Int?
-    /** Apresenta o C\u00F3digo de Identifica\u00E7\u00E3o da Bandeira (id) a qual o Cart\u00E3o pertence, quando bandeirado. */
+    /** {{{cartao_impressao_response_id_bandeira_value}}} */
     public var idBandeira: Int?
-    /** Apresenta o C\u00F3digo de Identifica\u00E7\u00E3o do Tipo do Cart\u00E3o (id) atribu\u00EDdo ao Cart\u00E3o. */
+    /** {{{cartao_impressao_response_id_tipo_cartao_value}}} */
     public var idTipoCartao: Int?
-    /** Apresenta o n\u00FAmero do cart\u00E3o. */
+    /** {{{cartao_impressao_response_numero_cartao_value}}} */
     public var numeroCartao: String?
-    /** Apresenta o nome do Portador do Cart\u00E3o. */
+    /** {{{cartao_impressao_response_nome_plastico_value}}} */
     public var nomePlastico: String?
-    /** Apresenta o n\u00FAmero do CVV a ser impresso no Cart\u00E3o */
+    /** {{{cartao_impressao_response_cvv2_value}}} */
     public var cvv2: String?
-    /** Apresenta a data de emiss\u00E3o do Cart\u00E3o. */
+    /** {{{cartao_impressao_response_data_geracao_value}}} */
     public var dataGeracao: String?
-    /** Apresenta a data de Validade do Cart\u00E3o. */
+    /** {{{cartao_impressao_response_data_validade_value}}} */
     public var dataValidade: String?
-    /** Apresenta o nome da Origem Comercial que realizou o cadastro do Titular da Conta a qual o Cart\u00E3o pertence. */
+    /** {{{cartao_impressao_response_nome_origem_comercial_value}}} */
     public var nomeOrigemComercial: String?
-    /** Apresenta o nome da Empresa (Pessoa Jur\u00EDdica) titular do Cart\u00E3o, quando aplic\u00E1vel. */
+    /** {{{cartao_impressao_response_nome_empresa_value}}} */
     public var nomeEmpresa: String?
-    /** Apresenta o n\u00FAmero da Ag\u00EAncia a ser impresso no Cart\u00E3o, quando aplic\u00E1vel. */
+    /** {{{cartao_impressao_response_numero_agencia_value}}} */
     public var numeroAgencia: Int?
-    /** Apresenta o n\u00FAmero da Conta Corrente a ser impresso no Cart\u00E3o, quando aplic\u00E1vel. */
+    /** {{{cartao_impressao_response_numero_conta_corente_value}}} */
     public var numeroContaCorente: String?
-    /** Apresenta o nome da Pessoa F\u00EDsica ou Jur\u00EDdica que contratou servi\u00E7os de benef\u00EDcio para o portador do cart\u00E3o, quando aplic\u00E1vel. */
+    /** {{{cartao_impressao_response_nome_empresa_beneficio_value}}} */
     public var nomeEmpresaBeneficio: String?
-    /** Apresenta o CPF do Portador do Cart\u00E3o. */
+    /** {{{cartao_impressao_response_cpf_value}}} */
     public var cpf: String?
-    /** Apresenta o tipo do Portador do cart\u00E3o, sendo: (&#39;T&#39;: Titular, &#39;A&#39;: Adicional). */
+    /** {{{cartao_impressao_response_tipo_portador_value}}} */
     public var tipoPortador: String?
-    /** Apresenta o nome da Pessoa F\u00EDsica ou Jur\u00EDdica a ser impresso no cart\u00E3o, quando aplic\u00E1vel. */
+    /** {{{cartao_impressao_response_nome_empregador_value}}} */
     public var nomeEmpregador: String?
-    /** Apresenta os dados da Trilha1, seguindo as regras de trilha do emissor. */
+    /** {{{cartao_impressao_response_trilha1_value}}} */
     public var trilha1: String?
-    /** Apresenta os dados da Trilha2, seguindo as regras de trilha do emissor. */
+    /** {{{cartao_impressao_response_trilha2_value}}} */
     public var trilha2: String?
-    /** Apresenta os dados da TrilhaCVV01, seguindo as regras de trilha do emissor. */
+    /** {{{cartao_impressao_response_trilha_c_v_v1_value}}} */
     public var trilhaCVV1: String?
-    /** Apresenta os dados da TrilhaCVV02, seguindo as regras de trilha do emissor. */
+    /** {{{cartao_impressao_response_trilha_c_v_v2_value}}} */
     public var trilhaCVV2: String?
-    /** Apresenta o status que informa se o cart\u00E3o \u00E9 virtual  */
+    /** {{{cartao_impressao_response_flag_virtual_value}}} */
     public var flagVirtual: Int?
-    /** Apresenta o numero da hash do cart\u00E3o  */
+    /** {{{cartao_impressao_response_numero_cartao_hash_value}}} */
     public var numeroCartaoHash: Int?
     
 

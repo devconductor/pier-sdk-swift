@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Listar Configura\u00E7\u00E3o Rotativo */
+/** {{{page_configuracao_rotativo_response_description}}} */
 public class PageConfiguracaoRotativoResponse: JSONEncodable {
 
     public var content: [ConfiguracaoRotativoDetalheResponse]?

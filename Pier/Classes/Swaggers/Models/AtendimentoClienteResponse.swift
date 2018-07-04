@@ -8,36 +8,36 @@
 import Foundation
 
 
-/** Objeto AtendimentoCliente */
+/** {{{atendimento_cliente_response_description}}} */
 public class AtendimentoClienteResponse: JSONEncodable {
 
-    /** C\u00F3digo de Identifica\u00E7\u00E3o do Atendimento (id) */
+    /** {{{atendimento_cliente_response_id_atendimento_value}}} */
     public var idAtendimento: Int?
-    /** C\u00F3digo de Identifica\u00E7\u00E3o da Conta a qual o Atendimento est\u00E1 associado */
+    /** {{{atendimento_cliente_response_id_conta_value}}} */
     public var idConta: Int?
-    /** C\u00F3digo de Identifica\u00E7\u00E3o do Tipo de Atendimento (id) */
+    /** {{{atendimento_cliente_response_id_tipo_atendimento_value}}} */
     public var idTipoAtendimento: Int?
-    /** Apresenta a descri\u00E7\u00E3o do Tipo de Atendimento */
+    /** {{{atendimento_cliente_response_descricao_tipo_atendimento_value}}} */
     public var descricaoTipoAtendimento: String?
-    /** Apresenta as informa\u00E7\u00F5es que foram utilizadas para consultar, cadastrar ou alterar informa\u00E7\u00F5es relacionadas ao Atendimento. */
+    /** {{{atendimento_cliente_response_conteudo_atendimento_value}}} */
     public var conteudoAtendimento: String?
-    /** Apresenta os detalhes lan\u00E7ados pelo sistema ou pelo Atendente durante relacionados ao Atendimento. */
+    /** {{{atendimento_cliente_response_detalhes_atendimento_value}}} */
     public var detalhesAtendimento: String?
-    /** Apresenta o nome do Atendente que registrou o Atendimento. */
+    /** {{{atendimento_cliente_response_nome_atendente_value}}} */
     public var nomeAtendente: String?
-    /** Apresenta o nome do Sistema, Servidor, M\u00F3dulo ou M\u00E9todo REST que originou o registro do Atendimento. */
+    /** {{{atendimento_cliente_response_nome_sistema_value}}} */
     public var nomeSistema: String?
-    /** Apresenta a data e hora em que o Atendimento foi iniciado. Quando utilizado, serve para medir a performance dos Atendimentos. */
+    /** {{{atendimento_cliente_response_data_hora_inicio_atendimento_value}}} */
     public var dataHoraInicioAtendimento: String?
-    /** Apresenta a data e hora em que o Atendimento foi iniciado. Quando utilizado, serve para medir a performance dos Atendimentos. */
+    /** {{{atendimento_cliente_response_data_hora_fim_atendimento_value}}} */
     public var dataHoraFimAtendimento: String?
-    /** Apresenta a data e hora em que o Atendimento foi realizado. */
+    /** {{{atendimento_cliente_response_data_atendimento_value}}} */
     public var dataAtendimento: String?
-    /** Quando utilizado, de acordo com o Tipo de Atendimento, apresenta a data e hora para processamento ou a data para retorno do Atendimento. */
+    /** {{{atendimento_cliente_response_data_agendamento_value}}} */
     public var dataAgendamento: String?
-    /** Quando utilizado, apresenta a data e hora em que a solicita\u00E7\u00E3o registrada no Atendimento fora processada. */
+    /** {{{atendimento_cliente_response_data_processamento_value}}} */
     public var dataProcessamento: String?
-    /** Quando aplic\u00E1vel, de acordo com o Indica se o Processamento da solicita\u00E7\u00E3o fora realizado. */
+    /** {{{atendimento_cliente_response_flag_processamento_value}}} */
     public var flagProcessamento: Int?
     
 

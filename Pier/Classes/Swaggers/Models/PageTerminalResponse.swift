@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Lista de terminais */
+/** {{{page_terminal_response_description}}} */
 public class PageTerminalResponse: JSONEncodable {
 
     public var content: [TerminalResponse]?

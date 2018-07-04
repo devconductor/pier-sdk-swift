@@ -8,24 +8,24 @@
 import Foundation
 
 
-/** Representa\u00E7\u00E3o da resposta do recurso StatusTipoOportunidadeAUD */
+/** {{{status_oportunidade_a_u_d_response_description}}} */
 public class StatusOportunidadeAUDResponse: JSONEncodable {
 
-    /** C\u00F3digo identificador da auditoria dos tipos oportunidades */
+    /** {{{status_oportunidade_a_u_d_response_rev_value}}} */
     public var rev: Int?
-    /** C\u00F3digo que representa o tipo de a\u00E7\u00E3o realizada no recurso de tipos oportunidades */
+    /** {{{status_oportunidade_a_u_d_response_rev_type_value}}} */
     public var revType: Int?
-    /** Data da a\u00E7\u00E3o realizada no recurso de tipos oportunidades */
+    /** {{{status_oportunidade_a_u_d_response_rev_date_value}}} */
     public var revDate: String?
-    /** C\u00F3digo identificador do StatusOportunidade */
+    /** {{{status_oportunidade_a_u_d_response_id_value}}} */
     public var id: Int?
-    /** C\u00F3digo identificador do TipoOportunidade */
+    /** {{{status_oportunidade_a_u_d_response_id_tipo_oportunidade_value}}} */
     public var idTipoOportunidade: Int?
-    /** Nome do status oportunidade */
+    /** {{{status_oportunidade_a_u_d_response_nome_value}}} */
     public var nome: String?
-    /** Descricao do StatusOportunidade */
+    /** {{{status_oportunidade_a_u_d_response_descricao_value}}} */
     public var descricao: String?
-    /** Flag que representa se o tipo oportunidade est\u00E1 ativo */
+    /** {{{status_oportunidade_a_u_d_response_flag_ativo_value}}} */
     public var flagAtivo: Bool?
     
 

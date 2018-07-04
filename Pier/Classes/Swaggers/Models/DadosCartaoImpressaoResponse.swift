@@ -8,105 +8,109 @@
 import Foundation
 
 
-/** Objeto Cart\u00E3o para Impresso */
+/** {{{dados_cartao_impressao_response_description}}} */
 public class DadosCartaoImpressaoResponse: JSONEncodable {
 
-    /** O C\u00F3digo de Identifica\u00E7\u00E3o da Conta (id) a qual o cart\u00E3o gerado pertence. */
+    /** {{{dados_cartao_impressao_response_id_conta_value}}} */
     public var idConta: Int?
-    /** O C\u00F3digo de Identifica\u00E7\u00E3o da Pessoa (id) portadora do cart\u00E3o gerado. */
+    /** {{{dados_cartao_impressao_response_id_pessoa_value}}} */
     public var idPessoa: Int?
-    /** O C\u00F3digo de Identifica\u00E7\u00E3o do Cart\u00E3o (id) que foi gerado. */
+    /** {{{dados_cartao_impressao_response_id_cartao_value}}} */
     public var idCartao: Int?
-    /** O C\u00F3digo de Identifica\u00E7\u00E3o da Bandeira (id) a qual o Cart\u00E3o pertence, quando bandeirado. */
+    /** {{{dados_cartao_impressao_response_id_bandeira_value}}} */
     public var idBandeira: Int?
-    /** O C\u00F3digo de Identifica\u00E7\u00E3o do Tipo do Cart\u00E3o (id) atribu\u00EDdo ao Cart\u00E3o. */
+    /** {{{dados_cartao_impressao_response_id_tipo_cartao_value}}} */
     public var idTipoCartao: Int?
-    /** O n\u00FAmero do cart\u00E3o. */
+    /** {{{dados_cartao_impressao_response_numero_cartao_value}}} */
     public var numeroCartao: String?
-    /** O nome do Portador do Cart\u00E3o. */
+    /** {{{dados_cartao_impressao_response_nome_plastico_value}}} */
     public var nomePlastico: String?
-    /** O n\u00FAmero do CVV a ser impresso no Cart\u00E3o */
+    /** {{{dados_cartao_impressao_response_cvv2_value}}} */
     public var cvv2: String?
-    /** Apresenta a data de emiss\u00E3o do Cart\u00E3o. */
+    /** {{{dados_cartao_impressao_response_data_geracao_value}}} */
     public var dataGeracao: String?
-    /** Apresenta a data de Validade do Cart\u00E3o. */
+    /** {{{dados_cartao_impressao_response_data_validade_value}}} */
     public var dataValidade: String?
-    /** O CPF do Portador do Cart\u00E3o. */
+    /** {{{dados_cartao_impressao_response_cpf_value}}} */
     public var cpf: String?
-    /** O tipo do Portador do cart\u00E3o, sendo: (&#39;T&#39;: Titular, &#39;A&#39;: Adicional). */
+    /** {{{dados_cartao_impressao_response_tipo_portador_value}}} */
     public var tipoPortador: String?
-    /** Os dados da Trilha1, seguindo as regras de trilha do emissor. */
+    /** {{{dados_cartao_impressao_response_trilha1_value}}} */
     public var trilha1: String?
-    /** Os dados da Trilha2, seguindo as regras de trilha do emissor. */
+    /** {{{dados_cartao_impressao_response_trilha2_value}}} */
     public var trilha2: String?
-    /** Os dados da TrilhaCVV01, seguindo as regras de trilha do emissor. */
+    /** {{{dados_cartao_impressao_response_trilha_c_v_v1_value}}} */
     public var trilhaCVV1: String?
-    /** Os dados da TrilhaCVV02, seguindo as regras de trilha do emissor. */
+    /** {{{dados_cartao_impressao_response_trilha_c_v_v2_value}}} */
     public var trilhaCVV2: String?
-    /** O status que informa se o cart\u00E3o \u00E9 virtual  */
+    /** {{{dados_cartao_impressao_response_flag_virtual_value}}} */
     public var flagVirtual: Int?
-    /** Nome da Bandeira */
+    /** {{{dados_cartao_impressao_response_nome_bandeira_value}}} */
     public var nomeBandeira: String?
-    /** Flag Indicativo de Titularidade da Conta */
+    /** {{{dados_cartao_impressao_response_flag_titular_value}}} */
     public var flagTitular: Int?
-    /** C\u00F3digo Sequencial do Cart\u00E3o */
+    /** {{{dados_cartao_impressao_response_sequencial_cartao_value}}} */
     public var sequencialCartao: Int?
-    /** Identificador do Status do Cart\u00E3o */
+    /** {{{dados_cartao_impressao_response_id_status_value}}} */
     public var idStatus: Int?
-    /** Descri\u00E7\u00E3o do Status do Cart\u00E3o */
+    /** {{{dados_cartao_impressao_response_descricao_status_cartao_value}}} */
     public var descricaoStatusCartao: String?
-    /** Apresenta a data em que o idStatusCartao atual do cart\u00E3o fora aplicado, quando houver. */
+    /** {{{dados_cartao_impressao_response_data_status_value}}} */
     public var dataStatus: String?
-    /** Identificador do Est\u00E1gio do Cart\u00E3o. */
+    /** {{{dados_cartao_impressao_response_id_estagio_value}}} */
     public var idEstagio: Int?
-    /** Descri\u00E7\u00E3o do Estagio do Cart\u00E3o. */
+    /** {{{dados_cartao_impressao_response_descricao_estagio_value}}} */
     public var descricaoEstagio: String?
-    /** Apresenta a data em que o idEstagioCartao atual do cart\u00E3o fora aplicado, quando houver. */
+    /** {{{dados_cartao_impressao_response_data_estagio_value}}} */
     public var dataEstagio: String?
-    /** N\u00FAmero do Bin do Cart\u00E3o */
+    /** {{{dados_cartao_impressao_response_numero_bin_value}}} */
     public var numeroBin: String?
-    /** Identificador do Produto Associado a Conta */
+    /** {{{dados_cartao_impressao_response_id_produto_value}}} */
     public var idProduto: Int?
-    /** Descri\u00E7\u00E3o do produto */
+    /** {{{dados_cartao_impressao_response_descricao_produto_value}}} */
     public var descricaoProduto: String?
-    /** Identificador do Status da Conta */
+    /** {{{dados_cartao_impressao_response_id_status_conta_value}}} */
     public var idStatusConta: Int?
-    /** Descri\u00E7\u00E3o do status da conta */
+    /** {{{dados_cartao_impressao_response_descricao_status_conta_value}}} */
     public var descricaoStatusConta: Int?
-    /** Data que o cart\u00E3o foi embossado */
+    /** {{{dados_cartao_impressao_response_data_embossing_value}}} */
     public var dataEmbossing: String?
-    /** C\u00F3digo de desbloqueio do cart\u00E3o */
+    /** {{{dados_cartao_impressao_response_codigo_desbloqueio_value}}} */
     public var codigoDesbloqueio: String?
-    /** O &#39;Nome Completo da PF&#39; ou o &#39;Nome Completo da Raz\u00E3o Social (Nome Empresarial)&#39;. */
+    /** {{{dados_cartao_impressao_response_nome_pessoa_value}}} */
     public var nomePessoa: String?
-    /** C\u00F3digo de identifica\u00E7\u00E3o do tipo da Pessoa, sendo: (\&quot;PF\&quot;: Pessoa F\u00EDsica), (\&quot;PJ\&quot;: Pessoa Jur\u00EDdica). */
+    /** {{{dados_cartao_impressao_response_tipo_pessoa_value}}} */
     public var tipoPessoa: String?
-    /** Data de Nascimento da Pessoa, quando PF, ou a Data de Abertura da Empresa, quando PJ. */
+    /** {{{dados_cartao_impressao_response_data_nascimento_value}}} */
     public var dataNascimento: String?
-    /** Identificador do Endere\u00E7o do titular do cart\u00E3o */
+    /** {{{dados_cartao_impressao_response_id_endereco_value}}} */
     public var idEndereco: Int?
-    /** C\u00F3digo de Identifica\u00E7\u00E3o da Tipo Endere\u00E7o (id) */
+    /** {{{dados_cartao_impressao_response_id_tipo_endereco_value}}} */
     public var idTipoEndereco: Int?
-    /** Descri\u00E7\u00E3o do Tipo de Endere\u00E7o */
+    /** {{{dados_cartao_impressao_response_descricao_tipo_endereco_value}}} */
     public var descricaoTipoEndereco: String?
-    /** O C\u00F3digo de Endere\u00E7amento Postal (CEP) no formaro &#39;58800000&#39; */
+    /** {{{dados_cartao_impressao_response_cep_value}}} */
     public var cep: String?
-    /** Nome do Logradouro */
+    /** {{{dados_cartao_impressao_response_logradouro_value}}} */
     public var logradouro: String?
-    /** N\u00FAmero do endere\u00E7o */
+    /** {{{dados_cartao_impressao_response_numero_endereco_value}}} */
     public var numeroEndereco: String?
-    /** Descri\u00E7oes complementares referente ao endere\u00E7o */
+    /** {{{dados_cartao_impressao_response_complemento_endereco_value}}} */
     public var complementoEndereco: String?
-    /** Nome do bairro */
+    /** {{{dados_cartao_impressao_response_bairro_value}}} */
     public var bairro: String?
-    /** Nome do cidade */
+    /** {{{dados_cartao_impressao_response_cidade_value}}} */
     public var cidade: String?
-    /** Unidade federativa */
+    /** {{{dados_cartao_impressao_response_uf_value}}} */
     public var uf: String?
-    /** Nome do pa\u00EDs */
+    /** {{{dados_cartao_impressao_response_pais_value}}} */
     public var pais: String?
-    /** Senha Criptografada */
+    /** {{{dados_cartao_impressao_response_senha_criptografada_value}}} */
     public var senhaCriptografada: String?
+    /** {{{dados_cartao_impressao_response_icvv_value}}} */
+    public var icvv: String?
+    /** {{{dados_cartao_impressao_response_id_status_impressao_value}}} */
+    public var idStatusImpressao: Int?
     
 
     public init() {}
@@ -162,6 +166,8 @@ public class DadosCartaoImpressaoResponse: JSONEncodable {
         nillableDictionary["uf"] = self.uf
         nillableDictionary["pais"] = self.pais
         nillableDictionary["senhaCriptografada"] = self.senhaCriptografada
+        nillableDictionary["icvv"] = self.icvv
+        nillableDictionary["idStatusImpressao"] = self.idStatusImpressao
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

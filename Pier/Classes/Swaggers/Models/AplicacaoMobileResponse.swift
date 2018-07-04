@@ -8,24 +8,24 @@
 import Foundation
 
 
-/** Aplicacao Mobile */
+/** {{{aplicacao_mobile_response_description}}} */
 public class AplicacaoMobileResponse: JSONEncodable {
 
-    /** Apresenta o identificador da aplicacao. */
+    /** {{{aplicacao_mobile_response_id_value}}} */
     public var id: Int?
-    /** Apresenta o identificador da plataforma. */
+    /** {{{aplicacao_mobile_response_id_plataforma_mobile_value}}} */
     public var idPlataformaMobile: Int?
-    /** Apresenta o token da aplicacao. */
+    /** {{{aplicacao_mobile_response_token_value}}} */
     public var token: String?
-    /** Apresenta a cor da mensagem da aplicacao. */
+    /** {{{aplicacao_mobile_response_cor_value}}} */
     public var cor: String?
-    /** Apresenta o som da mensagem da aplicacao */
+    /** {{{aplicacao_mobile_response_som_value}}} */
     public var som: String?
-    /** Apresenta o icone da mensagem da aplica\u00E7\u00E3o. */
+    /** {{{aplicacao_mobile_response_icone_value}}} */
     public var icone: String?
-    /** Apresenta o certificado da aplica\u00E7\u00E3o. */
+    /** {{{aplicacao_mobile_response_certificado_base64_value}}} */
     public var certificadoBase64: String?
-    /** Apresenta a senha da aplica\u00E7\u00E3o. */
+    /** {{{aplicacao_mobile_response_senha_value}}} */
     public var senha: String?
     
 

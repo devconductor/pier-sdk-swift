@@ -8,18 +8,18 @@
 import Foundation
 
 
-/** Plano de Parcelamentos para Transfer\u00EAncia de cr\u00E9dito para contas banc\u00E1rias */
+/** {{{plano_parcelamento_transferencia_credito_conta_bancaria_response_description}}} */
 public class PlanoParcelamentoTransferenciaCreditoContaBancariaResponse: JSONEncodable {
 
-    /** N\u00FAmero do Cart\u00E3o que originou a transa\u00E7\u00E3o em formato mascarado. */
+    /** {{{plano_parcelamento_transferencia_credito_conta_bancaria_response_numero_mascarado_cartao_value}}} */
     public var numeroMascaradoCartao: String?
-    /** Data de vencimento da primeira parcela. */
+    /** {{{plano_parcelamento_transferencia_credito_conta_bancaria_response_vencimento_primeira_parcela_value}}} */
     public var vencimentoPrimeiraParcela: String?
-    /** Valor da solicita\u00E7\u00E3o de saque. */
+    /** {{{plano_parcelamento_transferencia_credito_conta_bancaria_response_valor_transacao_value}}} */
     public var valorTransacao: Double?
-    /** N\u00FAmero de meses para car\u00EAncia. */
+    /** {{{plano_parcelamento_transferencia_credito_conta_bancaria_response_numero_meses_carencia_value}}} */
     public var numeroMesesCarencia: Int?
-    /** Lista com os planos de parcelamento. */
+    /** {{{plano_parcelamento_transferencia_credito_conta_bancaria_response_parcelas_value}}} */
     public var parcelas: [ParcelamentoTransferenciaResponse]?
     
 

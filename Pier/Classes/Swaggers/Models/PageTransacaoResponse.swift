@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Lista de transa\u00E7\u00F5es de uma conta */
+/** {{{page_transacao_response_description}}} */
 public class PageTransacaoResponse: JSONEncodable {
 
     public var content: [TransacaoCorrenteResponse]?

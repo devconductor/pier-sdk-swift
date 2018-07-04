@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Lista de status oportunidades */
+/** {{{page_status_oportunidade_response_description}}} */
 public class PageStatusOportunidadeResponse: JSONEncodable {
 
     public var content: [StatusOportunidadeResponse]?

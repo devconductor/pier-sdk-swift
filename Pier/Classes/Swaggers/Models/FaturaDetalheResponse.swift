@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Detalhes da fatura */
+/** {{{fatura_detalhe_response_description}}} */
 public class FaturaDetalheResponse: JSONEncodable {
 
     public enum SituacaoProcessamento: String { 
@@ -17,25 +17,25 @@ public class FaturaDetalheResponse: JSONEncodable {
         case Todas = "TODAS"
     }
     
-    /** C\u00F3digo de identifica\u00E7\u00E3o da conta. */
+    /** {{{fatura_response_id_conta_value}}} */
     public var idConta: Int?
-    /** Situa\u00E7\u00E3o de Processamento da fatura. */
+    /** {{{fatura_response_situacao_processamento_value}}} */
     public var situacaoProcessamento: SituacaoProcessamento?
-    /** Status de pagamento efetuado. */
+    /** {{{fatura_response_pagamento_efetuado_value}}} */
     public var pagamentoEfetuado: Bool?
-    /** Data de vencimento da fatura. */
+    /** {{{fatura_response_data_vencimento_fatura_value}}} */
     public var dataVencimentoFatura: String?
-    /** Data de vencimento real da fatura. */
+    /** {{{fatura_response_data_vencimento_real_value}}} */
     public var dataVencimentoReal: String?
-    /** Data de fechamento da fatura. */
+    /** {{{fatura_response_data_fechamento_value}}} */
     public var dataFechamento: String?
-    /** Valor total da fatura. */
+    /** {{{fatura_response_valor_total_value}}} */
     public var valorTotal: Double?
-    /** Valor do pagamento m\u00EDnimo. */
+    /** {{{fatura_response_valor_pagamento_minimo_value}}} */
     public var valorPagamentoMinimo: Double?
-    /** Lista de lan\u00E7amentos da fatura. */
+    /** {{{fatura_detalhe_response_lancamentos_fatura_response_value}}} */
     public var lancamentosFaturaResponse: [LancamentoFaturaResponse]?
-    /** Valor do saldo anterior. */
+    /** {{{fatura_response_saldo_anterior_value}}} */
     public var saldoAnterior: Double?
     
 

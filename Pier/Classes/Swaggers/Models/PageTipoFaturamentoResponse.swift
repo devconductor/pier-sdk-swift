@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Lista de Tipos de Faturamentos */
+/** {{{page_tipo_faturamento_response_description}}} */
 public class PageTipoFaturamentoResponse: JSONEncodable {
 
     public var content: [TipoFaturamentoResponse]?

@@ -8,46 +8,46 @@
 import Foundation
 
 
-/** Representa\u00E7\u00E3o da resposta do recurso Operacao */
+/** {{{detalhe_operacao_response_description}}} */
 public class DetalheOperacaoResponse: JSONEncodable {
 
-    /** C\u00F3digo que identifica a opera\u00E7\u00E3o */
+    /** {{{detalhe_operacao_response_id_operacao_value}}} */
     public var idOperacao: Int?
-    /** C\u00F3digo de processamento usado em transa\u00E7\u00F5es com o autorizador */
+    /** {{{detalhe_operacao_response_codigo_processamento_value}}} */
     public var codigoProcessamento: String?
-    /** C\u00F3digo de processamento usado para cancelar transa\u00E7\u00F5es no autorizador */
+    /** {{{detalhe_operacao_response_codigo_processamento_cancelamento_value}}} */
     public var codigoProcessamentoCancelamento: String?
-    /** Nome da opera\u00E7\u00E3o */
+    /** {{{detalhe_operacao_response_nome_operacao_value}}} */
     public var nomeOperacao: String?
-    /** Descri\u00E7\u00E3o da opera\u00E7\u00E3o */
+    /** {{{detalhe_operacao_response_descricao_operacao_value}}} */
     public var descricaoOperacao: String?
-    /** Quantidade m\u00EDnima de meses permitido para opera\u00E7\u00E3o */
+    /** {{{detalhe_operacao_response_plano_minimo_value}}} */
     public var planoMinimo: Int?
-    /** Quantidade M\u00E1ximo de meses permitido para opera\u00E7\u00E3o */
+    /** {{{detalhe_operacao_response_plano_maximo_value}}} */
     public var planoMaximo: Int?
-    /**  Valor m\u00EDnimo permitido permitido para opera\u00E7\u00E3o */
+    /** {{{detalhe_operacao_response_valor_minimo_value}}} */
     public var valorMinimo: Double?
-    /**  Valor m\u00E1ximo permitido permitido para opera\u00E7\u00E3o */
+    /** {{{detalhe_operacao_response_valor_maximo_value}}} */
     public var valorMaximo: Double?
-    /** Flag indicativa para crobran\u00E7a de juros */
+    /** {{{detalhe_operacao_response_flag_cobra_juros_value}}} */
     public var flagCobraJuros: Bool?
-    /** Valor do juros a ser cobrado, caso opera\u00E7\u00E3o cobre juros */
+    /** {{{detalhe_operacao_response_taxa_juros_value}}} */
     public var taxaJuros: Double?
-    /** Flag indicativa para crobran\u00E7a de tarifas */
+    /** {{{detalhe_operacao_response_flag_cobra_tarifa_value}}} */
     public var flagCobraTarifa: Bool?
-    /** Valor da tarifa a ser cobrado, caso opera\u00E7\u00E3o cobre tarifas */
+    /** {{{detalhe_operacao_response_taxa_tarifa_value}}} */
     public var taxaTarifa: Double?
-    /** Valor da taxa de abertura de conta */
+    /** {{{detalhe_operacao_response_valor_tac_value}}} */
     public var valorTac: Double?
-    /** Percentual da taxa de abertura de conta */
+    /** {{{detalhe_operacao_response_percentual_tac_value}}} */
     public var percentualTac: Double?
-    /** Valor da opera\u00E7\u00E3o */
+    /** {{{detalhe_operacao_response_valor_operacao_value}}} */
     public var valorOperacao: Double?
-    /** Quantidade de meses para car\u00EAncia */
+    /** {{{detalhe_operacao_response_carencia_value}}} */
     public var carencia: Int?
-    /** Valor excedente permitido para opera\u00E7\u00E3o */
+    /** {{{detalhe_operacao_response_excedente_permitido_value}}} */
     public var excedentePermitido: Double?
-    /** Permitir transa\u00E7\u00F5es parceladas */
+    /** {{{detalhe_operacao_response_flag_permitir_parcelamento_value}}} */
     public var flagPermitirParcelamento: Bool?
     
 

@@ -8,16 +8,16 @@
 import Foundation
 
 
-/** Objeto Faturamento */
+/** {{{tipo_faturamento_response_description}}} */
 public class TipoFaturamentoResponse: JSONEncodable {
 
-    /** C\u00F3digo de identifica\u00E7\u00E3o do tipo de faturamento (id). */
+    /** {{{tipo_faturamento_response_id_value}}} */
     public var id: Int?
-    /** Desci\u00E7\u00E3o do tipo de faturamento. */
+    /** {{{tipo_faturamento_response_descricao_value}}} */
     public var descricao: String?
-    /** Flag que representa que o faturamento ser\u00E1 apenas demonstrativo. */
+    /** {{{tipo_faturamento_response_flag_apenas_demonstrativo_value}}} */
     public var flagApenasDemonstrativo: Bool?
-    /** C\u00F3digo de identifica\u00E7\u00E3o do conv\u00EAnio relacionado ao tipo de faturamento. */
+    /** {{{tipo_faturamento_response_id_convenio_value}}} */
     public var idConvenio: Int?
     
 

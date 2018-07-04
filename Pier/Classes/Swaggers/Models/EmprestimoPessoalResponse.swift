@@ -8,25 +8,25 @@
 import Foundation
 
 
-/** Resposta do recurso de simular empr\u00E9stimos/financiamentos */
+/** {{{emprestimo_pessoal_response_description}}} */
 public class EmprestimoPessoalResponse: JSONEncodable {
 
     public var planosParcelamentos: [PlanoParcelamentoEmprestimoResponse]?
-    /** Valor solicitado do empr\u00E9stimo/financiamento */
+    /** {{{emprestimo_pessoal_response_valor_solicitado_value}}} */
     public var valorSolicitado: Double?
-    /** Valor m\u00E1ximo de empr\u00E9stimo pelo valor limite de parcela */
+    /** {{{emprestimo_pessoal_response_valor_maximo_solicitacao_value}}} */
     public var valorMaximoSolicitacao: Double?
-    /** N\u00FAmero de parcelas solicitado */
+    /** {{{emprestimo_pessoal_response_numero_parcelas_value}}} */
     public var numeroParcelas: Int?
-    /** Limite m\u00E1ximo de parcela permitido */
+    /** {{{emprestimo_pessoal_response_valor_maximo_parcela_value}}} */
     public var valorMaximoParcela: Double?
-    /** Data do desconto da primeira parcela */
+    /** {{{emprestimo_pessoal_response_data_primeira_parcela_value}}} */
     public var dataPrimeiraParcela: String?
-    /** Per\u00EDodo de aplica da taxa de juros */
+    /** {{{emprestimo_pessoal_response_periodo_taxa_value}}} */
     public var periodoTaxa: String?
-    /** Sistema para amortiza\u00E7\u00E3o do valor das parcelas */
+    /** {{{emprestimo_pessoal_response_sistema_amortizacao_value}}} */
     public var sistemaAmortizacao: String?
-    /** Valor percentual da taxa de juros a ser aplicada */
+    /** {{{emprestimo_pessoal_response_taxa_juros_value}}} */
     public var taxaJuros: Double?
     
 

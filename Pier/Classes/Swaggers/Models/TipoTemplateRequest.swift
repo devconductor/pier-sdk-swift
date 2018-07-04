@@ -8,14 +8,14 @@
 import Foundation
 
 
-/** Representa\u00E7\u00E3o do tipo de template. */
+/** {{{tipo_template_request_description}}} */
 public class TipoTemplateRequest: JSONEncodable {
 
-    /** Nome do tipo de template. */
+    /** {{{tipo_template_request_nome_value}}} */
     public var nome: String?
-    /** Descri\u00E7\u00E3o do tipo de template. */
+    /** {{{tipo_template_request_descricao_value}}} */
     public var descricao: String?
-    /** Sigla do tipo de template. */
+    /** {{{tipo_template_request_sigla_value}}} */
     public var sigla: String?
     
 

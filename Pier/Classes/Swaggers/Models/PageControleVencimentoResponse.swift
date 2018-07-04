@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Lista de Vencimentos */
+/** {{{page_controle_vencimento_response_description}}} */
 public class PageControleVencimentoResponse: JSONEncodable {
 
     public var content: [ControleVencimentoResponse]?

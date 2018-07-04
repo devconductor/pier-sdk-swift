@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Lista de Maquinetas */
+/** {{{page_maquineta_response_description}}} */
 public class PageMaquinetaResponse: JSONEncodable {
 
     public var content: [MaquinetaResponse]?

@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Listar tipos de origens comerciais */
+/** {{{page_tipo_origem_comercial_response_description}}} */
 public class PageTipoOrigemComercialResponse: JSONEncodable {
 
     public var content: [TipoOrigemComercialResponse]?

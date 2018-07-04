@@ -8,30 +8,30 @@
 import Foundation
 
 
-/** PessoaDetalheResponse */
+/** {{{pessoa_detalhe_response_description}}} */
 public class PessoaDetalheResponse: JSONEncodable {
 
-    /** C\u00F3digo identificador da pessoa */
+    /** {{{pessoa_detalhe_response_id_pessoa_value}}} */
     public var idPessoa: Int?
-    /** Apresenta o nome da m\u00E3e da pessoa fisica */
+    /** {{{pessoa_detalhe_response_nome_mae_value}}} */
     public var nomeMae: String?
-    /** Id Estado civil da pessoa fisica */
+    /** {{{pessoa_detalhe_response_id_estado_civil_value}}} */
     public var idEstadoCivil: Int?
-    /** Profiss\u00E3o da pessoa fisica */
+    /** {{{pessoa_detalhe_response_id_profissao_value}}} */
     public var idProfissao: String?
-    /** Id Natureza Ocupa\u00E7\u00E3o da pessoa fisica */
+    /** {{{pessoa_detalhe_response_id_natureza_ocupacao_value}}} */
     public var idNaturezaOcupacao: Int?
-    /** Id Nacionalidade da pessoa fisica */
+    /** {{{pessoa_detalhe_response_id_nacionalidade_value}}} */
     public var idNacionalidade: Int?
-    /** N\u00FAmero do banco. */
+    /** {{{pessoa_detalhe_response_numero_banco_value}}} */
     public var numeroBanco: Int?
-    /** N\u00FAmero da ag\u00EAncia. */
+    /** {{{pessoa_detalhe_response_numero_agencia_value}}} */
     public var numeroAgencia: Int?
-    /** N\u00FAmero da conta corrente. */
+    /** {{{pessoa_detalhe_response_numero_conta_corrente_value}}} */
     public var numeroContaCorrente: String?
-    /** Email da pessoa fisica */
+    /** {{{pessoa_detalhe_response_email_value}}} */
     public var email: String?
-    /** Nome que deve ser impresso no cart\u00E3o */
+    /** {{{pessoa_detalhe_response_nome_empresa_value}}} */
     public var nomeEmpresa: String?
     
 

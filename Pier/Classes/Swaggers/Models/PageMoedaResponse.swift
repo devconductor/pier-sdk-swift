@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Lista dos tipos de ajustes */
+/** {{{page_moeda_response_description}}} */
 public class PageMoedaResponse: JSONEncodable {
 
     public var content: [MoedaResponse]?

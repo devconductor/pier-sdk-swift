@@ -8,28 +8,28 @@
 import Foundation
 
 
-/** Representa\u00E7\u00E3o da requisi\u00E7\u00E3o do recurso Configura\u00E7\u00E3o Email */
+/** {{{configuracao_email_persist_description}}} */
 public class ConfiguracaoEmailPersist: JSONEncodable {
 
-    /** IP (Host) do servidor de e-mail. */
+    /** {{{configuracao_email_persist_host_value}}} */
     public var host: String?
-    /** Porta usada pelo servidor de e-mail. */
+    /** {{{configuracao_email_persist_port_value}}} */
     public var port: String?
-    /** Porta usada pelo servi\u00E7o TLS/STARTTLS. */
+    /** {{{configuracao_email_persist_port_t_l_s_s_t_a_r_t_t_l_s_value}}} */
     public var portTLSSTARTTLS: String?
-    /** Porta usada pelo servi\u00E7o SSL. */
+    /** {{{configuracao_email_persist_port_s_s_l_value}}} */
     public var portSSL: String?
-    /** Protocolo de comunica\u00E7\u00E3o usado pelo servi\u00E7o de e-mail. */
+    /** {{{configuracao_email_persist_protocolo_value}}} */
     public var protocolo: String?
-    /** O servi\u00E7o de e-mail requer autentica\u00E7\u00E3o. */
+    /** {{{configuracao_email_persist_requer_autenticacao_value}}} */
     public var requerAutenticacao: Bool?
-    /** O servi\u00E7o de e-mail requer SSL. */
+    /** {{{configuracao_email_persist_requer_s_s_l_value}}} */
     public var requerSSL: Bool?
-    /** O servi\u00E7o de e-mail requer TLS. */
+    /** {{{configuracao_email_persist_requer_t_l_s_value}}} */
     public var requerTLS: Bool?
-    /** Usuario do servi\u00E7o de e-mail. */
+    /** {{{configuracao_email_persist_usuario_value}}} */
     public var usuario: String?
-    /** Senha de usu\u00E1rio do servi\u00E7o de e-mail. */
+    /** {{{configuracao_email_persist_senha_value}}} */
     public var senha: String?
     
 

@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Lista de pagamentos da conta */
+/** {{{page_conta_historico_pagamento_response_description}}} */
 public class PageContaHistoricoPagamentoResponse: JSONEncodable {
 
     public var content: [ContaHistoricoPagamentoResponse]?

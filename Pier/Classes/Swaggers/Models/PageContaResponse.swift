@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Lista de contas */
+/** {{{page_conta_response_description}}} */
 public class PageContaResponse: JSONEncodable {
 
     public var content: [ContaResponse]?

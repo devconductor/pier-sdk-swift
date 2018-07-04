@@ -8,42 +8,42 @@
 import Foundation
 
 
-/** D\u00EDvida do cliente */
+/** {{{divida_cliente_response_description}}} */
 public class DividaClienteResponse: JSONEncodable {
 
-    /** C\u00F3digo de identifica\u00E7\u00E3o da conta (id) */
+    /** {{{divida_cliente_response_id_value}}} */
     public var id: Int?
-    /** Data de vencimento da cobran\u00E7a */
+    /** {{{divida_cliente_response_data_vencimento_fatura_atraso_value}}} */
     public var dataVencimentoFaturaAtraso: String?
-    /** Quantidade de dias em atraso at\u00E9 a data de vencimento da cobran\u00E7a */
+    /** {{{divida_cliente_response_quantidade_dias_atraso_value}}} */
     public var quantidadeDiasAtraso: Int?
-    /** Data de vencimento do acordo */
+    /** {{{divida_cliente_response_data_vencimento_acordo_value}}} */
     public var dataVencimentoAcordo: String?
-    /** Quantidade de dias em atraso at\u00E9 a data de vencimento do acordo */
+    /** {{{divida_cliente_response_quantidade_dias_atraso_corrigido_value}}} */
     public var quantidadeDiasAtrasoCorrigido: Int?
-    /** Valor do saldo devedor at\u00E9 a data de vencimento da cobran\u00E7a */
+    /** {{{divida_cliente_response_valor_saldo_devedor_value}}} */
     public var valorSaldoDevedor: Double?
-    /** Percentual de corre\u00E7\u00E3o */
+    /** {{{divida_cliente_response_taxa_correcao_value}}} */
     public var taxaCorrecao: Double?
-    /** Valor da corre\u00E7\u00E3o */
+    /** {{{divida_cliente_response_valor_correcao_value}}} */
     public var valorCorrecao: Double?
-    /** Valor do IOF devido */
+    /** {{{divida_cliente_response_valor_i_o_f_value}}} */
     public var valorIOF: Double?
-    /** Valor do saldo devedor corrido da d\u00EDvida at\u00E9 a data de vencimento do acordo */
+    /** {{{divida_cliente_response_valor_saldo_corrigido_value}}} */
     public var valorSaldoCorrigido: Double?
-    /** C\u00F3digo de identifica\u00E7\u00E3o do status da conta (id) */
+    /** {{{divida_cliente_response_id_status_conta_value}}} */
     public var idStatusConta: Int?
-    /** Descri\u00E7\u00E3o do status da conta */
+    /** {{{divida_cliente_response_descricao_status_conta_value}}} */
     public var descricaoStatusConta: String?
-    /** C\u00F3digo de identifica\u00E7\u00E3o do status do acordo (id) */
+    /** {{{divida_cliente_response_id_status_acordo_value}}} */
     public var idStatusAcordo: Int?
-    /** Descri\u00E7\u00E3o do status do acordo */
+    /** {{{divida_cliente_response_descricao_status_acordo_value}}} */
     public var descricaoStatusAcordo: String?
-    /** C\u00F3digo de identifica\u00E7\u00E3o do escrit\u00F3rio de cobran\u00E7a */
+    /** {{{divida_cliente_response_id_escritorio_cobranca_value}}} */
     public var idEscritorioCobranca: Int?
-    /** Nome do escrit\u00F3rio de cobran\u00E7a */
+    /** {{{divida_cliente_response_nome_escritorio_cobranca_value}}} */
     public var nomeEscritorioCobranca: String?
-    /** Email do devedor */
+    /** {{{divida_cliente_response_email_pessoa_conta_value}}} */
     public var emailPessoaConta: String?
     
 

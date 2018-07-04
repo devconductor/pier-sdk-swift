@@ -8,18 +8,18 @@
 import Foundation
 
 
-/** Objeto de resposta para historico de telefones */
+/** {{{historico_telefone_response_description}}} */
 public class HistoricoTelefoneResponse: JSONEncodable {
 
-    /** C\u00F3digo de Identifica\u00E7\u00E3o do Telefone (id). */
+    /** {{{historico_telefone_response_id_value}}} */
     public var id: Int?
-    /** Apresenta o N\u00FAmero do telefone. */
+    /** {{{historico_telefone_response_telefone_value}}} */
     public var telefone: String?
-    /** Apresenta o id do tipo do telefone. */
+    /** {{{historico_telefone_response_id_tipo_telefone_value}}} */
     public var idTipoTelefone: Int?
-    /** Apresenta a descri\u00E7\u00E3o do tipo do telefone. */
+    /** {{{historico_telefone_response_tipo_telefone_value}}} */
     public var tipoTelefone: String?
-    /** Apresenta a data que o telefone fora alterado. */
+    /** {{{historico_telefone_response_data_modificacao_value}}} */
     public var dataModificacao: String?
     
 

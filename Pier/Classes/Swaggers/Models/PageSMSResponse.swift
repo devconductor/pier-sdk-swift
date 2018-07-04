@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Lista de SMS */
+/** {{{page_s_m_s_response_description}}} */
 public class PageSMSResponse: JSONEncodable {
 
     public var content: [NotificacaoSMSResponse]?

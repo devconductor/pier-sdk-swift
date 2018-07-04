@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Lista de Origens Comerciais */
+/** {{{page_origem_comercial_response_description}}} */
 public class PageOrigemComercialResponse: JSONEncodable {
 
     public var content: [OrigemComercialResponse]?

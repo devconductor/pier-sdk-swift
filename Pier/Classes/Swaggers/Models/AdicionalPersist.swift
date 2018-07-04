@@ -8,38 +8,38 @@
 import Foundation
 
 
-/** Representa\u00E7\u00E3o da entrada do recurso de cadastrar adicionais */
+/** {{{adicional_persist_description}}} */
 public class AdicionalPersist: JSONEncodable {
 
-    /** Nome completo do Adicional. */
+    /** {{{adicional_persist_nome_value}}} */
     public var nome: String?
-    /** Nome do Adicional que ser\u00E1 gravado no Cart\u00E3o. */
+    /** {{{adicional_persist_nome_impresso_value}}} */
     public var nomeImpresso: String?
-    /** N\u00FAmero do CPF ou CNPJ do Adicional. */
+    /** {{{adicional_persist_numero_receita_federal_value}}} */
     public var numeroReceitaFederal: String?
-    /** Data de Nascimento do Adicional em formato yyyy-MM-dd. */
+    /** {{{adicional_persist_data_nascimento_value}}} */
     public var dataNascimento: String?
-    /** C\u00F3digo de identifica\u00E7\u00E3o do sexo da Pessoa, quando PF, sendo: (\&quot;M\&quot;: Masculino), (\&quot;F\&quot;: Feminino), (\&quot;O\&quot;: Outro), (\&quot;N\&quot;: N\u00E3o Especificado). */
+    /** {{{adicional_persist_sexo_value}}} */
     public var sexo: String?
-    /** N\u00FAmero do Documento de Identidade do Adicional. */
+    /** {{{adicional_persist_numero_identidade_value}}} */
     public var numeroIdentidade: String?
-    /** Nome do Org\u00E3o Emissor do Documento de Identidade do Adicional. */
+    /** {{{adicional_persist_orgao_expedidor_identidade_value}}} */
     public var orgaoExpedidorIdentidade: String?
-    /** Sigla da Unidade Federativa onde o Documento de Identidade do Adicional foi emitido. */
+    /** {{{adicional_persist_unidade_federativa_identidade_value}}} */
     public var unidadeFederativaIdentidade: String?
-    /** Data de emiss\u00E3o do Documento de Identidade do Adicional em formato yyyy-MM-dd. */
+    /** {{{adicional_persist_data_emissao_identidade_value}}} */
     public var dataEmissaoIdentidade: String?
-    /** C\u00F3digo de identifica\u00E7\u00E3o do Estado Civil do Adicional. */
+    /** {{{adicional_persist_id_estado_civil_value}}} */
     public var idEstadoCivil: Int?
-    /** C\u00F3digo de identifica\u00E7\u00E3o da Profissao do Adicional. */
+    /** {{{adicional_persist_id_profissao_value}}} */
     public var idProfissao: Int?
-    /** C\u00F3digo de identifica\u00E7\u00E3o da Nacionalidade do Adicional. */
+    /** {{{adicional_persist_id_nacionalidade_value}}} */
     public var idNacionalidade: Int?
-    /** C\u00F3digo de identifica\u00E7\u00E3o do Parentesco do Adicional com o Titular. */
+    /** {{{adicional_persist_id_parentesco_value}}} */
     public var idParentesco: Int?
-    /** C\u00F3digo de identifica\u00E7\u00E3o do Parentesco do Adicional com o Titular. */
+    /** {{{adicional_persist_email_value}}} */
     public var email: String?
-    /** Lista de telefones do adicional. */
+    /** {{{adicional_persist_telefones_value}}} */
     public var telefones: [TelefoneAdicionalPersist]?
     
 

@@ -8,16 +8,16 @@
 import Foundation
 
 
-/** Representa\u00E7\u00E3o da requisi\u00E7\u00E3o do recurso de consultar conta */
+/** {{{transacao_pay_query_request_description}}} */
 public class TransacaoPayQueryRequest: JSONEncodable {
 
-    /** Numero do cartao (criptografado) */
+    /** {{{transacao_pay_generic_request_numero_cartao_value}}} */
     public var numeroCartao: String?
-    /** Id do cart\u00E3o */
+    /** {{{transacao_pay_generic_request_id_cartao_value}}} */
     public var idCartao: Int?
-    /** Origem */
+    /** {{{transacao_pay_query_request_origem_value}}} */
     public var origem: String?
-    /** Tipo de ordena\u00E7\u00E3o dos registros. */
+    /** {{{global_menssagem_sort_sort}}} */
     public var sort: [String]?
     
 

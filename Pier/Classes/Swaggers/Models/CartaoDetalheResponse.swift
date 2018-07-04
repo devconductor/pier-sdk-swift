@@ -8,56 +8,56 @@
 import Foundation
 
 
-/** Objeto Cart\u00E3o com mais informa\u00E7\u00F5es */
+/** {{{cartao_detalhe_response_description}}} */
 public class CartaoDetalheResponse: JSONEncodable {
 
-    /** C\u00F3digo de Identifica\u00E7\u00E3o do Cart\u00E3o. */
+    /** {{{cartao_response_id_value}}} */
     public var id: Int?
-    /** Apresenta o tipo do Portador do cart\u00E3o, sendo: (1: Titular, 0: Adicional). */
+    /** {{{cartao_response_flag_titular_value}}} */
     public var flagTitular: Int?
-    /** C\u00F3digo de Identifica\u00E7\u00E3o da Pessoa a qual o cart\u00E3o pertence */
+    /** {{{cartao_response_id_pessoa_value}}} */
     public var idPessoa: Int?
-    /** N\u00FAmero sequencial do cart\u00E3o */
+    /** {{{cartao_response_sequencial_cartao_value}}} */
     public var sequencialCartao: Int?
-    /** C\u00F3digo de Identifica\u00E7\u00E3o da Conta a qual o cart\u00E3o pertence. */
+    /** {{{cartao_response_id_conta_value}}} */
     public var idConta: Int?
-    /** C\u00F3digo de Identifica\u00E7\u00E3o do Status do Cart\u00E3o. */
+    /** {{{cartao_response_id_status_value}}} */
     public var idStatus: Int?
-    /** Apresenta a data em que o idStatusCartao atual do cart\u00E3o fora aplicado, quando houver. */
+    /** {{{cartao_response_data_status_value}}} */
     public var dataStatus: String?
-    /** C\u00F3digo de Identifica\u00E7\u00E3o do Est\u00E1gio de Impress\u00E3o do Cart\u00E3o. */
+    /** {{{cartao_response_id_estagio_value}}} */
     public var idEstagio: Int?
-    /** Apresenta a data em que o idEstagio atual do cart\u00E3o fora aplicado, quando houver. */
+    /** {{{cartao_response_data_estagio_value}}} */
     public var dataEstagio: String?
-    /** N\u00FAmero do bin do cart\u00E3o. */
+    /** {{{cartao_response_numero_bin_value}}} */
     public var numeroBin: Int?
-    /** Apresenta o n\u00FAmero do cart\u00E3o. */
+    /** {{{cartao_response_numero_cartao_value}}} */
     public var numeroCartao: String?
-    /** N\u00FAmero do cart\u00E3o hash. */
+    /** {{{cartao_response_numero_cartao_hash_value}}} */
     public var numeroCartaoHash: Int?
-    /** N\u00FAmero do cart\u00E3o criptografado. */
+    /** {{{cartao_response_numero_cartao_criptografado_value}}} */
     public var numeroCartaoCriptografado: String?
-    /** Apresenta a data de emiss\u00E3o do cart\u00E3o. */
+    /** {{{cartao_response_data_emissao_value}}} */
     public var dataEmissao: String?
-    /** Apresenta a data de validade do cart\u00E3o em formato yyyy-MM, quando houver. */
+    /** {{{cartao_response_data_validade_value}}} */
     public var dataValidade: String?
-    /** Apresenta o status que informa se o cart\u00E3o \u00E9 virtual. Sendo: (1: True, 0: False). */
+    /** {{{cartao_response_cartao_virtual_value}}} */
     public var cartaoVirtual: Int?
-    /** Quando ativa, indica que o cart\u00E3o fora impresso na Origem Comercial. */
+    /** {{{cartao_response_impressao_avulsa_value}}} */
     public var impressaoAvulsa: Int?
-    /** Apresenta a data em que o cart\u00E3o fora impresso, caso impress\u00E3o em loja, ou a data em que ele fora inclu\u00EDdo no arquivo para impress\u00E3o via gr\u00E1fica. */
+    /** {{{cartao_response_data_impressao_value}}} */
     public var dataImpressao: String?
-    /** Apresenta o nome do arquivo onde o cart\u00E3o fora inclu\u00EDdo para impress\u00E3o por uma gr\u00E1fica, quando houver. */
+    /** {{{cartao_response_nome_arquivo_impressao_value}}} */
     public var nomeArquivoImpressao: String?
-    /** Descreve o tipo do cart\u00E3o. */
+    /** {{{cartao_detalhe_response_descricao_tipo_cartao_value}}} */
     public var descricaoTipoCartao: String?
-    /** C\u00F3digo de Identifica\u00E7\u00E3o do Produto a qual o cart\u00E3o pertence. */
+    /** {{{cartao_response_id_produto_value}}} */
     public var idProduto: Int?
-    /** Apresenta o nome impresso no cart\u00E3o. */
+    /** {{{cartao_response_nome_impresso_value}}} */
     public var nomeImpresso: String?
-    /** Indica o identificador do tipo do cart\u00E3o. */
+    /** {{{cartao_detalhe_response_tipo_cartao_value}}} */
     public var tipoCartao: Int?
-    /** Apresenta um c\u00F3digo espec\u00EDfico para ser utilizado como vari\u00E1vel no processo de desbloqueio do cart\u00E3o para emissores que querem usar esta funcionalidade. */
+    /** {{{cartao_response_codigo_desbloqueio_value}}} */
     public var codigoDesbloqueio: String?
     
 

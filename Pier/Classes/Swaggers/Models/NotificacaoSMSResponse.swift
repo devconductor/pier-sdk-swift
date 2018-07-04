@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Objeto SMS */
+/** {{{notificacao_s_m_s_response_description}}} */
 public class NotificacaoSMSResponse: JSONEncodable {
 
     public enum TipoEvento: String { 
@@ -27,39 +27,39 @@ public class NotificacaoSMSResponse: JSONEncodable {
         case SucessoResposta = "SUCESSO_RESPOSTA"
     }
     
-    /** C\u00F3digo Identificador. */
+    /** {{{notificacao_s_m_s_response_id_value}}} */
     public var id: Int?
-    /** N\u00FAmero sequencial \u00FAnico. */
+    /** {{{notificacao_s_m_s_response_nsu_value}}} */
     public var nsu: Int?
-    /** C\u00F3digo de identifica\u00E7\u00E3o do emissor (id). */
+    /** {{{notificacao_s_m_s_response_id_emissor_value}}} */
     public var idEmissor: Int?
-    /** TipoEvento de notifica\u00E7\u00E3o */
+    /** {{{notificacao_s_m_s_response_tipo_evento_value}}} */
     public var tipoEvento: TipoEvento?
-    /** Status de envio da notifica\u00E7\u00E3o */
+    /** {{{notificacao_s_m_s_response_status_value}}} */
     public var status: Status?
-    /** Descri\u00E7\u00E3o do status de envio da notifica\u00E7\u00E3o */
+    /** {{{notificacao_s_m_s_response_descricao_status_value}}} */
     public var descricaoStatus: String?
-    /** C\u00F3digo identificado da pessoa */
+    /** {{{notificacao_s_m_s_response_id_pessoa_value}}} */
     public var idPessoa: Int?
-    /** C\u00F3digo identificador da conta */
+    /** {{{notificacao_s_m_s_response_id_conta_value}}} */
     public var idConta: Int?
-    /** Apresenta o celular a ser eviado o SMS no formato 5588999999999 ou 5588999999999 */
+    /** {{{notificacao_s_m_s_response_celular_value}}} */
     public var celular: String?
-    /** Apresenta a operadora do celular a ser eviado o SMS */
+    /** {{{notificacao_s_m_s_response_operadora_value}}} */
     public var operadora: String?
-    /** Apresenta o texto da notifica\u00E7\u00E3o a ser enviado */
+    /** {{{notificacao_s_m_s_response_conteudo_value}}} */
     public var conteudo: String?
-    /** Apresenta o texto da resposta da notifica\u00E7\u00E3o que foi enviada */
+    /** {{{notificacao_s_m_s_response_resposta_value}}} */
     public var resposta: String?
-    /** Apresenta a data e hora em que ser\u00E1 enviado a notifica\u00E7\u00E3o */
+    /** {{{notificacao_s_m_s_response_data_agendamento_value}}} */
     public var dataAgendamento: String?
-    /** Quantidade de tentativas e envio da notifica\u00E7\u00E3o */
+    /** {{{notificacao_s_m_s_response_quantidade_tentativas_envio_value}}} */
     public var quantidadeTentativasEnvio: Int?
-    /** Apresenta a data e em que o registro foi inclu\u00EDdo na base para ser enviado */
+    /** {{{notificacao_s_m_s_response_data_inclusao_value}}} */
     public var dataInclusao: String?
-    /** Apresenta a data e em que o Stattjus do registro foi modificado */
+    /** {{{notificacao_s_m_s_response_data_alteracao_status_value}}} */
     public var dataAlteracaoStatus: String?
-    /** N\u00FAmero do protocolo de envio de notifica\u00E7\u00F5es */
+    /** {{{notificacao_s_m_s_response_protocolo_value}}} */
     public var protocolo: String?
     
 

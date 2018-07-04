@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Lista de compras */
+/** {{{page_compra_response_description}}} */
 public class PageCompraResponse: JSONEncodable {
 
     public var content: [CompraResponse]?

@@ -8,20 +8,20 @@
 import Foundation
 
 
-/** Resposta do recurso de inclus\u00E3o de registro para integra\u00E7\u00E3o */
+/** {{{integracao_emissor_response_description}}} */
 public class IntegracaoEmissorResponse: JSONEncodable {
 
-    /** C\u00F3digo de identifica\u00E7\u00E3o do registro na tabela Integra\u00E7\u00E3oEmissor. */
+    /** {{{integracao_emissor_response_id_value}}} */
     public var id: Int?
-    /** C\u00F3digo de identifica\u00E7\u00E3o da conta. */
+    /** {{{integracao_emissor_response_id_conta_value}}} */
     public var idConta: Int?
-    /** C\u00F3digo de identifica\u00E7\u00E3o do arquivo. */
+    /** {{{integracao_emissor_response_id_arquivo_value}}} */
     public var idArquivo: Int?
-    /** Status do registro. */
+    /** {{{integracao_emissor_response_status_value}}} */
     public var status: String?
-    /** Data de inclus\u00E3o do registro. */
+    /** {{{integracao_emissor_response_data_inclusao_value}}} */
     public var dataInclusao: String?
-    /** Data da ultima altera\u00E7\u00E3o do registro. */
+    /** {{{integracao_emissor_response_data_alteracao_value}}} */
     public var dataAlteracao: String?
     
 

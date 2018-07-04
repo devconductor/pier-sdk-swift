@@ -8,20 +8,20 @@
 import Foundation
 
 
-/** Representa\u00E7\u00E3o do recurso Status Cart\u00E3o */
+/** {{{status_cartao_response_description}}} */
 public class StatusCartaoResponse: JSONEncodable {
 
-    /** C\u00F3digo de Identifica\u00E7\u00E3o do Status do Cart\u00E3o (id)  */
+    /** {{{status_cartao_response_id_value}}} */
     public var id: Int?
-    /** Nome atribu\u00EDdo ao Status de Entrega do Cart\u00E3o. */
+    /** {{{status_cartao_response_nome_value}}} */
     public var nome: String?
-    /** Par\u00E2metro que define se o status do cart\u00E3o permite a reativa\u00E7\u00E3o do cart\u00E3o, sendo: 0: Inativo e 1: Ativo. */
+    /** {{{status_cartao_response_permite_desbloquear_value}}} */
     public var permiteDesbloquear: Int?
-    /** Par\u00E2metro que define se o status do cart\u00E3o permite a reativa\u00E7\u00E3o do cart\u00E3o, sendo: 0: Inativo e 1: Ativo. */
+    /** {{{status_cartao_response_permite_atribuir_como_bloqueio_value}}} */
     public var permiteAtribuirComoBloqueio: Int?
-    /** Par\u00E2metro que define se o status do cart\u00E3o permite a reativa\u00E7\u00E3o do cart\u00E3o, sendo: 0: Inativo e 1: Ativo. */
+    /** {{{status_cartao_response_permite_atribuir_como_cancelamento_value}}} */
     public var permiteAtribuirComoCancelamento: Int?
-    /** Par\u00E2metro que define se o status do cart\u00E3o permite a reativa\u00E7\u00E3o do cart\u00E3o, sendo: 0: Inativo e 1: Ativo. */
+    /** {{{status_cartao_response_cobrar_tarifa_ao_emitir_nova_via_value}}} */
     public var cobrarTarifaAoEmitirNovaVia: Int?
     
 

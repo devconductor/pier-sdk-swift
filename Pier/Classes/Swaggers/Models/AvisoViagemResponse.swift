@@ -8,20 +8,20 @@
 import Foundation
 
 
-/** Representa\u00E7\u00E3o da resposta do recurso aviso viagens */
+/** {{{aviso_viagem_response_description}}} */
 public class AvisoViagemResponse: JSONEncodable {
 
-    /** C\u00F3digo identificador \u00FAnico do aviso viagem na base (id) */
+    /** {{{aviso_viagem_response_id_value}}} */
     public var id: Int?
-    /** C\u00F3digo identificador do cart\u00E3o na base (id) */
+    /** {{{aviso_viagem_response_id_cartao_value}}} */
     public var idCartao: Int?
-    /** Codigo identificador do pa\u00EDs na base (id) */
+    /** {{{aviso_viagem_response_codigo_pais_value}}} */
     public var codigoPais: String?
-    /** Data inicio do aviso viagem */
+    /** {{{aviso_viagem_response_data_inicio_value}}} */
     public var dataInicio: String?
-    /** Data fim do aviso viagem */
+    /** {{{aviso_viagem_response_data_fim_value}}} */
     public var dataFim: String?
-    /** Identifica se o aviso viagem esta ativo ou n\u00E3o */
+    /** {{{aviso_viagem_response_flag_ativo_value}}} */
     public var flagAtivo: Int?
     
 

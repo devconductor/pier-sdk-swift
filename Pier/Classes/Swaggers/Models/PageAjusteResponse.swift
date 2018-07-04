@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Lista de Ajustes */
+/** {{{page_ajuste_response_description}}} */
 public class PageAjusteResponse: JSONEncodable {
 
     public var content: [AjusteFinanceiroResponse]?

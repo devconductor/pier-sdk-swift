@@ -8,12 +8,12 @@
 import Foundation
 
 
-/** Objeto de resposta do recurso de tipos de origens comerciais */
+/** {{{tipo_origem_comercial_response_description}}} */
 public class TipoOrigemComercialResponse: JSONEncodable {
 
-    /** C\u00F3digo de Identifica\u00E7\u00E3o do Tipo de Origem Comercial. */
+    /** {{{tipo_origem_comercial_response_id_value}}} */
     public var id: Int?
-    /** Nome do tipo de origem comercial */
+    /** {{{tipo_origem_comercial_response_nome_value}}} */
     public var nome: String?
     
 

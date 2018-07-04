@@ -8,14 +8,14 @@
 import Foundation
 
 
-/** Transfer\u00EAncia cr\u00E9dito conta banc\u00E1ria request */
+/** {{{plano_parcelamento_transferencia_credito_conta_bancaria_request_description}}} */
 public class PlanoParcelamentoTransferenciaCreditoContaBancariaRequest: JSONEncodable {
 
-    /** C\u00F3digo de identifica\u00E7\u00E3o do cart\u00E3o. */
+    /** {{{plano_parcelamento_transferencia_credito_conta_bancaria_request_id_cartao_value}}} */
     public var idCartao: Int?
-    /** Valor da transa\u00E7\u00E3o com duas casas decimais para os centavos. */
+    /** {{{plano_parcelamento_transferencia_credito_conta_bancaria_request_valor_transacao_value}}} */
     public var valorTransacao: Double?
-    /** Representa o N\u00FAmero de Meses concedido como car\u00EAncia. */
+    /** {{{plano_parcelamento_transferencia_credito_conta_bancaria_request_numero_meses_carencia_value}}} */
     public var numeroMesesCarencia: Int?
     
 

@@ -8,24 +8,24 @@
 import Foundation
 
 
-/** Objeto de resposta para a valida\u00E7\u00E3o de cart\u00E3o */
+/** {{{valida_cartao_response_description}}} */
 public class ValidaCartaoResponse: JSONEncodable {
 
-    /** Descri\u00E7\u00E3o do status do cart\u00E3o */
+    /** {{{valida_cartao_response_id_status_cartao_value}}} */
     public var idStatusCartao: Int?
-    /** Descri\u00E7\u00E3o do status do cart\u00E3o */
+    /** {{{valida_cartao_response_status_cartao_value}}} */
     public var statusCartao: String?
-    /** Descri\u00E7\u00E3o do status da conta */
+    /** {{{valida_cartao_response_id_status_conta_value}}} */
     public var idStatusConta: Int?
-    /** Descri\u00E7\u00E3o do status da conta */
+    /** {{{valida_cartao_response_status_conta_value}}} */
     public var statusConta: String?
-    /** C\u00F3digo identificador da conta. */
+    /** {{{valida_cartao_response_id_conta_value}}} */
     public var idConta: Int?
-    /** N\u00FAmero da ag\u00EAncia. */
+    /** {{{valida_cartao_response_numero_agencia_value}}} */
     public var numeroAgencia: Int?
-    /** N\u00FAmero da conta corrente. */
+    /** {{{valida_cartao_response_numero_conta_corrente_value}}} */
     public var numeroContaCorrente: String?
-    /** Criptograma de resposta */
+    /** {{{valida_cartao_response_criptograma_resposta_value}}} */
     public var criptogramaResposta: String?
     
 

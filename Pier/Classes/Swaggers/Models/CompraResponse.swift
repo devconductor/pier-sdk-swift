@@ -8,52 +8,52 @@
 import Foundation
 
 
-/** Objeto de Compra */
+/** {{{compra_response_description}}} */
 public class CompraResponse: JSONEncodable {
 
     public var mcc: Int?
     public var uf: String?
-    /** C\u00F3digo de identifica\u00E7\u00E3o da compra. */
+    /** {{{compra_response_id_compra_value}}} */
     public var idCompra: Int?
-    /** Descri\u00E7\u00E3o do status da autoriza\u00E7\u00E3o da compra. */
+    /** {{{compra_response_status_value}}} */
     public var status: String?
-    /** Data da compra. */
+    /** {{{compra_response_data_compra_value}}} */
     public var dataCompra: String?
-    /** Valor total da compra. */
+    /** {{{compra_response_valor_total_compra_value}}} */
     public var valorTotalCompra: Double?
-    /** Valor da parcela da compra. */
+    /** {{{compra_response_valor_parcela_value}}} */
     public var valorParcela: Double?
-    /** Valor da primeira parcela da compra. */
+    /** {{{compra_response_primeira_parcela_value}}} */
     public var primeiraParcela: Double?
-    /** N\u00FAmero de parcelas da compra. */
+    /** {{{compra_response_numero_parcelas_value}}} */
     public var numeroParcelas: Int?
-    /** N\u00FAmero de parcelas antecip\u00E1veis da compra. */
+    /** {{{compra_response_numero_parcelas_antecipaveis_value}}} */
     public var numeroParcelasAntecipaveis: Int?
-    /** Nome do estabelecimento da compra. */
+    /** {{{compra_response_nome_estabelecimento_value}}} */
     public var nomeEstabelecimento: String?
-    /** Tipo de transa\u00E7\u00E3o da compra. */
+    /** {{{compra_response_tipo_origem_transacao_value}}} */
     public var tipoOrigemTransacao: String?
-    /** Cidade onde a compra foi realizada. */
+    /** {{{compra_response_cidade_value}}} */
     public var cidade: String?
-    /** Pa\u00EDs onde a compra foi realizada. */
+    /** {{{compra_response_pais_value}}} */
     public var pais: String?
-    /** Coordenada latitudinal da localiza\u00E7\u00E3o da compra. */
+    /** {{{compra_response_latitude_value}}} */
     public var latitude: String?
-    /** Coordenada longitudinal da localiza\u00E7\u00E3o da compra. */
+    /** {{{compra_response_longitude_value}}} */
     public var longitude: String?
-    /** C\u00F3digo de Identifica\u00E7\u00E3o do Grupo MCC da compra. */
+    /** {{{compra_response_id_grupo_m_c_c_value}}} */
     public var idGrupoMCC: Int?
-    /** Descri\u00E7\u00E3o do Grupo MCC da compra. */
+    /** {{{compra_response_descricao_grupo_m_c_c_value}}} */
     public var descricaoGrupoMCC: String?
-    /** C\u00F3digo de Identifica\u00E7\u00E3o da conta da compra. */
+    /** {{{compra_response_id_conta_value}}} */
     public var idConta: Int?
-    /** C\u00F3digo de Identifica\u00E7\u00E3o do produto da compra. */
+    /** {{{compra_response_id_produto_value}}} */
     public var idProduto: Int?
-    /** Descri\u00E7\u00E3o do produto da compra. */
+    /** {{{compra_response_descricao_produto_value}}} */
     public var descricaoProduto: String?
-    /** N\u00FAmero do cart\u00E3o da compra. */
+    /** {{{compra_response_cartao_value}}} */
     public var cartao: String?
-    /** Nome do portador do cart\u00E3o da compra. */
+    /** {{{compra_response_nome_portador_cartao_value}}} */
     public var nomePortadorCartao: String?
     
 

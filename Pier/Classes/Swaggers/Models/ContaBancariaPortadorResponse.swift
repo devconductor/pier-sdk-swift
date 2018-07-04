@@ -8,37 +8,38 @@
 import Foundation
 
 
+/** {{{conta_bancaria_portador_response_description}}} */
 public class ContaBancariaPortadorResponse: JSONEncodable {
 
-    /** C\u00F3digo identificador da conta banc\u00E1ria */
+    /** {{{conta_bancaria_portador_response_id_value}}} */
     public var id: Int?
-    /** C\u00F3digo identificador da conta cart\u00E3o */
+    /** {{{conta_bancaria_portador_response_id_conta_value}}} */
     public var idConta: Int?
-    /** Descri\u00E7\u00E3o da ag\u00EAncia */
+    /** {{{conta_bancaria_portador_response_nome_agencia_value}}} */
     public var nomeAgencia: String?
-    /** C\u00F3digo do banco */
+    /** {{{conta_bancaria_portador_response_banco_value}}} */
     public var banco: Int?
-    /** N\u00FAmero da ag\u00EAncia */
+    /** {{{conta_bancaria_portador_response_numero_agencia_value}}} */
     public var numeroAgencia: String?
-    /** D\u00EDgito da ag\u00EAncia */
+    /** {{{conta_bancaria_portador_response_digito_agencia_value}}} */
     public var digitoAgencia: String?
-    /** N\u00FAmero da conta */
+    /** {{{conta_bancaria_portador_response_numero_conta_value}}} */
     public var numeroConta: String?
-    /** D\u00EDgito da conta */
+    /** {{{conta_bancaria_portador_response_digito_conta_value}}} */
     public var digitoConta: String?
-    /** Sinaliza se conta banc\u00E1ria est\u00E1 ativa ou n\u00E3o (1: Ativa, 0: Inativa) */
+    /** {{{conta_bancaria_portador_response_flag_ativo_value}}} */
     public var flagAtivo: Int?
-    /** Sinaliza se origem \u00E9 DOC (1: DOC, 0: TED) */
+    /** {{{conta_bancaria_portador_response_flag_conta_origem_doc_value}}} */
     public var flagContaOrigemDoc: Int?
-    /** C\u00F3digo da pessoa */
+    /** {{{conta_bancaria_portador_response_id_pessoa_fisica_value}}} */
     public var idPessoaFisica: Int?
-    /** Sinaliza se conta banc\u00E1ria \u00E9 poupan\u00E7a (1: Poupan\u00E7a, 0: Conta corrente) */
+    /** {{{conta_bancaria_portador_response_flag_conta_poupanca_value}}} */
     public var flagContaPoupanca: Int?
-    /** Nome do favorecido */
+    /** {{{conta_bancaria_portador_response_favorecido_value}}} */
     public var favorecido: String?
-    /** Documento do favorecido */
+    /** {{{conta_bancaria_portador_response_numero_receira_federal_value}}} */
     public var numeroReceiraFederal: String?
-    /** Titularidade da conta (1:Portador \u00E9 o titular, 0: Portador n\u00E3o \u00E9 o t\u00EDtular */
+    /** {{{conta_bancaria_portador_response_titularidade_value}}} */
     public var titularidade: Int?
     
 

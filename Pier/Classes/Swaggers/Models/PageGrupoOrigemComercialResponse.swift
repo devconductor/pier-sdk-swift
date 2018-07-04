@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Listar grupos de origens comerciais */
+/** {{{page_grupo_origem_comercial_response_description}}} */
 public class PageGrupoOrigemComercialResponse: JSONEncodable {
 
     public var content: [GrupoOrigemComercialResponse]?

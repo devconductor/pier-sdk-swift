@@ -8,22 +8,22 @@
 import Foundation
 
 
-/** Objeto de Resposta de Telefone */
+/** {{{telefone_response_description}}} */
 public class TelefoneResponse: JSONEncodable {
 
-    /** C\u00F3digo de Identifica\u00E7\u00E3o do Telefone. */
+    /** {{{telefone_response_id_value}}} */
     public var id: Int?
-    /** C\u00F3digo de Identifica\u00E7\u00E3o do Tipo do Telefone. */
+    /** {{{telefone_response_id_tipo_telefone_value}}} */
     public var idTipoTelefone: Int?
-    /** C\u00F3digo de Identifica\u00E7\u00E3o da Pessoa a qual o telefone pertence. */
+    /** {{{telefone_response_id_pessoa_value}}} */
     public var idPessoa: Int?
-    /** C\u00F3digo DDD do telefone. */
+    /** {{{telefone_response_ddd_value}}} */
     public var ddd: String?
-    /** N\u00FAmero do telefone. */
+    /** {{{telefone_response_telefone_value}}} */
     public var telefone: String?
-    /** N\u00FAmero do ramal. */
+    /** {{{telefone_response_ramal_value}}} */
     public var ramal: String?
-    /** Apresenta o Status do Telefone, onde: &#39;0&#39;: Inativo e &#39;1&#39;: Ativo */
+    /** {{{telefone_response_status_value}}} */
     public var status: Int?
     
 

@@ -8,18 +8,18 @@
 import Foundation
 
 
-/** Representa\u00E7\u00E3o da resposta do recurso StatusOportunidade */
+/** {{{status_oportunidade_response_description}}} */
 public class StatusOportunidadeResponse: JSONEncodable {
 
-    /** C\u00F3digo identificador do StatusOportunidade */
+    /** {{{status_oportunidade_response_id_value}}} */
     public var id: Int?
-    /** C\u00F3digo identificador do TipoOportunidade */
+    /** {{{status_oportunidade_response_id_tipo_oportunidade_value}}} */
     public var idTipoOportunidade: Int?
-    /** Nome do status oportunidade */
+    /** {{{status_oportunidade_response_nome_value}}} */
     public var nome: String?
-    /** Descricao do StatusOportunidade */
+    /** {{{status_oportunidade_response_descricao_value}}} */
     public var descricao: String?
-    /** Flag que representa se o tipo oportunidade est\u00E1 ativo */
+    /** {{{status_oportunidade_response_flag_ativo_value}}} */
     public var flagAtivo: Bool?
     
 

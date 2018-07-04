@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Lista dos MCCs */
+/** {{{page_m_c_c_response_description}}} */
 public class PageMCCResponse: JSONEncodable {
 
     public var content: [MCCResponse]?

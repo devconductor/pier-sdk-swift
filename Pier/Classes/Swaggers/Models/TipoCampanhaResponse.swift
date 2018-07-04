@@ -8,12 +8,12 @@
 import Foundation
 
 
-/** Representa\u00E7\u00E3o da resposta do recurso do tipo de campanha */
+/** {{{tipo_campanha_response_description}}} */
 public class TipoCampanhaResponse: JSONEncodable {
 
-    /** Identificador do tipo de campanha */
+    /** {{{tipo_campanha_response_id_value}}} */
     public var id: Int?
-    /** Descri\u00E7\u00E3o do tipo de campanha */
+    /** {{{tipo_campanha_response_descricao_value}}} */
     public var descricao: String?
     
 

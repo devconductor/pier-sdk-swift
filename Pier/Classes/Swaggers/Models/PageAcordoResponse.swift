@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Lista de Acordos */
+/** {{{page_acordo_response_description}}} */
 public class PageAcordoResponse: JSONEncodable {
 
     public var content: [AcordoResponse]?

@@ -8,38 +8,38 @@
 import Foundation
 
 
-/** Configura\u00E7\u00E3o Rotativo */
+/** {{{configuracao_rotativo_persist_description}}} */
 public class ConfiguracaoRotativoPersist: JSONEncodable {
 
-    /** C\u00F3digo de Identifica\u00E7\u00E3o do Produto (idProduto). */
+    /** {{{configuracao_rotativo_persist_id_produto_value}}} */
     public var idProduto: Int?
-    /** Quando verdadeiro, indica que o valor do rotativo deve compor a oferta de parcelamento. */
+    /** {{{configuracao_rotativo_persist_compoe_oferta_valor_rotativo_value}}} */
     public var compoeOfertaValorRotativo: Bool?
-    /** Quando verdadeiro, indica que o valor n\u00E3o financi\u00E1vel deve compor a oferta de parcelamento. */
+    /** {{{configuracao_rotativo_persist_compoe_oferta_valor_nao_financiavel_value}}} */
     public var compoeOfertaValorNaoFinanciavel: Bool?
-    /** Quando verdadeiro, indica que o valor de novos lan\u00E7amentos deve compor a oferta de parcelamento */
+    /** {{{configuracao_rotativo_persist_compoe_oferta_valor_novos_lancamentos_value}}} */
     public var compoeOfertaValorNovosLancamentos: Bool?
-    /** Quando verdadeiro, indica que deve recalcular o parcelamento caso o valor pago de entrada seja maior que o valor esperado */
+    /** {{{configuracao_rotativo_persist_recalcula_parcelamento_para_entrada_maior_value}}} */
     public var recalculaParcelamentoParaEntradaMaior: Bool?
-    /** Indica o m\u00EDnimo de parcelas que ser\u00E1 acatado no rec\u00E1lculo do parcelamento. */
+    /** {{{configuracao_rotativo_persist_minimo_parcelas_recalculo_parcelamento_value}}} */
     public var minimoParcelasRecalculoParcelamento: Bool?
-    /** Quando verdadeiro, indica que o parcelamento deve ser recalculado caso o valor calculado da oferta seja inferior ao valor configurado m\u00EDnimo da parcela (valorMinimoParcela) e de percentual aberto */
+    /** {{{configuracao_rotativo_persist_recalcula_parcelamento_value}}} */
     public var recalculaParcelamento: Bool?
-    /** N\u00FAmero m\u00EDnimo de parcelas que ser\u00E1 acatado no recalculo da oferta. */
+    /** {{{configuracao_rotativo_persist_numero_minimo_ofertas_value}}} */
     public var numeroMinimoOfertas: Bool?
-    /** Quando verdadeiro, indica que valores pagos entre o valor da entrada e o m\u00EDnimo da fatura ser\u00E3o acatados para a ades\u00E3o ao parcelamento */
+    /** {{{configuracao_rotativo_persist_aceita_pagamento_maior_que_entrada_value}}} */
     public var aceitaPagamentoMaiorQueEntrada: Bool?
-    /** Quando verdadeiro, indica que deve-se incluir o valor presente dos parcelamentos em aberto. */
+    /** {{{configuracao_rotativo_persist_antecipa_parcelamentos_abertos_value}}} */
     public var antecipaParcelamentosAbertos: Bool?
-    /** Valor m\u00EDnimo da parcela que deve ser aceito na oferta. */
+    /** {{{configuracao_rotativo_persist_valor_minimo_parcela_value}}} */
     public var valorMinimoParcela: Double?
-    /** Percentual sobre os valores de parcelamento anteriores em aberto que deve ser considerado para limitar valorMinimoParcela. */
+    /** {{{configuracao_rotativo_persist_percentual_limitar_valor_minimo_parcela_value}}} */
     public var percentualLimitarValorMinimoParcela: Double?
-    /** C\u00F3digo de Identifica\u00E7\u00E3o da regra de campanha. */
+    /** {{{configuracao_rotativo_persist_id_regra_campanha_value}}} */
     public var idRegraCampanha: Int?
-    /** Quando verdadeiro, indica que parcelamento ofertado ter\u00E1 como valor base o valor m\u00EDnimo das transa\u00E7\u00F5es. */
+    /** {{{configuracao_rotativo_persist_parcelar_apenas_minimo_value}}} */
     public var parcelarApenasMinimo: Bool?
-    /** Nome do usu\u00E1rio */
+    /** {{{configuracao_rotativo_persist_usuario_value}}} */
     public var usuario: String?
     
 

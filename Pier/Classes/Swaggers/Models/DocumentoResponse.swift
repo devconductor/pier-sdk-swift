@@ -8,16 +8,16 @@
 import Foundation
 
 
-/** Representa\u00E7\u00E3o da resposta resumida para o recurso de Documento */
+/** {{{documento_response_description}}} */
 public class DocumentoResponse: JSONEncodable {
 
-    /** ID do Documento. */
+    /** {{{documento_response_id_value}}} */
     public var id: Int?
-    /** ID do Template de Documento associado. */
+    /** {{{documento_response_id_template_documento_value}}} */
     public var idTemplateDocumento: Int?
-    /** Nome do Documento. */
+    /** {{{documento_response_nome_value}}} */
     public var nome: String?
-    /** Extens\u00E3o do Documento. */
+    /** {{{documento_response_extensao_value}}} */
     public var extensao: String?
     
 

@@ -8,14 +8,14 @@
 import Foundation
 
 
-/** Objeto Terminal */
+/** {{{terminal_persist_description}}} */
 public class TerminalPersist: JSONEncodable {
 
-    /** Apresenta o id do estabelecimento. */
+    /** {{{terminal_persist_id_estabelecimento_value}}} */
     public var idEstabelecimento: Int?
-    /** Flag indicando se permite consultar extrato, sendo: (true: Sim), (false: N\u00E3o)). */
+    /** {{{terminal_persist_flag_consulta_extrato_value}}} */
     public var flagConsultaExtrato: Bool?
-    /** Flag indicando se o terminal \u00E9 f\u00EDsico ou virtual, sendo: (true: Sim), (false: N\u00E3o)). */
+    /** {{{terminal_persist_flag_terminal_virtual_value}}} */
     public var flagTerminalVirtual: Bool?
     
 

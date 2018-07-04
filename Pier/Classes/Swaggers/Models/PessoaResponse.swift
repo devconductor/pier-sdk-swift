@@ -8,30 +8,30 @@
 import Foundation
 
 
-/** Pessoa */
+/** {{{pessoa_response_description}}} */
 public class PessoaResponse: JSONEncodable {
 
-    /** C\u00F3digo de Identifica\u00E7\u00E3o da Pessoa (id). */
+    /** {{{pessoa_response_id_value}}} */
     public var id: Int?
-    /** Apresenta o &#39;Nome Completo da PF&#39; ou o &#39;Nome Completo da Raz\u00E3o Social (Nome Empresarial)&#39;. */
+    /** {{{pessoa_response_nome_value}}} */
     public var nome: String?
-    /** C\u00F3digo de identifica\u00E7\u00E3o do tipo da Pessoa, sendo: (\&quot;PF\&quot;: Pessoa F\u00EDsica), (\&quot;PJ\&quot;: Pessoa Jur\u00EDdica). */
+    /** {{{pessoa_response_tipo_value}}} */
     public var tipo: String?
-    /** N\u00FAmero do CPF, quando PF. */
+    /** {{{pessoa_response_cpf_value}}} */
     public var cpf: String?
-    /** N\u00FAmero do CNPJ, quando PJ. */
+    /** {{{pessoa_response_cnpj_value}}} */
     public var cnpj: String?
-    /** Data de Nascimento da Pessoa, quando PF, ou a Data de Abertura da Empresa, quando PJ. */
+    /** {{{pessoa_response_data_nascimento_value}}} */
     public var dataNascimento: String?
-    /** N\u00FAmero da Identidade */
+    /** {{{pessoa_response_numero_identidade_value}}} */
     public var numeroIdentidade: String?
-    /** Org\u00E3o expedidor do RG. */
+    /** {{{pessoa_response_orgao_expedidor_identidade_value}}} */
     public var orgaoExpedidorIdentidade: String?
-    /** C\u00F3digo de identifica\u00E7\u00E3o do sexo da Pessoa, quando PF, sendo: (\&quot;M\&quot;: Masculino), (\&quot;F\&quot;: Feminino), (\&quot;O\&quot;: Outro), (\&quot;N\&quot;: N\u00E3o Especificado). */
+    /** {{{pessoa_response_sexo_value}}} */
     public var sexo: String?
-    /** Sigla da Unidade Federativa de onde foi expedido a Identidade */
+    /** {{{pessoa_response_unidade_federativa_identidade_value}}} */
     public var unidadeFederativaIdentidade: String?
-    /** Data emiss\u00E3o da identidade no formato aaaa-MM-dd */
+    /** {{{pessoa_response_data_emissao_identidade_value}}} */
     public var dataEmissaoIdentidade: String?
     
 

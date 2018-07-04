@@ -8,24 +8,24 @@
 import Foundation
 
 
-/** Par\u00E2metros de requisi\u00E7\u00E3o para valida\u00E7\u00E3o dos dados do portador. */
+/** {{{dados_portador_request_description}}} */
 public class DadosPortadorRequest: JSONEncodable {
 
-    /** N\u00FAmero do cart\u00E3o. */
+    /** {{{dados_portador_request_cartao_value}}} */
     public var cartao: String?
-    /** N\u00FAmero do CPF. */
+    /** {{{dados_portador_request_cpf_value}}} */
     public var cpf: String?
-    /** Nome do portador. */
+    /** {{{dados_portador_request_nome_value}}} */
     public var nome: String?
-    /** Data de nascimento do portador do cart\u00E3o. */
+    /** {{{dados_portador_request_data_nascimento_value}}} */
     public var dataNascimento: String?
-    /** CEP da resid\u00EAncia do portador da conta. */
+    /** {{{dados_portador_request_cep_residencial_value}}} */
     public var cepResidencial: String?
-    /** E-mail do portador do cart\u00E3o. */
+    /** {{{dados_portador_request_email_value}}} */
     public var email: String?
-    /** DDD do n\u00FAmero de telefone do portador do cart\u00E3o. */
+    /** {{{dados_portador_request_ddd_value}}} */
     public var ddd: String?
-    /** N\u00FAmero do telefone do portador do cart\u00E3o. */
+    /** {{{dados_portador_request_telefone_value}}} */
     public var telefone: String?
     
 

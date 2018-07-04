@@ -8,12 +8,12 @@
 import Foundation
 
 
-/** Hist\u00F3rico Pagamento Fatura Atraso */
+/** {{{historico_atraso_fatura_response_description}}} */
 public class HistoricoAtrasoFaturaResponse: JSONEncodable {
 
-    /** Data vencimento fatura. */
+    /** {{{historico_atraso_fatura_response_data_vencimento_value}}} */
     public var dataVencimento: String?
-    /** Quantidade de dias em atraso. */
+    /** {{{historico_atraso_fatura_response_dias_pagamento_apos_vencimento_value}}} */
     public var diasPagamentoAposVencimento: Int?
     
 

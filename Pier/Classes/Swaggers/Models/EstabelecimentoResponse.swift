@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Objeto Estabelecimento */
+/** {{{estabelecimento_response_description}}} */
 public class EstabelecimentoResponse: JSONEncodable {
 
     public enum TipoPagamento: String { 
@@ -16,89 +16,89 @@ public class EstabelecimentoResponse: JSONEncodable {
         case Pv = "PV"
     }
     
-    /** C\u00F3digo de identifica\u00E7\u00E3o do estabelecimento (id). */
+    /** {{{estabelecimento_response_id_value}}} */
     public var id: Int?
-    /** N\u00FAmero de identifica\u00E7\u00E3o do Estabelecimento na Conductor. */
+    /** {{{estabelecimento_response_numero_estabelecimento_value}}} */
     public var numeroEstabelecimento: String?
-    /** Indica se \u00E9 matriz ou filial. */
+    /** {{{estabelecimento_response_flag_matriz_value}}} */
     public var flagMatriz: Int?
-    /** Apresenta o n\u00FAmero de identifica\u00E7\u00E3o do Grupo Econ\u00F4mico. */
+    /** {{{estabelecimento_response_id_grupo_economico_value}}} */
     public var idGrupoEconomico: Int?
-    /** Apresenta o n\u00FAmero de identifica\u00E7\u00E3o do Estabelecimento na Receita Federal. */
+    /** {{{estabelecimento_response_numero_receita_federal_value}}} */
     public var numeroReceitaFederal: Int?
-    /** Nome do Estabelecimento. */
+    /** {{{estabelecimento_response_nome_value}}} */
     public var nome: String?
-    /** Raz\u00E3o Social do Estabelecimento. */
+    /** {{{estabelecimento_response_descricao_value}}} */
     public var descricao: String?
-    /** T\u00EDtulo Comercial do Estabelecimento. */
+    /** {{{estabelecimento_response_nome_fantasia_value}}} */
     public var nomeFantasia: String?
-    /** C\u00F3digo de Endere\u00E7amento Postal (CEP). */
+    /** {{{estabelecimento_response_cep_value}}} */
     public var cep: String?
-    /** Nome do Logradouro. */
+    /** {{{estabelecimento_response_nome_logradouro_value}}} */
     public var nomeLogradouro: String?
-    /** N\u00FAmero do endere\u00E7o. */
+    /** {{{estabelecimento_response_numero_endereco_value}}} */
     public var numeroEndereco: String?
-    /** Nome do bairro do endere\u00E7o. */
+    /** {{{estabelecimento_response_bairro_value}}} */
     public var bairro: String?
-    /** Nome da cidade do endere\u00E7o. */
+    /** {{{estabelecimento_response_cidade_value}}} */
     public var cidade: String?
-    /** Descri\u00E7\u00F5es complementares referente ao endere\u00E7o. */
+    /** {{{estabelecimento_response_complemento_value}}} */
     public var complemento: String?
-    /** Sigla de identifica\u00E7\u00E3o da Unidade Federativa do endere\u00E7o. */
+    /** {{{estabelecimento_response_uf_value}}} */
     public var uf: String?
-    /** C\u00F3digo de Endere\u00E7amento Postal (CEP). */
+    /** {{{estabelecimento_response_cep2_value}}} */
     public var cep2: String?
-    /** Nome do Logradouro . */
+    /** {{{estabelecimento_response_nome_logradouro2_value}}} */
     public var nomeLogradouro2: String?
-    /** N\u00FAmero do endere\u00E7o. */
+    /** {{{estabelecimento_response_numero_endereco2_value}}} */
     public var numeroEndereco2: String?
-    /** Nome do bairro do endere\u00E7o. */
+    /** {{{estabelecimento_response_bairro2_value}}} */
     public var bairro2: String?
-    /** Nome da cidade do endere\u00E7o. */
+    /** {{{estabelecimento_response_cidade2_value}}} */
     public var cidade2: String?
-    /** Descri\u00E7\u00F5es complementares referente ao endere\u00E7o. */
+    /** {{{estabelecimento_response_complemento2_value}}} */
     public var complemento2: String?
-    /** Sigla de identifica\u00E7\u00E3o da Unidade Federativa do endere\u00E7o. */
+    /** {{{estabelecimento_response_uf2_value}}} */
     public var uf2: String?
-    /** Detalhes espec\u00EDficos quanto ao Cadastro do Estabelecimento. */
+    /** {{{estabelecimento_response_obs_value}}} */
     public var obs: String?
-    /** Nome da pessoa para contato com o Estabelecimento. */
+    /** {{{estabelecimento_response_contato_value}}} */
     public var contato: String?
-    /** E-mail da pessoa para contato com o Estabelecimento. */
+    /** {{{estabelecimento_response_email_value}}} */
     public var email: String?
-    /** Indica se o estabelecimento ser\u00E1 inclu\u00EDdo no arquivo de registro para a Secretaria da Fazenda Estadual. */
+    /** {{{estabelecimento_response_flag_arquivo_secr_fazenda_value}}} */
     public var flagArquivoSecrFazenda: Int?
-    /** Indica se o estabelecimento poder\u00E1 originar transa\u00E7\u00F5es sem a leitura da tarja ou do chip do cart\u00E3o. */
+    /** {{{estabelecimento_response_flag_cartao_digitado_value}}} */
     public var flagCartaoDigitado: Int?
-    /** Indica se o estabelecimento est\u00E1 inativo. */
+    /** {{{estabelecimento_response_inativo_value}}} */
     public var inativo: Int?
-    /** C\u00F3digo identificador da moeda. */
+    /** {{{estabelecimento_response_id_moeda_value}}} */
     public var idMoeda: Int?
-    /** Identificador de Pa\u00EDs. */
+    /** {{{estabelecimento_response_id_pais_value}}} */
     public var idPais: Int?
-    /** N\u00FAmero do associado ao SPCBrasil. */
+    /** {{{estabelecimento_response_associado_s_p_c_brasil_value}}} */
     public var associadoSPCBrasil: Int?
-    /** C\u00F3digo de Categoria de Mercado. */
+    /** {{{estabelecimento_response_mcc_value}}} */
     public var mcc: Int?
-    /** C\u00F3digo de identifica\u00E7\u00E3o do tipo de Estabelecimento. */
+    /** {{{estabelecimento_response_id_tipo_estabelecimento_value}}} */
     public var idTipoEstabelecimento: Int?
-    /** Tipo da Correspond\u00EAncia (ORIGEM, CORRESPONDENCIA). */
+    /** {{{estabelecimento_response_correspondencia_value}}} */
     public var correspondencia: Int?
-    /** Cargo do contato do estabelecimento. */
+    /** {{{estabelecimento_response_cargo_contato_value}}} */
     public var cargoContato: String?
-    /** Tipo do regime de pagamento do estabelecimento. */
+    /** {{{estabelecimento_response_tipo_pagamento_value}}} */
     public var tipoPagamento: TipoPagamento?
-    /** Consulta de cadastro n\u00FAmero um. */
+    /** {{{estabelecimento_response_consulta_value}}} */
     public var consulta: ConsultaCadastroEstabelecimentoDTO?
-    /** Consulta de cadastro n\u00FAmero dois. */
+    /** {{{estabelecimento_response_consulta2_value}}} */
     public var consulta2: ConsultaCadastroEstabelecimentoDTO?
-    /** Consulta de cadastro n\u00FAmero tr\u00EAs. */
+    /** {{{estabelecimento_response_consulta3_value}}} */
     public var consulta3: ConsultaCadastroEstabelecimentoDTO?
-    /** Terminal do estabelecimento. */
+    /** {{{estabelecimento_response_terminal_value}}} */
     public var terminal: String?
-    /** Data de Cadastro do Estabelecimento. */
+    /** {{{estabelecimento_response_data_cadastramento_value}}} */
     public var dataCadastramento: String?
-    /** Usu\u00E1rio da aplica\u00E7\u00E3o. */
+    /** {{{estabelecimento_response_usuario_value}}} */
     public var usuario: String?
     
 

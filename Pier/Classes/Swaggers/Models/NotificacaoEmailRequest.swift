@@ -8,16 +8,16 @@
 import Foundation
 
 
-/** Representa\u00E7\u00E3o do recurso para envio de uma notifica\u00E7\u00E3o por email. */
+/** {{{notificacao_email_request_description}}} */
 public class NotificacaoEmailRequest: JSONEncodable {
 
-    /** ID para o template da notifica\u00E7\u00E3o. */
+    /** {{{notificacao_email_request_id_template_notificacao_value}}} */
     public var idTemplateNotificacao: Int?
-    /** Lista de email(s) do(s) destinat\u00E1rio(s). */
+    /** {{{notificacao_email_request_destinatarios_value}}} */
     public var destinatarios: [String]?
-    /** Lista de ids dos anexos a serem enviados. */
+    /** {{{notificacao_email_request_anexos_value}}} */
     public var anexos: [AnexoNotificacaoEmailRequest]?
-    /** Mapa de par\u00E2metros para montagem da notifica\u00E7\u00E3o. */
+    /** {{{notificacao_email_request_parametros_conteudo_value}}} */
     public var parametrosConteudo: [String:AnyObject]?
     
 

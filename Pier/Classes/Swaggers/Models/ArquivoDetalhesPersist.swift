@@ -8,12 +8,12 @@
 import Foundation
 
 
-/** Objeto ArquivoParametros para persist\u00EAncia de dados. */
+/** {{{arquivo_detalhes_persist_description}}} */
 public class ArquivoDetalhesPersist: JSONEncodable {
 
-    /** Nome que identifica o detalhe do arquivo */
+    /** {{{arquivo_detalhes_persist_nome_campo_value}}} */
     public var nomeCampo: String?
-    /** Conte\u00FAdo do nomeCampo */
+    /** {{{arquivo_detalhes_persist_conteudo_value}}} */
     public var conteudo: String?
     
 

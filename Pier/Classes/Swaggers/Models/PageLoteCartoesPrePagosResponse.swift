@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Lista atendimento clientes */
+/** {{{page_lote_cartoes_pre_pagos_response_description}}} */
 public class PageLoteCartoesPrePagosResponse: JSONEncodable {
 
     public var content: [LoteCartoesPrePagosResponse]?

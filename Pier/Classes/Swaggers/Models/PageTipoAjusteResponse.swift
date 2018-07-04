@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Lista dos tipos de ajustes */
+/** {{{page_tipo_ajuste_response_description}}} */
 public class PageTipoAjusteResponse: JSONEncodable {
 
     public var content: [TipoAjusteResponse]?

@@ -8,16 +8,16 @@
 import Foundation
 
 
-/** Objeto de requisi\u00E7\u00E3o. */
+/** {{{integrar_documento_request_description}}} */
 public class IntegrarDocumentoRequest: JSONEncodable {
 
-    /** Identificador do template de documento */
+    /** {{{integrar_documento_request_id_template_value}}} */
     public var idTemplate: Int?
-    /** Conte\u00FAdo do arquivo convertido em Base 64 */
+    /** {{{integrar_documento_request_arquivo_value}}} */
     public var arquivo: String?
-    /** Nome do arquivo. */
+    /** {{{integrar_documento_request_nome_value}}} */
     public var nome: String?
-    /** Lista de par\u00E2metros para montagem do documento. */
+    /** {{{integrar_documento_request_propriedades_value}}} */
     public var propriedades: [PropriedadeDocumentoRequest]?
     
 

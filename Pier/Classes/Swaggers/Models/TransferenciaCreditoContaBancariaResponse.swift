@@ -8,70 +8,70 @@
 import Foundation
 
 
-/** Transfer\u00EAncia de cr\u00E9dito para contas banc\u00E1rias */
+/** {{{transferencia_credito_conta_bancaria_response_description}}} */
 public class TransferenciaCreditoContaBancariaResponse: JSONEncodable {
 
-    /** C\u00F3digo de identifica\u00E7\u00E3o da transferencia. */
+    /** {{{transferencia_credito_conta_bancaria_response_id_transferencia_value}}} */
     public var idTransferencia: Int?
-    /** Taxa de custo efetivo total. */
+    /** {{{transferencia_credito_conta_bancaria_response_valor_c_e_t_value}}} */
     public var valorCET: Double?
-    /** C\u00F3digo de identifica\u00E7\u00E3o da autoriza\u00E7\u00E3o. */
+    /** {{{transferencia_credito_conta_bancaria_response_id_autorizacao_value}}} */
     public var idAutorizacao: Int?
-    /** C\u00F3digo da autoriza\u00E7\u00E3o. */
+    /** {{{transferencia_credito_conta_bancaria_response_codigo_autorizacao_value}}} */
     public var codigoAutorizacao: String?
-    /** NSU de origem. */
+    /** {{{transferencia_credito_conta_bancaria_response_nsu_origem_value}}} */
     public var nsuOrigem: Int?
-    /** C\u00F3digo de identifica\u00E7\u00E3o da conta. */
+    /** {{{transferencia_credito_conta_bancaria_response_id_conta_value}}} */
     public var idConta: Int?
-    /** C\u00F3digo de identifica\u00E7\u00E3o do cart\u00E3o. */
+    /** {{{transferencia_credito_conta_bancaria_response_id_cartao_value}}} */
     public var idCartao: Int?
-    /** C\u00F3digo de identifica\u00E7\u00E3o do tipo de opera\u00E7\u00E3o. */
+    /** {{{transferencia_credito_conta_bancaria_response_id_operacao_value}}} */
     public var idOperacao: Int?
-    /** Valor da transfer\u00EAncia. */
+    /** {{{transferencia_credito_conta_bancaria_response_valor_compra_value}}} */
     public var valorCompra: Double?
-    /** Valor da parcela. */
+    /** {{{transferencia_credito_conta_bancaria_response_valor_parcela_value}}} */
     public var valorParcela: Double?
-    /** Valor da transfer\u00EAncia acrescido do valor da tarifa de saque se houver tarifa de saque. */
+    /** {{{transferencia_credito_conta_bancaria_response_valor_contrato_value}}} */
     public var valorContrato: Double?
-    /** N\u00FAmero de parcelas. */
+    /** {{{transferencia_credito_conta_bancaria_response_numero_parcelas_value}}} */
     public var numeroParcelas: Int?
-    /** Valor do IOF. */
+    /** {{{transferencia_credito_conta_bancaria_response_valor_i_o_f_value}}} */
     public var valorIOF: Double?
-    /** Valor da TAC. */
+    /** {{{transferencia_credito_conta_bancaria_response_valor_t_a_c_value}}} */
     public var valorTAC: Double?
-    /** Valor da taxa saque. */
+    /** {{{transferencia_credito_conta_bancaria_response_valor_taxa_saque_value}}} */
     public var valorTaxaSaque: Double?
-    /** Percentual de juros. */
+    /** {{{transferencia_credito_conta_bancaria_response_taxa_juros_value}}} */
     public var taxaJuros: Double?
-    /** Data da transfer\u00EAncia. */
+    /** {{{transferencia_credito_conta_bancaria_response_data_compra_value}}} */
     public var dataCompra: String?
-    /** Data do movimento. */
+    /** {{{transferencia_credito_conta_bancaria_response_data_movimento_value}}} */
     public var dataMovimento: String?
-    /** Data do vencimento real da fatura. */
+    /** {{{transferencia_credito_conta_bancaria_response_data_vencimento_real_value}}} */
     public var dataVencimentoReal: String?
-    /** Dia do vencimento padr\u00E3o da fatura. */
+    /** {{{transferencia_credito_conta_bancaria_response_data_vencimento_padrao_value}}} */
     public var dataVencimentoPadrao: String?
-    /** Data da autoriza\u00E7\u00E3o. */
+    /** {{{transferencia_credito_conta_bancaria_response_data_autorizacao_value}}} */
     public var dataAutorizacao: String?
-    /** C\u00F3digo do Banco. */
+    /** {{{transferencia_credito_conta_bancaria_response_banco_value}}} */
     public var banco: Int?
-    /** N\u00FAmero da Ag\u00EAncia. */
+    /** {{{transferencia_credito_conta_bancaria_response_numero_agencia_value}}} */
     public var numeroAgencia: String?
-    /** D\u00EDgito da Ag\u00EAncia. */
+    /** {{{transferencia_credito_conta_bancaria_response_digito_agencia_value}}} */
     public var digitoAgencia: String?
-    /** N\u00FAmero da Conta. */
+    /** {{{transferencia_credito_conta_bancaria_response_numero_conta_value}}} */
     public var numeroConta: String?
-    /** D\u00EDgito da Conta. */
+    /** {{{transferencia_credito_conta_bancaria_response_digito_conta_value}}} */
     public var digitoConta: String?
-    /** Tipo da Conta. */
+    /** {{{transferencia_credito_conta_bancaria_response_flag_conta_poupanca_value}}} */
     public var flagContaPoupanca: Bool?
-    /** Documento do Favorecido. */
+    /** {{{transferencia_credito_conta_bancaria_response_documento_favorecido_value}}} */
     public var documentoFavorecido: String?
-    /** Nome do Favorecido. */
+    /** {{{transferencia_credito_conta_bancaria_response_nome_favorecido_value}}} */
     public var nomeFavorecido: String?
-    /** C\u00F3digo do Status */
+    /** {{{transferencia_credito_conta_bancaria_response_status_value}}} */
     public var status: String?
-    /** Status Processamento. */
+    /** {{{transferencia_credito_conta_bancaria_response_status_processamento_value}}} */
     public var statusProcessamento: String?
     
 

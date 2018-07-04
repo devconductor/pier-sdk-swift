@@ -8,21 +8,21 @@
 import Foundation
 
 
-/** Objeto cart\u00E3o provis\u00F3rio */
+/** {{{cartao_impressao_provisorio_response_description}}} */
 public class CartaoImpressaoProvisorioResponse: JSONEncodable {
 
     public var flagVirtual: Int?
-    /** Apresenta o C\u00F3digo de Identifica\u00E7\u00E3o da Conta (id) a qual o cart\u00E3o gerado pertence. */
+    /** {{{cartao_impressao_provisorio_response_id_conta_value}}} */
     public var idConta: Int?
-    /** Apresenta o C\u00F3digo de Identifica\u00E7\u00E3o da Pessoa (id) portadora do cart\u00E3o gerado. */
+    /** {{{cartao_impressao_provisorio_response_id_pessoa_value}}} */
     public var idPessoa: Int?
-    /** Apresenta o C\u00F3digo de Identifica\u00E7\u00E3o do Cart\u00E3o (id) que foi gerado. */
+    /** {{{cartao_impressao_provisorio_response_id_cartao_value}}} */
     public var idCartao: Int?
-    /** Apresenta o n\u00FAmero do cart\u00E3o. */
+    /** {{{cartao_impressao_provisorio_response_numero_cartao_value}}} */
     public var numeroCartao: String?
-    /** Apresenta o nome do Portador do Cart\u00E3o. */
+    /** {{{cartao_impressao_provisorio_response_nome_plastico_value}}} */
     public var nomePlastico: String?
-    /** Apresenta a data de Validade do Cart\u00E3o. */
+    /** {{{cartao_impressao_provisorio_response_data_validade_value}}} */
     public var dataValidade: String?
     
 

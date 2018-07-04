@@ -8,12 +8,12 @@
 import Foundation
 
 
-/** Objeto de resposta do grupo de origem comercial */
+/** {{{grupo_origem_comercial_response_description}}} */
 public class GrupoOrigemComercialResponse: JSONEncodable {
 
-    /** C\u00F3digo de Identifica\u00E7\u00E3o do grupo de origem comercial. */
+    /** {{{grupo_origem_comercial_response_id_value}}} */
     public var id: Int?
-    /** Nome do grupo da origem comercial */
+    /** {{{grupo_origem_comercial_response_nome_value}}} */
     public var nome: String?
     
 

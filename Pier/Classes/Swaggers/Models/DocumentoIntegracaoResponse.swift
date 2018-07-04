@@ -8,14 +8,14 @@
 import Foundation
 
 
-/** Representa\u00E7\u00E3o da resposta do recurso de Documento Integra\u00E7\u00E3o */
+/** {{{documento_integracao_response_description}}} */
 public class DocumentoIntegracaoResponse: JSONEncodable {
 
-    /** ID do Documento Integrado. */
+    /** {{{documento_integracao_response_id_value}}} */
     public var id: Int?
-    /** ID do Template de Documento associado. */
+    /** {{{documento_integracao_response_id_template_value}}} */
     public var idTemplate: Int?
-    /** Nome do Documento. */
+    /** {{{documento_integracao_response_nome_value}}} */
     public var nome: String?
     
 

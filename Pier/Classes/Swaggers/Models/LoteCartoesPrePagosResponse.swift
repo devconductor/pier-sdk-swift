@@ -8,30 +8,30 @@
 import Foundation
 
 
-/** Lote Cart\u00F5es Pr\u00E9-Pagos */
+/** {{{lote_cartoes_pre_pagos_response_description}}} */
 public class LoteCartoesPrePagosResponse: JSONEncodable {
 
-    /** C\u00F3digo de identifica\u00E7\u00E3o do lote de cart\u00F5es pr\u00E9-pagos (id). */
+    /** {{{lote_cartoes_pre_pagos_response_id_value}}} */
     public var id: Int?
-    /** C\u00F3digo identificador da origem comercial. */
+    /** {{{lote_cartoes_pre_pagos_response_id_origem_comercial_value}}} */
     public var idOrigemComercial: Int?
-    /** C\u00F3digo identificador do Produto. */
+    /** {{{lote_cartoes_pre_pagos_response_id_produto_value}}} */
     public var idProduto: Int?
-    /** C\u00F3digo identificador do tipo do cart\u00E3o. */
+    /** {{{lote_cartoes_pre_pagos_response_id_tipo_cartao_value}}} */
     public var idTipoCartao: Int?
-    /** C\u00F3digo identificador da Imagem do cart\u00E3o. */
+    /** {{{lote_cartoes_pre_pagos_response_id_imagem_value}}} */
     public var idImagem: Int?
-    /** C\u00F3digo de Identifica\u00E7\u00E3o do Endere\u00E7o. */
+    /** {{{lote_cartoes_pre_pagos_response_id_endereco_value}}} */
     public var idEndereco: Int?
-    /** N\u00FAmero de cart\u00F5es existentes no Lote. */
+    /** {{{lote_cartoes_pre_pagos_response_quantidade_value}}} */
     public var quantidade: Int?
-    /** Data de cadastro do lote de cart\u00F5es pr\u00E9-pagos. */
+    /** {{{lote_cartoes_pre_pagos_response_data_cadastro_value}}} */
     public var dataCadastro: String?
-    /** Nome do usu\u00E1rio que criou o lote. */
+    /** {{{lote_cartoes_pre_pagos_response_usuario_cadastro_value}}} */
     public var usuarioCadastro: String?
-    /** Indica o status de processamento do lote. */
+    /** {{{lote_cartoes_pre_pagos_response_status_processamento_value}}} */
     public var statusProcessamento: Int?
-    /** N\u00FAmero de identifica\u00E7\u00E3o externo (utilizado pelo emissor). */
+    /** {{{lote_cartoes_pre_pagos_response_identificador_externo_value}}} */
     public var identificadorExterno: String?
     
 

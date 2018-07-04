@@ -8,16 +8,16 @@
 import Foundation
 
 
-/** Representa\u00E7\u00E3o da resposta do recurso de campanha */
+/** {{{campanha_response_description}}} */
 public class CampanhaResponse: JSONEncodable {
 
-    /** Identificador da campanha */
+    /** {{{campanha_response_id_value}}} */
     public var id: Int?
-    /** Nome da campanha */
+    /** {{{campanha_response_nome_value}}} */
     public var nome: String?
-    /** C\u00F3digo de Identifica\u00E7\u00E3o do tipo de campanha a qual a a Campanha pertence */
+    /** {{{campanha_response_id_tipo_campanha_value}}} */
     public var idTipoCampanha: Int?
-    /** Lista de planos associados a Campanha */
+    /** {{{campanha_response_planos_campanhas_value}}} */
     public var planosCampanhas: [PlanoCampanhaResponse]?
     
 

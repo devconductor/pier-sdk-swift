@@ -8,55 +8,56 @@
 import Foundation
 
 
+/** {{{antecipacao_response_description}}} */
 public class AntecipacaoResponse: JSONEncodable {
 
     public var mcc: Int?
     public var uf: String?
-    /** C\u00F3digo de identifica\u00E7\u00E3o da antecipa\u00E7\u00E3o */
+    /** {{{antecipacao_response_id_value}}} */
     public var id: Int?
-    /** C\u00F3digo de identifica\u00E7\u00E3o da conta */
+    /** {{{antecipacao_response_id_conta_value}}} */
     public var idConta: Int?
-    /** C\u00F3digo de identifica\u00E7\u00E3o da compra */
+    /** {{{antecipacao_response_id_compra_value}}} */
     public var idCompra: Int?
-    /** Apresenta o numero total de parcelas da compra */
+    /** {{{antecipacao_response_quantidade_parcelas_total_value}}} */
     public var quantidadeParcelasTotal: Int?
-    /** Apresenta o numero de parcelas antecipadas */
+    /** {{{antecipacao_response_quantidade_parcelas_antecipadas_value}}} */
     public var quantidadeParcelasAntecipadas: Int?
-    /** Apresenta o valor de cada parcela antecipadas */
+    /** {{{antecipacao_response_valor_parcela_value}}} */
     public var valorParcela: Double?
-    /** Apresenta o valor total do desconto */
+    /** {{{antecipacao_response_valor_desconto_total_value}}} */
     public var valorDescontoTotal: Double?
-    /** Apresenta o valor total com desconto */
+    /** {{{antecipacao_response_valor_total_com_desconto_value}}} */
     public var valorTotalComDesconto: Double?
-    /** Apresenta a taxa de desconto */
+    /** {{{antecipacao_response_taxa_desconto_value}}} */
     public var taxaDesconto: Double?
-    /** Data da compra. */
+    /** {{{antecipacao_response_data_compra_value}}} */
     public var dataCompra: String?
-    /** Descri\u00E7\u00E3o do status da autoriza\u00E7\u00E3o da compra. */
+    /** {{{antecipacao_response_status_value}}} */
     public var status: String?
-    /** Nome do estabelecimento da compra. */
+    /** {{{antecipacao_response_nome_estabelecimento_value}}} */
     public var nomeEstabelecimento: String?
-    /** Tipo de transa\u00E7\u00E3o da compra. */
+    /** {{{antecipacao_response_tipo_origem_transacao_value}}} */
     public var tipoOrigemTransacao: String?
-    /** Cidade onde a compra foi realizada. */
+    /** {{{antecipacao_response_cidade_value}}} */
     public var cidade: String?
-    /** Pa\u00EDs onde a compra foi realizada. */
+    /** {{{antecipacao_response_pais_value}}} */
     public var pais: String?
-    /** Coordenada latitudinal da localiza\u00E7\u00E3o da compra. */
+    /** {{{antecipacao_response_latitude_value}}} */
     public var latitude: String?
-    /** Coordenada longitudinal da localiza\u00E7\u00E3o da compra. */
+    /** {{{antecipacao_response_longitude_value}}} */
     public var longitude: String?
-    /** C\u00F3digo de Identifica\u00E7\u00E3o do Grupo MCC da compra. */
+    /** {{{antecipacao_response_id_grupo_m_c_c_value}}} */
     public var idGrupoMCC: Int?
-    /** Descri\u00E7\u00E3o do Grupo MCC da compra. */
+    /** {{{antecipacao_response_descricao_grupo_m_c_c_value}}} */
     public var descricaoGrupoMCC: String?
-    /** C\u00F3digo de Identifica\u00E7\u00E3o do produto da compra. */
+    /** {{{antecipacao_response_id_produto_value}}} */
     public var idProduto: Int?
-    /** Descri\u00E7\u00E3o do produto da compra. */
+    /** {{{antecipacao_response_descricao_produto_value}}} */
     public var descricaoProduto: String?
-    /** Descri\u00E7\u00E3o do estabelecimento da compra. */
+    /** {{{antecipacao_response_descricao_estabelecimento_value}}} */
     public var descricaoEstabelecimento: String?
-    /** Nome fantasia do estabelecimento da compra. */
+    /** {{{antecipacao_response_nome_fantasia_estabelecimento_value}}} */
     public var nomeFantasiaEstabelecimento: String?
     
 

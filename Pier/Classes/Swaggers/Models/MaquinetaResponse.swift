@@ -8,24 +8,24 @@
 import Foundation
 
 
-/** Objeto de Resposta de Maquineta */
+/** {{{maquineta_response_description}}} */
 public class MaquinetaResponse: JSONEncodable {
 
-    /** C\u00F3digo de Identifica\u00E7\u00E3o da Maquineta. */
+    /** {{{maquineta_response_id_value}}} */
     public var id: Int?
-    /** C\u00F3digo de Identifica\u00E7\u00E3o do EStabelecimento. */
+    /** {{{maquineta_response_id_estabelecimento_value}}} */
     public var idEstabelecimento: Int?
-    /** C\u00F3digo de Identifica\u00E7\u00E3o do Tipo Maquineta. */
+    /** {{{maquineta_response_id_tipo_maquineta_value}}} */
     public var idTipoMaquineta: Int?
-    /** Valor de manuten\u00E7\u00E3o da Maquineta. */
+    /** {{{maquineta_response_valor_value}}} */
     public var valor: Double?
-    /** Data de implanta\u00E7\u00E3o da Maquineta. */
+    /** {{{maquineta_response_data_hora_implantacao_value}}} */
     public var dataHoraImplantacao: String?
-    /** Data de cadastramento da Maquineta. */
+    /** {{{maquineta_response_data_hora_cadastramento_value}}} */
     public var dataHoraCadastramento: String?
-    /** N\u00FAmero do terminal vinculado a Maquineta. */
+    /** {{{maquineta_response_terminal_value}}} */
     public var terminal: String?
-    /** Usu\u00E1rio da aplica\u00E7\u00E3o. */
+    /** {{{maquineta_response_usuario_apl_value}}} */
     public var usuarioApl: String?
     
 

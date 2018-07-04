@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Lista de OperacaoCredor */
+/** {{{page_operacao_credor_response_description}}} */
 public class PageOperacaoCredorResponse: JSONEncodable {
 
     public var content: [OperacaoCredorResponse]?

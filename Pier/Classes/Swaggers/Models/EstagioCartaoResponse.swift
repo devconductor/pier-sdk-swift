@@ -8,12 +8,12 @@
 import Foundation
 
 
-/** Representa\u00E7\u00E3o do recurso Est\u00E1gio Cart\u00E3o */
+/** {{{estagio_cartao_response_description}}} */
 public class EstagioCartaoResponse: JSONEncodable {
 
-    /** Id do est\u00E1gio cart\u00E3o */
+    /** {{{estagio_cartao_response_id_value}}} */
     public var id: Int?
-    /** Nome do est\u00E1gio cart\u00E3o */
+    /** {{{estagio_cartao_response_nome_value}}} */
     public var nome: String?
     
 

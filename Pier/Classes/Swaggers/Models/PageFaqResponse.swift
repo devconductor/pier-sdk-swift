@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Lista de FAQs */
+/** {{{page_faq_response_description}}} */
 public class PageFaqResponse: JSONEncodable {
 
     public var content: [FaqResponse]?

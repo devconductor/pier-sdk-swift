@@ -8,69 +8,77 @@
 import Foundation
 
 
-/** Representa\u00E7\u00E3o da resposta do boleto de fatura */
+/** {{{boleto_response_description}}} */
 public class BoletoResponse: JSONEncodable {
 
-    /** N\u00FAmero do documento \u00E9 o c\u00F3digo informado pelo banco para identifica\u00E7\u00E3o do cliente */
+    /** {{{boleto_response_numero_do_documento_value}}} */
     public var numeroDoDocumento: String?
-    /** Data do processamento (emiss\u00E3o ou faturamento) do boleto */
+    /** {{{boleto_response_data_processamento_value}}} */
     public var dataProcessamento: String?
-    /** Data do documento (impress\u00E3o) */
+    /** {{{boleto_response_data_documento_value}}} */
     public var dataDocumento: String?
-    /** Data do vencimento */
+    /** {{{boleto_response_data_vencimento_value}}} */
     public var dataVencimento: String?
-    /** Data do fechamento */
+    /** {{{boleto_response_data_fechamento_value}}} */
     public var dataFechamento: String?
-    /** Valor do Boleto. */
+    /** {{{boleto_response_valor_boleto_value}}} */
     public var valorBoleto: Double?
-    /** Benefici\u00E1rio \u00E9 a pessoa/empresa que gera o boleto */
+    /** {{{boleto_response_nome_beneficiario_value}}} */
     public var nomeBeneficiario: String?
-    /** Documento do Beneficiario. */
+    /** {{{boleto_response_documento_beneficiario_value}}} */
     public var documentoBeneficiario: String?
-    /** Ag\u00EAncia. */
+    /** {{{boleto_response_agencia_value}}} */
     public var agencia: String?
-    /** C\u00F3digo do benefici\u00E1rio */
+    /** {{{boleto_response_codigo_beneficiario_value}}} */
     public var codigoBeneficiario: String?
-    /** N\u00FAmero do conv\u00EAnio fornecido pelo banco \u00E9 o c\u00F3digo que identifica um emissor junto ao seu banco para associar seus boletos. */
+    /** {{{boleto_response_numero_convenio_value}}} */
     public var numeroConvenio: String?
-    /** D\u00EDgito do c\u00F3digo do benefici\u00E1rio */
+    /** {{{boleto_response_digito_codigo_beneficiario_value}}} */
     public var digitoCodigoBeneficiario: String?
-    /** Carteira \u00E9 o c\u00F3digo informado pelo banco pra identifica\u00E7\u00E3o do tipo do boleto */
+    /** {{{boleto_response_carteira_value}}} */
     public var carteira: String?
-    /** Nosso n\u00FAmero \u00E9 o c\u00F3digo que o benefici\u00E1rio escolhe para manter controle sobre seus boletos. Esse valor serve para o cedente identificar quais boletos foram pagos ou n\u00E3o. Recomenda-se o uso de n\u00FAmeros sequ\u00EAnciais, na gera\u00E7\u00E3o de diversos boletos, para facilitar a identifica\u00E7\u00E3o dos boletos pagos */
+    /** {{{boleto_response_nosso_numero_value}}} */
     public var nossoNumero: String?
-    /** D\u00EDgito do nosso n\u00FAmero */
+    /** {{{boleto_response_digito_nosso_numero_value}}} */
     public var digitoNossoNumero: String?
-    /** Banco */
+    /** {{{boleto_response_banco_value}}} */
     public var banco: String?
-    /** Aceite informa ao banco se deve aceitar o boleto ap\u00F3s a data de vencimento (padr\u00E3o: \&quot;N\&quot;) */
+    /** {{{boleto_response_aceite_value}}} */
     public var aceite: Bool?
-    /** Esp\u00E9cie do documento \u00E9 o identificador do tipo de boleto (padr\u00E3o: \&quot;DV\&quot;) */
+    /** {{{boleto_response_especie_do_documento_value}}} */
     public var especieDoDocumento: String?
-    /** Esp\u00E9cie \u00E9 o identificador da moeda do boleto (padr\u00E3o: \&quot;R$\&quot;) */
+    /** {{{boleto_response_especie_value}}} */
     public var especie: String?
-    /** Instru\u00E7\u00F5es para o benefici\u00E1rio */
+    /** {{{boleto_response_instrucoes_value}}} */
     public var instrucoes: [String]?
-    /** Locais de pagamento */
+    /** {{{boleto_response_locais_de_pagamento_value}}} */
     public var locaisDePagamento: [String]?
-    /** Pagador \u00E9 a pessoa/empresa que deve pagar o boleto */
+    /** {{{boleto_response_nome_pagador_value}}} */
     public var nomePagador: String?
-    /** Documento do pagador (CPF ou CNPJ) */
+    /** {{{boleto_response_documento_pagador_value}}} */
     public var documentoPagador: String?
-    /** Logradouro do pagador */
+    /** {{{boleto_response_logradouro_pagador_value}}} */
     public var logradouroPagador: String?
-    /** Bairro do pagador */
+    /** {{{boleto_response_bairro_pagador_value}}} */
     public var bairroPagador: String?
-    /** CEP do pagador */
+    /** {{{boleto_response_cep_pagador_value}}} */
     public var cepPagador: String?
-    /** Cidade do pagador */
+    /** {{{boleto_response_cidade_pagador_value}}} */
     public var cidadePagador: String?
-    /** Unidade federativa do pagador */
+    /** {{{boleto_response_uf_pagador_value}}} */
     public var ufPagador: String?
-    /** Valor num\u00E9rico do c\u00F3digo de barras */
+    /** {{{boleto_response_codigo_de_barras_value}}} */
     public var codigoDeBarras: String?
-    /** Linha digit\u00E1vel formatada */
+    /** {{{boleto_response_linha_digitavel_value}}} */
     public var linhaDigitavel: String?
+    /** {{{boleto_response_id_value}}} */
+    public var id: Int?
+    /** {{{boleto_response_id_conta_value}}} */
+    public var idConta: Int?
+    /** {{{boleto_response_endereco_cobranca_beneficiario_value}}} */
+    public var enderecoCobrancaBeneficiario: String?
+    /** {{{boleto_response_status_value}}} */
+    public var status: Int?
     
 
     public init() {}
@@ -108,6 +116,10 @@ public class BoletoResponse: JSONEncodable {
         nillableDictionary["ufPagador"] = self.ufPagador
         nillableDictionary["codigoDeBarras"] = self.codigoDeBarras
         nillableDictionary["linhaDigitavel"] = self.linhaDigitavel
+        nillableDictionary["id"] = self.id
+        nillableDictionary["idConta"] = self.idConta
+        nillableDictionary["enderecoCobrancaBeneficiario"] = self.enderecoCobrancaBeneficiario
+        nillableDictionary["status"] = self.status
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

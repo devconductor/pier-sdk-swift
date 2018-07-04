@@ -8,16 +8,16 @@
 import Foundation
 
 
-/** Objeto Banco */
+/** {{{banco_response_description}}} */
 public class BancoResponse: JSONEncodable {
 
-    /** C\u00F3digo de Identifica\u00E7\u00E3o do Banco (id). */
+    /** {{{banco_response_id_value}}} */
     public var id: Int?
-    /** Nome do banco */
+    /** {{{banco_response_nome_value}}} */
     public var nome: String?
-    /** Descri\u00E7\u00E3o do banco */
+    /** {{{banco_response_descricao_value}}} */
     public var descricao: String?
-    /** Digito do banco */
+    /** {{{banco_response_digito_banco_value}}} */
     public var digitoBanco: String?
     
 

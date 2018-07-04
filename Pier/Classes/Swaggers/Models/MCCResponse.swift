@@ -8,12 +8,12 @@
 import Foundation
 
 
-/** ObjetoMCC */
+/** {{{m_c_c_response_description}}} */
 public class MCCResponse: JSONEncodable {
 
-    /** C\u00F3digo de Identifica\u00E7\u00E3o do MCC (id). */
+    /** {{{m_c_c_response_id_value}}} */
     public var id: Int?
-    /** descricao do MCC. */
+    /** {{{m_c_c_response_descricao_value}}} */
     public var descricao: String?
     
 

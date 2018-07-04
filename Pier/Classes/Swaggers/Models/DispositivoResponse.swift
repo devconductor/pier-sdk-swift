@@ -8,16 +8,16 @@
 import Foundation
 
 
-/** Dispositivo Mobile */
+/** {{{dispositivo_response_description}}} */
 public class DispositivoResponse: JSONEncodable {
 
-    /** Identificador do dispositivo. */
+    /** {{{dispositivo_response_id_value}}} */
     public var id: Int?
-    /** Token do dispositivo. */
+    /** {{{dispositivo_response_token_value}}} */
     public var token: String?
-    /** Identificador da Aplica\u00E7\u00E3o. */
+    /** {{{dispositivo_response_id_aplicacao_mobile_value}}} */
     public var idAplicacaoMobile: Int?
-    /** Identificador do usu\u00E1rio. */
+    /** {{{dispositivo_response_id_usuario_value}}} */
     public var idUsuario: Int?
     
 

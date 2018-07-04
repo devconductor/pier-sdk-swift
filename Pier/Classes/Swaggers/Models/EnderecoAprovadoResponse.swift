@@ -8,32 +8,32 @@
 import Foundation
 
 
-/** Objeto Endere\u00E7o Aprovado */
+/** {{{endereco_aprovado_response_description}}} */
 public class EnderecoAprovadoResponse: JSONEncodable {
 
-    /** C\u00F3digo de Identifica\u00E7\u00E3o do Endere\u00E7o (id) */
+    /** {{{endereco_aprovado_response_id_value}}} */
     public var id: Int?
-    /** C\u00F3digo de Identifica\u00E7\u00E3o da Tipo Endere\u00E7o (id) */
+    /** {{{endereco_aprovado_response_id_tipo_endereco_value}}} */
     public var idTipoEndereco: Int?
-    /** Apresenta o C\u00F3digo de Endere\u00E7amento Postal (CEP) no formaro &#39;58800000&#39; */
+    /** {{{endereco_aprovado_response_cep_value}}} */
     public var cep: String?
-    /** Apresenta o nome do Logradouro */
+    /** {{{endereco_aprovado_response_logradouro_value}}} */
     public var logradouro: String?
-    /** Apresenta o n\u00FAmero do endere\u00E7o */
+    /** {{{endereco_aprovado_response_numero_value}}} */
     public var numero: Int?
-    /** Apresenta descri\u00E7oes complementares referente ao endere\u00E7o */
+    /** {{{endereco_aprovado_response_complemento_value}}} */
     public var complemento: String?
-    /** Apresenta a descri\u00E7\u00E3o de ponto de refer\u00EAncia do endere\u00E7o */
+    /** {{{endereco_aprovado_response_ponto_referencia_value}}} */
     public var pontoReferencia: String?
-    /** Apresenta nome do bairro */
+    /** {{{endereco_aprovado_response_bairro_value}}} */
     public var bairro: String?
-    /** Apresenta nome da cidade */
+    /** {{{endereco_aprovado_response_cidade_value}}} */
     public var cidade: String?
-    /** Apresenta sigla da Unidade Federativa */
+    /** {{{endereco_aprovado_response_uf_value}}} */
     public var uf: String?
-    /** Apresenta nome do Pais */
+    /** {{{endereco_aprovado_response_pais_value}}} */
     public var pais: String?
-    /** Indica se o endere\u00E7o informado \u00E9 o de correspond\u00EAncia */
+    /** {{{endereco_aprovado_response_endereco_correspondencia_value}}} */
     public var enderecoCorrespondencia: Bool?
     
 

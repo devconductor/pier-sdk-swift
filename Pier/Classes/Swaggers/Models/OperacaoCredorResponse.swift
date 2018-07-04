@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** ObjetoOperacaoCredor */
+/** {{{operacao_credor_response_description}}} */
 public class OperacaoCredorResponse: JSONEncodable {
 
     public enum Periodicidade: String { 
@@ -25,31 +25,31 @@ public class OperacaoCredorResponse: JSONEncodable {
         case AgendaNegativa = "AGENDA_NEGATIVA"
     }
     
-    /** Apresenta o id da OperacaoCredor. */
+    /** {{{operacao_credor_response_id_value}}} */
     public var id: Int?
-    /** Apresenta o id da Opera\u00E7\u00E3o. */
+    /** {{{operacao_credor_response_id_operacao_value}}} */
     public var idOperacao: Int?
-    /** Apresenta o id do Credor. */
-    public var idCredor: Int?
-    /** Apresenta o id do produto. */
+    /** {{{operacao_credor_response_id_grupo_economico_value}}} */
+    public var idGrupoEconomico: Int?
+    /** {{{operacao_credor_response_id_produto_value}}} */
     public var idProduto: Int?
-    /** Remunera\u00E7\u00E3o Percentual. */
+    /** {{{operacao_credor_response_remuneracao_percentual_value}}} */
     public var remuneracaoPercentual: Double?
-    /** Remunera\u00E7\u00E3o Fixa. */
+    /** {{{operacao_credor_response_remuneracao_fixa_value}}} */
     public var remuneracaoFixa: Double?
-    /** Periodicidade (DIARIO(1), SEMANAL(2), MENSAL(3), DECENDIAL(4), QUINZENAL(5)). */
+    /** {{{operacao_credor_response_periodicidade_value}}} */
     public var periodicidade: Periodicidade?
-    /** Vencimento da primeira parcela. */
+    /** {{{operacao_credor_response_vencimento_primeira_parcela_value}}} */
     public var vencimentoPrimeiraParcela: Int?
-    /** Dias afastamento. */
+    /** {{{operacao_credor_response_dias_afastamento_value}}} */
     public var diasAfastamento: Int?
-    /** Fator multiplicador (FORA_AGENDA(0), AGENDA(1)). */
+    /** {{{operacao_credor_response_fator_multiplicador_value}}} */
     public var fatorMultiplicador: FatorMultiplicador?
-    /** Flag taxa fixada. */
+    /** {{{operacao_credor_response_flag_taxa_fixada_value}}} */
     public var flagTaxaFixada: Bool?
-    /** Plano m\u00EDnimo da regra. */
+    /** {{{operacao_credor_response_plano_minimo_value}}} */
     public var planoMinimo: Int?
-    /** Plano m\u00E1ximo da regra. */
+    /** {{{operacao_credor_response_plano_maximo_value}}} */
     public var planoMaximo: Int?
     
 
@@ -60,7 +60,7 @@ public class OperacaoCredorResponse: JSONEncodable {
         var nillableDictionary = [String:AnyObject?]()
         nillableDictionary["id"] = self.id
         nillableDictionary["idOperacao"] = self.idOperacao
-        nillableDictionary["idCredor"] = self.idCredor
+        nillableDictionary["idGrupoEconomico"] = self.idGrupoEconomico
         nillableDictionary["idProduto"] = self.idProduto
         nillableDictionary["remuneracaoPercentual"] = self.remuneracaoPercentual
         nillableDictionary["remuneracaoFixa"] = self.remuneracaoFixa

@@ -8,18 +8,18 @@
 import Foundation
 
 
-/** ReferenciaComercialAprovadoResponse */
+/** {{{referencia_comercial_aprovado_response_description}}} */
 public class ReferenciaComercialAprovadoResponse: JSONEncodable {
 
-    /** Apresenta o nome completo da raz\u00E3o social da refer\u00EAncia comercial (nome empresarial) */
+    /** {{{referencia_comercial_aprovado_response_razao_social_value}}} */
     public var razaoSocial: String?
-    /** Apresenta o nome do respons\u00E1vel pela refer\u00EAncia comercial */
+    /** {{{referencia_comercial_aprovado_response_nome_contrato_value}}} */
     public var nomeContrato: String?
-    /** Apresenta o DDD do n\u00FAmero de contato da refer\u00EAncia comercial */
+    /** {{{referencia_comercial_aprovado_response_ddd_value}}} */
     public var ddd: String?
-    /** Apresenta o n\u00FAmero de contato da refer\u00EAncia comercial */
+    /** {{{referencia_comercial_aprovado_response_telefone_value}}} */
     public var telefone: String?
-    /** Apresenta o e-mail de contato da refer\u00EAncia comercial */
+    /** {{{referencia_comercial_aprovado_response_email_value}}} */
     public var email: String?
     
 

@@ -8,42 +8,42 @@
 import Foundation
 
 
-/** Objeto Acordo detalhado */
+/** {{{acordo_detalhe_response_description}}} */
 public class AcordoDetalheResponse: JSONEncodable {
 
-    /** C\u00F3digo de Identifica\u00E7\u00E3o do acordo (id). */
+    /** {{{acordo_response_id_value}}} */
     public var id: Int?
-    /** C\u00F3digo de Identifica\u00E7\u00E3o da conta. */
+    /** {{{acordo_response_id_conta_value}}} */
     public var idConta: Int?
-    /** Status do acordo. */
+    /** {{{acordo_response_status_acordo_value}}} */
     public var statusAcordo: Int?
-    /** Valor do Acordo. */
+    /** {{{acordo_response_valor_acordo_value}}} */
     public var valorAcordo: Double?
-    /** Data e Hora do acordo. */
+    /** {{{acordo_response_data_acordo_value}}} */
     public var dataAcordo: String?
-    /** Quantidade de parcelas do acordo. */
+    /** {{{acordo_response_quantidade_parcelas_value}}} */
     public var quantidadeParcelas: Int?
-    /** Saldo atual final. */
+    /** {{{acordo_response_saldo_atual_final_value}}} */
     public var saldoAtualFinal: Double?
-    /** Dias em atraso. */
+    /** {{{acordo_response_dias_em_atraso_value}}} */
     public var diasEmAtraso: Int?
-    /** Status da conta. */
+    /** {{{acordo_detalhe_response_status_conta_value}}} */
     public var statusConta: Int?
-    /** Assessoria atual. */
+    /** {{{acordo_detalhe_response_assessoria_atual_value}}} */
     public var assessoriaAtual: String?
-    /** Total de pagamentos. */
+    /** {{{acordo_detalhe_response_total_pagamentos_value}}} */
     public var totalPagamentos: Double?
-    /** Data do vencimento da cobran\u00E7a. */
+    /** {{{acordo_detalhe_response_data_vencimento_cobranca_value}}} */
     public var dataVencimentoCobranca: String?
-    /** Data da quebra do acordo. */
+    /** {{{acordo_detalhe_response_data_quebra_acordo_value}}} */
     public var dataQuebraAcordo: String?
-    /** Valor da parcela 1. */
+    /** {{{acordo_detalhe_response_valor_parcela1_value}}} */
     public var valorParcela1: Double?
-    /** Valor da parcela N. */
+    /** {{{acordo_detalhe_response_valor_parcela_n_value}}} */
     public var valorParcelaN: Double?
-    /** Parcela pedida. */
+    /** {{{acordo_detalhe_response_parcela_pedida_value}}} */
     public var parcelaPedida: Int?
-    /** Data de vencimento da parcela pedida. */
+    /** {{{acordo_detalhe_response_vencimento_parcela_pedida_value}}} */
     public var vencimentoParcelaPedida: String?
     
 

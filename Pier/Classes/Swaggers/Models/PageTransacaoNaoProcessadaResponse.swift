@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Lista de Transa\u00E7\u00F5es nao Processadas */
+/** {{{page_transacao_nao_processada_response_description}}} */
 public class PageTransacaoNaoProcessadaResponse: JSONEncodable {
 
     public var content: [TransacaoNaoProcessadaResponse]?

@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Lista de Usu\u00E1rios */
+/** {{{page_usuario_response_description}}} */
 public class PageUsuarioResponse: JSONEncodable {
 
     public var content: [UsuarioResponse]?

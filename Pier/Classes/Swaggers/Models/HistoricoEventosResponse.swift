@@ -8,18 +8,18 @@
 import Foundation
 
 
-/** Representa\u00E7\u00E3o do objeto que abstrai o hist\u00F3rico de eventos */
+/** {{{historico_eventos_response_description}}} */
 public class HistoricoEventosResponse: JSONEncodable {
 
-    /** C\u00F3digo identificador do evento */
+    /** {{{historico_eventos_response_id_historico_value}}} */
     public var idHistorico: Int?
-    /** Data do evento */
+    /** {{{historico_eventos_response_data_historico_value}}} */
     public var dataHistorico: String?
-    /** Nome do campo alterado */
+    /** {{{historico_eventos_response_tipo_historico_value}}} */
     public var tipoHistorico: String?
-    /** Valor anterior a modifica\u00E7\u00E3o */
+    /** {{{historico_eventos_response_valor_anterior_value}}} */
     public var valorAnterior: String?
-    /** Valor atribu\u00EDdo na modifica\u00E7\u00E3o */
+    /** {{{historico_eventos_response_valor_atribuido_value}}} */
     public var valorAtribuido: String?
     
 

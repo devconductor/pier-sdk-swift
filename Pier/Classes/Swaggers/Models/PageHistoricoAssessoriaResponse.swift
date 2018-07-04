@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Lista de Historicos Assessorias */
+/** {{{page_historico_assessoria_response_description}}} */
 public class PageHistoricoAssessoriaResponse: JSONEncodable {
 
     public var content: [HistoricoAssessoriaResponse]?

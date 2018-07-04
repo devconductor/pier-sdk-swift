@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Represneta\u00E7\u00E3o do recurso atualizar cart\u00E3o */
+/** {{{cartao_pay_update_description}}} */
 public class CartaoPayUpdate: JSONEncodable {
 
     public enum Status: String { 
@@ -17,7 +17,7 @@ public class CartaoPayUpdate: JSONEncodable {
         case Bloqueado = "BLOQUEADO"
     }
     
-    /** Status do cart\u00E3o */
+    /** {{{cartao_pay_update_status_value}}} */
     public var status: Status?
     
 

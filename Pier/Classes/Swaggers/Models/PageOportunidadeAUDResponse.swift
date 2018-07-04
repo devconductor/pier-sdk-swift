@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Lista de auditorias da oportunidade */
+/** {{{page_oportunidade_a_u_d_response_description}}} */
 public class PageOportunidadeAUDResponse: JSONEncodable {
 
     public var content: [OportunidadeAUDResponse]?

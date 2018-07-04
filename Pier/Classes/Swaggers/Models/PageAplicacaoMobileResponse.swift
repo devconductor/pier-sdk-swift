@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Lista de Aplicacoes Mobile */
+/** {{{page_aplicacao_mobile_response_description}}} */
 public class PageAplicacaoMobileResponse: JSONEncodable {
 
     public var content: [AplicacaoMobileResponse]?

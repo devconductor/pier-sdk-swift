@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Representa\u00E7\u00E3o da resposta do recurso de Tipo Debito Recorrente */
+/** {{{page_tipo_debito_recorrente_response_description}}} */
 public class PageTipoDebitoRecorrenteResponse: JSONEncodable {
 
     public var content: [TipoDebitoRecorrenteResponse]?

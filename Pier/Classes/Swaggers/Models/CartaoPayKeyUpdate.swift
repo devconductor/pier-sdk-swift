@@ -8,10 +8,10 @@
 import Foundation
 
 
-/** Representa\u00E7\u00E3o do recurso de atualiza\u00E7\u00E3o de chave */
+/** {{{cartao_pay_key_update_description}}} */
 public class CartaoPayKeyUpdate: JSONEncodable {
 
-    /** Chave de gera\u00E7\u00E3o de transa\u00E7\u00E3o criptografada */
+    /** {{{cartao_pay_key_update_chave_criptograma_value}}} */
     public var chaveCriptograma: String?
     
 

@@ -8,28 +8,28 @@
 import Foundation
 
 
-/** Objeto Cart\u00E3o para Impress\u00E3o pela Gr\u00E1fica */
+/** {{{cartao_embossing_response_description}}} */
 public class CartaoEmbossingResponse: JSONEncodable {
 
-    /** Apresenta o status que informa se o cart\u00E3o \u00E9 virtual  */
+    /** {{{cartao_embossing_response_flag_virtual_value}}} */
     public var flagVirtual: Int?
-    /** Apresenta o C\u00F3digo de Identifica\u00E7\u00E3o da Conta (id) a qual o cart\u00E3o gerado pertence. */
+    /** {{{cartao_embossing_response_id_conta_value}}} */
     public var idConta: Int?
-    /** Apresenta o C\u00F3digo de Identifica\u00E7\u00E3o da Pessoa (id) portadora do cart\u00E3o gerado. */
+    /** {{{cartao_embossing_response_id_pessoa_value}}} */
     public var idPessoa: Int?
-    /** Apresenta o C\u00F3digo de Identifica\u00E7\u00E3o do Cart\u00E3o (id) que foi gerado. */
+    /** {{{cartao_embossing_response_id_cartao_value}}} */
     public var idCartao: Int?
-    /** Apresenta o C\u00F3digo de Identifica\u00E7\u00E3o da Bandeira (id) a qual o Cart\u00E3o pertence, quando bandeirado. */
+    /** {{{cartao_embossing_response_id_bandeira_value}}} */
     public var idBandeira: Int?
-    /** Apresenta o C\u00F3digo de Identifica\u00E7\u00E3o do Tipo do Cart\u00E3o (id) atribu\u00EDdo ao Cart\u00E3o. */
+    /** {{{cartao_embossing_response_id_tipo_cartao_value}}} */
     public var idTipoCartao: Int?
-    /** Apresenta a data de emiss\u00E3o do Cart\u00E3o. */
+    /** {{{cartao_embossing_response_data_geracao_value}}} */
     public var dataGeracao: String?
-    /** Apresenta a data de Validade do Cart\u00E3o. */
+    /** {{{cartao_embossing_response_data_validade_value}}} */
     public var dataValidade: String?
-    /** Apresenta o nome da Origem Comercial que realizou o cadastro do Titular da Conta a qual o Cart\u00E3o pertence. */
+    /** {{{cartao_embossing_response_nome_origem_comercial_value}}} */
     public var nomeOrigemComercial: String?
-    /** Apresenta o CPF do Portador do Cart\u00E3o. */
+    /** {{{cartao_embossing_response_cpf_value}}} */
     public var cpf: String?
     
 

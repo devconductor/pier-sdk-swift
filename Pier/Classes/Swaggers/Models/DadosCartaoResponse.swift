@@ -8,33 +8,33 @@
 import Foundation
 
 
-/** Objeto Dados Cart\u00E3o */
+/** {{{dados_cartao_response_description}}} */
 public class DadosCartaoResponse: JSONEncodable {
 
     public var flagVirtual: Int?
-    /** N\u00FAmero do cart\u00E3o. */
+    /** {{{dados_cartao_response_numero_cartao_value}}} */
     public var numeroCartao: String?
-    /** Data de validade. */
+    /** {{{dados_cartao_response_data_validade_value}}} */
     public var dataValidade: String?
-    /** CVV2 do cart\u00E3o. */
+    /** {{{dados_cartao_response_cvv2_value}}} */
     public var cvv2: String?
-    /** Nome do portador. */
+    /** {{{dados_cartao_response_nome_plastico_value}}} */
     public var nomePlastico: String?
-    /** Identificador da conta do portador. */
+    /** {{{dados_cartao_response_id_conta_value}}} */
     public var idConta: Int?
-    /** Identificador da cart\u00E3o do portador. */
+    /** {{{dados_cartao_response_id_cartao_value}}} */
     public var idCartao: Int?
-    /** Apresenta o n\u00FAmero da Ag\u00EAncia a ser impresso no Cart\u00E3o, quando aplic\u00E1vel. */
+    /** {{{dados_cartao_response_numero_agencia_value}}} */
     public var numeroAgencia: Int?
-    /** Apresenta o n\u00FAmero da Conta Corrente a ser impresso no Cart\u00E3o, quando aplic\u00E1vel. */
+    /** {{{dados_cartao_response_numero_conta_corente_value}}} */
     public var numeroContaCorente: String?
-    /** Status da conta do portador. */
+    /** {{{dados_cartao_response_id_status_conta_value}}} */
     public var idStatusConta: Int?
-    /** Descri\u00E7\u00E3o do status da conta do portador. */
+    /** {{{dados_cartao_response_status_conta_value}}} */
     public var statusConta: String?
-    /** Status do cart\u00E3o. */
+    /** {{{dados_cartao_response_id_status_cartao_value}}} */
     public var idStatusCartao: Int?
-    /** Descri\u00E7\u00E3o do status do cart\u00E3o. */
+    /** {{{dados_cartao_response_status_cartao_value}}} */
     public var statusCartao: String?
     
 

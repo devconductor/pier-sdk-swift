@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Lista de Transa\u00E7\u00F5es Correntes */
+/** {{{page_transacoes_correntes_response_description}}} */
 public class PageTransacoesCorrentesResponse: JSONEncodable {
 
     public var content: [TransacoesCorrentesResponse]?

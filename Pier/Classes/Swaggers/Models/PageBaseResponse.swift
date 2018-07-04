@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Lista de Bases */
+/** {{{page_base_response_description}}} */
 public class PageBaseResponse: JSONEncodable {
 
     public var content: [BaseResponse]?

@@ -8,12 +8,12 @@
 import Foundation
 
 
-/** Objeto contendo os detalhes de uma fatura */
+/** {{{detalhes_fatura_response_description}}} */
 public class DetalhesFaturaResponse: JSONEncodable {
 
-    /** Apresenta os detalhes da fatura */
+    /** {{{detalhes_fatura_response_fatura_value}}} */
     public var fatura: FaturaFechadaResponse?
-    /** Apresenta as transa\u00E7\u00F5es relacionadas a fatura. */
+    /** {{{detalhes_fatura_response_transacoes_value}}} */
     public var transacoes: [TransacoesCorrentesResponse]?
     
 

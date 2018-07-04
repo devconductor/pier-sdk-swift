@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Lista de WebHooks */
+/** {{{page_web_hook_response_description}}} */
 public class PageWebHookResponse: JSONEncodable {
 
     public var content: [WebHookResponse]?

@@ -8,30 +8,30 @@
 import Foundation
 
 
-/** Objeto conta */
+/** {{{conta_response_description}}} */
 public class ContaResponse: JSONEncodable {
 
-    /** C\u00F3digo de identifica\u00E7\u00E3o de conta (id). */
+    /** {{{conta_response_id_value}}} */
     public var id: Int?
-    /** C\u00F3digo de identifica\u00E7\u00E3o do produto ao qual a conta faz parte. (id). */
+    /** {{{conta_response_id_produto_value}}} */
     public var idProduto: Int?
-    /** C\u00F3digo de Identifica\u00E7\u00E3o da Origem Comercial (id) que deu origem a Conta. */
+    /** {{{conta_response_id_origem_comercial_value}}} */
     public var idOrigemComercial: Int?
-    /** C\u00F3digo de Identifica\u00E7\u00E3o da Pessoa Titular da Conta (id). */
+    /** {{{conta_response_id_pessoa_value}}} */
     public var idPessoa: Int?
-    /** C\u00F3digo de Identifica\u00E7\u00E3o do status atribuido a conta. */
+    /** {{{conta_response_id_status_conta_value}}} */
     public var idStatusConta: Int?
-    /** Apresenta o dia de vencimento. */
+    /** {{{conta_response_dia_vencimento_value}}} */
     public var diaVencimento: Int?
-    /** Apresenta o melhor dia de compra. */
+    /** {{{conta_response_melhor_dia_compra_value}}} */
     public var melhorDiaCompra: Int?
-    /** Apresenta a data em que o idStatusConta atual fora atribu\u00EDdo para ela. */
+    /** {{{conta_response_data_status_conta_value}}} */
     public var dataStatusConta: String?
-    /** Apresenta a data em que o cart\u00E3o foi gerado. */
+    /** {{{conta_response_data_cadastro_value}}} */
     public var dataCadastro: String?
-    /** Apresenta a data da ultima altera\u00E7\u00E3o de vencimento. */
+    /** {{{conta_response_data_ultima_alteracao_vencimento_value}}} */
     public var dataUltimaAlteracaoVencimento: String?
-    /** Apresenta o valor da renda comprovada */
+    /** {{{conta_response_valor_renda_value}}} */
     public var valorRenda: Double?
     
 

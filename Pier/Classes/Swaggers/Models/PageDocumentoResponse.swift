@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Lista documento */
+/** {{{page_documento_response_description}}} */
 public class PageDocumentoResponse: JSONEncodable {
 
     public var content: [DocumentoResponse]?

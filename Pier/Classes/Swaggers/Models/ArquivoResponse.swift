@@ -8,28 +8,28 @@
 import Foundation
 
 
-/** Objeto Response do arquivo. */
+/** {{{arquivo_response_description}}} */
 public class ArquivoResponse: JSONEncodable {
 
-    /** C\u00F3digo de identifica\u00E7\u00E3o do arquivo */
+    /** {{{arquivo_response_id_value}}} */
     public var id: Int?
-    /** C\u00F3digo de identifica\u00E7\u00E3o do Tipo do arquivo */
+    /** {{{arquivo_response_id_tipo_arquivo_value}}} */
     public var idTipoArquivo: Int?
-    /** Descri\u00E7\u00E3o do tipo do arquivo */
+    /** {{{arquivo_response_nome_tipo_arquivo_value}}} */
     public var nomeTipoArquivo: String?
-    /** C\u00F3digo de identifica\u00E7\u00E3o do Status do arquivo */
+    /** {{{arquivo_response_id_status_arquivo_value}}} */
     public var idStatusArquivo: Int?
-    /** Desci\u00E7\u00E3o do status do arquivo */
+    /** {{{arquivo_response_nome_status_arquivo_value}}} */
     public var nomeStatusArquivo: String?
-    /** Nome do arquivo */
+    /** {{{arquivo_response_nome_value}}} */
     public var nome: String?
-    /** Formato/Extens\u00E3o do arquivo */
+    /** {{{arquivo_response_extensao_value}}} */
     public var extensao: String?
-    /** Data de inclus\u00E3o do arquivo. */
+    /** {{{arquivo_response_data_inclusao_value}}} */
     public var dataInclusao: String?
-    /** Data da \u00FAltima altera\u00E7\u00E3o do aquivo. */
+    /** {{{arquivo_response_data_alteracao_value}}} */
     public var dataAlteracao: String?
-    /** Detalhes contendo informa\u00E7\u00F5es adicionais, relacionadas ao arquivo. */
+    /** {{{arquivo_response_detalhes_value}}} */
     public var detalhes: [ArquivoParametroResponse]?
     
 

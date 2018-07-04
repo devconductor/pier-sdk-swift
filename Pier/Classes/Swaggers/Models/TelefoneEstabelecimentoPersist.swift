@@ -8,16 +8,16 @@
 import Foundation
 
 
-/** Objeto Telefone */
+/** {{{telefone_estabelecimento_persist_description}}} */
 public class TelefoneEstabelecimentoPersist: JSONEncodable {
 
-    /** C\u00F3digo de Identifica\u00E7\u00E3o do Estabelecimento (id). */
+    /** {{{telefone_estabelecimento_persist_id_estabelecimento_value}}} */
     public var idEstabelecimento: Int?
-    /** C\u00F3digo DDD do telefone. */
+    /** {{{telefone_estabelecimento_persist_ddd_value}}} */
     public var ddd: String?
-    /** N\u00FAmero do telefone. */
+    /** {{{telefone_estabelecimento_persist_telefone_value}}} */
     public var telefone: String?
-    /** N\u00FAmero do ramal. */
+    /** {{{telefone_estabelecimento_persist_ramal_value}}} */
     public var ramal: String?
     
 

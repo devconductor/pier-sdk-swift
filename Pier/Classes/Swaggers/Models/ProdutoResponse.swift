@@ -8,16 +8,16 @@
 import Foundation
 
 
-/** Produto */
+/** {{{produto_response_description}}} */
 public class ProdutoResponse: JSONEncodable {
 
-    /** C\u00F3digo de Identifica\u00E7\u00E3o do Produto (id). */
+    /** {{{produto_response_id_value}}} */
     public var id: Int?
-    /** Descri\u00E7\u00E3o do Nome do Produto. */
+    /** {{{produto_response_nome_value}}} */
     public var nome: String?
-    /** Representa o Status do Produto, onde: (\&quot;0\&quot;: Inativo), (\&quot;1\&quot;: Ativo). */
+    /** {{{produto_response_status_value}}} */
     public var status: Int?
-    /** C\u00F3digo de Identifica\u00E7\u00E3o da Fantasia B\u00E1sica (id) a qual o produto pertence. */
+    /** {{{produto_response_id_fantasia_basica_value}}} */
     public var idFantasiaBasica: Int?
     
 

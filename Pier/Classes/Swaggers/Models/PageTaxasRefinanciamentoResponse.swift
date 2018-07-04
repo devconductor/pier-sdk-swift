@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Lista das taxas e tarifas */
+/** {{{page_taxas_refinanciamento_response_description}}} */
 public class PageTaxasRefinanciamentoResponse: JSONEncodable {
 
     public var content: [TaxasRefinanciamentoResponse]?

@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Lista de faturas */
+/** {{{page_fatura_consignada_response_description}}} */
 public class PageFaturaConsignadaResponse: JSONEncodable {
 
     public var content: [FaturaConsignadaResponse]?

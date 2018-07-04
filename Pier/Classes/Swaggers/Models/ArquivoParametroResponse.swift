@@ -8,14 +8,14 @@
 import Foundation
 
 
-/** Objeto Response de par\u00E2metros do arquivo. */
+/** {{{arquivo_parametro_response_description}}} */
 public class ArquivoParametroResponse: JSONEncodable {
 
-    /** C\u00F3digo de identifica\u00E7\u00E3o do detalhe do arquivo. */
+    /** {{{arquivo_parametro_response_id_value}}} */
     public var id: Int?
-    /** Nome que identifica o detalhe do arquivo */
+    /** {{{arquivo_parametro_response_nome_campo_value}}} */
     public var nomeCampo: String?
-    /** Conte\u00FAdo do nomeCampo */
+    /** {{{arquivo_parametro_response_conteudo_value}}} */
     public var conteudo: String?
     
 

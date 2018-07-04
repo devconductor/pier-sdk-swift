@@ -8,24 +8,24 @@
 import Foundation
 
 
-/** Representa\u00E7\u00E3o da resposta do recurso Operacao */
+/** {{{operacao_response_description}}} */
 public class OperacaoResponse: JSONEncodable {
 
-    /** C\u00F3digo que identifica a opera\u00E7\u00E3o */
+    /** {{{operacao_response_id_operacao_value}}} */
     public var idOperacao: Int?
-    /** C\u00F3digo de processamento usado em transa\u00E7\u00F5es com o autorizador */
+    /** {{{operacao_response_codigo_processamento_value}}} */
     public var codigoProcessamento: String?
-    /** C\u00F3digo de processamento usado para cancelar transa\u00E7\u00F5es no autorizador */
+    /** {{{operacao_response_codigo_processamento_cancelamento_value}}} */
     public var codigoProcessamentoCancelamento: String?
-    /** Nome da opera\u00E7\u00E3o */
+    /** {{{operacao_response_nome_operacao_value}}} */
     public var nomeOperacao: String?
-    /** Flag indicativa para crobran\u00E7a de juros */
+    /** {{{operacao_response_flag_cobra_juros_value}}} */
     public var flagCobraJuros: Bool?
-    /** Flag indicativa para crobran\u00E7a de tarifas */
+    /** {{{operacao_response_flag_cobra_tarifa_value}}} */
     public var flagCobraTarifa: Bool?
-    /** Quantidade de meses para car\u00EAncia */
+    /** {{{operacao_response_carencia_value}}} */
     public var carencia: Int?
-    /** Permitir transa\u00E7\u00F5es parceladas */
+    /** {{{operacao_response_flag_permitir_parcelamento_value}}} */
     public var flagPermitirParcelamento: Bool?
     
 

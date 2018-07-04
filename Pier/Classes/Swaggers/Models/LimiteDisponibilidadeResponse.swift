@@ -8,52 +8,52 @@
 import Foundation
 
 
-/** Limite Disponibilidade */
+/** {{{limite_disponibilidade_response_description}}} */
 public class LimiteDisponibilidadeResponse: JSONEncodable {
 
-    /** C\u00F3digo de Identifica\u00E7\u00E3o de Limite e Disponibilidade (id). */
+    /** {{{limite_disponibilidade_response_id_value}}} */
     public var id: Int?
-    /** Valor do limite de cr\u00E9dito. */
+    /** {{{limite_disponibilidade_response_limite_global_value}}} */
     public var limiteGlobal: Double?
-    /** Valor do limite de cr\u00E9dito para uso exclusivo em compras nacionais. */
+    /** {{{limite_disponibilidade_response_limite_compra_value}}} */
     public var limiteCompra: Double?
-    /** Valor do limite de cr\u00E9dito para transa\u00E7\u00F5es de compras parceladas. */
+    /** {{{limite_disponibilidade_response_limite_parcelado_value}}} */
     public var limiteParcelado: Double?
-    /** Valor do limite de cr\u00E9dito acumulado da soma das parcelas das compras que forem realizadas nesta modalidade. */
+    /** {{{limite_disponibilidade_response_limite_parcelas_value}}} */
     public var limiteParcelas: Double?
-    /** Valor do limite de cr\u00E9dito para transa\u00E7\u00F5es de Saque Nacional. */
+    /** {{{limite_disponibilidade_response_limite_saque_global_value}}} */
     public var limiteSaqueGlobal: Double?
-    /** Valor do limite de cr\u00E9dito para transa\u00E7\u00F5es de Saque Nacional dentro de cada ciclo de faturamento. */
+    /** {{{limite_disponibilidade_response_limite_saque_periodo_value}}} */
     public var limiteSaquePeriodo: Double?
-    /** Valor da margem de cr\u00E9dito para consigna\u00E7\u00F5es (desconto em folha). */
+    /** {{{limite_disponibilidade_response_limite_consignado_value}}} */
     public var limiteConsignado: Double?
-    /** Valor do limite de cr\u00E9dito para uso exclusivo em compras internacionais. */
+    /** {{{limite_disponibilidade_response_limite_internacional_compra_value}}} */
     public var limiteInternacionalCompra: Double?
-    /** Valor do limite de cr\u00E9dito para transa\u00E7\u00F5es internacionais de compras parceladas. */
+    /** {{{limite_disponibilidade_response_limite_internacional_parcelado_value}}} */
     public var limiteInternacionalParcelado: Double?
-    /** Valor do limite de cr\u00E9dito acumulado da soma das parcelas das compras internacionais que forem realizadas nesta modalidade. */
+    /** {{{limite_disponibilidade_response_limite_internacional_parcelas_value}}} */
     public var limiteInternacionalParcelas: Double?
-    /** Valor do limite de cr\u00E9dito para transa\u00E7\u00F5es de saque internacional. */
+    /** {{{limite_disponibilidade_response_limite_internacional_saque_global_value}}} */
     public var limiteInternacionalSaqueGlobal: Double?
-    /** Valor do limite de cr\u00E9dito para transa\u00E7\u00F5es de saque internacional dentro de cada ciclo de faturamento. */
+    /** {{{limite_disponibilidade_response_limite_internacional_saque_periodo_value}}} */
     public var limiteInternacionalSaquePeriodo: Double?
-    /** Valor m\u00E1ximo do limite de cr\u00E9dito para realizar transa\u00E7\u00F5es. */
+    /** {{{limite_disponibilidade_response_limite_maximo_value}}} */
     public var limiteMaximo: Double?
-    /** Valor de cr\u00E9dito dispon\u00EDvel para transa\u00E7\u00F5es. */
+    /** {{{limite_disponibilidade_response_saldo_disponivel_global_value}}} */
     public var saldoDisponivelGlobal: Double?
-    /** Valor de cr\u00E9dito dispon\u00EDvel para transa\u00E7\u00F5es de compra nacional. */
+    /** {{{limite_disponibilidade_response_saldo_disponivel_compra_value}}} */
     public var saldoDisponivelCompra: Double?
-    /** Valor de cr\u00E9dito dispon\u00EDvel para transa\u00E7\u00F5es de compra nacional parcelada. */
+    /** {{{limite_disponibilidade_response_saldo_disponivel_parcelado_value}}} */
     public var saldoDisponivelParcelado: Double?
-    /** Valor de cr\u00E9dito dispon\u00EDvel para utilizar como valor de parcelas Nacionais em um determinado ciclo de faturamento. */
+    /** {{{limite_disponibilidade_response_saldo_disponivel_parcelas_value}}} */
     public var saldoDisponivelParcelas: Double?
-    /** Valor de cr\u00E9dito que o portador possui dispon\u00EDvel para realizar transa\u00E7\u00F5es de Saque Nacional. */
+    /** {{{limite_disponibilidade_response_saldo_disponivel_saque_value}}} */
     public var saldoDisponivelSaque: Double?
-    /** Saldo atual de pontos do programa de fidelidade. */
+    /** {{{limite_disponibilidade_response_saldo_pontos_fidelidade_value}}} */
     public var saldoPontosFidelidade: Double?
-    /** Valor de cr\u00E9dito dispon\u00EDvel para transa\u00E7\u00F5es de compra internacional. */
+    /** {{{limite_disponibilidade_response_saldo_disponivel_compra_internacional_value}}} */
     public var saldoDisponivelCompraInternacional: Double?
-    /** Valor de cr\u00E9dito dispon\u00EDvel para transa\u00E7\u00F5es de saque internacional. */
+    /** {{{limite_disponibilidade_response_saldo_disponivel_saque_internacional_value}}} */
     public var saldoDisponivelSaqueInternacional: Double?
     
 

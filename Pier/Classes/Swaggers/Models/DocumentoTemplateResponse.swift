@@ -8,12 +8,12 @@
 import Foundation
 
 
-/** Representa\u00E7\u00E3o da resposta do recurso do Template de Documento */
+/** {{{documento_template_response_description}}} */
 public class DocumentoTemplateResponse: JSONEncodable {
 
-    /** ID do Template do Documento. */
+    /** {{{documento_template_response_id_value}}} */
     public var id: Int?
-    /** ID do Tipo de Template. */
+    /** {{{documento_template_response_id_tipo_template_value}}} */
     public var idTipoTemplate: Int?
     
 

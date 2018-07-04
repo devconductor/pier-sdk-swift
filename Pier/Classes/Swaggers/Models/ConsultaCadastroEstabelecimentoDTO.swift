@@ -8,6 +8,7 @@
 import Foundation
 
 
+/** {{{consulta_cadastro_estabelecimento_d_t_o_description}}} */
 public class ConsultaCadastroEstabelecimentoDTO: JSONEncodable {
 
     public enum Status: String { 
@@ -20,11 +21,11 @@ public class ConsultaCadastroEstabelecimentoDTO: JSONEncodable {
         case Bloqueado = "BLOQUEADO"
     }
     
-    /** Data hora de cadastro. */
+    /** {{{consulta_cadastro_estabelecimento_d_t_o_data_hora_consulta_value}}} */
     public var dataHoraConsulta: String?
-    /** Status da consulta (1 - OK, 2 - NOK). */
+    /** {{{consulta_cadastro_estabelecimento_d_t_o_status_value}}} */
     public var status: Status?
-    /** Tipo da entidade (1 - ATIVO, 2 - BLOQUEADO). */
+    /** {{{consulta_cadastro_estabelecimento_d_t_o_tipo_entidade_value}}} */
     public var tipoEntidade: TipoEntidade?
     
 

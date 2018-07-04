@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Lista de Avisos Viagem */
+/** {{{page_aviso_viagem_response_description}}} */
 public class PageAvisoViagemResponse: JSONEncodable {
 
     public var content: [AvisoViagemResponse]?

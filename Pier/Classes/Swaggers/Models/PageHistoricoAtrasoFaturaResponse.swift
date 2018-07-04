@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Lista historicos atraso pagamento */
+/** {{{page_historico_atraso_fatura_response_description}}} */
 public class PageHistoricoAtrasoFaturaResponse: JSONEncodable {
 
     public var content: [HistoricoAtrasoFaturaResponse]?

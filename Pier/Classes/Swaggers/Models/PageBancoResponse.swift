@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Lista de Bancos */
+/** {{{page_banco_response_description}}} */
 public class PageBancoResponse: JSONEncodable {
 
     public var content: [BancoResponse]?

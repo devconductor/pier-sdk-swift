@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Lista as Entidades */
+/** {{{page_entidade_response_description}}} */
 public class PageEntidadeResponse: JSONEncodable {
 
     public var content: [EntidadeResponse]?

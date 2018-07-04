@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Lista status de arquivos cadastrados no sistema */
+/** {{{page_status_arquivo_response_description}}} */
 public class PageStatusArquivoResponse: JSONEncodable {
 
     public var content: [StatusArquivoResponse]?

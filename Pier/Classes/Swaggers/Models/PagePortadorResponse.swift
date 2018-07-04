@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Lista de Portadores */
+/** {{{page_portador_response_description}}} */
 public class PagePortadorResponse: JSONEncodable {
 
     public var content: [PortadorResponse]?
