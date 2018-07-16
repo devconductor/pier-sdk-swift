@@ -8,12 +8,12 @@
 import Foundation
 
 
-/** ObjetoTipoTelefone */
+/** {{{tipo_telefone_response_description}}} */
 public class TipoTelefoneResponse: JSONEncodable {
 
-    /** C\u00F3digo de Identifica\u00E7\u00E3o do Tipo do Telefone (id). */
+    /** {{{tipo_telefone_response_id_value}}} */
     public var id: Int?
-    /** Nome do Tipo do Telefone */
+    /** {{{tipo_telefone_response_nome_value}}} */
     public var nome: String?
     
 

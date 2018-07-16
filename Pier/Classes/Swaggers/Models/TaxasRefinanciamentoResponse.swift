@@ -8,52 +8,52 @@
 import Foundation
 
 
-/** Objeto de resposta para a valida\u00E7\u00E3o das Taxas de Refinanciamento */
+/** {{{taxas_refinanciamento_response_description}}} */
 public class TaxasRefinanciamentoResponse: JSONEncodable {
 
-    /** ID das taxas */
+    /** {{{taxas_refinanciamento_response_id_value}}} */
     public var id: Int?
-    /** ID da conta */
+    /** {{{taxas_refinanciamento_response_id_conta_value}}} */
     public var idConta: Int?
-    /** ID do produto */
+    /** {{{taxas_refinanciamento_response_id_produto_value}}} */
     public var idProduto: Int?
-    /** ID do plano de contas */
+    /** {{{taxas_refinanciamento_response_id_plano_conta_value}}} */
     public var idPlanoConta: Int?
-    /** ID do plano PCT */
+    /** {{{taxas_refinanciamento_response_id_plano_pct_value}}} */
     public var idPlanoPct: Int?
-    /** ID do plano credito taxa */
+    /** {{{taxas_refinanciamento_response_id_plano_credito_taxa_value}}} */
     public var idPlanoCreditoTaxa: Int?
-    /** Data de entrada */
+    /** {{{taxas_refinanciamento_response_data_entrada_value}}} */
     public var dataEntrada: String?
-    /** Vencimento das taxas */
+    /** {{{taxas_refinanciamento_response_vencimento_value}}} */
     public var vencimento: String?
-    /** Recupera\u00E7\u00E3o de encargos financeiro */
+    /** {{{taxas_refinanciamento_response_recuperacao_encargos_financeiros_value}}} */
     public var recuperacaoEncargosFinanceiros: Double?
-    /** Descri\u00E7\u00E3o da comiss\u00E3o de garantia */
+    /** {{{taxas_refinanciamento_response_comissao_garantia_value}}} */
     public var comissaoGarantia: Double?
-    /** Descri\u00E7\u00E3o do agenciamento */
+    /** {{{taxas_refinanciamento_response_agenciamento_value}}} */
     public var agenciamento: Double?
-    /** Taxa m\u00E1xima do proximo per\u00EDodo */
+    /** {{{taxas_refinanciamento_response_taxa_maxima_proximo_periodo_value}}} */
     public var taxaMaximaProximoPeriodo: Double?
-    /** Taxa de encargos do financiamento */
+    /** {{{taxas_refinanciamento_response_taxa_encargos_financiamento_value}}} */
     public var taxaEncargosFinanciamento: Double?
-    /** Taxa m\u00E1xima de saque */
+    /** {{{taxas_refinanciamento_response_taxa_maxima_saque_value}}} */
     public var taxaMaximaSaque: Double?
-    /** Taxa de saque */
+    /** {{{taxas_refinanciamento_response_taxa_saque_value}}} */
     public var taxaSaque: Double?
-    /** Taxa m\u00E1xima de compras juros */
+    /** {{{taxas_refinanciamento_response_taxa_maxima_compra_juros_value}}} */
     public var taxaMaximaCompraJuros: Double?
-    /** Taxa de juros compra */
+    /** {{{taxas_refinanciamento_response_taxa_compra_juros_value}}} */
     public var taxaCompraJuros: Double?
-    /** Taxa de permanencia */
+    /** {{{taxas_refinanciamento_response_taxa_permanencia_value}}} */
     public var taxaPermanencia: Double?
-    /** Taxa de permanencia */
+    /** {{{taxas_refinanciamento_response_taxa_refinanciamento_value}}} */
     public var taxaRefinanciamento: Double?
-    /** Taxa de permanencia */
+    /** {{{taxas_refinanciamento_response_taxa_recuperacao_refinanciamento_value}}} */
     public var taxaRecuperacaoRefinanciamento: Double?
-    /** Taxa Percelamento pagamento minimo */
+    /** {{{taxas_refinanciamento_response_taxa_perc_calc_pagamento_minimo_value}}} */
     public var taxaPercCalcPagamentoMinimo: Double?
-    /** Plano de taxa padr\u00E3o */
+    /** {{{taxas_refinanciamento_response_plano_taxa_default_value}}} */
     public var planoTaxaDefault: Int?
     
 

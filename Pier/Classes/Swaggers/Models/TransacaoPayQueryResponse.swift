@@ -8,12 +8,12 @@
 import Foundation
 
 
-/** Representa\u00E7\u00E3o da resposta do recurso de consultar cart\u00E3o */
+/** {{{transacao_pay_query_response_description}}} */
 public class TransacaoPayQueryResponse: JSONEncodable {
 
-    /** Resultado de consulta de conta */
+    /** {{{transacao_pay_query_response_codigo_value}}} */
     public var codigo: String?
-    /** Mensagem descrevendo resposta. */
+    /** {{{transacao_pay_query_response_descricao_value}}} */
     public var descricao: String?
     
 

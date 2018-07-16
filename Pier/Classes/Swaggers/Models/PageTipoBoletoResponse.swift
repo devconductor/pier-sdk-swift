@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Lista dos tipos de boletos */
+/** {{{page_tipo_boleto_response_description}}} */
 public class PageTipoBoletoResponse: JSONEncodable {
 
     public var content: [TipoBoletoResponse]?

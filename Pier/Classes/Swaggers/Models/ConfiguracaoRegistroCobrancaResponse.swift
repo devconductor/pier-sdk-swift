@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Representa\u00E7\u00E3o da resposta do recurso de configura\u00E7\u00E3o de registro de cobran\u00E7a. */
+/** {{{configuracao_registro_cobranca_response_description}}} */
 public class ConfiguracaoRegistroCobrancaResponse: JSONEncodable {
 
     public enum Status: String { 
@@ -16,36 +16,50 @@ public class ConfiguracaoRegistroCobrancaResponse: JSONEncodable {
         case Ativo = "ATIVO"
     }
     
-    /** C\u00F3digo identificador da configura\u00E7\u00E3o. */
+    public enum Secret: String { 
+        case Inativo = "INATIVO"
+        case Ativo = "ATIVO"
+    }
+    
+    public enum ClientID: String { 
+        case Inativo = "INATIVO"
+        case Ativo = "ATIVO"
+    }
+    
+    /** {{{configuracao_registro_cobranca_response_id_value}}} */
     public var id: Int?
-    /** C\u00F3digo do emissor. */
+    /** {{{configuracao_registro_cobranca_response_id_emissor_value}}} */
     public var idEmissor: Int?
-    /** C\u00F3digo do Banco. */
+    /** {{{configuracao_registro_cobranca_response_codigo_banco_value}}} */
     public var codigoBanco: Int?
-    /** URL de acesso ao banco. */
+    /** {{{configuracao_registro_cobranca_response_uri_value}}} */
     public var uri: String?
-    /** Caminho do certificado digital do emissor. */
+    /** {{{configuracao_registro_cobranca_response_key_store_name_value}}} */
     public var keyStoreName: String?
-    /** Senha do certificado digital do emissor. */
+    /** {{{configuracao_registro_cobranca_response_key_store_password_value}}} */
     public var keyStorePassword: String?
-    /** Alias do certificado digital do emissor. */
+    /** {{{configuracao_registro_cobranca_response_keystore_alias_value}}} */
     public var keystoreAlias: String?
-    /** Senha da chave privada do certificado digital do emissor. */
+    /** {{{configuracao_registro_cobranca_response_key_store_private_key_password_value}}} */
     public var keyStorePrivateKeyPassword: String?
-    /** Tipo do certificado digital do emissor. */
+    /** {{{configuracao_registro_cobranca_response_type_keystore_value}}} */
     public var typeKeystore: String?
-    /** Caminho do certificado digital do banco. */
+    /** {{{configuracao_registro_cobranca_response_trust_store_name_value}}} */
     public var trustStoreName: String?
-    /** Senha do certificado digital do banco. */
+    /** {{{configuracao_registro_cobranca_response_trust_store_password_value}}} */
     public var trustStorePassword: String?
-    /** Alias do certificado digital do banco. */
+    /** {{{configuracao_registro_cobranca_response_truststore_alias_value}}} */
     public var truststoreAlias: String?
-    /** Tipo do certificado digital do banco. */
+    /** {{{configuracao_registro_cobranca_response_type_truststore_value}}} */
     public var typeTruststore: String?
-    /** URL adicional de acesso ao banco. */
+    /** {{{configuracao_registro_cobranca_response_uri_adicional_value}}} */
     public var uriAdicional: String?
-    /** Status indicador se a configura\u00E7\u00E3o est\u00E1 ativa. */
+    /** {{{configuracao_registro_cobranca_response_status_value}}} */
     public var status: Status?
+    /** {{{configuracao_registro_cobranca_persist_secret_value}}} */
+    public var secret: Secret?
+    /** {{{configuracao_registro_cobranca_persist_client_id_value}}} */
+    public var clientID: ClientID?
     
 
     public init() {}
@@ -68,6 +82,8 @@ public class ConfiguracaoRegistroCobrancaResponse: JSONEncodable {
         nillableDictionary["typeTruststore"] = self.typeTruststore
         nillableDictionary["uriAdicional"] = self.uriAdicional
         nillableDictionary["status"] = self.status?.rawValue
+        nillableDictionary["secret"] = self.secret?.rawValue
+        nillableDictionary["clientID"] = self.clientID?.rawValue
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

@@ -8,24 +8,24 @@
 import Foundation
 
 
-/** Fatura */
+/** {{{tipo_boleto_response_description}}} */
 public class TipoBoletoResponse: JSONEncodable {
 
-    /** C\u00F3digo identificador do tipo de boleto. */
+    /** {{{tipo_boleto_response_id_value}}} */
     public var id: Int?
-    /** Descri\u00E7\u00E3o do tipo de boleto. */
+    /** {{{tipo_boleto_response_descricao_value}}} */
     public var descricao: String?
-    /** C\u00F3digo identificador do banco. */
+    /** {{{tipo_boleto_response_banco_value}}} */
     public var banco: Int?
-    /** Faixa permitida para cria\u00E7\u00E3o do nosso n\u00FAmero. */
+    /** {{{tipo_boleto_response_faixa_nosso_numero_value}}} */
     public var faixaNossoNumero: Int?
-    /** N\u00FAmero minimo para o nosso n\u00FAmero. */
+    /** {{{tipo_boleto_response_min_nosso_numero_value}}} */
     public var minNossoNumero: Double?
-    /** N\u00FAmero m\u00E1ximo para o nosso n\u00FAmero. */
+    /** {{{tipo_boleto_response_max_nosso_numero_value}}} */
     public var maxNossoNumero: Double?
-    /** Tamanho do nosso n\u00FAmero. */
+    /** {{{tipo_boleto_response_tam_nosso_numero_value}}} */
     public var tamNossoNumero: Int?
-    /** \u00DAltimo nosso n\u00FAmero utilizado. */
+    /** {{{tipo_boleto_response_ultimo_nosso_numero_value}}} */
     public var ultimoNossoNumero: Double?
     
 

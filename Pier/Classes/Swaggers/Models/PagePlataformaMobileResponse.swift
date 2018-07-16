@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Lista de Plataformas Mobile */
+/** {{{page_plataforma_mobile_response_description}}} */
 public class PagePlataformaMobileResponse: JSONEncodable {
 
     public var content: [PlataformaMobileResponse]?

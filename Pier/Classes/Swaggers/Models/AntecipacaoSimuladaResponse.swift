@@ -8,56 +8,56 @@
 import Foundation
 
 
-/** Representa\u00E7\u00E3o da resposta do recurso Antecipacao Simulada */
+/** {{{antecipacao_simulada_response_description}}} */
 public class AntecipacaoSimuladaResponse: JSONEncodable {
 
     public var mcc: Int?
     public var uf: String?
-    /** C\u00F3digo identificador da simula\u00E7\u00E3o de antecipa\u00E7\u00E3o. */
+    /** {{{antecipacao_simulada_response_id_antecipacao_simulada_value}}} */
     public var idAntecipacaoSimulada: Int?
-    /** C\u00F3digo identificador da conta. */
+    /** {{{antecipacao_simulada_response_id_conta_value}}} */
     public var idConta: Int?
-    /** C\u00F3digo identificador do evento compra. */
+    /** {{{antecipacao_simulada_response_id_compra_value}}} */
     public var idCompra: Int?
-    /** C\u00F3digo identificador do tipo do evento compra. */
+    /** {{{antecipacao_simulada_response_id_tipo_transacao_value}}} */
     public var idTipoTransacao: Int?
-    /** Quantidade de parcelas antecip\u00E1veis. */
+    /** {{{antecipacao_simulada_response_quantidade_parcelas_antecipaveis_value}}} */
     public var quantidadeParcelasAntecipaveis: Int?
-    /** Valor da parcela. */
+    /** {{{antecipacao_simulada_response_valor_parcela_value}}} */
     public var valorParcela: Double?
-    /** Data e hora em que a simula\u00E7\u00E3o foi feita. */
+    /** {{{antecipacao_simulada_response_data_hora_simulacao_value}}} */
     public var dataHoraSimulacao: String?
-    /** Taxa de antecipa\u00E7\u00E3o aplicada (ao ano). */
+    /** {{{antecipacao_simulada_response_taxa_antecipacao_ano_value}}} */
     public var taxaAntecipacaoAno: Double?
-    /** Estabelecimento onde foi realizada a transa\u00E7\u00E3o */
+    /** {{{antecipacao_simulada_response_nome_estabelecimento_value}}} */
     public var nomeEstabelecimento: String?
-    /** Descri\u00E7\u00E3o do status da autoriza\u00E7\u00E3o da compra. */
+    /** {{{antecipacao_simulada_response_status_value}}} */
     public var status: String?
-    /** Data da compra. */
+    /** {{{antecipacao_simulada_response_data_compra_value}}} */
     public var dataCompra: String?
-    /** Tipo de transa\u00E7\u00E3o da compra. */
+    /** {{{antecipacao_simulada_response_tipo_origem_transacao_value}}} */
     public var tipoOrigemTransacao: String?
-    /** Cidade onde a compra foi realizada. */
+    /** {{{antecipacao_simulada_response_cidade_value}}} */
     public var cidade: String?
-    /** Pa\u00EDs onde a compra foi realizada. */
+    /** {{{antecipacao_simulada_response_pais_value}}} */
     public var pais: String?
-    /** Coordenada latitudinal da localiza\u00E7\u00E3o da compra. */
+    /** {{{antecipacao_simulada_response_latitude_value}}} */
     public var latitude: String?
-    /** Coordenada longitudinal da localiza\u00E7\u00E3o da compra. */
+    /** {{{antecipacao_simulada_response_longitude_value}}} */
     public var longitude: String?
-    /** C\u00F3digo de Identifica\u00E7\u00E3o do Grupo MCC da compra. */
+    /** {{{antecipacao_simulada_response_id_grupo_m_c_c_value}}} */
     public var idGrupoMCC: Int?
-    /** Descri\u00E7\u00E3o do Grupo MCC da compra. */
+    /** {{{antecipacao_simulada_response_descricao_grupo_m_c_c_value}}} */
     public var descricaoGrupoMCC: String?
-    /** C\u00F3digo de Identifica\u00E7\u00E3o do produto da compra. */
+    /** {{{antecipacao_simulada_response_id_produto_value}}} */
     public var idProduto: Int?
-    /** Descri\u00E7\u00E3o do produto da compra. */
+    /** {{{antecipacao_simulada_response_descricao_produto_value}}} */
     public var descricaoProduto: String?
-    /** Descri\u00E7\u00E3o do estabelecimento da compra. */
+    /** {{{antecipacao_simulada_response_descricao_estabelecimento_value}}} */
     public var descricaoEstabelecimento: String?
-    /** Nome fantasia do estabelecimento da compra. */
+    /** {{{antecipacao_simulada_response_nome_fantasia_estabelecimento_value}}} */
     public var nomeFantasiaEstabelecimento: String?
-    /** Detalhes da simula\u00E7\u00E3o. */
+    /** {{{antecipacao_simulada_response_detalhes_value}}} */
     public var detalhes: [AntecipacaoSimuladaDetalhesResponse]?
     
 

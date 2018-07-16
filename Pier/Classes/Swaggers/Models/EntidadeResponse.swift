@@ -8,14 +8,14 @@
 import Foundation
 
 
-/** Objeto de Resposta da Entidade */
+/** {{{entidade_response_description}}} */
 public class EntidadeResponse: JSONEncodable {
 
-    /** C\u00F3digo de Identifica\u00E7\u00E3o da entidade. */
+    /** {{{entidade_response_id_value}}} */
     public var id: Int?
-    /** Descri\u00E7\u00E3o da entidade. */
+    /** {{{entidade_response_descricao_value}}} */
     public var descricao: String?
-    /** Flag que indica se a entidade est\u00E1 ativa. */
+    /** {{{entidade_response_flag_ativo_value}}} */
     public var flagAtivo: Bool?
     
 

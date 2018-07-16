@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Job */
+/** {{{job_response_description}}} */
 public class JobResponse: JSONEncodable {
 
     public enum Status: String { 
@@ -16,15 +16,15 @@ public class JobResponse: JSONEncodable {
         case Ativo = "ATIVO"
     }
     
-    /** Identificador do Job */
+    /** {{{job_response_id_value}}} */
     public var id: Int?
-    /** Descricao do Job */
+    /** {{{job_response_descricao_value}}} */
     public var descricao: String?
-    /** Script Groovy do Job */
+    /** {{{job_response_groovy_value}}} */
     public var groovy: String?
-    /** Cron do Job */
+    /** {{{job_response_cron_value}}} */
     public var cron: String?
-    /** Status do Job no agendador de tarefas */
+    /** {{{job_response_status_value}}} */
     public var status: Status?
     
 

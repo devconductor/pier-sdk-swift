@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Objeto OperacaoCredor */
+/** {{{operacao_credor_persist_description}}} */
 public class OperacaoCredorPersist: JSONEncodable {
 
     public enum Periodicidade: String { 
@@ -25,29 +25,29 @@ public class OperacaoCredorPersist: JSONEncodable {
         case AgendaNegativa = "AGENDA_NEGATIVA"
     }
     
-    /** Apresenta o id da Opera\u00E7\u00E3o. */
+    /** {{{operacao_credor_persist_id_operacao_value}}} */
     public var idOperacao: Int?
-    /** Apresenta o id do Credor. */
-    public var idCredor: Int?
-    /** Apresenta a lista de ids produtos que v\u00E3o ter regras cadastradas. */
+    /** {{{operacao_credor_persist_id_grupo_economico_value}}} */
+    public var idGrupoEconomico: Int?
+    /** {{{operacao_credor_persist_ids_produto_value}}} */
     public var idsProduto: [Int]?
-    /** Remunera\u00E7\u00E3o Percentual. */
+    /** {{{operacao_credor_persist_remuneracao_percentual_value}}} */
     public var remuneracaoPercentual: Double?
-    /** Remunera\u00E7\u00E3o Fixa. */
+    /** {{{operacao_credor_persist_remuneracao_fixa_value}}} */
     public var remuneracaoFixa: Double?
-    /** Periodicidade (DIARIO(1), SEMANAL(2), MENSAL(3), DECENDIAL(4), QUINZENAL(5)). */
+    /** {{{operacao_credor_persist_periodicidade_value}}} */
     public var periodicidade: Periodicidade?
-    /** Vencimento da primeira parcela. */
+    /** {{{operacao_credor_persist_vencimento_primeira_parcela_value}}} */
     public var vencimentoPrimeiraParcela: Int?
-    /** Dias afastamento. */
+    /** {{{operacao_credor_persist_dias_afastamento_value}}} */
     public var diasAfastamento: Int?
-    /** Fator multiplicador (FORA_AGENDA(0), AGENDA(1)). */
+    /** {{{operacao_credor_persist_fator_multiplicador_value}}} */
     public var fatorMultiplicador: FatorMultiplicador?
-    /** Flag taxa fixada. */
+    /** {{{operacao_credor_persist_flag_taxa_fixada_value}}} */
     public var flagTaxaFixada: Bool?
-    /** Plano m\u00EDnimo da regra. */
+    /** {{{operacao_credor_persist_plano_minimo_value}}} */
     public var planoMinimo: Int?
-    /** Plano m\u00E1ximo da regra. */
+    /** {{{operacao_credor_persist_plano_maximo_value}}} */
     public var planoMaximo: Int?
     
 
@@ -57,7 +57,7 @@ public class OperacaoCredorPersist: JSONEncodable {
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
         nillableDictionary["idOperacao"] = self.idOperacao
-        nillableDictionary["idCredor"] = self.idCredor
+        nillableDictionary["idGrupoEconomico"] = self.idGrupoEconomico
         nillableDictionary["idsProduto"] = self.idsProduto?.encodeToJSON()
         nillableDictionary["remuneracaoPercentual"] = self.remuneracaoPercentual
         nillableDictionary["remuneracaoFixa"] = self.remuneracaoFixa

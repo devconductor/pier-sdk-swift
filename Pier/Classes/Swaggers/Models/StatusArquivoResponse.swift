@@ -8,14 +8,14 @@
 import Foundation
 
 
-/** Objeto Response do status arquivo. */
+/** {{{status_arquivo_response_description}}} */
 public class StatusArquivoResponse: JSONEncodable {
 
-    /** C\u00F3digo de identifica\u00E7\u00E3o do status do arquivo */
+    /** {{{status_arquivo_response_id_value}}} */
     public var id: Int?
-    /** Nome do status do arquivo */
+    /** {{{status_arquivo_response_nome_value}}} */
     public var nome: String?
-    /** Descri\u00E7\u00E3o do status do arquivo */
+    /** {{{status_arquivo_response_descricao_value}}} */
     public var descricao: String?
     
 

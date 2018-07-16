@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Lista de Opera\u00E7\u00F5es */
+/** {{{page_operacao_response_description}}} */
 public class PageOperacaoResponse: JSONEncodable {
 
     public var content: [OperacaoResponse]?

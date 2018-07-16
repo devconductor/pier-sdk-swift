@@ -8,37 +8,39 @@
 import Foundation
 
 
-/** Objeto Endere\u00E7o */
+/** {{{endereco_response_description}}} */
 public class EnderecoResponse: JSONEncodable {
 
-    /** C\u00F3digo de Identifica\u00E7\u00E3o do Endere\u00E7o (id). */
+    /** {{{endereco_response_id_value}}} */
     public var id: Int?
-    /** C\u00F3digo de Identifica\u00E7\u00E3o da Pessoa a qual o endere\u00E7o pertence (id) */
+    /** {{{endereco_response_id_pessoa_value}}} */
     public var idPessoa: Int?
-    /** C\u00F3digo de Identifica\u00E7\u00E3o da Tipo Endere\u00E7o (id) */
+    /** {{{endereco_response_id_tipo_endereco_value}}} */
     public var idTipoEndereco: Int?
-    /** Apresenta o C\u00F3digo de Endere\u00E7amento Postal (CEP) no formaro &#39;58800000&#39; */
+    /** {{{endereco_response_cep_value}}} */
     public var cep: String?
-    /** Apresenta o nome do Logradouro */
+    /** {{{endereco_response_logradouro_value}}} */
     public var logradouro: String?
-    /** Apresenta o n\u00FAmero do endere\u00E7o */
+    /** {{{endereco_response_numero_value}}} */
     public var numero: Int?
-    /** Apresenta descri\u00E7oes complementares referente ao endere\u00E7o */
+    /** {{{endereco_response_complemento_value}}} */
     public var complemento: String?
-    /** Apresenta a descri\u00E7\u00E3o de ponto de refer\u00EAncia do endere\u00E7o */
+    /** {{{endereco_response_ponto_referencia_value}}} */
     public var pontoReferencia: String?
-    /** Apresenta nome do bairro */
+    /** {{{endereco_response_bairro_value}}} */
     public var bairro: String?
-    /** Apresenta nome da cidade */
+    /** {{{endereco_response_cidade_value}}} */
     public var cidade: String?
-    /** Apresenta sigla da Unidade Federativa */
+    /** {{{endereco_response_uf_value}}} */
     public var uf: String?
-    /** Apresenta nome do Pais */
+    /** {{{endereco_response_pais_value}}} */
     public var pais: String?
-    /** Apresenta a data em que fora cadastrado o Endere\u00E7o */
+    /** {{{endereco_response_data_inclusao_value}}} */
     public var dataInclusao: String?
-    /** Data em que fora realizada a \u00FAltima mudan\u00E7a neste registro de endere\u00E7o. Quando n\u00E3o tiver ocorrido mudan\u00E7a, conter\u00E1 a mesma informa\u00E7\u00E3o que o campo dataInclusao */
+    /** {{{endereco_response_data_ultima_atualizacao_value}}} */
     public var dataUltimaAtualizacao: String?
+    /** {{{endereco_response_flag_correspondencia_value}}} */
+    public var flagCorrespondencia: Bool?
     
 
     public init() {}
@@ -60,6 +62,7 @@ public class EnderecoResponse: JSONEncodable {
         nillableDictionary["pais"] = self.pais
         nillableDictionary["dataInclusao"] = self.dataInclusao
         nillableDictionary["dataUltimaAtualizacao"] = self.dataUltimaAtualizacao
+        nillableDictionary["flagCorrespondencia"] = self.flagCorrespondencia
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

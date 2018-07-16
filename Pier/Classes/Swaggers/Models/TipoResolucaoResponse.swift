@@ -8,12 +8,12 @@
 import Foundation
 
 
-/** Objeto de resposta de Tipo Resolu\u00E7\u00E3o */
+/** {{{tipo_resolucao_response_description}}} */
 public class TipoResolucaoResponse: JSONEncodable {
 
-    /** C\u00F3digo de identifica\u00E7\u00E3o do tipo de resolu\u00E7\u00E3o */
+    /** {{{tipo_resolucao_response_id_value}}} */
     public var id: Int?
-    /** Descri\u00E7\u00E3o do tipo de resolu\u00E7\u00E3o */
+    /** {{{tipo_resolucao_response_descricao_value}}} */
     public var descricao: String?
     
 

@@ -8,58 +8,58 @@
 import Foundation
 
 
-/** Fatura futura */
+/** {{{lancamento_fatura_response_description}}} */
 public class LancamentoFaturaResponse: JSONEncodable {
 
-    /** C\u00F3digo de identifica\u00E7\u00E3o da transa\u00E7\u00E3o */
+    /** {{{lancamento_fatura_response_id_transacao_value}}} */
     public var idTransacao: Int?
-    /** Descri\u00E7\u00E3o do tipo da transa\u00E7\u00E3o */
+    /** {{{lancamento_fatura_response_descricao_tipo_transacao_value}}} */
     public var descricaoTipoTransacao: String?
-    /** C\u00F3digo identificador do tipo do evento */
+    /** {{{lancamento_fatura_response_id_tipo_evento_value}}} */
     public var idTipoEvento: Int?
-    /** Descri\u00E7\u00E3o do tipo do evento */
+    /** {{{lancamento_fatura_response_descricao_tipo_evento_value}}} */
     public var descricaoTipoEvento: String?
-    /** C\u00F3digo identificador do evento */
+    /** {{{lancamento_fatura_response_id_evento_value}}} */
     public var idEvento: Int?
-    /** C\u00F3digo de identifica\u00E7\u00E3o da conta. */
+    /** {{{lancamento_fatura_response_id_conta_value}}} */
     public var idConta: Int?
-    /** Descri\u00E7\u00E3o complementar do evento */
+    /** {{{lancamento_fatura_response_complemento_value}}} */
     public var complemento: String?
-    /** Valor em reais */
+    /** {{{lancamento_fatura_response_valor_b_r_l_value}}} */
     public var valorBRL: Double?
-    /** Valor em dolar */
+    /** {{{lancamento_fatura_response_valor_u_s_d_value}}} */
     public var valorUSD: Double?
-    /** N\u00FAmero da parcela */
+    /** {{{lancamento_fatura_response_numero_parcela_value}}} */
     public var numeroParcela: Int?
-    /** Quantidade de parcelas */
+    /** {{{lancamento_fatura_response_quantidade_parcelas_value}}} */
     public var quantidadeParcelas: Int?
-    /** Data da transa\u00E7\u00E3o */
+    /** {{{lancamento_fatura_response_data_hora_transacao_value}}} */
     public var dataHoraTransacao: String?
-    /** Nome do estabelecimento */
+    /** {{{lancamento_fatura_response_nome_estabelecimento_value}}} */
     public var nomeEstabelecimento: String?
-    /** Descri\u00E7\u00E3o do estabelecimento */
+    /** {{{lancamento_fatura_response_descricao_estabelecimento_value}}} */
     public var descricaoEstabelecimento: String?
-    /** Nome fantasia do estabelecimento */
+    /** {{{lancamento_fatura_response_nome_fantasia_estabelecimento_value}}} */
     public var nomeFantasiaEstabelecimento: String?
-    /** Flag que indica se o lan\u00E7amento \u00E9 de cr\u00E9dito */
+    /** {{{lancamento_fatura_response_flag_credito_value}}} */
     public var flagCredito: Bool?
-    /** C\u00F3digo identificador do MCC (Merchant Category Codes) */
+    /** {{{lancamento_fatura_response_id_m_c_c_value}}} */
     public var idMCC: Int?
-    /** C\u00F3digo identificador do grupo MCC */
+    /** {{{lancamento_fatura_response_id_grupo_m_c_c_value}}} */
     public var idGrupoMCC: Int?
-    /** Descri\u00E7\u00E3o do grupo MCC */
+    /** {{{lancamento_fatura_response_descricao_grupo_m_c_c_value}}} */
     public var descricaoGrupoMCC: String?
-    /** Indica se o portador do cart\u00E3o \u00E9 o titular da conta */
+    /** {{{lancamento_fatura_response_titular_value}}} */
     public var titular: Bool?
-    /** Nome impresso no cart\u00E3o */
+    /** {{{lancamento_fatura_response_nome_portador_value}}} */
     public var nomePortador: String?
-    /** N\u00FAmero do cart\u00E3o mascarado */
+    /** {{{lancamento_fatura_response_numero_cartao_mascarado_value}}} */
     public var numeroCartaoMascarado: String?
-    /** Flag que indica se o cliente solicitou contesta\u00E7\u00E3o da transa\u00E7\u00E3o */
+    /** {{{lancamento_fatura_response_flag_solicitou_contestacao_value}}} */
     public var flagSolicitouContestacao: Bool?
-    /** Valor da taxa de embarque */
+    /** {{{lancamento_fatura_response_valor_taxa_embarque_value}}} */
     public var valorTaxaEmbarque: Double?
-    /** Descri\u00E7\u00E3o abreviada da transa\u00E7\u00E3o */
+    /** {{{lancamento_fatura_response_descricao_abreviada_value}}} */
     public var descricaoAbreviada: String?
     
 

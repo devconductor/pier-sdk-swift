@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Lista de faturas */
+/** {{{page_fatura_fechada_response_description}}} */
 public class PageFaturaFechadaResponse: JSONEncodable {
 
     public var content: [FaturaFechadaResponse]?

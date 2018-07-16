@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Representa\u00E7\u00E3o da resposta do recurso Tipos de Anuidades */
+/** {{{page_anuidade_response_description}}} */
 public class PageAnuidadeResponse: JSONEncodable {
 
     public var content: [AnuidadeResponse]?

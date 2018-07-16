@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Lista de C\u00F3digos de Seguran\u00E7a */
+/** {{{page_codigo_seguranca_response_description}}} */
 public class PageCodigoSegurancaResponse: JSONEncodable {
 
     public var content: [CodigoSegurancaResponse]?

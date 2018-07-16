@@ -8,26 +8,26 @@
 import Foundation
 
 
-/** Objeto HistoricoPagamentoResponse */
+/** {{{historico_pagamento_response_description}}} */
 public class HistoricoPagamentoResponse: JSONEncodable {
 
-    /** C\u00F3digo de Identifica\u00E7\u00E3o da Conta */
+    /** {{{historico_pagamento_response_id_conta_value}}} */
     public var idConta: Int?
-    /** C\u00F3digo de Identifica\u00E7\u00E3o do Pagamento */
+    /** {{{historico_pagamento_response_id_pagamento_value}}} */
     public var idPagamento: Int?
-    /** C\u00F3digo de Identifica\u00E7\u00E3o do Estabelecimento onde o Pagamento foi realizado, quando este for o local de pagamento. */
+    /** {{{historico_pagamento_response_id_estabelecimento_value}}} */
     public var idEstabelecimento: Int?
-    /** C\u00F3digo de Identifica\u00E7\u00E3o da Institui\u00E7\u00E3o Banc\u00E1ria onde o Pagamento foi realizado, quando este for o local de pagamento */
+    /** {{{historico_pagamento_response_id_banco_value}}} */
     public var idBanco: Int?
-    /** C\u00F3digo de Identifica\u00E7\u00E3o do Cart\u00E3o */
+    /** {{{historico_pagamento_response_id_cartao_value}}} */
     public var idCartao: Int?
-    /** Valor do Pagamento */
+    /** {{{historico_pagamento_response_valor_pagamento_value}}} */
     public var valorPagamento: Double?
-    /** Data e Hora da realiza\u00E7\u00E3o do Pagamento. Quando feito em Institui\u00E7\u00E3o Banc\u00E1ria, o hor\u00E1rio do pagamento \u00E9 exibido com valor zero */
+    /** {{{historico_pagamento_response_data_hora_pagamento_value}}} */
     public var dataHoraPagamento: String?
-    /** Data e Hora em que o registro do Pagamento foi cadastrado */
+    /** {{{historico_pagamento_response_data_hora_entrada_pagamento_value}}} */
     public var dataHoraEntradaPagamento: String?
-    /** C\u00F3digo de Identifica\u00E7\u00E3o do Status do Pagamento */
+    /** {{{historico_pagamento_response_status_value}}} */
     public var status: Int?
     
 

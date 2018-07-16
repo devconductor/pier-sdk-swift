@@ -8,14 +8,14 @@
 import Foundation
 
 
-/** Representa\u00E7\u00E3o da resposta para o detalhamento do documento */
+/** {{{documento_detalhe_response_description}}} */
 public class DocumentoDetalheResponse: JSONEncodable {
 
-    /** ID de identifica\u00E7\u00E3o do detalhamento do documento. */
+    /** {{{documento_detalhe_response_id_value}}} */
     public var id: Int?
-    /** Propriedade do detalhamento do documento. */
+    /** {{{documento_detalhe_response_propriedade_value}}} */
     public var propriedade: String?
-    /** Conte\u00FAdo do detalhamento do documento. */
+    /** {{{documento_detalhe_response_conteudo_value}}} */
     public var conteudo: String?
     
 

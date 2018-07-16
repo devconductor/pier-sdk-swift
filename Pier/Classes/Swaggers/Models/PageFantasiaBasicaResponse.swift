@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Representa\u00E7\u00E3o da resposta do recurso de fantasia b\u00E1sica */
+/** {{{page_fantasia_basica_response_description}}} */
 public class PageFantasiaBasicaResponse: JSONEncodable {
 
     public var content: [FantasiaBasicaResponse]?

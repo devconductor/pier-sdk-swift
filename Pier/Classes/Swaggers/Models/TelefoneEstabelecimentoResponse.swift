@@ -8,18 +8,18 @@
 import Foundation
 
 
-/** Objeto de Resposta de Telefone Estabelecimento */
+/** {{{telefone_estabelecimento_response_description}}} */
 public class TelefoneEstabelecimentoResponse: JSONEncodable {
 
-    /** C\u00F3digo de Identifica\u00E7\u00E3o do Telefone. */
+    /** {{{telefone_estabelecimento_response_id_value}}} */
     public var id: Int?
-    /** C\u00F3digo de Identifica\u00E7\u00E3o do Tipo do Estabelecimento. */
+    /** {{{telefone_estabelecimento_response_id_estabelecimento_value}}} */
     public var idEstabelecimento: Int?
-    /** C\u00F3digo DDD do telefone. */
+    /** {{{telefone_estabelecimento_response_ddd_value}}} */
     public var ddd: String?
-    /** N\u00FAmero do telefone. */
+    /** {{{telefone_estabelecimento_response_telefone_value}}} */
     public var telefone: String?
-    /** N\u00FAmero do ramal. */
+    /** {{{telefone_estabelecimento_response_ramal_value}}} */
     public var ramal: String?
     
 

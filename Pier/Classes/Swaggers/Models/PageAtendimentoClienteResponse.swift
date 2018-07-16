@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Lista atendimento clientes */
+/** {{{page_atendimento_cliente_response_description}}} */
 public class PageAtendimentoClienteResponse: JSONEncodable {
 
     public var content: [AtendimentoClienteResponse]?

@@ -8,30 +8,30 @@
 import Foundation
 
 
-/** Objeto de Requisi\u00E7\u00E3o de Cancelamento de transa\u00E7\u00E3o */
+/** {{{cancelamento_transacao_on_us_request_description}}} */
 public class CancelamentoTransacaoOnUsRequest: JSONEncodable {
 
-    /** N\u00FAmero Sequencial \u00DAnico do HOST que identifica a transa\u00E7\u00E3o no sistema que autorizou. */
+    /** {{{cancelamento_transacao_on_us_request_nsu_autorizacao_transacao_cancelada_value}}} */
     public var nsuAutorizacaoTransacaoCancelada: String?
-    /** N\u00FAmero Sequencial \u00DAnico que identifica a transa\u00E7\u00E3o no sistema que a originou. */
+    /** {{{transacao_on_us_request_nsu_origem_value}}} */
     public var nsuOrigem: String?
-    /** N\u00FAmero Sequencial \u00DAnico que identifica a transa\u00E7\u00E3o no sistema a ser cancelada. */
+    /** {{{desfazimento_transacao_on_us_request_nsu_origem_transacao_cancelada_value}}} */
     public var nsuOrigemTransacaoCancelada: String?
-    /** C\u00F3digo de Processamento que identifica o Tipo da Transa\u00E7\u00E3o. */
+    /** {{{transacao_on_us_request_codigo_processamento_value}}} */
     public var codigoProcessamento: String?
-    /** Apresenta a data e hora local da transa\u00E7\u00E3o a ser cancelada yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZ. Ex: 2000-10-31T01:30:00.000-05:00 */
+    /** {{{desfazimento_transacao_on_us_request_data_hora_transacao_cancelada_value}}} */
     public var dataHoraTransacaoCancelada: String?
-    /** Valor da transa\u00E7\u00E3o com duas casas decimais para os centavos. */
+    /** {{{transacao_on_us_request_valor_transacao_value}}} */
     public var valorTransacao: Double?
-    /** N\u00FAmero Real do Cart\u00E3o. */
+    /** {{{transacao_on_us_request_numero_real_cartao_value}}} */
     public var numeroRealCartao: String?
-    /** Data de Validade do Cart\u00E3o. Ex: AAMM */
+    /** {{{transacao_on_us_request_data_validade_cartao_value}}} */
     public var dataValidadeCartao: String?
-    /** N\u00FAmero do Estabelecimento (N\u00FAmero+DV). */
+    /** {{{transacao_on_us_request_numero_estabelecimento_value}}} */
     public var numeroEstabelecimento: Int?
-    /** Apresenta a data e hora local da consulta yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZ. Ex: 2000-10-31T01:30:00.000-05:00 */
+    /** {{{transacao_on_us_request_data_hora_terminal_value}}} */
     public var dataHoraTerminal: String?
-    /** Apresenta a identifica\u00E7\u00E3o do terminal requisitante */
+    /** {{{transacao_on_us_request_terminal_requisitante_value}}} */
     public var terminalRequisitante: String?
     
 

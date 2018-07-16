@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Representa\u00E7\u00E3o da resposta do recurso de tipo de campanha */
+/** {{{page_tipo_campanha_response_description}}} */
 public class PageTipoCampanhaResponse: JSONEncodable {
 
     public var content: [TipoCampanhaResponse]?

@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Lista de Notifica\u00E7\u00F5es (layouts) de E-mail */
+/** {{{page_template_notificacao_response_description}}} */
 public class PageTemplateNotificacaoResponse: JSONEncodable {
 
     public var content: [TemplateNotificacaoResponse]?

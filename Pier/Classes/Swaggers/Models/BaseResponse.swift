@@ -8,32 +8,32 @@
 import Foundation
 
 
-/** Representa\u00E7\u00E3o do recurso Base */
+/** {{{base_response_description}}} */
 public class BaseResponse: JSONEncodable {
 
-    /** C\u00F3digo identificador da base */
+    /** {{{base_dto_id_value}}} */
     public var id: Int?
-    /** IP do servidor */
+    /** {{{base_dto_servidor_value}}} */
     public var servidor: String?
-    /** Nome do usu\u00E1rio */
+    /** {{{base_dto_usuario_value}}} */
     public var usuario: String?
-    /** Nome da base */
+    /** {{{base_dto_nome_base_value}}} */
     public var nomeBase: String?
-    /** senha Criptografada */
-    public var senhaCriptografada: Bool?
-    /** Dom\u00EDnio da base */
+    /** {{{base_dto_domain_value}}} */
     public var domain: String?
-    /** Nome da base de controle acesso */
+    /** {{{base_dto_senha_criptografada_value}}} */
+    public var senhaCriptografada: Bool?
+    /** {{{base_dto_nome_base_controle_acesso_value}}} */
     public var nomeBaseControleAcesso: String?
-    /** C\u00F3digo do identificador do emissor */
+    /** {{{base_dto_id_emissor_value}}} */
     public var idEmissor: Int?
-    /** Servidor do controle de acesso */
+    /** {{{base_dto_servidor_controle_acesso_value}}} */
     public var servidorControleAcesso: String?
-    /** Nome da base de usu\u00E1rios */
+    /** {{{base_dto_nome_base_usuarios_value}}} */
     public var nomeBaseUsuarios: String?
-    /** Servidor do controle de acesso */
+    /** {{{base_dto_servidor_usuarios_value}}} */
     public var servidorUsuarios: String?
-    /** Flag Cluester */
+    /** {{{base_dto_flag_cluster_value}}} */
     public var flagCluster: Bool?
     
 
@@ -46,8 +46,8 @@ public class BaseResponse: JSONEncodable {
         nillableDictionary["servidor"] = self.servidor
         nillableDictionary["usuario"] = self.usuario
         nillableDictionary["nomeBase"] = self.nomeBase
-        nillableDictionary["senhaCriptografada"] = self.senhaCriptografada
         nillableDictionary["domain"] = self.domain
+        nillableDictionary["senhaCriptografada"] = self.senhaCriptografada
         nillableDictionary["nomeBaseControleAcesso"] = self.nomeBaseControleAcesso
         nillableDictionary["idEmissor"] = self.idEmissor
         nillableDictionary["servidorControleAcesso"] = self.servidorControleAcesso

@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** PlanoCampanha */
+/** {{{plano_campanha_persist_description}}} */
 public class PlanoCampanhaPersist: JSONEncodable {
 
     public var parcelas: Int?

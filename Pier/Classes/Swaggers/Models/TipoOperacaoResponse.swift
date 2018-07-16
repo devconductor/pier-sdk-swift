@@ -8,40 +8,40 @@
 import Foundation
 
 
-/** Representa\u00E7\u00E3o da resposta do recurso TipoOperacao */
+/** {{{tipo_operacao_response_description}}} */
 public class TipoOperacaoResponse: JSONEncodable {
 
-    /** C\u00F3digo identificador do TipoOperacao */
+    /** {{{tipo_operacao_response_id_value}}} */
     public var id: Int?
-    /** C\u00F3digo do TipoOperacao */
+    /** {{{tipo_operacao_response_tipo_operacao_value}}} */
     public var tipoOperacao: String?
-    /** Nome do TipoOperacao */
+    /** {{{tipo_operacao_response_nome_value}}} */
     public var nome: String?
-    /** Decri\u00E7\u00E3o do TipoOperacao */
+    /** {{{tipo_operacao_response_descricao_value}}} */
     public var descricao: String?
-    /** Excedente permitido para o TipoOperacao */
+    /** {{{tipo_operacao_response_excedente_permitido_value}}} */
     public var excedentePermitido: Double?
-    /** Tipo do Excedente permitido para o TipoOperacao */
+    /** {{{tipo_operacao_response_tipo_excedente_permitido_value}}} */
     public var tipoExcedentePermitido: String?
-    /** Valor minimo para a transa\u00E7\u00E3o do TipoOperacao */
+    /** {{{tipo_operacao_response_valor_minimo_value}}} */
     public var valorMinimo: Double?
-    /** Valor maximo para a transa\u00E7\u00E3o do TipoOperacao */
+    /** {{{tipo_operacao_response_valor_maximo_value}}} */
     public var valorMaximo: Double?
-    /** Valor TAC da transa\u00E7\u00E3o do TipoOperacao */
+    /** {{{tipo_operacao_response_valor_t_a_c_value}}} */
     public var valorTAC: Double?
-    /** Flag Tira TAC do TipoOperacao */
+    /** {{{tipo_operacao_response_flag_tira_tac_value}}} */
     public var flagTiraTac: Int?
-    /** Identificador do Produto do TipoOperacao */
+    /** {{{tipo_operacao_response_id_produto_value}}} */
     public var idProduto: Int?
-    /** Identificador do Estabelecimento do TipoOperacao */
+    /** {{{tipo_operacao_response_id_estabelecimento_value}}} */
     public var idEstabelecimento: Int?
-    /** Tarifa do TipoOperacao */
+    /** {{{tipo_operacao_response_tarifa_value}}} */
     public var tarifa: Double?
-    /** Remunera\u00E7\u00E3o do Emissor para o TipoOperacao */
+    /** {{{tipo_operacao_response_remuneracao_emissor_value}}} */
     public var remuneracaoEmissor: Double?
-    /** Plano m\u00E1ximo do TipoOperacao */
+    /** {{{tipo_operacao_response_plano_maximo_value}}} */
     public var planoMaximo: Int?
-    /** Plano minimo do TipoOperacao */
+    /** {{{tipo_operacao_response_plano_minimo_value}}} */
     public var planoMinimo: Int?
     
 

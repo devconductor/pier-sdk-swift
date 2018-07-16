@@ -8,38 +8,38 @@
 import Foundation
 
 
-/** Resposta do recurso de cadastrar adicional */
+/** {{{adicional_response_description}}} */
 public class AdicionalResponse: JSONEncodable {
 
-    /** C\u00F3digo de identifica\u00E7\u00E3o da Conta para cadastro do Adicional */
+    /** {{{adicional_response_id_conta_value}}} */
     public var idConta: Int?
-    /** C\u00F3digo de identifica\u00E7\u00E3o da Pessoa Adicional */
+    /** {{{adicional_response_id_pessoa_value}}} */
     public var idPessoa: Int?
-    /** Nome completo do Adicional */
+    /** {{{adicional_response_nome_value}}} */
     public var nome: String?
-    /** Nome do Adicional que ser\u00E1 gravado no Cart\u00E3o */
+    /** {{{adicional_response_nome_impresso_value}}} */
     public var nomeImpresso: String?
-    /** N\u00FAmero do CPF ou CNPJ do Adicional */
+    /** {{{adicional_response_numero_receita_federal_value}}} */
     public var numeroReceitaFederal: String?
-    /** Data de Nascimento do Adicional */
+    /** {{{adicional_response_data_nascimento_value}}} */
     public var dataNascimento: String?
-    /** C\u00F3digo de identifica\u00E7\u00E3o do sexo da Pessoa, quando PF, sendo: (\&quot;M\&quot;: Masculino), (\&quot;F\&quot;: Feminino), (\&quot;O\&quot;: Outro), (\&quot;N\&quot;: N\u00E3o Especificado). */
+    /** {{{adicional_response_sexo_value}}} */
     public var sexo: String?
-    /** N\u00FAmero do Documento de Identidade do Adicional */
+    /** {{{adicional_response_numero_identidade_value}}} */
     public var numeroIdentidade: String?
-    /** Nome do Org\u00E3o Emissor do Documento de Identidade do Adicional */
+    /** {{{adicional_response_orgao_expedidor_identidade_value}}} */
     public var orgaoExpedidorIdentidade: String?
-    /** Sigla da Unidade Federativa onde o Documento de Identidade do Adicional foi emitido */
+    /** {{{adicional_response_unidade_federativa_identidade_value}}} */
     public var unidadeFederativaIdentidade: String?
-    /** Data de emiss\u00E3o do Documento de Identidade do Adicional */
+    /** {{{adicional_response_data_emissao_identidade_value}}} */
     public var dataEmissaoIdentidade: String?
-    /** C\u00F3digo de identifica\u00E7\u00E3o do Parentesco do Adicional com o Titular */
+    /** {{{adicional_response_id_parentesco_value}}} */
     public var idParentesco: Int?
-    /** Indica se o adicional est\u00E1 ativo = 1 ou inativo = 0 */
+    /** {{{adicional_response_flag_ativo_value}}} */
     public var flagAtivo: Int?
-    /** Indica a data de cadastro do adicional */
+    /** {{{adicional_response_data_cadastro_portador_value}}} */
     public var dataCadastroPortador: String?
-    /** Indica a data de cancelamento do adicional */
+    /** {{{adicional_response_data_cancelamento_portador_value}}} */
     public var dataCancelamentoPortador: String?
     
 

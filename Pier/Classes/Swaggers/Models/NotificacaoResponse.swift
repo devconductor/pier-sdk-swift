@@ -8,12 +8,12 @@
 import Foundation
 
 
-/** Objeto Notifica\u00E7\u00E3o SMS */
+/** {{{notificacao_response_description}}} */
 public class NotificacaoResponse: JSONEncodable {
 
-    /** N\u00FAmero do protocolo de envio de notifica\u00E7\u00F5es */
+    /** {{{notificacao_response_protocolo_value}}} */
     public var protocolo: String?
-    /** Mensagem de resposta da solicita\u00E7\u00F5es de envio */
+    /** {{{notificacao_response_mensagem_value}}} */
     public var mensagem: String?
     
 

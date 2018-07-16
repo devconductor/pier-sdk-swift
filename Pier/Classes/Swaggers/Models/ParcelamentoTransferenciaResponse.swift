@@ -8,22 +8,22 @@
 import Foundation
 
 
-/** Detalhe do plano de parcelamento para Transfer\u00EAncia de cr\u00E9dito para contas banc\u00E1rias */
+/** {{{parcelamento_transferencia_response_description}}} */
 public class ParcelamentoTransferenciaResponse: JSONEncodable {
 
-    /** N\u00FAmero de parcelas dispon\u00EDveis. */
+    /** {{{parcelamento_transferencia_response_numero_parcela_value}}} */
     public var numeroParcela: Int?
-    /** Valor das demais parcelas. */
+    /** {{{parcelamento_transferencia_response_valor_parcelas_value}}} */
     public var valorParcelas: Double?
-    /** Valor total do financiamento. */
+    /** {{{parcelamento_transferencia_response_valor_total_value}}} */
     public var valorTotal: Double?
-    /** Valor da tarifa de contrata\u00E7\u00E3o. */
+    /** {{{parcelamento_transferencia_response_valor_t_a_c_value}}} */
     public var valorTAC: Double?
-    /** IOF calculado para o cliente */
+    /** {{{parcelamento_transferencia_response_valor_i_o_f_value}}} */
     public var valorIOF: Double?
-    /** Valor da taxa de juros. */
+    /** {{{parcelamento_transferencia_response_taxa_juros_value}}} */
     public var taxaJuros: Double?
-    /** CET anual. */
+    /** {{{parcelamento_transferencia_response_cet_anual_value}}} */
     public var cetAnual: Double?
     
 

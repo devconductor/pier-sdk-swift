@@ -8,24 +8,24 @@
 import Foundation
 
 
-/** Objeto Acordo */
+/** {{{acordo_response_description}}} */
 public class AcordoResponse: JSONEncodable {
 
-    /** C\u00F3digo de Identifica\u00E7\u00E3o do acordo (id). */
+    /** {{{acordo_response_id_value}}} */
     public var id: Int?
-    /** C\u00F3digo de Identifica\u00E7\u00E3o da conta. */
+    /** {{{acordo_response_id_conta_value}}} */
     public var idConta: Int?
-    /** Status do acordo. */
+    /** {{{acordo_response_status_acordo_value}}} */
     public var statusAcordo: Int?
-    /** Valor do Acordo. */
+    /** {{{acordo_response_valor_acordo_value}}} */
     public var valorAcordo: Double?
-    /** Data e Hora do acordo. */
+    /** {{{acordo_response_data_acordo_value}}} */
     public var dataAcordo: String?
-    /** Quantidade de parcelas do acordo. */
+    /** {{{acordo_response_quantidade_parcelas_value}}} */
     public var quantidadeParcelas: Int?
-    /** Saldo atual final. */
+    /** {{{acordo_response_saldo_atual_final_value}}} */
     public var saldoAtualFinal: Double?
-    /** Dias em atraso. */
+    /** {{{acordo_response_dias_em_atraso_value}}} */
     public var diasEmAtraso: Int?
     
 

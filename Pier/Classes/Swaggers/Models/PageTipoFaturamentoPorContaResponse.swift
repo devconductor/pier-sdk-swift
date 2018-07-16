@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Lista de Tipos de Faturamentos por Conta */
+/** {{{page_tipo_faturamento_por_conta_response_description}}} */
 public class PageTipoFaturamentoPorContaResponse: JSONEncodable {
 
     public var content: [TipoFaturamentoPorContaResponse]?

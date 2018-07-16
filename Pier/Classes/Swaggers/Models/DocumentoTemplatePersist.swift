@@ -8,14 +8,14 @@
 import Foundation
 
 
-/** Representa\u00E7\u00E3o do template do documento. */
+/** {{{documento_template_persist_description}}} */
 public class DocumentoTemplatePersist: JSONEncodable {
 
-    /** ID para o Tipo de Template vinculado ao template. */
+    /** {{{documento_template_persist_id_tipo_template_value}}} */
     public var idTipoTemplate: Int?
-    /** Template para o conte\u00FAdo do documento. */
+    /** {{{documento_template_persist_template_value}}} */
     public var template: String?
-    /** Lista de configura\u00E7\u00F5es de integra\u00E7\u00E3o */
+    /** {{{documento_template_persist_integracoes_value}}} */
     public var integracoes: [ReferenciaIdPersist]?
     
 

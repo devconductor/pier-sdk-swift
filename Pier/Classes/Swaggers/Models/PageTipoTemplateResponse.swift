@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Lista de Tipo Template */
+/** {{{page_tipo_template_response_description}}} */
 public class PageTipoTemplateResponse: JSONEncodable {
 
     public var content: [TipoTemplateResponse]?

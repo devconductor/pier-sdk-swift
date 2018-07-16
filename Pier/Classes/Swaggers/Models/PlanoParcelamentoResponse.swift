@@ -8,48 +8,48 @@
 import Foundation
 
 
-/** Representa\u00E7\u00E3o da resposta do recurso de planos de parcelamento */
+/** {{{plano_parcelamento_response_description}}} */
 public class PlanoParcelamentoResponse: JSONEncodable {
 
-    /** Identificador do parcelamento */
+    /** {{{plano_parcelamento_response_id_value}}} */
     public var id: Int?
-    /** Data de fechamento da fatura */
+    /** {{{plano_parcelamento_response_data_fechamento_fatura_value}}} */
     public var dataFechamentoFatura: String?
-    /** Data de vencimento padr\u00E3o */
+    /** {{{plano_parcelamento_response_data_vencimento_padrao_value}}} */
     public var dataVencimentoPadrao: String?
-    /** Valor total da fatura */
+    /** {{{plano_parcelamento_response_valor_total_fatura_value}}} */
     public var valorTotalFatura: Double?
-    /** Quantidade de parcelas */
+    /** {{{plano_parcelamento_response_quantidade_parcelas_value}}} */
     public var quantidadeParcelas: Int?
-    /** Valor da parcela */
+    /** {{{plano_parcelamento_response_valor_parcela_value}}} */
     public var valorParcela: Double?
-    /** Valor de entrada */
+    /** {{{plano_parcelamento_response_valor_entrada_value}}} */
     public var valorEntrada: Double?
-    /** Taxa de refinanciamento */
+    /** {{{plano_parcelamento_response_taxa_refinanciamento_value}}} */
     public var taxaRefinanciamento: Double?
-    /** Custo efetivo total */
+    /** {{{plano_parcelamento_response_custo_efetivo_total_value}}} */
     public var custoEfetivoTotal: Double?
-    /** Valor total de refinanciamento */
+    /** {{{plano_parcelamento_response_valor_total_refinanciamento_value}}} */
     public var valorTotalRefinanciamento: Double?
-    /** Valor do IOF */
+    /** {{{plano_parcelamento_response_valor_i_o_f_value}}} */
     public var valorIOF: Double?
-    /** Valor do TAC */
+    /** {{{plano_parcelamento_response_valor_t_a_c_value}}} */
     public var valorTAC: Double?
-    /** Status da ades\u00E3o */
+    /** {{{plano_parcelamento_response_status_adesao_value}}} */
     public var statusAdesao: Int?
-    /** Data de inclus\u00E3o */
+    /** {{{plano_parcelamento_response_data_inclusao_value}}} */
     public var dataInclusao: String?
-    /** Data de processamento da ades\u00E3o */
+    /** {{{plano_parcelamento_response_data_processamento_adesao_value}}} */
     public var dataProcessamentoAdesao: String?
-    /** Identificador da conta */
+    /** {{{plano_parcelamento_response_id_conta_value}}} */
     public var idConta: Int?
-    /** C\u00F3digo de identifica\u00E7\u00E3o do tipo de servi\u00E7o */
+    /** {{{plano_parcelamento_response_id_servico_tipo_value}}} */
     public var idServicoTipo: Int?
-    /** Descri\u00E7\u00E3o do tipo de servi\u00E7o */
+    /** {{{plano_parcelamento_response_descricao_servico_tipo_value}}} */
     public var descricaoServicoTipo: String?
-    /** Indica se a fatura foi com entrada */
+    /** {{{plano_parcelamento_response_com_entrada_value}}} */
     public var comEntrada: Bool?
-    /** Nome da campanha */
+    /** {{{plano_parcelamento_response_nome_campanha_value}}} */
     public var nomeCampanha: String?
     
 

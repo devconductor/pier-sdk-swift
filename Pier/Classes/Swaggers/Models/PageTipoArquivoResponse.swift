@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Lista tipos de arquivos cadastrados no sistema */
+/** {{{page_tipo_arquivo_response_description}}} */
 public class PageTipoArquivoResponse: JSONEncodable {
 
     public var content: [TipoArquivoResponse]?

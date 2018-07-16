@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Objeto de Resposta Par\u00E2metro Produto */
+/** {{{parametro_produto_response_description}}} */
 public class ParametroProdutoResponse: JSONEncodable {
 
     public enum TipoOrigemTransacao: String { 
@@ -16,15 +16,15 @@ public class ParametroProdutoResponse: JSONEncodable {
         case OffUs = "OFF_US"
     }
     
-    /** C\u00F3digo de Identifica\u00E7\u00E3o do Produto (id). */
+    /** {{{parametro_produto_response_id_produto_value}}} */
     public var idProduto: Int?
-    /** Tipo da Transa\u00E7\u00E3o (ON_US ou OFF_US). */
+    /** {{{parametro_produto_response_tipo_origem_transacao_value}}} */
     public var tipoOrigemTransacao: TipoOrigemTransacao?
-    /** Descri\u00E7\u00E3o do Tipo da Transa\u00E7\u00E3o. */
+    /** {{{parametro_produto_response_descricao_value}}} */
     public var descricao: String?
-    /** Valor do Par\u00E2metro. */
+    /** {{{parametro_produto_response_valor_parametro_value}}} */
     public var valorParametro: Double?
-    /** Data de Validade do Par\u00E2metro do Produto. */
+    /** {{{parametro_produto_response_data_validade_value}}} */
     public var dataValidade: String?
     
 

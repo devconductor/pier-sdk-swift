@@ -8,20 +8,20 @@
 import Foundation
 
 
-/** ProdutoDetalhes */
+/** {{{produto_detalhes_response_description}}} */
 public class ProdutoDetalhesResponse: JSONEncodable {
 
-    /** C\u00F3digo de Identifica\u00E7\u00E3o do Produto (id). */
+    /** {{{produto_response_id_value}}} */
     public var id: Int?
-    /** Descri\u00E7\u00E3o do Nome do Produto. */
+    /** {{{produto_response_nome_value}}} */
     public var nome: String?
-    /** Representa o Status do Produto, onde: (\&quot;0\&quot;: Inativo), (\&quot;1\&quot;: Ativo). */
+    /** {{{produto_response_status_value}}} */
     public var status: Int?
-    /** C\u00F3digo de Identifica\u00E7\u00E3o da Fantasia B\u00E1sica (id) a qual o produto pertence. */
+    /** {{{produto_response_id_fantasia_basica_value}}} */
     public var idFantasiaBasica: Int?
-    /** Descri\u00E7\u00E3o da Fantasia B\u00E1sica a qual o produto pertence. */
+    /** {{{produto_detalhes_response_fantasia_basica_value}}} */
     public var fantasiaBasica: String?
-    /** Par\u00E2metro que indica se o produto est\u00E1 habilitado para compras no exterior. */
+    /** {{{produto_detalhes_response_uso_exterior_value}}} */
     public var usoExterior: Bool?
     
 

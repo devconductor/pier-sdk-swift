@@ -8,16 +8,16 @@
 import Foundation
 
 
-/** Representa\u00E7\u00E3o da resposta dos detalhes do recurso Antecipacao Simulada */
+/** {{{antecipacao_simulada_detalhes_response_description}}} */
 public class AntecipacaoSimuladaDetalhesResponse: JSONEncodable {
 
-    /** Quantidade de parcelas do plano de parcelamento simulado. */
+    /** {{{antecipacao_simulada_detalhes_response_quantidade_parcelas_value}}} */
     public var quantidadeParcelas: Int?
-    /** Valor total das parcelas do plano de parcelamento. */
+    /** {{{antecipacao_simulada_detalhes_response_valor_parcelas_value}}} */
     public var valorParcelas: Double?
-    /** Valor do desconto para o plano de parcelamento. */
+    /** {{{antecipacao_simulada_detalhes_response_valor_desconto_value}}} */
     public var valorDesconto: Double?
-    /** Valor total da parcela ap\u00F3s a aplica\u00E7\u00E3o do desconto. */
+    /** {{{antecipacao_simulada_detalhes_response_valor_parcelas_desconto_value}}} */
     public var valorParcelasDesconto: Double?
     
 

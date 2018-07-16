@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Representa\u00E7\u00E3o da resposta do recurso de planos de parcelamento */
+/** {{{page_plano_parcelamento_response_description}}} */
 public class PagePlanoParcelamentoResponse: JSONEncodable {
 
     public var content: [PlanoParcelamentoResponse]?

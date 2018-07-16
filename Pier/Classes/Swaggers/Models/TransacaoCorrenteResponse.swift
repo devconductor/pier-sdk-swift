@@ -8,44 +8,46 @@
 import Foundation
 
 
-/** Representa\u00E7\u00E3o do recurso transacao */
+/** {{{transacao_corrente_response_description}}} */
 public class TransacaoCorrenteResponse: JSONEncodable {
 
     public var ultimaParcelaLancada: Int?
-    /** C\u00F3digo de identifica\u00E7\u00E3o da conta (id). */
+    /** {{{transacao_corrente_response_id_conta_value}}} */
     public var idConta: Int?
-    /** C\u00F3digo de identifica\u00E7\u00E3o do tipo de transacao (id). */
+    /** {{{transacao_corrente_response_id_tipo_registro_value}}} */
     public var idTipoRegistro: Int?
-    /** Representa\u00E7\u00E3o da ordena\u00E7\u00E3o da transacao (id). */
+    /** {{{transacao_corrente_response_ordem_value}}} */
     public var ordem: Int?
-    /** C\u00F3digo de identifica\u00E7\u00E3o da transacao (id). */
+    /** {{{transacao_corrente_response_id_transacao_value}}} */
     public var idTransacao: Int?
-    /** Atributo que representa a descri\u00E7\u00E3o da transa\u00E7\u00E3o. */
+    /** {{{transacao_corrente_response_descricao_value}}} */
     public var descricao: String?
-    /** Atributo que representa o c\u00F3digo identificador do status da transa\u00E7\u00E3o. */
+    /** {{{transacao_corrente_response_status_value}}} */
     public var status: Int?
-    /** Atributo que representa a descri\u00E7\u00E3o do status da transa\u00E7\u00E3o. */
+    /** {{{transacao_corrente_response_descricao_status_value}}} */
     public var descricaoStatus: String?
-    /** Atributo que representa o valor da transa\u00E7\u00E3o. */
+    /** {{{transacao_corrente_response_valor_value}}} */
     public var valor: Double?
-    /** Atributo que representa o valor em D\u00F3lar da transa\u00E7\u00E3o. */
+    /** {{{transacao_corrente_response_valor_dolar_value}}} */
     public var valorDolar: Double?
-    /** Atributo que representa a quantidade de parcelas da transa\u00E7\u00E3o. */
+    /** {{{transacao_corrente_response_quantidade_parcelas_value}}} */
     public var quantidadeParcelas: Int?
-    /** Atributo que representa o valor da parcela da transa\u00E7\u00E3o. */
+    /** {{{transacao_corrente_response_valor_parcela_value}}} */
     public var valorParcela: Double?
-    /** Atributo que representa a data de envio da transa\u00E7\u00E3o. */
+    /** {{{transacao_corrente_response_data_evento_value}}} */
     public var dataEvento: String?
-    /** Atributo que representa o estabelecimento da transa\u00E7\u00E3o. */
+    /** {{{transacao_corrente_response_estabelecimento_value}}} */
     public var estabelecimento: String?
-    /** Atributo que identifica se a transa\u00E7\u00E3o \u00E9 um cr\u00E9dito ou d\u00E9bito. */
+    /** {{{transacao_corrente_response_flag_credito_value}}} */
     public var flagCredito: Int?
-    /** Atributo que representa o tipo de estabelecimento da transa\u00E7\u00E3o. */
+    /** {{{transacao_corrente_response_tipo_estabelecimento_value}}} */
     public var tipoEstabelecimento: String?
-    /** Atributo que representa o grupo MCC da transa\u00E7\u00E3o. */
+    /** {{{transacao_corrente_response_id_grupo_m_c_c_value}}} */
     public var idGrupoMCC: Int?
-    /** Atributo que identifica se o portador solicitou contesta\u00E7\u00E3o da transa\u00E7\u00E3o. */
+    /** {{{transacao_corrente_response_flag_solicitou_contestacao_value}}} */
     public var flagSolicitouContestacao: Int?
+    /** {{{transacao_corrente_response_tipo_transacao_value}}} */
+    public var tipoTransacao: Int?
     
 
     public init() {}
@@ -71,6 +73,7 @@ public class TransacaoCorrenteResponse: JSONEncodable {
         nillableDictionary["tipoEstabelecimento"] = self.tipoEstabelecimento
         nillableDictionary["idGrupoMCC"] = self.idGrupoMCC
         nillableDictionary["flagSolicitouContestacao"] = self.flagSolicitouContestacao
+        nillableDictionary["tipoTransacao"] = self.tipoTransacao
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

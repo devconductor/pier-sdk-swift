@@ -8,24 +8,24 @@
 import Foundation
 
 
-/** Listagem de Transfer\u00EAncia de cr\u00E9dito para contas banc\u00E1rias */
+/** {{{transferencia_credito_conta_bancaria_lista_response_description}}} */
 public class TransferenciaCreditoContaBancariaListaResponse: JSONEncodable {
 
-    /** C\u00F3digo de identifica\u00E7\u00E3o da transferencia. */
+    /** {{{transferencia_credito_conta_bancaria_lista_response_id_transferencia_value}}} */
     public var idTransferencia: Int?
-    /** C\u00F3digo de identifica\u00E7\u00E3o da conta. */
+    /** {{{transferencia_credito_conta_bancaria_lista_response_id_conta_value}}} */
     public var idConta: Int?
-    /** C\u00F3digo de identifica\u00E7\u00E3o do cart\u00E3o. */
+    /** {{{transferencia_credito_conta_bancaria_lista_response_id_cartao_value}}} */
     public var idCartao: Int?
-    /** Valor da transfer\u00EAncia. */
+    /** {{{transferencia_credito_conta_bancaria_lista_response_valor_compra_value}}} */
     public var valorCompra: Double?
-    /** Valor da transfer\u00EAncia acrescido do valor da tarifa de saque se houver tarifa de saque. */
+    /** {{{transferencia_credito_conta_bancaria_lista_response_valor_contrato_value}}} */
     public var valorContrato: Double?
-    /** Data da transfer\u00EAncia. */
+    /** {{{transferencia_credito_conta_bancaria_lista_response_data_compra_value}}} */
     public var dataCompra: String?
-    /** C\u00F3digo de status de processamento. */
+    /** {{{transferencia_credito_conta_bancaria_lista_response_status_value}}} */
     public var status: Int?
-    /** Status Processamento. */
+    /** {{{transferencia_credito_conta_bancaria_lista_response_status_processamento_value}}} */
     public var statusProcessamento: String?
     
 

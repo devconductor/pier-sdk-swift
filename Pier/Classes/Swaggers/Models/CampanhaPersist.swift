@@ -8,14 +8,14 @@
 import Foundation
 
 
-/** Campanha */
+/** {{{campanha_persist_description}}} */
 public class CampanhaPersist: JSONEncodable {
 
-    /** Nome da campanha. */
+    /** {{{campanha_persist_nome_value}}} */
     public var nome: String?
-    /** C\u00F3digo de Identifica\u00E7\u00E3o do tipo da campanha. */
+    /** {{{campanha_persist_id_tipo_campanha_value}}} */
     public var idTipoCampanha: Int?
-    /** Lista com os planos de campanha. */
+    /** {{{campanha_persist_planos_campanhas_value}}} */
     public var planosCampanhas: [PlanoCampanhaPersist]?
     
 

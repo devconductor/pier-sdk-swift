@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Lista de tipos estabelecimentos */
+/** {{{page_tipo_estabelecimento_response_description}}} */
 public class PageTipoEstabelecimentoResponse: JSONEncodable {
 
     public var content: [TipoEstabelecimentoResponse]?

@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Lista de VinculoEstabelecimentoAdquirente */
+/** {{{page_vinculo_estabelecimento_adquirente_response_description}}} */
 public class PageVinculoEstabelecimentoAdquirenteResponse: JSONEncodable {
 
     public var content: [VinculoEstabelecimentoAdquirenteResponse]?

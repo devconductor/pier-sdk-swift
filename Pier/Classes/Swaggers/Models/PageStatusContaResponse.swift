@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Lista de Status Contas */
+/** {{{page_status_conta_response_description}}} */
 public class PageStatusContaResponse: JSONEncodable {
 
     public var content: [StatusContaResponse]?

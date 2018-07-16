@@ -8,16 +8,16 @@
 import Foundation
 
 
-/** Tipo de moeda */
+/** {{{moeda_response_description}}} */
 public class MoedaResponse: JSONEncodable {
 
-    /** Identificador do tipo de moeda. */
+    /** {{{moeda_response_id_value}}} */
     public var id: Int?
-    /** C\u00F3digo identificador do tipo de moeda. */
+    /** {{{moeda_response_codigo_moeda_value}}} */
     public var codigoMoeda: String?
-    /** S\u00EDmbolo da Moeda. */
+    /** {{{moeda_response_simbolo_value}}} */
     public var simbolo: String?
-    /** Descri\u00E7\u00E3o do tipo da moeda. */
+    /** {{{moeda_response_descricao_value}}} */
     public var descricao: String?
     
 

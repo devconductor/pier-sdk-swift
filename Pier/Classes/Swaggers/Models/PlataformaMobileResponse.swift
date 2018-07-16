@@ -8,12 +8,12 @@
 import Foundation
 
 
-/** Plataforma Mobile */
+/** {{{plataforma_mobile_response_description}}} */
 public class PlataformaMobileResponse: JSONEncodable {
 
-    /** Identificador da Plataforma */
+    /** {{{plataforma_mobile_response_id_value}}} */
     public var id: Int?
-    /** Nome da Plataforma */
+    /** {{{plataforma_mobile_response_nome_value}}} */
     public var nome: String?
     
 

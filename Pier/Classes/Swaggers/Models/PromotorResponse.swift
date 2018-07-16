@@ -8,18 +8,18 @@
 import Foundation
 
 
-/** Objeto Promotor */
+/** {{{promotor_response_description}}} */
 public class PromotorResponse: JSONEncodable {
 
-    /** C\u00F3digo de Identifica\u00E7\u00E3o do promotor (id) */
+    /** {{{promotor_response_id_value}}} */
     public var id: Int?
-    /** Nome do Promotor */
+    /** {{{promotor_response_nome_value}}} */
     public var nome: String?
-    /** Data da Inclus\u00E3o */
+    /** {{{promotor_response_data_cadastro_value}}} */
     public var dataCadastro: String?
-    /** C\u00F3digo de Identifica\u00E7\u00E3o do Estabelecimento */
+    /** {{{promotor_response_id_estabelecimento_value}}} */
     public var idEstabelecimento: Int?
-    /** C\u00F3digo de Identifica\u00E7\u00E3o do usu\u00E1rio */
+    /** {{{promotor_response_id_usuario_value}}} */
     public var idUsuario: Int?
     
 

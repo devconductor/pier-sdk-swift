@@ -8,12 +8,12 @@
 import Foundation
 
 
-/** Objeto contendo os detalhes de uma fatura consignada */
+/** {{{detalhes_fatura_consignada_response_description}}} */
 public class DetalhesFaturaConsignadaResponse: JSONEncodable {
 
-    /** Apresenta os detalhes da fatura */
+    /** {{{detalhes_fatura_consignada_response_fatura_consignada_response_value}}} */
     public var faturaConsignadaResponse: FaturaConsignadaResponse?
-    /** Apresenta as transa\u00E7\u00F5es relacionadas a fatura. */
+    /** {{{detalhes_fatura_consignada_response_transacoes_value}}} */
     public var transacoes: [TransacoesCorrentesResponse]?
     
 

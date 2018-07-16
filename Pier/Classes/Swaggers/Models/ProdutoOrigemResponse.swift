@@ -8,10 +8,10 @@
 import Foundation
 
 
-/** Representa\u00E7\u00E3o da resposta dos produtosOrigem do recurso de Origem Comercial */
+/** {{{produto_origem_response_description}}} */
 public class ProdutoOrigemResponse: JSONEncodable {
 
-    /** C\u00F3digo identificador do produto */
+    /** {{{produto_origem_response_id_produto_value}}} */
     public var idProduto: Int?
     
 

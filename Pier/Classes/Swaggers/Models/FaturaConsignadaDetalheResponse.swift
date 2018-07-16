@@ -8,104 +8,104 @@
 import Foundation
 
 
-/** Fatura Consignada detalhe */
+/** {{{fatura_consignada_detalhe_response_description}}} */
 public class FaturaConsignadaDetalheResponse: JSONEncodable {
 
-    /** C\u00F3digo identificador da fatura. */
+    /** {{{fatura_consignada_detalhe_response_id_value}}} */
     public var id: Int?
-    /** C\u00F3digo identificador da conta (id). */
+    /** {{{fatura_consignada_detalhe_response_id_conta_value}}} */
     public var idConta: Int?
-    /** Apresenta o valor do limite de cr\u00E9dito que o portador do cart\u00E3o possui. */
+    /** {{{fatura_consignada_detalhe_response_limite_global_value}}} */
     public var limiteGlobal: Double?
-    /** C\u00F3digo identificador da conta a qual a fatura se refere. */
+    /** {{{fatura_consignada_detalhe_response_flag_emite_fatura_value}}} */
     public var flagEmiteFatura: Int?
-    /** Quando utilizado pelo emissor, este campo apresenta o valor do limite de cr\u00E9dito que o portador possui para uso exclusivo em Compras Nacionais. */
+    /** {{{fatura_consignada_detalhe_response_limite_compra_value}}} */
     public var limiteCompra: Double?
-    /** Data de vencimento da fatura. */
+    /** {{{fatura_consignada_detalhe_response_data_vencimento_fatura_value}}} */
     public var dataVencimentoFatura: String?
-    /** Quando utilizado pelo emissor, este campo apresenta o valor do limite de cr\u00E9dito que o portador possui para realizar transa\u00E7\u00F5es de compras parceladas. */
+    /** {{{fatura_consignada_detalhe_response_limite_parcelado_value}}} */
     public var limiteParcelado: Double?
-    /** Quando utilizado pelo emissor, este campo apresenta o valor do limite de cr\u00E9dito que portador pode acumular a partir da soma das parcelas das compras que forem realizadas nesta modalidade. */
+    /** {{{fatura_consignada_detalhe_response_limite_parcelas_value}}} */
     public var limiteParcelas: Double?
-    /** Valor para pagamento total da fatura. */
+    /** {{{fatura_consignada_detalhe_response_valor_total_fatura_value}}} */
     public var valorTotalFatura: Double?
-    /** Valor total da fatura anterior. */
+    /** {{{fatura_consignada_detalhe_response_valor_fatura_anterior_value}}} */
     public var valorFaturaAnterior: Double?
-    /** Valor m\u00EDnimo para pagamento da fatura. */
+    /** {{{fatura_consignada_detalhe_response_valor_pagamento_minimo_value}}} */
     public var valorPagamentoMinimo: Double?
-    /** Valor da fatura pago atrav\u00E9s de desconto em folha. */
+    /** {{{fatura_consignada_detalhe_response_valor_pagamento_consignado_value}}} */
     public var valorPagamentoConsignado: Double?
-    /** Quando utilizado pelo emissor, este campo apresenta o valor do limite de cr\u00E9dito que o portador pode utilizar para realizar transa\u00E7\u00F5es de Saque Nacional. */
+    /** {{{fatura_consignada_detalhe_response_limite_saque_global_value}}} */
     public var limiteSaqueGlobal: Double?
-    /** Valor complementar para considerar o pagamento m\u00EDnimo da fatura. */
+    /** {{{fatura_consignada_detalhe_response_valor_pagamento_complementar_value}}} */
     public var valorPagamentoComplementar: Double?
-    /** Quando utilizado pelo emissor, este campo apresenta o valor do limite de cr\u00E9dito que o portador pode utilizar para realizar transa\u00E7\u00F5es de Saque Nacional dentro de cada ciclo de faturamento. */
+    /** {{{fatura_consignada_detalhe_response_limite_saque_periodo_value}}} */
     public var limiteSaquePeriodo: Double?
-    /** Valor total das compras nacionais lan\u00E7adas na fatura. */
+    /** {{{fatura_consignada_detalhe_response_total_compras_nacionais_value}}} */
     public var totalComprasNacionais: Double?
-    /** Quando utilizado pelo emissor, este campo apresenta o valor da margem de cr\u00E9dito que ele poder\u00E1 utilizar para ser cobrado de forma consignada (desconto em folha) em seu sal\u00E1rio/vencimentos. */
+    /** {{{fatura_consignada_detalhe_response_limite_consignado_value}}} */
     public var limiteConsignado: Double?
-    /** Valor total das compras internacionais lan\u00E7adas na fatura. */
+    /** {{{fatura_consignada_detalhe_response_total_compras_internacionas_value}}} */
     public var totalComprasInternacionas: Double?
-    /** Quando utilizado pelo emissor, este campo apresenta o valor do limite de cr\u00E9dito que o portador possui para uso exclusivo em Compras Internacionais. */
+    /** {{{fatura_consignada_detalhe_response_limite_internacional_compra_value}}} */
     public var limiteInternacionalCompra: Double?
-    /** Valor total dos saques nacionais lan\u00E7ados na fatura. */
+    /** {{{fatura_consignada_detalhe_response_total_saques_nacionais_value}}} */
     public var totalSaquesNacionais: Double?
-    /** Quando utilizado pelo emissor, este campo apresenta o valor do limite de cr\u00E9dito que o portador possui para realizar transa\u00E7\u00F5es Internacionais de Compras Parceladas. */
+    /** {{{fatura_consignada_detalhe_response_limite_internacional_parcelado_value}}} */
     public var limiteInternacionalParcelado: Double?
-    /** Valor total dos saques internacionais lan\u00E7ados na fatura. */
+    /** {{{fatura_consignada_detalhe_response_total_saques_internacionais_value}}} */
     public var totalSaquesInternacionais: Double?
-    /** Quando utilizado pelo emissor, este campo apresenta o valor do limite de cr\u00E9dito que portador pode acumular a partir da soma das parcelas das compras internacionais que forem realizadas nesta modalidade. */
+    /** {{{fatura_consignada_detalhe_response_limite_internacional_parcelas_value}}} */
     public var limiteInternacionalParcelas: Double?
-    /** Valor total dos d\u00E9bitos nacionais lan\u00E7ados na fatura. */
+    /** {{{fatura_consignada_detalhe_response_total_debitos_nacionais_value}}} */
     public var totalDebitosNacionais: Double?
-    /** Quando utilizado pelo emissor, este campo apresenta o valor do limite de cr\u00E9dito que o portador pode utilizar para realizar transa\u00E7\u00F5es de Saque Internacional. */
+    /** {{{fatura_consignada_detalhe_response_limite_internacional_saque_global_value}}} */
     public var limiteInternacionalSaqueGlobal: Double?
-    /** Valor total dos d\u00E9bitos recorrentes lan\u00E7ados na fatura. */
+    /** {{{fatura_consignada_detalhe_response_total_debitos_recorrentes_value}}} */
     public var totalDebitosRecorrentes: Double?
-    /** Quando utilizado pelo emissor, este campo apresenta o valor do limite de cr\u00E9dito que o portador pode utilizar para realizar transa\u00E7\u00F5es de Saque Internacional dentro de cada ciclo de faturamento. */
+    /** {{{fatura_consignada_detalhe_response_limite_internacional_saque_periodo_value}}} */
     public var limiteInternacionalSaquePeriodo: Double?
-    /** Valor total dos d\u00E9bitos internacionais lan\u00E7ados na fatura. */
+    /** {{{fatura_consignada_detalhe_response_total_debitos_internacionais_value}}} */
     public var totalDebitosInternacionais: Double?
-    /** Apresenta o valor de cr\u00E9dito que o portador possui dispon\u00EDvel para realizar transa\u00E7\u00F5es. */
+    /** {{{fatura_consignada_detalhe_response_saldo_disponivel_global_value}}} */
     public var saldoDisponivelGlobal: Double?
-    /** Valor total dos d\u00E9bitos diversos nacionais lan\u00E7ados na fatura. */
+    /** {{{fatura_consignada_detalhe_response_total_debitos_diversos_nacionais_value}}} */
     public var totalDebitosDiversosNacionais: Double?
-    /** Quando utilizado pelo emissor a modalidade limiteCompra, este campo apresentar\u00E1 o valor de cr\u00E9dito que o portador possui dispon\u00EDvel para realizar transa\u00E7\u00F5es de compra Nacional. */
+    /** {{{fatura_consignada_detalhe_response_saldo_disponivel_compra_value}}} */
     public var saldoDisponivelCompra: Double?
-    /** Valor total dos d\u00E9bitos diversos opcionais lan\u00E7ados na fatura. */
+    /** {{{fatura_consignada_detalhe_response_total_debitos_opcionais_value}}} */
     public var totalDebitosOpcionais: Double?
-    /** Quando utilizado pelo emissor a modalidade limiteParcelado, este campo apresentar\u00E1 o valor de cr\u00E9dito que o portador possui dispon\u00EDvel para realizar transa\u00E7\u00F5es de compra Nacional. */
+    /** {{{fatura_consignada_detalhe_response_saldo_disponivel_parcelado_value}}} */
     public var saldoDisponivelParcelado: Double?
-    /** Valor total dos pagamentos lan\u00E7ados na fatura. */
+    /** {{{fatura_consignada_detalhe_response_total_pagamentos_value}}} */
     public var totalPagamentos: Double?
-    /** Quando utilizado pelo emissor a modalidade limiteParcelas, este campo apresentar\u00E1 o valor de cr\u00E9dito que o portador possui dispon\u00EDvel para utilizar como valor de parcelas Nacionais em um determinado ciclo de faturamento. */
+    /** {{{fatura_consignada_detalhe_response_saldo_disponivel_parcelas_value}}} */
     public var saldoDisponivelParcelas: Double?
-    /** Valor total dos cr\u00E9ditos nacionais lan\u00E7ados na fatura. */
+    /** {{{fatura_consignada_detalhe_response_total_creditos_nacionais_value}}} */
     public var totalCreditosNacionais: Double?
-    /** Valor total dos ajustes lan\u00E7ados na fatura. */
+    /** {{{fatura_consignada_detalhe_response_total_ajustes_value}}} */
     public var totalAjustes: Double?
-    /** Valor total das tarifas lan\u00E7adas na fatura. */
+    /** {{{fatura_consignada_detalhe_response_total_tarifas_value}}} */
     public var totalTarifas: Double?
-    /** Valor total da multa lan\u00E7ada na fatura. */
+    /** {{{fatura_consignada_detalhe_response_total_multa_value}}} */
     public var totalMulta: Double?
-    /** Quando utilizado pelo emissor a modalidade limiteSaque, este campo apresentar\u00E1 o valor de cr\u00E9dito que o portador possui dispon\u00EDvel para realizar transa\u00E7\u00F5es de Saque Nacional. */
+    /** {{{fatura_consignada_detalhe_response_saldo_disponivel_saque_value}}} */
     public var saldoDisponivelSaque: Double?
-    /** Valor total dos juros de mora lan\u00E7ados na fatura. */
+    /** {{{fatura_consignada_detalhe_response_total_juros_value}}} */
     public var totalJuros: Double?
-    /** Quando utilizado um programa de fidelidade pelo emissor, este campo apresentar\u00E1 o saldo atual de pontos que o portador possui. */
+    /** {{{fatura_consignada_detalhe_response_saldo_pontos_fidelidade_value}}} */
     public var saldoPontosFidelidade: Double?
-    /** Valor percentual da taxa de juros rotativos. */
+    /** {{{fatura_consignada_detalhe_response_taxa_rotativo_value}}} */
     public var taxaRotativo: Double?
-    /** Quando utilizado pelo emissor a modalidade limiteCompraInternacional, este campo apresentar\u00E1 o valor de cr\u00E9dito que o portador possui dispon\u00EDvel para realizar transa\u00E7\u00F5es de Compra Internacional. */
+    /** {{{fatura_consignada_detalhe_response_saldo_disponivel_compra_internacional_value}}} */
     public var saldoDisponivelCompraInternacional: Double?
-    /** Valor percentual da taxa de saque. */
+    /** {{{fatura_consignada_detalhe_response_taxa_saque_value}}} */
     public var taxaSaque: Double?
-    /** Quando utilizado pelo emissor a modalidade limiteSaqueInternacional, este campo apresentar\u00E1 o valor de cr\u00E9dito que o portador possui dispon\u00EDvel para realizar transa\u00E7\u00F5es de Saque Internacional. */
+    /** {{{fatura_consignada_detalhe_response_saldo_disponivel_saque_internacional_value}}} */
     public var saldoDisponivelSaqueInternacional: Double?
-    /** Valor m\u00E1ximo percentual da taxa de encargos para o pr\u00F3ximo per\u00EDodo. */
+    /** {{{fatura_consignada_detalhe_response_taxa_maxima_proximo_periodo_value}}} */
     public var taxaMaximaProximoPeriodo: Double?
-    /** Apresenta a soma de todos os seguros cobrados na fatura do cliente. */
+    /** {{{fatura_consignada_detalhe_response_total_servicos_value}}} */
     public var totalServicos: Double?
     
 

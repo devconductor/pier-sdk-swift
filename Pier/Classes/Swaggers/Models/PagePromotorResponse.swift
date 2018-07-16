@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Lista de Promotores */
+/** {{{page_promotor_response_description}}} */
 public class PagePromotorResponse: JSONEncodable {
 
     public var content: [PromotorResponse]?

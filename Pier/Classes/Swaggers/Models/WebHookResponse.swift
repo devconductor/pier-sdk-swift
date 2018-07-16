@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Representa\u00E7\u00E3o do recurso WebHook */
+/** {{{web_hook_response_description}}} */
 public class WebHookResponse: JSONEncodable {
 
     public enum TipoEvento: String { 
@@ -29,15 +29,15 @@ public class WebHookResponse: JSONEncodable {
         case Ativo = "ATIVO"
     }
     
-    /** Id do WebHook */
+    /** {{{web_hook_response_id_value}}} */
     public var id: Int?
-    /** TipoEvento a ser chamado pelo WebHook */
+    /** {{{web_hook_response_tipo_evento_value}}} */
     public var tipoEvento: TipoEvento?
-    /** M\u00E9todo que a ser chamado pelo WebHook */
+    /** {{{web_hook_response_metodo_value}}} */
     public var metodo: Metodo?
-    /** URL que a ser consumida pelo WebHook */
+    /** {{{web_hook_response_url_value}}} */
     public var url: String?
-    /** Status do WebHook */
+    /** {{{web_hook_response_status_value}}} */
     public var status: Status?
     
 

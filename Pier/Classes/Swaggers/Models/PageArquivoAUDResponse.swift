@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Lista de auditorias do arquivo */
+/** {{{page_arquivo_a_u_d_response_description}}} */
 public class PageArquivoAUDResponse: JSONEncodable {
 
     public var content: [ArquivoAUDResponse]?

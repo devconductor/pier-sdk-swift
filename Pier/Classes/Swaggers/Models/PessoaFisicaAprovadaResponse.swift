@@ -8,72 +8,72 @@
 import Foundation
 
 
-/** PessoaFisicaAprovadaResponse */
+/** {{{pessoa_fisica_aprovada_response_description}}} */
 public class PessoaFisicaAprovadaResponse: JSONEncodable {
 
-    /** C\u00F3digo de Identifica\u00E7\u00E3o da pessoa fisica (id) */
+    /** {{{pessoa_fisica_aprovada_response_id_value}}} */
     public var id: Int?
-    /** Apresenta o nome completo da pessoa fisica. */
+    /** {{{pessoa_fisica_aprovada_response_nome_value}}} */
     public var nome: String?
-    /** Apresenta o nome da m\u00E3e da pessoa fisica */
+    /** {{{pessoa_fisica_aprovada_response_nome_mae_value}}} */
     public var nomeMae: String?
-    /** Data de Nascimento da Pessoa. Essa data deve ser informada no formato aaaa-MM-dd. */
+    /** {{{pessoa_fisica_aprovada_response_data_nascimento_value}}} */
     public var dataNascimento: String?
-    /** C\u00F3digo de identifica\u00E7\u00E3o do sexo da Pessoa, quando PF, sendo: (\&quot;M\&quot;: Masculino), (\&quot;F\&quot;: Feminino). */
+    /** {{{pessoa_fisica_aprovada_response_sexo_value}}} */
     public var sexo: String?
-    /** N\u00FAmero do Cadastro de Pessoa Fisica (CPF) */
+    /** {{{pessoa_fisica_aprovada_response_cpf_value}}} */
     public var cpf: String?
-    /** N\u00FAmero da identidade. */
+    /** {{{pessoa_fisica_aprovada_response_numero_identidade_value}}} */
     public var numeroIdentidade: String?
-    /** Org\u00E3o expedidor da Identidade. */
+    /** {{{pessoa_fisica_aprovada_response_orgao_expedidor_identidade_value}}} */
     public var orgaoExpedidorIdentidade: String?
-    /** Sigla da Unidade Federativa de onde foi expedido a Identidade */
+    /** {{{pessoa_fisica_aprovada_response_unidade_federativa_identidade_value}}} */
     public var unidadeFederativaIdentidade: String?
-    /** Data emiss\u00E3o da Identidade no formato aaaa-MM-dd */
+    /** {{{pessoa_fisica_aprovada_response_data_emissao_identidade_value}}} */
     public var dataEmissaoIdentidade: String?
-    /** Id Estado civil da pessoa fisica */
+    /** {{{pessoa_fisica_aprovada_response_id_estado_civil_value}}} */
     public var idEstadoCivil: Int?
-    /** Profiss\u00E3o da pessoa fisica */
+    /** {{{pessoa_fisica_aprovada_response_id_profissao_value}}} */
     public var idProfissao: String?
-    /** Id Natureza Ocupa\u00E7\u00E3o da pessoa fisica */
+    /** {{{pessoa_fisica_aprovada_response_id_natureza_ocupacao_value}}} */
     public var idNaturezaOcupacao: Int?
-    /** Id Nacionalidade da pessoa fisica */
+    /** {{{pessoa_fisica_aprovada_response_id_nacionalidade_value}}} */
     public var idNacionalidade: Int?
-    /** Id da origem comercial */
+    /** {{{pessoa_fisica_aprovada_response_id_origem_comercial_value}}} */
     public var idOrigemComercial: Int?
-    /** Id do produto */
+    /** {{{pessoa_fisica_aprovada_response_id_produto_value}}} */
     public var idProduto: Int?
-    /** N\u00FAmero da ag\u00EAncia. */
+    /** {{{pessoa_fisica_aprovada_response_numero_agencia_value}}} */
     public var numeroAgencia: Int?
-    /** N\u00FAmero da conta corrente. */
+    /** {{{pessoa_fisica_aprovada_response_numero_conta_corrente_value}}} */
     public var numeroContaCorrente: String?
-    /** Email da pessoa fisica */
+    /** {{{pessoa_fisica_aprovada_response_email_value}}} */
     public var email: String?
-    /** Dia vencimento */
+    /** {{{pessoa_fisica_aprovada_response_dia_vencimento_value}}} */
     public var diaVencimento: Int?
-    /** Nome que deve ser impresso no cart\u00E3o */
+    /** {{{pessoa_fisica_aprovada_response_nome_impresso_value}}} */
     public var nomeImpresso: String?
-    /** Nome da empresa */
+    /** {{{pessoa_fisica_aprovada_response_nome_empresa_value}}} */
     public var nomeEmpresa: String?
-    /** C\u00F3digo de identifica\u00E7\u00E3o da conta cadastrada */
+    /** {{{pessoa_fisica_aprovada_response_id_conta_value}}} */
     public var idConta: Int?
-    /** C\u00F3digo de identifica\u00E7\u00E3o da proposta */
+    /** {{{pessoa_fisica_aprovada_response_id_proposta_value}}} */
     public var idProposta: Int?
-    /** Indica o canal pelo qual o cadastro do cliente foi realizado */
+    /** {{{pessoa_fisica_aprovada_response_canal_entrada_value}}} */
     public var canalEntrada: String?
-    /** Indica o valor da pontua\u00E7\u00E3o atribuido ao cliente (caso n\u00E3o informado ser\u00E1 atribuido o valor = 0) */
+    /** {{{pessoa_fisica_aprovada_response_valor_pontuacao_value}}} */
     public var valorPontuacao: Int?
-    /** Apresenta os telefones da empresa */
+    /** {{{pessoa_fisica_aprovada_response_telefones_value}}} */
     public var telefones: [TelefonePessoaAprovadaResponse]?
-    /** Pode ser informado os seguintes tipos de endere\u00E7o: Residencial, Comercial, e Outros */
+    /** {{{pessoa_fisica_aprovada_response_enderecos_value}}} */
     public var enderecos: [EnderecoAprovadoResponse]?
-    /** Valor do Limite Global */
+    /** {{{pessoa_fisica_aprovada_response_limite_global_value}}} */
     public var limiteGlobal: Double?
-    /** Valor m\u00E1ximo do limite de cr\u00E9dito para realizar transa\u00E7\u00F5es */
+    /** {{{pessoa_fisica_aprovada_response_limite_maximo_value}}} */
     public var limiteMaximo: Double?
-    /** Valor do limite de cr\u00E9dito acumulado da soma das parcelas das compras */
+    /** {{{pessoa_fisica_aprovada_response_limite_parcelas_value}}} */
     public var limiteParcelas: Double?
-    /** Valor do limite de margem consignado */
+    /** {{{pessoa_fisica_aprovada_response_limite_consignado_value}}} */
     public var limiteConsignado: Double?
     
 

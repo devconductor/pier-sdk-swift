@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Representa\u00E7\u00E3o do recurso Usuario */
+/** {{{usuario_response_description}}} */
 public class UsuarioResponse: JSONEncodable {
 
     public enum Status: String { 
@@ -16,26 +16,28 @@ public class UsuarioResponse: JSONEncodable {
         case Ativo = "ATIVO"
     }
     
-    /** Id do Usu\u00E1rio */
+    /** {{{usuario_response_id_value}}} */
     public var id: Int?
-    /** Nome do Usu\u00E1rio */
+    /** {{{usuario_response_nome_value}}} */
     public var nome: String?
-    /** Login do Usu\u00E1rio */
+    /** {{{usuario_response_login_value}}} */
     public var login: String?
-    /** Id do emissor do usu\u00E1rio */
+    /** {{{usuario_response_id_emissor_value}}} */
     public var idEmissor: Int?
-    /** CPF do Usu\u00E1rio */
+    /** {{{usuario_response_cpf_value}}} */
     public var cpf: String?
-    /** Email do Usu\u00E1rio */
+    /** {{{usuario_response_email_value}}} */
     public var email: String?
-    /** Status do Usu\u00E1rio */
+    /** {{{usuario_response_status_value}}} */
     public var status: Status?
-    /** Data de cria\u00E7\u00E3o do Usu\u00E1rio */
+    /** {{{usuario_response_data_criacao_value}}} */
     public var dataCriacao: String?
-    /** Data de modifica\u00E7\u00E3o do Usu\u00E1rio */
+    /** {{{usuario_response_data_modificacao_value}}} */
     public var dataModificacao: String?
-    /** N\u00FAmero de tentativas de valida\u00E7\u00E3o incorretas */
+    /** {{{usuario_response_tentativas_incorretas_value}}} */
     public var tentativasIncorretas: Int?
+    /** {{{usuario_response_bloquear_acesso_descricao}}} */
+    public var bloquearAcesso: Bool?
     
 
     public init() {}
@@ -53,6 +55,7 @@ public class UsuarioResponse: JSONEncodable {
         nillableDictionary["dataCriacao"] = self.dataCriacao
         nillableDictionary["dataModificacao"] = self.dataModificacao
         nillableDictionary["tentativasIncorretas"] = self.tentativasIncorretas
+        nillableDictionary["bloquearAcesso"] = self.bloquearAcesso
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

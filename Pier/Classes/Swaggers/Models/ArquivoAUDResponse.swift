@@ -8,34 +8,34 @@
 import Foundation
 
 
-/** Objeto Response da auditoria do arquivo. */
+/** {{{arquivo_a_u_d_response_description}}} */
 public class ArquivoAUDResponse: JSONEncodable {
 
-    /** Identificador da auditoria arquivo */
+    /** {{{arquivo_a_u_d_response_rev_value}}} */
     public var rev: Int?
-    /** Identificador do tipo de auditoria (0 - Criado, 1 - Alterado, 2 - Exclu\u00EDdo) */
+    /** {{{arquivo_a_u_d_response_rev_type_value}}} */
     public var revType: Int?
-    /** Identificador do arquivo auditado */
+    /** {{{arquivo_a_u_d_response_id_value}}} */
     public var id: Int?
-    /** Nome do arquivo auditado */
+    /** {{{arquivo_a_u_d_response_nome_value}}} */
     public var nome: String?
-    /** Identificador da resposta da Acesso Digital */
+    /** {{{arquivo_a_u_d_response_id_resposta_acesso_digital_value}}} */
     public var idRespostaAcessoDigital: String?
-    /** Data de resposta da Acesso Digital */
+    /** {{{arquivo_a_u_d_response_data_hora_resposta_acesso_digital_value}}} */
     public var dataHoraRespostaAcessoDigital: String?
-    /** Identificador da resposta da Neurotech */
+    /** {{{arquivo_a_u_d_response_id_resposta_neurotech_value}}} */
     public var idRespostaNeurotech: String?
-    /** Data de resposta da Neurotech */
+    /** {{{arquivo_a_u_d_response_data_hora_resposta_neurotech_value}}} */
     public var dataHoraRespostaNeurotech: String?
-    /** Uri de acesso */
+    /** {{{arquivo_a_u_d_response_uri_value}}} */
     public var uri: String?
-    /** Data de inclus\u00E3o do arquivo auditado */
+    /** {{{arquivo_a_u_d_response_data_hora_inclusao_value}}} */
     public var dataHoraInclusao: String?
-    /** Data de altera\u00E7\u00E3o do arquivo auditado */
+    /** {{{arquivo_a_u_d_response_data_hora_alteracao_value}}} */
     public var dataHoraAlteracao: String?
-    /** Extens\u00E3o do arquivo auditado */
+    /** {{{arquivo_a_u_d_response_extensao_value}}} */
     public var extensao: String?
-    /** Lista  de par\u00E2metros do arquivo auditado */
+    /** {{{arquivo_a_u_d_response_parametros_value}}} */
     public var parametros: [ArquivoParametroAUDResponse]?
     
 

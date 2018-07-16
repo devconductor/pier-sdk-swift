@@ -8,17 +8,64 @@
 import Foundation
 
 
-/** Representa\u00E7\u00E3o da resposta do recurso de Tipo Debito Recorrente */
+/** {{{tipo_debito_recorrente_response_description}}} */
 public class TipoDebitoRecorrenteResponse: JSONEncodable {
 
-    /** C\u00F3digo de identifica\u00E7\u00E3o do tipo de d\u00E9bito recorrente (id). */
+    public var flagAnuidadeBonificada: Bool?
+    /** {{{tipo_debito_recorrente_response_id_value}}} */
     public var id: Int?
-    /** Descri\u00E7\u00E3o do tipo de d\u00E9bito recorrente. */
-    public var descricao: String?
-    /** Valor do tipo de d\u00E9bito recorrente. */
+    /** {{{tipo_debito_recorrente_response_descricao_value}}} */
+    public var nome: String?
+    /** {{{tipo_debito_recorrente_response_valor_value}}} */
     public var valor: Double?
-    /** Flag que identifica se o tipo d\u00E9bito recorrente est\u00E1 ativo. */
+    /** {{{tipo_debito_recorrente_response_flag_ativo_value}}} */
     public var flagAtivo: Bool?
+    /** {{{tipo_debito_recorrente_response_valor_bonus_value}}} */
+    public var valorBonus: Double?
+    /** {{{tipo_debito_recorrente_response_numero_parcelas_value}}} */
+    public var numeroParcelas: Int?
+    /** {{{tipo_debito_recorrente_response_flag_adere_automatico_value}}} */
+    public var flagAdereAutomatico: Bool?
+    /** {{{tipo_debito_recorrente_response_flag_gera_numero_sorte_value}}} */
+    public var flagGeraNumeroSorte: Bool?
+    /** {{{tipo_debito_recorrente_response_faixa_etaria_value}}} */
+    public var faixaEtaria: String?
+    /** {{{tipo_debito_recorrente_response_flag_seguro_value}}} */
+    public var flagSeguro: Bool?
+    /** {{{tipo_debito_recorrente_response_sorteios_mensais_value}}} */
+    public var sorteiosMensais: String?
+    /** {{{tipo_debito_recorrente_response_flag_adesao_automatica_value}}} */
+    public var flagAdesaoAutomatica: Bool?
+    /** {{{tipo_debito_recorrente_response_flag_dependente_value}}} */
+    public var flagDependente: Bool?
+    /** {{{tipo_debito_recorrente_response_quantidade_dependente_value}}} */
+    public var quantidadeDependente: Int?
+    /** {{{tipo_debito_recorrente_response_id_termo_seguro_servico_value}}} */
+    public var idTermoSeguroServico: Int?
+    /** {{{tipo_debito_recorrente_response_idade_minima_value}}} */
+    public var idadeMinima: Int?
+    /** {{{tipo_debito_recorrente_response_idade_maxima_value}}} */
+    public var idadeMaxima: Int?
+    /** {{{tipo_debito_recorrente_response_flag_debito_incondicional_value}}} */
+    public var flagDebitoIncondicional: Bool?
+    /** {{{tipo_debito_recorrente_response_flag_extrato_incondicional_value}}} */
+    public var flagExtratoIncondicional: Bool?
+    /** {{{tipo_debito_recorrente_response_flag_estorno_automatico_value}}} */
+    public var flagEstornoAutomatico: Bool?
+    /** {{{tipo_debito_recorrente_response_valor_repassado_seguradora_value}}} */
+    public var valorRepassadoSeguradora: Double?
+    /** {{{tipo_debito_recorrente_response_flag_lanca_transacao_value}}} */
+    public var flagLancaTransacao: Bool?
+    /** {{{tipo_debito_recorrente_response_flag_transferencia_automatica_value}}} */
+    public var flagTransferenciaAutomatica: Bool?
+    /** {{{tipo_debito_recorrente_response_id_produto_value}}} */
+    public var idProduto: Int?
+    /** {{{tipo_debito_recorrente_response_id_grupo_debito_recorrente_value}}} */
+    public var idGrupoDebitoRecorrente: Int?
+    /** {{{tipo_debito_recorrente_response_quantidade_tentativas_cobranca_value}}} */
+    public var quantidadeTentativasCobranca: Int?
+    /** {{{tipo_debito_recorrente_response_id_ajuste_value}}} */
+    public var idAjuste: Int?
     
 
     public init() {}
@@ -26,10 +73,34 @@ public class TipoDebitoRecorrenteResponse: JSONEncodable {
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
+        nillableDictionary["flagAnuidadeBonificada"] = self.flagAnuidadeBonificada
         nillableDictionary["id"] = self.id
-        nillableDictionary["descricao"] = self.descricao
+        nillableDictionary["nome"] = self.nome
         nillableDictionary["valor"] = self.valor
         nillableDictionary["flagAtivo"] = self.flagAtivo
+        nillableDictionary["valorBonus"] = self.valorBonus
+        nillableDictionary["numeroParcelas"] = self.numeroParcelas
+        nillableDictionary["flagAdereAutomatico"] = self.flagAdereAutomatico
+        nillableDictionary["flagGeraNumeroSorte"] = self.flagGeraNumeroSorte
+        nillableDictionary["faixaEtaria"] = self.faixaEtaria
+        nillableDictionary["flagSeguro"] = self.flagSeguro
+        nillableDictionary["sorteiosMensais"] = self.sorteiosMensais
+        nillableDictionary["flagAdesaoAutomatica"] = self.flagAdesaoAutomatica
+        nillableDictionary["flagDependente"] = self.flagDependente
+        nillableDictionary["quantidadeDependente"] = self.quantidadeDependente
+        nillableDictionary["idTermoSeguroServico"] = self.idTermoSeguroServico
+        nillableDictionary["idadeMinima"] = self.idadeMinima
+        nillableDictionary["idadeMaxima"] = self.idadeMaxima
+        nillableDictionary["flagDebitoIncondicional"] = self.flagDebitoIncondicional
+        nillableDictionary["flagExtratoIncondicional"] = self.flagExtratoIncondicional
+        nillableDictionary["flagEstornoAutomatico"] = self.flagEstornoAutomatico
+        nillableDictionary["valorRepassadoSeguradora"] = self.valorRepassadoSeguradora
+        nillableDictionary["flagLancaTransacao"] = self.flagLancaTransacao
+        nillableDictionary["flagTransferenciaAutomatica"] = self.flagTransferenciaAutomatica
+        nillableDictionary["idProduto"] = self.idProduto
+        nillableDictionary["idGrupoDebitoRecorrente"] = self.idGrupoDebitoRecorrente
+        nillableDictionary["quantidadeTentativasCobranca"] = self.quantidadeTentativasCobranca
+        nillableDictionary["idAjuste"] = self.idAjuste
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

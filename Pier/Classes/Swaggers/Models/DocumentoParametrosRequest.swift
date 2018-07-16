@@ -8,14 +8,14 @@
 import Foundation
 
 
-/** Objeto que encapsula os par\u00E2metros para gera\u00E7\u00E3o de um documento */
+/** {{{documento_parametros_request_description}}} */
 public class DocumentoParametrosRequest: JSONEncodable {
 
-    /** ID para o template do documento. */
+    /** {{{documento_parametros_request_id_template_documento_value}}} */
     public var idTemplateDocumento: Int?
-    /** Nome para o arquivo. */
+    /** {{{documento_parametros_request_nome_value}}} */
     public var nome: String?
-    /** Lista de par\u00E2metros para montagem do documento. */
+    /** {{{documento_parametros_request_parametros_conteudo_value}}} */
     public var parametrosConteudo: [PropriedadeDocumentoRequest]?
     
 

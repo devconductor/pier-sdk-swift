@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Representa\u00E7\u00E3o da resposta do recurso de operadora telef\u00F4nica */
+/** {{{page_operadora_response_description}}} */
 public class PageOperadoraResponse: JSONEncodable {
 
     public var content: [OperadoraResponse]?

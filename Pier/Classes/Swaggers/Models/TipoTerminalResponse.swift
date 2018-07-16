@@ -8,12 +8,12 @@
 import Foundation
 
 
-/** ObjetoTipoTerminal */
+/** {{{tipo_terminal_response_description}}} */
 public class TipoTerminalResponse: JSONEncodable {
 
-    /** C\u00F3digo de Identifica\u00E7\u00E3o do Tipo Terminal (id). */
+    /** {{{tipo_terminal_response_id_value}}} */
     public var id: Int?
-    /** Descri\u00E7\u00E3o do Tipo Terminal. */
+    /** {{{tipo_terminal_response_descricao_terminal_value}}} */
     public var descricaoTerminal: String?
     
 

@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Objeto de Notifica\u00E7\u00E3o EMAIL */
+/** {{{template_notificacao_response_description}}} */
 public class TemplateNotificacaoResponse: JSONEncodable {
 
     public enum TipoLayout: String { 
@@ -26,23 +26,23 @@ public class TemplateNotificacaoResponse: JSONEncodable {
         case Email = "EMAIL"
     }
     
-    /** C\u00F3digo Identificador. */
+    /** {{{template_notificacao_response_id_value}}} */
     public var id: Int?
-    /** C\u00F3digo de identifica\u00E7\u00E3o da configra\u00E7\u00E3o de e-mail. */
+    /** {{{template_notificacao_response_id_configuracao_email_value}}} */
     public var idConfiguracaoEmail: Int?
-    /** Tipo do layout de e-mail. */
+    /** {{{template_notificacao_response_tipo_layout_value}}} */
     public var tipoLayout: TipoLayout?
-    /** Tipo da notifica\u00E7\u00E3o. */
+    /** {{{template_notificacao_response_tipo_notificacao_value}}} */
     public var tipoNotificacao: TipoNotificacao?
-    /** Template padr\u00E3o. */
+    /** {{{template_notificacao_response_template_padrao_value}}} */
     public var templatePadrao: String?
-    /** Remetente. */
+    /** {{{template_notificacao_response_remetente_value}}} */
     public var remetente: String?
-    /** Assunto do e-mail. */
+    /** {{{template_notificacao_response_assunto_value}}} */
     public var assunto: String?
-    /** Data da inclus\u00E3o. */
+    /** {{{template_notificacao_response_data_inclusao_value}}} */
     public var dataInclusao: String?
-    /** Data altera\u00E7\u00E3o. */
+    /** {{{template_notificacao_response_data_alteracao_value}}} */
     public var dataAlteracao: String?
     
 

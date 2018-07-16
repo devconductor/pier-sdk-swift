@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Par\u00E2metros de requisi\u00E7\u00E3o de um estabelecimento */
+/** {{{estabelecimento_persist_description}}} */
 public class EstabelecimentoPersist: JSONEncodable {
 
     public enum TipoPagamento: String { 
@@ -16,83 +16,83 @@ public class EstabelecimentoPersist: JSONEncodable {
         case Pv = "PV"
     }
     
-    /** Indica se \u00E9 matriz ou filial. */
+    /** {{{estabelecimento_persist_flag_matriz_value}}} */
     public var flagMatriz: Int?
-    /** Apresenta o n\u00FAmero de identifica\u00E7\u00E3o do Grupo Econ\u00F4mico. */
+    /** {{{estabelecimento_persist_id_grupo_economico_value}}} */
     public var idGrupoEconomico: Int?
-    /** Apresenta o n\u00FAmero de identifica\u00E7\u00E3o do Estabelecimento na Receita Federal. */
+    /** {{{estabelecimento_persist_numero_receita_federal_value}}} */
     public var numeroReceitaFederal: String?
-    /** Nome do Estabelecimento. */
+    /** {{{estabelecimento_persist_nome_value}}} */
     public var nome: String?
-    /** Raz\u00E3o Social do Estabelecimento. */
+    /** {{{estabelecimento_persist_descricao_value}}} */
     public var descricao: String?
-    /** T\u00EDtulo Comercial do Estabelecimento. */
+    /** {{{estabelecimento_persist_nome_fantasia_value}}} */
     public var nomeFantasia: String?
-    /** C\u00F3digo de Endere\u00E7amento Postal (CEP). */
+    /** {{{estabelecimento_persist_cep_value}}} */
     public var cep: String?
-    /** Nome do Logradouro. */
+    /** {{{estabelecimento_persist_nome_logradouro_value}}} */
     public var nomeLogradouro: String?
-    /** N\u00FAmero do endere\u00E7o. */
+    /** {{{estabelecimento_persist_numero_endereco_value}}} */
     public var numeroEndereco: Int?
-    /** Nome do bairro do endere\u00E7o. */
+    /** {{{estabelecimento_persist_bairro_value}}} */
     public var bairro: String?
-    /** Nome da cidade do endere\u00E7o. */
+    /** {{{estabelecimento_persist_cidade_value}}} */
     public var cidade: String?
-    /** Descri\u00E7\u00F5es complementares referente ao endere\u00E7o. */
+    /** {{{estabelecimento_persist_complemento_value}}} */
     public var complemento: String?
-    /** Sigla de identifica\u00E7\u00E3o da Unidade Federativa do endere\u00E7o. */
+    /** {{{estabelecimento_persist_uf_value}}} */
     public var uf: String?
-    /** C\u00F3digo de Endere\u00E7amento Postal (CEP). */
+    /** {{{estabelecimento_persist_cep2_value}}} */
     public var cep2: String?
-    /** Nome do Logradouro . */
+    /** {{{estabelecimento_persist_nome_logradouro2_value}}} */
     public var nomeLogradouro2: String?
-    /** N\u00FAmero do endere\u00E7o. */
+    /** {{{estabelecimento_persist_numero_endereco2_value}}} */
     public var numeroEndereco2: Int?
-    /** Nome do bairro do endere\u00E7o. */
+    /** {{{estabelecimento_persist_bairro2_value}}} */
     public var bairro2: String?
-    /** Nome da cidade do endere\u00E7o. */
+    /** {{{estabelecimento_persist_cidade2_value}}} */
     public var cidade2: String?
-    /** Descri\u00E7\u00F5es complementares referente ao endere\u00E7o. */
+    /** {{{estabelecimento_persist_complemento2_value}}} */
     public var complemento2: String?
-    /** Sigla de identifica\u00E7\u00E3o da Unidade Federativa do endere\u00E7o. */
+    /** {{{estabelecimento_persist_uf2_value}}} */
     public var uf2: String?
-    /** Detalhes espec\u00EDficos quanto ao Cadastro do Estabelecimento. */
+    /** {{{estabelecimento_persist_obs_value}}} */
     public var obs: String?
-    /** Nome da pessoa para contato com o Estabelecimento. */
+    /** {{{estabelecimento_persist_contato_value}}} */
     public var contato: String?
-    /** E-mail da pessoa para contato com o Estabelecimento. */
+    /** {{{estabelecimento_persist_email_value}}} */
     public var email: String?
-    /** Indica se o estabelecimento ser\u00E1 inclu\u00EDdo no arquivo de registro para a Secretaria da Fazenda Estadual. */
+    /** {{{estabelecimento_persist_flag_arquivo_secr_fazenda_value}}} */
     public var flagArquivoSecrFazenda: Int?
-    /** Indica se o estabelecimento poder\u00E1 originar transa\u00E7\u00F5es sem a leitura da tarja ou do chip do cart\u00E3o. */
+    /** {{{estabelecimento_persist_flag_cartao_digitado_value}}} */
     public var flagCartaoDigitado: Int?
-    /** Indica se o estabelecimento est\u00E1 inativo. */
+    /** {{{estabelecimento_persist_inativo_value}}} */
     public var inativo: Int?
-    /** C\u00F3digo identificador da moeda. */
+    /** {{{estabelecimento_persist_id_moeda_value}}} */
     public var idMoeda: Int?
-    /** Identificador de Pa\u00EDs. */
+    /** {{{estabelecimento_persist_id_pais_value}}} */
     public var idPais: Int?
-    /** N\u00FAmero do associado ao SPCBrasil. */
+    /** {{{estabelecimento_persist_associado_s_p_c_brasil_value}}} */
     public var associadoSPCBrasil: Int?
-    /** C\u00F3digo de Categoria de Mercado. */
+    /** {{{estabelecimento_persist_mcc_value}}} */
     public var mcc: Int?
-    /** C\u00F3digo de identifica\u00E7\u00E3o do tipo de Estabelecimento. */
+    /** {{{estabelecimento_persist_id_tipo_estabelecimento_value}}} */
     public var idTipoEstabelecimento: Int?
-    /** Indicador para qual endere\u00E7o as correspond\u00EAncias ser\u00E3o enviadas, onde 1 \u00E9 ORIGEM e 2 ENDERE\u00C7O DE CORRESPOND\u00CANCIA. */
+    /** {{{estabelecimento_persist_correspondencia_value}}} */
     public var correspondencia: Int?
-    /** Cargo do contato do estabelecimento. */
+    /** {{{estabelecimento_persist_cargo_contato_value}}} */
     public var cargoContato: String?
-    /** Tipo do regime de pagamento do estabelecimento. */
+    /** {{{estabelecimento_persist_tipo_pagamento_value}}} */
     public var tipoPagamento: TipoPagamento?
-    /** Consulta de cadastro n\u00FAmero um. */
+    /** {{{estabelecimento_persist_consulta_value}}} */
     public var consulta: ConsultaCadastroEstabelecimentoDTO?
-    /** Consulta de cadastro n\u00FAmero dois. */
+    /** {{{estabelecimento_persist_consulta2_value}}} */
     public var consulta2: ConsultaCadastroEstabelecimentoDTO?
-    /** Consulta de cadastro n\u00FAmero tr\u00EAs. */
+    /** {{{estabelecimento_persist_consulta3_value}}} */
     public var consulta3: ConsultaCadastroEstabelecimentoDTO?
-    /** Flag indicando se o terminal \u00E9 f\u00EDsico ou virtual, sendo: (true: Sim), (false: N\u00E3o)). */
+    /** {{{estabelecimento_persist_flag_terminal_virtual_value}}} */
     public var flagTerminalVirtual: Bool?
-    /** Flag indicando se o terminal permite consultar extrato, sendo: (true: Sim), (false: N\u00E3o)). */
+    /** {{{estabelecimento_persist_flag_consulta_extrato_value}}} */
     public var flagConsultaExtrato: Bool?
     
 

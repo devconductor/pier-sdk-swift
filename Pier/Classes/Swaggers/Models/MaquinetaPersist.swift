@@ -8,16 +8,16 @@
 import Foundation
 
 
-/** Objeto Maquineta */
+/** {{{maquineta_persist_description}}} */
 public class MaquinetaPersist: JSONEncodable {
 
-    /** C\u00F3digo de Identifica\u00E7\u00E3o do Terminal (id). */
+    /** {{{maquineta_persist_id_terminal_value}}} */
     public var idTerminal: Int?
-    /** C\u00F3digo de Identifica\u00E7\u00E3o do Tipo Maquineta (id). */
+    /** {{{maquineta_persist_id_tipo_maquineta_value}}} */
     public var idTipoMaquineta: Int?
-    /** Valor de Manuten\u00E7\u00E3o da Maquineta. */
+    /** {{{maquineta_persist_valor_value}}} */
     public var valor: Double?
-    /** Data da implanta\u00E7\u00E3o da Maquineta, inserir no formato yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSS&#39;Z&#39;. */
+    /** {{{maquineta_persist_data_hora_implantacao_value}}} */
     public var dataHoraImplantacao: String?
     
 

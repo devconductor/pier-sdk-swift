@@ -8,16 +8,16 @@
 import Foundation
 
 
-/** Representa\u00E7\u00E3o da resposta do recurso de anuidade */
+/** {{{anuidade_response_description}}} */
 public class AnuidadeResponse: JSONEncodable {
 
-    /** Identificador do Tipo de anuidade de b\u00F4nus de celular */
+    /** {{{anuidade_response_id_value}}} */
     public var id: Int?
-    /** Descri\u00E7\u00E3o do tipo de anuidade de b\u00F4nus de celular */
+    /** {{{anuidade_response_descricao_value}}} */
     public var descricao: String?
-    /** Valor do tipo de anuidade de b\u00F4nus de celular */
+    /** {{{anuidade_response_valor_value}}} */
     public var valor: Double?
-    /** Se o tipo de anuidade de b\u00F4nus de celular \u00E9 bonificada */
+    /** {{{anuidade_response_flag_anuidade_bonificada_value}}} */
     public var flagAnuidadeBonificada: Bool?
     
 

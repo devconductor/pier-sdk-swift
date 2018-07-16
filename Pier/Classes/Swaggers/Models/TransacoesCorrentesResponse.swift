@@ -8,84 +8,84 @@
 import Foundation
 
 
-/** Objeto transacoes correntes */
+/** {{{transacoes_correntes_response_description}}} */
 public class TransacoesCorrentesResponse: JSONEncodable {
 
-    /** C\u00F3digo de identifica\u00E7\u00E3o da transfer\u00EAncia (id). */
+    /** {{{transacoes_correntes_response_id_value}}} */
     public var id: Int?
-    /** C\u00F3digo de Identifica\u00E7\u00E3o do Tipo da Transa\u00E7\u00E3o. */
+    /** {{{transacoes_correntes_response_id_tipo_transacao_value}}} */
     public var idTipoTransacao: Int?
-    /** Descri\u00E7\u00E3o Abreviada da Transa\u00E7\u00E3o. */
+    /** {{{transacoes_correntes_response_descricao_abreviada_value}}} */
     public var descricaoAbreviada: String?
-    /** Status de Processamento da Transa\u00E7\u00E3o. */
+    /** {{{transacoes_correntes_response_status_transacao_value}}} */
     public var statusTransacao: String?
-    /** C\u00F3digo de Identifica\u00E7\u00E3o do Evento que originou a Transa\u00E7\u00E3o (id). */
+    /** {{{transacoes_correntes_response_id_evento_value}}} */
     public var idEvento: Int?
-    /** Descri\u00E7\u00E3o do Evento que representa a Transa\u00E7\u00E3o. */
+    /** {{{transacoes_correntes_response_tipo_evento_value}}} */
     public var tipoEvento: String?
-    /** C\u00F3digo de Identifica\u00E7\u00E3o da Conta (id). */
+    /** {{{transacoes_correntes_response_id_conta_value}}} */
     public var idConta: Int?
-    /** N\u00FAmero do Cart\u00E3o em Formato 0000XXXXXXXX0000. */
+    /** {{{transacoes_correntes_response_cartao_mascarado_value}}} */
     public var cartaoMascarado: String?
-    /** Nome completo do Portador do Cart\u00E3o. */
+    /** {{{transacoes_correntes_response_nome_portador_value}}} */
     public var nomePortador: String?
-    /** Data em que a Transa\u00E7\u00E3o foi realizada. */
+    /** {{{transacoes_correntes_response_data_transacao_value}}} */
     public var dataTransacao: String?
-    /** Data de Faturamento da Transa\u00E7\u00E3o. */
+    /** {{{transacoes_correntes_response_data_faturamento_value}}} */
     public var dataFaturamento: String?
-    /** Data de Vencimento da Fatura. */
+    /** {{{transacoes_correntes_response_data_vencimento_value}}} */
     public var dataVencimento: String?
-    /** Descreve o modo utilizado para realizar a leitura dos dados do cart\u00E3o para realizar a Transa\u00E7\u00E3o. */
+    /** {{{transacoes_correntes_response_modo_entrada_transacao_value}}} */
     public var modoEntradaTransacao: String?
-    /** Valor da Taxa de Embarque em Real (BRL) quando a transa\u00E7\u00E3o for relacionada a Compra de Passagens A\u00E9reas. */
+    /** {{{transacoes_correntes_response_valor_taxa_embarque_value}}} */
     public var valorTaxaEmbarque: Double?
-    /** Valor da Entrada em Real (BRL) quando a transa\u00E7\u00E3o for do tipo Parcelada com o pagamento de um valor de Entrada. */
+    /** {{{transacoes_correntes_response_valor_entrada_value}}} */
     public var valorEntrada: Double?
-    /** Valor da Transa\u00E7\u00E3o em Real (BRL). */
+    /** {{{transacoes_correntes_response_valor_b_r_l_value}}} */
     public var valorBRL: Double?
-    /** Valor da Transa\u00E7\u00E3o em D\u00F3lar Americano (USD). */
+    /** {{{transacoes_correntes_response_valor_u_s_d_value}}} */
     public var valorUSD: Double?
-    /** Valor do D\u00F3lar Americano (USD) convertido em Real (BRL). */
+    /** {{{transacoes_correntes_response_cotacao_u_s_d_value}}} */
     public var cotacaoUSD: Double?
-    /** Data de Fechamento da Cota\u00E7\u00E3o do D\u00F3lar Americano (USD). */
+    /** {{{transacoes_correntes_response_data_cotacao_u_s_d_value}}} */
     public var dataCotacaoUSD: String?
-    /** C\u00F3digo de Identifica\u00E7\u00E3o da Moeda utilizada na Transa\u00E7\u00E3o, seguindo padr\u00E3o ISO 4217. */
+    /** {{{transacoes_correntes_response_codigo_moeda_origem_value}}} */
     public var codigoMoedaOrigem: String?
-    /** C\u00F3digo de Identifica\u00E7\u00E3o da Moeda da Transa\u00E7\u00E3o ap\u00F3s a convers\u00E3o, seguindo padr\u00E3o ISO 4217. */
+    /** {{{transacoes_correntes_response_codigo_moeda_destino_value}}} */
     public var codigoMoedaDestino: String?
-    /** C\u00F3digo de Autoriza\u00E7\u00E3o da Transa\u00E7\u00E3o. */
+    /** {{{transacoes_correntes_response_codigo_autorizacao_value}}} */
     public var codigoAutorizacao: String?
-    /** C\u00F3digo de Refer\u00EAncia da Transa\u00E7\u00E3o quando utilizado Cart\u00E3o Bandeirado. */
+    /** {{{transacoes_correntes_response_codigo_referencia_value}}} */
     public var codigoReferencia: String?
-    /** C\u00F3digo de Identifica\u00E7\u00E3o da origem da captura da Transa\u00E7\u00E3o. */
+    /** {{{transacoes_correntes_response_codigo_terminal_value}}} */
     public var codigoTerminal: String?
-    /** C\u00F3digo de identifica\u00E7\u00E3o da categoria do Estabelecimento. */
+    /** {{{transacoes_correntes_response_codigo_m_c_c_value}}} */
     public var codigoMCC: Int?
-    /** C\u00F3digo de identifica\u00E7\u00E3o do grupo do Estabelecimento. */
+    /** {{{transacoes_correntes_response_grupo_m_c_c_value}}} */
     public var grupoMCC: Int?
-    /** Descri\u00E7\u00E3o do grupo do Estabelecimento. */
+    /** {{{transacoes_correntes_response_grupo_descricao_m_c_c_value}}} */
     public var grupoDescricaoMCC: String?
-    /** C\u00F3digo de Identifica\u00E7\u00E3o do Estabelecimento (id). */
+    /** {{{transacoes_correntes_response_id_estabelecimento_value}}} */
     public var idEstabelecimento: Int?
-    /** Nome do Estabelecimento. */
+    /** {{{transacoes_correntes_response_nome_estabelecimento_value}}} */
     public var nomeEstabelecimento: String?
-    /** Nome Fantasia do Estabelecimento. */
+    /** {{{transacoes_correntes_response_nome_fantasia_estabelecimento_value}}} */
     public var nomeFantasiaEstabelecimento: String?
-    /** Localidade do Estabelecimento. */
+    /** {{{transacoes_correntes_response_localidade_estabelecimento_value}}} */
     public var localidadeEstabelecimento: String?
-    /** Quando a Transa\u00E7\u00E3o for do tipo Parcelada, apresenta o n\u00FAmero total de Parcelas. */
+    /** {{{transacoes_correntes_response_plano_parcelamento_value}}} */
     public var planoParcelamento: Int?
-    /** Quando a Transa\u00E7\u00E3o for do tipo Parcelada, apresenta o n\u00FAmero da Parcela. */
+    /** {{{transacoes_correntes_response_numero_parcela_value}}} */
     public var numeroParcela: Int?
-    /** Detalhes complementares a respeito da Transa\u00E7\u00E3o. */
+    /** {{{transacoes_correntes_response_detalhes_transacao_value}}} */
     public var detalhesTransacao: String?
-    /** Quando ativa, indica que a Transa\u00E7\u00E3o \u00E9 do Tipo &#39;Cr\u00E9dito&#39;. */
+    /** {{{transacoes_correntes_response_flag_credito_value}}} */
     public var flagCredito: Int?
-    /** Quando ativa, indica que a Transa\u00E7\u00E3o foi consolidada em uma Fatura. */
+    /** {{{transacoes_correntes_response_flag_faturado_value}}} */
     public var flagFaturado: Int?
-    /** Quando ativa, indica que a Transa\u00E7\u00E3o foi estornada. */
+    /** {{{transacoes_correntes_response_flag_estorno_value}}} */
     public var flagEstorno: Int?
-    /** C\u00F3digo de Identifica\u00E7\u00E3o da Transa\u00E7\u00E3o (id) que gerou o estorno. */
+    /** {{{transacoes_correntes_response_id_transacao_estorno_value}}} */
     public var idTransacaoEstorno: Int?
     
 

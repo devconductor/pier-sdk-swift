@@ -8,20 +8,20 @@
 import Foundation
 
 
-/** Objeto de Resposta dos Vencimentos */
+/** {{{controle_vencimento_response_description}}} */
 public class ControleVencimentoResponse: JSONEncodable {
 
-    /**  Indica a data de vencimento das faturas */
+    /** {{{controle_vencimento_response_data_vencimento_value}}} */
     public var dataVencimento: String?
-    /**  Indica a data prevista para a realiza\u00E7\u00E3o do Corte das faturas */
+    /** {{{controle_vencimento_response_data_prevista_corte_value}}} */
     public var dataPrevistaCorte: String?
-    /** Indica a data e a hora que fora realizada a realiza\u00E7\u00E3o do Corte das faturas */
+    /** {{{controle_vencimento_response_data_hora_realizacao_corte_value}}} */
     public var dataHoraRealizacaoCorte: String?
-    /** Indica a data prevista para a realiza\u00E7\u00E3o do faturamento */
+    /** {{{controle_vencimento_response_data_prevista_faturamento_value}}} */
     public var dataPrevistaFaturamento: String?
-    /** Indica a data e a hora que fora realizado o faturamento */
+    /** {{{controle_vencimento_response_data_hora_realizacao_faturamento_value}}} */
     public var dataHoraRealizacaoFaturamento: String?
-    /** Indica o dia \u00FAtil que ser\u00E1 considerado como a data de vencimento */
+    /** {{{controle_vencimento_response_data_real_vencimento_value}}} */
     public var dataRealVencimento: String?
     
 

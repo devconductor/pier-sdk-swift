@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Objeto que encapsula as propriedades do detalhamento do documento. */
+/** {{{propriedade_documento_request_description}}} */
 public class PropriedadeDocumentoRequest: JSONEncodable {
 
     public enum DetalhesTipo: String { 
@@ -17,13 +17,13 @@ public class PropriedadeDocumentoRequest: JSONEncodable {
         case Numero = "NUMERO"
     }
     
-    /** Valor da propriedade do Documento. */
+    /** {{{propriedade_documento_request_chave_value}}} */
     public var chave: String?
-    /** Valor da propriedade do Documento. */
+    /** {{{propriedade_documento_request_valor_value}}} */
     public var valor: String?
-    /** Tipo da propriedade do Documento. */
+    /** {{{propriedade_documento_request_detalhes_tipo_value}}} */
     public var detalhesTipo: DetalhesTipo?
-    /** Atributo que indica se o par\u00E2metro \u00E9 um \u00EDndice (default = false) */
+    /** {{{propriedade_documento_request_flag_indice_value}}} */
     public var flagIndice: Bool?
     
 

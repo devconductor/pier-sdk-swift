@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Objeto FAQ */
+/** {{{faq_response_description}}} */
 public class FaqResponse: JSONEncodable {
 
     public enum Status: String { 
@@ -16,19 +16,19 @@ public class FaqResponse: JSONEncodable {
         case Ativo = "ATIVO"
     }
     
-    /** C\u00F3digo de identifica\u00E7\u00E3o da FAQ (id). */
+    /** {{{faq_response_id_value}}} */
     public var id: Int?
-    /** Conte\u00FAdo da pergunta. */
+    /** {{{faq_response_pergunta_value}}} */
     public var pergunta: String?
-    /** Conte\u00FAdo da resposta. */
+    /** {{{faq_response_resposta_value}}} */
     public var resposta: String?
-    /** N\u00EDvel de relev\u00E2ncia da pergunta. */
+    /** {{{faq_response_relevancia_value}}} */
     public var relevancia: Int?
-    /** Plataforma em que a FAQ se encaixa. */
+    /** {{{faq_response_plataforma_value}}} */
     public var plataforma: String?
-    /** Categoria de assunto do qual a FAQ se trata. */
+    /** {{{faq_response_categoria_value}}} */
     public var categoria: String?
-    /** Status descrevendo a situa\u00E7\u00E3o atual da FAQ. */
+    /** {{{faq_response_status_value}}} */
     public var status: Status?
     
 

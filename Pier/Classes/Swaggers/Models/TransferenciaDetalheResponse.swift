@@ -8,24 +8,24 @@
 import Foundation
 
 
-/** Objeto transferencia */
+/** {{{transferencia_detalhe_response_description}}} */
 public class TransferenciaDetalheResponse: JSONEncodable {
 
-    /** C\u00F3digo de identifica\u00E7\u00E3o da transfer\u00EAncia (id). */
+    /** {{{transferencia_detalhe_response_id_value}}} */
     public var id: Int?
-    /** Data estabelecida para ocorrer a transfer\u00EAncia. */
+    /** {{{transferencia_detalhe_response_data_transferencia_value}}} */
     public var dataTransferencia: String?
-    /** C\u00F3digo de identifica\u00E7\u00E3o da conta em que o valor ser\u00E1 debitado para a transfer\u00EAncia. (id). */
+    /** {{{transferencia_detalhe_response_id_conta_origem_value}}} */
     public var idContaOrigem: Int?
-    /** Apresenta o nome completo da pessoa que realizou a Transfer\u00EAncia. */
+    /** {{{transferencia_detalhe_response_nome_pessoa_origem_value}}} */
     public var nomePessoaOrigem: String?
-    /** C\u00F3digo de identifica\u00E7\u00E3o da conta em que o valor ser\u00E1 creditado para a transfer\u00EAncia. (id). */
+    /** {{{transferencia_detalhe_response_id_conta_destino_value}}} */
     public var idContaDestino: Int?
-    /** Apresenta o nome completo da pessoa que recebeu a Transfer\u00EAncia. */
+    /** {{{transferencia_detalhe_response_nome_pessoa_destino_value}}} */
     public var nomePessoaDestino: String?
-    /** Valor estabelecido para ser transferido. */
+    /** {{{transferencia_detalhe_response_valor_transferencia_value}}} */
     public var valorTransferencia: Double?
-    /** Valor estabelecido da tarifa para a transfer\u00EAncia. */
+    /** {{{transferencia_detalhe_response_valor_tarifa_value}}} */
     public var valorTarifa: Double?
     
 

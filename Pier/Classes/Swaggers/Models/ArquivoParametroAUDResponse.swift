@@ -8,22 +8,22 @@
 import Foundation
 
 
-/** Objeto Response da auditoria dos par\u00E2metros do arquivo. */
+/** {{{arquivo_parametro_a_u_d_response_description}}} */
 public class ArquivoParametroAUDResponse: JSONEncodable {
 
-    /** Identificador da auditoria arquivo */
+    /** {{{arquivo_parametro_a_u_d_response_rev_value}}} */
     public var rev: Int?
-    /** Identificador do tipo de auditoria (0 - Criado, 1 - Alterado, 2 - Exclu\u00EDdo) */
+    /** {{{arquivo_parametro_a_u_d_response_rev_type_value}}} */
     public var revType: Int?
-    /** Identificador do par\u00E2metro */
+    /** {{{arquivo_parametro_a_u_d_response_id_value}}} */
     public var id: String?
-    /** Nome do par\u00E2metro */
+    /** {{{arquivo_parametro_a_u_d_response_parametro_value}}} */
     public var parametro: String?
-    /** Conte\u00FAdo do par\u00E2metro */
+    /** {{{arquivo_parametro_a_u_d_response_conteudo_value}}} */
     public var conteudo: String?
-    /** Data de inclus\u00E3o do par\u00E2metro */
+    /** {{{arquivo_parametro_a_u_d_response_data_hora_inclusao_value}}} */
     public var dataHoraInclusao: String?
-    /** Data de altera\u00E7\u00E3o do par\u00E2metro */
+    /** {{{arquivo_parametro_a_u_d_response_data_hora_alteracao_value}}} */
     public var dataHoraAlteracao: String?
     
 

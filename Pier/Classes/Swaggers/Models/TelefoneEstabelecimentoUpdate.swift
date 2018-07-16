@@ -8,14 +8,14 @@
 import Foundation
 
 
-/** Objeto Telefone */
+/** {{{telefone_estabelecimento_update_description}}} */
 public class TelefoneEstabelecimentoUpdate: JSONEncodable {
 
-    /** C\u00F3digo DDD do telefone. */
+    /** {{{telefone_estabelecimento_update_ddd_value}}} */
     public var ddd: String?
-    /** N\u00FAmero do telefone. */
+    /** {{{telefone_estabelecimento_update_telefone_value}}} */
     public var telefone: String?
-    /** N\u00FAmero do ramal. */
+    /** {{{telefone_estabelecimento_update_ramal_value}}} */
     public var ramal: String?
     
 

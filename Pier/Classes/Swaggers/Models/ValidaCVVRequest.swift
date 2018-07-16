@@ -8,12 +8,12 @@
 import Foundation
 
 
-/** Representa\u00E7\u00E3o da requisi\u00E7\u00E3o de valida\u00E7\u00E3o do CVV. */
+/** {{{valida_c_v_v_request_description}}} */
 public class ValidaCVVRequest: JSONEncodable {
 
-    /** C\u00F3digo de identifica\u00E7\u00E3o do chave de criptografia. */
+    /** {{{valida_c_v_v_request_id_chave_criptografia_value}}} */
     public var idChaveCriptografia: Int?
-    /** Valor de Verifica\u00E7\u00E3o do Cart\u00E3o (CVV). */
+    /** {{{valida_c_v_v_request_cvv_value}}} */
     public var cvv: String?
     
 

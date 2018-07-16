@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Lista de historivoEventos */
+/** {{{page_historico_eventos_response_description}}} */
 public class PageHistoricoEventosResponse: JSONEncodable {
 
     public var content: [HistoricoEventosResponse]?

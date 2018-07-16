@@ -8,16 +8,16 @@
 import Foundation
 
 
-/** Representa\u00E7\u00E3o da resposta do recurso Antecipacao Simulada */
+/** {{{antecipacao_simulada_lote_response_description}}} */
 public class AntecipacaoSimuladaLoteResponse: JSONEncodable {
 
-    /** Valor total antecipado. */
+    /** {{{antecipacao_simulada_lote_response_valor_total_antecipado_value}}} */
     public var valorTotalAntecipado: Double?
-    /** Valor total do desconto. */
+    /** {{{antecipacao_simulada_lote_response_valor_total_desconto_value}}} */
     public var valorTotalDesconto: Double?
-    /** Valor total antecipado com o desconto. */
+    /** {{{antecipacao_simulada_lote_response_valor_total_com_desconto_value}}} */
     public var valorTotalComDesconto: Double?
-    /** Antecipa\u00E7\u00F5es Simuladas. */
+    /** {{{antecipacao_simulada_lote_response_antecipacoes_simuladas_value}}} */
     public var antecipacoesSimuladas: [AntecipacaoSimuladaResponse]?
     
 

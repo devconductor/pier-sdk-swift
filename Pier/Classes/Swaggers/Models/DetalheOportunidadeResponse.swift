@@ -8,14 +8,14 @@
 import Foundation
 
 
-/** Representa\u00E7\u00E3o do detalhe da resposta do recurso Oportunidades */
+/** {{{detalhe_oportunidade_response_description}}} */
 public class DetalheOportunidadeResponse: JSONEncodable {
 
-    /** C\u00F3digo identificador do detalhe */
+    /** {{{detalhe_oportunidade_response_id_value}}} */
     public var id: Int?
-    /** Nome do conte\u00FAdo */
+    /** {{{detalhe_oportunidade_response_nome_campo_value}}} */
     public var nomeCampo: String?
-    /** Conte\u00FAdo do detalhe */
+    /** {{{detalhe_oportunidade_response_conteudo_value}}} */
     public var conteudo: String?
     
 

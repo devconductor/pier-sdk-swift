@@ -8,52 +8,54 @@
 import Foundation
 
 
-/** PessoaJuridicaAprovadaPersist */
+/** {{{pessoa_juridica_aprovada_persist_description}}} */
 public class PessoaJuridicaAprovadaPersist: JSONEncodable {
 
-    /** Apresenta o nome completo da raz\u00E3o social (nome empresarial)&#39;. */
+    /** {{{pessoa_juridica_aprovada_persist_razao_social_value}}} */
     public var razaoSocial: String?
-    /** Apresenta o nome fantasia da empresa. */
+    /** {{{pessoa_juridica_aprovada_persist_nome_fantasia_value}}} */
     public var nomeFantasia: String?
-    /** N\u00FAmero do Cadastro Nacional de Pessoa Juridica (CNPJ) */
+    /** {{{pessoa_juridica_aprovada_persist_cnpj_value}}} */
     public var cnpj: String?
-    /** N\u00FAmero da Inscri\u00E7\u00E3o Estadual (IE). */
+    /** {{{pessoa_juridica_aprovada_persist_inscricao_estadual_value}}} */
     public var inscricaoEstadual: String?
-    /** Data de abertura da empresa, essa data deve ser informada no formato: aaaa-MM-dd. */
+    /** {{{pessoa_juridica_aprovada_persist_data_abertura_empresa_value}}} */
     public var dataAberturaEmpresa: String?
-    /** Id da origem comercial */
+    /** {{{pessoa_juridica_aprovada_persist_id_origem_comercial_value}}} */
     public var idOrigemComercial: Int?
-    /** Id do produto */
+    /** {{{pessoa_juridica_aprovada_persist_id_produto_value}}} */
     public var idProduto: Int?
-    /** N\u00FAmero da ag\u00EAncia. */
+    /** {{{pessoa_juridica_aprovada_persist_numero_banco_value}}} */
+    public var numeroBanco: Int?
+    /** {{{pessoa_juridica_aprovada_persist_numero_agencia_value}}} */
     public var numeroAgencia: Int?
-    /** N\u00FAmero da conta corrente. */
+    /** {{{pessoa_juridica_aprovada_persist_numero_conta_corrente_value}}} */
     public var numeroContaCorrente: String?
-    /** Email da empresa */
+    /** {{{pessoa_juridica_aprovada_persist_email_value}}} */
     public var email: String?
-    /** Dia vencimento */
+    /** {{{pessoa_juridica_aprovada_persist_dia_vencimento_value}}} */
     public var diaVencimento: Int?
-    /** Nome que deve ser impresso no cart\u00E3o */
+    /** {{{pessoa_juridica_aprovada_persist_nome_impresso_value}}} */
     public var nomeImpresso: String?
-    /** Apresenta o valor da renda compravada */
+    /** {{{pessoa_juridica_aprovada_persist_valor_renda_value}}} */
     public var valorRenda: Double?
-    /** Indica o canal pelo qual o cadastro do cliente foi realizado */
+    /** {{{pessoa_juridica_aprovada_persist_canal_entrada_value}}} */
     public var canalEntrada: String?
-    /** Indica o valor da pontua\u00E7\u00E3o atribuido ao cliente (caso n\u00E3o informado ser\u00E1 atribuido o valor = 0) */
+    /** {{{pessoa_juridica_aprovada_persist_valor_pontuacao_value}}} */
     public var valorPontuacao: Int?
-    /** Apresenta os telefones da empresa */
-    public var telefones: [TelefonePessoaAprovadaPersist]?
-    /** Pode ser informado os seguintes tipos de endere\u00E7o: Residencial, Comercial, e Outros */
-    public var enderecos: [EnderecoAprovadoPersist]?
-    /** Apresenta os dados dos s\u00F3cios da empresa, caso exista */
-    public var socios: [PessoaPersist]?
-    /** Apresenta os dados das refer\u00EAncias comerciais */
-    public var referenciasComerciais: [RefenciaComercialAprovadoPersist]?
-    /** Valor do Limite Global */
+    /** {{{pessoa_juridica_aprovada_persist_telefones_value}}} */
+    public var telefones: [TelefonePessoaAprovadaPersistValue]?
+    /** {{{pessoa_juridica_aprovada_persist_enderecos_value}}} */
+    public var enderecos: [EnderecoAprovadoPersistValue]?
+    /** {{{pessoa_juridica_aprovada_persist_socios_value}}} */
+    public var socios: [SocioAprovadoPersistValue]?
+    /** {{{pessoa_juridica_aprovada_persist_referencias_comerciais_value}}} */
+    public var referenciasComerciais: [ReferenciaComercialAprovadoPersistValue]?
+    /** {{{pessoa_juridica_aprovada_persist_limite_global_value}}} */
     public var limiteGlobal: Double?
-    /** Valor m\u00E1ximo do limite de cr\u00E9dito para realizar transa\u00E7\u00F5es */
+    /** {{{pessoa_juridica_aprovada_persist_limite_maximo_value}}} */
     public var limiteMaximo: Double?
-    /** Valor do limite de cr\u00E9dito acumulado da soma das parcelas das compras */
+    /** {{{pessoa_juridica_aprovada_persist_limite_parcelas_value}}} */
     public var limiteParcelas: Double?
     
 
@@ -69,6 +71,7 @@ public class PessoaJuridicaAprovadaPersist: JSONEncodable {
         nillableDictionary["dataAberturaEmpresa"] = self.dataAberturaEmpresa
         nillableDictionary["idOrigemComercial"] = self.idOrigemComercial
         nillableDictionary["idProduto"] = self.idProduto
+        nillableDictionary["numeroBanco"] = self.numeroBanco
         nillableDictionary["numeroAgencia"] = self.numeroAgencia
         nillableDictionary["numeroContaCorrente"] = self.numeroContaCorrente
         nillableDictionary["email"] = self.email

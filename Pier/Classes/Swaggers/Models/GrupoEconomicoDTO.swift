@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Par\u00E2metros de requisi\u00E7\u00E3o para cadastrar grupo econ\u00F4mico */
+/** {{{grupo_economico_d_t_o_description}}} */
 public class GrupoEconomicoDTO: JSONEncodable {
 
     public enum Periodicidade: String { 
@@ -35,55 +35,55 @@ public class GrupoEconomicoDTO: JSONEncodable {
         case DebitoRav = "DEBITO_RAV"
     }
     
-    /** Raz\u00E3o social da pessoa jur\u00EDdica */
+    /** {{{grupo_economico_d_t_o_razao_social_value}}} */
     public var razaoSocial: String?
-    /** Nome do credor */
+    /** {{{grupo_economico_d_t_o_nome_credor_value}}} */
     public var nomeCredor: String?
-    /** N\u00FAmero da Receita Federal */
+    /** {{{grupo_economico_d_t_o_numero_receita_federal_value}}} */
     public var numeroReceitaFederal: String?
-    /** N\u00FAmero da inscri\u00E7\u00E3o estadual */
+    /** {{{grupo_economico_d_t_o_inscricao_estadual_value}}} */
     public var inscricaoEstadual: String?
-    /** Nome da pessoa para entrar em contato */
+    /** {{{grupo_economico_d_t_o_contato_value}}} */
     public var contato: String?
-    /** C\u00F3digo do banco */
+    /** {{{grupo_economico_d_t_o_banco_value}}} */
     public var banco: Int?
-    /** C\u00F3digo da ag\u00EAncia */
+    /** {{{grupo_economico_d_t_o_agencia_value}}} */
     public var agencia: Int?
-    /** D\u00EDgito verificador da ag\u00EAncia */
+    /** {{{grupo_economico_d_t_o_digito_agencia_value}}} */
     public var digitoAgencia: String?
-    /** C\u00F3digo da Conta Corrente */
+    /** {{{grupo_economico_d_t_o_conta_corrente_value}}} */
     public var contaCorrente: String?
-    /** D\u00EDgito Verificador da Conta Corrente */
+    /** {{{grupo_economico_d_t_o_digito_conta_corrente_value}}} */
     public var digitoContaCorrente: String?
-    /** Periodicidade do pagamento */
+    /** {{{grupo_economico_d_t_o_periodicidade_value}}} */
     public var periodicidade: Periodicidade?
-    /** Dia para pagamento semanal */
+    /** {{{grupo_economico_d_t_o_pagamento_semanal_value}}} */
     public var pagamentoSemanal: PagamentoSemanal?
-    /** Dia da data para o pagamento mensal */
+    /** {{{grupo_economico_d_t_o_pagamento_mensal_value}}} */
     public var pagamentoMensal: Int?
-    /** Dia da data para o primeiro pagamento decendial */
+    /** {{{grupo_economico_d_t_o_pagamento_decendial_primeiro_value}}} */
     public var pagamentoDecendialPrimeiro: Int?
-    /** Dia da data para o segundo pagamento decendial */
+    /** {{{grupo_economico_d_t_o_pagamento_decendial_segundo_value}}} */
     public var pagamentoDecendialSegundo: Int?
-    /** Dia da data para o terceiro pagamento decendial */
+    /** {{{grupo_economico_d_t_o_pagamento_decendial_terceiro_value}}} */
     public var pagamentoDecendialTerceiro: Int?
-    /** Dia da data para o primeiro pagamento quinzenal */
+    /** {{{grupo_economico_d_t_o_pagamento_quinzenal_primeiro_value}}} */
     public var pagamentoQuinzenalPrimeiro: Int?
-    /** Dia da data para o segundo pagamento quinzenal */
+    /** {{{grupo_economico_d_t_o_pagamento_quinzenal_segundo_value}}} */
     public var pagamentoQuinzenalSegundo: Int?
-    /** Identificador do credor RAV */
+    /** {{{grupo_economico_d_t_o_id_credor_r_a_v_value}}} */
     public var idCredorRAV: Int?
-    /** Valor percentual do RAV do credor */
+    /** {{{grupo_economico_d_t_o_percentual_r_a_v_value}}} */
     public var percentualRAV: Double?
-    /** Indica se o credor recebe RAV e o tipo */
+    /** {{{grupo_economico_d_t_o_recebe_r_a_v_value}}} */
     public var recebeRAV: RecebeRAV?
-    /** Percentual Multiplica */
+    /** {{{grupo_economico_d_t_o_percentual_multiplica_value}}} */
     public var percentualMultiplica: Double?
-    /** Taxa Administrativa */
+    /** {{{grupo_economico_d_t_o_taxa_adm_value}}} */
     public var taxaAdm: Double?
-    /** Taxa do Banco */
+    /** {{{grupo_economico_d_t_o_taxa_banco_value}}} */
     public var taxaBanco: Double?
-    /** Valor limite do RAV */
+    /** {{{grupo_economico_d_t_o_limite_r_a_v_value}}} */
     public var limiteRAV: Double?
     
 

@@ -8,13 +8,15 @@
 import Foundation
 
 
-/** Tipo de ajuste */
+/** {{{tipo_ajuste_response_description}}} */
 public class TipoAjusteResponse: JSONEncodable {
 
-    /** C\u00F3digo identificador do tipo de ajuste. */
+    /** {{{tipo_ajuste_response_id_value}}} */
     public var id: Int?
-    /** Descri\u00E7\u00E3o do tipo de ajuste. */
+    /** {{{tipo_ajuste_response_descricao_value}}} */
     public var descricao: String?
+    /** {{{tipo_ajuste_response_transacoes_value}}} */
+    public var transacoes: [TipoTransacaoAjusteResponse]?
     
 
     public init() {}
@@ -24,6 +26,7 @@ public class TipoAjusteResponse: JSONEncodable {
         var nillableDictionary = [String:AnyObject?]()
         nillableDictionary["id"] = self.id
         nillableDictionary["descricao"] = self.descricao
+        nillableDictionary["transacoes"] = self.transacoes?.encodeToJSON()
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

@@ -8,20 +8,20 @@
 import Foundation
 
 
-/** Representa\u00E7\u00E3o do recurso atualizar cart\u00E3o */
+/** {{{cartao_pay_persist_description}}} */
 public class CartaoPayPersist: JSONEncodable {
 
-    /** N\u00FAmero do cart\u00E3o criptografado */
+    /** {{{cartao_pay_persist_numero_cartao_value}}} */
     public var numeroCartao: String?
-    /** Data de validade do cart\u00E3o */
+    /** {{{cartao_pay_persist_data_validade_value}}} */
     public var dataValidade: String?
-    /** CVV do cart\u00E3o criptografado */
+    /** {{{cartao_pay_persist_cvv_value}}} */
     public var cvv: String?
-    /** CPF do portador do cart\u00E3o criptografado */
+    /** {{{cartao_pay_persist_numero_receita_federal_value}}} */
     public var numeroReceitaFederal: String?
-    /** Nome impresso no cart\u00E3o criptografado */
+    /** {{{cartao_pay_persist_nome_impresso_value}}} */
     public var nomeImpresso: String?
-    /** Chave p\u00FAblica do dispositivo criptografada */
+    /** {{{cartao_pay_persist_chave_publica_device_value}}} */
     public var chavePublicaDevice: String?
     
 

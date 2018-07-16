@@ -8,18 +8,18 @@
 import Foundation
 
 
-/** Objeto Telefone */
+/** {{{telefone_adicional_update_description}}} */
 public class TelefoneAdicionalUpdate: JSONEncodable {
 
-    /** C\u00F3digo de Identifica\u00E7\u00E3o do Telefone. */
+    /** {{{telefone_adicional_update_id_value}}} */
     public var id: Int?
-    /** C\u00F3digo de Identifica\u00E7\u00E3o do Tipo do Telefone. */
+    /** {{{telefone_adicional_update_id_tipo_telefone_value}}} */
     public var idTipoTelefone: Int?
-    /** C\u00F3digo DDD do telefone. */
+    /** {{{telefone_adicional_update_ddd_value}}} */
     public var ddd: String?
-    /** N\u00FAmero do telefone. */
+    /** {{{telefone_adicional_update_telefone_value}}} */
     public var telefone: String?
-    /** N\u00FAmero do ramal. */
+    /** {{{telefone_adicional_update_ramal_value}}} */
     public var ramal: String?
     
 

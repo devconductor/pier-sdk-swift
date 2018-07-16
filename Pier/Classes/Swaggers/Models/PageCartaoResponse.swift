@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Lista de Cart\u00F5es */
+/** {{{page_cartao_response_description}}} */
 public class PageCartaoResponse: JSONEncodable {
 
     public var content: [CartaoResponse]?

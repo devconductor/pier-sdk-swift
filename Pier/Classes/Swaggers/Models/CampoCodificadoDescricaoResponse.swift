@@ -8,12 +8,12 @@
 import Foundation
 
 
-/** Objeto Campo Condificado */
+/** {{{campo_codificado_descricao_response_description}}} */
 public class CampoCodificadoDescricaoResponse: JSONEncodable {
 
-    /** C\u00F3digo de Identifica\u00E7\u00E3o da descri\u00E7\u00E3o. */
+    /** {{{campo_codificado_descricao_response_codigo_value}}} */
     public var codigo: Int?
-    /** Descri\u00E7\u00E3o do campo codificado. */
+    /** {{{campo_codificado_descricao_response_descricao_value}}} */
     public var descricao: String?
     
 

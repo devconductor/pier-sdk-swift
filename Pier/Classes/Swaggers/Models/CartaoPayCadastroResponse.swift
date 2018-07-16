@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Resposta da requisi\u00E7\u00E3o para cadastro de cart\u00E3o */
+/** {{{cartao_pay_cadastro_response_description}}} */
 public class CartaoPayCadastroResponse: JSONEncodable {
 
     public enum Status: String { 
@@ -17,25 +17,25 @@ public class CartaoPayCadastroResponse: JSONEncodable {
         case Bloqueado = "BLOQUEADO"
     }
     
-    /** Id do cart\u00E3o */
+    /** {{{cartao_pay_base_response_id_value}}} */
     public var id: Int?
-    /** N\u00FAmero do cart\u00E3o real criptografado */
+    /** {{{cartao_pay_base_response_numero_cartao_value}}} */
     public var numeroCartao: String?
-    /** Data de validade do cart\u00E3o */
+    /** {{{cartao_pay_base_response_data_validade_cartao_value}}} */
     public var dataValidadeCartao: String?
-    /** Nome impresso no cart\u00E3o criptografado */
+    /** {{{cartao_pay_base_response_nome_impresso_value}}} */
     public var nomeImpresso: String?
-    /** Identificador do emissor do cart\u00E3o */
+    /** {{{cartao_pay_base_response_id_entidade_value}}} */
     public var idEntidade: Int?
-    /** Nome do emissor do cart\u00E3o */
+    /** {{{cartao_pay_base_response_nome_entidade_value}}} */
     public var nomeEntidade: String?
-    /** Status do cart\u00E3o */
+    /** {{{cartao_pay_base_response_status_value}}} */
     public var status: Status?
-    /** Data de validade da chave do criptograma */
+    /** {{{cartao_pay_response_data_validade_chave_criptograma_value}}} */
     public var dataValidadeChaveCriptograma: String?
-    /** CVV do cart\u00E3o criptografado */
+    /** {{{cartao_pay_cadastro_response_cvv_value}}} */
     public var cvv: String?
-    /** Chave de gera\u00E7\u00E3o de criptograma criptografada */
+    /** {{{cartao_pay_cadastro_response_chave_criptograma_value}}} */
     public var chaveCriptograma: String?
     
 

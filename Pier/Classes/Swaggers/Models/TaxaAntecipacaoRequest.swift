@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Objeto de Requisi\u00E7\u00E3o de Taxa de Antecipa\u00E7\u00E3o */
+/** {{{taxa_antecipacao_request_description}}} */
 public class TaxaAntecipacaoRequest: JSONEncodable {
 
     public enum TipoTransacao: String { 
@@ -16,9 +16,9 @@ public class TaxaAntecipacaoRequest: JSONEncodable {
         case OffUs = "OFF_US"
     }
     
-    /** C\u00F3digo que identifica se um par\u00E2metro refere-se a uma transa\u00E7\u00E3o On-Us ou Off-Us. */
+    /** {{{taxa_antecipacao_request_tipo_transacao_value}}} */
     public var tipoTransacao: TipoTransacao?
-    /** Valor da Taxa de Antecipa\u00E7\u00E3o. */
+    /** {{{taxa_antecipacao_request_valor_taxa_value}}} */
     public var valorTaxa: Double?
     
 

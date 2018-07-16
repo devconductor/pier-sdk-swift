@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Lista de Dispositivos */
+/** {{{page_dispositivo_response_description}}} */
 public class PageDispositivoResponse: JSONEncodable {
 
     public var content: [DispositivoResponse]?

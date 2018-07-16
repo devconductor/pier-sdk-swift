@@ -8,22 +8,22 @@
 import Foundation
 
 
-/** Objeto Faturamento */
+/** {{{tipo_faturamento_por_conta_response_description}}} */
 public class TipoFaturamentoPorContaResponse: JSONEncodable {
 
-    /** C\u00F3digo de identifica\u00E7\u00E3o do tipo de faturamento por conta (id). */
+    /** {{{tipo_faturamento_por_conta_response_id_value}}} */
     public var id: Int?
-    /** C\u00F3digo de identifica\u00E7\u00E3o da conta relacionada ao tipo de faturamento. */
+    /** {{{tipo_faturamento_por_conta_response_id_conta_value}}} */
     public var idConta: Int?
-    /** Status da configura\u00E7\u00E3o que representa que se o tipo de faturamento por conta est\u00E1 ativo ou cancelado. */
-    public var status: Bool?
-    /** C\u00F3digo de identifica\u00E7\u00E3o da tipo de faturamento referenciado. */
+    /** {{{tipo_faturamento_por_conta_response_status_value}}} */
+    public var ativo: Bool?
+    /** {{{tipo_faturamento_por_conta_response_id_tipo_faturamento_value}}} */
     public var idTipoFaturamento: Int?
-    /** Data de inclus\u00E3o da configura\u00E7\u00E3o de tipo de faturamento por conta. */
+    /** {{{tipo_faturamento_por_conta_response_data_hora_inclusao_value}}} */
     public var dataHoraInclusao: String?
-    /** Data de cancelamento da configura\u00E7\u00E3o de tipo de faturamento por conta. */
+    /** {{{tipo_faturamento_por_conta_response_data_hora_cancelamento_value}}} */
     public var dataHoraCancelamento: String?
-    /** Descri\u00E7\u00E3o do respons\u00E1vel pela \u00FAltima modifica\u00E7\u00E3o da configura\u00E7\u00E3o. */
+    /** {{{tipo_faturamento_por_conta_response_modificado_por_value}}} */
     public var modificadoPor: String?
     
 
@@ -34,7 +34,7 @@ public class TipoFaturamentoPorContaResponse: JSONEncodable {
         var nillableDictionary = [String:AnyObject?]()
         nillableDictionary["id"] = self.id
         nillableDictionary["idConta"] = self.idConta
-        nillableDictionary["status"] = self.status
+        nillableDictionary["ativo"] = self.ativo
         nillableDictionary["idTipoFaturamento"] = self.idTipoFaturamento
         nillableDictionary["dataHoraInclusao"] = self.dataHoraInclusao
         nillableDictionary["dataHoraCancelamento"] = self.dataHoraCancelamento

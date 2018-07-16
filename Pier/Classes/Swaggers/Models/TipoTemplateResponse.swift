@@ -8,16 +8,16 @@
 import Foundation
 
 
-/** Representa\u00E7\u00E3o da resposta do recurso de Tipo de Template */
+/** {{{tipo_template_response_description}}} */
 public class TipoTemplateResponse: JSONEncodable {
 
-    /** ID do Tipo de Template. */
+    /** {{{tipo_template_response_id_value}}} */
     public var id: Int?
-    /** Nome do Tipo de Template. */
+    /** {{{tipo_template_response_nome_value}}} */
     public var nome: String?
-    /** Descri\u00E7\u00E3o do Tipo de Template. */
+    /** {{{tipo_template_response_descricao_value}}} */
     public var descricao: String?
-    /** Sigla do Tipo de Template. */
+    /** {{{tipo_template_response_sigla_value}}} */
     public var sigla: String?
     
 

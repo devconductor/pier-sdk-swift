@@ -8,18 +8,18 @@
 import Foundation
 
 
-/** Objeto transferencia */
+/** {{{transferencia_response_description}}} */
 public class TransferenciaResponse: JSONEncodable {
 
-    /** C\u00F3digo de identifica\u00E7\u00E3o da transfer\u00EAncia (id). */
+    /** {{{transferencia_response_id_value}}} */
     public var id: Int?
-    /** Data estabelecida para ocorrer a transfer\u00EAncia. */
+    /** {{{transferencia_response_data_transferencia_value}}} */
     public var dataTransferencia: String?
-    /** C\u00F3digo de identifica\u00E7\u00E3o da conta em que o valor ser\u00E1 debitado para a transfer\u00EAncia. (id). */
+    /** {{{transferencia_response_id_conta_origem_value}}} */
     public var idContaOrigem: Int?
-    /** C\u00F3digo de identifica\u00E7\u00E3o da conta em que o valor ser\u00E1 creditado para a transfer\u00EAncia. (id). */
+    /** {{{transferencia_response_id_conta_destino_value}}} */
     public var idContaDestino: Int?
-    /** Valor estabelecido para ser transferido. */
+    /** {{{transferencia_response_valor_transferencia_value}}} */
     public var valorTransferencia: Double?
     
 

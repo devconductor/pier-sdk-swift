@@ -8,9 +8,10 @@
 import Foundation
 
 
+/** {{{beneficio_pagamento_atraso_response_description}}} */
 public class BeneficioPagamentoAtrasoResponse: JSONEncodable {
 
-    /** Data m\u00E1xima para pagamento da fatura em atraso para receber o benef\u00EDcio de isen\u00E7\u00E3o total no pagamento de multa, encargos, mora e IOF. */
+    /** {{{beneficio_pagamento_atraso_response_data_beneficio_value}}} */
     public var dataBeneficio: String?
     
 

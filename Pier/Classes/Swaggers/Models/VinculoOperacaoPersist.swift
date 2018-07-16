@@ -8,14 +8,14 @@
 import Foundation
 
 
-/** Objeto VinculoOperacao */
+/** {{{vinculo_operacao_persist_description}}} */
 public class VinculoOperacaoPersist: JSONEncodable {
 
-    /** C\u00F3digo de Identifica\u00E7\u00E3o do Produto (id). */
+    /** {{{vinculo_operacao_persist_id_produto_value}}} */
     public var idProduto: Int?
-    /** C\u00F3digo de Identifica\u00E7\u00E3o da Opera\u00E7\u00E3o (id). */
+    /** {{{vinculo_operacao_persist_id_operacao_value}}} */
     public var idOperacao: Int?
-    /** C\u00F3digo MCC. */
+    /** {{{vinculo_operacao_persist_codigo_m_c_c_value}}} */
     public var codigoMCC: Int?
     
 

@@ -8,18 +8,18 @@
 import Foundation
 
 
-/** Objeto Telefone Pessoa Aprovada */
+/** {{{telefone_pessoa_aprovada_response_description}}} */
 public class TelefonePessoaAprovadaResponse: JSONEncodable {
 
-    /** C\u00F3digo de Identifica\u00E7\u00E3o do Endere\u00E7o (id) */
+    /** {{{telefone_pessoa_aprovada_response_id_value}}} */
     public var id: Int?
-    /** C\u00F3digo de Identifica\u00E7\u00E3o do Tipo do Telefone (id). */
+    /** {{{telefone_pessoa_aprovada_response_id_tipo_telefone_value}}} */
     public var idTipoTelefone: Int?
-    /** C\u00F3digo DDD do telefone (id). */
+    /** {{{telefone_pessoa_aprovada_response_ddd_value}}} */
     public var ddd: String?
-    /** N\u00FAmero do telefone. */
+    /** {{{telefone_pessoa_aprovada_response_telefone_value}}} */
     public var telefone: String?
-    /** N\u00FAmero do ramal. */
+    /** {{{telefone_pessoa_aprovada_response_ramal_value}}} */
     public var ramal: String?
     
 

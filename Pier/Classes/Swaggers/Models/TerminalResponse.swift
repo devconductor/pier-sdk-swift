@@ -8,20 +8,20 @@
 import Foundation
 
 
-/** ObjetoTerminal */
+/** {{{terminal_response_description}}} */
 public class TerminalResponse: JSONEncodable {
 
-    /** C\u00F3digo de Identifica\u00E7\u00E3o do Terminal (id). */
+    /** {{{terminal_response_id_value}}} */
     public var id: Int?
-    /** N\u00FAmero \u00FAnico do terminal. */
+    /** {{{terminal_response_terminal_value}}} */
     public var terminal: String?
-    /** N\u00FAmero do estabelecimento a qual o terminal pertence. */
+    /** {{{terminal_response_numero_estabelecimento_value}}} */
     public var numeroEstabelecimento: Int?
-    /** N\u00FAmero de identifica\u00E7\u00E3o do estabelecimento a qual o terminal pertence. */
+    /** {{{terminal_response_id_estabelecimento_value}}} */
     public var idEstabelecimento: Int?
-    /** Flag indicando se o terminal \u00E9 f\u00EDsico ou virtual, sendo: (true: Sim), (false: N\u00E3o)). */
+    /** {{{terminal_response_flag_consulta_extrato_value}}} */
     public var flagConsultaExtrato: Bool?
-    /** Flag indicando se o terminal permite consultar extrato, sendo: (true: Sim), (false: N\u00E3o)). */
+    /** {{{terminal_response_flag_terminal_virtual_value}}} */
     public var flagTerminalVirtual: Bool?
     
 

@@ -8,18 +8,18 @@
 import Foundation
 
 
-/** Objeto de resposta para a valida\u00E7\u00E3o de senha do cart\u00E3o */
+/** {{{valida_senha_cartao_response_description}}} */
 public class ValidaSenhaCartaoResponse: JSONEncodable {
 
-    /** Mensagem */
+    /** {{{valida_senha_cartao_response_mensagem_value}}} */
     public var mensagem: String?
-    /** Descri\u00E7\u00E3o do status do cart\u00E3o */
+    /** {{{valida_senha_cartao_response_id_status_cartao_value}}} */
     public var idStatusCartao: Int?
-    /** Descri\u00E7\u00E3o do status do cart\u00E3o */
+    /** {{{valida_senha_cartao_response_status_cartao_value}}} */
     public var statusCartao: String?
-    /** Quantidade tentativas */
+    /** {{{valida_senha_cartao_response_quantidade_tentativas_value}}} */
     public var quantidadeTentativas: Int?
-    /** Quantidade m\u00E1xima tentativas permitidas */
+    /** {{{valida_senha_cartao_response_quantidade_maxima_tentativas_value}}} */
     public var quantidadeMaximaTentativas: Int?
     
 

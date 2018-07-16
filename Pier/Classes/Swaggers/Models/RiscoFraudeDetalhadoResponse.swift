@@ -8,62 +8,62 @@
 import Foundation
 
 
-/** Objeto de resposta de Risco de Fraude Detalhado */
+/** {{{risco_fraude_detalhado_response_description}}} */
 public class RiscoFraudeDetalhadoResponse: JSONEncodable {
 
-    /** C\u00F3digo de identifica\u00E7\u00E3o do risco de fraude */
+    /** {{{risco_fraude_detalhado_response_id_value}}} */
     public var id: Int?
-    /** C\u00F3digo de identifica\u00E7\u00E3o do tipo de resolu\u00E7\u00E3o atribu\u00EDdo ao registro */
+    /** {{{risco_fraude_detalhado_response_id_tipo_resolucao_value}}} */
     public var idTipoResolucao: Int?
-    /** Descri\u00E7\u00E3o do tipo de resolu\u00E7\u00E3o atribu\u00EDdo ao registro */
+    /** {{{risco_fraude_detalhado_response_descricao_tipo_resolucao_value}}} */
     public var descricaoTipoResolucao: String?
-    /** Indica que a transa\u00E7\u00E3o possui um alto risco de fraude e que todas as transa\u00E7\u00F5es seguintes a ela ser\u00E3o negadas at\u00E9 que todas as transa\u00E7\u00F5es classificadas com risco de fraude sejam analisadas */
+    /** {{{risco_fraude_detalhado_response_flag_alto_risco_value}}} */
     public var flagAltoRisco: Bool?
-    /** C\u00F3digo de identifica\u00E7\u00E3o da conta */
+    /** {{{risco_fraude_detalhado_response_id_conta_value}}} */
     public var idConta: Int?
-    /** C\u00F3digo de identifica\u00E7\u00E3o do cart\u00E3o */
+    /** {{{risco_fraude_detalhado_response_id_cartao_value}}} */
     public var idCartao: Int?
-    /** C\u00F3digo de identifica\u00E7\u00E3o do produto */
+    /** {{{risco_fraude_detalhado_response_id_produto_value}}} */
     public var idProduto: Int?
-    /** C\u00F3digo de identifica\u00E7\u00E3o da transa\u00E7\u00E3o */
+    /** {{{risco_fraude_detalhado_response_id_transacao_value}}} */
     public var idTransacao: Int?
-    /** Data que a transa\u00E7\u00E3o classificada com risco de fraude foi realizada */
+    /** {{{risco_fraude_detalhado_response_data_transacao_value}}} */
     public var dataTransacao: String?
-    /** Valor da transa\u00E7\u00E3o classificada com risco de fraude */
+    /** {{{risco_fraude_detalhado_response_valor_transacao_value}}} */
     public var valorTransacao: Double?
-    /** C\u00F3digo da moeda de origem utilizada para a transa\u00E7\u00E3o */
+    /** {{{risco_fraude_detalhado_response_codigo_moeda_origem_value}}} */
     public var codigoMoedaOrigem: String?
-    /** Valor da transa\u00E7\u00E3o na moeda de origem */
+    /** {{{risco_fraude_detalhado_response_valor_origem_value}}} */
     public var valorOrigem: Double?
-    /** C\u00F3digo da moeda de destino utilizada para a transa\u00E7\u00E3o */
+    /** {{{risco_fraude_detalhado_response_codigo_moeda_destino_value}}} */
     public var codigoMoedaDestino: String?
-    /** Valor da transa\u00E7\u00E3o na moeda de destino */
+    /** {{{risco_fraude_detalhado_response_valor_destino_value}}} */
     public var valorDestino: Double?
-    /** Nome do estabelecimento onde a transa\u00E7\u00E3o  com risco de fraude foi realizada */
+    /** {{{risco_fraude_detalhado_response_nome_estabelecimento_value}}} */
     public var nomeEstabelecimento: String?
-    /** C\u00F3digo de Identifica\u00E7\u00E3o do Pa\u00EDs */
+    /** {{{risco_fraude_detalhado_response_id_pais_value}}} */
     public var idPais: String?
-    /** C\u00F3digo de resposta do autorizador para a transa\u00E7\u00E3o */
+    /** {{{risco_fraude_detalhado_response_codigo_resposta_autorizador_value}}} */
     public var codigoRespostaAutorizador: String?
-    /** Descri\u00E7\u00E3o da resposta do autorizador para a transa\u00E7\u00E3o */
+    /** {{{risco_fraude_detalhado_response_descricao_resposta_autorizador_value}}} */
     public var descricaoRespostaAutorizador: String?
-    /** C\u00F3digo de resposta da ferramenta de Preven\u00E7\u00E3o a Fraude para a transa\u00E7\u00E3o */
+    /** {{{risco_fraude_detalhado_response_codigo_resposta_fraude_value}}} */
     public var codigoRespostaFraude: String?
-    /** Descri\u00E7\u00E3o da resposta da ferramenta de Preven\u00E7\u00E3o a Fraude para a transa\u00E7\u00E3o */
+    /** {{{risco_fraude_detalhado_response_descricao_resposta_fraude_value}}} */
     public var descricaoRespostaFraude: String?
-    /** Tipo de Terminal que originou a Transa\u00E7\u00E3o (POS, ATM, TEF, etc) */
+    /** {{{risco_fraude_detalhado_response_origem_transacao_value}}} */
     public var origemTransacao: String?
-    /** C\u00F3digo de Identifica\u00E7\u00E3o do modo de origem da captura da Transa\u00E7\u00E3o */
+    /** {{{risco_fraude_detalhado_response_codigo_modo_entrada_terminal_value}}} */
     public var codigoModoEntradaTerminal: String?
-    /** Descri\u00E7\u00E3o do modo de origem da captura da Transa\u00E7\u00E3o */
+    /** {{{risco_fraude_detalhado_response_descricao_modo_entrada_terminal_value}}} */
     public var descricaoModoEntradaTerminal: String?
-    /** N\u00FAmero do CPF da Pessoa portadora do Cart\u00E3o, quando for do tipo Pessoa F\u00EDsica */
+    /** {{{risco_fraude_detalhado_response_cpf_value}}} */
     public var cpf: String?
-    /** N\u00FAmero do CNPJ da Pessoa portadora do Cart\u00E3o, quanto for do tipo Pessoa Jur\u00EDdica */
+    /** {{{risco_fraude_detalhado_response_cnpj_value}}} */
     public var cnpj: String?
-    /** Endere\u00E7o de email da Pessoa portadora do Cart\u00E3o */
+    /** {{{risco_fraude_detalhado_response_email_value}}} */
     public var email: String?
-    /** Lista de telefones associados ao portador do Cart\u00E3o */
+    /** {{{risco_fraude_detalhado_response_telefones_value}}} */
     public var telefones: [TelefoneResponse]?
     
 

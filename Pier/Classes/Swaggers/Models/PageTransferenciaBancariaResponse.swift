@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Lista de Transfer\u00EAncias */
+/** {{{page_transferencia_bancaria_response_description}}} */
 public class PageTransferenciaBancariaResponse: JSONEncodable {
 
     public var content: [TransferenciaBancariaResponse]?

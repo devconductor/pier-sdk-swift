@@ -8,81 +8,79 @@
 import Foundation
 
 
-/** Objeto transacao N\u00E3o Processada */
+/** {{{transacao_nao_processada_response_description}}} */
 public class TransacaoNaoProcessadaResponse: JSONEncodable {
 
-    /** C\u00F3digo de Identifica\u00E7\u00E3o do Tipo da Transa\u00E7\u00E3o. */
-    public var idTipoTransacaoNaoProcessada: Int?
-    /** Descri\u00E7\u00E3o do Tipo da Transa\u00E7\u00E3o n\u00E3o Processada. */
-    public var descricaoTipoTransacaoNaoProcessada: String?
-    /** Descri\u00E7\u00E3o Abreviada da Transa\u00E7\u00E3o. */
-    public var descricaoAbreviada: String?
-    /** C\u00F3digo de Identifica\u00E7\u00E3o da Conta (id). */
-    public var idConta: Int?
-    /** N\u00FAmero do Cart\u00E3o em Formato 0000XXXXXXXX0000. */
+    /** {{{transacao_nao_processada_response_cartao_mascarado_value}}} */
     public var cartaoMascarado: String?
-    /** Nome completo do Portador do Cart\u00E3o. */
-    public var nomePortador: String?
-    /** Data em que a Transa\u00E7\u00E3o foi realizada. */
-    public var dataOrigem: String?
-    /** Data de Faturamento da Transa\u00E7\u00E3o. */
-    public var dataFaturamento: String?
-    /** Data de Vencimento da Fatura. */
-    public var dataVencimento: String?
-    /** Descreve o modo utilizado para realizar a leitura dos dados do cart\u00E3o para realizar a Transa\u00E7\u00E3o. */
-    public var modoEntradaTransacao: String?
-    /** Valor da Taxa de Embarque em Real (BRL) quando a transa\u00E7\u00E3o for relacionada a Compra de Passagens A\u00E9reas. */
-    public var valorTaxaEmbarque: Double?
-    /** Valor da Entrada em Real (BRL) quando a transa\u00E7\u00E3o for do tipo Parcelada com o pagamento de um valor de Entrada. */
-    public var valorEntrada: Double?
-    /** Valor da Transa\u00E7\u00E3o em Real (BRL). */
-    public var valorBRL: Double?
-    /** Valor da Transa\u00E7\u00E3o em D\u00F3lar Americano (USD). */
-    public var valorUSD: Double?
-    /** Valor do D\u00F3lar Americano (USD) convertido em Real (BRL). */
-    public var cotacaoUSD: Double?
-    /** Data de Fechamento da Cota\u00E7\u00E3o do D\u00F3lar Americano (USD). */
-    public var dataCotacaoUSD: String?
-    /** C\u00F3digo de Identifica\u00E7\u00E3o da Moeda utilizada na Transa\u00E7\u00E3o, seguindo padr\u00E3o ISO 4217. */
-    public var codigoMoedaOrigem: String?
-    /** C\u00F3digo de Identifica\u00E7\u00E3o da Moeda da Transa\u00E7\u00E3o ap\u00F3s a convers\u00E3o, seguindo padr\u00E3o ISO 4217. */
-    public var codigoMoedaDestino: String?
-    /** C\u00F3digo de Autoriza\u00E7\u00E3o da Transa\u00E7\u00E3o. */
+    /** {{{transacao_nao_processada_response_codigo_autorizacao_value}}} */
     public var codigoAutorizacao: String?
-    /** C\u00F3digo de Refer\u00EAncia da Transa\u00E7\u00E3o quando utilizado Cart\u00E3o Bandeirado. */
-    public var codigoReferencia: String?
-    /** C\u00F3digo de Identifica\u00E7\u00E3o da origem da captura da Transa\u00E7\u00E3o. */
-    public var codigoTerminal: String?
-    /** C\u00F3digo de identifica\u00E7\u00E3o da categoria do Estabelecimento. */
+    /** {{{transacao_nao_processada_response_codigo_mcc_value}}} */
     public var codigoMCC: Int?
-    /** C\u00F3digo de identifica\u00E7\u00E3o do grupo do Estabelecimento. */
-    public var grupoMCC: Int?
-    /** Descri\u00E7\u00E3o do grupo do Estabelecimento. */
-    public var grupoDescricaoMCC: String?
-    /** C\u00F3digo de Identifica\u00E7\u00E3o do Estabelecimento (id). */
-    public var idEstabelecimento: Int?
-    /** Nome do Estabelecimento. */
-    public var nomeEstabelecimento: String?
-    /** Nome Fantasia do Estabelecimento. */
-    public var nomeFantasiaEstabelecimento: String?
-    /** Localidade do Estabelecimento. */
-    public var localidadeEstabelecimento: String?
-    /** Quando a Transa\u00E7\u00E3o for do tipo Parcelada, apresenta o n\u00FAmero total de Parcelas. */
-    public var planoParcelamento: Int?
-    /** Quando a Transa\u00E7\u00E3o for do tipo Parcelada, apresenta o n\u00FAmero da Parcela. */
-    public var numeroParcela: Int?
-    /** Detalhes complementares a respeito da Transa\u00E7\u00E3o. */
+    /** {{{transacao_nao_processada_response_codigo_moeda_destino_value}}} */
+    public var codigoMoedaDestino: String?
+    /** {{{transacao_nao_processada_response_codigo_moeda_origem_value}}} */
+    public var codigoMoedaOrigem: String?
+    /** {{{transacao_nao_processada_response_codigo_referencia_value}}} */
+    public var codigoReferencia: String?
+    /** {{{transacao_nao_processada_response_codigo_terminal_value}}} */
+    public var codigoTerminal: String?
+    /** {{{transacao_nao_processada_response_cotacao_usd_value}}} */
+    public var cotacaoUSD: Double?
+    /** {{{transacao_nao_processada_response_data_cotacao_usd_value}}} */
+    public var dataCotacaoUSD: String?
+    /** {{{transacao_nao_processada_response_data_faturamento_value}}} */
+    public var dataFaturamento: String?
+    /** {{{transacao_nao_processada_response_data_origem_value}}} */
+    public var dataOrigem: String?
+    /** {{{transacao_nao_processada_response_data_vencimento_value}}} */
+    public var dataVencimentoReal: String?
+    /** {{{transacao_nao_processada_response_descricao_abreviada_value}}} */
+    public var descricaoAbreviada: String?
+    /** {{{transacao_nao_processada_response_descricao_tipo_transacao_nao_processada_value}}} */
+    public var descricaoTipoTransacaoNaoProcessada: String?
+    /** {{{transacao_nao_processada_response_detalhes_transacao_value}}} */
     public var detalhesTransacao: String?
-    /** Quando ativa, indica que a Transa\u00E7\u00E3o \u00E9 do Tipo &#39;Cr\u00E9dito&#39;. */
+    /** {{{transacao_nao_processada_response_flag_credito_value}}} */
     public var flagCredito: Int?
-    /** Quando ativa, indica que a Transa\u00E7\u00E3o foi consolidada em uma Fatura. */
+    /** {{{transacao_nao_processada_response_flag_faturado_value}}} */
     public var flagFaturado: Int?
-    /** Quando ativa, indica que a Transa\u00E7\u00E3o foi estornada. */
-    public var flagEstorno: Int?
-    /** C\u00F3digo de Identifica\u00E7\u00E3o da Transa\u00E7\u00E3o (id) que gerou o estorno. */
+    /** {{{transacao_nao_processada_response_grupo_descricao_mcc_value}}} */
+    public var grupoDescricaoMCC: String?
+    /** {{{transacao_nao_processada_response_grupo_mcc_value}}} */
+    public var grupoMCC: Int?
+    /** {{{transacao_nao_processada_response_id_conta_value}}} */
+    public var idConta: Int?
+    /** {{{transacao_nao_processada_response_id_estabelecimento_value}}} */
+    public var idEstabelecimento: Int?
+    /** {{{transacao_nao_processada_response_id_tipo_transacao_nao_processada_value}}} */
+    public var idTipoTransacaoNaoProcessada: Int?
+    /** {{{transacao_nao_processada_response_id_transacao_estorno_value}}} */
     public var idTransacaoEstorno: Int?
-    /** Atributo que representa o c\u00F3digo identificador do status da transa\u00E7\u00E3o. */
+    /** {{{transacao_nao_processada_response_localidade_estabelecimento_value}}} */
+    public var localidadeEstabelecimento: String?
+    /** {{{transacao_nao_processada_response_modo_entrada_transacao_value}}} */
+    public var modoEntradaTransacao: String?
+    /** {{{transacao_nao_processada_response_nome_estabelecimento_value}}} */
+    public var nomeEstabelecimento: String?
+    /** {{{transacao_nao_processada_response_nome_fantasia_estabelecimento_value}}} */
+    public var nomeFantasiaEstabelecimento: String?
+    /** {{{transacao_nao_processada_response_nome_portador_value}}} */
+    public var nomePortador: String?
+    /** {{{transacao_nao_processada_response_numero_parcela_value}}} */
+    public var parcela: Int?
+    /** {{{transacao_nao_processada_response_plano_parcelamento_value}}} */
+    public var plano: Int?
+    /** {{{transacao_nao_processada_response_status_value}}} */
     public var status: Int?
+    /** {{{transacao_nao_processada_response_valor_taxa_embarque_value}}} */
+    public var taxaEmbarque: Double?
+    /** {{{transacao_nao_processada_response_valor_brl_value}}} */
+    public var valorBRL: Double?
+    /** {{{transacao_nao_processada_response_valor_entrada_value}}} */
+    public var valorEntrada: Double?
+    /** {{{transacao_nao_processada_response_valor_usd_value}}} */
+    public var valorUSD: Double?
     
 
     public init() {}
@@ -90,42 +88,41 @@ public class TransacaoNaoProcessadaResponse: JSONEncodable {
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
-        nillableDictionary["idTipoTransacaoNaoProcessada"] = self.idTipoTransacaoNaoProcessada
-        nillableDictionary["descricaoTipoTransacaoNaoProcessada"] = self.descricaoTipoTransacaoNaoProcessada
-        nillableDictionary["descricaoAbreviada"] = self.descricaoAbreviada
-        nillableDictionary["idConta"] = self.idConta
         nillableDictionary["cartaoMascarado"] = self.cartaoMascarado
-        nillableDictionary["nomePortador"] = self.nomePortador
-        nillableDictionary["dataOrigem"] = self.dataOrigem
-        nillableDictionary["dataFaturamento"] = self.dataFaturamento
-        nillableDictionary["dataVencimento"] = self.dataVencimento
-        nillableDictionary["modoEntradaTransacao"] = self.modoEntradaTransacao
-        nillableDictionary["valorTaxaEmbarque"] = self.valorTaxaEmbarque
-        nillableDictionary["valorEntrada"] = self.valorEntrada
-        nillableDictionary["valorBRL"] = self.valorBRL
-        nillableDictionary["valorUSD"] = self.valorUSD
-        nillableDictionary["cotacaoUSD"] = self.cotacaoUSD
-        nillableDictionary["dataCotacaoUSD"] = self.dataCotacaoUSD
-        nillableDictionary["codigoMoedaOrigem"] = self.codigoMoedaOrigem
-        nillableDictionary["codigoMoedaDestino"] = self.codigoMoedaDestino
         nillableDictionary["codigoAutorizacao"] = self.codigoAutorizacao
+        nillableDictionary["codigoMCC"] = self.codigoMCC
+        nillableDictionary["codigoMoedaDestino"] = self.codigoMoedaDestino
+        nillableDictionary["codigoMoedaOrigem"] = self.codigoMoedaOrigem
         nillableDictionary["codigoReferencia"] = self.codigoReferencia
         nillableDictionary["codigoTerminal"] = self.codigoTerminal
-        nillableDictionary["codigoMCC"] = self.codigoMCC
-        nillableDictionary["grupoMCC"] = self.grupoMCC
-        nillableDictionary["grupoDescricaoMCC"] = self.grupoDescricaoMCC
-        nillableDictionary["idEstabelecimento"] = self.idEstabelecimento
-        nillableDictionary["nomeEstabelecimento"] = self.nomeEstabelecimento
-        nillableDictionary["nomeFantasiaEstabelecimento"] = self.nomeFantasiaEstabelecimento
-        nillableDictionary["localidadeEstabelecimento"] = self.localidadeEstabelecimento
-        nillableDictionary["planoParcelamento"] = self.planoParcelamento
-        nillableDictionary["numeroParcela"] = self.numeroParcela
+        nillableDictionary["cotacaoUSD"] = self.cotacaoUSD
+        nillableDictionary["dataCotacaoUSD"] = self.dataCotacaoUSD
+        nillableDictionary["dataFaturamento"] = self.dataFaturamento
+        nillableDictionary["dataOrigem"] = self.dataOrigem
+        nillableDictionary["dataVencimentoReal"] = self.dataVencimentoReal
+        nillableDictionary["descricaoAbreviada"] = self.descricaoAbreviada
+        nillableDictionary["descricaoTipoTransacaoNaoProcessada"] = self.descricaoTipoTransacaoNaoProcessada
         nillableDictionary["detalhesTransacao"] = self.detalhesTransacao
         nillableDictionary["flagCredito"] = self.flagCredito
         nillableDictionary["flagFaturado"] = self.flagFaturado
-        nillableDictionary["flagEstorno"] = self.flagEstorno
+        nillableDictionary["grupoDescricaoMCC"] = self.grupoDescricaoMCC
+        nillableDictionary["grupoMCC"] = self.grupoMCC
+        nillableDictionary["idConta"] = self.idConta
+        nillableDictionary["idEstabelecimento"] = self.idEstabelecimento
+        nillableDictionary["idTipoTransacaoNaoProcessada"] = self.idTipoTransacaoNaoProcessada
         nillableDictionary["idTransacaoEstorno"] = self.idTransacaoEstorno
+        nillableDictionary["localidadeEstabelecimento"] = self.localidadeEstabelecimento
+        nillableDictionary["modoEntradaTransacao"] = self.modoEntradaTransacao
+        nillableDictionary["nomeEstabelecimento"] = self.nomeEstabelecimento
+        nillableDictionary["nomeFantasiaEstabelecimento"] = self.nomeFantasiaEstabelecimento
+        nillableDictionary["nomePortador"] = self.nomePortador
+        nillableDictionary["parcela"] = self.parcela
+        nillableDictionary["plano"] = self.plano
         nillableDictionary["status"] = self.status
+        nillableDictionary["taxaEmbarque"] = self.taxaEmbarque
+        nillableDictionary["valorBRL"] = self.valorBRL
+        nillableDictionary["valorEntrada"] = self.valorEntrada
+        nillableDictionary["valorUSD"] = self.valorUSD
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

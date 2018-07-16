@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Representa\u00E7\u00E3o da requisi\u00E7\u00E3o do recurso Configura\u00E7\u00E3o Registro de Cobran\u00E7a Online */
+/** {{{configuracao_registro_cobranca_persist_description}}} */
 public class ConfiguracaoRegistroCobrancaPersist: JSONEncodable {
 
     public enum Status: String { 
@@ -16,32 +16,36 @@ public class ConfiguracaoRegistroCobrancaPersist: JSONEncodable {
         case Ativo = "ATIVO"
     }
     
-    /** C\u00F3digo do Banco. */
+    /** {{{configuracao_registro_cobranca_persist_codigo_banco_value}}} */
     public var codigoBanco: Int?
-    /** URL de acesso ao banco. */
+    /** {{{configuracao_registro_cobranca_persist_uri_value}}} */
     public var uri: String?
-    /** Caminho do certificado digital do emissor. */
+    /** {{{configuracao_registro_cobranca_persist_key_store_name_value}}} */
     public var keyStoreName: String?
-    /** Senha do certificado digital do emissor. */
+    /** {{{configuracao_registro_cobranca_persist_key_store_password_value}}} */
     public var keyStorePassword: String?
-    /** Alias do certificado digital do emissor. */
+    /** {{{configuracao_registro_cobranca_persist_keystore_alias_value}}} */
     public var keystoreAlias: String?
-    /** Senha da chave privada do certificado digital do emissor. */
+    /** {{{configuracao_registro_cobranca_persist_key_store_private_key_password_value}}} */
     public var keyStorePrivateKeyPassword: String?
-    /** Tipo do certificado digital do emissor. */
+    /** {{{configuracao_registro_cobranca_persist_type_keystore_value}}} */
     public var typeKeystore: String?
-    /** Caminho do certificado digital do banco. */
+    /** {{{configuracao_registro_cobranca_persist_trust_store_name_value}}} */
     public var trustStoreName: String?
-    /** Senha do certificado digital do banco. */
+    /** {{{configuracao_registro_cobranca_persist_trust_store_password_value}}} */
     public var trustStorePassword: String?
-    /** Alias do certificado digital do banco. */
+    /** {{{configuracao_registro_cobranca_persist_truststore_alias_value}}} */
     public var truststoreAlias: String?
-    /** Tipo do certificado digital do banco. */
+    /** {{{configuracao_registro_cobranca_persist_type_truststore_value}}} */
     public var typeTruststore: String?
-    /** URL adicional de acesso ao banco. */
+    /** {{{configuracao_registro_cobranca_persist_uri_adicional_value}}} */
     public var uriAdicional: String?
-    /** Status descrevendo a situa\u00E7\u00E3o atual da configura\u00E7\u00E3o. */
+    /** {{{configuracao_registro_cobranca_persist_status_value}}} */
     public var status: Status?
+    /** {{{configuracao_registro_cobranca_persist_secret_value}}} */
+    public var secret: String?
+    /** {{{configuracao_registro_cobranca_persist_client_id_value}}} */
+    public var clientID: String?
     
 
     public init() {}
@@ -62,6 +66,8 @@ public class ConfiguracaoRegistroCobrancaPersist: JSONEncodable {
         nillableDictionary["typeTruststore"] = self.typeTruststore
         nillableDictionary["uriAdicional"] = self.uriAdicional
         nillableDictionary["status"] = self.status?.rawValue
+        nillableDictionary["secret"] = self.secret
+        nillableDictionary["clientID"] = self.clientID
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

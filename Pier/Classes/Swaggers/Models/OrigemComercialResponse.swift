@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Representa\u00E7\u00E3o da resposta do recurso de origem comercial */
+/** {{{origem_comercial_response_description}}} */
 public class OrigemComercialResponse: JSONEncodable {
 
     public enum TipoPessoa: String { 
@@ -16,57 +16,57 @@ public class OrigemComercialResponse: JSONEncodable {
         case PessoaJuridica = "PESSOA_JURIDICA"
     }
     
-    /** C\u00F3digo identificador do OrigemComercial */
+    /** {{{origem_comercial_response_id_value}}} */
     public var id: Int?
-    /** Nome da origem comercial */
+    /** {{{origem_comercial_response_nome_value}}} */
     public var nome: String?
-    /** Descri\u00E7\u00E3o completa do nome da Origem Comercial */
+    /** {{{origem_comercial_response_descricao_value}}} */
     public var descricao: String?
-    /** Produtos da origem comercial */
+    /** {{{origem_comercial_response_produtos_origem_value}}} */
     public var produtosOrigem: [ProdutoOrigemResponse]?
-    /** C\u00F3digo de identifica\u00E7\u00E3o do Estabelecimento */
+    /** {{{origem_comercial_response_id_estabelecimento_value}}} */
     public var idEstabelecimento: Int?
-    /** C\u00F3digo de identifica\u00E7\u00E3o do Tipo da Origem Comercial */
+    /** {{{origem_comercial_response_id_tipo_origem_comercial_value}}} */
     public var idTipoOrigemComercial: Int?
-    /** Nome do Tipo da Origem Comercial */
+    /** {{{origem_comercial_response_nome_tipo_origem_comercial_value}}} */
     public var nomeTipoOrigemComercial: String?
-    /** Identificador do grupo da origem comercial */
+    /** {{{origem_comercial_response_id_grupo_origem_comercial_value}}} */
     public var idGrupoOrigemComercial: Int?
-    /** Nome do grupo da origem comercial */
+    /** {{{origem_comercial_response_nome_grupo_origem_comercial_value}}} */
     public var nomeGrupoOrigemComercial: String?
-    /** Indica o status da origem comercial */
+    /** {{{origem_comercial_response_status_value}}} */
     public var status: Int?
-    /** Indica se permite pr\u00E9 aprova\u00E7\u00E3o */
+    /** {{{origem_comercial_response_flag_pre_aprovado_value}}} */
     public var flagPreAprovado: Bool?
-    /** Indica se permite aprova\u00E7\u00E3o imediata */
+    /** {{{origem_comercial_response_flag_aprovacao_imediata_value}}} */
     public var flagAprovacaoImediata: Bool?
-    /** Nome fantasia impresso no pl\u00E1stico */
+    /** {{{origem_comercial_response_nome_fantasia_plastico_value}}} */
     public var nomeFantasiaPlastico: String?
-    /** Indica se permite cart\u00E3o provis\u00F3rio */
+    /** {{{origem_comercial_response_flag_cartao_provisorio_value}}} */
     public var flagCartaoProvisorio: Bool?
-    /** Indica se permite cart\u00E3o definitivo */
+    /** {{{origem_comercial_response_flag_cartao_definitivo_value}}} */
     public var flagCartaoDefinitivo: Bool?
-    /** Usu\u00E1rio para autentica\u00E7\u00E3o */
+    /** {{{origem_comercial_response_usuario_value}}} */
     public var usuario: String?
-    /** Senha para autentica\u00E7\u00E3o */
+    /** {{{origem_comercial_response_senha_value}}} */
     public var senha: String?
-    /** Indica se \u00E9 origem externa */
+    /** {{{origem_comercial_response_flag_origem_externa_value}}} */
     public var flagOrigemExterna: Bool?
-    /** Indica se h\u00E1 modifica\u00E7\u00E3o */
+    /** {{{origem_comercial_response_flag_modificado_value}}} */
     public var flagModificado: Bool?
-    /** Indica se envia fatura */
+    /** {{{origem_comercial_response_flag_envia_fatura_usuario_value}}} */
     public var flagEnviaFaturaUsuario: Bool?
-    /** Indica se permite cr\u00E9dito de faturamento */
+    /** {{{origem_comercial_response_flag_credito_faturamento_value}}} */
     public var flagCreditoFaturamento: Bool?
-    /** Indica se concede limite provis\u00F3rio */
+    /** {{{origem_comercial_response_flag_concede_limite_provisorio_value}}} */
     public var flagConcedeLimiteProvisorio: Bool?
-    /** Indica se digitaliza documento */
+    /** {{{origem_comercial_response_flag_digitalizar_doc_value}}} */
     public var flagDigitalizarDoc: Bool?
-    /** Indica se realiza embossing em loja */
+    /** {{{origem_comercial_response_flag_embossing_loja_value}}} */
     public var flagEmbossingLoja: Bool?
-    /** Indica se realiza consulta pr\u00E9via */
+    /** {{{origem_comercial_response_flag_consulta_previa_value}}} */
     public var flagConsultaPrevia: Bool?
-    /** Tipo de pessoa */
+    /** {{{origem_comercial_response_tipo_pessoa_value}}} */
     public var tipoPessoa: TipoPessoa?
     
 

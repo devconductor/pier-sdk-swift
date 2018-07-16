@@ -8,34 +8,34 @@
 import Foundation
 
 
-/** Representa\u00E7\u00E3o da resposta do recurso Oportunidades */
+/** {{{oportunidade_a_u_d_response_description}}} */
 public class OportunidadeAUDResponse: JSONEncodable {
 
-    /** C\u00F3digo identificador da oportunidade */
+    /** {{{oportunidade_a_u_d_response_id_value}}} */
     public var id: Int?
-    /** C\u00F3digo identificador do tipo oportunidade */
+    /** {{{oportunidade_a_u_d_response_id_tipo_oportunidade_value}}} */
     public var idTipoOportunidade: Int?
-    /** C\u00F3digo identificador do status oportunidade */
+    /** {{{oportunidade_a_u_d_response_id_status_oportunidade_value}}} */
     public var idStatusOportunidade: Int?
-    /** Data cadastro da oportunidade. */
+    /** {{{oportunidade_a_u_d_response_data_cadastro_value}}} */
     public var dataCadastro: String?
-    /** Data atualiza\u00E7\u00E3o da oportunidade. */
+    /** {{{oportunidade_a_u_d_response_data_atualizacao_value}}} */
     public var dataAtualizacao: String?
-    /** N\u00FAmero receita federal do cliente ao qual ser\u00E1 ofertada a oportunidade */
+    /** {{{oportunidade_a_u_d_response_numero_receita_federal_value}}} */
     public var numeroReceitaFederal: String?
-    /** In\u00EDcio da vig\u00EAncia da oportunidade */
+    /** {{{oportunidade_a_u_d_response_data_inicio_vigencia_value}}} */
     public var dataInicioVigencia: String?
-    /** fim da vig\u00EAncia da oportunidade */
+    /** {{{oportunidade_a_u_d_response_data_fim_vigencia_value}}} */
     public var dataFimVigencia: String?
-    /** Flag de verifica\u00E7\u00E3o se a oportunidade est\u00E1 ativa */
+    /** {{{oportunidade_a_u_d_response_flag_ativo_value}}} */
     public var flagAtivo: Bool?
-    /** Lista de detalhes da oportunidade */
+    /** {{{oportunidade_a_u_d_response_detalhes_value}}} */
     public var detalhes: [CdtDetalheOportunidadeAUD]?
-    /** Data da auditoria */
+    /** {{{oportunidade_a_u_d_response_rev_date_value}}} */
     public var revDate: String?
-    /** Tipo da auditoria */
+    /** {{{oportunidade_a_u_d_response_rev_type_value}}} */
     public var revType: Int?
-    /** Identificador da auditoria */
+    /** {{{oportunidade_a_u_d_response_rev_value}}} */
     public var rev: Int?
     
 

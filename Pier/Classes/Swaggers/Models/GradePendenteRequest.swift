@@ -8,11 +8,12 @@
 import Foundation
 
 
+/** {{{grade_pendente_request_description}}} */
 public class GradePendenteRequest: JSONEncodable {
 
-    /** C\u00F3digo identificador da conta. */
+    /** {{{grade_pendente_request_id_conta_value}}} */
     public var idConta: Int?
-    /** Data do ajuste no formato yyyy-MM-dd. */
+    /** {{{grade_pendente_request_data_base_value}}} */
     public var dataBase: String?
     
 

@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Representa\u00E7\u00E3o da resposta do recurso de conta banc\u00E1ria portador. */
+/** {{{page_conta_bancaria_portador_response_description}}} */
 public class PageContaBancariaPortadorResponse: JSONEncodable {
 
     public var content: [ContaBancariaPortadorResponse]?

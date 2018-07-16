@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Lista de vinculosOperacao */
+/** {{{page_vinculo_operacao_response_description}}} */
 public class PageVinculoOperacaoResponse: JSONEncodable {
 
     public var content: [VinculoOperacaoResponse]?

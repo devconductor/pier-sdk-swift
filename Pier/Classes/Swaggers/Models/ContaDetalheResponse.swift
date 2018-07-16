@@ -8,60 +8,60 @@
 import Foundation
 
 
-/** Objeto conta */
+/** {{{conta_detalhe_response_description}}} */
 public class ContaDetalheResponse: JSONEncodable {
 
-    /** C\u00F3digo de identifica\u00E7\u00E3o de conta (id). */
+    /** {{{conta_detalhe_response_id_value}}} */
     public var id: Int?
-    /** C\u00F3digo de Identifica\u00E7\u00E3o da Pessoa Titular da Conta (id). */
+    /** {{{conta_detalhe_response_id_pessoa_value}}} */
     public var idPessoa: Int?
-    /** Apresenta o &#39;Nome Completo da PF&#39; ou o &#39;Nome Completo da Raz\u00E3o Social (Nome Empresarial)&#39;. */
+    /** {{{conta_detalhe_response_nome_value}}} */
     public var nome: String?
-    /** C\u00F3digo de identifica\u00E7\u00E3o do produto ao qual a conta faz parte. (id). */
+    /** {{{conta_detalhe_response_id_produto_value}}} */
     public var idProduto: Int?
-    /** C\u00F3digo de Identifica\u00E7\u00E3o da Origem Comercial (id) que deu origem a Conta. */
+    /** {{{conta_detalhe_response_id_origem_comercial_value}}} */
     public var idOrigemComercial: Int?
-    /** Nome da origem comercial */
+    /** {{{conta_detalhe_response_nome_origem_comercial_value}}} */
     public var nomeOrigemComercial: String?
-    /** C\u00F3digo de Identifica\u00E7\u00E3o da Fantasia Basica (id). */
+    /** {{{conta_detalhe_response_id_fantasia_basica_value}}} */
     public var idFantasiaBasica: Int?
-    /** Nome da Fantasia Basica */
+    /** {{{conta_detalhe_response_nome_fantasia_basica_value}}} */
     public var nomeFantasiaBasica: String?
-    /** C\u00F3digo de Identifica\u00E7\u00E3o do status atribuido a conta. */
+    /** {{{conta_detalhe_response_id_status_conta_value}}} */
     public var idStatusConta: Int?
-    /** Descri\u00E7\u00E3o do status da conta */
+    /** {{{conta_detalhe_response_status_conta_value}}} */
     public var statusConta: String?
-    /** Apresenta o dia de vencimento. */
+    /** {{{conta_detalhe_response_dia_vencimento_value}}} */
     public var diaVencimento: Int?
-    /** Apresenta o melhor dia de compra. */
+    /** {{{conta_detalhe_response_melhor_dia_compra_value}}} */
     public var melhorDiaCompra: Int?
-    /** Apresenta a data em que o idStatusConta atual fora atribu\u00EDdo para ela. */
+    /** {{{conta_detalhe_response_data_status_conta_value}}} */
     public var dataStatusConta: String?
-    /** Valor da renda comprovada. */
+    /** {{{conta_detalhe_response_valor_renda_value}}} */
     public var valorRenda: Double?
-    /** Apresenta a data em que o cart\u00E3o foi gerado. */
+    /** {{{conta_detalhe_response_data_cadastro_value}}} */
     public var dataCadastro: String?
-    /** Apresenta a data da ultima altera\u00E7\u00E3o de vencimento. */
+    /** {{{conta_detalhe_response_data_ultima_alteracao_vencimento_value}}} */
     public var dataUltimaAlteracaoVencimento: String?
-    /** Apresenta a data da ultima altera\u00E7\u00E3o de vencimento. */
+    /** {{{conta_detalhe_response_data_hora_ultima_compra_value}}} */
     public var dataHoraUltimaCompra: String?
-    /** N\u00FAmero da ag\u00EAncia. */
+    /** {{{conta_detalhe_response_numero_agencia_value}}} */
     public var numeroAgencia: Int?
-    /** N\u00FAmero da conta corrente. */
+    /** {{{conta_detalhe_response_numero_conta_corrente_value}}} */
     public var numeroContaCorrente: String?
-    /** Forma de envio da fatura. */
+    /** {{{conta_detalhe_response_forma_envio_fatura_value}}} */
     public var formaEnvioFatura: String?
-    /** Apresenta se a pessoa \u00E9 titular da conta. */
+    /** {{{conta_detalhe_response_titular_value}}} */
     public var titular: Bool?
-    /** Apresenta o valor do limite de cr\u00E9dito que o portador do cart\u00E3o possui. */
+    /** {{{conta_detalhe_response_limite_global_value}}} */
     public var limiteGlobal: Double?
-    /** Quando utilizado pelo emissor, este campo apresenta o valor do limite de cr\u00E9dito que o portador pode utilizar para realizar transa\u00E7\u00F5es de Saque Nacional. */
+    /** {{{conta_detalhe_response_limite_saque_global_value}}} */
     public var limiteSaqueGlobal: Double?
-    /** Quando utilizado pelo emissor, este campo apresenta o valor do limite de cr\u00E9dito que o portador possui para uso exclusivo em Compras Nacionais. */
+    /** {{{conta_detalhe_response_saldo_disponivel_global_value}}} */
     public var saldoDisponivelGlobal: Double?
-    /** Quando utilizado pelo emissor, este campo apresenta o valor do limite de cr\u00E9dito que o portador pode utilizar para realizar transa\u00E7\u00F5es de Saque Nacional dentro de cada ciclo de faturamento. */
+    /** {{{conta_detalhe_response_saldo_disponivel_saque_value}}} */
     public var saldoDisponivelSaque: Double?
-    /** Apresenta a quantidade de dias que a conta esta em atraso */
+    /** {{{conta_detalhe_response_dias_atraso_value}}} */
     public var diasAtraso: Int?
     
 

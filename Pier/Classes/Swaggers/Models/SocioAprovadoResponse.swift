@@ -8,36 +8,36 @@
 import Foundation
 
 
-/** PessoaPersist */
+/** {{{socio_aprovado_response_description}}} */
 public class SocioAprovadoResponse: JSONEncodable {
 
-    /** C\u00F3digo de Identifica\u00E7\u00E3o do S\u00F3cio (id) */
+    /** {{{socio_aprovado_response_id_value}}} */
     public var id: Int?
-    /** Apresenta o Nome do Socio */
+    /** {{{socio_aprovado_response_nome_value}}} */
     public var nome: String?
-    /** N\u00FAmero do CPF, quando PF. */
+    /** {{{socio_aprovado_response_cpf_value}}} */
     public var cpf: String?
-    /** Data de Nascimento da Pessoa, quando PF, ou a Data de Abertura da Empresa, quando PJ. Essa data deve ser informada no formato aaaa-MM-dd. */
+    /** {{{socio_aprovado_response_data_nascimento_value}}} */
     public var dataNascimento: String?
-    /** C\u00F3digo de identifica\u00E7\u00E3o do sexo da Pessoa, quando PF, sendo: (\&quot;M\&quot;: Masculino), (\&quot;F\&quot;: Feminino), (\&quot;O\&quot;: Outro), (\&quot;N\&quot;: N\u00E3o Especificado). */
+    /** {{{socio_aprovado_response_sexo_value}}} */
     public var sexo: String?
-    /** N\u00FAmero da Identidade. */
+    /** {{{socio_aprovado_response_numero_identidade_value}}} */
     public var numeroIdentidade: String?
-    /** Org\u00E3o expedidor do RG. */
+    /** {{{socio_aprovado_response_orgao_expedidor_identidade_value}}} */
     public var orgaoExpedidorIdentidade: String?
-    /** Sigla da Unidade Federativa de onde foi expedido a Identidade */
+    /** {{{socio_aprovado_response_unidade_federativa_identidade_value}}} */
     public var unidadeFederativaIdentidade: String?
-    /** Data emiss\u00E3o da Identidade */
+    /** {{{socio_aprovado_response_data_emissao_identidade_value}}} */
     public var dataEmissaoIdentidade: String?
-    /** Estado civil do s\u00F3cio */
+    /** {{{socio_aprovado_response_estado_civil_value}}} */
     public var estadoCivil: String?
-    /** Profiss\u00E3o do s\u00F3cio */
+    /** {{{socio_aprovado_response_profissao_value}}} */
     public var profissao: String?
-    /** Nacionalidade do s\u00F3cio */
+    /** {{{socio_aprovado_response_nacionalidade_value}}} */
     public var nacionalidade: String?
-    /** Email do s\u00F3cio */
+    /** {{{socio_aprovado_response_email_value}}} */
     public var email: String?
-    /** Informa os telefones do s\u00F3cio */
+    /** {{{socio_aprovado_response_telefones_value}}} */
     public var telefones: [TelefonePessoaAprovadaResponse]?
     
 

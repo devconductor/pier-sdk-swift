@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Lista de Campos Codificados */
+/** {{{page_campo_codificado_descricao_response_description}}} */
 public class PageCampoCodificadoDescricaoResponse: JSONEncodable {
 
     public var content: [CampoCodificadoDescricaoResponse]?

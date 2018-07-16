@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Lista de tipos telefones */
+/** {{{page_tipo_telefone_response_description}}} */
 public class PageTipoTelefoneResponse: JSONEncodable {
 
     public var content: [TipoTelefoneResponse]?

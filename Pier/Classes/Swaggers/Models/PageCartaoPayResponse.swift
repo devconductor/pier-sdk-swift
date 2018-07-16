@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** P\u00E1gina de resposta da listagem de cart\u00F5es tokenizados */
+/** {{{page_cartao_pay_response_description}}} */
 public class PageCartaoPayResponse: JSONEncodable {
 
     public var content: [CartaoPayResponse]?

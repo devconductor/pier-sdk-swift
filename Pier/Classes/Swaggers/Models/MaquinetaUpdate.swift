@@ -8,16 +8,16 @@
 import Foundation
 
 
-/** Par\u00E2metros de requisi\u00E7\u00E3o para alterar Maquineta */
+/** {{{maquineta_update_description}}} */
 public class MaquinetaUpdate: JSONEncodable {
 
-    /** C\u00F3digo de Identifica\u00E7\u00E3o do Terminal (id). */
+    /** {{{maquineta_update_id_terminal_value}}} */
     public var idTerminal: Int?
-    /** C\u00F3digo de Identifica\u00E7\u00E3o do Tipo Maquineta (id). */
+    /** {{{maquineta_update_id_tipo_maquineta_value}}} */
     public var idTipoMaquineta: Int?
-    /** Valor de Manuten\u00E7\u00E3o da Maquineta. */
+    /** {{{maquineta_update_valor_value}}} */
     public var valor: Double?
-    /** Data da implanta\u00E7\u00E3o da Maquineta. */
+    /** {{{maquineta_update_data_hora_implantacao_value}}} */
     public var dataHoraImplantacao: String?
     
 

@@ -8,14 +8,14 @@
 import Foundation
 
 
-/** Objeto Response do tipo arquivo. */
+/** {{{tipo_arquivo_response_description}}} */
 public class TipoArquivoResponse: JSONEncodable {
 
-    /** C\u00F3digo de identifica\u00E7\u00E3o do tipo arquivo */
+    /** {{{tipo_arquivo_response_id_value}}} */
     public var id: Int?
-    /** Nome do tipo do arquivo */
+    /** {{{tipo_arquivo_response_nome_value}}} */
     public var nome: String?
-    /** Descri\u00E7\u00E3o do tipo do arquivo */
+    /** {{{tipo_arquivo_response_descricao_value}}} */
     public var descricao: String?
     
 

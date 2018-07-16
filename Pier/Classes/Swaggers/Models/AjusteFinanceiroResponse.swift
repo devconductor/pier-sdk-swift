@@ -8,21 +8,22 @@
 import Foundation
 
 
+/** {{{ajuste_financeiro_response_description}}} */
 public class AjusteFinanceiroResponse: JSONEncodable {
 
-    /** C\u00F3digo de identifica\u00E7\u00E3o do ajuste (id) */
+    /** {{{ajuste_financeiro_response_id_value}}} */
     public var id: Int?
-    /** C\u00F3digo de identifica\u00E7\u00E3o do tipo do ajuste */
+    /** {{{ajuste_financeiro_response_id_tipo_ajuste_value}}} */
     public var idTipoAjuste: Int?
-    /** C\u00F3digo de identifica\u00E7\u00E3o da conta (idConta) */
+    /** {{{ajuste_financeiro_response_id_conta_value}}} */
     public var idConta: Int?
-    /** Data do ajuste */
+    /** {{{ajuste_financeiro_response_data_ajuste_value}}} */
     public var dataAjuste: String?
-    /** Valor do ajuste */
+    /** {{{ajuste_financeiro_response_valor_value}}} */
     public var valor: Double?
-    /** Descri\u00E7\u00E3o do status da autoriza\u00E7\u00E3o da compra. */
+    /** {{{ajuste_financeiro_response_identificador_externo_value}}} */
     public var identificadorExterno: String?
-    /** Status do ajuste. */
+    /** {{{ajuste_financeiro_response_status_value}}} */
     public var status: Int?
     
 

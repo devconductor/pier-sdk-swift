@@ -8,7 +8,7 @@
 import Foundation
 
 
-/** Lista de Jobs */
+/** {{{page_job_response_description}}} */
 public class PageJobResponse: JSONEncodable {
 
     public var content: [JobResponse]?

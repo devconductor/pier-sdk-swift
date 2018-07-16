@@ -8,22 +8,22 @@
 import Foundation
 
 
-/** Objeto de Resposta de Autoriza\u00E7\u00E3o */
+/** {{{transacao_on_us_response_description}}} */
 public class TransacaoOnUsResponse: JSONEncodable {
 
-    /** N\u00FAmero Sequencial \u00DAnico que identifica a transa\u00E7\u00E3o no sistema que a originou. */
+    /** {{{transacao_on_us_response_nsu_origem_value}}} */
     public var nsuOrigem: String?
-    /** N\u00FAmero Sequencial \u00DAnico gerado pelo Autorizador a cada Transa\u00E7\u00E3o. */
+    /** {{{transacao_on_us_response_nsu_autorizacao_value}}} */
     public var nsuAutorizacao: String?
-    /** Descri\u00E7\u00E3o do Plano de Parcelamento atribu\u00EDdo a Transa\u00E7\u00E3o. */
+    /** {{{transacao_on_us_response_plano_de_parcelamento_value}}} */
     public var planoDeParcelamento: [MapOfstringAndstring]?
-    /** C\u00F3digo de Autoriza\u00E7\u00E3o gerado pelo Autorizador. */
+    /** {{{transacao_on_us_response_codigo_autorizacao_value}}} */
     public var codigoAutorizacao: String?
-    /** N\u00FAmero do Cart\u00E3o que originou a transa\u00E7\u00E3o em formato mascarado. */
+    /** {{{transacao_on_us_response_numero_mascarado_cartao_value}}} */
     public var numeroMascaradoCartao: String?
-    /** Nome do Portador do Cart\u00E3o que originou a transa\u00E7\u00E3o. */
+    /** {{{transacao_on_us_response_nome_portador_cartao_value}}} */
     public var nomePortadorCartao: String?
-    /** Apresenta a identifica\u00E7\u00E3o do terminal requisitante */
+    /** {{{transacao_on_us_response_terminal_requisitante_value}}} */
     public var terminalRequisitante: String?
     
 
