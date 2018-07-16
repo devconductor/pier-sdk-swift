@@ -25,6 +25,8 @@ public class SMSEnvioResponse: JSONEncodable {
     public var quantidadeTentativasEnvio: Int?
     /** {{{s_m_s_envio_response_data_inclusao_value}}} */
     public var dataInclusao: String?
+    /** {{{sms_envio_response_cpf_value}}} */
+    public var cpf: String?
     
 
     public init() {}
@@ -39,6 +41,7 @@ public class SMSEnvioResponse: JSONEncodable {
         nillableDictionary["conteudo"] = self.conteudo
         nillableDictionary["quantidadeTentativasEnvio"] = self.quantidadeTentativasEnvio
         nillableDictionary["dataInclusao"] = self.dataInclusao
+        nillableDictionary["cpf"] = self.cpf
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

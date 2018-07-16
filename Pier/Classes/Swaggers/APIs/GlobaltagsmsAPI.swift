@@ -45,6 +45,7 @@ public class GlobaltagsmsAPI: APIBase {
     "quantidadeTentativasEnvio" : 123,
     "conteudo" : "aeiou",
     "idConta" : 123456789,
+    "cpf" : "aeiou",
     "celular" : "aeiou",
     "dataInclusao" : "aeiou",
     "id" : 123456789,

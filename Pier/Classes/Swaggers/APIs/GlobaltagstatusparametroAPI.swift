@@ -105,8 +105,8 @@ public class GlobaltagstatusparametroAPI: APIBase {
      - parameter id: (path) {{{status_conta_resource_consultar_param_id}}} 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET35(id id: Int, completion: ((data: StatusContaResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET35WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET36(id id: Int, completion: ((data: StatusContaResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET36WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -136,7 +136,7 @@ public class GlobaltagstatusparametroAPI: APIBase {
 
      - returns: RequestBuilder<StatusContaResponse> 
      */
-    public class func consultarUsingGET35WithRequestBuilder(id id: Int) -> RequestBuilder<StatusContaResponse> {
+    public class func consultarUsingGET36WithRequestBuilder(id id: Int) -> RequestBuilder<StatusContaResponse> {
         var path = "/api/status-contas/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -156,8 +156,8 @@ public class GlobaltagstatusparametroAPI: APIBase {
      - parameter id: (path) {{{status_impressao_resource_consultar_param_id}}} 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET36(id id: Int, completion: ((data: StatusImpressaoResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET36WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET37(id id: Int, completion: ((data: StatusImpressaoResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET37WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -178,7 +178,7 @@ public class GlobaltagstatusparametroAPI: APIBase {
 
      - returns: RequestBuilder<StatusImpressaoResponse> 
      */
-    public class func consultarUsingGET36WithRequestBuilder(id id: Int) -> RequestBuilder<StatusImpressaoResponse> {
+    public class func consultarUsingGET37WithRequestBuilder(id id: Int) -> RequestBuilder<StatusImpressaoResponse> {
         var path = "/api/status-impressoes/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path

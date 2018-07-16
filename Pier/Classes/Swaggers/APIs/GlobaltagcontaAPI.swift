@@ -383,6 +383,51 @@ public class GlobaltagcontaAPI: APIBase {
 
     /**
      
+     {{{aderir_pagamento_sabado_recurso_cadastrar}}}
+     
+     - parameter id: (query) {{{aderir_pagamento_sabado_recurso_cadastrar_param_id}}} 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func cadastrarUsingPOST(id id: Int, completion: ((data: AdesaoPagamentoSabadoResponse?, error: ErrorType?) -> Void)) {
+        cadastrarUsingPOSTWithRequestBuilder(id: id).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     {{{aderir_pagamento_sabado_recurso_cadastrar}}}
+     
+     - POST /api/adesoes-pagamentos-sabados
+     - {{{aderir_pagamento_sabado_recurso_cadastrar_notas}}}
+     - examples: [{contentType=application/json, example={
+  "idConta" : 123456789,
+  "dataVencimento" : "yyyy-MM-dd",
+  "id" : 123456789,
+  "dataCadastro" : "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+}}]
+     
+     - parameter id: (query) {{{aderir_pagamento_sabado_recurso_cadastrar_param_id}}} 
+
+     - returns: RequestBuilder<AdesaoPagamentoSabadoResponse> 
+     */
+    public class func cadastrarUsingPOSTWithRequestBuilder(id id: Int) -> RequestBuilder<AdesaoPagamentoSabadoResponse> {
+        let path = "/api/adesoes-pagamentos-sabados"
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [
+            "id": id
+        ]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<AdesaoPagamentoSabadoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: false)
+    }
+
+    /**
+     
      {{{conta_resource_cancelar}}}
      
      - parameter id: (path) {{{conta_resource_cancelar_param_id}}} 
@@ -713,13 +758,61 @@ public class GlobaltagcontaAPI: APIBase {
 
     /**
      
+     {{{aderir_pagamento_sabado_recurso_consultar}}}
+     
+     - parameter id: (query) {{{aderir_pagamento_sabado_recurso_consultar_param_id}}} 
+     - parameter dataVencimento: (query) {{{aderir_pagamento_sabado_recurso_consultar_param_data_vencimento}}} 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func consultarUsingGET1(id id: Int, dataVencimento: String, completion: ((data: AdesaoPagamentoSabadoResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET1WithRequestBuilder(id: id, dataVencimento: dataVencimento).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     {{{aderir_pagamento_sabado_recurso_consultar}}}
+     
+     - GET /api/adesoes-pagamentos-sabados
+     - {{{aderir_pagamento_sabado_recurso_consultar_notas}}}
+     - examples: [{contentType=application/json, example={
+  "idConta" : 123456789,
+  "dataVencimento" : "yyyy-MM-dd",
+  "id" : 123456789,
+  "dataCadastro" : "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+}}]
+     
+     - parameter id: (query) {{{aderir_pagamento_sabado_recurso_consultar_param_id}}} 
+     - parameter dataVencimento: (query) {{{aderir_pagamento_sabado_recurso_consultar_param_data_vencimento}}} 
+
+     - returns: RequestBuilder<AdesaoPagamentoSabadoResponse> 
+     */
+    public class func consultarUsingGET1WithRequestBuilder(id id: Int, dataVencimento: String) -> RequestBuilder<AdesaoPagamentoSabadoResponse> {
+        let path = "/api/adesoes-pagamentos-sabados"
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [
+            "id": id,
+            "dataVencimento": dataVencimento
+        ]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<AdesaoPagamentoSabadoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
+    }
+
+    /**
+     
      {{{conta_resource_consultar}}}
      
      - parameter id: (path) {{{conta_resource_consultar_param_id}}} 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET13(id id: Int, completion: ((data: ContaDetalheResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET13WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET14(id id: Int, completion: ((data: ContaDetalheResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET14WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -764,7 +857,7 @@ public class GlobaltagcontaAPI: APIBase {
 
      - returns: RequestBuilder<ContaDetalheResponse> 
      */
-    public class func consultarUsingGET13WithRequestBuilder(id id: Int) -> RequestBuilder<ContaDetalheResponse> {
+    public class func consultarUsingGET14WithRequestBuilder(id id: Int) -> RequestBuilder<ContaDetalheResponse> {
         var path = "/api/contas/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -785,8 +878,8 @@ public class GlobaltagcontaAPI: APIBase {
      - parameter idTransferencia: (path) {{{transferencia_resource_consultar_param_id_transferencia}}} 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET48(id id: Int, idTransferencia: Int, completion: ((data: TransferenciaDetalheResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET48WithRequestBuilder(id: id, idTransferencia: idTransferencia).execute { (response, error) -> Void in
+    public class func consultarUsingGET49(id id: Int, idTransferencia: Int, completion: ((data: TransferenciaDetalheResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET49WithRequestBuilder(id: id, idTransferencia: idTransferencia).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -814,7 +907,7 @@ public class GlobaltagcontaAPI: APIBase {
 
      - returns: RequestBuilder<TransferenciaDetalheResponse> 
      */
-    public class func consultarUsingGET48WithRequestBuilder(id id: Int, idTransferencia: Int) -> RequestBuilder<TransferenciaDetalheResponse> {
+    public class func consultarUsingGET49WithRequestBuilder(id id: Int, idTransferencia: Int) -> RequestBuilder<TransferenciaDetalheResponse> {
         var path = "/api/contas/{id}/transferencias-creditos-cartoes/{idTransferencia}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{idTransferencia}", withString: "\(idTransferencia)", options: .LiteralSearch, range: nil)
@@ -1508,10 +1601,11 @@ public class GlobaltagcontaAPI: APIBase {
      - parameter dataInicio: (query) {{{transacoes_processadas_request_data_inicio_value}}} (optional)
      - parameter dataFim: (query) {{{transacoes_processadas_request_data_fim_value}}} (optional)
      - parameter idTipoTransacao: (query) {{{transacoes_processadas_request_tipo_transacao}}} (optional)
+     - parameter recuperaEncargos: (query) {{{transacoes_processadas_request_recupera_encargos}}} (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarProcessadasUsingGET(id id: Int, sort: [String]?, page: Int?, limit: Int?, dataVencimento: String?, dataInicio: String?, dataFim: String?, idTipoTransacao: Int?, completion: ((data: PageTransacoesCorrentesResponse?, error: ErrorType?) -> Void)) {
-        listarProcessadasUsingGETWithRequestBuilder(id: id, sort: sort, page: page, limit: limit, dataVencimento: dataVencimento, dataInicio: dataInicio, dataFim: dataFim, idTipoTransacao: idTipoTransacao).execute { (response, error) -> Void in
+    public class func listarProcessadasUsingGET(id id: Int, sort: [String]?, page: Int?, limit: Int?, dataVencimento: String?, dataInicio: String?, dataFim: String?, idTipoTransacao: Int?, recuperaEncargos: Int?, completion: ((data: PageTransacoesCorrentesResponse?, error: ErrorType?) -> Void)) {
+        listarProcessadasUsingGETWithRequestBuilder(id: id, sort: sort, page: page, limit: limit, dataVencimento: dataVencimento, dataInicio: dataInicio, dataFim: dataFim, idTipoTransacao: idTipoTransacao, recuperaEncargos: recuperaEncargos).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -1587,10 +1681,11 @@ public class GlobaltagcontaAPI: APIBase {
      - parameter dataInicio: (query) {{{transacoes_processadas_request_data_inicio_value}}} (optional)
      - parameter dataFim: (query) {{{transacoes_processadas_request_data_fim_value}}} (optional)
      - parameter idTipoTransacao: (query) {{{transacoes_processadas_request_tipo_transacao}}} (optional)
+     - parameter recuperaEncargos: (query) {{{transacoes_processadas_request_recupera_encargos}}} (optional)
 
      - returns: RequestBuilder<PageTransacoesCorrentesResponse> 
      */
-    public class func listarProcessadasUsingGETWithRequestBuilder(id id: Int, sort: [String]?, page: Int?, limit: Int?, dataVencimento: String?, dataInicio: String?, dataFim: String?, idTipoTransacao: Int?) -> RequestBuilder<PageTransacoesCorrentesResponse> {
+    public class func listarProcessadasUsingGETWithRequestBuilder(id id: Int, sort: [String]?, page: Int?, limit: Int?, dataVencimento: String?, dataInicio: String?, dataFim: String?, idTipoTransacao: Int?, recuperaEncargos: Int?) -> RequestBuilder<PageTransacoesCorrentesResponse> {
         var path = "/api/contas/{id}/transacoes/listar-processadas"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -1602,7 +1697,8 @@ public class GlobaltagcontaAPI: APIBase {
             "dataVencimento": dataVencimento,
             "dataInicio": dataInicio,
             "dataFim": dataFim,
-            "idTipoTransacao": idTipoTransacao
+            "idTipoTransacao": idTipoTransacao,
+            "recuperaEncargos": recuperaEncargos
         ]
         let parameters = APIHelper.rejectNil(nillableParameters)
 
@@ -2093,6 +2189,7 @@ public class GlobaltagcontaAPI: APIBase {
     "descricaoStatus" : "aeiou",
     "dataEvento" : "aeiou",
     "valorParcela" : 1.3579000000000001069366817318950779736042022705078125,
+    "tipoTransacao" : 123,
     "idTransacao" : 123456789,
     "estabelecimento" : "aeiou",
     "ordem" : 123,

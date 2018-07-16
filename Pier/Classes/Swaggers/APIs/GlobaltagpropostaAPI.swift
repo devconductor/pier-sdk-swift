@@ -61,8 +61,8 @@ public class GlobaltagpropostaAPI: APIBase {
      - parameter id: (path) {{{proposta_resource_consultar_param_id}}} 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET32(id id: Int, completion: ((data: PropostaResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET32WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET33(id id: Int, completion: ((data: PropostaResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET33WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -84,7 +84,7 @@ public class GlobaltagpropostaAPI: APIBase {
 
      - returns: RequestBuilder<PropostaResponse> 
      */
-    public class func consultarUsingGET32WithRequestBuilder(id id: Int) -> RequestBuilder<PropostaResponse> {
+    public class func consultarUsingGET33WithRequestBuilder(id id: Int) -> RequestBuilder<PropostaResponse> {
         var path = "/api/propostas/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path

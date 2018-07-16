@@ -17,8 +17,8 @@ public class GlobaltagarquivoAPI: APIBase {
      - parameter id: (path) {{{arquivo_resource_consultar_param_id}}} 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET4(id id: Int, completion: ((data: ArquivoDetalheResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET4WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET5(id id: Int, completion: ((data: ArquivoDetalheResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET5WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -52,7 +52,7 @@ public class GlobaltagarquivoAPI: APIBase {
 
      - returns: RequestBuilder<ArquivoDetalheResponse> 
      */
-    public class func consultarUsingGET4WithRequestBuilder(id id: Int) -> RequestBuilder<ArquivoDetalheResponse> {
+    public class func consultarUsingGET5WithRequestBuilder(id id: Int) -> RequestBuilder<ArquivoDetalheResponse> {
         var path = "/api/arquivos/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path

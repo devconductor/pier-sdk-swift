@@ -717,8 +717,8 @@ public class GlobaltagcartaoAPI: APIBase {
      - parameter id: (path) {{{cartao_resource_consultar_param_id}}} 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET9(id id: Int, completion: ((data: CartaoDetalheResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET9WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET10(id id: Int, completion: ((data: CartaoDetalheResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET10WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -761,7 +761,7 @@ public class GlobaltagcartaoAPI: APIBase {
 
      - returns: RequestBuilder<CartaoDetalheResponse> 
      */
-    public class func consultarUsingGET9WithRequestBuilder(id id: Int) -> RequestBuilder<CartaoDetalheResponse> {
+    public class func consultarUsingGET10WithRequestBuilder(id id: Int) -> RequestBuilder<CartaoDetalheResponse> {
         var path = "/api/cartoes/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path

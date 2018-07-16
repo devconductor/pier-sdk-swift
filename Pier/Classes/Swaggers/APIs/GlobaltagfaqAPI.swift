@@ -146,8 +146,8 @@ public class GlobaltagfaqAPI: APIBase {
      - parameter id: (path) {{{faq_resource_consultar_param_id_faq}}} 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET20(id id: Int, completion: ((data: FaqResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET20WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET21(id id: Int, completion: ((data: FaqResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET21WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -173,7 +173,7 @@ public class GlobaltagfaqAPI: APIBase {
 
      - returns: RequestBuilder<FaqResponse> 
      */
-    public class func consultarUsingGET20WithRequestBuilder(id id: Int) -> RequestBuilder<FaqResponse> {
+    public class func consultarUsingGET21WithRequestBuilder(id id: Int) -> RequestBuilder<FaqResponse> {
         var path = "/api/faqs/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path

@@ -105,8 +105,8 @@ public class GlobaltagdocumentoAPI: APIBase {
      - parameter id: (path) {{{documento_resource_consultar_param_id}}} 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET16(id id: Int, completion: ((data: DocumentoDetalhadoResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET16WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET17(id id: Int, completion: ((data: DocumentoDetalhadoResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET17WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -135,7 +135,7 @@ public class GlobaltagdocumentoAPI: APIBase {
 
      - returns: RequestBuilder<DocumentoDetalhadoResponse> 
      */
-    public class func consultarUsingGET16WithRequestBuilder(id id: Int) -> RequestBuilder<DocumentoDetalhadoResponse> {
+    public class func consultarUsingGET17WithRequestBuilder(id id: Int) -> RequestBuilder<DocumentoDetalhadoResponse> {
         var path = "/api/documentos/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -155,8 +155,8 @@ public class GlobaltagdocumentoAPI: APIBase {
      - parameter id: (path) {{{documento_template_resource_consultar_param_id}}} 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET17(id id: Int, completion: ((data: DocumentoTemplateResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET17WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET18(id id: Int, completion: ((data: DocumentoTemplateResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET18WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -177,7 +177,7 @@ public class GlobaltagdocumentoAPI: APIBase {
 
      - returns: RequestBuilder<DocumentoTemplateResponse> 
      */
-    public class func consultarUsingGET17WithRequestBuilder(id id: Int) -> RequestBuilder<DocumentoTemplateResponse> {
+    public class func consultarUsingGET18WithRequestBuilder(id id: Int) -> RequestBuilder<DocumentoTemplateResponse> {
         var path = "/api/templates-documentos/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -197,8 +197,8 @@ public class GlobaltagdocumentoAPI: APIBase {
      - parameter id: (path) {{{tipo_template_resource_consultar_param_id}}} 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET46(id id: Int, completion: ((data: TipoTemplateResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET46WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET47(id id: Int, completion: ((data: TipoTemplateResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET47WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -221,7 +221,7 @@ public class GlobaltagdocumentoAPI: APIBase {
 
      - returns: RequestBuilder<TipoTemplateResponse> 
      */
-    public class func consultarUsingGET46WithRequestBuilder(id id: Int) -> RequestBuilder<TipoTemplateResponse> {
+    public class func consultarUsingGET47WithRequestBuilder(id id: Int) -> RequestBuilder<TipoTemplateResponse> {
         var path = "/api/tipos-templates/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path

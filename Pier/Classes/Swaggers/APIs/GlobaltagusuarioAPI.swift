@@ -312,8 +312,8 @@ public class GlobaltagusuarioAPI: APIBase {
      - parameter limit: (query) {{{global_menssagem_sort_limit}}} (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET14(idUsuario idUsuario: Int, sort: [String]?, page: Int?, limit: Int?, completion: ((data: PageControleSegurancaDispositivoResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET14WithRequestBuilder(idUsuario: idUsuario, sort: sort, page: page, limit: limit).execute { (response, error) -> Void in
+    public class func consultarUsingGET15(idUsuario idUsuario: Int, sort: [String]?, page: Int?, limit: Int?, completion: ((data: PageControleSegurancaDispositivoResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET15WithRequestBuilder(idUsuario: idUsuario, sort: sort, page: page, limit: limit).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -353,7 +353,7 @@ public class GlobaltagusuarioAPI: APIBase {
 
      - returns: RequestBuilder<PageControleSegurancaDispositivoResponse> 
      */
-    public class func consultarUsingGET14WithRequestBuilder(idUsuario idUsuario: Int, sort: [String]?, page: Int?, limit: Int?) -> RequestBuilder<PageControleSegurancaDispositivoResponse> {
+    public class func consultarUsingGET15WithRequestBuilder(idUsuario idUsuario: Int, sort: [String]?, page: Int?, limit: Int?) -> RequestBuilder<PageControleSegurancaDispositivoResponse> {
         let path = "/api/controles-seguranca-dispositivos"
         let URLString = PierAPI.basePath + path
         
@@ -377,8 +377,8 @@ public class GlobaltagusuarioAPI: APIBase {
      - parameter id: (path) {{{usuario_resource_consultar_param_id}}} 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET50(id id: Int, completion: ((data: UsuarioResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET50WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET51(id id: Int, completion: ((data: UsuarioResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET51WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -408,7 +408,7 @@ public class GlobaltagusuarioAPI: APIBase {
 
      - returns: RequestBuilder<UsuarioResponse> 
      */
-    public class func consultarUsingGET50WithRequestBuilder(id id: Int) -> RequestBuilder<UsuarioResponse> {
+    public class func consultarUsingGET51WithRequestBuilder(id id: Int) -> RequestBuilder<UsuarioResponse> {
         var path = "/api/usuarios/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path

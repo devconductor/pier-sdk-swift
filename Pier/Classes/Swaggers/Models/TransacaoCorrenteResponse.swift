@@ -46,6 +46,8 @@ public class TransacaoCorrenteResponse: JSONEncodable {
     public var idGrupoMCC: Int?
     /** {{{transacao_corrente_response_flag_solicitou_contestacao_value}}} */
     public var flagSolicitouContestacao: Int?
+    /** {{{transacao_corrente_response_tipo_transacao_value}}} */
+    public var tipoTransacao: Int?
     
 
     public init() {}
@@ -71,6 +73,7 @@ public class TransacaoCorrenteResponse: JSONEncodable {
         nillableDictionary["tipoEstabelecimento"] = self.tipoEstabelecimento
         nillableDictionary["idGrupoMCC"] = self.idGrupoMCC
         nillableDictionary["flagSolicitouContestacao"] = self.flagSolicitouContestacao
+        nillableDictionary["tipoTransacao"] = self.tipoTransacao
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

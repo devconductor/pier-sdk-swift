@@ -65,8 +65,8 @@ public class GlobaltagwebhookAPI: APIBase {
      - parameter id: (path) {{{web_hook_resource_consultar_param_id}}} 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET52(id id: Int, completion: ((data: WebHookResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET52WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET53(id id: Int, completion: ((data: WebHookResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET53WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -90,7 +90,7 @@ public class GlobaltagwebhookAPI: APIBase {
 
      - returns: RequestBuilder<WebHookResponse> 
      */
-    public class func consultarUsingGET52WithRequestBuilder(id id: Int) -> RequestBuilder<WebHookResponse> {
+    public class func consultarUsingGET53WithRequestBuilder(id id: Int) -> RequestBuilder<WebHookResponse> {
         var path = "/api/webhooks/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path

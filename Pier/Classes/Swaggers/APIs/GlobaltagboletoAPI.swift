@@ -17,8 +17,8 @@ public class GlobaltagboletoAPI: APIBase {
      - parameter id: (path) {{{boleto_resource_consultar_param_id}}} 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET33(id id: Int, completion: ((data: BoletoResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET33WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET34(id id: Int, completion: ((data: BoletoResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET34WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -71,7 +71,7 @@ public class GlobaltagboletoAPI: APIBase {
 
      - returns: RequestBuilder<BoletoResponse> 
      */
-    public class func consultarUsingGET33WithRequestBuilder(id id: Int) -> RequestBuilder<BoletoResponse> {
+    public class func consultarUsingGET34WithRequestBuilder(id id: Int) -> RequestBuilder<BoletoResponse> {
         var path = "/api/boletos/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path

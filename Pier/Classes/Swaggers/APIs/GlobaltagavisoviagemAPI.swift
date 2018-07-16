@@ -17,8 +17,8 @@ public class GlobaltagavisoviagemAPI: APIBase {
      - parameter id: (path) {{{aviso_viagem_resource_consultar_param_id}}} 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET6(id id: Int, completion: ((data: AvisoViagemResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET6WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET7(id id: Int, completion: ((data: AvisoViagemResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET7WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -43,7 +43,7 @@ public class GlobaltagavisoviagemAPI: APIBase {
 
      - returns: RequestBuilder<AvisoViagemResponse> 
      */
-    public class func consultarUsingGET6WithRequestBuilder(id id: Int) -> RequestBuilder<AvisoViagemResponse> {
+    public class func consultarUsingGET7WithRequestBuilder(id id: Int) -> RequestBuilder<AvisoViagemResponse> {
         var path = "/api/avisos-viagens/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path

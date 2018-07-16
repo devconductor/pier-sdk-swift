@@ -549,8 +549,8 @@ public class GlobaltagcadastroclienteAPI: APIBase {
      - parameter persist: (body) persist 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func cadastrarUsingPOST(id id: Int, persist: AdicionalPersist, completion: ((data: AdicionalDetalheResponse?, error: ErrorType?) -> Void)) {
-        cadastrarUsingPOSTWithRequestBuilder(id: id, persist: persist).execute { (response, error) -> Void in
+    public class func cadastrarUsingPOST1(id id: Int, persist: AdicionalPersist, completion: ((data: AdicionalDetalheResponse?, error: ErrorType?) -> Void)) {
+        cadastrarUsingPOST1WithRequestBuilder(id: id, persist: persist).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -598,7 +598,7 @@ public class GlobaltagcadastroclienteAPI: APIBase {
 
      - returns: RequestBuilder<AdicionalDetalheResponse> 
      */
-    public class func cadastrarUsingPOSTWithRequestBuilder(id id: Int, persist: AdicionalPersist) -> RequestBuilder<AdicionalDetalheResponse> {
+    public class func cadastrarUsingPOST1WithRequestBuilder(id id: Int, persist: AdicionalPersist) -> RequestBuilder<AdicionalDetalheResponse> {
         var path = "/api/contas/{id}/cadastrar-adicional"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -612,14 +612,69 @@ public class GlobaltagcadastroclienteAPI: APIBase {
 
     /**
      
+     {{{endereco_resource_consultar}}}
+     
+     - parameter id: (path) {{{endereco_resource_consultar_param_id}}} 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func consultarUsingGET19(id id: Int, completion: ((data: EnderecoResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET19WithRequestBuilder(id: id).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     {{{endereco_resource_consultar}}}
+     
+     - GET /api/enderecos/{id}
+     - {{{endereco_resource_consultar_notes}}}
+     - examples: [{contentType=application/json, example={
+  "pontoReferencia" : "aeiou",
+  "cidade" : "aeiou",
+  "numero" : 123,
+  "bairro" : "aeiou",
+  "idTipoEndereco" : 123456789,
+  "cep" : "aeiou",
+  "pais" : "aeiou",
+  "flagCorrespondencia" : false,
+  "idPessoa" : 123456789,
+  "uf" : "aeiou",
+  "complemento" : "aeiou",
+  "logradouro" : "aeiou",
+  "dataInclusao" : "aeiou",
+  "dataUltimaAtualizacao" : "aeiou",
+  "id" : 123456789
+}}]
+     
+     - parameter id: (path) {{{endereco_resource_consultar_param_id}}} 
+
+     - returns: RequestBuilder<EnderecoResponse> 
+     */
+    public class func consultarUsingGET19WithRequestBuilder(id id: Int) -> RequestBuilder<EnderecoResponse> {
+        var path = "/api/enderecos/{id}"
+        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [:]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<EnderecoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
      {{{adicional_resource_consultar}}}
      
      - parameter id: (path) {{{adicional_resource_consultar_param_id_conta}}} 
      - parameter idPessoa: (path) {{{adicional_resource_consultar_param_id_pessoa}}} 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET1(id id: Int, idPessoa: Int, completion: ((data: AdicionalDetalheResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET1WithRequestBuilder(id: id, idPessoa: idPessoa).execute { (response, error) -> Void in
+    public class func consultarUsingGET2(id id: Int, idPessoa: Int, completion: ((data: AdicionalDetalheResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET2WithRequestBuilder(id: id, idPessoa: idPessoa).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -667,7 +722,7 @@ public class GlobaltagcadastroclienteAPI: APIBase {
 
      - returns: RequestBuilder<AdicionalDetalheResponse> 
      */
-    public class func consultarUsingGET1WithRequestBuilder(id id: Int, idPessoa: Int) -> RequestBuilder<AdicionalDetalheResponse> {
+    public class func consultarUsingGET2WithRequestBuilder(id id: Int, idPessoa: Int) -> RequestBuilder<AdicionalDetalheResponse> {
         var path = "/api/contas/{id}/adicionais/{idPessoa}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{idPessoa}", withString: "\(idPessoa)", options: .LiteralSearch, range: nil)
@@ -683,68 +738,13 @@ public class GlobaltagcadastroclienteAPI: APIBase {
 
     /**
      
-     {{{endereco_resource_consultar}}}
-     
-     - parameter id: (path) {{{endereco_resource_consultar_param_id}}} 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func consultarUsingGET18(id id: Int, completion: ((data: EnderecoResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET18WithRequestBuilder(id: id).execute { (response, error) -> Void in
-            completion(data: response?.body, error: error);
-        }
-    }
-
-
-    /**
-     
-     {{{endereco_resource_consultar}}}
-     
-     - GET /api/enderecos/{id}
-     - {{{endereco_resource_consultar_notes}}}
-     - examples: [{contentType=application/json, example={
-  "pontoReferencia" : "aeiou",
-  "cidade" : "aeiou",
-  "numero" : 123,
-  "bairro" : "aeiou",
-  "idTipoEndereco" : 123456789,
-  "cep" : "aeiou",
-  "pais" : "aeiou",
-  "flagCorrespondencia" : false,
-  "idPessoa" : 123456789,
-  "uf" : "aeiou",
-  "complemento" : "aeiou",
-  "logradouro" : "aeiou",
-  "dataInclusao" : "aeiou",
-  "dataUltimaAtualizacao" : "aeiou",
-  "id" : 123456789
-}}]
-     
-     - parameter id: (path) {{{endereco_resource_consultar_param_id}}} 
-
-     - returns: RequestBuilder<EnderecoResponse> 
-     */
-    public class func consultarUsingGET18WithRequestBuilder(id id: Int) -> RequestBuilder<EnderecoResponse> {
-        var path = "/api/enderecos/{id}"
-        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
-        let URLString = PierAPI.basePath + path
-        
-        let nillableParameters: [String:AnyObject?] = [:]
-        let parameters = APIHelper.rejectNil(nillableParameters)
-
-        let requestBuilder: RequestBuilder<EnderecoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
      {{{pessoa_detalhe_resource_consultar}}}
      
      - parameter id: (path) {{{pessoa_detalhe_resource_consultar_param_id}}} 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET29(id id: Int, completion: ((data: PessoaDetalheResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET29WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET30(id id: Int, completion: ((data: PessoaDetalheResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET30WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -774,7 +774,7 @@ public class GlobaltagcadastroclienteAPI: APIBase {
 
      - returns: RequestBuilder<PessoaDetalheResponse> 
      */
-    public class func consultarUsingGET29WithRequestBuilder(id id: Int) -> RequestBuilder<PessoaDetalheResponse> {
+    public class func consultarUsingGET30WithRequestBuilder(id id: Int) -> RequestBuilder<PessoaDetalheResponse> {
         var path = "/api/pessoas-detalhes/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -794,8 +794,8 @@ public class GlobaltagcadastroclienteAPI: APIBase {
      - parameter id: (path) {{{pessoa_resource_consultar_param_id}}} 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET30(id id: Int, completion: ((data: PessoaResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET30WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET31(id id: Int, completion: ((data: PessoaResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET31WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -825,7 +825,7 @@ public class GlobaltagcadastroclienteAPI: APIBase {
 
      - returns: RequestBuilder<PessoaResponse> 
      */
-    public class func consultarUsingGET30WithRequestBuilder(id id: Int) -> RequestBuilder<PessoaResponse> {
+    public class func consultarUsingGET31WithRequestBuilder(id id: Int) -> RequestBuilder<PessoaResponse> {
         var path = "/api/pessoas/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -845,8 +845,8 @@ public class GlobaltagcadastroclienteAPI: APIBase {
      - parameter id: (path) {{{telefone_resource_consultar_param_id}}} 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET38(id id: Int, completion: ((data: TelefoneResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET38WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET39(id id: Int, completion: ((data: TelefoneResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET39WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -872,7 +872,7 @@ public class GlobaltagcadastroclienteAPI: APIBase {
 
      - returns: RequestBuilder<TelefoneResponse> 
      */
-    public class func consultarUsingGET38WithRequestBuilder(id id: Int) -> RequestBuilder<TelefoneResponse> {
+    public class func consultarUsingGET39WithRequestBuilder(id id: Int) -> RequestBuilder<TelefoneResponse> {
         var path = "/api/telefones/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path

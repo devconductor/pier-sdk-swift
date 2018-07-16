@@ -12,6 +12,53 @@ import Alamofire
 public class GlobaltagtransferenciabancariaAPI: APIBase {
     /**
      
+     {{{transferencia_bancaria_resource_atualizar_taxas_juros_contas}}}
+     
+     - parameter id: (path) {{{transferencia_bancaria_resource_salvar_taxas_juros_contas_param_id}}} 
+     - parameter update: (body) update 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func atualizarTaxasJurosContasUsingPUT(id id: Int, update: TaxaJurosContaPersistValue, completion: ((data: TaxaJurosContaResponse?, error: ErrorType?) -> Void)) {
+        atualizarTaxasJurosContasUsingPUTWithRequestBuilder(id: id, update: update).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     {{{transferencia_bancaria_resource_atualizar_taxas_juros_contas}}}
+     
+     - PUT /api/contas/{id}/taxas-transferencias
+     - {{{transferencia_bancaria_resource_atualizar_taxas_juros_contas_notes}}}
+     - examples: [{contentType=application/json, example={
+  "idTabelaJuros" : 123456789,
+  "idConta" : 123456789,
+  "taxasJuros" : [ {
+    "taxa" : 1.3579000000000001069366817318950779736042022705078125,
+    "plano" : 123
+  } ]
+}}]
+     
+     - parameter id: (path) {{{transferencia_bancaria_resource_salvar_taxas_juros_contas_param_id}}} 
+     - parameter update: (body) update 
+
+     - returns: RequestBuilder<TaxaJurosContaResponse> 
+     */
+    public class func atualizarTaxasJurosContasUsingPUTWithRequestBuilder(id id: Int, update: TaxaJurosContaPersistValue) -> RequestBuilder<TaxaJurosContaResponse> {
+        var path = "/api/contas/{id}/taxas-transferencias"
+        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
+        let URLString = PierAPI.basePath + path
+        
+        let parameters = update.encodeToJSON() as? [String:AnyObject]
+
+        let requestBuilder: RequestBuilder<TaxaJurosContaResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
      {{{conta_bancaria_resource_atualizar}}}
      
      - parameter id: (path) {{{conta_bancaria_resource_atualizar_param_id}}} 
@@ -146,6 +193,56 @@ public class GlobaltagtransferenciabancariaAPI: APIBase {
 
     /**
      
+     {{{transferencia_bancaria_resource_consultar_taxas_juros_contas}}}
+     
+     - parameter id: (path) {{{transferencia_bancaria_resource_salvar_taxas_juros_contas_param_id}}} 
+     - parameter numeroMesesCarencia: (query) numeroMesesCarencia 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func consultarTaxasJurosContasUsingGET(id id: Int, numeroMesesCarencia: Int, completion: ((data: TaxaJurosContaResponse?, error: ErrorType?) -> Void)) {
+        consultarTaxasJurosContasUsingGETWithRequestBuilder(id: id, numeroMesesCarencia: numeroMesesCarencia).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     {{{transferencia_bancaria_resource_consultar_taxas_juros_contas}}}
+     
+     - GET /api/contas/{id}/taxas-transferencias
+     - {{{transferencia_bancaria_resource_consultar_taxas_juros_contas_notes}}}
+     - examples: [{contentType=application/json, example={
+  "idTabelaJuros" : 123456789,
+  "idConta" : 123456789,
+  "taxasJuros" : [ {
+    "taxa" : 1.3579000000000001069366817318950779736042022705078125,
+    "plano" : 123
+  } ]
+}}]
+     
+     - parameter id: (path) {{{transferencia_bancaria_resource_salvar_taxas_juros_contas_param_id}}} 
+     - parameter numeroMesesCarencia: (query) numeroMesesCarencia 
+
+     - returns: RequestBuilder<TaxaJurosContaResponse> 
+     */
+    public class func consultarTaxasJurosContasUsingGETWithRequestBuilder(id id: Int, numeroMesesCarencia: Int) -> RequestBuilder<TaxaJurosContaResponse> {
+        var path = "/api/contas/{id}/taxas-transferencias"
+        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [
+            "numeroMesesCarencia": numeroMesesCarencia
+        ]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<TaxaJurosContaResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
+    }
+
+    /**
+     
      {{{transferencia_bancaria_resource_consultar_transferencia_bancaria}}}
      
      - parameter idTransferencia: (path) {{{transferencia_bancaria_resource_consultar_transferencia_bancaria_param_id_transferencia}}} 
@@ -222,8 +319,8 @@ public class GlobaltagtransferenciabancariaAPI: APIBase {
      - parameter id: (path) {{{conta_bancaria_resource_consultar_param_id}}} 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET12(id id: Int, completion: ((data: ContaBancariaPortadorResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET12WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET13(id id: Int, completion: ((data: ContaBancariaPortadorResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET13WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -257,7 +354,7 @@ public class GlobaltagtransferenciabancariaAPI: APIBase {
 
      - returns: RequestBuilder<ContaBancariaPortadorResponse> 
      */
-    public class func consultarUsingGET12WithRequestBuilder(id id: Int) -> RequestBuilder<ContaBancariaPortadorResponse> {
+    public class func consultarUsingGET13WithRequestBuilder(id id: Int) -> RequestBuilder<ContaBancariaPortadorResponse> {
         var path = "/api/contas-bancarias-portador/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -279,8 +376,8 @@ public class GlobaltagtransferenciabancariaAPI: APIBase {
      - parameter idContaBancariaDestino: (query) {{{transferencia_bancaria_resource_consultar_param_id_conta_portador}}} (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET47(id id: Int, idTransferencia: Int, idContaBancariaDestino: Int?, completion: ((data: TransferenciaBancariaResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET47WithRequestBuilder(id: id, idTransferencia: idTransferencia, idContaBancariaDestino: idContaBancariaDestino).execute { (response, error) -> Void in
+    public class func consultarUsingGET48(id id: Int, idTransferencia: Int, idContaBancariaDestino: Int?, completion: ((data: TransferenciaBancariaResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET48WithRequestBuilder(id: id, idTransferencia: idTransferencia, idContaBancariaDestino: idContaBancariaDestino).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -336,7 +433,7 @@ public class GlobaltagtransferenciabancariaAPI: APIBase {
 
      - returns: RequestBuilder<TransferenciaBancariaResponse> 
      */
-    public class func consultarUsingGET47WithRequestBuilder(id id: Int, idTransferencia: Int, idContaBancariaDestino: Int?) -> RequestBuilder<TransferenciaBancariaResponse> {
+    public class func consultarUsingGET48WithRequestBuilder(id id: Int, idTransferencia: Int, idContaBancariaDestino: Int?) -> RequestBuilder<TransferenciaBancariaResponse> {
         var path = "/api/contas/{id}/transferencias-creditos-contas-bancarias/{idTransferencia}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{idTransferencia}", withString: "\(idTransferencia)", options: .LiteralSearch, range: nil)
@@ -642,6 +739,53 @@ public class GlobaltagtransferenciabancariaAPI: APIBase {
         let requestBuilder: RequestBuilder<PageTransferenciaBancariaResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
+    }
+
+    /**
+     
+     {{{transferencia_bancaria_resource_salvar_taxas_juros_contas}}}
+     
+     - parameter id: (path) {{{transferencia_bancaria_resource_salvar_taxas_juros_contas_param_id}}} 
+     - parameter persist: (body) persist 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func salvarTaxasJurosContasUsingPOST(id id: Int, persist: TaxaJurosContaPersistValue, completion: ((data: TaxaJurosContaResponse?, error: ErrorType?) -> Void)) {
+        salvarTaxasJurosContasUsingPOSTWithRequestBuilder(id: id, persist: persist).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     {{{transferencia_bancaria_resource_salvar_taxas_juros_contas}}}
+     
+     - POST /api/contas/{id}/taxas-transferencias
+     - {{{transferencia_bancaria_resource_salvar_taxas_juros_contas_notes}}}
+     - examples: [{contentType=application/json, example={
+  "idTabelaJuros" : 123456789,
+  "idConta" : 123456789,
+  "taxasJuros" : [ {
+    "taxa" : 1.3579000000000001069366817318950779736042022705078125,
+    "plano" : 123
+  } ]
+}}]
+     
+     - parameter id: (path) {{{transferencia_bancaria_resource_salvar_taxas_juros_contas_param_id}}} 
+     - parameter persist: (body) persist 
+
+     - returns: RequestBuilder<TaxaJurosContaResponse> 
+     */
+    public class func salvarTaxasJurosContasUsingPOSTWithRequestBuilder(id id: Int, persist: TaxaJurosContaPersistValue) -> RequestBuilder<TaxaJurosContaResponse> {
+        var path = "/api/contas/{id}/taxas-transferencias"
+        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
+        let URLString = PierAPI.basePath + path
+        
+        let parameters = persist.encodeToJSON() as? [String:AnyObject]
+
+        let requestBuilder: RequestBuilder<TaxaJurosContaResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
     }
 
     /**

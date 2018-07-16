@@ -80,8 +80,8 @@ public class GlobaltagajustefinanceiroAPI: APIBase {
      - parameter id: (path) {{{ajuste_financeiro_resource_consultar_param_id}}} 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET2(id id: Int, completion: ((data: AjusteFinanceiroResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET2WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET3(id id: Int, completion: ((data: AjusteFinanceiroResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET3WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -107,7 +107,7 @@ public class GlobaltagajustefinanceiroAPI: APIBase {
 
      - returns: RequestBuilder<AjusteFinanceiroResponse> 
      */
-    public class func consultarUsingGET2WithRequestBuilder(id id: Int) -> RequestBuilder<AjusteFinanceiroResponse> {
+    public class func consultarUsingGET3WithRequestBuilder(id id: Int) -> RequestBuilder<AjusteFinanceiroResponse> {
         var path = "/api/ajustes-financeiros/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
