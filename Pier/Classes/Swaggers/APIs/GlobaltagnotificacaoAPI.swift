@@ -394,6 +394,43 @@ public class GlobaltagnotificacaoAPI: APIBase {
 
     /**
      
+     {{{notificacao_resource_3d_secure}}}
+     
+     - parameter secure3dRequest: (body) secure3dRequest 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func enviarOTPUsingPOST(secure3dRequest secure3dRequest: Secure3dRequest, completion: ((data: AnyObject?, error: ErrorType?) -> Void)) {
+        enviarOTPUsingPOSTWithRequestBuilder(secure3dRequest: secure3dRequest).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     {{{notificacao_resource_3d_secure}}}
+     
+     - POST /api/notificacoes/3d-secure
+     - {{{notificacao_resource_3d_secure_notes}}}
+     - examples: [{contentType=application/json, example="{}"}]
+     
+     - parameter secure3dRequest: (body) secure3dRequest 
+
+     - returns: RequestBuilder<AnyObject> 
+     */
+    public class func enviarOTPUsingPOSTWithRequestBuilder(secure3dRequest secure3dRequest: Secure3dRequest) -> RequestBuilder<AnyObject> {
+        let path = "/api/notificacoes/3d-secure"
+        let URLString = PierAPI.basePath + path
+        
+        let parameters = secure3dRequest.encodeToJSON() as? [String:AnyObject]
+
+        let requestBuilder: RequestBuilder<AnyObject>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
      {{{codigo_seguranca_resource_gerar_token_e_m_a_i_l}}}
      
      - parameter email: (body) email 

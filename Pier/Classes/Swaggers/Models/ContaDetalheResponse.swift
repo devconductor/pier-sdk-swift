@@ -63,6 +63,8 @@ public class ContaDetalheResponse: JSONEncodable {
     public var saldoDisponivelSaque: Double?
     /** {{{conta_detalhe_response_dias_atraso_value}}} */
     public var diasAtraso: Int?
+    /** {{{conta_response_proximo_vencimento_padrao_value}}} */
+    public var proximoVencimentoPadrao: String?
     
 
     public init() {}
@@ -96,6 +98,7 @@ public class ContaDetalheResponse: JSONEncodable {
         nillableDictionary["saldoDisponivelGlobal"] = self.saldoDisponivelGlobal
         nillableDictionary["saldoDisponivelSaque"] = self.saldoDisponivelSaque
         nillableDictionary["diasAtraso"] = self.diasAtraso
+        nillableDictionary["proximoVencimentoPadrao"] = self.proximoVencimentoPadrao
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

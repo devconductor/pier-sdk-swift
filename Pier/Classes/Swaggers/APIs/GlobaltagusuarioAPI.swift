@@ -198,8 +198,8 @@ public class GlobaltagusuarioAPI: APIBase {
      - parameter update: (body) update 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func atualizarUsingPUT2(update update: ControleSegurancaDispositivoUpdateValor, completion: ((data: ControleSegurancaDispositivoResponse?, error: ErrorType?) -> Void)) {
-        atualizarUsingPUT2WithRequestBuilder(update: update).execute { (response, error) -> Void in
+    public class func atualizarUsingPUT3(update update: ControleSegurancaDispositivoUpdateValor, completion: ((data: ControleSegurancaDispositivoResponse?, error: ErrorType?) -> Void)) {
+        atualizarUsingPUT3WithRequestBuilder(update: update).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -221,7 +221,7 @@ public class GlobaltagusuarioAPI: APIBase {
 
      - returns: RequestBuilder<ControleSegurancaDispositivoResponse> 
      */
-    public class func atualizarUsingPUT2WithRequestBuilder(update update: ControleSegurancaDispositivoUpdateValor) -> RequestBuilder<ControleSegurancaDispositivoResponse> {
+    public class func atualizarUsingPUT3WithRequestBuilder(update update: ControleSegurancaDispositivoUpdateValor) -> RequestBuilder<ControleSegurancaDispositivoResponse> {
         let path = "/api/controles-seguranca-dispositivos"
         let URLString = PierAPI.basePath + path
         
@@ -312,8 +312,8 @@ public class GlobaltagusuarioAPI: APIBase {
      - parameter limit: (query) {{{global_menssagem_sort_limit}}} (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET15(idUsuario idUsuario: Int, sort: [String]?, page: Int?, limit: Int?, completion: ((data: PageControleSegurancaDispositivoResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET15WithRequestBuilder(idUsuario: idUsuario, sort: sort, page: page, limit: limit).execute { (response, error) -> Void in
+    public class func consultarUsingGET17(idUsuario idUsuario: Int, sort: [String]?, page: Int?, limit: Int?, completion: ((data: PageControleSegurancaDispositivoResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET17WithRequestBuilder(idUsuario: idUsuario, sort: sort, page: page, limit: limit).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -353,7 +353,7 @@ public class GlobaltagusuarioAPI: APIBase {
 
      - returns: RequestBuilder<PageControleSegurancaDispositivoResponse> 
      */
-    public class func consultarUsingGET15WithRequestBuilder(idUsuario idUsuario: Int, sort: [String]?, page: Int?, limit: Int?) -> RequestBuilder<PageControleSegurancaDispositivoResponse> {
+    public class func consultarUsingGET17WithRequestBuilder(idUsuario idUsuario: Int, sort: [String]?, page: Int?, limit: Int?) -> RequestBuilder<PageControleSegurancaDispositivoResponse> {
         let path = "/api/controles-seguranca-dispositivos"
         let URLString = PierAPI.basePath + path
         
@@ -377,8 +377,8 @@ public class GlobaltagusuarioAPI: APIBase {
      - parameter id: (path) {{{usuario_resource_consultar_param_id}}} 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET51(id id: Int, completion: ((data: UsuarioResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET51WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET53(id id: Int, completion: ((data: UsuarioResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET53WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -408,7 +408,7 @@ public class GlobaltagusuarioAPI: APIBase {
 
      - returns: RequestBuilder<UsuarioResponse> 
      */
-    public class func consultarUsingGET51WithRequestBuilder(id id: Int) -> RequestBuilder<UsuarioResponse> {
+    public class func consultarUsingGET53WithRequestBuilder(id id: Int) -> RequestBuilder<UsuarioResponse> {
         var path = "/api/usuarios/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -485,8 +485,8 @@ public class GlobaltagusuarioAPI: APIBase {
      - parameter status: (query) {{{usuario_request_status_value}}} (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET62(sort sort: [String]?, page: Int?, limit: Int?, nome: String?, cpf: String?, email: String?, status: String?, completion: ((data: PageUsuarioResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET62WithRequestBuilder(sort: sort, page: page, limit: limit, nome: nome, cpf: cpf, email: email, status: status).execute { (response, error) -> Void in
+    public class func listarUsingGET65(sort sort: [String]?, page: Int?, limit: Int?, nome: String?, cpf: String?, email: String?, status: String?, completion: ((data: PageUsuarioResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET65WithRequestBuilder(sort: sort, page: page, limit: limit, nome: nome, cpf: cpf, email: email, status: status).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -537,7 +537,7 @@ public class GlobaltagusuarioAPI: APIBase {
 
      - returns: RequestBuilder<PageUsuarioResponse> 
      */
-    public class func listarUsingGET62WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, nome: String?, cpf: String?, email: String?, status: String?) -> RequestBuilder<PageUsuarioResponse> {
+    public class func listarUsingGET65WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, nome: String?, cpf: String?, email: String?, status: String?) -> RequestBuilder<PageUsuarioResponse> {
         let path = "/api/usuarios"
         let URLString = PierAPI.basePath + path
         
@@ -598,13 +598,54 @@ public class GlobaltagusuarioAPI: APIBase {
 
     /**
      
+     {{{controle_seguranca_dispositivo_salvar}}}
+     
+     - parameter persist: (body) persist 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func salvarUsingPOST10(persist persist: ControleSegurancaDispositivoPersistencia, completion: ((data: ControleSegurancaDispositivoResponse?, error: ErrorType?) -> Void)) {
+        salvarUsingPOST10WithRequestBuilder(persist: persist).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     {{{controle_seguranca_dispositivo_salvar}}}
+     
+     - POST /api/controles-seguranca-dispositivos
+     - {{{controle_seguranca_dispositivo_salvar_notas}}}
+     - examples: [{contentType=application/json, example={
+  "idUsuario" : 123456789,
+  "phoneId" : "aeiou",
+  "id" : 123456789
+}}]
+     
+     - parameter persist: (body) persist 
+
+     - returns: RequestBuilder<ControleSegurancaDispositivoResponse> 
+     */
+    public class func salvarUsingPOST10WithRequestBuilder(persist persist: ControleSegurancaDispositivoPersistencia) -> RequestBuilder<ControleSegurancaDispositivoResponse> {
+        let path = "/api/controles-seguranca-dispositivos"
+        let URLString = PierAPI.basePath + path
+        
+        let parameters = persist.encodeToJSON() as? [String:AnyObject]
+
+        let requestBuilder: RequestBuilder<ControleSegurancaDispositivoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
      {{{usuario_resource_salvar}}}
      
      - parameter persist: (body) persist 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func salvarUsingPOST33(persist persist: UsuarioPersistencia, completion: ((data: UsuarioResponse?, error: ErrorType?) -> Void)) {
-        salvarUsingPOST33WithRequestBuilder(persist: persist).execute { (response, error) -> Void in
+    public class func salvarUsingPOST34(persist persist: UsuarioPersistencia, completion: ((data: UsuarioResponse?, error: ErrorType?) -> Void)) {
+        salvarUsingPOST34WithRequestBuilder(persist: persist).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -634,54 +675,13 @@ public class GlobaltagusuarioAPI: APIBase {
 
      - returns: RequestBuilder<UsuarioResponse> 
      */
-    public class func salvarUsingPOST33WithRequestBuilder(persist persist: UsuarioPersistencia) -> RequestBuilder<UsuarioResponse> {
+    public class func salvarUsingPOST34WithRequestBuilder(persist persist: UsuarioPersistencia) -> RequestBuilder<UsuarioResponse> {
         let path = "/api/usuarios"
         let URLString = PierAPI.basePath + path
         
         let parameters = persist.encodeToJSON() as? [String:AnyObject]
 
         let requestBuilder: RequestBuilder<UsuarioResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
-    }
-
-    /**
-     
-     {{{controle_seguranca_dispositivo_salvar}}}
-     
-     - parameter persist: (body) persist 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    public class func salvarUsingPOST9(persist persist: ControleSegurancaDispositivoPersistencia, completion: ((data: ControleSegurancaDispositivoResponse?, error: ErrorType?) -> Void)) {
-        salvarUsingPOST9WithRequestBuilder(persist: persist).execute { (response, error) -> Void in
-            completion(data: response?.body, error: error);
-        }
-    }
-
-
-    /**
-     
-     {{{controle_seguranca_dispositivo_salvar}}}
-     
-     - POST /api/controles-seguranca-dispositivos
-     - {{{controle_seguranca_dispositivo_salvar_notas}}}
-     - examples: [{contentType=application/json, example={
-  "idUsuario" : 123456789,
-  "phoneId" : "aeiou",
-  "id" : 123456789
-}}]
-     
-     - parameter persist: (body) persist 
-
-     - returns: RequestBuilder<ControleSegurancaDispositivoResponse> 
-     */
-    public class func salvarUsingPOST9WithRequestBuilder(persist persist: ControleSegurancaDispositivoPersistencia) -> RequestBuilder<ControleSegurancaDispositivoResponse> {
-        let path = "/api/controles-seguranca-dispositivos"
-        let URLString = PierAPI.basePath + path
-        
-        let parameters = persist.encodeToJSON() as? [String:AnyObject]
-
-        let requestBuilder: RequestBuilder<ControleSegurancaDispositivoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
     }

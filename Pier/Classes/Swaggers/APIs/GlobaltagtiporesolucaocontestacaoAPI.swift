@@ -12,6 +12,85 @@ import Alamofire
 public class GlobaltagtiporesolucaocontestacaoAPI: APIBase {
     /**
      
+     {{{status_contestacao_resource_listar_status_contestacao}}}
+     
+     - parameter sort: (query) {{{global_menssagem_sort_sort}}} (optional)
+     - parameter page: (query) {{{global_menssagem_sort_page_value}}} (optional)
+     - parameter limit: (query) {{{global_menssagem_sort_limit}}} (optional)
+     - parameter idStatusContestacao: (query) {{{status_contestacao_request_idstatuscontestacao_value}}} (optional)
+     - parameter idStatusContestacaoOrigem: (query) {{{status_contestacao_request_idstatuscontestacaoOrigem_value}}} (optional)
+     - parameter descricao: (query) {{{status_contestacao_request_descricao_value}}} (optional)
+     - parameter flagPermiteAlteracao: (query) {{{status_contestacao_request_flagpermitealteracao_value}}} (optional)
+     - parameter flagSistema: (query) {{{status_contestacao_request_flagsistema_value}}} (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func listarStatusContestacaoUsingGET(sort sort: [String]?, page: Int?, limit: Int?, idStatusContestacao: Int?, idStatusContestacaoOrigem: Int?, descricao: String?, flagPermiteAlteracao: Int?, flagSistema: Int?, completion: ((data: PageStatusContestacaoResponse?, error: ErrorType?) -> Void)) {
+        listarStatusContestacaoUsingGETWithRequestBuilder(sort: sort, page: page, limit: limit, idStatusContestacao: idStatusContestacao, idStatusContestacaoOrigem: idStatusContestacaoOrigem, descricao: descricao, flagPermiteAlteracao: flagPermiteAlteracao, flagSistema: flagSistema).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     {{{status_contestacao_resource_listar_status_contestacao}}}
+     
+     - GET /api/status-contestacoes
+     - {{{status_contestacao_resource_listar_status_contestacao_notes}}}
+     - examples: [{contentType=application/json, example={
+  "previousPage" : 123,
+  "last" : true,
+  "hasContent" : true,
+  "hasNextPage" : true,
+  "nextPage" : 123,
+  "content" : [ {
+    "idStatusContestacao" : 123456789,
+    "descricao" : "aeiou"
+  } ],
+  "totalElements" : 123456789,
+  "number" : 123,
+  "firstPage" : true,
+  "numberOfElements" : 123,
+  "size" : 123,
+  "totalPages" : 123,
+  "hasPreviousPage" : true,
+  "first" : true
+}}]
+     
+     - parameter sort: (query) {{{global_menssagem_sort_sort}}} (optional)
+     - parameter page: (query) {{{global_menssagem_sort_page_value}}} (optional)
+     - parameter limit: (query) {{{global_menssagem_sort_limit}}} (optional)
+     - parameter idStatusContestacao: (query) {{{status_contestacao_request_idstatuscontestacao_value}}} (optional)
+     - parameter idStatusContestacaoOrigem: (query) {{{status_contestacao_request_idstatuscontestacaoOrigem_value}}} (optional)
+     - parameter descricao: (query) {{{status_contestacao_request_descricao_value}}} (optional)
+     - parameter flagPermiteAlteracao: (query) {{{status_contestacao_request_flagpermitealteracao_value}}} (optional)
+     - parameter flagSistema: (query) {{{status_contestacao_request_flagsistema_value}}} (optional)
+
+     - returns: RequestBuilder<PageStatusContestacaoResponse> 
+     */
+    public class func listarStatusContestacaoUsingGETWithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, idStatusContestacao: Int?, idStatusContestacaoOrigem: Int?, descricao: String?, flagPermiteAlteracao: Int?, flagSistema: Int?) -> RequestBuilder<PageStatusContestacaoResponse> {
+        let path = "/api/status-contestacoes"
+        let URLString = PierAPI.basePath + path
+        
+        let nillableParameters: [String:AnyObject?] = [
+            "sort": sort,
+            "page": page,
+            "limit": limit,
+            "idStatusContestacao": idStatusContestacao,
+            "idStatusContestacaoOrigem": idStatusContestacaoOrigem,
+            "descricao": descricao,
+            "flagPermiteAlteracao": flagPermiteAlteracao,
+            "flagSistema": flagSistema
+        ]
+        let parameters = APIHelper.rejectNil(nillableParameters)
+
+        let requestBuilder: RequestBuilder<PageStatusContestacaoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
+    }
+
+    /**
+     
      {{{tipo_resolucao_contestacao_resource_listar_tipo_contestacao}}}
      
      - parameter sort: (query) {{{global_menssagem_sort_sort}}} (optional)

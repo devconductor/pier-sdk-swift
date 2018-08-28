@@ -717,8 +717,8 @@ public class GlobaltagcartaoAPI: APIBase {
      - parameter id: (path) {{{cartao_resource_consultar_param_id}}} 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET10(id id: Int, completion: ((data: CartaoDetalheResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET10WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET12(id id: Int, completion: ((data: CartaoDetalheResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET12WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -761,7 +761,7 @@ public class GlobaltagcartaoAPI: APIBase {
 
      - returns: RequestBuilder<CartaoDetalheResponse> 
      */
-    public class func consultarUsingGET10WithRequestBuilder(id id: Int) -> RequestBuilder<CartaoDetalheResponse> {
+    public class func consultarUsingGET12WithRequestBuilder(id id: Int) -> RequestBuilder<CartaoDetalheResponse> {
         var path = "/api/cartoes/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -772,6 +772,46 @@ public class GlobaltagcartaoAPI: APIBase {
         let requestBuilder: RequestBuilder<CartaoDetalheResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     {{{conta_resource_cadastrar_cartao_multiapp}}}
+     
+     - parameter cartaoMultiAppPersist: (body) cartaoMultiAppPersist 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func criarCartoesMultiAppUsingPOST(cartaoMultiAppPersist cartaoMultiAppPersist: CartaoMultiAppPersistValue, completion: ((data: VinculoCartoesResponse?, error: ErrorType?) -> Void)) {
+        criarCartoesMultiAppUsingPOSTWithRequestBuilder(cartaoMultiAppPersist: cartaoMultiAppPersist).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     {{{conta_resource_cadastrar_cartao_multiapp}}}
+     
+     - POST /api/cartoes/gerar-cartoes-multiapp
+     - {{{conta_resource_cadastrar_cartao_multiapp_notes}}}
+     - examples: [{contentType=application/json, example={
+  "idCartaoPrincipal" : 123456789,
+  "idCartaoVinculado" : 123456789
+}}]
+     
+     - parameter cartaoMultiAppPersist: (body) cartaoMultiAppPersist 
+
+     - returns: RequestBuilder<VinculoCartoesResponse> 
+     */
+    public class func criarCartoesMultiAppUsingPOSTWithRequestBuilder(cartaoMultiAppPersist cartaoMultiAppPersist: CartaoMultiAppPersistValue) -> RequestBuilder<VinculoCartoesResponse> {
+        let path = "/api/cartoes/gerar-cartoes-multiapp"
+        let URLString = PierAPI.basePath + path
+        
+        let parameters = cartaoMultiAppPersist.encodeToJSON() as? [String:AnyObject]
+
+        let requestBuilder: RequestBuilder<VinculoCartoesResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
     }
 
     /**
@@ -1264,10 +1304,11 @@ public class GlobaltagcartaoAPI: APIBase {
      - parameter flagProvisorio: (query) {{{cartao_request_flag_provisorio_value}}} (optional)
      - parameter codigoDesbloqueio: (query) {{{cartao_request_codigo_desbloqueio_value}}} (optional)
      - parameter sequencialCartao: (query) {{{cartao_request_sequencial_cartao_value}}} (optional)
+     - parameter identificadorExterno: (query) {{{cartao_request_identificador_externo_value}}} (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET11(sort sort: [String]?, page: Int?, limit: Int?, idStatusCartao: Int?, idEstagioCartao: Int?, idConta: Int?, idPessoa: Int?, idProduto: Int?, tipoPortador: String?, numeroCartao: String?, nomeImpresso: String?, dataGeracao: String?, dataStatusCartao: String?, dataEstagioCartao: String?, dataValidade: String?, dataImpressao: String?, arquivoImpressao: String?, flagImpressaoOrigemComercial: Int?, flagProvisorio: Int?, codigoDesbloqueio: String?, sequencialCartao: Int?, completion: ((data: PageCartaoResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET11WithRequestBuilder(sort: sort, page: page, limit: limit, idStatusCartao: idStatusCartao, idEstagioCartao: idEstagioCartao, idConta: idConta, idPessoa: idPessoa, idProduto: idProduto, tipoPortador: tipoPortador, numeroCartao: numeroCartao, nomeImpresso: nomeImpresso, dataGeracao: dataGeracao, dataStatusCartao: dataStatusCartao, dataEstagioCartao: dataEstagioCartao, dataValidade: dataValidade, dataImpressao: dataImpressao, arquivoImpressao: arquivoImpressao, flagImpressaoOrigemComercial: flagImpressaoOrigemComercial, flagProvisorio: flagProvisorio, codigoDesbloqueio: codigoDesbloqueio, sequencialCartao: sequencialCartao).execute { (response, error) -> Void in
+    public class func listarUsingGET12(sort sort: [String]?, page: Int?, limit: Int?, idStatusCartao: Int?, idEstagioCartao: Int?, idConta: Int?, idPessoa: Int?, idProduto: Int?, tipoPortador: String?, numeroCartao: String?, nomeImpresso: String?, dataGeracao: String?, dataStatusCartao: String?, dataEstagioCartao: String?, dataValidade: String?, dataImpressao: String?, arquivoImpressao: String?, flagImpressaoOrigemComercial: Int?, flagProvisorio: Int?, codigoDesbloqueio: String?, sequencialCartao: Int?, identificadorExterno: Int?, completion: ((data: PageCartaoResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET12WithRequestBuilder(sort: sort, page: page, limit: limit, idStatusCartao: idStatusCartao, idEstagioCartao: idEstagioCartao, idConta: idConta, idPessoa: idPessoa, idProduto: idProduto, tipoPortador: tipoPortador, numeroCartao: numeroCartao, nomeImpresso: nomeImpresso, dataGeracao: dataGeracao, dataStatusCartao: dataStatusCartao, dataEstagioCartao: dataEstagioCartao, dataValidade: dataValidade, dataImpressao: dataImpressao, arquivoImpressao: arquivoImpressao, flagImpressaoOrigemComercial: flagImpressaoOrigemComercial, flagProvisorio: flagProvisorio, codigoDesbloqueio: codigoDesbloqueio, sequencialCartao: sequencialCartao, identificadorExterno: identificadorExterno).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -1340,10 +1381,11 @@ public class GlobaltagcartaoAPI: APIBase {
      - parameter flagProvisorio: (query) {{{cartao_request_flag_provisorio_value}}} (optional)
      - parameter codigoDesbloqueio: (query) {{{cartao_request_codigo_desbloqueio_value}}} (optional)
      - parameter sequencialCartao: (query) {{{cartao_request_sequencial_cartao_value}}} (optional)
+     - parameter identificadorExterno: (query) {{{cartao_request_identificador_externo_value}}} (optional)
 
      - returns: RequestBuilder<PageCartaoResponse> 
      */
-    public class func listarUsingGET11WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, idStatusCartao: Int?, idEstagioCartao: Int?, idConta: Int?, idPessoa: Int?, idProduto: Int?, tipoPortador: String?, numeroCartao: String?, nomeImpresso: String?, dataGeracao: String?, dataStatusCartao: String?, dataEstagioCartao: String?, dataValidade: String?, dataImpressao: String?, arquivoImpressao: String?, flagImpressaoOrigemComercial: Int?, flagProvisorio: Int?, codigoDesbloqueio: String?, sequencialCartao: Int?) -> RequestBuilder<PageCartaoResponse> {
+    public class func listarUsingGET12WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, idStatusCartao: Int?, idEstagioCartao: Int?, idConta: Int?, idPessoa: Int?, idProduto: Int?, tipoPortador: String?, numeroCartao: String?, nomeImpresso: String?, dataGeracao: String?, dataStatusCartao: String?, dataEstagioCartao: String?, dataValidade: String?, dataImpressao: String?, arquivoImpressao: String?, flagImpressaoOrigemComercial: Int?, flagProvisorio: Int?, codigoDesbloqueio: String?, sequencialCartao: Int?, identificadorExterno: Int?) -> RequestBuilder<PageCartaoResponse> {
         let path = "/api/cartoes"
         let URLString = PierAPI.basePath + path
         
@@ -1368,7 +1410,8 @@ public class GlobaltagcartaoAPI: APIBase {
             "flagImpressaoOrigemComercial": flagImpressaoOrigemComercial,
             "flagProvisorio": flagProvisorio,
             "codigoDesbloqueio": codigoDesbloqueio,
-            "sequencialCartao": sequencialCartao
+            "sequencialCartao": sequencialCartao,
+            "identificadorExterno": identificadorExterno
         ]
         let parameters = APIHelper.rejectNil(nillableParameters)
 

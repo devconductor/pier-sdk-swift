@@ -17,8 +17,8 @@ public class GlobaltagavisoviagemAPI: APIBase {
      - parameter id: (path) {{{aviso_viagem_resource_consultar_param_id}}} 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET7(id id: Int, completion: ((data: AvisoViagemResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET7WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET8(id id: Int, completion: ((data: AvisoViagemResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET8WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -43,7 +43,7 @@ public class GlobaltagavisoviagemAPI: APIBase {
 
      - returns: RequestBuilder<AvisoViagemResponse> 
      */
-    public class func consultarUsingGET7WithRequestBuilder(id id: Int) -> RequestBuilder<AvisoViagemResponse> {
+    public class func consultarUsingGET8WithRequestBuilder(id id: Int) -> RequestBuilder<AvisoViagemResponse> {
         var path = "/api/avisos-viagens/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -162,8 +162,8 @@ public class GlobaltagavisoviagemAPI: APIBase {
      - parameter flagAtivo: (query) {{{aviso_viagem_request_flag_ativo_value}}} (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET8(sort sort: [String]?, page: Int?, limit: Int?, idCartao: Int?, codigoPais: String?, dataInicio: String?, dataFim: String?, flagAtivo: Int?, completion: ((data: PageAvisoViagemResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET8WithRequestBuilder(sort: sort, page: page, limit: limit, idCartao: idCartao, codigoPais: codigoPais, dataInicio: dataInicio, dataFim: dataFim, flagAtivo: flagAtivo).execute { (response, error) -> Void in
+    public class func listarUsingGET9(sort sort: [String]?, page: Int?, limit: Int?, idCartao: Int?, codigoPais: String?, dataInicio: String?, dataFim: String?, flagAtivo: Int?, completion: ((data: PageAvisoViagemResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET9WithRequestBuilder(sort: sort, page: page, limit: limit, idCartao: idCartao, codigoPais: codigoPais, dataInicio: dataInicio, dataFim: dataFim, flagAtivo: flagAtivo).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -210,7 +210,7 @@ public class GlobaltagavisoviagemAPI: APIBase {
 
      - returns: RequestBuilder<PageAvisoViagemResponse> 
      */
-    public class func listarUsingGET8WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, idCartao: Int?, codigoPais: String?, dataInicio: String?, dataFim: String?, flagAtivo: Int?) -> RequestBuilder<PageAvisoViagemResponse> {
+    public class func listarUsingGET9WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, idCartao: Int?, codigoPais: String?, dataInicio: String?, dataFim: String?, flagAtivo: Int?) -> RequestBuilder<PageAvisoViagemResponse> {
         let path = "/api/avisos-viagens"
         let URLString = PierAPI.basePath + path
         

@@ -15,19 +15,20 @@ public class PushFCMGCMPersistValue: JSONEncodable {
         case RiscoFraude = "RISCO_FRAUDE"
         case CodigoSeguranca = "CODIGO_SEGURANCA"
         case Outros = "OUTROS"
+        case Otp3dSecure = "OTP_3D_SECURE"
     }
     
-    /** {{{push_f_c_m_g_c_m_persist_id_pessoa_value}}} */
+    /** {{{push_a_p_n_s_persist_id_pessoa_value}}} */
     public var idPessoa: Int?
-    /** {{{push_f_c_m_g_c_m_persist_id_conta_value}}} */
+    /** {{{push_a_p_n_s_persist_id_conta_value}}} */
     public var idConta: Int?
-    /** {{{push_f_c_m_g_c_m_persist_token_dispositivo_value}}} */
+    /** {{{push_a_p_n_s_persist_token_dispositivo_value}}} */
     public var tokenDispositivo: String?
     /** {{{push_f_c_m_g_c_m_persist_token_servidor_value}}} */
     public var tokenServidor: String?
-    /** {{{push_f_c_m_g_c_m_persist_titulo_value}}} */
+    /** {{{push_a_p_n_s_persist_titulo_value}}} */
     public var titulo: String?
-    /** {{{push_f_c_m_g_c_m_persist_conteudo_value}}} */
+    /** {{{push_a_p_n_s_persist_conteudo_value}}} */
     public var conteudo: String?
     /** {{{push_f_c_m_g_c_m_persist_tipo_evento_value}}} */
     public var tipoEvento: TipoEvento?

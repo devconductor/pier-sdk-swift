@@ -23,6 +23,7 @@ public class CompraContestadaTransacaoResponse: JSONEncodable {
     public var dataContestacao: NSDate?
     public var dataEnvioCB: String?
     public var dataTransacao: NSDate?
+    public var historico: String?
     public var idCompraContestada: Int?
     public var internacional: Int?
     public var mcc: String?
@@ -62,6 +63,7 @@ public class CompraContestadaTransacaoResponse: JSONEncodable {
         nillableDictionary["dataContestacao"] = self.dataContestacao?.encodeToJSON()
         nillableDictionary["dataEnvioCB"] = self.dataEnvioCB
         nillableDictionary["dataTransacao"] = self.dataTransacao?.encodeToJSON()
+        nillableDictionary["historico"] = self.historico
         nillableDictionary["idCompraContestada"] = self.idCompraContestada
         nillableDictionary["internacional"] = self.internacional
         nillableDictionary["mcc"] = self.mcc

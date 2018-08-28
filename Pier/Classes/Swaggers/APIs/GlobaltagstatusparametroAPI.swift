@@ -105,8 +105,8 @@ public class GlobaltagstatusparametroAPI: APIBase {
      - parameter id: (path) {{{status_conta_resource_consultar_param_id}}} 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET36(id id: Int, completion: ((data: StatusContaResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET36WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET38(id id: Int, completion: ((data: StatusContaResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET38WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -136,7 +136,7 @@ public class GlobaltagstatusparametroAPI: APIBase {
 
      - returns: RequestBuilder<StatusContaResponse> 
      */
-    public class func consultarUsingGET36WithRequestBuilder(id id: Int) -> RequestBuilder<StatusContaResponse> {
+    public class func consultarUsingGET38WithRequestBuilder(id id: Int) -> RequestBuilder<StatusContaResponse> {
         var path = "/api/status-contas/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -156,8 +156,8 @@ public class GlobaltagstatusparametroAPI: APIBase {
      - parameter id: (path) {{{status_impressao_resource_consultar_param_id}}} 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET37(id id: Int, completion: ((data: StatusImpressaoResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET37WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET39(id id: Int, completion: ((data: StatusImpressaoResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET39WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -178,7 +178,7 @@ public class GlobaltagstatusparametroAPI: APIBase {
 
      - returns: RequestBuilder<StatusImpressaoResponse> 
      */
-    public class func consultarUsingGET37WithRequestBuilder(id id: Int) -> RequestBuilder<StatusImpressaoResponse> {
+    public class func consultarUsingGET39WithRequestBuilder(id id: Int) -> RequestBuilder<StatusImpressaoResponse> {
         var path = "/api/status-impressoes/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -402,8 +402,8 @@ public class GlobaltagstatusparametroAPI: APIBase {
      - parameter permiteAtribuirComoCancelamento: (query) {{{status_conta_request_permite_atribuir_como_cancelamento_value}}} (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET47(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, nome: String?, permiteAlterarVencimento: Int?, permiteAlterarLimite: Int?, permiteEmitirNovaViaCartao: Int?, permiteFazerTransferencia: Int?, permiteReceberTransferencia: Int?, permiteCriarAcordoCobranca: Int?, permiteAtribuirComoBloqueio: Int?, permiteDesbloquear: Int?, permiteAtribuirComoCancelamento: Int?, completion: ((data: PageStatusContaResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET47WithRequestBuilder(sort: sort, page: page, limit: limit, id: id, nome: nome, permiteAlterarVencimento: permiteAlterarVencimento, permiteAlterarLimite: permiteAlterarLimite, permiteEmitirNovaViaCartao: permiteEmitirNovaViaCartao, permiteFazerTransferencia: permiteFazerTransferencia, permiteReceberTransferencia: permiteReceberTransferencia, permiteCriarAcordoCobranca: permiteCriarAcordoCobranca, permiteAtribuirComoBloqueio: permiteAtribuirComoBloqueio, permiteDesbloquear: permiteDesbloquear, permiteAtribuirComoCancelamento: permiteAtribuirComoCancelamento).execute { (response, error) -> Void in
+    public class func listarUsingGET49(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, nome: String?, permiteAlterarVencimento: Int?, permiteAlterarLimite: Int?, permiteEmitirNovaViaCartao: Int?, permiteFazerTransferencia: Int?, permiteReceberTransferencia: Int?, permiteCriarAcordoCobranca: Int?, permiteAtribuirComoBloqueio: Int?, permiteDesbloquear: Int?, permiteAtribuirComoCancelamento: Int?, completion: ((data: PageStatusContaResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET49WithRequestBuilder(sort: sort, page: page, limit: limit, id: id, nome: nome, permiteAlterarVencimento: permiteAlterarVencimento, permiteAlterarLimite: permiteAlterarLimite, permiteEmitirNovaViaCartao: permiteEmitirNovaViaCartao, permiteFazerTransferencia: permiteFazerTransferencia, permiteReceberTransferencia: permiteReceberTransferencia, permiteCriarAcordoCobranca: permiteCriarAcordoCobranca, permiteAtribuirComoBloqueio: permiteAtribuirComoBloqueio, permiteDesbloquear: permiteDesbloquear, permiteAtribuirComoCancelamento: permiteAtribuirComoCancelamento).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -461,7 +461,7 @@ public class GlobaltagstatusparametroAPI: APIBase {
 
      - returns: RequestBuilder<PageStatusContaResponse> 
      */
-    public class func listarUsingGET47WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, nome: String?, permiteAlterarVencimento: Int?, permiteAlterarLimite: Int?, permiteEmitirNovaViaCartao: Int?, permiteFazerTransferencia: Int?, permiteReceberTransferencia: Int?, permiteCriarAcordoCobranca: Int?, permiteAtribuirComoBloqueio: Int?, permiteDesbloquear: Int?, permiteAtribuirComoCancelamento: Int?) -> RequestBuilder<PageStatusContaResponse> {
+    public class func listarUsingGET49WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, nome: String?, permiteAlterarVencimento: Int?, permiteAlterarLimite: Int?, permiteEmitirNovaViaCartao: Int?, permiteFazerTransferencia: Int?, permiteReceberTransferencia: Int?, permiteCriarAcordoCobranca: Int?, permiteAtribuirComoBloqueio: Int?, permiteDesbloquear: Int?, permiteAtribuirComoCancelamento: Int?) -> RequestBuilder<PageStatusContaResponse> {
         let path = "/api/status-contas"
         let URLString = PierAPI.basePath + path
         
@@ -499,8 +499,8 @@ public class GlobaltagstatusparametroAPI: APIBase {
      - parameter nome: (query) {{{status_impressao_request_nome_value}}} (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET48(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, nome: String?, completion: ((data: PageStatusImpressaoResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET48WithRequestBuilder(sort: sort, page: page, limit: limit, id: id, nome: nome).execute { (response, error) -> Void in
+    public class func listarUsingGET50(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, nome: String?, completion: ((data: PageStatusImpressaoResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET50WithRequestBuilder(sort: sort, page: page, limit: limit, id: id, nome: nome).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -540,7 +540,7 @@ public class GlobaltagstatusparametroAPI: APIBase {
 
      - returns: RequestBuilder<PageStatusImpressaoResponse> 
      */
-    public class func listarUsingGET48WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, nome: String?) -> RequestBuilder<PageStatusImpressaoResponse> {
+    public class func listarUsingGET50WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, id: Int?, nome: String?) -> RequestBuilder<PageStatusImpressaoResponse> {
         let path = "/api/status-impressoes"
         let URLString = PierAPI.basePath + path
         

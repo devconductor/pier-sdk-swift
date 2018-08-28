@@ -15,6 +15,7 @@ public class PushAPNSPersistValue: JSONEncodable {
         case RiscoFraude = "RISCO_FRAUDE"
         case CodigoSeguranca = "CODIGO_SEGURANCA"
         case Outros = "OUTROS"
+        case Otp3dSecure = "OTP_3D_SECURE"
     }
     
     /** {{{push_a_p_n_s_persist_id_pessoa_value}}} */
@@ -31,11 +32,11 @@ public class PushAPNSPersistValue: JSONEncodable {
     public var titulo: String?
     /** {{{push_a_p_n_s_persist_conteudo_value}}} */
     public var conteudo: String?
-    /** {{{push_a_p_n_s_persist_tipo_evento_value}}} */
+    /** {{{push_f_c_m_g_c_m_persist_tipo_evento_value}}} */
     public var tipoEvento: TipoEvento?
-    /** {{{push_a_p_n_s_persist_icone_value}}} */
+    /** {{{push_f_c_m_g_c_m_persist_icone_value}}} */
     public var icone: String?
-    /** {{{push_a_p_n_s_persist_som_value}}} */
+    /** {{{push_f_c_m_g_c_m_persist_som_value}}} */
     public var som: String?
     
 

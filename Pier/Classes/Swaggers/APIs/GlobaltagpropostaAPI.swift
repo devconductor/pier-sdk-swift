@@ -61,8 +61,8 @@ public class GlobaltagpropostaAPI: APIBase {
      - parameter id: (path) {{{proposta_resource_consultar_param_id}}} 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET33(id id: Int, completion: ((data: PropostaResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET33WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET35(id id: Int, completion: ((data: PropostaResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET35WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -84,7 +84,7 @@ public class GlobaltagpropostaAPI: APIBase {
 
      - returns: RequestBuilder<PropostaResponse> 
      */
-    public class func consultarUsingGET33WithRequestBuilder(id id: Int) -> RequestBuilder<PropostaResponse> {
+    public class func consultarUsingGET35WithRequestBuilder(id id: Int) -> RequestBuilder<PropostaResponse> {
         var path = "/api/propostas/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -179,8 +179,8 @@ public class GlobaltagpropostaAPI: APIBase {
      - parameter status: (query) {{{proposta_request_status_value}}} (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET44(sort sort: [String]?, page: Int?, limit: Int?, status: Int?, completion: ((data: PagePropostaResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET44WithRequestBuilder(sort: sort, page: page, limit: limit, status: status).execute { (response, error) -> Void in
+    public class func listarUsingGET46(sort sort: [String]?, page: Int?, limit: Int?, status: Int?, completion: ((data: PagePropostaResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET46WithRequestBuilder(sort: sort, page: page, limit: limit, status: status).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -220,7 +220,7 @@ public class GlobaltagpropostaAPI: APIBase {
 
      - returns: RequestBuilder<PagePropostaResponse> 
      */
-    public class func listarUsingGET44WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, status: Int?) -> RequestBuilder<PagePropostaResponse> {
+    public class func listarUsingGET46WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, status: Int?) -> RequestBuilder<PagePropostaResponse> {
         let path = "/api/propostas"
         let URLString = PierAPI.basePath + path
         

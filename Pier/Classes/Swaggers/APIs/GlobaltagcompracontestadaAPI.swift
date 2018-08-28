@@ -12,6 +12,48 @@ import Alamofire
 public class GlobaltagcompracontestadaAPI: APIBase {
     /**
      
+     {{{compra_contestada_transacoes_resource_contestar}}}
+     
+     - parameter idCartao: (path) idCartao 
+     - parameter request: (body) request 
+     - parameter login: (body) login (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func contestarUsingPOST(idCartao idCartao: Int, request: ContestarCompraRequest, login: String?, completion: ((data: AnyObject?, error: ErrorType?) -> Void)) {
+        contestarUsingPOSTWithRequestBuilder(idCartao: idCartao, request: request, login: login).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     {{{compra_contestada_transacoes_resource_contestar}}}
+     
+     - POST /api/cartoes-com-contestacoes/{idCartao}/contestar
+     - {{{compra_contestada_transacoes_resource_contestar_notes}}}
+     - examples: [{contentType=application/json, example="{}"}]
+     
+     - parameter idCartao: (path) idCartao 
+     - parameter request: (body) request 
+     - parameter login: (body) login (optional)
+
+     - returns: RequestBuilder<AnyObject> 
+     */
+    public class func contestarUsingPOSTWithRequestBuilder(idCartao idCartao: Int, request: ContestarCompraRequest, login: String?) -> RequestBuilder<AnyObject> {
+        var path = "/api/cartoes-com-contestacoes/{idCartao}/contestar"
+        path = path.stringByReplacingOccurrencesOfString("{idCartao}", withString: "\(idCartao)", options: .LiteralSearch, range: nil)
+        let URLString = PierAPI.basePath + path
+        
+        let parameters = login?.encodeToJSON() as? [String:AnyObject]
+
+        let requestBuilder: RequestBuilder<AnyObject>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
      {{{compra_contestada_detalhe_cartao_resource_listar}}}
      
      - parameter idCartao: (path) idCartao 
@@ -74,10 +116,26 @@ public class GlobaltagcompracontestadaAPI: APIBase {
      - parameter sort: (query) {{{global_menssagem_sort_sort}}} (optional)
      - parameter page: (query) {{{global_menssagem_sort_page_value}}} (optional)
      - parameter limit: (query) {{{global_menssagem_sort_limit}}} (optional)
+     - parameter agingContestacao: (query)  (optional)
+     - parameter nome: (query)  (optional)
+     - parameter bandeira: (query)  (optional)
+     - parameter cartao: (query)  (optional)
+     - parameter cpf: (query)  (optional)
+     - parameter conta: (query)  (optional)
+     - parameter statusCartao: (query)  (optional)
+     - parameter statusContestacao: (query)  (optional)
+     - parameter dataContestacao: (query)  (optional)
+     - parameter dataAlteracao: (query)  (optional)
+     - parameter dataReapresentacao: (query)  (optional)
+     - parameter diasContestacao: (query)  (optional)
+     - parameter diasCompra: (query)  (optional)
+     - parameter modoEntrada: (query)  (optional)
+     - parameter motivo: (query)  (optional)
+     - parameter valorCompra: (query)  (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET12(sort sort: [String]?, page: Int?, limit: Int?, completion: ((data: PageGrupoChargebackResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET12WithRequestBuilder(sort: sort, page: page, limit: limit).execute { (response, error) -> Void in
+    public class func listarUsingGET13(sort sort: [String]?, page: Int?, limit: Int?, agingContestacao: Int?, nome: String?, bandeira: String?, cartao: String?, cpf: String?, conta: String?, statusCartao: Int?, statusContestacao: Int?, dataContestacao: String?, dataAlteracao: String?, dataReapresentacao: String?, diasContestacao: Int?, diasCompra: Int?, modoEntrada: String?, motivo: String?, valorCompra: Double?, completion: ((data: PageGrupoChargebackResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET13WithRequestBuilder(sort: sort, page: page, limit: limit, agingContestacao: agingContestacao, nome: nome, bandeira: bandeira, cartao: cartao, cpf: cpf, conta: conta, statusCartao: statusCartao, statusContestacao: statusContestacao, dataContestacao: dataContestacao, dataAlteracao: dataAlteracao, dataReapresentacao: dataReapresentacao, diasContestacao: diasContestacao, diasCompra: diasCompra, modoEntrada: modoEntrada, motivo: motivo, valorCompra: valorCompra).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -112,17 +170,49 @@ public class GlobaltagcompracontestadaAPI: APIBase {
      - parameter sort: (query) {{{global_menssagem_sort_sort}}} (optional)
      - parameter page: (query) {{{global_menssagem_sort_page_value}}} (optional)
      - parameter limit: (query) {{{global_menssagem_sort_limit}}} (optional)
+     - parameter agingContestacao: (query)  (optional)
+     - parameter nome: (query)  (optional)
+     - parameter bandeira: (query)  (optional)
+     - parameter cartao: (query)  (optional)
+     - parameter cpf: (query)  (optional)
+     - parameter conta: (query)  (optional)
+     - parameter statusCartao: (query)  (optional)
+     - parameter statusContestacao: (query)  (optional)
+     - parameter dataContestacao: (query)  (optional)
+     - parameter dataAlteracao: (query)  (optional)
+     - parameter dataReapresentacao: (query)  (optional)
+     - parameter diasContestacao: (query)  (optional)
+     - parameter diasCompra: (query)  (optional)
+     - parameter modoEntrada: (query)  (optional)
+     - parameter motivo: (query)  (optional)
+     - parameter valorCompra: (query)  (optional)
 
      - returns: RequestBuilder<PageGrupoChargebackResponse> 
      */
-    public class func listarUsingGET12WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?) -> RequestBuilder<PageGrupoChargebackResponse> {
+    public class func listarUsingGET13WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, agingContestacao: Int?, nome: String?, bandeira: String?, cartao: String?, cpf: String?, conta: String?, statusCartao: Int?, statusContestacao: Int?, dataContestacao: String?, dataAlteracao: String?, dataReapresentacao: String?, diasContestacao: Int?, diasCompra: Int?, modoEntrada: String?, motivo: String?, valorCompra: Double?) -> RequestBuilder<PageGrupoChargebackResponse> {
         let path = "/api/cartoes-com-contestacoes"
         let URLString = PierAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
             "sort": sort,
             "page": page,
-            "limit": limit
+            "limit": limit,
+            "agingContestacao": agingContestacao,
+            "nome": nome,
+            "bandeira": bandeira,
+            "cartao": cartao,
+            "cpf": cpf,
+            "conta": conta,
+            "statusCartao": statusCartao,
+            "statusContestacao": statusContestacao,
+            "dataContestacao": dataContestacao,
+            "dataAlteracao": dataAlteracao,
+            "dataReapresentacao": dataReapresentacao,
+            "diasContestacao": diasContestacao,
+            "diasCompra": diasCompra,
+            "modoEntrada": modoEntrada,
+            "motivo": motivo,
+            "valorCompra": valorCompra
         ]
         let parameters = APIHelper.rejectNil(nillableParameters)
 
@@ -139,10 +229,26 @@ public class GlobaltagcompracontestadaAPI: APIBase {
      - parameter sort: (query) {{{global_menssagem_sort_sort}}} (optional)
      - parameter page: (query) {{{global_menssagem_sort_page_value}}} (optional)
      - parameter limit: (query) {{{global_menssagem_sort_limit}}} (optional)
+     - parameter agingContestacao: (query)  (optional)
+     - parameter nome: (query)  (optional)
+     - parameter bandeira: (query)  (optional)
+     - parameter cartao: (query)  (optional)
+     - parameter cpf: (query)  (optional)
+     - parameter conta: (query)  (optional)
+     - parameter statusCartao: (query)  (optional)
+     - parameter statusContestacao: (query)  (optional)
+     - parameter dataContestacao: (query)  (optional)
+     - parameter dataAlteracao: (query)  (optional)
+     - parameter dataReapresentacao: (query)  (optional)
+     - parameter diasContestacao: (query)  (optional)
+     - parameter diasCompra: (query)  (optional)
+     - parameter modoEntrada: (query)  (optional)
+     - parameter motivo: (query)  (optional)
+     - parameter valorCompra: (query)  (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func transacaoUsingGET(idCartao idCartao: Int, sort: [String]?, page: Int?, limit: Int?, completion: ((data: PageGrupoChargebackResponse?, error: ErrorType?) -> Void)) {
-        transacaoUsingGETWithRequestBuilder(idCartao: idCartao, sort: sort, page: page, limit: limit).execute { (response, error) -> Void in
+    public class func transacaoUsingGET(idCartao idCartao: Int, sort: [String]?, page: Int?, limit: Int?, agingContestacao: Int?, nome: String?, bandeira: String?, cartao: String?, cpf: String?, conta: String?, statusCartao: Int?, statusContestacao: Int?, dataContestacao: String?, dataAlteracao: String?, dataReapresentacao: String?, diasContestacao: Int?, diasCompra: Int?, modoEntrada: String?, motivo: String?, valorCompra: Double?, completion: ((data: PageGrupoChargebackResponse?, error: ErrorType?) -> Void)) {
+        transacaoUsingGETWithRequestBuilder(idCartao: idCartao, sort: sort, page: page, limit: limit, agingContestacao: agingContestacao, nome: nome, bandeira: bandeira, cartao: cartao, cpf: cpf, conta: conta, statusCartao: statusCartao, statusContestacao: statusContestacao, dataContestacao: dataContestacao, dataAlteracao: dataAlteracao, dataReapresentacao: dataReapresentacao, diasContestacao: diasContestacao, diasCompra: diasCompra, modoEntrada: modoEntrada, motivo: motivo, valorCompra: valorCompra).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -178,10 +284,26 @@ public class GlobaltagcompracontestadaAPI: APIBase {
      - parameter sort: (query) {{{global_menssagem_sort_sort}}} (optional)
      - parameter page: (query) {{{global_menssagem_sort_page_value}}} (optional)
      - parameter limit: (query) {{{global_menssagem_sort_limit}}} (optional)
+     - parameter agingContestacao: (query)  (optional)
+     - parameter nome: (query)  (optional)
+     - parameter bandeira: (query)  (optional)
+     - parameter cartao: (query)  (optional)
+     - parameter cpf: (query)  (optional)
+     - parameter conta: (query)  (optional)
+     - parameter statusCartao: (query)  (optional)
+     - parameter statusContestacao: (query)  (optional)
+     - parameter dataContestacao: (query)  (optional)
+     - parameter dataAlteracao: (query)  (optional)
+     - parameter dataReapresentacao: (query)  (optional)
+     - parameter diasContestacao: (query)  (optional)
+     - parameter diasCompra: (query)  (optional)
+     - parameter modoEntrada: (query)  (optional)
+     - parameter motivo: (query)  (optional)
+     - parameter valorCompra: (query)  (optional)
 
      - returns: RequestBuilder<PageGrupoChargebackResponse> 
      */
-    public class func transacaoUsingGETWithRequestBuilder(idCartao idCartao: Int, sort: [String]?, page: Int?, limit: Int?) -> RequestBuilder<PageGrupoChargebackResponse> {
+    public class func transacaoUsingGETWithRequestBuilder(idCartao idCartao: Int, sort: [String]?, page: Int?, limit: Int?, agingContestacao: Int?, nome: String?, bandeira: String?, cartao: String?, cpf: String?, conta: String?, statusCartao: Int?, statusContestacao: Int?, dataContestacao: String?, dataAlteracao: String?, dataReapresentacao: String?, diasContestacao: Int?, diasCompra: Int?, modoEntrada: String?, motivo: String?, valorCompra: Double?) -> RequestBuilder<PageGrupoChargebackResponse> {
         var path = "/api/cartoes-com-contestacoes/{idCartao}/transacoes"
         path = path.stringByReplacingOccurrencesOfString("{idCartao}", withString: "\(idCartao)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -189,7 +311,23 @@ public class GlobaltagcompracontestadaAPI: APIBase {
         let nillableParameters: [String:AnyObject?] = [
             "sort": sort,
             "page": page,
-            "limit": limit
+            "limit": limit,
+            "agingContestacao": agingContestacao,
+            "nome": nome,
+            "bandeira": bandeira,
+            "cartao": cartao,
+            "cpf": cpf,
+            "conta": conta,
+            "statusCartao": statusCartao,
+            "statusContestacao": statusContestacao,
+            "dataContestacao": dataContestacao,
+            "dataAlteracao": dataAlteracao,
+            "dataReapresentacao": dataReapresentacao,
+            "diasContestacao": diasContestacao,
+            "diasCompra": diasCompra,
+            "modoEntrada": modoEntrada,
+            "motivo": motivo,
+            "valorCompra": valorCompra
         ]
         let parameters = APIHelper.rejectNil(nillableParameters)
 

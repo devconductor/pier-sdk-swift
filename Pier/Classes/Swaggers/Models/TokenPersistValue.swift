@@ -19,6 +19,8 @@ public class TokenPersistValue: JSONEncodable {
     public var owner: String?
     /** {{{token_dto_criado_por_value}}} */
     public var criadoPor: String?
+    /** {{{token_dto_id_application_value}}} */
+    public var idAplicacao: Int?
     
 
     public init() {}
@@ -30,6 +32,7 @@ public class TokenPersistValue: JSONEncodable {
         nillableDictionary["base"] = self.base
         nillableDictionary["owner"] = self.owner
         nillableDictionary["criadoPor"] = self.criadoPor
+        nillableDictionary["idAplicacao"] = self.idAplicacao
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

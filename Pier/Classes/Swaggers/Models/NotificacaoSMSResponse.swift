@@ -15,6 +15,7 @@ public class NotificacaoSMSResponse: JSONEncodable {
         case RiscoFraude = "RISCO_FRAUDE"
         case CodigoSeguranca = "CODIGO_SEGURANCA"
         case Outros = "OUTROS"
+        case Otp3dSecure = "OTP_3D_SECURE"
     }
     
     public enum Status: String { 

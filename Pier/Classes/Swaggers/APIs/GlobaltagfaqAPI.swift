@@ -146,8 +146,8 @@ public class GlobaltagfaqAPI: APIBase {
      - parameter id: (path) {{{faq_resource_consultar_param_id_faq}}} 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET21(id id: Int, completion: ((data: FaqResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET21WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET23(id id: Int, completion: ((data: FaqResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET23WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -173,7 +173,7 @@ public class GlobaltagfaqAPI: APIBase {
 
      - returns: RequestBuilder<FaqResponse> 
      */
-    public class func consultarUsingGET21WithRequestBuilder(id id: Int) -> RequestBuilder<FaqResponse> {
+    public class func consultarUsingGET23WithRequestBuilder(id id: Int) -> RequestBuilder<FaqResponse> {
         var path = "/api/faqs/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -202,8 +202,8 @@ public class GlobaltagfaqAPI: APIBase {
      - parameter status: (query) {{{faq_request_status_value}}} (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET26(sort sort: [String]?, page: Int?, limit: Int?, idFaq: Int?, pergunta: String?, resposta: String?, relevancia: Int?, plataforma: String?, categoria: String?, status: String?, completion: ((data: PageFaqResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET26WithRequestBuilder(sort: sort, page: page, limit: limit, idFaq: idFaq, pergunta: pergunta, resposta: resposta, relevancia: relevancia, plataforma: plataforma, categoria: categoria, status: status).execute { (response, error) -> Void in
+    public class func listarUsingGET27(sort sort: [String]?, page: Int?, limit: Int?, idFaq: Int?, pergunta: String?, resposta: String?, relevancia: Int?, plataforma: String?, categoria: String?, status: String?, completion: ((data: PageFaqResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET27WithRequestBuilder(sort: sort, page: page, limit: limit, idFaq: idFaq, pergunta: pergunta, resposta: resposta, relevancia: relevancia, plataforma: plataforma, categoria: categoria, status: status).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -253,7 +253,7 @@ public class GlobaltagfaqAPI: APIBase {
 
      - returns: RequestBuilder<PageFaqResponse> 
      */
-    public class func listarUsingGET26WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, idFaq: Int?, pergunta: String?, resposta: String?, relevancia: Int?, plataforma: String?, categoria: String?, status: String?) -> RequestBuilder<PageFaqResponse> {
+    public class func listarUsingGET27WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, idFaq: Int?, pergunta: String?, resposta: String?, relevancia: Int?, plataforma: String?, categoria: String?, status: String?) -> RequestBuilder<PageFaqResponse> {
         let path = "/api/faqs"
         let URLString = PierAPI.basePath + path
         

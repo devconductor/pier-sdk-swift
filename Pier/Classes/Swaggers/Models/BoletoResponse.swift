@@ -79,6 +79,8 @@ public class BoletoResponse: JSONEncodable {
     public var enderecoCobrancaBeneficiario: String?
     /** {{{boleto_response_status_value}}} */
     public var status: Int?
+    /** {{{boleto_response_registrado_value}}} */
+    public var boletoRegistrado: Bool?
     
 
     public init() {}
@@ -120,6 +122,7 @@ public class BoletoResponse: JSONEncodable {
         nillableDictionary["idConta"] = self.idConta
         nillableDictionary["enderecoCobrancaBeneficiario"] = self.enderecoCobrancaBeneficiario
         nillableDictionary["status"] = self.status
+        nillableDictionary["boletoRegistrado"] = self.boletoRegistrado
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

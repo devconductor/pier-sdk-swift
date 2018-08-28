@@ -8,7 +8,6 @@
 import Foundation
 
 
-/** {{{perfil_response_object_description}}} */
 public class PerfilResponse: JSONEncodable {
 
     public var id: Int?

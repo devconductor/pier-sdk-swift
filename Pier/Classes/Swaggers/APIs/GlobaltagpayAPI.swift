@@ -66,8 +66,8 @@ public class GlobaltagpayAPI: APIBase {
      - parameter update: (body) update 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func atualizarUsingPUT(id id: Int, update: CartaoPayUpdate, completion: ((data: CartaoPayResponse?, error: ErrorType?) -> Void)) {
-        atualizarUsingPUTWithRequestBuilder(id: id, update: update).execute { (response, error) -> Void in
+    public class func atualizarUsingPUT1(id id: Int, update: CartaoPayUpdate, completion: ((data: CartaoPayResponse?, error: ErrorType?) -> Void)) {
+        atualizarUsingPUT1WithRequestBuilder(id: id, update: update).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -95,7 +95,7 @@ public class GlobaltagpayAPI: APIBase {
 
      - returns: RequestBuilder<CartaoPayResponse> 
      */
-    public class func atualizarUsingPUTWithRequestBuilder(id id: Int, update: CartaoPayUpdate) -> RequestBuilder<CartaoPayResponse> {
+    public class func atualizarUsingPUT1WithRequestBuilder(id id: Int, update: CartaoPayUpdate) -> RequestBuilder<CartaoPayResponse> {
         var path = "/api/cartoes-tokenizados/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -164,8 +164,8 @@ public class GlobaltagpayAPI: APIBase {
      - parameter id: (path) {{{cartao_pay_resource_consultar_param_id}}} 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET9(id id: Int, completion: ((data: CartaoPayDetalheResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET9WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET11(id id: Int, completion: ((data: CartaoPayDetalheResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET11WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -193,7 +193,7 @@ public class GlobaltagpayAPI: APIBase {
 
      - returns: RequestBuilder<CartaoPayDetalheResponse> 
      */
-    public class func consultarUsingGET9WithRequestBuilder(id id: Int) -> RequestBuilder<CartaoPayDetalheResponse> {
+    public class func consultarUsingGET11WithRequestBuilder(id id: Int) -> RequestBuilder<CartaoPayDetalheResponse> {
         var path = "/api/cartoes-tokenizados/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -392,8 +392,8 @@ public class GlobaltagpayAPI: APIBase {
      - parameter numeroCartao: (query) {{{cartao_pay_request_numero_cartao_value}}} (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET10(sort sort: [String]?, page: Int?, limit: Int?, status: String?, numeroCartao: String?, completion: ((data: PageCartaoPayResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET10WithRequestBuilder(sort: sort, page: page, limit: limit, status: status, numeroCartao: numeroCartao).execute { (response, error) -> Void in
+    public class func listarUsingGET11(sort sort: [String]?, page: Int?, limit: Int?, status: String?, numeroCartao: String?, completion: ((data: PageCartaoPayResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET11WithRequestBuilder(sort: sort, page: page, limit: limit, status: status, numeroCartao: numeroCartao).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -439,7 +439,7 @@ public class GlobaltagpayAPI: APIBase {
 
      - returns: RequestBuilder<PageCartaoPayResponse> 
      */
-    public class func listarUsingGET10WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, status: String?, numeroCartao: String?) -> RequestBuilder<PageCartaoPayResponse> {
+    public class func listarUsingGET11WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, status: String?, numeroCartao: String?) -> RequestBuilder<PageCartaoPayResponse> {
         let path = "/api/cartoes-tokenizados"
         let URLString = PierAPI.basePath + path
         
@@ -464,8 +464,8 @@ public class GlobaltagpayAPI: APIBase {
      - parameter persist: (body) persist 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func salvarUsingPOST5(persist persist: CartaoPayPersist, completion: ((data: CartaoPayCadastroResponse?, error: ErrorType?) -> Void)) {
-        salvarUsingPOST5WithRequestBuilder(persist: persist).execute { (response, error) -> Void in
+    public class func salvarUsingPOST6(persist persist: CartaoPayPersist, completion: ((data: CartaoPayCadastroResponse?, error: ErrorType?) -> Void)) {
+        salvarUsingPOST6WithRequestBuilder(persist: persist).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -494,7 +494,7 @@ public class GlobaltagpayAPI: APIBase {
 
      - returns: RequestBuilder<CartaoPayCadastroResponse> 
      */
-    public class func salvarUsingPOST5WithRequestBuilder(persist persist: CartaoPayPersist) -> RequestBuilder<CartaoPayCadastroResponse> {
+    public class func salvarUsingPOST6WithRequestBuilder(persist persist: CartaoPayPersist) -> RequestBuilder<CartaoPayCadastroResponse> {
         let path = "/api/cartoes-tokenizados"
         let URLString = PierAPI.basePath + path
         

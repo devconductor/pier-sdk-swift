@@ -19,6 +19,8 @@ public class TokenUpdateValue: JSONEncodable {
     public var criadoPor: String?
     /** {{{token_dto_alterado_por_value}}} */
     public var alteradoPor: String?
+    /** {{{token_dto_id_application_value}}} */
+    public var idAplicacao: Int?
     
 
     public init() {}
@@ -30,6 +32,7 @@ public class TokenUpdateValue: JSONEncodable {
         nillableDictionary["owner"] = self.owner
         nillableDictionary["criadoPor"] = self.criadoPor
         nillableDictionary["alteradoPor"] = self.alteradoPor
+        nillableDictionary["idAplicacao"] = self.idAplicacao
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

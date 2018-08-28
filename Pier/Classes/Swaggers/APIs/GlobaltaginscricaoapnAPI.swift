@@ -76,8 +76,8 @@ public class GlobaltaginscricaoapnAPI: APIBase {
      - parameter idAplicacaoMobile: (query) {{{inscricao_apn_requisicao_id_aplicacao_mobile_descricao}}} (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET30(sort sort: [String]?, idCartoes: [Int]?, page: Int?, limit: Int?, deviceToken: String?, dataCriacao: String?, dataDesativacao: String?, ativo: Bool?, idAplicacaoMobile: Int?, completion: ((data: PageInscricaoAPNResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET30WithRequestBuilder(sort: sort, idCartoes: idCartoes, page: page, limit: limit, deviceToken: deviceToken, dataCriacao: dataCriacao, dataDesativacao: dataDesativacao, ativo: ativo, idAplicacaoMobile: idAplicacaoMobile).execute { (response, error) -> Void in
+    public class func listarUsingGET31(sort sort: [String]?, idCartoes: [Int]?, page: Int?, limit: Int?, deviceToken: String?, dataCriacao: String?, dataDesativacao: String?, ativo: Bool?, idAplicacaoMobile: Int?, completion: ((data: PageInscricaoAPNResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET31WithRequestBuilder(sort: sort, idCartoes: idCartoes, page: page, limit: limit, deviceToken: deviceToken, dataCriacao: dataCriacao, dataDesativacao: dataDesativacao, ativo: ativo, idAplicacaoMobile: idAplicacaoMobile).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -130,7 +130,7 @@ public class GlobaltaginscricaoapnAPI: APIBase {
 
      - returns: RequestBuilder<PageInscricaoAPNResponse> 
      */
-    public class func listarUsingGET30WithRequestBuilder(sort sort: [String]?, idCartoes: [Int]?, page: Int?, limit: Int?, deviceToken: String?, dataCriacao: String?, dataDesativacao: String?, ativo: Bool?, idAplicacaoMobile: Int?) -> RequestBuilder<PageInscricaoAPNResponse> {
+    public class func listarUsingGET31WithRequestBuilder(sort sort: [String]?, idCartoes: [Int]?, page: Int?, limit: Int?, deviceToken: String?, dataCriacao: String?, dataDesativacao: String?, ativo: Bool?, idAplicacaoMobile: Int?) -> RequestBuilder<PageInscricaoAPNResponse> {
         let path = "/api/inscricoes-apn"
         let URLString = PierAPI.basePath + path
         
@@ -159,8 +159,8 @@ public class GlobaltaginscricaoapnAPI: APIBase {
      - parameter inscricaoPersist: (body) inscricaoPersist 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func salvarUsingPOST14(inscricaoPersist inscricaoPersist: InscricaoApnPersistencia, completion: ((data: [InscricaoAPNResponse]?, error: ErrorType?) -> Void)) {
-        salvarUsingPOST14WithRequestBuilder(inscricaoPersist: inscricaoPersist).execute { (response, error) -> Void in
+    public class func salvarUsingPOST15(inscricaoPersist inscricaoPersist: InscricaoApnPersistencia, completion: ((data: [InscricaoAPNResponse]?, error: ErrorType?) -> Void)) {
+        salvarUsingPOST15WithRequestBuilder(inscricaoPersist: inscricaoPersist).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -190,7 +190,7 @@ public class GlobaltaginscricaoapnAPI: APIBase {
 
      - returns: RequestBuilder<[InscricaoAPNResponse]> 
      */
-    public class func salvarUsingPOST14WithRequestBuilder(inscricaoPersist inscricaoPersist: InscricaoApnPersistencia) -> RequestBuilder<[InscricaoAPNResponse]> {
+    public class func salvarUsingPOST15WithRequestBuilder(inscricaoPersist inscricaoPersist: InscricaoApnPersistencia) -> RequestBuilder<[InscricaoAPNResponse]> {
         let path = "/api/inscricoes-apn"
         let URLString = PierAPI.basePath + path
         

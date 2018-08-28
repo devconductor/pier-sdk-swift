@@ -8,18 +8,13 @@
 import Foundation
 
 
-/** {{{usuario_persist_object_description}}} */
 public class UsuarioLdapPersist: JSONEncodable {
 
-    /** {{{usuario_persist_nome_value}}} */
-    public var nome: String?
-    /** {{{usuario_persist_login_value}}} */
-    public var login: String?
-    /** {{{usuario_persist_cpf_value}}} */
     public var cpf: String?
-    /** {{{usuario_persist_email_value}}} */
     public var email: String?
-    /** {{{usuario_persist_perfis_value}}} */
+    public var idEmissor: Int?
+    public var login: String?
+    public var nome: String?
     public var perfis: [ReferenciaIdPersist]?
     
 
@@ -28,10 +23,11 @@ public class UsuarioLdapPersist: JSONEncodable {
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
-        nillableDictionary["nome"] = self.nome
-        nillableDictionary["login"] = self.login
         nillableDictionary["cpf"] = self.cpf
         nillableDictionary["email"] = self.email
+        nillableDictionary["idEmissor"] = self.idEmissor
+        nillableDictionary["login"] = self.login
+        nillableDictionary["nome"] = self.nome
         nillableDictionary["perfis"] = self.perfis?.encodeToJSON()
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary

@@ -17,8 +17,8 @@ public class GlobaltagarquivoAPI: APIBase {
      - parameter id: (path) {{{arquivo_resource_consultar_param_id}}} 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET5(id id: Int, completion: ((data: ArquivoDetalheResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET5WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET6(id id: Int, completion: ((data: ArquivoDetalheResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET6WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -52,7 +52,7 @@ public class GlobaltagarquivoAPI: APIBase {
 
      - returns: RequestBuilder<ArquivoDetalheResponse> 
      */
-    public class func consultarUsingGET5WithRequestBuilder(id id: Int) -> RequestBuilder<ArquivoDetalheResponse> {
+    public class func consultarUsingGET6WithRequestBuilder(id id: Int) -> RequestBuilder<ArquivoDetalheResponse> {
         var path = "/api/arquivos/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -336,8 +336,8 @@ public class GlobaltagarquivoAPI: APIBase {
      - parameter limit: (query) Limite de elementos por solicita\u00E7\u00E3o (Default = 50, Max = 50) (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET5(id id: Int, page: Int?, limit: Int?, completion: ((data: PageArquivoAUDResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET5WithRequestBuilder(id: id, page: page, limit: limit).execute { (response, error) -> Void in
+    public class func listarUsingGET6(id id: Int, page: Int?, limit: Int?, completion: ((data: PageArquivoAUDResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET6WithRequestBuilder(id: id, page: page, limit: limit).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -394,7 +394,7 @@ public class GlobaltagarquivoAPI: APIBase {
 
      - returns: RequestBuilder<PageArquivoAUDResponse> 
      */
-    public class func listarUsingGET5WithRequestBuilder(id id: Int, page: Int?, limit: Int?) -> RequestBuilder<PageArquivoAUDResponse> {
+    public class func listarUsingGET6WithRequestBuilder(id id: Int, page: Int?, limit: Int?) -> RequestBuilder<PageArquivoAUDResponse> {
         var path = "/api/arquivos/{id}/auditorias"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -423,8 +423,8 @@ public class GlobaltagarquivoAPI: APIBase {
      - parameter extensao: (query) {{{arquivo_request_extensao_value}}} (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET6(sort sort: [String]?, page: Int?, limit: Int?, nome: String?, idTipoArquivo: Int?, idStatusArquivo: Int?, extensao: String?, completion: ((data: PageArquivoResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET6WithRequestBuilder(sort: sort, page: page, limit: limit, nome: nome, idTipoArquivo: idTipoArquivo, idStatusArquivo: idStatusArquivo, extensao: extensao).execute { (response, error) -> Void in
+    public class func listarUsingGET7(sort sort: [String]?, page: Int?, limit: Int?, nome: String?, idTipoArquivo: Int?, idStatusArquivo: Int?, extensao: String?, completion: ((data: PageArquivoResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET7WithRequestBuilder(sort: sort, page: page, limit: limit, nome: nome, idTipoArquivo: idTipoArquivo, idStatusArquivo: idStatusArquivo, extensao: extensao).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -478,7 +478,7 @@ public class GlobaltagarquivoAPI: APIBase {
 
      - returns: RequestBuilder<PageArquivoResponse> 
      */
-    public class func listarUsingGET6WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, nome: String?, idTipoArquivo: Int?, idStatusArquivo: Int?, extensao: String?) -> RequestBuilder<PageArquivoResponse> {
+    public class func listarUsingGET7WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, nome: String?, idTipoArquivo: Int?, idStatusArquivo: Int?, extensao: String?) -> RequestBuilder<PageArquivoResponse> {
         let path = "/api/arquivos"
         let URLString = PierAPI.basePath + path
         

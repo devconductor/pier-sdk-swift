@@ -17,8 +17,8 @@ public class GlobaltaglogAPI: APIBase {
      - parameter logAcessoUsuarioPersist: (body) logAcessoUsuarioPersist 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func salvarUsingPOST18(logAcessoUsuarioPersist logAcessoUsuarioPersist: LogAcessoUsuarioPersistencia, completion: ((data: LogAcessoUsuarioResposta?, error: ErrorType?) -> Void)) {
-        salvarUsingPOST18WithRequestBuilder(logAcessoUsuarioPersist: logAcessoUsuarioPersist).execute { (response, error) -> Void in
+    public class func salvarUsingPOST19(logAcessoUsuarioPersist logAcessoUsuarioPersist: LogAcessoUsuarioPersistencia, completion: ((data: LogAcessoUsuarioResposta?, error: ErrorType?) -> Void)) {
+        salvarUsingPOST19WithRequestBuilder(logAcessoUsuarioPersist: logAcessoUsuarioPersist).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -38,7 +38,7 @@ public class GlobaltaglogAPI: APIBase {
 
      - returns: RequestBuilder<LogAcessoUsuarioResposta> 
      */
-    public class func salvarUsingPOST18WithRequestBuilder(logAcessoUsuarioPersist logAcessoUsuarioPersist: LogAcessoUsuarioPersistencia) -> RequestBuilder<LogAcessoUsuarioResposta> {
+    public class func salvarUsingPOST19WithRequestBuilder(logAcessoUsuarioPersist logAcessoUsuarioPersist: LogAcessoUsuarioPersistencia) -> RequestBuilder<LogAcessoUsuarioResposta> {
         let path = "/api/logs/log-acessos-usuario"
         let URLString = PierAPI.basePath + path
         

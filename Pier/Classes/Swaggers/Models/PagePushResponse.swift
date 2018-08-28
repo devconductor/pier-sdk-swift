@@ -11,7 +11,7 @@ import Foundation
 /** {{{page_push_response_description}}} */
 public class PagePushResponse: JSONEncodable {
 
-    public var content: [NotificacaoPushResponseValue]?
+    public var content: [NotificacaoPushResponse]?
     public var first: Bool?
     public var firstPage: Bool?
     public var hasContent: Bool?

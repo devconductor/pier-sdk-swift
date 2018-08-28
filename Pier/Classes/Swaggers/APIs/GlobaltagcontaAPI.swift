@@ -556,6 +556,7 @@ public class GlobaltagcontaAPI: APIBase {
   "especieDoDocumento" : "aeiou",
   "cepPagador" : "aeiou",
   "numeroDoDocumento" : "aeiou",
+  "boletoRegistrado" : false,
   "linhaDigitavel" : "aeiou",
   "enderecoCobrancaBeneficiario" : "aeiou",
   "carteira" : "aeiou",
@@ -811,8 +812,8 @@ public class GlobaltagcontaAPI: APIBase {
      - parameter id: (path) {{{conta_resource_consultar_param_id}}} 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET14(id id: Int, completion: ((data: ContaDetalheResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET14WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET16(id id: Int, completion: ((data: ContaDetalheResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET16WithRequestBuilder(id: id).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -848,6 +849,7 @@ public class GlobaltagcontaAPI: APIBase {
   "numeroContaCorrente" : "aeiou",
   "dataStatusConta" : "aeiou",
   "idFantasiaBasica" : 123456789,
+  "proximoVencimentoPadrao" : "aeiou",
   "numeroAgencia" : 123,
   "titular" : false,
   "dataHoraUltimaCompra" : "aeiou"
@@ -857,7 +859,7 @@ public class GlobaltagcontaAPI: APIBase {
 
      - returns: RequestBuilder<ContaDetalheResponse> 
      */
-    public class func consultarUsingGET14WithRequestBuilder(id id: Int) -> RequestBuilder<ContaDetalheResponse> {
+    public class func consultarUsingGET16WithRequestBuilder(id id: Int) -> RequestBuilder<ContaDetalheResponse> {
         var path = "/api/contas/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -878,8 +880,8 @@ public class GlobaltagcontaAPI: APIBase {
      - parameter idTransferencia: (path) {{{transferencia_resource_consultar_param_id_transferencia}}} 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET49(id id: Int, idTransferencia: Int, completion: ((data: TransferenciaDetalheResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET49WithRequestBuilder(id: id, idTransferencia: idTransferencia).execute { (response, error) -> Void in
+    public class func consultarUsingGET51(id id: Int, idTransferencia: Int, completion: ((data: TransferenciaDetalheResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET51WithRequestBuilder(id: id, idTransferencia: idTransferencia).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -907,7 +909,7 @@ public class GlobaltagcontaAPI: APIBase {
 
      - returns: RequestBuilder<TransferenciaDetalheResponse> 
      */
-    public class func consultarUsingGET49WithRequestBuilder(id id: Int, idTransferencia: Int) -> RequestBuilder<TransferenciaDetalheResponse> {
+    public class func consultarUsingGET51WithRequestBuilder(id id: Int, idTransferencia: Int) -> RequestBuilder<TransferenciaDetalheResponse> {
         var path = "/api/contas/{id}/transferencias-creditos-cartoes/{idTransferencia}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         path = path.stringByReplacingOccurrencesOfString("{idTransferencia}", withString: "\(idTransferencia)", options: .LiteralSearch, range: nil)
@@ -919,6 +921,57 @@ public class GlobaltagcontaAPI: APIBase {
         let requestBuilder: RequestBuilder<TransferenciaDetalheResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+    }
+
+    /**
+     
+     {{{conta_resource_cadastrar_conta_multiapp}}}
+     
+     - parameter contaMultiAppPersist: (body) contaMultiAppPersist 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func criarContasMultiAppUsingPOST(contaMultiAppPersist contaMultiAppPersist: ContaMultiAppPersistValue, completion: ((data: ContaMultiAppResponse?, error: ErrorType?) -> Void)) {
+        criarContasMultiAppUsingPOSTWithRequestBuilder(contaMultiAppPersist: contaMultiAppPersist).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     {{{conta_resource_cadastrar_conta_multiapp}}}
+     
+     - POST /api/contas/cadastrar-conta-multiapp
+     - {{{conta_resource_cadastrar_conta_multiapp_notes}}}
+     - examples: [{contentType=application/json, example={
+  "contas" : [ {
+    "idPessoa" : 123456789,
+    "idStatusConta" : 123456789,
+    "valorRenda" : 1.3579000000000001069366817318950779736042022705078125,
+    "idProduto" : 123456789,
+    "idOrigemComercial" : 123456789,
+    "melhorDiaCompra" : 123,
+    "dataUltimaAlteracaoVencimento" : "aeiou",
+    "dataStatusConta" : "aeiou",
+    "id" : 123456789,
+    "diaVencimento" : 123,
+    "dataCadastro" : "aeiou"
+  } ]
+}}]
+     
+     - parameter contaMultiAppPersist: (body) contaMultiAppPersist 
+
+     - returns: RequestBuilder<ContaMultiAppResponse> 
+     */
+    public class func criarContasMultiAppUsingPOSTWithRequestBuilder(contaMultiAppPersist contaMultiAppPersist: ContaMultiAppPersistValue) -> RequestBuilder<ContaMultiAppResponse> {
+        let path = "/api/contas/cadastrar-conta-multiapp"
+        let URLString = PierAPI.basePath + path
+        
+        let parameters = contaMultiAppPersist.encodeToJSON() as? [String:AnyObject]
+
+        let requestBuilder: RequestBuilder<ContaMultiAppResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
     }
 
     /**
@@ -996,6 +1049,7 @@ public class GlobaltagcontaAPI: APIBase {
   "especieDoDocumento" : "aeiou",
   "cepPagador" : "aeiou",
   "numeroDoDocumento" : "aeiou",
+  "boletoRegistrado" : false,
   "linhaDigitavel" : "aeiou",
   "enderecoCobrancaBeneficiario" : "aeiou",
   "carteira" : "aeiou",
@@ -1725,8 +1779,8 @@ public class GlobaltagcontaAPI: APIBase {
      - parameter dataUltimaAlteracaoVencimento: (query) {{{conta_request_data_ultima_alteracao_vencimento_value}}} (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET18(sort sort: [String]?, page: Int?, limit: Int?, idProduto: Int?, idOrigemComercial: Int?, idPessoa: Int?, idStatusConta: Int?, diaVencimento: Int?, melhorDiaCompra: Int?, dataStatusConta: String?, dataCadastro: String?, dataUltimaAlteracaoVencimento: String?, completion: ((data: PageContaResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET18WithRequestBuilder(sort: sort, page: page, limit: limit, idProduto: idProduto, idOrigemComercial: idOrigemComercial, idPessoa: idPessoa, idStatusConta: idStatusConta, diaVencimento: diaVencimento, melhorDiaCompra: melhorDiaCompra, dataStatusConta: dataStatusConta, dataCadastro: dataCadastro, dataUltimaAlteracaoVencimento: dataUltimaAlteracaoVencimento).execute { (response, error) -> Void in
+    public class func listarUsingGET19(sort sort: [String]?, page: Int?, limit: Int?, idProduto: Int?, idOrigemComercial: Int?, idPessoa: Int?, idStatusConta: Int?, diaVencimento: Int?, melhorDiaCompra: Int?, dataStatusConta: String?, dataCadastro: String?, dataUltimaAlteracaoVencimento: String?, completion: ((data: PageContaResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET19WithRequestBuilder(sort: sort, page: page, limit: limit, idProduto: idProduto, idOrigemComercial: idOrigemComercial, idPessoa: idPessoa, idStatusConta: idStatusConta, diaVencimento: diaVencimento, melhorDiaCompra: melhorDiaCompra, dataStatusConta: dataStatusConta, dataCadastro: dataCadastro, dataUltimaAlteracaoVencimento: dataUltimaAlteracaoVencimento).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -1782,7 +1836,7 @@ public class GlobaltagcontaAPI: APIBase {
 
      - returns: RequestBuilder<PageContaResponse> 
      */
-    public class func listarUsingGET18WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, idProduto: Int?, idOrigemComercial: Int?, idPessoa: Int?, idStatusConta: Int?, diaVencimento: Int?, melhorDiaCompra: Int?, dataStatusConta: String?, dataCadastro: String?, dataUltimaAlteracaoVencimento: String?) -> RequestBuilder<PageContaResponse> {
+    public class func listarUsingGET19WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, idProduto: Int?, idOrigemComercial: Int?, idPessoa: Int?, idStatusConta: Int?, diaVencimento: Int?, melhorDiaCompra: Int?, dataStatusConta: String?, dataCadastro: String?, dataUltimaAlteracaoVencimento: String?) -> RequestBuilder<PageContaResponse> {
         let path = "/api/contas"
         let URLString = PierAPI.basePath + path
         
@@ -1821,8 +1875,8 @@ public class GlobaltagcontaAPI: APIBase {
      - parameter idTipoTransacao: (query) {{{transacoes_processadas_request_tipo_transacao}}} (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET58(id id: Int, sort: [String]?, page: Int?, limit: Int?, dataVencimento: String?, dataInicio: String?, dataFim: String?, idTipoTransacao: Int?, completion: ((data: PageTransacaoProcessadaNaoProcessadaResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET58WithRequestBuilder(id: id, sort: sort, page: page, limit: limit, dataVencimento: dataVencimento, dataInicio: dataInicio, dataFim: dataFim, idTipoTransacao: idTipoTransacao).execute { (response, error) -> Void in
+    public class func listarUsingGET61(id id: Int, sort: [String]?, page: Int?, limit: Int?, dataVencimento: String?, dataInicio: String?, dataFim: String?, idTipoTransacao: Int?, completion: ((data: PageTransacaoProcessadaNaoProcessadaResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET61WithRequestBuilder(id: id, sort: sort, page: page, limit: limit, dataVencimento: dataVencimento, dataInicio: dataInicio, dataFim: dataFim, idTipoTransacao: idTipoTransacao).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -1897,7 +1951,7 @@ public class GlobaltagcontaAPI: APIBase {
 
      - returns: RequestBuilder<PageTransacaoProcessadaNaoProcessadaResponse> 
      */
-    public class func listarUsingGET58WithRequestBuilder(id id: Int, sort: [String]?, page: Int?, limit: Int?, dataVencimento: String?, dataInicio: String?, dataFim: String?, idTipoTransacao: Int?) -> RequestBuilder<PageTransacaoProcessadaNaoProcessadaResponse> {
+    public class func listarUsingGET61WithRequestBuilder(id id: Int, sort: [String]?, page: Int?, limit: Int?, dataVencimento: String?, dataInicio: String?, dataFim: String?, idTipoTransacao: Int?) -> RequestBuilder<PageTransacaoProcessadaNaoProcessadaResponse> {
         var path = "/api/contas/{id}/transacoes"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -1933,8 +1987,8 @@ public class GlobaltagcontaAPI: APIBase {
      - parameter dataTransferencia: (query) {{{transferencia_request_data_transferencia_value}}} (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET60(id id: Int, sort: [String]?, page: Int?, limit: Int?, idTransferencia: Int?, idContaOrigem: Int?, idContaDestino: Int?, valorTransferencia: Double?, dataTransferencia: String?, completion: ((data: PageTransferenciaResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET60WithRequestBuilder(id: id, sort: sort, page: page, limit: limit, idTransferencia: idTransferencia, idContaOrigem: idContaOrigem, idContaDestino: idContaDestino, valorTransferencia: valorTransferencia, dataTransferencia: dataTransferencia).execute { (response, error) -> Void in
+    public class func listarUsingGET63(id id: Int, sort: [String]?, page: Int?, limit: Int?, idTransferencia: Int?, idContaOrigem: Int?, idContaDestino: Int?, valorTransferencia: Double?, dataTransferencia: String?, completion: ((data: PageTransferenciaResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET63WithRequestBuilder(id: id, sort: sort, page: page, limit: limit, idTransferencia: idTransferencia, idContaOrigem: idContaOrigem, idContaDestino: idContaDestino, valorTransferencia: valorTransferencia, dataTransferencia: dataTransferencia).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -1981,7 +2035,7 @@ public class GlobaltagcontaAPI: APIBase {
 
      - returns: RequestBuilder<PageTransferenciaResponse> 
      */
-    public class func listarUsingGET60WithRequestBuilder(id id: Int, sort: [String]?, page: Int?, limit: Int?, idTransferencia: Int?, idContaOrigem: Int?, idContaDestino: Int?, valorTransferencia: Double?, dataTransferencia: String?) -> RequestBuilder<PageTransferenciaResponse> {
+    public class func listarUsingGET63WithRequestBuilder(id id: Int, sort: [String]?, page: Int?, limit: Int?, idTransferencia: Int?, idContaOrigem: Int?, idContaDestino: Int?, valorTransferencia: Double?, dataTransferencia: String?) -> RequestBuilder<PageTransferenciaResponse> {
         var path = "/api/contas/{id}/transferencias-creditos-cartoes"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
@@ -2049,8 +2103,8 @@ public class GlobaltagcontaAPI: APIBase {
      - parameter contaPersist: (body) contaPersist 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func salvarUsingPOST8(contaPersist contaPersist: ContaPersistValue, completion: ((data: ContaResponse?, error: ErrorType?) -> Void)) {
-        salvarUsingPOST8WithRequestBuilder(contaPersist: contaPersist).execute { (response, error) -> Void in
+    public class func salvarUsingPOST9(contaPersist contaPersist: ContaPersistValue, completion: ((data: ContaResponse?, error: ErrorType?) -> Void)) {
+        salvarUsingPOST9WithRequestBuilder(contaPersist: contaPersist).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -2080,7 +2134,7 @@ public class GlobaltagcontaAPI: APIBase {
 
      - returns: RequestBuilder<ContaResponse> 
      */
-    public class func salvarUsingPOST8WithRequestBuilder(contaPersist contaPersist: ContaPersistValue) -> RequestBuilder<ContaResponse> {
+    public class func salvarUsingPOST9WithRequestBuilder(contaPersist contaPersist: ContaPersistValue) -> RequestBuilder<ContaResponse> {
         let path = "/api/contas"
         let URLString = PierAPI.basePath + path
         

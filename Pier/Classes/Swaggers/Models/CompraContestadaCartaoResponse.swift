@@ -13,6 +13,8 @@ public class CompraContestadaCartaoResponse: JSONEncodable {
 
     /** {{{compra_contestada_cartao_response_id_cartao_value}}} */
     public var idCartao: Int?
+    /** {{{compra_contestada_cartao_response_aging_compras_value}}} */
+    public var agingCompras: Int?
     /** {{{compra_contestada_cartao_response_aging_contestacao_value}}} */
     public var agingContestacao: Int?
     /** {{{compra_contestada_cartao_response_cartao_value}}} */
@@ -21,6 +23,8 @@ public class CompraContestadaCartaoResponse: JSONEncodable {
     public var nome: String?
     /** {{{compra_contestada_cartao_response_bandeira_value}}} */
     public var bandeira: String?
+    /** {{{compra_contestada_cartao_response_valor_compra_value}}} */
+    public var valorCompra: String?
     
 
     public init() {}
@@ -29,10 +33,12 @@ public class CompraContestadaCartaoResponse: JSONEncodable {
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
         nillableDictionary["idCartao"] = self.idCartao
+        nillableDictionary["agingCompras"] = self.agingCompras
         nillableDictionary["agingContestacao"] = self.agingContestacao
         nillableDictionary["cartao"] = self.cartao
         nillableDictionary["nome"] = self.nome
         nillableDictionary["bandeira"] = self.bandeira
+        nillableDictionary["valorCompra"] = self.valorCompra
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

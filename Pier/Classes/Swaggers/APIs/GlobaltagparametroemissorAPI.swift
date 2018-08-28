@@ -17,8 +17,8 @@ public class GlobaltagparametroemissorAPI: APIBase {
      - parameter codigo: (path) {{{parametro_emissor_recurso_pesquisa_codigo_param}}} 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET27(codigo codigo: String, completion: ((data: ParametroEmissorResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET27WithRequestBuilder(codigo: codigo).execute { (response, error) -> Void in
+    public class func consultarUsingGET29(codigo codigo: String, completion: ((data: ParametroEmissorResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET29WithRequestBuilder(codigo: codigo).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -42,7 +42,7 @@ public class GlobaltagparametroemissorAPI: APIBase {
 
      - returns: RequestBuilder<ParametroEmissorResponse> 
      */
-    public class func consultarUsingGET27WithRequestBuilder(codigo codigo: String) -> RequestBuilder<ParametroEmissorResponse> {
+    public class func consultarUsingGET29WithRequestBuilder(codigo codigo: String) -> RequestBuilder<ParametroEmissorResponse> {
         var path = "/api/parametros-emissor/{codigo}"
         path = path.stringByReplacingOccurrencesOfString("{codigo}", withString: "\(codigo)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path

@@ -119,8 +119,8 @@ public class GlobaltaglimitedisponibilidadeAPI: APIBase {
      - parameter idConta: (query) {{{limite_disponibilidade_resource_consultar_param_id_conta}}} 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET23(idConta idConta: Int, completion: ((data: LimiteDisponibilidadeResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET23WithRequestBuilder(idConta: idConta).execute { (response, error) -> Void in
+    public class func consultarUsingGET25(idConta idConta: Int, completion: ((data: LimiteDisponibilidadeResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET25WithRequestBuilder(idConta: idConta).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -161,7 +161,7 @@ public class GlobaltaglimitedisponibilidadeAPI: APIBase {
 
      - returns: RequestBuilder<LimiteDisponibilidadeResponse> 
      */
-    public class func consultarUsingGET23WithRequestBuilder(idConta idConta: Int) -> RequestBuilder<LimiteDisponibilidadeResponse> {
+    public class func consultarUsingGET25WithRequestBuilder(idConta idConta: Int) -> RequestBuilder<LimiteDisponibilidadeResponse> {
         let path = "/api/limites-disponibilidades"
         let URLString = PierAPI.basePath + path
         
@@ -173,6 +173,69 @@ public class GlobaltaglimitedisponibilidadeAPI: APIBase {
         let requestBuilder: RequestBuilder<LimiteDisponibilidadeResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
+    }
+
+    /**
+     
+     {{{limite_disponibilidade_resource_sensibilizar_credito_disponivel}}}
+     
+     - parameter id: (path) {{{sensibilizar_saldo_global_param_id}}} 
+     - parameter sensibilizarSaldoGlobal: (body) sensibilizarSaldoGlobal 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    public class func sensibilizarSaldoDisponivelGlobalUsingPOST(id id: Int, sensibilizarSaldoGlobal: SensibilizarSaldoGlobalUpdateValue, completion: ((data: LimiteDisponibilidadeResponse?, error: ErrorType?) -> Void)) {
+        sensibilizarSaldoDisponivelGlobalUsingPOSTWithRequestBuilder(id: id, sensibilizarSaldoGlobal: sensibilizarSaldoGlobal).execute { (response, error) -> Void in
+            completion(data: response?.body, error: error);
+        }
+    }
+
+
+    /**
+     
+     {{{limite_disponibilidade_resource_sensibilizar_credito_disponivel}}}
+     
+     - POST /api/contas/{id}/limites-disponibilidades/sensibilizar-saldo-disponivel-global
+     - {{{limite_disponibilidade_resource_sensibilizar_credito_disponivel_notes}}}
+     - examples: [{contentType=application/json, example={
+  "saldoDisponivelCompraInternacional" : 1.3579000000000001069366817318950779736042022705078125,
+  "saldoDisponivelSaque" : 1.3579000000000001069366817318950779736042022705078125,
+  "limiteParcelas" : 1.3579000000000001069366817318950779736042022705078125,
+  "limiteSaquePeriodo" : 1.3579000000000001069366817318950779736042022705078125,
+  "limiteGlobal" : 1.3579000000000001069366817318950779736042022705078125,
+  "limiteInternacionalSaqueGlobal" : 1.3579000000000001069366817318950779736042022705078125,
+  "saldoDisponivelCompra" : 1.3579000000000001069366817318950779736042022705078125,
+  "limiteInternacionalSaquePeriodo" : 1.3579000000000001069366817318950779736042022705078125,
+  "limiteParcelado" : 1.3579000000000001069366817318950779736042022705078125,
+  "saldoDisponivelSaqueInternacional" : 1.3579000000000001069366817318950779736042022705078125,
+  "limiteMaximo" : 1.3579000000000001069366817318950779736042022705078125,
+  "saldoPontosFidelidade" : 1.3579000000000001069366817318950779736042022705078125,
+  "limiteInternacionalParcelado" : 1.3579000000000001069366817318950779736042022705078125,
+  "saldoDisponivelParcelas" : 1.3579000000000001069366817318950779736042022705078125,
+  "id" : 123456789,
+  "limiteConsignado" : 1.3579000000000001069366817318950779736042022705078125,
+  "saldoDisponivelGlobal" : 1.3579000000000001069366817318950779736042022705078125,
+  "saldoDisponivelParcelado" : 1.3579000000000001069366817318950779736042022705078125,
+  "limiteInternacionalParcelas" : 1.3579000000000001069366817318950779736042022705078125,
+  "limiteSaqueGlobal" : 1.3579000000000001069366817318950779736042022705078125,
+  "limiteInternacionalCompra" : 1.3579000000000001069366817318950779736042022705078125,
+  "limiteCompra" : 1.3579000000000001069366817318950779736042022705078125
+}}]
+     
+     - parameter id: (path) {{{sensibilizar_saldo_global_param_id}}} 
+     - parameter sensibilizarSaldoGlobal: (body) sensibilizarSaldoGlobal 
+
+     - returns: RequestBuilder<LimiteDisponibilidadeResponse> 
+     */
+    public class func sensibilizarSaldoDisponivelGlobalUsingPOSTWithRequestBuilder(id id: Int, sensibilizarSaldoGlobal: SensibilizarSaldoGlobalUpdateValue) -> RequestBuilder<LimiteDisponibilidadeResponse> {
+        var path = "/api/contas/{id}/limites-disponibilidades/sensibilizar-saldo-disponivel-global"
+        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
+        let URLString = PierAPI.basePath + path
+        
+        let parameters = sensibilizarSaldoGlobal.encodeToJSON() as? [String:AnyObject]
+
+        let requestBuilder: RequestBuilder<LimiteDisponibilidadeResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: parameters, isBody: true)
     }
 
 }

@@ -14,17 +14,18 @@ public class GlobaltaggrupochagebackAPI: APIBase {
      
      {{{codigo_chargeback_resource_listar}}}
      
-     - parameter id: (path) id 
+     - parameter grupoChargebackId: (path) grupoChargebackId 
      - parameter sort: (query) {{{global_menssagem_sort_sort}}} (optional)
      - parameter page: (query) {{{global_menssagem_sort_page_value}}} (optional)
      - parameter limit: (query) {{{global_menssagem_sort_limit}}} (optional)
+     - parameter id: (query)  (optional)
+     - parameter descricao: (query)  (optional)
      - parameter flagAtm: (query)  (optional)
-     - parameter idBandeira: (query)  (optional)
-     - parameter groupId: (query)  (optional)
+     - parameter grupoChargebackId2: (query)  (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarCodigosUsingGET(id id: Int, sort: [String]?, page: Int?, limit: Int?, flagAtm: Bool?, idBandeira: Int?, groupId: Int?, completion: ((data: PageCodigoChargebackResponse?, error: ErrorType?) -> Void)) {
-        listarCodigosUsingGETWithRequestBuilder(id: id, sort: sort, page: page, limit: limit, flagAtm: flagAtm, idBandeira: idBandeira, groupId: groupId).execute { (response, error) -> Void in
+    public class func listarCodigosUsingGET(grupoChargebackId grupoChargebackId: Int, sort: [String]?, page: Int?, limit: Int?, id: Int?, descricao: String?, flagAtm: Bool?, grupoChargebackId2: Int?, completion: ((data: PageCodigoChargebackResponse?, error: ErrorType?) -> Void)) {
+        listarCodigosUsingGETWithRequestBuilder(grupoChargebackId: grupoChargebackId, sort: sort, page: page, limit: limit, id: id, descricao: descricao, flagAtm: flagAtm, grupoChargebackId2: grupoChargebackId2).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -34,7 +35,7 @@ public class GlobaltaggrupochagebackAPI: APIBase {
      
      {{{codigo_chargeback_resource_listar}}}
      
-     - GET /api/grupos-chargeback/{id}/codigos
+     - GET /api/grupos-chargeback/{grupoChargebackId}/codigos
      - {{{codigo_chargeback_resource_listar_notes}}}
      - examples: [{contentType=application/json, example={
   "previousPage" : 123,
@@ -56,28 +57,30 @@ public class GlobaltaggrupochagebackAPI: APIBase {
   "first" : true
 }}]
      
-     - parameter id: (path) id 
+     - parameter grupoChargebackId: (path) grupoChargebackId 
      - parameter sort: (query) {{{global_menssagem_sort_sort}}} (optional)
      - parameter page: (query) {{{global_menssagem_sort_page_value}}} (optional)
      - parameter limit: (query) {{{global_menssagem_sort_limit}}} (optional)
+     - parameter id: (query)  (optional)
+     - parameter descricao: (query)  (optional)
      - parameter flagAtm: (query)  (optional)
-     - parameter idBandeira: (query)  (optional)
-     - parameter groupId: (query)  (optional)
+     - parameter grupoChargebackId2: (query)  (optional)
 
      - returns: RequestBuilder<PageCodigoChargebackResponse> 
      */
-    public class func listarCodigosUsingGETWithRequestBuilder(id id: Int, sort: [String]?, page: Int?, limit: Int?, flagAtm: Bool?, idBandeira: Int?, groupId: Int?) -> RequestBuilder<PageCodigoChargebackResponse> {
-        var path = "/api/grupos-chargeback/{id}/codigos"
-        path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
+    public class func listarCodigosUsingGETWithRequestBuilder(grupoChargebackId grupoChargebackId: Int, sort: [String]?, page: Int?, limit: Int?, id: Int?, descricao: String?, flagAtm: Bool?, grupoChargebackId2: Int?) -> RequestBuilder<PageCodigoChargebackResponse> {
+        var path = "/api/grupos-chargeback/{grupoChargebackId}/codigos"
+        path = path.stringByReplacingOccurrencesOfString("{grupoChargebackId}", withString: "\(grupoChargebackId)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
         
         let nillableParameters: [String:AnyObject?] = [
             "sort": sort,
             "page": page,
             "limit": limit,
+            "id": id,
+            "descricao": descricao,
             "flagAtm": flagAtm,
-            "idBandeira": idBandeira,
-            "groupId": groupId
+            "grupoChargebackId": grupoChargebackId2
         ]
         let parameters = APIHelper.rejectNil(nillableParameters)
 
@@ -95,8 +98,8 @@ public class GlobaltaggrupochagebackAPI: APIBase {
      - parameter limit: (query) {{{global_menssagem_sort_limit}}} (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET27(sort sort: [String]?, page: Int?, limit: Int?, completion: ((data: PageGrupoChargebackResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET27WithRequestBuilder(sort: sort, page: page, limit: limit).execute { (response, error) -> Void in
+    public class func listarUsingGET28(sort sort: [String]?, page: Int?, limit: Int?, completion: ((data: PageGrupoChargebackResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET28WithRequestBuilder(sort: sort, page: page, limit: limit).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -134,7 +137,7 @@ public class GlobaltaggrupochagebackAPI: APIBase {
 
      - returns: RequestBuilder<PageGrupoChargebackResponse> 
      */
-    public class func listarUsingGET27WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?) -> RequestBuilder<PageGrupoChargebackResponse> {
+    public class func listarUsingGET28WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?) -> RequestBuilder<PageGrupoChargebackResponse> {
         let path = "/api/grupos-chargeback"
         let URLString = PierAPI.basePath + path
         

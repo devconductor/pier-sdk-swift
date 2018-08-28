@@ -16,6 +16,7 @@ public class TemplateNotificacaoDetalheResponse: JSONEncodable {
         case FaturaPorEmail = "FATURA_POR_EMAIL"
         case ValidarDispositivo = "VALIDAR_DISPOSITIVO"
         case NotificacaoEmail = "NOTIFICACAO_EMAIL"
+        case Otp3dSecure = "OTP_3D_SECURE"
     }
     
     public enum TipoNotificacao: String { 
@@ -23,6 +24,7 @@ public class TemplateNotificacaoDetalheResponse: JSONEncodable {
         case PushApns = "PUSH_APNS"
         case PushFcm = "PUSH_FCM"
         case PushGcm = "PUSH_GCM"
+        case Webhook = "WEBHOOK"
         case Email = "EMAIL"
     }
     

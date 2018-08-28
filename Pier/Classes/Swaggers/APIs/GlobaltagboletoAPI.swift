@@ -15,10 +15,11 @@ public class GlobaltagboletoAPI: APIBase {
      {{{boleto_resource_consultar}}}
      
      - parameter id: (path) {{{boleto_resource_consultar_param_id}}} 
+     - parameter zeraValorCodigoBarras: (query) {{{boleto_resource_consultar_param_zera_valor_codigo_barras}}} (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func consultarUsingGET34(id id: Int, completion: ((data: BoletoResponse?, error: ErrorType?) -> Void)) {
-        consultarUsingGET34WithRequestBuilder(id: id).execute { (response, error) -> Void in
+    public class func consultarUsingGET36(id id: Int, zeraValorCodigoBarras: Bool?, completion: ((data: BoletoResponse?, error: ErrorType?) -> Void)) {
+        consultarUsingGET36WithRequestBuilder(id: id, zeraValorCodigoBarras: zeraValorCodigoBarras).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -44,6 +45,7 @@ public class GlobaltagboletoAPI: APIBase {
   "especieDoDocumento" : "aeiou",
   "cepPagador" : "aeiou",
   "numeroDoDocumento" : "aeiou",
+  "boletoRegistrado" : false,
   "linhaDigitavel" : "aeiou",
   "enderecoCobrancaBeneficiario" : "aeiou",
   "carteira" : "aeiou",
@@ -68,20 +70,23 @@ public class GlobaltagboletoAPI: APIBase {
 }}]
      
      - parameter id: (path) {{{boleto_resource_consultar_param_id}}} 
+     - parameter zeraValorCodigoBarras: (query) {{{boleto_resource_consultar_param_zera_valor_codigo_barras}}} (optional)
 
      - returns: RequestBuilder<BoletoResponse> 
      */
-    public class func consultarUsingGET34WithRequestBuilder(id id: Int) -> RequestBuilder<BoletoResponse> {
+    public class func consultarUsingGET36WithRequestBuilder(id id: Int, zeraValorCodigoBarras: Bool?) -> RequestBuilder<BoletoResponse> {
         var path = "/api/boletos/{id}"
         path = path.stringByReplacingOccurrencesOfString("{id}", withString: "\(id)", options: .LiteralSearch, range: nil)
         let URLString = PierAPI.basePath + path
         
-        let nillableParameters: [String:AnyObject?] = [:]
+        let nillableParameters: [String:AnyObject?] = [
+            "zeraValorCodigoBarras": zeraValorCodigoBarras
+        ]
         let parameters = APIHelper.rejectNil(nillableParameters)
 
         let requestBuilder: RequestBuilder<BoletoResponse>.Type = PierAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: parameters, isBody: false)
     }
 
     /**
@@ -158,6 +163,7 @@ public class GlobaltagboletoAPI: APIBase {
   "especieDoDocumento" : "aeiou",
   "cepPagador" : "aeiou",
   "numeroDoDocumento" : "aeiou",
+  "boletoRegistrado" : false,
   "linhaDigitavel" : "aeiou",
   "enderecoCobrancaBeneficiario" : "aeiou",
   "carteira" : "aeiou",
@@ -209,8 +215,8 @@ public class GlobaltagboletoAPI: APIBase {
      - parameter idTipoBoleto: (query) {{{boleto_listar_request_id_tipo_boleto_value}}} (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET45(sort sort: [String]?, page: Int?, limit: Int?, idConta: Int?, dataVencimento: String?, valorBoleto: Double?, idTipoBoleto: Int?, completion: ((data: PageBoletoListarResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET45WithRequestBuilder(sort: sort, page: page, limit: limit, idConta: idConta, dataVencimento: dataVencimento, valorBoleto: valorBoleto, idTipoBoleto: idTipoBoleto).execute { (response, error) -> Void in
+    public class func listarUsingGET47(sort sort: [String]?, page: Int?, limit: Int?, idConta: Int?, dataVencimento: String?, valorBoleto: Double?, idTipoBoleto: Int?, completion: ((data: PageBoletoListarResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET47WithRequestBuilder(sort: sort, page: page, limit: limit, idConta: idConta, dataVencimento: dataVencimento, valorBoleto: valorBoleto, idTipoBoleto: idTipoBoleto).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -256,7 +262,7 @@ public class GlobaltagboletoAPI: APIBase {
 
      - returns: RequestBuilder<PageBoletoListarResponse> 
      */
-    public class func listarUsingGET45WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, idConta: Int?, dataVencimento: String?, valorBoleto: Double?, idTipoBoleto: Int?) -> RequestBuilder<PageBoletoListarResponse> {
+    public class func listarUsingGET47WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, idConta: Int?, dataVencimento: String?, valorBoleto: Double?, idTipoBoleto: Int?) -> RequestBuilder<PageBoletoListarResponse> {
         let path = "/api/boletos"
         let URLString = PierAPI.basePath + path
         
@@ -310,6 +316,7 @@ public class GlobaltagboletoAPI: APIBase {
   "especieDoDocumento" : "aeiou",
   "cepPagador" : "aeiou",
   "numeroDoDocumento" : "aeiou",
+  "boletoRegistrado" : false,
   "linhaDigitavel" : "aeiou",
   "enderecoCobrancaBeneficiario" : "aeiou",
   "carteira" : "aeiou",

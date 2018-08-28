@@ -36,6 +36,7 @@ public class GlobaltagantecipacaoAPI: APIBase {
   "tipoOrigemTransacao" : "aeiou",
   "valorParametro" : 1.3579000000000001069366817318950779736042022705078125,
   "dataValidade" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "id" : 123456789,
   "descricao" : "aeiou"
 }}]
      
@@ -82,6 +83,7 @@ public class GlobaltagantecipacaoAPI: APIBase {
   "tipoOrigemTransacao" : "aeiou",
   "valorParametro" : 1.3579000000000001069366817318950779736042022705078125,
   "dataValidade" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "id" : 123456789,
   "descricao" : "aeiou"
 }}]
      
@@ -263,8 +265,8 @@ public class GlobaltagantecipacaoAPI: APIBase {
      - parameter tipoOrigemTransacao: (query) {{{compra_d_t_o_tipo_origem_transacao_value}}} (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET13(idConta idConta: Int, sort: [String]?, page: Int?, limit: Int?, idCompra: Int?, parcelada: Bool?, juros: Bool?, tipoOrigemTransacao: String?, completion: ((data: PageCompraResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET13WithRequestBuilder(idConta: idConta, sort: sort, page: page, limit: limit, idCompra: idCompra, parcelada: parcelada, juros: juros, tipoOrigemTransacao: tipoOrigemTransacao).execute { (response, error) -> Void in
+    public class func listarUsingGET14(idConta idConta: Int, sort: [String]?, page: Int?, limit: Int?, idCompra: Int?, parcelada: Bool?, juros: Bool?, tipoOrigemTransacao: String?, completion: ((data: PageCompraResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET14WithRequestBuilder(idConta: idConta, sort: sort, page: page, limit: limit, idCompra: idCompra, parcelada: parcelada, juros: juros, tipoOrigemTransacao: tipoOrigemTransacao).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -328,7 +330,7 @@ public class GlobaltagantecipacaoAPI: APIBase {
 
      - returns: RequestBuilder<PageCompraResponse> 
      */
-    public class func listarUsingGET13WithRequestBuilder(idConta idConta: Int, sort: [String]?, page: Int?, limit: Int?, idCompra: Int?, parcelada: Bool?, juros: Bool?, tipoOrigemTransacao: String?) -> RequestBuilder<PageCompraResponse> {
+    public class func listarUsingGET14WithRequestBuilder(idConta idConta: Int, sort: [String]?, page: Int?, limit: Int?, idCompra: Int?, parcelada: Bool?, juros: Bool?, tipoOrigemTransacao: String?) -> RequestBuilder<PageCompraResponse> {
         let path = "/api/compras-antecipaveis"
         let URLString = PierAPI.basePath + path
         

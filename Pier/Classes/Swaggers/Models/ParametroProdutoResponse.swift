@@ -16,6 +16,8 @@ public class ParametroProdutoResponse: JSONEncodable {
         case OffUs = "OFF_US"
     }
     
+    /** {{{parametro_produto_response_id_value}}} */
+    public var id: Int?
     /** {{{parametro_produto_response_id_produto_value}}} */
     public var idProduto: Int?
     /** {{{parametro_produto_response_tipo_origem_transacao_value}}} */
@@ -33,6 +35,7 @@ public class ParametroProdutoResponse: JSONEncodable {
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
+        nillableDictionary["id"] = self.id
         nillableDictionary["idProduto"] = self.idProduto
         nillableDictionary["tipoOrigemTransacao"] = self.tipoOrigemTransacao?.rawValue
         nillableDictionary["descricao"] = self.descricao

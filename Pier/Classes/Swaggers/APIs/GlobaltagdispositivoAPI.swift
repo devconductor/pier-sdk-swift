@@ -112,8 +112,8 @@ public class GlobaltagdispositivoAPI: APIBase {
      - parameter dataDesativacao: (query) {{{dispositivo_request_data_desativacao_value}}} (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func listarUsingGET20(sort sort: [String]?, page: Int?, limit: Int?, token: String?, idUsuario: Int?, idAplicacaoMobile: Int?, dataCriacao: String?, dataDesativacao: String?, completion: ((data: PageDispositivoResponse?, error: ErrorType?) -> Void)) {
-        listarUsingGET20WithRequestBuilder(sort: sort, page: page, limit: limit, token: token, idUsuario: idUsuario, idAplicacaoMobile: idAplicacaoMobile, dataCriacao: dataCriacao, dataDesativacao: dataDesativacao).execute { (response, error) -> Void in
+    public class func listarUsingGET21(sort sort: [String]?, page: Int?, limit: Int?, token: String?, idUsuario: Int?, idAplicacaoMobile: Int?, dataCriacao: String?, dataDesativacao: String?, completion: ((data: PageDispositivoResponse?, error: ErrorType?) -> Void)) {
+        listarUsingGET21WithRequestBuilder(sort: sort, page: page, limit: limit, token: token, idUsuario: idUsuario, idAplicacaoMobile: idAplicacaoMobile, dataCriacao: dataCriacao, dataDesativacao: dataDesativacao).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -158,7 +158,7 @@ public class GlobaltagdispositivoAPI: APIBase {
 
      - returns: RequestBuilder<PageDispositivoResponse> 
      */
-    public class func listarUsingGET20WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, token: String?, idUsuario: Int?, idAplicacaoMobile: Int?, dataCriacao: String?, dataDesativacao: String?) -> RequestBuilder<PageDispositivoResponse> {
+    public class func listarUsingGET21WithRequestBuilder(sort sort: [String]?, page: Int?, limit: Int?, token: String?, idUsuario: Int?, idAplicacaoMobile: Int?, dataCriacao: String?, dataDesativacao: String?) -> RequestBuilder<PageDispositivoResponse> {
         let path = "/api/dispositivos"
         let URLString = PierAPI.basePath + path
         
@@ -186,8 +186,8 @@ public class GlobaltagdispositivoAPI: APIBase {
      - parameter persist: (body) persist 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    public class func salvarUsingPOST10(persist persist: DispositivoPersistValue, completion: ((data: DispositivoResponse?, error: ErrorType?) -> Void)) {
-        salvarUsingPOST10WithRequestBuilder(persist: persist).execute { (response, error) -> Void in
+    public class func salvarUsingPOST11(persist persist: DispositivoPersistValue, completion: ((data: DispositivoResponse?, error: ErrorType?) -> Void)) {
+        salvarUsingPOST11WithRequestBuilder(persist: persist).execute { (response, error) -> Void in
             completion(data: response?.body, error: error);
         }
     }
@@ -210,7 +210,7 @@ public class GlobaltagdispositivoAPI: APIBase {
 
      - returns: RequestBuilder<DispositivoResponse> 
      */
-    public class func salvarUsingPOST10WithRequestBuilder(persist persist: DispositivoPersistValue) -> RequestBuilder<DispositivoResponse> {
+    public class func salvarUsingPOST11WithRequestBuilder(persist persist: DispositivoPersistValue) -> RequestBuilder<DispositivoResponse> {
         let path = "/api/dispositivos"
         let URLString = PierAPI.basePath + path
         
